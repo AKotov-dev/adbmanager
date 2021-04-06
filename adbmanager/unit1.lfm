@@ -35,7 +35,6 @@ object MainForm: TMainForm
     ButtonHeight = 80
     ButtonWidth = 80
     Caption = 'ToolBar1'
-    Flat = False
     Images = ImageList1
     ShowCaptions = True
     TabOrder = 1
@@ -213,7 +212,7 @@ object MainForm: TMainForm
     Top = 284
     Width = 519
     Align = alBottom
-    Caption = 'Licence: GPLv3  Author: alex_q_2000 (C) 2021'
+    Caption = 'License: GPLv3  Author: alex_q_2000 (C) 2021'
     Color = clDefault
     Font.Color = clGray
     Font.Height = -12

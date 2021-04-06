@@ -35,7 +35,6 @@ object MainForm: TMainForm
     ButtonHeight = 80
     ButtonWidth = 80
     Caption = 'ToolBar1'
-    Flat = False
     Images = ImageList1
     ShowCaptions = True
     TabOrder = 1

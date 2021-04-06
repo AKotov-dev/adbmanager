@@ -152,7 +152,7 @@ begin
   MainForm.Caption := Application.Title;
   if not DirectoryExists('/root/.config') then
     MkDir('/root/.config');
-  IniPropStorage1.IniFileName := '/root/.config/adbmonitor.conf';
+  IniPropStorage1.IniFileName := '/root/.config/adbmanager.conf';
 end;
 
 procedure TMainForm.Label4ChangeBounds(Sender: TObject);
