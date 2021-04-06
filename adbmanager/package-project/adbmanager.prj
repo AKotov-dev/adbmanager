@@ -1,0 +1,86 @@
+[NAME]
+name=adbmanager
+
+[VERSION]
+version=0.1
+
+[RELEASE]
+release=0.mrx8
+
+[GROUP]
+group=Applications/System
+
+[DESCRIPTION]
+0=The program is designed for visual and easy management of the ADB server and connection of Android smartphones
+1=---
+2=More information: /usr/share/doc/package_name/repack.txt
+
+[MAINTAINER]
+maintainer=Alex Kotov
+
+[VENDOR]
+vendor=alex_q_2000 (C) 2021
+
+[SUMMARY]
+summary=Graphical ADB Server Manager
+
+[URLCOPY]
+urlcopy=https://github.com/AKotov-dev/adbmanager
+
+[LICENSE]
+license=GPLv3
+
+[DEPS]
+deps=android-tools systemd
+
+[META]
+meta=0
+
+[NOARCH]
+noarch=0
+
+[SIGN]
+sign=0
+
+[DEB]
+deb=0
+
+[FILES]
+0=/usr/share/adbmanager/
+1=/usr/share/doc/adbmanager/
+2=/usr/bin/adbmanager
+3=/usr/share/icons/adbmanager.png
+4=/usr/share/polkit-1/actions/adbmanager.policy
+5=/usr/share/applications/adbmanager.desktop
+
+[AFTERINSTALL]
+0=#ldconfig
+1=#update-desktop-database -q /usr/share/applications
+2=#update-mime-database /usr/share/mime
+3=#gtk-update-icon-cache -q -f /usr/share/icons/hicolor
+
+[AFTERREMOVE]
+0=#ldconfig
+1=#update-desktop-database -q /usr/share/applications
+2=#update-mime-database /usr/share/mime
+3=#gtk-update-icon-cache -q -f /usr/share/icons/hicolor
+
+[URL32]
+url32=https://github.com/AKotov-dev/adbmanager
+
+[URL64]
+url64=https://github.com/AKotov-dev/adbmanager
+
+[PROGRAMNAME]
+programname=ADBManager
+
+[DEVTOOL]
+devtool=Lazarus
+
+[TOOLVERSION]
+toolversion=2.0.10
+
+[INFO]
+0=The program is designed for visual and easy management of the ADB server
+1=and connection of Android smartphones. Allows you to monitor the status of the "adb" service,
+2=manage it, and control the list of connected devices.
