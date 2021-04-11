@@ -1,0 +1,99 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Project-Id-Version: ADBManager\n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: alex_q_2000 (C) 2021\n"
+"MIME-Version: 1.0\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: en\n"
+"X-Generator: Poedit 2.4.2\n"
+
+#: tmainform.activelabel.caption
+msgctxt "tmainform.activelabel.caption"
+msgid "..."
+msgstr ""
+
+#: tmainform.caption
+msgid "ADBManager"
+msgstr ""
+
+#: tmainform.deletekeybtn.caption
+msgid "Delete Key"
+msgstr ""
+
+#: tmainform.enablebtn.caption
+msgctxt "tmainform.enablebtn.caption"
+msgid "Enable"
+msgstr ""
+
+#: tmainform.enabledlabel.caption
+msgctxt "tmainform.enabledlabel.caption"
+msgid "..."
+msgstr ""
+
+#: tmainform.exitbtn.caption
+msgid "Exit"
+msgstr ""
+
+#: tmainform.keylabel.caption
+msgctxt "tmainform.keylabel.caption"
+msgid "..."
+msgstr ""
+
+#: tmainform.label1.caption
+msgid "ADB:"
+msgstr ""
+
+#: tmainform.label2.caption
+msgid "Key:"
+msgstr ""
+
+#: tmainform.label3.caption
+msgid ","
+msgstr ""
+
+#: tmainform.restartbtn.caption
+msgid "Restart"
+msgstr ""
+
+#: tmainform.statictext1.caption
+msgid "License: GPLv3  Author: alex_q_2000 (C) 2021"
+msgstr ""
+
+#: tmainform.stopbtn.caption
+msgid "Stop"
+msgstr ""
+
+#: tmainform.toolbar1.caption
+msgid "ToolBar1"
+msgstr ""
+
+#: tmainform.toolbutton12.caption
+msgid "ToolButton12"
+msgstr ""
+
+#: tmainform.toolbutton3.caption
+msgid "ToolButton3"
+msgstr ""
+
+#: tmainform.toolbutton4.caption
+msgid "ToolButton4"
+msgstr ""
+
+#: tmainform.toolbutton8.caption
+msgid "ToolButton8"
+msgstr ""
+
+#: unit1.sdisable
+msgid "Disable"
+msgstr ""
+
+#: unit1.senable
+msgctxt "unit1.senable"
+msgid "Enable"
+msgstr ""
+

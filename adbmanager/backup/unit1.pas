@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls, Buttons,
-  ComCtrls, ExtCtrls, IniPropStorage, Process;
+  ComCtrls, ExtCtrls, IniPropStorage, Process, LCLTranslator, DefaultTranslator;
 
 type
 
@@ -27,9 +27,7 @@ type
     ToolBar1: TToolBar;
     EnableBtn: TToolButton;
     DeleteKeyBtn: TToolButton;
-    ToolButton11: TToolButton;
     ToolButton12: TToolButton;
-    DisableBtn: TToolButton;
     ToolButton3: TToolButton;
     ToolButton4: TToolButton;
     RestartBtn: TToolButton;
@@ -48,16 +46,23 @@ type
     procedure StopBtnClick(Sender: TObject);
     procedure StartProcess(command: string);
     procedure ExitBtnClick(Sender: TObject);
+    procedure ToggleBox1Change(Sender: TObject);
   private
 
   public
 
   end;
 
+resourcestring
+    SDisable = 'Disable';
+    SEnable = 'Enable';
+
 var
   MainForm: TMainForm;
 
 implementation
+
+uses StartTRD;
 
 {$R *.lfm}
 
@@ -85,7 +90,15 @@ begin
   Close;
 end;
 
-//Scan ADB Devices, status and adbkey
+procedure TMainForm.ToggleBox1Change(Sender: TObject);
+var
+  FStartShowStatusThread: TThread;
+begin
+  //Запуск потока отображения статуса
+  FStartShowStatusThread := ShowStatus.Create(False);
+  FStartShowStatusThread.Priority := tpNormal;
+end;
+
 procedure TMainForm.DevicesTimerTimer(Sender: TObject);
 var
   S: TStringList;
@@ -106,7 +119,7 @@ begin
     if S.Count <> 0 then
       LogMemo.Lines.Assign(S);
 
-    //Status-is-Active?
+    //Status-is-active?
     ExProcess.Parameters.Delete(1);
     ExProcess.Parameters.Add('systemctl is-active adb');
 
@@ -126,6 +139,18 @@ begin
     if S.Count <> 0 then
       EnabledLabel.Caption := Trim(S[0]);
 
+    //EnableButton change
+    if EnabledLabel.Caption = 'disabled' then
+    begin
+      EnableBtn.Caption := 'Enable';
+      EnableBtn.ImageIndex := 2;
+    end
+    else
+    begin
+      EnableBtn.Caption := 'Diasble';
+      EnableBtn.ImageIndex := 3;
+    end;
+
     //Key exists?
     ExProcess.Parameters.Delete(1);
     ExProcess.Parameters.Add('ls ~/.android | grep adbkey');
@@ -140,19 +165,26 @@ begin
 
   finally
     S.Free;
-    ExProcess.Free;
     DevicesTimer.Enabled := True;
+    ExProcess.Free;
   end;
 end;
 
 procedure TMainForm.FormCreate(Sender: TObject);
+var
+  FStartShowStatusThread: TThread;
 begin
+  //Запуск потока отображения статуса
+  FStartShowStatusThread := ShowStatus.Create(False);
+  FStartShowStatusThread.Priority := tpNormal;
+
   MainForm.Caption := Application.Title;
   if not DirectoryExists('/root/.config') then
     MkDir('/root/.config');
   IniPropStorage1.IniFileName := '/root/.config/adbmanager.conf';
 end;
 
+//Индикация статуса цветом
 procedure TMainForm.ActiveLabelChangeBounds(Sender: TObject);
 begin
   if ActiveLabel.Caption = 'active' then
@@ -184,7 +216,10 @@ end;
 
 procedure TMainForm.EnableBtnClick(Sender: TObject);
 begin
-  StartProcess('systemctl enable adb');
+  if EnabledLabel.Caption = 'enabled' then
+    StartProcess('systemctl disable adb')
+  else
+    StartProcess('systemctl enable adb');
 end;
 
 procedure TMainForm.DisableBtnClick(Sender: TObject);
@@ -194,7 +229,7 @@ end;
 
 procedure TMainForm.RestartBtnClick(Sender: TObject);
 begin
-  StartProcess('killall adb; systemctl stop adb; systemctl start adb');
+  StartProcess('killall adb; systemctl restart adb');
 end;
 
 procedure TMainForm.StopBtnClick(Sender: TObject);

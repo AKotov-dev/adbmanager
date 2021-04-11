@@ -1,0 +1,4 @@
+{"version":1,"strings":[
+{"hash":185170277,"name":"unit1.sdisable","sourcebytes":[68,105,115,97,98,108,101],"value":"Disable"},
+{"hash":79984933,"name":"unit1.senable","sourcebytes":[69,110,97,98,108,101],"value":"Enable"}
+]}

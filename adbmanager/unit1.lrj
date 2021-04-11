@@ -1,0 +1,20 @@
+{"version":1,"strings":[
+{"hash":58729906,"name":"tmainform.caption","sourcebytes":[65,68,66,77,97,110,97,103,101,114],"value":"ADBManager"},
+{"hash":106991073,"name":"tmainform.toolbar1.caption","sourcebytes":[84,111,111,108,66,97,114,49],"value":"ToolBar1"},
+{"hash":79984933,"name":"tmainform.enablebtn.caption","sourcebytes":[69,110,97,98,108,101],"value":"Enable"},
+{"hash":160486420,"name":"tmainform.toolbutton4.caption","sourcebytes":[84,111,111,108,66,117,116,116,111,110,52],"value":"ToolButton4"},
+{"hash":160486419,"name":"tmainform.toolbutton3.caption","sourcebytes":[84,111,111,108,66,117,116,116,111,110,51],"value":"ToolButton3"},
+{"hash":147499204,"name":"tmainform.restartbtn.caption","sourcebytes":[82,101,115,116,97,114,116],"value":"Restart"},
+{"hash":160486424,"name":"tmainform.toolbutton8.caption","sourcebytes":[84,111,111,108,66,117,116,116,111,110,56],"value":"ToolButton8"},
+{"hash":371552,"name":"tmainform.stopbtn.caption","sourcebytes":[83,116,111,112],"value":"Stop"},
+{"hash":315140,"name":"tmainform.exitbtn.caption","sourcebytes":[69,120,105,116],"value":"Exit"},
+{"hash":212073961,"name":"tmainform.deletekeybtn.caption","sourcebytes":[68,101,108,101,116,101,32,75,101,121],"value":"Delete Key"},
+{"hash":151863762,"name":"tmainform.toolbutton12.caption","sourcebytes":[84,111,111,108,66,117,116,116,111,110,49,50],"value":"ToolButton12"},
+{"hash":284762,"name":"tmainform.label1.caption","sourcebytes":[65,68,66,58],"value":"ADB:"},
+{"hash":335050,"name":"tmainform.label2.caption","sourcebytes":[75,101,121,58],"value":"Key:"},
+{"hash":12558,"name":"tmainform.activelabel.caption","sourcebytes":[46,46,46],"value":"..."},
+{"hash":12558,"name":"tmainform.keylabel.caption","sourcebytes":[46,46,46],"value":"..."},
+{"hash":44,"name":"tmainform.label3.caption","sourcebytes":[44],"value":","},
+{"hash":12558,"name":"tmainform.enabledlabel.caption","sourcebytes":[46,46,46],"value":"..."},
+{"hash":199062849,"name":"tmainform.statictext1.caption","sourcebytes":[76,105,99,101,110,115,101,58,32,71,80,76,118,51,32,32,65,117,116,104,111,114,58,32,97,108,101,120,95,113,95,50,48,48,48,32,40,67,41,32,50,48,50,49],"value":"License: GPLv3  Author: alex_q_2000 (C) 2021"}
+]}
