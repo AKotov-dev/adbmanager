@@ -2,18 +2,18 @@ object MainForm: TMainForm
   Left = 304
   Height = 304
   Top = 127
-  Width = 519
+  Width = 516
   Caption = 'ADBManager'
   ClientHeight = 304
-  ClientWidth = 519
+  ClientWidth = 516
   OnCreate = FormCreate
   SessionProperties = 'Left;Top;Width;Height'
   LCLVersion = '2.0.10.0'
-  object Memo1: TMemo
+  object LogMemo: TMemo
     Left = 0
     Height = 132
     Top = 152
-    Width = 519
+    Width = 516
     Align = alBottom
     Anchors = [akTop, akLeft, akRight, akBottom]
     Enabled = False
@@ -23,7 +23,6 @@ object MainForm: TMainForm
       'scanning adb status & devices, wait...'
     )
     ParentFont = False
-    ScrollBars = ssVertical
     TabOrder = 0
     WantReturns = False
   end
@@ -31,19 +30,19 @@ object MainForm: TMainForm
     Left = 0
     Height = 88
     Top = 0
-    Width = 519
+    Width = 516
     ButtonHeight = 80
     ButtonWidth = 80
     Caption = 'ToolBar1'
     Images = ImageList1
     ShowCaptions = True
     TabOrder = 1
-    object ToolButton1: TToolButton
+    object EnableBtn: TToolButton
       Left = 171
       Top = 2
       Caption = 'Enable'
       ImageIndex = 0
-      OnClick = ToolButton1Click
+      OnClick = EnableBtnClick
     end
     object ToolButton4: TToolButton
       Left = 251
@@ -52,12 +51,12 @@ object MainForm: TMainForm
       Caption = 'ToolButton4'
       Style = tbsDivider
     end
-    object ToolButton2: TToolButton
+    object DisableBtn: TToolButton
       Left = 256
       Top = 2
       Caption = 'Disable'
       ImageIndex = 1
-      OnClick = ToolButton2Click
+      OnClick = DisableBtnClick
     end
     object ToolButton3: TToolButton
       Left = 81
@@ -66,12 +65,12 @@ object MainForm: TMainForm
       Caption = 'ToolButton3'
       Style = tbsDivider
     end
-    object ToolButton5: TToolButton
+    object RestartBtn: TToolButton
       Left = 1
       Top = 2
       Caption = 'Restart'
       ImageIndex = 2
-      OnClick = ToolButton5Click
+      OnClick = RestartBtnClick
     end
     object ToolButton8: TToolButton
       Left = 166
@@ -80,43 +79,36 @@ object MainForm: TMainForm
       Caption = 'ToolButton8'
       Style = tbsDivider
     end
-    object ToolButton6: TToolButton
+    object StopBtn: TToolButton
       Left = 86
       Top = 2
       Caption = 'Stop'
       ImageIndex = 3
-      OnClick = ToolButton6Click
+      OnClick = StopBtnClick
     end
-    object ToolButton7: TToolButton
-      Left = 336
-      Height = 80
-      Top = 2
-      Caption = 'ToolButton7'
-      Style = tbsDivider
-    end
-    object ToolButton9: TToolButton
+    object ExitBtn: TToolButton
       Left = 426
       Top = 2
       Caption = 'Exit'
       ImageIndex = 5
-      OnClick = ToolButton9Click
+      OnClick = ExitBtnClick
     end
-    object ToolButton10: TToolButton
+    object DeleteKeyBtn: TToolButton
       Left = 341
       Top = 2
       Caption = 'Delete Key'
       ImageIndex = 4
-      OnClick = ToolButton10Click
+      OnClick = DeleteKeyBtnClick
     end
     object ToolButton11: TToolButton
-      Left = 421
+      Left = 336
       Height = 80
       Top = 2
       Caption = 'ToolButton11'
       Style = tbsDivider
     end
     object ToolButton12: TToolButton
-      Left = 506
+      Left = 421
       Height = 80
       Top = 2
       Caption = 'ToolButton12'
@@ -135,7 +127,7 @@ object MainForm: TMainForm
     ParentFont = False
   end
   object Label2: TLabel
-    AnchorSideLeft.Control = Label5
+    AnchorSideLeft.Control = EnabledLabel
     AnchorSideLeft.Side = asrBottom
     Left = 107
     Height = 17
@@ -148,7 +140,7 @@ object MainForm: TMainForm
     ParentColor = False
     ParentFont = False
   end
-  object Label4: TLabel
+  object ActiveLabel: TLabel
     AnchorSideLeft.Control = Label1
     AnchorSideLeft.Side = asrBottom
     Left = 50
@@ -161,9 +153,9 @@ object MainForm: TMainForm
     Font.Name = 'Sans'
     ParentColor = False
     ParentFont = False
-    OnChangeBounds = Label4ChangeBounds
+    OnChangeBounds = ActiveLabelChangeBounds
   end
-  object Label6: TLabel
+  object KeyLabel: TLabel
     AnchorSideLeft.Control = Label2
     AnchorSideLeft.Side = asrBottom
     Left = 143
@@ -176,10 +168,10 @@ object MainForm: TMainForm
     Font.Name = 'Sans'
     ParentColor = False
     ParentFont = False
-    OnChangeBounds = Label6ChangeBounds
+    OnChangeBounds = KeyLabelChangeBounds
   end
   object Label3: TLabel
-    AnchorSideLeft.Control = Label4
+    AnchorSideLeft.Control = ActiveLabel
     AnchorSideLeft.Side = asrBottom
     Left = 65
     Height = 17
@@ -191,7 +183,7 @@ object MainForm: TMainForm
     ParentColor = False
     ParentFont = False
   end
-  object Label5: TLabel
+  object EnabledLabel: TLabel
     AnchorSideLeft.Control = Label3
     AnchorSideLeft.Side = asrBottom
     Left = 72
@@ -204,13 +196,13 @@ object MainForm: TMainForm
     Font.Name = 'Sans'
     ParentColor = False
     ParentFont = False
-    OnChangeBounds = Label5ChangeBounds
+    OnChangeBounds = EnabledLabelChangeBounds
   end
   object StaticText1: TStaticText
     Left = 0
     Height = 20
     Top = 284
-    Width = 519
+    Width = 516
     Align = alBottom
     Caption = 'License: GPLv3  Author: alex_q_2000 (C) 2021'
     Color = clDefault

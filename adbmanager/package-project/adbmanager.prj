@@ -2,7 +2,7 @@
 name=adbmanager
 
 [VERSION]
-version=0.1
+version=0.2
 
 [RELEASE]
 release=0.mrx8
@@ -84,3 +84,6 @@ toolversion=2.0.10
 0=The program is designed for visual and easy management of the ADB server
 1=and connection of Android smartphones. Allows you to monitor the status of the "adb" service,
 2=manage it, and control the list of connected devices.
+3=
+4=v0.2
+5=+ cosmetic edits

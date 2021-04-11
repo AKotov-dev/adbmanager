@@ -18,38 +18,36 @@ type
     Label1: TLabel;
     Label2: TLabel;
     Label3: TLabel;
-    Label4: TLabel;
-    Label5: TLabel;
-    Label6: TLabel;
-    Memo1: TMemo;
+    ActiveLabel: TLabel;
+    EnabledLabel: TLabel;
+    KeyLabel: TLabel;
+    LogMemo: TMemo;
     DevicesTimer: TTimer;
     StaticText1: TStaticText;
     ToolBar1: TToolBar;
-    ToolButton1: TToolButton;
-    ToolButton10: TToolButton;
+    EnableBtn: TToolButton;
+    DeleteKeyBtn: TToolButton;
     ToolButton11: TToolButton;
     ToolButton12: TToolButton;
-    ToolButton2: TToolButton;
+    DisableBtn: TToolButton;
     ToolButton3: TToolButton;
     ToolButton4: TToolButton;
-    ToolButton5: TToolButton;
-    ToolButton6: TToolButton;
-    ToolButton7: TToolButton;
+    RestartBtn: TToolButton;
+    StopBtn: TToolButton;
     ToolButton8: TToolButton;
-    ToolButton9: TToolButton;
+    ExitBtn: TToolButton;
     procedure DevicesTimerTimer(Sender: TObject);
     procedure FormCreate(Sender: TObject);
-    procedure Label4ChangeBounds(Sender: TObject);
-    procedure Label5ChangeBounds(Sender: TObject);
-    procedure Label6ChangeBounds(Sender: TObject);
-    procedure ToolButton10Click(Sender: TObject);
-    procedure ToolButton1Click(Sender: TObject);
-    procedure ToolButton2Click(Sender: TObject);
-    procedure ToolButton5Click(Sender: TObject);
-    procedure ToolButton6Click(Sender: TObject);
-    procedure ToolButton7Click(Sender: TObject);
+    procedure ActiveLabelChangeBounds(Sender: TObject);
+    procedure EnabledLabelChangeBounds(Sender: TObject);
+    procedure KeyLabelChangeBounds(Sender: TObject);
+    procedure DeleteKeyBtnClick(Sender: TObject);
+    procedure EnableBtnClick(Sender: TObject);
+    procedure DisableBtnClick(Sender: TObject);
+    procedure RestartBtnClick(Sender: TObject);
+    procedure StopBtnClick(Sender: TObject);
     procedure StartProcess(command: string);
-    procedure ToolButton9Click(Sender: TObject);
+    procedure ExitBtnClick(Sender: TObject);
   private
 
   public
@@ -82,7 +80,7 @@ begin
   end;
 end;
 
-procedure TMainForm.ToolButton9Click(Sender: TObject);
+procedure TMainForm.ExitBtnClick(Sender: TObject);
 begin
   Close;
 end;
@@ -106,7 +104,7 @@ begin
     S.LoadFromStream(ExProcess.Output);
 
     if S.Count <> 0 then
-      Memo1.Lines.Assign(S);
+      LogMemo.Lines.Assign(S);
 
     //Status-is-Active?
     ExProcess.Parameters.Delete(1);
@@ -116,7 +114,7 @@ begin
     S.LoadFromStream(ExProcess.Output);
 
     if S.Count <> 0 then
-      Label4.Caption := Trim(S[0]);
+      ActiveLabel.Caption := Trim(S[0]);
 
     //Status-is-enabled?
     ExProcess.Parameters.Delete(1);
@@ -126,9 +124,9 @@ begin
     S.LoadFromStream(ExProcess.Output);
 
     if S.Count <> 0 then
-      Label5.Caption := Trim(S[0]);
+      EnabledLabel.Caption := Trim(S[0]);
 
-    //RSA Key?
+    //Key exists?
     ExProcess.Parameters.Delete(1);
     ExProcess.Parameters.Add('ls ~/.android | grep adbkey');
 
@@ -136,9 +134,9 @@ begin
     S.LoadFromStream(ExProcess.Output);
 
     if S.Count <> 0 then
-      Label6.Caption := 'yes'
+      KeyLabel.Caption := 'yes'
     else
-      Label6.Caption := 'no';
+      KeyLabel.Caption := 'no';
 
   finally
     S.Free;
@@ -155,59 +153,54 @@ begin
   IniPropStorage1.IniFileName := '/root/.config/adbmanager.conf';
 end;
 
-procedure TMainForm.Label4ChangeBounds(Sender: TObject);
+procedure TMainForm.ActiveLabelChangeBounds(Sender: TObject);
 begin
-  if Label4.Caption = 'active' then
-    Label4.Font.Color := clGreen
+  if ActiveLabel.Caption = 'active' then
+    ActiveLabel.Font.Color := clGreen
   else
-    Label4.Font.Color := clRed;
+    ActiveLabel.Font.Color := clRed;
 end;
 
-procedure TMainForm.Label5ChangeBounds(Sender: TObject);
+procedure TMainForm.EnabledLabelChangeBounds(Sender: TObject);
 begin
-  if Label5.Caption = 'enabled' then
-    Label5.Font.Color := clGreen
+  if EnabledLabel.Caption = 'enabled' then
+    EnabledLabel.Font.Color := clGreen
   else
-    Label5.Font.Color := clRed;
+    EnabledLabel.Font.Color := clRed;
 end;
 
-procedure TMainForm.Label6ChangeBounds(Sender: TObject);
+procedure TMainForm.KeyLabelChangeBounds(Sender: TObject);
 begin
-  if Label6.Caption = 'yes' then
-    Label6.Font.Color := clGreen
+  if KeyLabel.Caption = 'yes' then
+    KeyLabel.Font.Color := clGreen
   else
-    Label6.Font.Color := clRed;
+    KeyLabel.Font.Color := clRed;
 end;
 
-procedure TMainForm.ToolButton10Click(Sender: TObject);
+procedure TMainForm.DeleteKeyBtnClick(Sender: TObject);
 begin
   StartProcess('rm -rf ~/.android/*');
 end;
 
-procedure TMainForm.ToolButton1Click(Sender: TObject);
+procedure TMainForm.EnableBtnClick(Sender: TObject);
 begin
   StartProcess('systemctl enable adb');
 end;
 
-procedure TMainForm.ToolButton2Click(Sender: TObject);
+procedure TMainForm.DisableBtnClick(Sender: TObject);
 begin
   StartProcess('systemctl disable adb');
 end;
 
-procedure TMainForm.ToolButton5Click(Sender: TObject);
+procedure TMainForm.RestartBtnClick(Sender: TObject);
 begin
   StartProcess('killall adb; systemctl stop adb; systemctl start adb');
 end;
 
-procedure TMainForm.ToolButton6Click(Sender: TObject);
+procedure TMainForm.StopBtnClick(Sender: TObject);
 begin
-  Label4.Caption := 'stopping';
+  ActiveLabel.Caption := 'stopping';
   StartProcess('systemctl stop adb');
-end;
-
-procedure TMainForm.ToolButton7Click(Sender: TObject);
-begin
-  Close;
 end;
 
 end.
