@@ -199,12 +199,6 @@ object MainForm: TMainForm
     ParentColor = False
     TabOrder = 2
   end
-  object DevicesTimer: TTimer
-    Enabled = False
-    OnTimer = DevicesTimerTimer
-    Left = 408
-    Top = 160
-  end
   object ImageList1: TImageList
     Height = 48
     Width = 48
@@ -1944,7 +1938,7 @@ object MainForm: TMainForm
   end
   object IniPropStorage1: TIniPropStorage
     StoredValues = <>
-    Left = 408
-    Top = 224
+    Left = 416
+    Top = 160
   end
 end

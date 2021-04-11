@@ -22,7 +22,6 @@ type
     EnabledLabel: TLabel;
     KeyLabel: TLabel;
     LogMemo: TMemo;
-    DevicesTimer: TTimer;
     StaticText1: TStaticText;
     ToolBar1: TToolBar;
     EnableBtn: TToolButton;
@@ -34,7 +33,6 @@ type
     StopBtn: TToolButton;
     ToolButton8: TToolButton;
     ExitBtn: TToolButton;
-    procedure DevicesTimerTimer(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure ActiveLabelChangeBounds(Sender: TObject);
     procedure EnabledLabelChangeBounds(Sender: TObject);
@@ -54,8 +52,8 @@ type
   end;
 
 resourcestring
-    SDisable = 'Disable';
-    SEnable = 'Enable';
+  SDisable = 'Disable';
+  SEnable = 'Enable';
 
 var
   MainForm: TMainForm;
@@ -97,77 +95,6 @@ begin
   //Запуск потока отображения статуса
   FStartShowStatusThread := ShowStatus.Create(False);
   FStartShowStatusThread.Priority := tpNormal;
-end;
-
-procedure TMainForm.DevicesTimerTimer(Sender: TObject);
-var
-  S: TStringList;
-  ExProcess: TProcess;
-begin
-  DevicesTimer.Enabled := False;
-  S := TStringList.Create;
-  ExProcess := TProcess.Create(nil);
-  try
-    ExProcess.Executable := 'bash';
-    ExProcess.Parameters.Add('-c');
-    ExProcess.Parameters.Add('adb devices');
-    ExProcess.Options := ExProcess.Options + [poUsePipes];
-    ExProcess.Execute;
-
-    S.LoadFromStream(ExProcess.Output);
-
-    if S.Count <> 0 then
-      LogMemo.Lines.Assign(S);
-
-    //Status-is-active?
-    ExProcess.Parameters.Delete(1);
-    ExProcess.Parameters.Add('systemctl is-active adb');
-
-    Exprocess.Execute;
-    S.LoadFromStream(ExProcess.Output);
-
-    if S.Count <> 0 then
-      ActiveLabel.Caption := Trim(S[0]);
-
-    //Status-is-enabled?
-    ExProcess.Parameters.Delete(1);
-    ExProcess.Parameters.Add('systemctl is-enabled adb');
-
-    Exprocess.Execute;
-    S.LoadFromStream(ExProcess.Output);
-
-    if S.Count <> 0 then
-      EnabledLabel.Caption := Trim(S[0]);
-
-    //EnableButton change
-    if EnabledLabel.Caption = 'disabled' then
-    begin
-      EnableBtn.Caption := 'Enable';
-      EnableBtn.ImageIndex := 2;
-    end
-    else
-    begin
-      EnableBtn.Caption := 'Diasble';
-      EnableBtn.ImageIndex := 3;
-    end;
-
-    //Key exists?
-    ExProcess.Parameters.Delete(1);
-    ExProcess.Parameters.Add('ls ~/.android | grep adbkey');
-
-    Exprocess.Execute;
-    S.LoadFromStream(ExProcess.Output);
-
-    if S.Count <> 0 then
-      KeyLabel.Caption := 'yes'
-    else
-      KeyLabel.Caption := 'no';
-
-  finally
-    S.Free;
-    DevicesTimer.Enabled := True;
-    ExProcess.Free;
-  end;
 end;
 
 procedure TMainForm.FormCreate(Sender: TObject);
