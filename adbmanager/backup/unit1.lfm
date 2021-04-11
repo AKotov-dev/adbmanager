@@ -1,21 +1,22 @@
 object MainForm: TMainForm
   Left = 305
-  Height = 304
+  Height = 319
   Top = 127
-  Width = 488
+  Width = 495
   Caption = 'ADBManager'
-  ClientHeight = 304
-  ClientWidth = 488
+  ClientHeight = 319
+  ClientWidth = 495
   OnCreate = FormCreate
   SessionProperties = 'Left;Top;Width;Height'
   LCLVersion = '2.0.10.0'
   object LogMemo: TMemo
     Left = 0
-    Height = 132
-    Top = 152
-    Width = 488
+    Height = 163
+    Top = 136
+    Width = 495
     Align = alBottom
     Anchors = [akTop, akLeft, akRight, akBottom]
+    BorderStyle = bsNone
     Enabled = False
     Font.Height = -15
     Font.Name = 'Sans'
@@ -30,7 +31,7 @@ object MainForm: TMainForm
     Left = 0
     Height = 88
     Top = 0
-    Width = 488
+    Width = 495
     ButtonHeight = 80
     ButtonWidth = 80
     Caption = 'ToolBar1'
@@ -104,7 +105,7 @@ object MainForm: TMainForm
   object Label1: TLabel
     Left = 8
     Height = 17
-    Top = 112
+    Top = 104
     Width = 39
     Caption = 'ADB:'
     Font.Height = -16
@@ -117,7 +118,7 @@ object MainForm: TMainForm
     AnchorSideLeft.Side = asrBottom
     Left = 107
     Height = 17
-    Top = 112
+    Top = 104
     Width = 33
     BorderSpacing.Left = 20
     Caption = 'Key:'
@@ -131,7 +132,7 @@ object MainForm: TMainForm
     AnchorSideLeft.Side = asrBottom
     Left = 50
     Height = 17
-    Top = 112
+    Top = 104
     Width = 15
     BorderSpacing.Left = 3
     Caption = '...'
@@ -146,7 +147,7 @@ object MainForm: TMainForm
     AnchorSideLeft.Side = asrBottom
     Left = 143
     Height = 17
-    Top = 112
+    Top = 104
     Width = 15
     BorderSpacing.Left = 3
     Caption = '...'
@@ -161,7 +162,7 @@ object MainForm: TMainForm
     AnchorSideLeft.Side = asrBottom
     Left = 65
     Height = 17
-    Top = 112
+    Top = 104
     Width = 5
     Caption = ','
     Font.Height = -16
@@ -174,7 +175,7 @@ object MainForm: TMainForm
     AnchorSideLeft.Side = asrBottom
     Left = 72
     Height = 17
-    Top = 112
+    Top = 104
     Width = 15
     BorderSpacing.Left = 2
     Caption = '...'
@@ -187,8 +188,8 @@ object MainForm: TMainForm
   object StaticText1: TStaticText
     Left = 0
     Height = 20
-    Top = 284
-    Width = 488
+    Top = 299
+    Width = 495
     Align = alBottom
     Caption = 'License: GPLv3  Author: alex_q_2000 (C) 2021'
     Color = clDefault

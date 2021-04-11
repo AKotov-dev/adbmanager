@@ -1,19 +1,19 @@
 object MainForm: TMainForm
   Left = 305
-  Height = 304
+  Height = 319
   Top = 127
-  Width = 488
+  Width = 495
   Caption = 'ADBManager'
-  ClientHeight = 304
-  ClientWidth = 488
+  ClientHeight = 319
+  ClientWidth = 495
   OnCreate = FormCreate
   SessionProperties = 'Left;Top;Width;Height'
   LCLVersion = '2.0.10.0'
   object LogMemo: TMemo
     Left = 0
-    Height = 148
+    Height = 163
     Top = 136
-    Width = 488
+    Width = 495
     Align = alBottom
     Anchors = [akTop, akLeft, akRight, akBottom]
     Enabled = False
@@ -30,7 +30,7 @@ object MainForm: TMainForm
     Left = 0
     Height = 88
     Top = 0
-    Width = 488
+    Width = 495
     ButtonHeight = 80
     ButtonWidth = 80
     Caption = 'ToolBar1'
@@ -187,8 +187,8 @@ object MainForm: TMainForm
   object StaticText1: TStaticText
     Left = 0
     Height = 20
-    Top = 284
-    Width = 488
+    Top = 299
+    Width = 495
     Align = alBottom
     Caption = 'License: GPLv3  Author: alex_q_2000 (C) 2021'
     Color = clDefault

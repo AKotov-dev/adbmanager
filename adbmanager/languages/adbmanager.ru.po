@@ -26,9 +26,10 @@ msgid "Delete Key"
 msgstr "Удалить Ключ"
 
 #: tmainform.enablebtn.caption
+#, fuzzy
 msgctxt "tmainform.enablebtn.caption"
 msgid "Enable"
-msgstr ""
+msgstr "Включить"
 
 #: tmainform.enabledlabel.caption
 msgctxt "tmainform.enabledlabel.caption"
@@ -96,3 +97,4 @@ msgstr "Выключить"
 msgctxt "unit1.senable"
 msgid "Enable"
 msgstr "Включить"
+

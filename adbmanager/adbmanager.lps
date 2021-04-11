@@ -66,11 +66,31 @@
         <Loaded Value="True"/>
       </Unit2>
     </Units>
-    <JumpHistory Count="1">
+    <JumpHistory Count="6" HistoryIndex="5">
       <Position1>
         <Filename Value="unit1.pas"/>
         <Caret Line="53" TopLine="37"/>
       </Position1>
+      <Position2>
+        <Filename Value="unit1.pas"/>
+        <Caret Line="59" TopLine="37"/>
+      </Position2>
+      <Position3>
+        <Filename Value="unit1.pas"/>
+        <Caret Line="60" TopLine="38"/>
+      </Position3>
+      <Position4>
+        <Filename Value="unit1.pas"/>
+        <Caret Line="59" TopLine="37"/>
+      </Position4>
+      <Position5>
+        <Filename Value="unit1.pas"/>
+        <Caret Line="60" TopLine="38"/>
+      </Position5>
+      <Position6>
+        <Filename Value="unit1.pas"/>
+        <Caret Line="59" TopLine="37"/>
+      </Position6>
     </JumpHistory>
     <RunParams>
       <FormatVersion Value="2"/>
