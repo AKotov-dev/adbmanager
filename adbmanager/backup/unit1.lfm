@@ -16,10 +16,9 @@ object MainForm: TMainForm
     Width = 495
     Align = alBottom
     Anchors = [akTop, akLeft, akRight, akBottom]
-    BorderStyle = bsNone
     Enabled = False
     Font.Height = -15
-    Font.Name = 'Sans'
+    Font.Name = 'Monospace'
     Lines.Strings = (
       'scanning adb status & devices, wait...'
     )
