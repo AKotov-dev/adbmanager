@@ -33,5 +33,7 @@
 {"hash":151863765,"name":"tmainform.toolbutton15.caption","sourcebytes":[84,111,111,108,66,117,116,116,111,110,49,53],"value":"ToolButton15"},
 {"hash":115606095,"name":"tmainform.apkinfobtn.caption","sourcebytes":[97,112,107,45,105,110,102,111],"value":"apk-info"},
 {"hash":151863767,"name":"tmainform.toolbutton17.caption","sourcebytes":[84,111,111,108,66,117,116,116,111,110,49,55],"value":"ToolButton17"},
+{"hash":127633560,"name":"tmainform.toolbutton1.caption","sourcebytes":[115,101,97,114,99,104],"value":"search"},
+{"hash":160486421,"name":"tmainform.toolbutton5.caption","sourcebytes":[84,111,111,108,66,117,116,116,111,110,53],"value":"ToolButton5"},
 {"hash":54211143,"name":"tmainform.panel2.caption","sourcebytes":[83,109,97,114,116,112,104,111,110,101,32,109,97,110,97,103,105,110,103],"value":"Smartphone managing"}
 ]}

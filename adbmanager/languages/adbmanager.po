@@ -118,6 +118,10 @@ msgstr ""
 msgid "ToolBar2"
 msgstr ""
 
+#: tmainform.toolbutton1.caption
+msgid "search"
+msgstr ""
+
 #: tmainform.toolbutton11.caption
 msgid "ToolButton11"
 msgstr ""
@@ -146,6 +150,10 @@ msgstr ""
 msgid "ToolButton4"
 msgstr ""
 
+#: tmainform.toolbutton5.caption
+msgid "ToolButton5"
+msgstr ""
+
 #: tmainform.toolbutton6.caption
 msgid "ToolButton6"
 msgstr ""
@@ -163,6 +171,11 @@ msgctxt "tmainform.uninstallbtn.caption"
 msgid "uninstall"
 msgstr ""
 
+#: unit1.sdeletecaption
+msgctxt "unit1.sdeletecaption"
+msgid "Deleting a package"
+msgstr ""
+
 #: unit1.sdisable
 msgid "Disable"
 msgstr ""
@@ -176,11 +189,15 @@ msgstr ""
 msgid "Input the package name:"
 msgstr ""
 
-#: unit1.squerycaption
-msgid "Deleting a package"
-msgstr ""
-
 #: unit1.srebootmsg
 msgid "Reboot selected smartphone?"
+msgstr ""
+
+#: unit1.ssearchcaption
+msgid "Search in log"
+msgstr ""
+
+#: unit1.ssearchstring
+msgid "Input search string:"
 msgstr ""
 

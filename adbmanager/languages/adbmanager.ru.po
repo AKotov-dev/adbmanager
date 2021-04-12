@@ -118,6 +118,10 @@ msgstr ""
 msgid "ToolBar2"
 msgstr ""
 
+#: tmainform.toolbutton1.caption
+msgid "search"
+msgstr "поиск"
+
 #: tmainform.toolbutton11.caption
 msgid "ToolButton11"
 msgstr ""
@@ -146,6 +150,10 @@ msgstr ""
 msgid "ToolButton4"
 msgstr ""
 
+#: tmainform.toolbutton5.caption
+msgid "ToolButton5"
+msgstr ""
+
 #: tmainform.toolbutton6.caption
 msgid "ToolButton6"
 msgstr ""
@@ -163,6 +171,11 @@ msgctxt "tmainform.uninstallbtn.caption"
 msgid "uninstall"
 msgstr "удалить"
 
+#: unit1.sdeletecaption
+msgctxt "unit1.sdeletecaption"
+msgid "Deleting a package"
+msgstr "Удаление пакета"
+
 #: unit1.sdisable
 msgid "Disable"
 msgstr "Выключить"
@@ -176,10 +189,14 @@ msgstr "Включить"
 msgid "Input the package name:"
 msgstr "Введите имя пакета:"
 
-#: unit1.squerycaption
-msgid "Deleting a package"
-msgstr "Удаление пакета"
-
 #: unit1.srebootmsg
 msgid "Reboot selected smartphone?"
 msgstr "Перезагрузить выбранный смартфон?"
+
+#: unit1.ssearchcaption
+msgid "Search in log"
+msgstr "Поиск в логе"
+
+#: unit1.ssearchstring
+msgid "Input search string:"
+msgstr "Введите строку поиска:"

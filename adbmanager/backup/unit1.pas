@@ -41,6 +41,7 @@ type
     ToolBar2: TToolBar;
     InstallBtn: TToolButton;
     RestoreBtn: TToolButton;
+    ToolButton1: TToolButton;
     ToolButton11: TToolButton;
     ToolButton12: TToolButton;
     ScreenShotBtn: TToolButton;
@@ -53,6 +54,7 @@ type
     ToolButton4: TToolButton;
     RestartBtn: TToolButton;
     StopBtn: TToolButton;
+    ToolButton5: TToolButton;
     UninstallBtn: TToolButton;
     ToolButton6: TToolButton;
     BackupBtn: TToolButton;
@@ -65,8 +67,7 @@ type
     procedure EnabledLabelChangeBounds(Sender: TObject);
     procedure KeyLabelChangeBounds(Sender: TObject);
     procedure DisableBtnClick(Sender: TObject);
-    procedure LogMemoKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState
-      );
+    procedure LogMemoKeyDown(Sender: TObject; var Key: word; Shift: TShiftState);
     procedure RestartBtnClick(Sender: TObject);
     procedure StartProcess(command: string);
   private
@@ -82,8 +83,10 @@ resourcestring
   SDisable = 'Disable';
   SEnable = 'Enable';
   SRebootMsg = 'Reboot selected smartphone?';
-  SQueryCaption = 'Deleting a package';
+  SDeleteCaption = 'Deleting a package';
   SPackageName = 'Input the package name:';
+  SSearchCaption = 'Search in log';
+  SSearchString = 'Input string for search:';
 
 var
   MainForm: TMainForm;
@@ -132,6 +135,7 @@ end;
 procedure TMainForm.ApkInfoBtnClick(Sender: TObject);
 var
   S: string;
+  i: integer;
   FADBCommandThread: TThread;
 begin
   S := '';
@@ -142,7 +146,26 @@ begin
     0: //apk-info (инфа о пакетах для удаления)
       adbcmd := 'adb shell pm list packages';
 
-    1: //install
+    1: //Search Package
+    begin
+      repeat
+        if not InputQuery(SSearchCaption, SSearchString, S) then
+          Exit
+      until S <> '';
+
+      //Записываем в S текст из InputQuery
+      for i := 0 to LogMemo.Lines.Count - 1 do
+        //Цикл поиска строки
+        if Pos(S, LogMemo.Lines.Text) <> 0 then
+        begin
+          LogMemo.SetFocus();
+          LogMemo.SelStart := Pos(S, LogMemo.Lines.Text) - 1;
+          LogMemo.SelLength := Length(S);
+        end;
+      Exit;
+    end;
+
+    2: //install
     begin
       OpenDialog1.Filter := 'APK-Package files (*.akp)|*.apk';
       if OpenDialog1.Execute then
@@ -151,22 +174,22 @@ begin
         Exit;
     end;
 
-    2: //uninstall
+    3: //uninstall
       repeat
-        if not InputQuery(SQueryCaption, SPackageName, S) then
-
+        if not InputQuery(SDeleteCaption, SPackageName, S) then
           Exit
         else
           adbcmd := 'adb uninstall ' + S;
       until S <> '';
 
-    3: //backup (-shared + карта памяти)
+    4: //backup (-shared + карта памяти)
       if SaveDialog1.Execute then
         adbcmd := 'adb backup -apk -shared -nosystem -f "' + SaveDialog1.FileName + '"'
+      //adbcmd:= 'adb backup -apk -all -f "' + SaveDialog1.FileName + '"'
       else
         Exit;
 
-    4: //restore
+    5: //restore
     begin
       OpenDialog1.Filter := 'ADB Backup files (*.ab)|*.ab';
       if OpenDialog1.Execute then
@@ -175,7 +198,7 @@ begin
         Exit;
     end;
 
-    5: //screenshot
+    6: //screenshot
       if SelectDirectoryDialog1.Execute then
       begin
         //Имя скриншота (сек + 1)
@@ -188,7 +211,7 @@ begin
       else
         Exit;
 
-    6: //reboot
+    7: //reboot
       if MessageDlg(SRebootMsg, mtConfirmation, [mbYes, mbNo], 0) = mrYes then
         adbcmd := 'adb reboot'
       else
@@ -230,10 +253,9 @@ begin
   StartProcess('systemctl disable adb');
 end;
 
-procedure TMainForm.LogMemoKeyDown(Sender: TObject; var Key: Word;
-  Shift: TShiftState);
+procedure TMainForm.LogMemoKeyDown(Sender: TObject; var Key: word; Shift: TShiftState);
 begin
-  Key:=$0;
+  Key := $0;
 end;
 
 //Обработка нажатия кнопок управления ADB
