@@ -1,10 +1,10 @@
 object MainForm: TMainForm
-  Left = 307
-  Height = 498
-  Top = 126
+  Left = 304
+  Height = 487
+  Top = 128
   Width = 620
   Caption = 'ADBManager'
-  ClientHeight = 498
+  ClientHeight = 487
   ClientWidth = 620
   OnCreate = FormCreate
   SessionProperties = 'Left;Top;Width;Height'
@@ -92,7 +92,7 @@ object MainForm: TMainForm
   object StaticText1: TStaticText
     Left = 0
     Height = 20
-    Top = 478
+    Top = 467
     Width = 620
     Align = alBottom
     Caption = 'License: GPLv3  Author: alex_q_2000 (C) 2021'
@@ -106,7 +106,7 @@ object MainForm: TMainForm
   end
   object PageControl1: TPageControl
     Left = 0
-    Height = 254
+    Height = 243
     Top = 224
     Width = 620
     ActivePage = TabSheet1
@@ -119,11 +119,11 @@ object MainForm: TMainForm
     TabOrder = 2
     object TabSheet1: TTabSheet
       Caption = 'Devices'
-      ClientHeight = 217
+      ClientHeight = 206
       ClientWidth = 614
       object DevicesBox: TListBox
         Left = 0
-        Height = 217
+        Height = 206
         Top = 0
         Width = 614
         Align = alClient
@@ -142,18 +142,19 @@ object MainForm: TMainForm
     end
     object TabSheet2: TTabSheet
       Caption = 'Execution log'
-      ClientHeight = 217
+      ClientHeight = 206
       ClientWidth = 614
       object LogMemo: TMemo
         Left = 0
-        Height = 174
+        Height = 206
         Top = 0
-        Width = 534
+        Width = 614
         Align = alClient
         BorderStyle = bsNone
         Font.Height = -13
         Font.Name = 'Monospace'
         ParentFont = False
+        ScrollBars = ssVertical
         TabOrder = 0
         WantReturns = False
       end

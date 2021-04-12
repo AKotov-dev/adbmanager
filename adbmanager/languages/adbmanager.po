@@ -172,6 +172,14 @@ msgctxt "unit1.senable"
 msgid "Enable"
 msgstr ""
 
+#: unit1.spackagename
+msgid "Input the package name:"
+msgstr ""
+
+#: unit1.squerycaption
+msgid "Deleting a package"
+msgstr ""
+
 #: unit1.srebootmsg
 msgid "Reboot selected smartphone?"
 msgstr ""

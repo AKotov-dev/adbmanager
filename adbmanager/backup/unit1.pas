@@ -80,6 +80,8 @@ resourcestring
   SDisable = 'Disable';
   SEnable = 'Enable';
   SRebootMsg = 'Reboot selected smartphone?';
+  SQueryCaption = 'Deleting a package';
+  SPackageName = 'Input the package name:';
 
 var
   MainForm: TMainForm;
@@ -130,23 +132,47 @@ var
   S: string;
   FADBCommandThread: TThread;
 begin
+  S := '';
   PageControl1.ActivePageIndex := 1;
 
   //Определяем команду по кнопке
   case (Sender as TToolButton).Tag of
-    0: adbcmd := 'adb shell pm list'; //apk-info
-    1: adbcmd := 'adb install'; //install
-    2: adbcmd := 'adb uninstall'; //uninstall
+    0: //apk-info (инфа о пакетах для удаления)
+      adbcmd := 'adb shell pm list packages';
+
+    1: //install
+    begin
+      OpenDialog1.Filter := 'APK-Package files (*.akp)|*.apk';
+      if OpenDialog1.Execute then
+        adbcmd := 'adb install "' + OpenDialog1.FileName + '"'
+      else
+        Exit;
+    end;
+
+    2: //uninstall
+      repeat
+        if not InputQuery(SQueryCaption, SPackageName, S) then
+
+          Exit
+        else
+          adbcmd := 'adb uninstall ' + S;
+      until S <> '';
+
     3: //backup (-shared + карта памяти)
       if SaveDialog1.Execute then
         adbcmd := 'adb backup -apk -shared -nosystem -f "' + SaveDialog1.FileName + '"'
       else
         Exit;
+
     4: //restore
+    begin
+      OpenDialog1.Filter := 'ADB Backup files (*.ab)|*.ab';
       if OpenDialog1.Execute then
         adbcmd := 'adb restore "' + Opendialog1.FileName + '"'
       else
         Exit;
+    end;
+
     5: //screenshot
       if SelectDirectoryDialog1.Execute then
       begin
@@ -156,7 +182,10 @@ begin
         adbcmd :=
           'adb shell screencap -p /sdcard/' + S + '; adb pull /sdcard/' +
           S + '; adb shell rm /sdcard/' + S;
-      end;
+      end
+      else
+        Exit;
+
     6: //reboot
       if MessageDlg(SRebootMsg, mtConfirmation, [mbYes, mbNo], 0) = mrYes then
         adbcmd := 'adb reboot'
