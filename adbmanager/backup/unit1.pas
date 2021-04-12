@@ -86,7 +86,7 @@ resourcestring
   SDeleteCaption = 'Deleting a package';
   SPackageName = 'Input the package name:';
   SSearchCaption = 'Search in log';
-  SSearchString = 'Input string for search:';
+  SSearchString = 'Input search string:';
 
 var
   MainForm: TMainForm;
@@ -184,14 +184,14 @@ begin
 
     4: //backup (-shared + карта памяти)
       if SaveDialog1.Execute then
-        adbcmd := 'adb backup -apk -shared -nosystem -f "' + SaveDialog1.FileName + '"'
-      //adbcmd:= 'adb backup -apk -all -f "' + SaveDialog1.FileName + '"'
+      //adbcmd := 'adb backup -apk -shared -nosystem -f "' + SaveDialog1.FileName + '"'
+      adbcmd:= 'adb backup -apk -noshared -all -f "' + SaveDialog1.FileName + '"'
       else
         Exit;
 
     5: //restore
     begin
-      OpenDialog1.Filter := 'ADB Backup files (*.ab)|*.ab';
+      OpenDialog1.Filter := 'ADB Backup files (*.adb)|*.adb';
       if OpenDialog1.Execute then
         adbcmd := 'adb restore "' + Opendialog1.FileName + '"'
       else

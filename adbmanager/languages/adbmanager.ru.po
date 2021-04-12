@@ -19,8 +19,8 @@ msgstr ""
 
 #: tmainform.apkinfobtn.caption
 msgctxt "tmainform.apkinfobtn.caption"
-msgid "apk-info"
-msgstr "apk-инфо"
+msgid "apk list"
+msgstr "список apk"
 
 #: tmainform.backupbtn.caption
 msgctxt "tmainform.backupbtn.caption"

@@ -2,7 +2,7 @@
 name=adbmanager
 
 [VERSION]
-version=0.4
+version=0.5
 
 [RELEASE]
 release=0.mrx8
