@@ -48,9 +48,8 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="Unit1"/>
-        <IsVisibleTab Value="True"/>
-        <TopLine Value="231"/>
-        <CursorPos X="43" Y="259"/>
+        <TopLine Value="88"/>
+        <CursorPos X="13" Y="234"/>
         <UsageCount Value="32"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -67,13 +66,15 @@
         <Filename Value="adbcommandtrd.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="ADBCommandTRD"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="67"/>
-        <CursorPos X="34" Y="89"/>
+        <IsVisibleTab Value="True"/>
+        <EditorIndex Value="1"/>
+        <TopLine Value="48"/>
+        <CursorPos X="21" Y="59"/>
         <UsageCount Value="21"/>
+        <Loaded Value="True"/>
       </Unit3>
     </Units>
-    <JumpHistory Count="20" HistoryIndex="19">
+    <JumpHistory Count="22" HistoryIndex="21">
       <Position1>
         <Filename Value="unit1.pas"/>
         <Caret Line="120" TopLine="107"/>
@@ -154,6 +155,14 @@
         <Filename Value="unit1.pas"/>
         <Caret Line="81" Column="45" TopLine="68"/>
       </Position20>
+      <Position21>
+        <Filename Value="unit1.pas"/>
+        <Caret Line="145" Column="39" TopLine="134"/>
+      </Position21>
+      <Position22>
+        <Filename Value="unit1.pas"/>
+        <Caret Line="236" Column="8" TopLine="220"/>
+      </Position22>
     </JumpHistory>
     <RunParams>
       <FormatVersion Value="2"/>

@@ -86,7 +86,7 @@ procedure StartADBCommand.StopProgress;
 begin
   with MainForm do
   begin
-    ProgressBar1.Visible := True;
+    ProgressBar1.Visible := False;
     ProgressBar1.Style := pbstNormal;
     ProgressBar1.Position := 0;
   end;
@@ -95,7 +95,9 @@ end;
 //Вывод лога (построчное накопление)
 procedure StartADBCommand.ShowLog;
 begin
-  MainForm.LogMemo.Lines.Add(Trim(Result[0]));
+  if adbcmd <> 'adb shell pm list packages' then
+  MainForm.LogMemo.Lines.Add(Trim(Result[0])) else
+      MainForm.LogMemo.Lines.Assign(Result);
 end;
 
 end.

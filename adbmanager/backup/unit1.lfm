@@ -1,7 +1,7 @@
 object MainForm: TMainForm
-  Left = 304
+  Left = 311
   Height = 487
-  Top = 128
+  Top = 127
   Width = 620
   Caption = 'ADBManager'
   ClientHeight = 487
@@ -109,13 +109,13 @@ object MainForm: TMainForm
     Height = 243
     Top = 224
     Width = 620
-    ActivePage = TabSheet1
+    ActivePage = TabSheet2
     Align = alBottom
     Anchors = [akTop, akLeft, akRight, akBottom]
     Font.Height = -13
     Font.Name = 'Sans'
     ParentFont = False
-    TabIndex = 0
+    TabIndex = 1
     TabOrder = 2
     object TabSheet1: TTabSheet
       Caption = 'Devices'
@@ -153,6 +153,7 @@ object MainForm: TMainForm
         BorderStyle = bsNone
         Font.Height = -13
         Font.Name = 'Monospace'
+        OnKeyDown = LogMemoKeyDown
         ParentFont = False
         ScrollBars = ssVertical
         TabOrder = 0

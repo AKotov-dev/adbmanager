@@ -65,6 +65,7 @@ type
     procedure EnabledLabelChangeBounds(Sender: TObject);
     procedure KeyLabelChangeBounds(Sender: TObject);
     procedure DisableBtnClick(Sender: TObject);
+    procedure LogMemoKeyDown(Sender: TObject; var Key: word; Shift: TShiftState);
     procedure RestartBtnClick(Sender: TObject);
     procedure StartProcess(command: string);
   private
@@ -226,6 +227,11 @@ end;
 procedure TMainForm.DisableBtnClick(Sender: TObject);
 begin
   StartProcess('systemctl disable adb');
+end;
+
+procedure TMainForm.LogMemoKeyDown(Sender: TObject; var Key: word; Shift: TShiftState);
+begin
+  Key := $0;
 end;
 
 //Обработка нажатия кнопок управления ADB

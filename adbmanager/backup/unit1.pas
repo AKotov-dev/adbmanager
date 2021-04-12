@@ -65,6 +65,8 @@ type
     procedure EnabledLabelChangeBounds(Sender: TObject);
     procedure KeyLabelChangeBounds(Sender: TObject);
     procedure DisableBtnClick(Sender: TObject);
+    procedure LogMemoKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState
+      );
     procedure RestartBtnClick(Sender: TObject);
     procedure StartProcess(command: string);
   private
@@ -228,18 +230,31 @@ begin
   StartProcess('systemctl disable adb');
 end;
 
+procedure TMainForm.LogMemoKeyDown(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
+begin
+  Key:=$0;
+end;
+
 //Обработка нажатия кнопок управления ADB
 procedure TMainForm.RestartBtnClick(Sender: TObject);
 begin
   PageControl1.ActivePageIndex := 0;
 
   case (Sender as TToolButton).Tag of
-    0: StartProcess('killall adb; systemctl restart adb'); //Start
+    0: //ReStart
+    begin
+      LogMemo.Clear;
+      StartProcess('killall adb; systemctl restart adb');
+    end;
+
     1: //Stop
     begin
+      LogMemo.Clear;
       ActiveLabel.Caption := 'stopping';
       StartProcess('systemctl stop adb');
     end;
+
     2: //Enable-Disable
     begin
       if EnabledLabel.Caption = 'enabled' then
@@ -247,7 +262,10 @@ begin
       else
         StartProcess('systemctl enable adb');
     end;
-    3: StartProcess('rm -rf ~/.android/*');  //Delete Key
+
+    3: //Delete Key
+      StartProcess('rm -rf ~/.android/*');
+
     4: Close;
   end;
 

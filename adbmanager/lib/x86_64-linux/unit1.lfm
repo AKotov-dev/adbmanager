@@ -1,7 +1,7 @@
 object MainForm: TMainForm
-  Left = 304
+  Left = 311
   Height = 487
-  Top = 128
+  Top = 127
   Width = 620
   Caption = 'ADBManager'
   ClientHeight = 487
@@ -153,6 +153,7 @@ object MainForm: TMainForm
         BorderStyle = bsNone
         Font.Height = -13
         Font.Name = 'Monospace'
+        OnKeyDown = LogMemoKeyDown
         ParentFont = False
         ScrollBars = ssVertical
         TabOrder = 0
