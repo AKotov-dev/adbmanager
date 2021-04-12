@@ -7,14 +7,14 @@ uses
   cthreads,
   {$ENDIF}
   Interfaces, // this includes the LCL widgetset
-  Forms, Unit1, StartTRD
+  Forms, Unit1, ShowStatusTRD, ADBCommandTRD
   { you can add units after this };
 
 {$R *.res}
 
 begin
   RequireDerivedFormResource:=True;
-  Application.Title:='ADBManager v0.3';
+  Application.Title:='ADBManager v0.4';
   Application.Scaled:=True;
   Application.Initialize;
   Application.CreateForm(TMainForm, MainForm);

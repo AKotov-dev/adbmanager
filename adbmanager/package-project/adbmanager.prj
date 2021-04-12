@@ -2,7 +2,7 @@
 name=adbmanager
 
 [VERSION]
-version=0.3
+version=0.4
 
 [RELEASE]
 release=0.mrx8
@@ -85,10 +85,11 @@ toolversion=2.0.10
 1=and connection of Android smartphones. Allows you to monitor the status of the "adb" service,
 2=manage it, and control the list of connected devices.
 3=
-4=v0.3
-5=+ status polling in a separate thread
-6=+ monospaced font in devices log
-7=+ Russian and English languages
-8=
-9=v0.2
-10=+ cosmetic edits
+4=v0.4
+5=+ Smartphone Management panel
+6=+ execution log monitor
+7=
+8=v0.3
+9=+ status polling in a separate thread
+10=+ monospaced font in devices log
+11=+ Russian and English languages

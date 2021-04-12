@@ -17,6 +17,16 @@ msgctxt "tmainform.activelabel.caption"
 msgid "..."
 msgstr ""
 
+#: tmainform.apkinfobtn.caption
+msgctxt "tmainform.apkinfobtn.caption"
+msgid "apk-info"
+msgstr ""
+
+#: tmainform.backupbtn.caption
+msgctxt "tmainform.backupbtn.caption"
+msgid "backup"
+msgstr ""
+
 #: tmainform.caption
 msgid "ADBManager"
 msgstr ""
@@ -39,6 +49,11 @@ msgstr ""
 msgid "Exit"
 msgstr ""
 
+#: tmainform.installbtn.caption
+msgctxt "tmainform.installbtn.caption"
+msgid "install"
+msgstr ""
+
 #: tmainform.keylabel.caption
 msgctxt "tmainform.keylabel.caption"
 msgid "..."
@@ -56,8 +71,27 @@ msgstr ""
 msgid ","
 msgstr ""
 
+#: tmainform.panel2.caption
+msgid "Smartphone managing"
+msgstr ""
+
+#: tmainform.rebootbtn.caption
+msgctxt "tmainform.rebootbtn.caption"
+msgid "reboot"
+msgstr ""
+
 #: tmainform.restartbtn.caption
 msgid "Restart"
+msgstr ""
+
+#: tmainform.restorebtn.caption
+msgctxt "tmainform.restorebtn.caption"
+msgid "restore"
+msgstr ""
+
+#: tmainform.screenshotbtn.caption
+msgctxt "tmainform.screenshotbtn.caption"
+msgid "screenshot"
 msgstr ""
 
 #: tmainform.statictext1.caption
@@ -68,12 +102,40 @@ msgstr ""
 msgid "Stop"
 msgstr ""
 
+#: tmainform.tabsheet1.caption
+msgid "Devices"
+msgstr ""
+
+#: tmainform.tabsheet2.caption
+msgid "Execution log"
+msgstr ""
+
 #: tmainform.toolbar1.caption
 msgid "ToolBar1"
 msgstr ""
 
+#: tmainform.toolbar2.caption
+msgid "ToolBar2"
+msgstr ""
+
+#: tmainform.toolbutton11.caption
+msgid "ToolButton11"
+msgstr ""
+
 #: tmainform.toolbutton12.caption
 msgid "ToolButton12"
+msgstr ""
+
+#: tmainform.toolbutton15.caption
+msgid "ToolButton15"
+msgstr ""
+
+#: tmainform.toolbutton17.caption
+msgid "ToolButton17"
+msgstr ""
+
+#: tmainform.toolbutton2.caption
+msgid "ToolButton2"
 msgstr ""
 
 #: tmainform.toolbutton3.caption
@@ -84,8 +146,21 @@ msgstr ""
 msgid "ToolButton4"
 msgstr ""
 
+#: tmainform.toolbutton6.caption
+msgid "ToolButton6"
+msgstr ""
+
 #: tmainform.toolbutton8.caption
 msgid "ToolButton8"
+msgstr ""
+
+#: tmainform.toolbutton9.caption
+msgid "ToolButton9"
+msgstr ""
+
+#: tmainform.uninstallbtn.caption
+msgctxt "tmainform.uninstallbtn.caption"
+msgid "uninstall"
 msgstr ""
 
 #: unit1.sdisable

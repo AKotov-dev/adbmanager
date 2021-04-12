@@ -118,12 +118,12 @@ begin
   //EnableButton change
   if MainForm.EnabledLabel.Caption = 'disabled' then
   begin
-    MainForm.EnableBtn.Caption := 'Enable';
+    MainForm.EnableBtn.Caption := SEnable;
     MainForm.EnableBtn.ImageIndex := 2;
   end
   else
   begin
-    MainForm.EnableBtn.Caption := 'Diasble';
+    MainForm.EnableBtn.Caption := SDisable;
     MainForm.EnableBtn.ImageIndex := 3;
   end;
 end;

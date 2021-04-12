@@ -1,4 +1,4 @@
-unit StartTRD;
+unit ShowStatusTRD;
 
 {$mode objfpc}{$H+}
 
@@ -137,7 +137,7 @@ end;
 //Вывод списка устройств
 procedure ShowStatus.ShowDevices;
 begin
-  MainForm.LogMemo.Lines.Assign(Result);
+  MainForm.DevicesBox.Items.Assign(Result);
 end;
 
 end.

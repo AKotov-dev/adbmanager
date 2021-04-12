@@ -17,6 +17,16 @@ msgctxt "tmainform.activelabel.caption"
 msgid "..."
 msgstr ""
 
+#: tmainform.apkinfobtn.caption
+msgctxt "tmainform.apkinfobtn.caption"
+msgid "apk-info"
+msgstr "apk-инфо"
+
+#: tmainform.backupbtn.caption
+msgctxt "tmainform.backupbtn.caption"
+msgid "backup"
+msgstr "бэкап"
+
 #: tmainform.caption
 msgid "ADBManager"
 msgstr ""
@@ -26,7 +36,6 @@ msgid "Delete Key"
 msgstr "Удалить Ключ"
 
 #: tmainform.enablebtn.caption
-#, fuzzy
 msgctxt "tmainform.enablebtn.caption"
 msgid "Enable"
 msgstr "Включить"
@@ -39,6 +48,11 @@ msgstr ""
 #: tmainform.exitbtn.caption
 msgid "Exit"
 msgstr "Выход"
+
+#: tmainform.installbtn.caption
+msgctxt "tmainform.installbtn.caption"
+msgid "install"
+msgstr "установить"
 
 #: tmainform.keylabel.caption
 msgctxt "tmainform.keylabel.caption"
@@ -57,9 +71,28 @@ msgstr "Ключ:"
 msgid ","
 msgstr ""
 
+#: tmainform.panel2.caption
+msgid "Smartphone managing"
+msgstr "Управление смартфоном"
+
+#: tmainform.rebootbtn.caption
+msgctxt "tmainform.rebootbtn.caption"
+msgid "reboot"
+msgstr "перезагрузка"
+
 #: tmainform.restartbtn.caption
 msgid "Restart"
 msgstr "Рестарт"
+
+#: tmainform.restorebtn.caption
+msgctxt "tmainform.restorebtn.caption"
+msgid "restore"
+msgstr "рестор"
+
+#: tmainform.screenshotbtn.caption
+msgctxt "tmainform.screenshotbtn.caption"
+msgid "screenshot"
+msgstr "скриншот"
 
 #: tmainform.statictext1.caption
 msgid "License: GPLv3  Author: alex_q_2000 (C) 2021"
@@ -69,12 +102,40 @@ msgstr "Лицензия: GPLv3  Автор: alex_q_2000 (C) 2021"
 msgid "Stop"
 msgstr "Стоп"
 
+#: tmainform.tabsheet1.caption
+msgid "Devices"
+msgstr "Устройство"
+
+#: tmainform.tabsheet2.caption
+msgid "Execution log"
+msgstr "Лог выполнения"
+
 #: tmainform.toolbar1.caption
 msgid "ToolBar1"
 msgstr ""
 
+#: tmainform.toolbar2.caption
+msgid "ToolBar2"
+msgstr ""
+
+#: tmainform.toolbutton11.caption
+msgid "ToolButton11"
+msgstr ""
+
 #: tmainform.toolbutton12.caption
 msgid "ToolButton12"
+msgstr ""
+
+#: tmainform.toolbutton15.caption
+msgid "ToolButton15"
+msgstr ""
+
+#: tmainform.toolbutton17.caption
+msgid "ToolButton17"
+msgstr ""
+
+#: tmainform.toolbutton2.caption
+msgid "ToolButton2"
 msgstr ""
 
 #: tmainform.toolbutton3.caption
@@ -85,9 +146,22 @@ msgstr ""
 msgid "ToolButton4"
 msgstr ""
 
+#: tmainform.toolbutton6.caption
+msgid "ToolButton6"
+msgstr ""
+
 #: tmainform.toolbutton8.caption
 msgid "ToolButton8"
 msgstr ""
+
+#: tmainform.toolbutton9.caption
+msgid "ToolButton9"
+msgstr ""
+
+#: tmainform.uninstallbtn.caption
+msgctxt "tmainform.uninstallbtn.caption"
+msgid "uninstall"
+msgstr "удалить"
 
 #: unit1.sdisable
 msgid "Disable"
@@ -97,4 +171,3 @@ msgstr "Выключить"
 msgctxt "unit1.senable"
 msgid "Enable"
 msgstr "Включить"
-
