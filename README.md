@@ -4,4 +4,4 @@ The program is designed for visual and easy management of the ADB-Server and con
 
 ![](https://github.com/AKotov-dev/adbmanager/blob/main/ScreenShot/ADBManager.png)
 
-**Ввиду отсутствия смартфона, команды управления пока не реализованы.** :)
+**Ввиду отсутствия смартфона, команды управления реализованы частично.** :)
