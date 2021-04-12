@@ -113,9 +113,12 @@ begin
   FStartShowStatusThread.Priority := tpNormal;
 
   MainForm.Caption := Application.Title;
-  if not DirectoryExists('/root/.config') then
-    MkDir('/root/.config');
-  IniPropStorage1.IniFileName := '/root/.config/adbmanager.conf';
+  if not DirectoryExists(GetEnvironmentVariable('HOME') + '/.config') then
+    MkDir(GetEnvironmentVariable('HOME') + '/.config');
+  IniPropStorage1.IniFileName :=
+    GetEnvironmentVariable('HOME') + '/.config/adbmanager.conf';
+
+  showmessage(GetEnvironmentVariable('HOME'));
 end;
 
 //Обработка кнопок панели "Управление Смартфоном"
