@@ -6,7 +6,8 @@ interface
 
 uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls, Buttons,
-  ComCtrls, ExtCtrls, IniPropStorage, Process, LCLTranslator, DefaultTranslator;
+  ComCtrls, ExtCtrls, IniPropStorage, Process, LCLTranslator, DefaultTranslator,
+  ExtDlgs;
 
 type
 
@@ -24,10 +25,13 @@ type
     Label2: TLabel;
     Label3: TLabel;
     LogMemo: TMemo;
+    OpenDialog1: TOpenDialog;
     PageControl1: TPageControl;
     Panel1: TPanel;
     Panel2: TPanel;
     ProgressBar1: TProgressBar;
+    SaveDialog1: TSaveDialog;
+    SelectDirectoryDialog1: TSelectDirectoryDialog;
     StaticText1: TStaticText;
     TabSheet1: TTabSheet;
     TabSheet2: TTabSheet;
@@ -75,6 +79,7 @@ var //Команда ADB
 resourcestring
   SDisable = 'Disable';
   SEnable = 'Enable';
+  SRebootMsg = 'Reboot selected smartphone?';
 
 var
   MainForm: TMainForm;
@@ -113,15 +118,16 @@ begin
   FStartShowStatusThread.Priority := tpNormal;
 
   MainForm.Caption := Application.Title;
-  if not DirectoryExists(GetEnvironmentVariable('HOME') + '/.config') then
-    MkDir(GetEnvironmentVariable('HOME') + '/.config');
-  IniPropStorage1.IniFileName :=
-    GetEnvironmentVariable('HOME') + '/.config/adbmanager.conf';
+
+  if not DirectoryExists(GetUserDir + '.config') then
+    MkDir(GetUserDir + '.config');
+  IniPropStorage1.IniFileName := GetUserDir + '.config/adbmanager.conf';
 end;
 
 //Обработка кнопок панели "Управление Смартфоном"
 procedure TMainForm.ApkInfoBtnClick(Sender: TObject);
 var
+  S: string;
   FADBCommandThread: TThread;
 begin
   PageControl1.ActivePageIndex := 1;
@@ -131,12 +137,33 @@ begin
     0: adbcmd := 'adb shell pm list'; //apk-info
     1: adbcmd := 'adb install'; //install
     2: adbcmd := 'adb uninstall'; //uninstall
-    3: adbcmd := 'adb backup'; //backup
-    4: adbcmd := 'adb restore'; //restore
-    5: adbcmd :=
-        'adb shell screencap -p /sdcard/screen.png; adb pull /sdcard/screen.png; adb shell rm /sdcard/screen.png';
-    //screenshot
-    6: adbcmd := 'adb reboot'; //reboot
+    3: //backup (-shared + карта памяти)
+      if SaveDialog1.Execute then
+        adbcmd := 'adb backup -apk -shared -nosystem -f "' + SaveDialog1.FileName + '"'
+      else
+        Exit;
+    4: //restore
+      if OpenDialog1.Execute then
+        adbcmd := 'adb restore "' + Opendialog1.FileName + '"'
+      else
+        Exit;
+    5: //screenshot
+      if SelectDirectoryDialog1.Execute then
+      begin
+        //Имя скриншота (сек + 1)
+        S := Concat(FormatDateTime('dd-mm-yyyy_hh-nn-ss', Now), '.png');
+        SetCurrentDir(SelectDirectoryDialog1.FileName);
+        adbcmd :=
+          'adb shell screencap -p /sdcard/' + S + '; adb pull /sdcard/' +
+          S + '; adb shell rm /sdcard/' + S;
+      end
+      else
+        Exit;
+    6: //reboot
+      if MessageDlg(SRebootMsg, mtConfirmation, [mbYes, mbNo], 0) = mrYes then
+        adbcmd := 'adb reboot'
+      else
+        Exit;
   end;
 
   //Запуск команды и потока отображения лога исполнения

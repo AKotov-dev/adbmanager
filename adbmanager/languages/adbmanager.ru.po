@@ -171,3 +171,7 @@ msgstr "Выключить"
 msgctxt "unit1.senable"
 msgid "Enable"
 msgstr "Включить"
+
+#: unit1.srebootmsg
+msgid "Reboot selected smartphone?"
+msgstr "Перезагрузить выбранный смартфон?"

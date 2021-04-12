@@ -1,7 +1,7 @@
 object MainForm: TMainForm
-  Left = 304
+  Left = 307
   Height = 498
-  Top = 125
+  Top = 126
   Width = 620
   Caption = 'ADBManager'
   ClientHeight = 498
@@ -392,8 +392,8 @@ object MainForm: TMainForm
   object ImageList1: TImageList
     Height = 48
     Width = 48
-    Left = 408
-    Top = 320
+    Left = 480
+    Top = 304
     Bitmap = {
       4C69060000003000000030000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
@@ -2128,14 +2128,14 @@ object MainForm: TMainForm
   end
   object IniPropStorage1: TIniPropStorage
     StoredValues = <>
-    Left = 328
-    Top = 320
+    Left = 392
+    Top = 304
   end
   object ImageList2: TImageList
     Height = 32
     Width = 32
-    Left = 480
-    Top = 320
+    Left = 552
+    Top = 304
     Bitmap = {
       4C690A000000200000002000000000000000000000006CD6F0596BD5F0D16CD6
       EFFC6CD6F0FF6CD6F0FF6CD6F0FF6CD6F0FF6CD6F0FF6CD6F0FF3291C2FF1C77
@@ -3419,5 +3419,21 @@ object MainForm: TMainForm
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000
     }
+  end
+  object SaveDialog1: TSaveDialog
+    FileName = 'backup.ab'
+    Filter = 'ADB Backup files (*.ab)|*.ab'
+    Options = [ofOverwritePrompt, ofEnableSizing, ofViewDetail]
+    Left = 304
+    Top = 304
+  end
+  object OpenDialog1: TOpenDialog
+    Filter = 'ADB Backup files (*.ab)|*.ab'
+    Left = 224
+    Top = 304
+  end
+  object SelectDirectoryDialog1: TSelectDirectoryDialog
+    Left = 112
+    Top = 304
   end
 end

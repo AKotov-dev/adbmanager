@@ -172,3 +172,7 @@ msgctxt "unit1.senable"
 msgid "Enable"
 msgstr ""
 
+#: unit1.srebootmsg
+msgid "Reboot selected smartphone?"
+msgstr ""
+
