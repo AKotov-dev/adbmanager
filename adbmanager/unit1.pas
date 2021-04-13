@@ -47,7 +47,6 @@ type
     ScreenShotBtn: TToolButton;
     RebootBtn: TToolButton;
     ToolButton15: TToolButton;
-    ApkInfoBtn: TToolButton;
     ToolButton17: TToolButton;
     ToolButton2: TToolButton;
     ToolButton3: TToolButton;
@@ -55,6 +54,7 @@ type
     RestartBtn: TToolButton;
     StopBtn: TToolButton;
     ToolButton5: TToolButton;
+    ToolButton7: TToolButton;
     UninstallBtn: TToolButton;
     ToolButton6: TToolButton;
     BackupBtn: TToolButton;
@@ -82,11 +82,14 @@ var //Команда ADB
 resourcestring
   SDisable = 'Disable';
   SEnable = 'Enable';
-  SRebootMsg = 'Reboot selected smartphone?';
+  SRebootMsg = 'Reboot device?';
   SDeleteCaption = 'Deleting a package';
   SPackageName = 'Input the package name:';
-  SSearchCaption = 'Search in log';
-  SSearchString = 'Input search string:';
+  SSearchCaption = 'Search packages';
+  SSearchString = 'Input search string ("*" - all packages):';
+  SIPConnectCaption = 'Connection';
+  SIPAddress = 'Input IP address ок "usb":';
+
 
 var
   MainForm: TMainForm;
@@ -135,7 +138,6 @@ end;
 procedure TMainForm.ApkInfoBtnClick(Sender: TObject);
 var
   S: string;
-  i: integer;
   FADBCommandThread: TThread;
 begin
   S := '';
@@ -143,9 +145,17 @@ begin
 
   //Определяем команду по кнопке
   case (Sender as TToolButton).Tag of
-    0: //apk-info (инфа о пакетах для удаления)
-      adbcmd := 'adb shell pm list packages';
-
+    0: //Connect
+    begin
+      repeat
+        if not InputQuery(SIPConnectCaption, SIPAddress, S) then
+          Exit
+      until S <> '';
+      if S = 'usb' then
+        adbcmd := 'adb usb'
+      else
+        adbcmd := 'adb connect ' + Trim(S) + ':5555';
+    end;
     1: //Search Package
     begin
       repeat
@@ -153,16 +163,11 @@ begin
           Exit
       until S <> '';
 
-      //Записываем в S текст из InputQuery
-      for i := 0 to LogMemo.Lines.Count - 1 do
-        //Цикл поиска строки
-        if Pos(S, LogMemo.Lines.Text) <> 0 then
-        begin
-          LogMemo.SetFocus();
-          LogMemo.SelStart := Pos(S, LogMemo.Lines.Text) - 1;
-          LogMemo.SelLength := Length(S);
-        end;
-      Exit;
+      if S = '*' then
+        adbcmd := 'adb shell pm list packages | cut -f2 -d ":" | sort'
+      else
+        adbcmd := 'adb shell pm list packages | cut -f2 -d ":" | grep -i "' +
+          Trim(S) + '"';
     end;
 
     2: //install
@@ -179,13 +184,12 @@ begin
         if not InputQuery(SDeleteCaption, SPackageName, S) then
           Exit
         else
-          adbcmd := 'adb uninstall ' + S;
+          adbcmd := 'adb uninstall ' + Trim(S);
       until S <> '';
 
     4: //backup (-shared + карта памяти)
       if SaveDialog1.Execute then
-      //adbcmd := 'adb backup -apk -shared -nosystem -f "' + SaveDialog1.FileName + '"'
-      adbcmd:= 'adb backup -apk -noshared -all -f "' + SaveDialog1.FileName + '"'
+        adbcmd := 'adb backup -apk -noshared -all -f "' + SaveDialog1.FileName + '"'
       else
         Exit;
 
@@ -274,7 +278,7 @@ begin
     begin
       LogMemo.Clear;
       ActiveLabel.Caption := 'stopping';
-      StartProcess('systemctl stop adb');
+      StartProcess('systemctl stop adb; killall adb');
     end;
 
     2: //Enable-Disable

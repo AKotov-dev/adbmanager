@@ -17,11 +17,6 @@ msgctxt "tmainform.activelabel.caption"
 msgid "..."
 msgstr ""
 
-#: tmainform.apkinfobtn.caption
-msgctxt "tmainform.apkinfobtn.caption"
-msgid "apk list"
-msgstr ""
-
 #: tmainform.backupbtn.caption
 msgctxt "tmainform.backupbtn.caption"
 msgid "backup"
@@ -119,7 +114,7 @@ msgid "ToolBar2"
 msgstr ""
 
 #: tmainform.toolbutton1.caption
-msgid "search"
+msgid "search apk"
 msgstr ""
 
 #: tmainform.toolbutton11.caption
@@ -151,11 +146,15 @@ msgid "ToolButton4"
 msgstr ""
 
 #: tmainform.toolbutton5.caption
-msgid "ToolButton5"
+msgid "connect"
 msgstr ""
 
 #: tmainform.toolbutton6.caption
 msgid "ToolButton6"
+msgstr ""
+
+#: tmainform.toolbutton7.caption
+msgid "ToolButton7"
 msgstr ""
 
 #: tmainform.toolbutton8.caption
@@ -185,19 +184,27 @@ msgctxt "unit1.senable"
 msgid "Enable"
 msgstr ""
 
+#: unit1.sipaddress
+msgid "Input IP address ок \"usb\":"
+msgstr ""
+
+#: unit1.sipconnectcaption
+msgid "Connection"
+msgstr ""
+
 #: unit1.spackagename
 msgid "Input the package name:"
 msgstr ""
 
 #: unit1.srebootmsg
-msgid "Reboot selected smartphone?"
+msgid "Reboot device?"
 msgstr ""
 
 #: unit1.ssearchcaption
-msgid "Search in log"
+msgid "Search packages"
 msgstr ""
 
 #: unit1.ssearchstring
-msgid "Input search string:"
+msgid "Input search string (\"*\" - all packages):"
 msgstr ""
 

@@ -51,7 +51,7 @@ begin
       Exprocess.Parameters.Clear;
 
       ExProcess.Parameters.Add('-c');
-      ExProcess.Parameters.Add('adb devices | tail -n +2');
+      ExProcess.Parameters.Add('adb devices | grep -Ev "^$" | tail -n +2');
 
       ExProcess.Execute;
 

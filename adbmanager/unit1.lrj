@@ -31,9 +31,9 @@
 {"hash":197264868,"name":"tmainform.screenshotbtn.caption","sourcebytes":[115,99,114,101,101,110,115,104,111,116],"value":"screenshot"},
 {"hash":126588516,"name":"tmainform.rebootbtn.caption","sourcebytes":[114,101,98,111,111,116],"value":"reboot"},
 {"hash":151863765,"name":"tmainform.toolbutton15.caption","sourcebytes":[84,111,111,108,66,117,116,116,111,110,49,53],"value":"ToolButton15"},
-{"hash":114767396,"name":"tmainform.apkinfobtn.caption","sourcebytes":[97,112,107,32,108,105,115,116],"value":"apk list"},
 {"hash":151863767,"name":"tmainform.toolbutton17.caption","sourcebytes":[84,111,111,108,66,117,116,116,111,110,49,55],"value":"ToolButton17"},
-{"hash":127633560,"name":"tmainform.toolbutton1.caption","sourcebytes":[115,101,97,114,99,104],"value":"search"},
-{"hash":160486421,"name":"tmainform.toolbutton5.caption","sourcebytes":[84,111,111,108,66,117,116,116,111,110,53],"value":"ToolButton5"},
+{"hash":144569323,"name":"tmainform.toolbutton1.caption","sourcebytes":[115,101,97,114,99,104,32,97,112,107],"value":"search apk"},
+{"hash":174410692,"name":"tmainform.toolbutton5.caption","sourcebytes":[99,111,110,110,101,99,116],"value":"connect"},
+{"hash":160486423,"name":"tmainform.toolbutton7.caption","sourcebytes":[84,111,111,108,66,117,116,116,111,110,55],"value":"ToolButton7"},
 {"hash":54211143,"name":"tmainform.panel2.caption","sourcebytes":[83,109,97,114,116,112,104,111,110,101,32,109,97,110,97,103,105,110,103],"value":"Smartphone managing"}
 ]}

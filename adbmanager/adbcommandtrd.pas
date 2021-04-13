@@ -47,15 +47,15 @@ begin
     ExProcess.Parameters.Add('-c');
     ExProcess.Parameters.Add(adbcmd);
 
-    if adbcmd <> 'adb shell pm list packages' then
+   { if adbcmd <> 'adb shell pm list packages' then
       ExProcess.Options := ExProcess.Options + [poUsePipes, poStderrToOutPut]
-    else
+    else}
       ExProcess.Options := ExProcess.Options +
         [poUsePipes, poStderrToOutPut, poWaitOnExit];
 
     ExProcess.Execute;
 
-    if adbcmd <> 'adb shell pm list packages' then
+    {if adbcmd <> 'adb shell pm list packages' then
       //Пока поток запущен, отдавать результат выполнения в MainForm.Memo1
       while ExProcess.Running do
       begin
@@ -64,7 +64,7 @@ begin
         if Result.Count <> 0 then
           Synchronize(@ShowLog);
       end
-    else
+    else}
     begin
       Result.LoadFromStream(ExProcess.Output);
       //Выводим лог конвертирования
@@ -107,9 +107,9 @@ end;
 //Вывод лога (построчное накопление)
 procedure StartADBCommand.ShowLog;
 begin
-  if adbcmd <> 'adb shell pm list packages' then
+  {if adbcmd <> 'adb shell pm list packages' then
     MainForm.LogMemo.Lines.Add(Trim(Result[0]))
-  else
+  else}
     MainForm.LogMemo.Lines.Assign(Result);
 end;
 
