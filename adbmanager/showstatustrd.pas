@@ -61,7 +61,7 @@ begin
 
       //Status-is-active?
       ExProcess.Parameters.Delete(1);
-      ExProcess.Parameters.Add('netstat -lt | grep 5037');
+      ExProcess.Parameters.Add('lsof -n -i4TCP:5037 | grep LISTEN');
 
       Exprocess.Execute;
       Result.LoadFromStream(ExProcess.Output);
@@ -101,7 +101,8 @@ end;
 procedure ShowStatus.ShowIsActive;
 begin
   if Result.Count <> 0 then
-  MainForm.ActiveLabel.Caption := 'active' else
+    MainForm.ActiveLabel.Caption := 'active'
+  else
     MainForm.ActiveLabel.Caption := 'inactive';
 end;
 
@@ -112,4 +113,3 @@ begin
 end;
 
 end.
-

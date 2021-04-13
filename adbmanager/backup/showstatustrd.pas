@@ -61,7 +61,7 @@ begin
 
       //Status-is-active?
       ExProcess.Parameters.Delete(1);
-      ExProcess.Parameters.Add('netstat -lt | grep 5037');
+      ExProcess.Parameters.Add('lsof -n -i4TCP:5037 | grep LISTEN');
 
       Exprocess.Execute;
       Result.LoadFromStream(ExProcess.Output);
@@ -76,7 +76,7 @@ begin
 
       Synchronize(@ShowKey);
 
-      Sleep(300);
+      Sleep(250);
     end;
 
   finally

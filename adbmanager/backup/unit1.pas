@@ -250,13 +250,12 @@ end;
 //Обработка нажатия кнопок управления ADB
 procedure TMainForm.RestartBtnClick(Sender: TObject);
 begin
-  PageControl1.ActivePageIndex := 0;
-
   case (Sender as TToolButton).Tag of
     0: //Restart
     begin
       LogMemo.Clear;
       ActiveLabel.Caption := 'restart';
+        PageControl1.ActivePageIndex := 0;
       StartProcess('killall adb; adb kill-server');
     end;
 

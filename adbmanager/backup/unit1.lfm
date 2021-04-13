@@ -1,7 +1,7 @@
 object MainForm: TMainForm
-  Left = 324
+  Left = 304
   Height = 480
-  Top = 128
+  Top = 124
   Width = 627
   Caption = 'ADBManager'
   ClientHeight = 480
