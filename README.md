@@ -4,3 +4,4 @@ The program is designed for visual and easy management of the ADB-Server and con
 
 ![](https://github.com/AKotov-dev/adbmanager/blob/main/ScreenShot/ADBManager.png)
 
+Allows you to manage your smartphone: search for installed packages by part name, install, delete APK, backup and restore.
