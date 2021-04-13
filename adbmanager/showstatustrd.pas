@@ -20,7 +20,6 @@ type
 
     procedure ShowDevices;
     procedure ShowIsActive;
-    procedure ShowIsEnabled;
     procedure ShowKey;
 
   end;
@@ -62,23 +61,11 @@ begin
 
       //Status-is-active?
       ExProcess.Parameters.Delete(1);
-      ExProcess.Parameters.Add('systemctl is-active adb');
+      ExProcess.Parameters.Add('netstat -lt | grep 5037');
 
       Exprocess.Execute;
       Result.LoadFromStream(ExProcess.Output);
-
-      if Result.Count <> 0 then
-        Synchronize(@ShowIsActive);
-
-      //Status-is-enabled?
-      ExProcess.Parameters.Delete(1);
-      ExProcess.Parameters.Add('systemctl is-enabled adb');
-
-      Exprocess.Execute;
-      Result.LoadFromStream(ExProcess.Output);
-
-      if Result.Count <> 0 then
-        Synchronize(@ShowIsEnabled);
+      Synchronize(@ShowIsActive);
 
       //Key exists?
       ExProcess.Parameters.Delete(1);
@@ -110,28 +97,12 @@ begin
     MainForm.KeyLabel.Caption := 'no';
 end;
 
-//Статус IsEnabled
-procedure ShowStatus.ShowIsEnabled;
-begin
-  MainForm.EnabledLabel.Caption := Trim(Result[0]);
-
-  //EnableButton change
-  if MainForm.EnabledLabel.Caption = 'disabled' then
-  begin
-    MainForm.EnableBtn.Caption := SEnable;
-    MainForm.EnableBtn.ImageIndex := 2;
-  end
-  else
-  begin
-    MainForm.EnableBtn.Caption := SDisable;
-    MainForm.EnableBtn.ImageIndex := 3;
-  end;
-end;
-
 //Вывод IsActive
 procedure ShowStatus.ShowIsActive;
 begin
-  MainForm.ActiveLabel.Caption := Trim(Result[0]);
+  if Result.Count <> 0 then
+  MainForm.ActiveLabel.Caption := 'active' else
+    MainForm.ActiveLabel.Caption := 'inactive';
 end;
 
 //Вывод списка устройств

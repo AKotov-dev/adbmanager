@@ -30,16 +30,6 @@ msgstr ""
 msgid "Delete Key"
 msgstr "Удалить Ключ"
 
-#: tmainform.enablebtn.caption
-msgctxt "tmainform.enablebtn.caption"
-msgid "Enable"
-msgstr "Включить"
-
-#: tmainform.enabledlabel.caption
-msgctxt "tmainform.enabledlabel.caption"
-msgid "..."
-msgstr ""
-
 #: tmainform.exitbtn.caption
 msgid "Exit"
 msgstr "Выход"
@@ -62,10 +52,6 @@ msgstr ""
 msgid "Key:"
 msgstr "Ключ:"
 
-#: tmainform.label3.caption
-msgid ","
-msgstr ""
-
 #: tmainform.panel2.caption
 msgid "Smartphone managing"
 msgstr "Управление смартфоном"
@@ -74,10 +60,6 @@ msgstr "Управление смартфоном"
 msgctxt "tmainform.rebootbtn.caption"
 msgid "reboot"
 msgstr "перезагрузка"
-
-#: tmainform.restartbtn.caption
-msgid "Restart"
-msgstr "Рестарт"
 
 #: tmainform.restorebtn.caption
 msgctxt "tmainform.restorebtn.caption"
@@ -94,8 +76,9 @@ msgid "License: GPLv3  Author: alex_q_2000 (C) 2021"
 msgstr "Лицензия: GPLv3  Автор: alex_q_2000 (C) 2021"
 
 #: tmainform.stopbtn.caption
-msgid "Stop"
-msgstr "Стоп"
+msgctxt "tmainform.stopbtn.caption"
+msgid "Restart"
+msgstr "Рестарт"
 
 #: tmainform.tabsheet1.caption
 msgid "Devices"
@@ -135,14 +118,6 @@ msgstr ""
 
 #: tmainform.toolbutton2.caption
 msgid "ToolButton2"
-msgstr ""
-
-#: tmainform.toolbutton3.caption
-msgid "ToolButton3"
-msgstr ""
-
-#: tmainform.toolbutton4.caption
-msgid "ToolButton4"
 msgstr ""
 
 #: tmainform.toolbutton5.caption

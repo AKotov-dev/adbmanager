@@ -2,7 +2,7 @@
 name=adbmanager
 
 [VERSION]
-version=0.5
+version=0.6
 
 [RELEASE]
 release=0.mrx8
@@ -31,7 +31,7 @@ urlcopy=https://github.com/AKotov-dev/adbmanager
 license=GPLv3
 
 [DEPS]
-deps=android-tools systemd
+deps=adb systemd
 
 [META]
 meta=0
@@ -43,15 +43,14 @@ noarch=0
 sign=0
 
 [DEB]
-deb=0
+deb=1
 
 [FILES]
 0=/usr/share/adbmanager/
 1=/usr/share/doc/adbmanager/
 2=/usr/bin/adbmanager
 3=/usr/share/icons/adbmanager.png
-4=/usr/share/polkit-1/actions/adbmanager.policy
-5=/usr/share/applications/adbmanager.desktop
+4=/usr/share/applications/adbmanager.desktop
 
 [AFTERINSTALL]
 0=#ldconfig
@@ -85,15 +84,19 @@ toolversion=2.0.10
 1=and connection of Android smartphones. Allows you to monitor the status of the "adb" service,
 2=manage it, and control the list of connected devices.
 3=
-4=v0.5
-5=+ usb/tcpip connection
-6=+ changed the package search engine
+4=v0.6
+5=+ pkexec excluded
+6=+ adapted for Debian
 7=
-8=v0.4
-9=+ Smartphone Management panel
-10=+ execution log monitor
+8=v0.5
+9=+ usb/tcpip connection
+10=+ changed the package search engine
 11=
-12=v0.3
-13=+ status polling in a separate thread
-14=+ monospaced font in devices log
-15=+ Russian and English languages
+12=v0.4
+13=+ Smartphone Management panel
+14=+ execution log monitor
+15=
+16=v0.3
+17=+ status polling in a separate thread
+18=+ monospaced font in devices log
+19=+ Russian and English languages

@@ -16,14 +16,12 @@ type
   TMainForm = class(TForm)
     ActiveLabel: TLabel;
     DevicesBox: TListBox;
-    EnabledLabel: TLabel;
     ImageList1: TImageList;
     ImageList2: TImageList;
     IniPropStorage1: TIniPropStorage;
     KeyLabel: TLabel;
     Label1: TLabel;
     Label2: TLabel;
-    Label3: TLabel;
     LogMemo: TMemo;
     OpenDialog1: TOpenDialog;
     PageControl1: TPageControl;
@@ -36,7 +34,6 @@ type
     TabSheet1: TTabSheet;
     TabSheet2: TTabSheet;
     ToolBar1: TToolBar;
-    EnableBtn: TToolButton;
     DeleteKeyBtn: TToolButton;
     ToolBar2: TToolBar;
     InstallBtn: TToolButton;
@@ -49,9 +46,6 @@ type
     ToolButton15: TToolButton;
     ToolButton17: TToolButton;
     ToolButton2: TToolButton;
-    ToolButton3: TToolButton;
-    ToolButton4: TToolButton;
-    RestartBtn: TToolButton;
     StopBtn: TToolButton;
     ToolButton5: TToolButton;
     ToolButton7: TToolButton;
@@ -64,7 +58,6 @@ type
     procedure ApkInfoBtnClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure ActiveLabelChangeBounds(Sender: TObject);
-    procedure EnabledLabelChangeBounds(Sender: TObject);
     procedure KeyLabelChangeBounds(Sender: TObject);
     procedure DisableBtnClick(Sender: TObject);
     procedure LogMemoKeyDown(Sender: TObject; var Key: word; Shift: TShiftState);
@@ -236,14 +229,6 @@ begin
     ActiveLabel.Font.Color := clRed;
 end;
 
-procedure TMainForm.EnabledLabelChangeBounds(Sender: TObject);
-begin
-  if EnabledLabel.Caption = 'enabled' then
-    EnabledLabel.Font.Color := clGreen
-  else
-    EnabledLabel.Font.Color := clRed;
-end;
-
 procedure TMainForm.KeyLabelChangeBounds(Sender: TObject);
 begin
   if KeyLabel.Caption = 'yes' then
@@ -268,31 +253,17 @@ begin
   PageControl1.ActivePageIndex := 0;
 
   case (Sender as TToolButton).Tag of
-    0: //ReStart
+    0: //Restart
     begin
       LogMemo.Clear;
-      StartProcess('killall adb; systemctl restart adb');
+      ActiveLabel.Caption := 'restart';
+      StartProcess('killall adb; adb kill-server');
     end;
 
-    1: //Stop
-    begin
-      LogMemo.Clear;
-      ActiveLabel.Caption := 'stopping';
-      StartProcess('systemctl stop adb; killall adb');
-    end;
-
-    2: //Enable-Disable
-    begin
-      if EnabledLabel.Caption = 'enabled' then
-        StartProcess('systemctl disable adb')
-      else
-        StartProcess('systemctl enable adb');
-    end;
-
-    3: //Delete Key
+    1: //Delete Key
       StartProcess('rm -rf ~/.android/*');
 
-    4: Close;
+    2: Close;
   end;
 
 end;
