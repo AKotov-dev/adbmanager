@@ -47,8 +47,8 @@ begin
     ExProcess.Parameters.Add('-c');
     ExProcess.Parameters.Add(adbcmd);
 
-    ExProcess.Options := ExProcess.Options + [poUsePipes,
-      poStderrToOutPut, poWaitOnExit];
+    ExProcess.Options := ExProcess.Options +
+      [poUsePipes, poStderrToOutPut, poWaitOnExit];
 
     ExProcess.Execute;
     Result.LoadFromStream(ExProcess.Output);

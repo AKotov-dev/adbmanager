@@ -182,3 +182,4 @@ msgstr "Поиск пакетов"
 #: unit1.ssearchstring
 msgid "Input search string (\"*\" - all packages):"
 msgstr "Введите строку поиска (\"*\" - все пакеты):"
+

@@ -6,8 +6,7 @@ interface
 
 uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls, Buttons,
-  ComCtrls, ExtCtrls, IniPropStorage, Process, LCLTranslator, DefaultTranslator,
-  ExtDlgs;
+  ComCtrls, ExtCtrls, IniPropStorage, Process, LCLTranslator, DefaultTranslator;
 
 type
 
@@ -167,7 +166,7 @@ begin
     begin
       OpenDialog1.Filter := 'APK-Package files (*.akp)|*.apk';
       if OpenDialog1.Execute then
-        adbcmd := 'adb install "' + OpenDialog1.FileName + '"'
+        adbcmd := 'adb install -f "' + OpenDialog1.FileName + '"'
       else
         Exit;
     end;
@@ -255,7 +254,7 @@ begin
     begin
       LogMemo.Clear;
       ActiveLabel.Caption := 'restart';
-        PageControl1.ActivePageIndex := 0;
+      PageControl1.ActivePageIndex := 0;
       StartProcess('killall adb; adb kill-server');
     end;
 
