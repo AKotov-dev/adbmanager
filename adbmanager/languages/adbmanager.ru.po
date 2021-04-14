@@ -14,7 +14,7 @@ msgstr ""
 
 #: tmainform.activelabel.caption
 msgctxt "tmainform.activelabel.caption"
-msgid "..."
+msgid "wait..."
 msgstr ""
 
 #: tmainform.backupbtn.caption
@@ -41,7 +41,7 @@ msgstr "установить"
 
 #: tmainform.keylabel.caption
 msgctxt "tmainform.keylabel.caption"
-msgid "..."
+msgid "wait..."
 msgstr ""
 
 #: tmainform.label1.caption
@@ -61,6 +61,12 @@ msgctxt "tmainform.rebootbtn.caption"
 msgid "reboot"
 msgstr "перезагрузка"
 
+#: tmainform.restartbtn.caption
+#, fuzzy
+msgctxt "tmainform.restartbtn.caption"
+msgid "Restart"
+msgstr "Рестарт"
+
 #: tmainform.restorebtn.caption
 msgctxt "tmainform.restorebtn.caption"
 msgid "restore"
@@ -74,11 +80,6 @@ msgstr "скриншот"
 #: tmainform.statictext1.caption
 msgid "License: GPLv3  Author: alex_q_2000 (C) 2021"
 msgstr "Лицензия: GPLv3  Автор: alex_q_2000 (C) 2021"
-
-#: tmainform.stopbtn.caption
-msgctxt "tmainform.stopbtn.caption"
-msgid "Restart"
-msgstr "Рестарт"
 
 #: tmainform.tabsheet1.caption
 msgid "Devices"

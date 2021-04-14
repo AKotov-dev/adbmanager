@@ -45,7 +45,7 @@ type
     ToolButton15: TToolButton;
     ToolButton17: TToolButton;
     ToolButton2: TToolButton;
-    StopBtn: TToolButton;
+    RestartBtn: TToolButton;
     ToolButton5: TToolButton;
     ToolButton7: TToolButton;
     UninstallBtn: TToolButton;
@@ -115,6 +115,9 @@ procedure TMainForm.FormCreate(Sender: TObject);
 var
   FStartShowStatusThread: TThread;
 begin
+  //Перезапуск сервера, если не запущен (adb devices и сам сервер запускаются в потоке статуса)
+  StartProcess('[[ $(lsof -n -i4TCP:5037 | grep LISTEN) ]] || (adb kill-server; killall adb)');
+
   //Запуск потока отображения статуса
   FStartShowStatusThread := ShowStatus.Create(False);
   FStartShowStatusThread.Priority := tpNormal;
@@ -166,7 +169,7 @@ begin
     begin
       OpenDialog1.Filter := 'APK-Package files (*.akp)|*.apk';
       if OpenDialog1.Execute then
-        adbcmd := 'adb install -f "' + OpenDialog1.FileName + '"'
+        adbcmd := 'adb install "' + OpenDialog1.FileName + '"'
       else
         Exit;
     end;
@@ -179,12 +182,17 @@ begin
           adbcmd := 'adb uninstall ' + Trim(S);
       until S <> '';
 
-    4: //backup (-shared + карта памяти)
+    4: //backup (-noshared = без карты памяти)
+    begin
+      //Имя бэкапа (сек + 1)
+      S := Concat('backup-', FormatDateTime('dd-mm-yyyy_hh-nn-ss', Now), '.adb');
+      SaveDialog1.FileName := S;
+
       if SaveDialog1.Execute then
-        adbcmd := 'adb backup -apk -noshared -all -f "' + SaveDialog1.FileName + '"'
+        adbcmd := 'adb backup -apk -noshared -all -f "' + S + '"'
       else
         Exit;
-
+    end;
     5: //restore
     begin
       OpenDialog1.Filter := 'ADB Backup files (*.adb)|*.adb';
@@ -197,9 +205,10 @@ begin
     6: //screenshot
       if SelectDirectoryDialog1.Execute then
       begin
-        //Имя скриншота (сек + 1)
-        S := Concat(FormatDateTime('dd-mm-yyyy_hh-nn-ss', Now), '.png');
         SetCurrentDir(SelectDirectoryDialog1.FileName);
+
+        //Имя скриншота (сек + 1)
+        S := Concat('screenshot-', FormatDateTime('dd-mm-yyyy_hh-nn-ss', Now), '.png');
         adbcmd :=
           'adb shell screencap -p /sdcard/' + S + '; adb pull /sdcard/' +
           S + '; adb shell rm /sdcard/' + S;
@@ -253,7 +262,7 @@ begin
     0: //Restart
     begin
       LogMemo.Clear;
-      ActiveLabel.Caption := 'restart';
+      ActiveLabel.Caption := 'resume...';
       PageControl1.ActivePageIndex := 0;
       StartProcess('killall adb; adb kill-server');
     end;

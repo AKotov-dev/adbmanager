@@ -73,7 +73,6 @@ begin
 
       Exprocess.Execute;
       Result.LoadFromStream(ExProcess.Output);
-
       Synchronize(@ShowKey);
 
       Sleep(250);
@@ -101,8 +100,9 @@ end;
 procedure ShowStatus.ShowIsActive;
 begin
   if Result.Count <> 0 then
-  MainForm.ActiveLabel.Caption := 'active' else
-    MainForm.ActiveLabel.Caption := 'inactive';
+    MainForm.ActiveLabel.Caption := 'active'
+  else
+    MainForm.ActiveLabel.Caption := 'launch, wait...';
 end;
 
 //Вывод списка устройств
@@ -112,4 +112,3 @@ begin
 end;
 
 end.
-
