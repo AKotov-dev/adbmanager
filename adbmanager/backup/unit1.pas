@@ -189,7 +189,7 @@ begin
       SaveDialog1.FileName := S;
 
       if SaveDialog1.Execute then
-        adbcmd := 'adb backup -apk -noshared -all -f "' + S + '"'
+        adbcmd := 'adb backup -apk -noshared -all -f "' + SaveDialog1.FileName + '"'
       else
         Exit;
     end;

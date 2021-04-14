@@ -1,7 +1,7 @@
 object MainForm: TMainForm
-  Left = 285
+  Left = 304
   Height = 480
-  Top = 139
+  Top = 123
   Width = 627
   Caption = 'ADBManager'
   ClientHeight = 480
@@ -89,11 +89,11 @@ object MainForm: TMainForm
     TabOrder = 2
     object TabSheet1: TTabSheet
       Caption = 'Devices'
-      ClientHeight = 201
+      ClientHeight = 199
       ClientWidth = 621
       object DevicesBox: TListBox
         Left = 0
-        Height = 201
+        Height = 199
         Top = 0
         Width = 621
         Align = alClient
@@ -103,7 +103,7 @@ object MainForm: TMainForm
         Items.Strings = (
           'scanning adb status & devices, wait...'
         )
-        ItemHeight = 23
+        ItemHeight = 25
         ItemIndex = 0
         ParentFont = False
         ScrollWidth = 621
@@ -112,7 +112,7 @@ object MainForm: TMainForm
     end
     object TabSheet2: TTabSheet
       Caption = 'Execution log'
-      ClientHeight = 201
+      ClientHeight = 199
       ClientWidth = 621
       object LogMemo: TMemo
         Left = 0
@@ -155,7 +155,7 @@ object MainForm: TMainForm
     object Label2: TLabel
       AnchorSideLeft.Control = ActiveLabel
       AnchorSideLeft.Side = asrBottom
-      Left = 114
+      Left = 113
       Height = 16
       Top = 8
       Width = 31
@@ -170,11 +170,11 @@ object MainForm: TMainForm
       AnchorSideLeft.Control = Label1
       AnchorSideLeft.Side = asrBottom
       AnchorSideTop.Control = Label1
-      Left = 48
+      Left = 47
       Height = 16
       Top = 8
       Width = 46
-      BorderSpacing.Left = 3
+      BorderSpacing.Left = 2
       Caption = 'wait...'
       Font.Color = clRed
       Font.Height = -15
@@ -187,11 +187,11 @@ object MainForm: TMainForm
       AnchorSideLeft.Control = Label2
       AnchorSideLeft.Side = asrBottom
       AnchorSideTop.Control = Label2
-      Left = 148
+      Left = 146
       Height = 16
       Top = 8
       Width = 46
-      BorderSpacing.Left = 3
+      BorderSpacing.Left = 2
       Caption = 'wait...'
       Font.Color = clRed
       Font.Height = -15
@@ -216,14 +216,14 @@ object MainForm: TMainForm
     Wrapable = False
     object InstallBtn: TToolButton
       Tag = 2
-      Left = 149
+      Left = 147
       Top = 2
       Caption = 'install'
       ImageIndex = 2
       OnClick = ApkInfoBtnClick
     end
     object ToolButton2: TToolButton
-      Left = 144
+      Left = 142
       Height = 64
       Top = 2
       Caption = 'ToolButton2'
@@ -231,14 +231,14 @@ object MainForm: TMainForm
     end
     object UninstallBtn: TToolButton
       Tag = 3
-      Left = 218
+      Left = 216
       Top = 2
       Caption = 'uninstall'
       ImageIndex = 3
       OnClick = ApkInfoBtnClick
     end
     object ToolButton6: TToolButton
-      Left = 282
+      Left = 280
       Height = 64
       Top = 2
       Caption = 'ToolButton6'
@@ -246,14 +246,14 @@ object MainForm: TMainForm
     end
     object BackupBtn: TToolButton
       Tag = 4
-      Left = 287
+      Left = 285
       Top = 2
       Caption = 'backup'
       ImageIndex = 4
       OnClick = ApkInfoBtnClick
     end
     object ToolButton9: TToolButton
-      Left = 351
+      Left = 349
       Height = 64
       Top = 2
       Caption = 'ToolButton9'
@@ -261,14 +261,14 @@ object MainForm: TMainForm
     end
     object RestoreBtn: TToolButton
       Tag = 5
-      Left = 356
+      Left = 354
       Top = 2
       Caption = 'restore'
       ImageIndex = 5
       OnClick = ApkInfoBtnClick
     end
     object ToolButton11: TToolButton
-      Left = 420
+      Left = 418
       Height = 64
       Top = 2
       Caption = 'ToolButton11'
@@ -276,7 +276,7 @@ object MainForm: TMainForm
     end
     object ScreenShotBtn: TToolButton
       Tag = 6
-      Left = 425
+      Left = 423
       Top = 2
       Caption = 'screenshot'
       ImageIndex = 6
@@ -284,21 +284,21 @@ object MainForm: TMainForm
     end
     object RebootBtn: TToolButton
       Tag = 7
-      Left = 504
+      Left = 502
       Top = 2
       Caption = 'reboot'
       ImageIndex = 7
       OnClick = ApkInfoBtnClick
     end
     object ToolButton15: TToolButton
-      Left = 499
+      Left = 497
       Height = 64
       Top = 2
       Caption = 'ToolButton15'
       Style = tbsDivider
     end
     object ToolButton17: TToolButton
-      Left = 213
+      Left = 211
       Height = 64
       Top = 2
       Caption = 'ToolButton17'

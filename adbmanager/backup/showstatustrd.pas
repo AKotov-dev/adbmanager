@@ -5,7 +5,7 @@ unit ShowStatusTRD;
 interface
 
 uses
-  Classes, Process, SysUtils, ComCtrls, Graphics;
+  Classes, Process, SysUtils, ComCtrls, Graphics, Dialogs;
 
 type
   ShowStatus = class(TThread)
@@ -49,14 +49,16 @@ begin
       Result.Clear;
       Exprocess.Parameters.Clear;
 
-      ExProcess.Parameters.Add('-c');
+      ExProcess.Parameters.Add('-c');  // | grep -Ev "^$"
       ExProcess.Parameters.Add('adb devices | tail -n +2');
 
       ExProcess.Execute;
 
       Result.LoadFromStream(ExProcess.Output);
 
-      if Result.Count <> 0 then
+      Result.Text:=Trim(Result.Text);
+
+     // if Result.Count <> 0 then
         Synchronize(@ShowDevices);
 
       //Status-is-active?
@@ -102,12 +104,13 @@ begin
   if Result.Count <> 0 then
     MainForm.ActiveLabel.Caption := 'active'
   else
-    MainForm.ActiveLabel.Caption := 'launch, wait...';
+    MainForm.ActiveLabel.Caption := 'launch...';
 end;
 
 //Вывод списка устройств
 procedure ShowStatus.ShowDevices;
 begin
+//showmessage(Result.Text);
   MainForm.DevicesBox.Items.Assign(Result);
 end;
 

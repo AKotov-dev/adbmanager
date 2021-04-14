@@ -49,15 +49,16 @@ begin
       Result.Clear;
       Exprocess.Parameters.Clear;
 
-      ExProcess.Parameters.Add('-c');
+      ExProcess.Parameters.Add('-c');  // | grep -Ev "^$"
       ExProcess.Parameters.Add('adb devices | tail -n +2');
 
       ExProcess.Execute;
 
       Result.LoadFromStream(ExProcess.Output);
 
-      if Result.Count <> 0 then
-        Synchronize(@ShowDevices);
+      //Удаляем начальные и конечные переводы строки/пробелы (чистый вывод устройств)
+      Result.Text := Trim(Result.Text);
+      Synchronize(@ShowDevices);
 
       //Status-is-active?
       ExProcess.Parameters.Delete(1);
