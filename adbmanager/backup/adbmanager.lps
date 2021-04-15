@@ -33,13 +33,13 @@
         </CompilerOptions>
       </Item1>
     </BuildModes>
-    <Units Count="4">
+    <Units Count="5">
       <Unit0>
         <Filename Value="adbmanager.pas"/>
         <IsPartOfProject Value="True"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="30" Y="18"/>
-        <UsageCount Value="43"/>
+        <UsageCount Value="45"/>
       </Unit0>
       <Unit1>
         <Filename Value="unit1.pas"/>
@@ -48,9 +48,9 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="Unit1"/>
-        <TopLine Value="243"/>
-        <CursorPos X="3" Y="82"/>
-        <UsageCount Value="43"/>
+        <TopLine Value="205"/>
+        <CursorPos X="35" Y="221"/>
+        <UsageCount Value="45"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit1>
@@ -58,11 +58,10 @@
         <Filename Value="showstatustrd.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="ShowStatusTRD"/>
-        <IsVisibleTab Value="True"/>
-        <EditorIndex Value="1"/>
-        <TopLine Value="100"/>
-        <CursorPos X="40" Y="118"/>
-        <UsageCount Value="35"/>
+        <EditorIndex Value="2"/>
+        <TopLine Value="102"/>
+        <CursorPos X="66" Y="120"/>
+        <UsageCount Value="37"/>
         <Loaded Value="True"/>
       </Unit2>
       <Unit3>
@@ -72,129 +71,143 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="36"/>
         <CursorPos X="39" Y="51"/>
-        <UsageCount Value="32"/>
+        <UsageCount Value="34"/>
       </Unit3>
+      <Unit4>
+        <Filename Value="rebootunit.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="RebootForm"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <IsVisibleTab Value="True"/>
+        <EditorIndex Value="1"/>
+        <TopLine Value="23"/>
+        <CursorPos X="42" Y="29"/>
+        <UsageCount Value="22"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
+      </Unit4>
     </Units>
     <JumpHistory Count="30" HistoryIndex="29">
       <Position1>
-        <Filename Value="unit1.pas"/>
-        <Caret Line="254" Column="3" TopLine="242"/>
+        <Filename Value="rebootunit.pas"/>
+        <Caret Line="41" TopLine="11"/>
       </Position1>
       <Position2>
-        <Filename Value="unit1.pas"/>
-        <Caret Line="118" Column="160" TopLine="114"/>
+        <Filename Value="rebootunit.pas"/>
+        <Caret Line="39" TopLine="15"/>
       </Position2>
       <Position3>
-        <Filename Value="unit1.pas"/>
-        <Caret Line="249" Column="23" TopLine="242"/>
+        <Filename Value="rebootunit.pas"/>
+        <Caret Line="45" TopLine="15"/>
       </Position3>
       <Position4>
-        <Filename Value="unit1.pas"/>
-        <Caret Line="236" Column="3" TopLine="234"/>
+        <Filename Value="rebootunit.pas"/>
+        <Caret Line="50" Column="65" TopLine="21"/>
       </Position4>
       <Position5>
-        <Filename Value="unit1.pas"/>
-        <Caret Line="192" TopLine="174"/>
+        <Filename Value="rebootunit.pas"/>
+        <Caret Line="41" TopLine="21"/>
       </Position5>
       <Position6>
-        <Filename Value="showstatustrd.pas"/>
-        <Caret Line="111" Column="27" TopLine="82"/>
+        <Filename Value="rebootunit.pas"/>
+        <Caret Line="40" TopLine="15"/>
       </Position6>
       <Position7>
-        <Filename Value="showstatustrd.pas"/>
-        <Caret Line="53" Column="74" TopLine="37"/>
+        <Filename Value="rebootunit.pas"/>
+        <Caret Line="56" Column="3" TopLine="24"/>
       </Position7>
       <Position8>
-        <Filename Value="showstatustrd.pas"/>
-        <Caret Line="111" Column="26" TopLine="83"/>
+        <Filename Value="rebootunit.pas"/>
+        <Caret Line="46" Column="66" TopLine="24"/>
       </Position8>
       <Position9>
-        <Filename Value="showstatustrd.pas"/>
-        <Caret Line="112" Column="52" TopLine="83"/>
+        <Filename Value="rebootunit.pas"/>
+        <Caret Line="52" TopLine="25"/>
       </Position9>
       <Position10>
-        <Filename Value="unit1.pas"/>
-        <Caret Line="192" Column="79" TopLine="179"/>
+        <Filename Value="rebootunit.pas"/>
+        <Caret Line="45" TopLine="15"/>
       </Position10>
       <Position11>
-        <Filename Value="unit1.pas"/>
-        <Caret Line="163" Column="24" TopLine="148"/>
+        <Filename Value="rebootunit.pas"/>
+        <Caret Line="38" Column="24" TopLine="10"/>
       </Position11>
       <Position12>
-        <Filename Value="unit1.pas"/>
-        <Caret Line="235" Column="35" TopLine="232"/>
+        <Filename Value="rebootunit.pas"/>
+        <Caret Line="39" TopLine="10"/>
       </Position12>
       <Position13>
-        <Filename Value="unit1.pas"/>
-        <Caret Line="234" Column="42" TopLine="218"/>
+        <Filename Value="rebootunit.pas"/>
+        <Caret Line="46" Column="14" TopLine="16"/>
       </Position13>
       <Position14>
-        <Filename Value="unit1.pas"/>
-        <Caret Line="235" Column="28" TopLine="218"/>
+        <Filename Value="rebootunit.pas"/>
+        <Caret Line="45" Column="14" TopLine="16"/>
       </Position14>
       <Position15>
-        <Filename Value="unit1.pas"/>
-        <Caret Line="236" Column="39" TopLine="219"/>
+        <Filename Value="rebootunit.pas"/>
+        <Caret Line="44" Column="14" TopLine="15"/>
       </Position15>
       <Position16>
-        <Filename Value="unit1.pas"/>
-        <Caret Line="234" Column="30" TopLine="219"/>
+        <Filename Value="rebootunit.pas"/>
+        <Caret Line="45" Column="14" TopLine="15"/>
       </Position16>
       <Position17>
-        <Filename Value="showstatustrd.pas"/>
-        <Caret Line="114" Column="46" TopLine="85"/>
+        <Filename Value="rebootunit.pas"/>
+        <Caret Line="27" Column="42" TopLine="6"/>
       </Position17>
       <Position18>
-        <Filename Value="unit1.pas"/>
-        <Caret Line="236" Column="46" TopLine="232"/>
+        <Filename Value="rebootunit.pas"/>
+        <Caret Line="42" Column="43" TopLine="12"/>
       </Position18>
       <Position19>
-        <Filename Value="unit1.pas"/>
-        <Caret Line="243" Column="46" TopLine="239"/>
+        <Filename Value="rebootunit.pas"/>
+        <Caret Line="41" Column="43" TopLine="12"/>
       </Position19>
       <Position20>
-        <Filename Value="unit1.pas"/>
-        <Caret Line="236" Column="20" TopLine="234"/>
+        <Filename Value="rebootunit.pas"/>
+        <Caret Line="40" Column="43" TopLine="11"/>
       </Position20>
       <Position21>
-        <Filename Value="unit1.pas"/>
-        <Caret Line="241" TopLine="234"/>
+        <Filename Value="rebootunit.pas"/>
+        <Caret Line="41" Column="43" TopLine="11"/>
       </Position21>
       <Position22>
-        <Filename Value="unit1.pas"/>
-        <Caret Line="236" TopLine="234"/>
+        <Filename Value="rebootunit.pas"/>
+        <Caret Line="43" Column="43" TopLine="11"/>
       </Position22>
       <Position23>
         <Filename Value="unit1.pas"/>
-        <Caret Line="235" TopLine="233"/>
+        <Caret Line="72" TopLine="65"/>
       </Position23>
       <Position24>
-        <Filename Value="showstatustrd.pas"/>
-        <Caret Line="114" TopLine="84"/>
+        <Filename Value="rebootunit.pas"/>
+        <Caret Line="49" Column="9" TopLine="19"/>
       </Position24>
       <Position25>
-        <Filename Value="unit1.pas"/>
-        <Caret Line="229" TopLine="229"/>
+        <Filename Value="rebootunit.pas"/>
+        <Caret Line="37" Column="4" TopLine="16"/>
       </Position25>
       <Position26>
         <Filename Value="unit1.pas"/>
-        <Caret Line="228" TopLine="228"/>
+        <Caret Line="222" Column="26" TopLine="202"/>
       </Position26>
       <Position27>
-        <Filename Value="unit1.pas"/>
-        <Caret Line="137" TopLine="130"/>
+        <Filename Value="rebootunit.pas"/>
+        <Caret Line="60" Column="3" TopLine="34"/>
       </Position27>
       <Position28>
-        <Filename Value="unit1.pas"/>
-        <Caret Line="263" TopLine="242"/>
+        <Filename Value="rebootunit.pas"/>
+        <Caret Line="61" Column="101" TopLine="34"/>
       </Position28>
       <Position29>
-        <Filename Value="showstatustrd.pas"/>
-        <Caret Line="112" Column="46" TopLine="81"/>
+        <Filename Value="unit1.pas"/>
+        <Caret Line="221" Column="41" TopLine="205"/>
       </Position29>
       <Position30>
-        <Filename Value="showstatustrd.pas"/>
-        <Caret Line="109" Column="3" TopLine="96"/>
+        <Filename Value="rebootunit.pas"/>
+        <Caret Line="61" Column="3" TopLine="31"/>
       </Position30>
     </JumpHistory>
     <RunParams>

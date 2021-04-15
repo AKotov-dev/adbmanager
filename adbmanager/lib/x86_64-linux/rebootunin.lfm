@@ -1,0 +1,59 @@
+object RebootForm: TRebootForm
+  Left = 452
+  Height = 124
+  Top = 142
+  Width = 374
+  Caption = 'Reboot Smartphone'
+  ClientHeight = 124
+  ClientWidth = 374
+  Position = poMainFormCenter
+  LCLVersion = '2.0.10.0'
+  object RadioGroup1: TRadioGroup
+    Left = 8
+    Height = 105
+    Top = 8
+    Width = 240
+    AutoFill = True
+    Caption = 'Select mode:'
+    ChildSizing.LeftRightSpacing = 6
+    ChildSizing.EnlargeHorizontal = crsHomogenousChildResize
+    ChildSizing.EnlargeVertical = crsHomogenousChildResize
+    ChildSizing.ShrinkHorizontal = crsScaleChilds
+    ChildSizing.ShrinkVertical = crsScaleChilds
+    ChildSizing.Layout = cclLeftToRightThenTopToBottom
+    ChildSizing.ControlsPerLine = 1
+    ClientHeight = 87
+    ClientWidth = 238
+    Font.Height = -13
+    Font.Name = 'Sans'
+    ItemIndex = 0
+    Items.Strings = (
+      'Normal reboot'
+      'Recovery reboot'
+    )
+    ParentFont = False
+    TabOrder = 0
+  end
+  object BitBtn1: TBitBtn
+    Left = 272
+    Height = 40
+    Top = 8
+    Width = 91
+    Default = True
+    DefaultCaption = True
+    Kind = bkOK
+    ModalResult = 1
+    TabOrder = 1
+  end
+  object BitBtn2: TBitBtn
+    Left = 272
+    Height = 40
+    Top = 73
+    Width = 91
+    Cancel = True
+    DefaultCaption = True
+    Kind = bkCancel
+    ModalResult = 2
+    TabOrder = 2
+  end
+end

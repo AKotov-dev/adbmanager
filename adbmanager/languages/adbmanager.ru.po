@@ -12,6 +12,14 @@ msgstr ""
 "Language: ru\n"
 "X-Generator: Poedit 2.4.2\n"
 
+#: rebootunit.snormalreboot
+msgid "Normal reboot"
+msgstr "Обычная перезагрузка"
+
+#: rebootunit.srecoveryreboot
+msgid "Reboot into recovery"
+msgstr "Перезагрузка в Recovery"
+
 #: tmainform.activelabel.caption
 msgctxt "tmainform.activelabel.caption"
 msgid "running..."
@@ -142,6 +150,23 @@ msgstr ""
 msgctxt "tmainform.uninstallbtn.caption"
 msgid "uninstall"
 msgstr "удалить"
+
+#: trebootform.button2.caption
+msgid "Cancel"
+msgstr "Отмена"
+
+#: trebootform.caption
+msgid "Smartphone reboot"
+msgstr "Перезагрузка смартфона"
+
+#: trebootform.okbtn.caption
+msgctxt "trebootform.okbtn.caption"
+msgid "OK"
+msgstr ""
+
+#: trebootform.radiogroup1.caption
+msgid "Select mode:"
+msgstr "Укажите режим:"
 
 #: unit1.sdeletecaption
 msgctxt "unit1.sdeletecaption"

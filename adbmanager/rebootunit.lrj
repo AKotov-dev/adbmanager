@@ -1,0 +1,6 @@
+{"version":1,"strings":[
+{"hash":213846660,"name":"trebootform.caption","sourcebytes":[83,109,97,114,116,112,104,111,110,101,32,114,101,98,111,111,116],"value":"Smartphone reboot"},
+{"hash":68186410,"name":"trebootform.radiogroup1.caption","sourcebytes":[83,101,108,101,99,116,32,109,111,100,101,58],"value":"Select mode:"},
+{"hash":1339,"name":"trebootform.okbtn.caption","sourcebytes":[79,75],"value":"OK"},
+{"hash":77089212,"name":"trebootform.button2.caption","sourcebytes":[67,97,110,99,101,108],"value":"Cancel"}
+]}

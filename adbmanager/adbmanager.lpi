@@ -73,7 +73,7 @@
         <PackageName Value="LCL"/>
       </Item1>
     </RequiredPackages>
-    <Units Count="4">
+    <Units Count="5">
       <Unit0>
         <Filename Value="adbmanager.pas"/>
         <IsPartOfProject Value="True"/>
@@ -96,6 +96,13 @@
         <IsPartOfProject Value="True"/>
         <UnitName Value="ADBCommandTRD"/>
       </Unit3>
+      <Unit4>
+        <Filename Value="rebootunit.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="RebootForm"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+      </Unit4>
     </Units>
   </ProjectOptions>
   <CompilerOptions>

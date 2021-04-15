@@ -87,7 +87,7 @@ var
 
 implementation
 
-uses ShowStatusTRD, ADBCommandTRD;
+uses ShowStatusTRD, ADBCommandTRD, RebootUnit;
 
 {$R *.lfm}
 
@@ -149,6 +149,7 @@ begin
       else
         adbcmd := 'adb connect ' + Trim(S) + ':5555';
     end;
+
     1: //Search Package
     begin
       repeat
@@ -215,10 +216,10 @@ begin
         Exit;
 
     7: //reboot
-      if MessageDlg(SRebootMsg, mtConfirmation, [mbYes, mbNo], 0) = mrYes then
-        adbcmd := 'adb reboot'
-      else
-        Exit;
+    begin
+      RebootForm.ShowModal;
+      if RebootForm.ModalResult <> mrOk then Exit;
+    end;
   end;
 
   //Запуск команды и потока отображения лога исполнения
@@ -256,6 +257,9 @@ end;
 //Обработка нажатия кнопок управления ADB
 procedure TMainForm.RestartBtnClick(Sender: TObject);
 begin
+  //Очистка лога
+  LogMemo.Clear;
+
   case (Sender as TToolButton).Tag of
     0: //Restart
     begin
