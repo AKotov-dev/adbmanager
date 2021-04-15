@@ -30,7 +30,7 @@ uses Unit1;
 
 { TRD }
 
-//Scan ADB-devices, status and adbkey
+//Scan ADB-device, status and adbkey
 procedure ShowStatus.Execute;
 var
   ExProcess: TProcess;
@@ -49,30 +49,27 @@ begin
       Result.Clear;
       Exprocess.Parameters.Clear;
 
-      ExProcess.Parameters.Add('-c');  // | grep -Ev "^$"
-      ExProcess.Parameters.Add('adb devices | tail -n +2');
-
+      ExProcess.Parameters.Add('-c');  // | grep -Ev "^$"  // grep devices
+      ExProcess.Parameters.Add('adb devices | tail -n +2 | awk ' +
+        '''' + '{ print $1 }' + '''');
       ExProcess.Execute;
 
       Result.LoadFromStream(ExProcess.Output);
-
-      //Удаляем начальные и конечные переводы строки/пробелы (чистый вывод устройств)
-      Result.Text := Trim(Result.Text);
       Synchronize(@ShowDevices);
 
       //Status-is-active?
       ExProcess.Parameters.Delete(1);
       ExProcess.Parameters.Add('lsof -n -i4TCP:5037 | grep LISTEN');
-
       Exprocess.Execute;
+
       Result.LoadFromStream(ExProcess.Output);
       Synchronize(@ShowIsActive);
 
       //Key exists?
       ExProcess.Parameters.Delete(1);
       ExProcess.Parameters.Add('ls ~/.android | grep adbkey');
-
       Exprocess.Execute;
+
       Result.LoadFromStream(ExProcess.Output);
       Synchronize(@ShowKey);
 
@@ -97,7 +94,7 @@ begin
     MainForm.KeyLabel.Caption := 'no';
 end;
 
-//Вывод IsActive
+//Вывод активности ADB
 procedure ShowStatus.ShowIsActive;
 begin
   if Result.Count <> 0 then
@@ -106,10 +103,33 @@ begin
     MainForm.ActiveLabel.Caption := 'launch...';
 end;
 
-//Вывод списка устройств
+//Вывод найденного устройства
 procedure ShowStatus.ShowDevices;
 begin
-  MainForm.DevicesBox.Items.Assign(Result);
+  //Удаляем начальные и конечные переводы строки/пробелы
+  Result.Text := Trim(Result.Text);
+
+  //Больше одного устройства? Переключаем на последнее
+  if Result.Count > 1 then
+  begin
+    if Result[0] = MainForm.DevSheet.Caption then
+    begin
+      MainForm.StartProcess('adb disconnect ' + Result[0]);
+      if Pos(':', Result[1]) <> 0 then //Если tcpip
+        MainForm.StartProcess('adb connect ' + Result[1]);
+    end
+    else
+    begin
+      MainForm.StartProcess('adb disconnect ' + Result[1]);
+      if Pos(':', Result[0]) <> 0 then //Если tcpip
+        MainForm.StartProcess('adb connect ' + Result[0]);
+    end;
+  end
+  else
+  if Result.Text <> '' then
+    MainForm.DevSheet.Caption := Result[0]
+  else
+    MainForm.DevSheet.Caption := SNoDevice;
 end;
 
 end.

@@ -2,7 +2,7 @@
 name=adbmanager
 
 [VERSION]
-version=0.7
+version=0.8
 
 [RELEASE]
 release=0.mrx8
@@ -84,24 +84,27 @@ toolversion=2.0.10
 1=and connection of Android smartphones. Allows you to monitor the status of the "adb" service,
 2=manage it, and control the list of connected devices.
 3=
-4=v0.7
-5=+ adb kill-server; killall adb on start program (Mageia)
-6=+ screenshot and backup files set auto name
-7=+ new icons in the smartphone control panel
-8=
-9=v0.6
-10=+ pkexec excluded
-11=+ adapted for Debian
-12=
-13=v0.5
-14=+ usb/tcpip connection
-15=+ changed the package search engine
-16=
-17=v0.4
-18=+ Smartphone Management panel
-19=+ execution log monitor
-20=
-21=v0.3
-22=+ status polling in a separate thread
-23=+ monospaced font in devices log
-24=+ Russian and English languages
+4=v0.8
+5=+ only one device used
+6=
+7=v0.7
+8=+ adb kill-server; killall adb on start program (Mageia)
+9=+ screenshot and backup files set auto name
+10=+ new icons in the smartphone control panel
+11=
+12=v0.6
+13=+ pkexec excluded
+14=+ adapted for Debian
+15=
+16=v0.5
+17=+ usb/tcpip connection
+18=+ changed the package search engine
+19=
+20=v0.4
+21=+ Smartphone Management panel
+22=+ execution log monitor
+23=
+24=v0.3
+25=+ status polling in a separate thread
+26=+ monospaced font in devices log
+27=+ Russian and English languages

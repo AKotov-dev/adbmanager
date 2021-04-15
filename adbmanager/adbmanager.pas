@@ -2,20 +2,20 @@ program adbmanager;
 
 {$mode objfpc}{$H+}
 
-uses
-  {$IFDEF UNIX}
-  cthreads,
-  {$ENDIF}
+uses {$IFDEF UNIX}
+  cthreads, {$ENDIF}
   Interfaces, // this includes the LCL widgetset
-  Forms, Unit1, ShowStatusTRD, ADBCommandTRD
-  { you can add units after this };
+  Forms,
+  Unit1,
+  ShowStatusTRD,
+  ADBCommandTRD { you can add units after this };
 
 {$R *.res}
 
 begin
-  RequireDerivedFormResource:=True;
-  Application.Title:='ADBManager v0.7';
-  Application.Scaled:=True;
+  RequireDerivedFormResource := True;
+  Application.Title := 'ADBManager v0.8';
+  Application.Scaled := True;
   Application.Initialize;
   Application.CreateForm(TMainForm, MainForm);
   Application.Run;

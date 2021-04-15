@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<CONFIG>
-  <Compiler Value="/usr/bin/fpc" Date="1593972111"/>
-  <Params Value=" -MObjFPC -Scghi -CX -O3 -XX -l -vewnhibq -Fi/home/marsik/Desktop/adbmanager/lib/i386-linux -Fu/usr/lib/lazarus/lcl/units/i386-linux/gtk2 -Fu/usr/lib/lazarus/lcl/units/i386-linux -Fu/usr/lib/lazarus/components/lazutils/lib/i386-linux -Fu/usr/lib/lazarus/packager/units/i386-linux -Fu/home/marsik/Desktop/adbmanager/ -FU/home/marsik/Desktop/adbmanager/lib/i386-linux/ -FE/home/marsik/Desktop/adbmanager/ -o/home/marsik/Desktop/adbmanager/adbmanager -dLCL -dLCLgtk2 adbmanager.pas"/>
-</CONFIG>

@@ -34,14 +34,14 @@ procedure StartADBCommand.Execute;
 var
   ExProcess: TProcess;
 begin
-  try
+  try //Вывод лога и прогресса
     Synchronize(@StartProgress);
 
-    FreeOnTerminate := True; //Уничтожать по завершении
+    FreeOnTerminate := True; //Уничтожить по завершении
     Result := TStringList.Create;
 
-    //Вывод лога и прогресса
-    ExProcess := TProcess.Create(nil); //Рабочий процесс
+    //Рабочий процесс
+    ExProcess := TProcess.Create(nil);
 
     ExProcess.Executable := 'bash';
     ExProcess.Parameters.Add('-c');
@@ -51,8 +51,10 @@ begin
       [poUsePipes, poStderrToOutPut, poWaitOnExit];
 
     ExProcess.Execute;
+
     Result.LoadFromStream(ExProcess.Output);
-    //Выводим лог конвертирования
+
+    //Выводим лог
     if Result.Count <> 0 then
       Synchronize(@ShowLog);
 
@@ -84,11 +86,10 @@ begin
   begin
     ProgressBar1.Visible := False;
     ProgressBar1.Style := pbstNormal;
-    ProgressBar1.Position := 0;
   end;
 end;
 
-//Вывод лога (построчное накопление)
+//Вывод лога
 procedure StartADBCommand.ShowLog;
 begin
   MainForm.LogMemo.Lines.Assign(Result);

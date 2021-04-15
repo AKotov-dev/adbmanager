@@ -1,9 +1,8 @@
 object MainForm: TMainForm
-  Left = 300
+  Left = 303
   Height = 480
   Top = 123
   Width = 627
-  ActiveControl = DevicesBox
   Caption = 'ADBManager'
   ClientHeight = 480
   ClientWidth = 627
@@ -80,7 +79,7 @@ object MainForm: TMainForm
     Height = 236
     Top = 224
     Width = 627
-    ActivePage = TabSheet1
+    ActivePage = DevSheet
     Align = alBottom
     Anchors = [akTop, akLeft, akRight, akBottom]
     Font.Height = -13
@@ -88,38 +87,19 @@ object MainForm: TMainForm
     ParentFont = False
     TabIndex = 0
     TabOrder = 2
-    object TabSheet1: TTabSheet
-      Caption = 'Devices'
+    object DevSheet: TTabSheet
+      Caption = 'no device'
       ClientHeight = 199
       ClientWidth = 621
-      object DevicesBox: TListBox
+      Font.Height = -13
+      Font.Name = 'Sans'
+      Font.Style = [fsBold]
+      ParentFont = False
+      object LogMemo: TMemo
         Left = 0
         Height = 199
         Top = 0
         Width = 621
-        Align = alClient
-        BorderStyle = bsNone
-        Font.Height = -13
-        Font.Name = 'Monospace'
-        Items.Strings = (
-          'scanning adb status & devices, wait...'
-        )
-        ItemHeight = 25
-        ItemIndex = 0
-        ParentFont = False
-        ScrollWidth = 621
-        TabOrder = 0
-      end
-    end
-    object TabSheet2: TTabSheet
-      Caption = 'Execution log'
-      ClientHeight = 199
-      ClientWidth = 621
-      object LogMemo: TMemo
-        Left = 0
-        Height = 206
-        Top = 0
-        Width = 614
         Align = alClient
         BorderStyle = bsNone
         Font.Height = -13
@@ -156,7 +136,7 @@ object MainForm: TMainForm
     object Label2: TLabel
       AnchorSideLeft.Control = ActiveLabel
       AnchorSideLeft.Side = asrBottom
-      Left = 113
+      Left = 142
       Height = 16
       Top = 8
       Width = 31
@@ -174,9 +154,9 @@ object MainForm: TMainForm
       Left = 47
       Height = 16
       Top = 8
-      Width = 46
+      Width = 75
       BorderSpacing.Left = 2
-      Caption = 'wait...'
+      Caption = 'running...'
       Font.Color = clRed
       Font.Height = -15
       Font.Name = 'Sans'
@@ -188,7 +168,7 @@ object MainForm: TMainForm
       AnchorSideLeft.Control = Label2
       AnchorSideLeft.Side = asrBottom
       AnchorSideTop.Control = Label2
-      Left = 146
+      Left = 175
       Height = 16
       Top = 8
       Width = 46
@@ -305,7 +285,7 @@ object MainForm: TMainForm
       Caption = 'ToolButton17'
       Style = tbsDivider
     end
-    object ToolButton1: TToolButton
+    object SearchBtn: TToolButton
       Tag = 1
       Left = 70
       Top = 2

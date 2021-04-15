@@ -14,7 +14,6 @@ type
 
   TMainForm = class(TForm)
     ActiveLabel: TLabel;
-    DevicesBox: TListBox;
     ImageList1: TImageList;
     ImageList2: TImageList;
     IniPropStorage1: TIniPropStorage;
@@ -30,14 +29,13 @@ type
     SaveDialog1: TSaveDialog;
     SelectDirectoryDialog1: TSelectDirectoryDialog;
     StaticText1: TStaticText;
-    TabSheet1: TTabSheet;
-    TabSheet2: TTabSheet;
+    DevSheet: TTabSheet;
     ToolBar1: TToolBar;
     DeleteKeyBtn: TToolButton;
     ToolBar2: TToolBar;
     InstallBtn: TToolButton;
     RestoreBtn: TToolButton;
-    ToolButton1: TToolButton;
+    SearchBtn: TToolButton;
     ToolButton11: TToolButton;
     ToolButton12: TToolButton;
     ScreenShotBtn: TToolButton;
@@ -81,6 +79,7 @@ resourcestring
   SSearchString = 'Input search string ("*" - all packages):';
   SIPConnectCaption = 'Connection';
   SIPAddress = 'Input IP address ок "usb":';
+  SNoDevice = 'no device';
 
 
 var
@@ -136,7 +135,6 @@ var
   FADBCommandThread: TThread;
 begin
   S := '';
-  PageControl1.ActivePageIndex := 1;
 
   //Определяем команду по кнопке
   case (Sender as TToolButton).Tag of
@@ -263,7 +261,6 @@ begin
     begin
       LogMemo.Clear;
       ActiveLabel.Caption := 'resume...';
-      PageControl1.ActivePageIndex := 0;
       StartProcess('killall adb; adb kill-server');
     end;
 

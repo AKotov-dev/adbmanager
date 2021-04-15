@@ -14,8 +14,8 @@ msgstr ""
 
 #: tmainform.activelabel.caption
 msgctxt "tmainform.activelabel.caption"
-msgid "wait..."
-msgstr ""
+msgid "running..."
+msgstr "запуск..."
 
 #: tmainform.backupbtn.caption
 msgctxt "tmainform.backupbtn.caption"
@@ -30,6 +30,11 @@ msgstr ""
 msgid "Delete Key"
 msgstr "Удалить Ключ"
 
+#: tmainform.devsheet.caption
+msgctxt "tmainform.devsheet.caption"
+msgid "no device"
+msgstr "нет устройства"
+
 #: tmainform.exitbtn.caption
 msgid "Exit"
 msgstr "Выход"
@@ -42,7 +47,7 @@ msgstr "установить"
 #: tmainform.keylabel.caption
 msgctxt "tmainform.keylabel.caption"
 msgid "wait..."
-msgstr ""
+msgstr "ожидание..."
 
 #: tmainform.label1.caption
 msgid "ADB:"
@@ -62,7 +67,6 @@ msgid "reboot"
 msgstr "перезагрузка"
 
 #: tmainform.restartbtn.caption
-#, fuzzy
 msgctxt "tmainform.restartbtn.caption"
 msgid "Restart"
 msgstr "Рестарт"
@@ -77,17 +81,14 @@ msgctxt "tmainform.screenshotbtn.caption"
 msgid "screenshot"
 msgstr "скриншот"
 
+#: tmainform.searchbtn.caption
+msgctxt "tmainform.searchbtn.caption"
+msgid "search apk"
+msgstr "поиск apk"
+
 #: tmainform.statictext1.caption
 msgid "License: GPLv3  Author: alex_q_2000 (C) 2021"
 msgstr "Лицензия: GPLv3  Автор: alex_q_2000 (C) 2021"
-
-#: tmainform.tabsheet1.caption
-msgid "Devices"
-msgstr "Устройство"
-
-#: tmainform.tabsheet2.caption
-msgid "Execution log"
-msgstr "Лог выполнения"
 
 #: tmainform.toolbar1.caption
 msgid "ToolBar1"
@@ -96,10 +97,6 @@ msgstr ""
 #: tmainform.toolbar2.caption
 msgid "ToolBar2"
 msgstr ""
-
-#: tmainform.toolbutton1.caption
-msgid "search apk"
-msgstr "поиск apk"
 
 #: tmainform.toolbutton11.caption
 msgid "ToolButton11"
@@ -168,6 +165,11 @@ msgstr "Введите IP адрес или \"usb\":"
 msgid "Connection"
 msgstr "Подключение"
 
+#: unit1.snodevice
+msgctxt "unit1.snodevice"
+msgid "no device"
+msgstr "нет устройства"
+
 #: unit1.spackagename
 msgid "Input the package name:"
 msgstr "Введите имя пакета:"
@@ -183,4 +185,3 @@ msgstr "Поиск пакетов"
 #: unit1.ssearchstring
 msgid "Input search string (\"*\" - all packages):"
 msgstr "Введите строку поиска (\"*\" - все пакеты):"
-

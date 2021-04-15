@@ -14,7 +14,7 @@ msgstr ""
 
 #: tmainform.activelabel.caption
 msgctxt "tmainform.activelabel.caption"
-msgid "wait..."
+msgid "running..."
 msgstr ""
 
 #: tmainform.backupbtn.caption
@@ -28,6 +28,11 @@ msgstr ""
 
 #: tmainform.deletekeybtn.caption
 msgid "Delete Key"
+msgstr ""
+
+#: tmainform.devsheet.caption
+msgctxt "tmainform.devsheet.caption"
+msgid "no device"
 msgstr ""
 
 #: tmainform.exitbtn.caption
@@ -76,16 +81,13 @@ msgctxt "tmainform.screenshotbtn.caption"
 msgid "screenshot"
 msgstr ""
 
+#: tmainform.searchbtn.caption
+msgctxt "tmainform.searchbtn.caption"
+msgid "search apk"
+msgstr ""
+
 #: tmainform.statictext1.caption
 msgid "License: GPLv3  Author: alex_q_2000 (C) 2021"
-msgstr ""
-
-#: tmainform.tabsheet1.caption
-msgid "Devices"
-msgstr ""
-
-#: tmainform.tabsheet2.caption
-msgid "Execution log"
 msgstr ""
 
 #: tmainform.toolbar1.caption
@@ -94,10 +96,6 @@ msgstr ""
 
 #: tmainform.toolbar2.caption
 msgid "ToolBar2"
-msgstr ""
-
-#: tmainform.toolbutton1.caption
-msgid "search apk"
 msgstr ""
 
 #: tmainform.toolbutton11.caption
@@ -165,6 +163,11 @@ msgstr ""
 
 #: unit1.sipconnectcaption
 msgid "Connection"
+msgstr ""
+
+#: unit1.snodevice
+msgctxt "unit1.snodevice"
+msgid "no device"
 msgstr ""
 
 #: unit1.spackagename
