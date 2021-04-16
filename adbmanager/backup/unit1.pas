@@ -218,7 +218,8 @@ begin
     7: //reboot
     begin
       RebootForm.ShowModal;
-      if RebootForm.ModalResult <> mrOk then Exit;
+      if RebootForm.ModalResult <> mrOk then
+        Exit;
     end;
   end;
 
