@@ -49,13 +49,16 @@ begin
       Result.Clear;
       Exprocess.Parameters.Clear;
 
-      ExProcess.Parameters.Add('-c');  // | grep -Ev "^$"  // grep devices
-      ExProcess.Parameters.Add('adb devices | tail -n +2 | awk ' +
-        '''' + '{ print $1 }' + '''');
+      //Устройство + статус
+      ExProcess.Parameters.Add('-c');
+      ExProcess.Parameters.Add('adb devices | tail -n +2');
       ExProcess.Execute;
 
       Result.LoadFromStream(ExProcess.Output);
       Synchronize(@ShowDevices);
+
+
+
 
       //Status-is-active?
       ExProcess.Parameters.Delete(1);
@@ -103,8 +106,11 @@ begin
     MainForm.ActiveLabel.Caption := 'launch...';
 end;
 
-//Вывод найденного устройства
+//Вывод найденного устройства и статуса
 procedure ShowStatus.ShowDevices;
+var
+  i: integer;
+  dev0, dev1: string;
 begin
   //Удаляем начальные и конечные переводы строки/пробелы
   Result.Text := Trim(Result.Text);
@@ -112,20 +118,25 @@ begin
   //Больше одного устройства? Переключаем на последнее
   if Result.Count > 1 then
   begin
+    i := Pos(#9, Result[0]);
+    dev0 := Trim(Copy(Result[0], 1, i));
+    i := Pos(#9, Result[1]);
+    dev1 := Trim(Copy(Result[1], 1, i));
+
     if Result[0] = MainForm.DevSheet.Caption then
     begin
-      MainForm.StartProcess('adb disconnect ' + Result[0]);
-      if Pos(':', Result[1]) <> 0 then
-        MainForm.StartProcess('adb connect ' + Result[1]);
+      MainForm.StartProcess('adb disconnect ' + dev0);
+      if Pos(':', dev1) <> 0 then //Если tcpip
+        MainForm.StartProcess('adb connect ' + dev1);
     end
     else
     begin
-      MainForm.StartProcess('adb disconnect ' + Result[1]);
-      if Pos(':', Result[0]) <> 0 then
-        MainForm.StartProcess('adb connect ' + Result[0]);
+      MainForm.StartProcess('adb disconnect ' + dev1);
+      if Pos(':', dev0) <> 0 then //Если tcpip
+        MainForm.StartProcess('adb connect ' + dev0);
     end;
   end
-  else
+  else //Единственное устройство и статус выводим сразу, либо "no device"
   if Result.Text <> '' then
     MainForm.DevSheet.Caption := Result[0]
   else
