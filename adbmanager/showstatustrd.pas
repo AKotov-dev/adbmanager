@@ -57,9 +57,6 @@ begin
       Result.LoadFromStream(ExProcess.Output);
       Synchronize(@ShowDevices);
 
-
-
-
       //Status-is-active?
       ExProcess.Parameters.Delete(1);
       ExProcess.Parameters.Add('lsof -n -i4TCP:5037 | grep LISTEN');

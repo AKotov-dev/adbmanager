@@ -8,7 +8,7 @@ uses {$IFDEF UNIX}
   Forms,
   Unit1,
   ShowStatusTRD,
-  ADBCommandTRD, rebootunit { you can add units after this };
+  ADBCommandTRD, rebootunit, BackUpUnit { you can add units after this };
 
 {$R *.res}
 
@@ -19,6 +19,7 @@ begin
   Application.Initialize;
   Application.CreateForm(TMainForm, MainForm);
   Application.CreateForm(TRebootForm, RebootForm);
+  Application.CreateForm(TBackupForm, BackupForm);
   Application.Run;
 end.
 

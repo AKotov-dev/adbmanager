@@ -87,7 +87,7 @@ var
 
 implementation
 
-uses ShowStatusTRD, ADBCommandTRD, RebootUnit;
+uses ShowStatusTRD, ADBCommandTRD, RebootUnit, BackUpUnit;
 
 {$R *.lfm}
 
@@ -183,13 +183,8 @@ begin
 
     4: //backup (-noshared = без карты памяти)
     begin
-      //Имя бэкапа (сек + 1)
-      S := Concat('backup-', FormatDateTime('dd-mm-yyyy_hh-nn-ss', Now), '.adb');
-      SaveDialog1.FileName := S;
-
-      if SaveDialog1.Execute then
-        adbcmd := 'adb backup -apk -noshared -all -f "' + SaveDialog1.FileName + '"'
-      else
+      BackupForm.ShowModal; //Показываем варианты бэкапа
+      if BackupForm.ModalResult <> mrOk then
         Exit;
     end;
     5: //restore

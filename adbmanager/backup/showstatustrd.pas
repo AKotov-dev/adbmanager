@@ -118,11 +118,11 @@ begin
   //Больше одного устройства? Переключаем на последнее
   if Result.Count > 1 then
   begin
-    i := Pos(#9, Result[0]);
+    i := Pos(#9, Result[0]); //Выделяем имя-1
     dev0 := Trim(Copy(Result[0], 1, i));
-    i := Pos(#9, Result[1]);
+    i := Pos(#9, Result[1]); //Выделяем имя-2
     dev1 := Trim(Copy(Result[1], 1, i));
-
+    //Disconnect уже активного (1 или 2) и Connect существующего (если по IP)
     if Result[0] = MainForm.DevSheet.Caption then
     begin
       MainForm.StartProcess('adb disconnect ' + dev0);

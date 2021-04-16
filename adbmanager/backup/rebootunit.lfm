@@ -4,7 +4,7 @@ object RebootForm: TRebootForm
   Top = 271
   Width = 385
   ActiveControl = OKBtn
-  Caption = 'Smartphone reboot'
+  Caption = 'Reboot/Shutdown'
   ClientHeight = 148
   ClientWidth = 385
   OnCreate = FormCreate
@@ -43,7 +43,7 @@ object RebootForm: TRebootForm
     AnchorSideLeft.Side = asrBottom
     AnchorSideBottom.Control = CancelBtn
     Left = 291
-    Height = 25
+    Height = 28
     Top = 8
     Width = 88
     Anchors = [akTop, akRight]
@@ -58,7 +58,7 @@ object RebootForm: TRebootForm
     AnchorSideLeft.Control = RadioGroup1
     AnchorSideLeft.Side = asrBottom
     Left = 291
-    Height = 25
+    Height = 28
     Top = 40
     Width = 88
     Anchors = [akTop, akRight]
@@ -69,7 +69,7 @@ object RebootForm: TRebootForm
   end
   object IniPropStorage1: TIniPropStorage
     StoredValues = <>
-    Left = 368
-    Top = 88
+    Left = 320
+    Top = 96
   end
 end

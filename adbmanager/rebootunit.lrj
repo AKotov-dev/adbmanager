@@ -1,5 +1,5 @@
 {"version":1,"strings":[
-{"hash":213846660,"name":"trebootform.caption","sourcebytes":[83,109,97,114,116,112,104,111,110,101,32,114,101,98,111,111,116],"value":"Smartphone reboot"},
+{"hash":111999742,"name":"trebootform.caption","sourcebytes":[82,101,98,111,111,116,47,83,104,117,116,100,111,119,110],"value":"Reboot/Shutdown"},
 {"hash":1339,"name":"trebootform.okbtn.caption","sourcebytes":[79,75],"value":"OK"},
 {"hash":77089212,"name":"trebootform.cancelbtn.caption","sourcebytes":[67,97,110,99,101,108],"value":"Cancel"}
 ]}

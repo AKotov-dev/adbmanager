@@ -12,6 +12,15 @@ msgstr ""
 "Language: ru\n"
 "X-Generator: Poedit 2.4.2\n"
 
+#: backupunit.snoshared
+msgctxt "backupunit.snoshared"
+msgid "Backup without SD-card"
+msgstr "Бэкап без SD-карты"
+
+#: backupunit.sshared
+msgid "Full backup (long procedure)"
+msgstr "Полный бэкап (долгая процедура)"
+
 #: rebootunit.sbootloader
 msgid "Reboot to Bootloader"
 msgstr "Перезагрузка в Bootloader"
@@ -27,6 +36,21 @@ msgstr "Перезагрузка в Recovery mode"
 #: rebootunit.sshutdown
 msgid "Shutdown the device"
 msgstr "Выключить устройство"
+
+#: tbackupform.cancelbtn.caption
+msgctxt "tbackupform.cancelbtn.caption"
+msgid "Cancel"
+msgstr "Отмена"
+
+#: tbackupform.caption
+msgctxt "tbackupform.caption"
+msgid "Backup"
+msgstr "Бэкап"
+
+#: tbackupform.okbtn.caption
+msgctxt "tbackupform.okbtn.caption"
+msgid "OK"
+msgstr ""
 
 #: tmainform.activelabel.caption
 msgctxt "tmainform.activelabel.caption"
@@ -165,8 +189,8 @@ msgid "Cancel"
 msgstr "Отмена"
 
 #: trebootform.caption
-msgid "Smartphone reboot"
-msgstr "Перезагрузка смартфона"
+msgid "Reboot/Shutdown"
+msgstr "Перезагрузка/Выключение"
 
 #: trebootform.okbtn.caption
 msgctxt "trebootform.okbtn.caption"
@@ -215,4 +239,3 @@ msgstr "Поиск пакетов"
 #: unit1.ssearchstring
 msgid "Input search string (\"*\" - all packages):"
 msgstr "Введите строку поиска (\"*\" - все пакеты):"
-

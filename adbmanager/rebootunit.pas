@@ -44,7 +44,6 @@ uses unit1;
 
 procedure TRebootForm.FormCreate(Sender: TObject);
 begin
-
   RadioGroup1.Items[0] := SNormalReboot;
   RadioGroup1.Items[1] := SBootLoader;
   RadioGroup1.Items[2] := SRecoveryReboot;

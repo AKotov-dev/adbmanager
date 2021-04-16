@@ -1,11 +1,11 @@
 object MainForm: TMainForm
-  Left = 303
+  Left = 301
   Height = 497
-  Top = 126
-  Width = 668
+  Top = 123
+  Width = 665
   Caption = 'ADBManager'
   ClientHeight = 497
-  ClientWidth = 668
+  ClientWidth = 665
   OnCreate = FormCreate
   SessionProperties = 'Left;Top;Width;Height'
   LCLVersion = '2.0.10.0'
@@ -13,7 +13,7 @@ object MainForm: TMainForm
     Left = 0
     Height = 88
     Top = 0
-    Width = 668
+    Width = 665
     ButtonHeight = 80
     ButtonWidth = 80
     Caption = 'ToolBar1'
@@ -63,7 +63,7 @@ object MainForm: TMainForm
     Left = 0
     Height = 20
     Top = 477
-    Width = 668
+    Width = 665
     Align = alBottom
     Caption = 'License: GPLv3  Author: alex_q_2000 (C) 2021'
     Color = clDefault
@@ -78,7 +78,7 @@ object MainForm: TMainForm
     Left = 0
     Height = 253
     Top = 224
-    Width = 668
+    Width = 665
     ActivePage = DevSheet
     Align = alBottom
     Anchors = [akTop, akLeft, akRight, akBottom]
@@ -90,7 +90,7 @@ object MainForm: TMainForm
     object DevSheet: TTabSheet
       Caption = 'no device'
       ClientHeight = 216
-      ClientWidth = 662
+      ClientWidth = 659
       Font.Height = -13
       Font.Name = 'Sans'
       Font.Style = [fsBold]
@@ -99,7 +99,7 @@ object MainForm: TMainForm
         Left = 0
         Height = 216
         Top = 0
-        Width = 662
+        Width = 659
         Align = alClient
         BorderStyle = bsNone
         Font.Height = -13
@@ -116,11 +116,11 @@ object MainForm: TMainForm
     Left = 0
     Height = 34
     Top = 88
-    Width = 668
+    Width = 665
     Align = alTop
     BevelOuter = bvNone
     ClientHeight = 34
-    ClientWidth = 668
+    ClientWidth = 665
     TabOrder = 3
     object Label1: TLabel
       Left = 8
@@ -186,7 +186,7 @@ object MainForm: TMainForm
     Left = 0
     Height = 66
     Top = 148
-    Width = 668
+    Width = 665
     AutoSize = True
     ButtonHeight = 64
     ButtonWidth = 64
@@ -312,7 +312,7 @@ object MainForm: TMainForm
     Left = 0
     Height = 26
     Top = 122
-    Width = 668
+    Width = 665
     Align = alTop
     BevelOuter = bvNone
     Caption = 'Smartphone managing'
@@ -324,7 +324,7 @@ object MainForm: TMainForm
   end
   object ProgressBar1: TProgressBar
     AnchorSideTop.Control = PageControl1
-    Left = 429
+    Left = 426
     Height = 14
     Top = 229
     Width = 232

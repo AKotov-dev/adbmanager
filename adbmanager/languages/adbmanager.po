@@ -12,6 +12,15 @@ msgstr ""
 "Language: en\n"
 "X-Generator: Poedit 2.4.2\n"
 
+#: backupunit.snoshared
+msgctxt "backupunit.snoshared"
+msgid "Backup without SD-card"
+msgstr ""
+
+#: backupunit.sshared
+msgid "Full backup (long procedure)"
+msgstr ""
+
 #: rebootunit.sbootloader
 msgid "Reboot to Bootloader"
 msgstr ""
@@ -26,6 +35,21 @@ msgstr ""
 
 #: rebootunit.sshutdown
 msgid "Shutdown the device"
+msgstr ""
+
+#: tbackupform.cancelbtn.caption
+msgctxt "tbackupform.cancelbtn.caption"
+msgid "Cancel"
+msgstr ""
+
+#: tbackupform.caption
+msgctxt "tbackupform.caption"
+msgid "Backup"
+msgstr ""
+
+#: tbackupform.okbtn.caption
+msgctxt "tbackupform.okbtn.caption"
+msgid "OK"
 msgstr ""
 
 #: tmainform.activelabel.caption
@@ -165,7 +189,7 @@ msgid "Cancel"
 msgstr ""
 
 #: trebootform.caption
-msgid "Smartphone reboot"
+msgid "Reboot/Shutdown"
 msgstr ""
 
 #: trebootform.okbtn.caption

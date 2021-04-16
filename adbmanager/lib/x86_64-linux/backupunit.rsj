@@ -1,0 +1,4 @@
+{"version":1,"strings":[
+{"hash":258188660,"name":"backupunit.snoshared","sourcebytes":[66,97,99,107,117,112,32,119,105,116,104,111,117,116,32,83,68,45,99,97,114,100],"value":"Backup without SD-card"},
+{"hash":258139721,"name":"backupunit.sshared","sourcebytes":[70,117,108,108,32,98,97,99,107,117,112,32,40,108,111,110,103,32,112,114,111,99,101,100,117,114,101,41],"value":"Full backup (long procedure)"}
+]}

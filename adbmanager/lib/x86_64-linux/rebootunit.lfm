@@ -4,7 +4,7 @@ object RebootForm: TRebootForm
   Top = 271
   Width = 385
   ActiveControl = OKBtn
-  Caption = 'Smartphone reboot'
+  Caption = 'Reboot/Shutdown'
   ClientHeight = 148
   ClientWidth = 385
   OnCreate = FormCreate
@@ -69,7 +69,7 @@ object RebootForm: TRebootForm
   end
   object IniPropStorage1: TIniPropStorage
     StoredValues = <>
-    Left = 368
-    Top = 88
+    Left = 320
+    Top = 96
   end
 end
