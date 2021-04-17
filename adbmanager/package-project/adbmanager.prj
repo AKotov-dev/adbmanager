@@ -31,7 +31,7 @@ urlcopy=https://github.com/AKotov-dev/adbmanager
 license=GPLv3
 
 [DEPS]
-deps=adb sakura
+deps=adb iproute2 sakura
 
 [META]
 meta=0
