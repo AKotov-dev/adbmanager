@@ -2,7 +2,7 @@ ADBManager - Graphical ADB Server Manager
 ---
 The program is designed for visual and easy management of the ADB-Server and connection of Android smartphones. Allows you to monitor the status of the "adb" service, manage it, and control the list of connected devices. Allows you to manage your smartphone: search for installed packages by part name, install, delete APK, backup, restore, reboot (Normal, Bootloader, Recovery mode) and shutdown the device. Tested in Mageia-8 and Linux Mint-20.  
 
-Dependencies: adb, iproute, sakura  
+Dependencies: adb, iproute2, sakura  
 Free icons: https://icon-icons.com/ru/
 
 **Access permissions via USB**  
