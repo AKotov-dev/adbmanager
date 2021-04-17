@@ -80,7 +80,7 @@
         <ResourceBaseClass Value="Form"/>
         <IsVisibleTab Value="True"/>
         <EditorIndex Value="1"/>
-        <TopLine Value="36"/>
+        <TopLine Value="35"/>
         <CursorPos X="3" Y="58"/>
         <UsageCount Value="28"/>
         <Loaded Value="True"/>
