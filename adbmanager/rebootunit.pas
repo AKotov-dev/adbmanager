@@ -53,12 +53,15 @@ end;
 
 procedure TRebootForm.OKBtnClick(Sender: TObject);
 begin
+  //Отключаем терминал, если использовался
+  MainForm.StartProcess('[ $(pidof sakura) ] && killall sakura');
+
   //Обработка команд перезагрузки
   case RadioGroup1.ItemIndex of
-    0: adbcmd := '[ $(pidof sakura) ] && killall sakura; adb reboot';
-    1: adbcmd := '[ $(pidof sakura) ] && killall sakura; adb reboot bootloader';
-    2: adbcmd := '[ $(pidof sakura) ] && killall sakura; adb reboot recovery';
-    3: adbcmd := '[ $(pidof sakura) ] && killall sakura; adb shell reboot -p';
+    0: adbcmd := 'adb reboot';
+    1: adbcmd := 'adb reboot bootloader';
+    2: adbcmd := 'adb reboot recovery';
+    3: adbcmd := 'adb shell reboot -p';
   end;
 end;
 
