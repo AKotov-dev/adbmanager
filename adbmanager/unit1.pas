@@ -74,8 +74,6 @@ var //Команда ADB
   adbcmd: string;
 
 resourcestring
-  SDisable = 'Disable';
-  SEnable = 'Enable';
   SRebootMsg = 'Reboot device?';
   SDeleteCaption = 'Deleting a package';
   SPackageName = 'Input the package name:';

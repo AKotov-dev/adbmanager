@@ -68,10 +68,10 @@ object MainForm: TMainForm
     end
     object Label3: TLabel
       Left = 264
-      Height = 60
+      Height = 75
       Top = 2
       Width = 307
-      Caption = '1. Turn on the "USB Debugging" on smartphone'#10#10'2. Set the USB access rights on your the PC:'#10'usermod -a -G usb, plugdev $USER; reboot'
+      Caption = #10'1. Turn on the "USB Debugging" on smartphone'#10#10'2. Set the USB access rights on your the PC:'#10'usermod -a -G usb, plugdev $USER; reboot'
       Font.Height = -13
       Font.Name = 'Sans'
       ParentColor = False

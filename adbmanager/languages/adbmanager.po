@@ -220,15 +220,6 @@ msgctxt "unit1.sdeletecaption"
 msgid "Deleting a package"
 msgstr ""
 
-#: unit1.sdisable
-msgid "Disable"
-msgstr ""
-
-#: unit1.senable
-msgctxt "unit1.senable"
-msgid "Enable"
-msgstr ""
-
 #: unit1.sipaddress
 msgid "Input IP address or \"usb\":"
 msgstr ""

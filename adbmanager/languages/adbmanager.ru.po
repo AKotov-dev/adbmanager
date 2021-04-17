@@ -225,15 +225,6 @@ msgctxt "unit1.sdeletecaption"
 msgid "Deleting a package"
 msgstr "Удаление пакета"
 
-#: unit1.sdisable
-msgid "Disable"
-msgstr "Выключить"
-
-#: unit1.senable
-msgctxt "unit1.senable"
-msgid "Enable"
-msgstr "Включить"
-
 #: unit1.sipaddress
 msgid "Input IP address or \"usb\":"
 msgstr "Введите IP адрес или \"usb\":"
@@ -262,3 +253,4 @@ msgstr "Поиск пакетов"
 #: unit1.ssearchstring
 msgid "Input search string or \"*\":"
 msgstr "Введите строку поиска или \"*\":"
+
