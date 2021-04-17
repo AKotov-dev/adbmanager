@@ -139,6 +139,10 @@ msgctxt "tmainform.searchbtn.caption"
 msgid "search apk"
 msgstr "поиск apk"
 
+#: tmainform.shellbtn.caption
+msgid "command"
+msgstr "команда"
+
 #: tmainform.statictext1.caption
 msgid "License: GPLv3   Author: alex_q_2000 (C) 2021   URL: https://linuxforum.ru"
 msgstr "Лицензия: GPLv3   Автор: alex_q_2000 (C) 2021   URL: https://linuxforum.ru"
@@ -149,6 +153,10 @@ msgstr ""
 
 #: tmainform.toolbar2.caption
 msgid "ToolBar2"
+msgstr ""
+
+#: tmainform.toolbutton1.caption
+msgid "ToolButton1"
 msgstr ""
 
 #: tmainform.toolbutton11.caption

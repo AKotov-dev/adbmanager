@@ -38,6 +38,7 @@ type
     InstallBtn: TToolButton;
     RestoreBtn: TToolButton;
     SearchBtn: TToolButton;
+    ToolButton1: TToolButton;
     ToolButton11: TToolButton;
     ToolButton12: TToolButton;
     ScreenShotBtn: TToolButton;
@@ -46,6 +47,7 @@ type
     ToolButton17: TToolButton;
     ToolButton2: TToolButton;
     RestartBtn: TToolButton;
+    ShellBtn: TToolButton;
     ToolButton5: TToolButton;
     ToolButton7: TToolButton;
     UninstallBtn: TToolButton;
@@ -212,7 +214,9 @@ begin
       else
         Exit;
 
-    7: //reboot
+    7: StartProcess('sakura --title="Android Shell" -x "adb shell"'); //Android Shell
+
+    8: //reboot
     begin
       RebootForm.ShowModal; //Показываем варианты Reboot
       if RebootForm.ModalResult <> mrOk then
