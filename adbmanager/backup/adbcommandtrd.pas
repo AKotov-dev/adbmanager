@@ -55,6 +55,7 @@ begin
     Result.LoadFromStream(ExProcess.Output);
 
     //Выводим лог
+    Result.Text:=Trim(Result.Text);
     if Result.Count <> 0 then
       Synchronize(@ShowLog);
 
@@ -86,7 +87,6 @@ begin
   begin
     ProgressBar1.Visible := False;
     ProgressBar1.Style := pbstNormal;
-    StartProcess('adb devices');
   end;
 end;
 

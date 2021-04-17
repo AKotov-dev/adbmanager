@@ -55,6 +55,8 @@ begin
     Result.LoadFromStream(ExProcess.Output);
 
     //Выводим лог
+    Result.Text:=Trim(Result.Text);
+
     if Result.Count <> 0 then
       Synchronize(@ShowLog);
 

@@ -217,7 +217,7 @@ begin
     7: //Android Shell
     begin
       StartProcess('sakura --title="Android Shell" -x "adb shell"');
-      Exit;
+    //  Exit;
     end;
 
     8: //reboot
