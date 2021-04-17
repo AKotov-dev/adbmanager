@@ -48,8 +48,8 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="Unit1"/>
-        <TopLine Value="196"/>
-        <CursorPos X="7" Y="220"/>
+        <TopLine Value="253"/>
+        <CursorPos X="68" Y="214"/>
         <UsageCount Value="51"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -67,12 +67,10 @@
         <Filename Value="adbcommandtrd.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="ADBCommandTRD"/>
-        <IsVisibleTab Value="True"/>
-        <EditorIndex Value="1"/>
+        <EditorIndex Value="-1"/>
         <TopLine Value="35"/>
-        <CursorPos X="34" Y="58"/>
+        <CursorPos X="5" Y="59"/>
         <UsageCount Value="40"/>
-        <Loaded Value="True"/>
       </Unit3>
       <Unit4>
         <Filename Value="rebootunit.pas"/>
@@ -80,10 +78,13 @@
         <ComponentName Value="RebootForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="21"/>
-        <CursorPos Y="51"/>
+        <IsVisibleTab Value="True"/>
+        <EditorIndex Value="1"/>
+        <TopLine Value="33"/>
+        <CursorPos X="35" Y="61"/>
         <UsageCount Value="28"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
       </Unit4>
       <Unit5>
         <Filename Value="backupunit.pas"/>
@@ -97,7 +98,7 @@
         <UsageCount Value="24"/>
       </Unit5>
     </Units>
-    <JumpHistory Count="2" HistoryIndex="1">
+    <JumpHistory Count="3" HistoryIndex="2">
       <Position1>
         <Filename Value="unit1.pas"/>
         <Caret Line="254" Column="49" TopLine="242"/>
@@ -106,6 +107,10 @@
         <Filename Value="unit1.pas"/>
         <Caret Line="255" Column="49" TopLine="243"/>
       </Position2>
+      <Position3>
+        <Filename Value="rebootunit.pas"/>
+        <Caret Line="51" TopLine="21"/>
+      </Position3>
     </JumpHistory>
     <RunParams>
       <FormatVersion Value="2"/>

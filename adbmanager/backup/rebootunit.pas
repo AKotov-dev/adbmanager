@@ -44,7 +44,6 @@ uses unit1;
 
 procedure TRebootForm.FormCreate(Sender: TObject);
 begin
-
   RadioGroup1.Items[0] := SNormalReboot;
   RadioGroup1.Items[1] := SBootLoader;
   RadioGroup1.Items[2] := SRecoveryReboot;
@@ -56,10 +55,10 @@ procedure TRebootForm.OKBtnClick(Sender: TObject);
 begin
   //Обработка команд перезагрузки
   case RadioGroup1.ItemIndex of
-    0: adbcmd := 'adb reboot';
-    1: adbcmd := 'adb reboot bootloader';
-    2: adbcmd := 'adb reboot recovery';
-    3: adbcmd := 'adb shell reboot -p';
+    0: adbcmd := 'killall sakura; adb reboot';
+    1: adbcmd := 'killall sakura; adb reboot bootloader';
+    2: adbcmd := 'killall sakura; adb reboot recovery';
+    3: adbcmd := 'killall sakura; adb shell reboot -p';
   end;
 end;
 
