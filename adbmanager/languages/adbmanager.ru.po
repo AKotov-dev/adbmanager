@@ -142,8 +142,8 @@ msgid "search apk"
 msgstr "поиск apk"
 
 #: tmainform.shellbtn.caption
-msgid "command"
-msgstr "команда"
+msgid "terminal"
+msgstr "терминал"
 
 #: tmainform.statictext1.caption
 msgid "License: GPLv3   Author: alex_q_2000 (C) 2021   URL: https://linuxforum.ru"
@@ -253,4 +253,3 @@ msgstr "Поиск пакетов"
 #: unit1.ssearchstring
 msgid "Input search string or \"*\":"
 msgstr "Введите строку поиска или \"*\":"
-

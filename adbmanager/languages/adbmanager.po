@@ -137,7 +137,7 @@ msgid "search apk"
 msgstr ""
 
 #: tmainform.shellbtn.caption
-msgid "command"
+msgid "terminal"
 msgstr ""
 
 #: tmainform.statictext1.caption

@@ -30,6 +30,6 @@
 {"hash":117664914,"name":"tmainform.toolbutton5.caption","sourcebytes":[105,112,47,117,115,98],"value":"ip/usb"},
 {"hash":160486423,"name":"tmainform.toolbutton7.caption","sourcebytes":[84,111,111,108,66,117,116,116,111,110,55],"value":"ToolButton7"},
 {"hash":160486417,"name":"tmainform.toolbutton1.caption","sourcebytes":[84,111,111,108,66,117,116,116,111,110,49],"value":"ToolButton1"},
-{"hash":174340132,"name":"tmainform.shellbtn.caption","sourcebytes":[99,111,109,109,97,110,100],"value":"command"},
+{"hash":211026908,"name":"tmainform.shellbtn.caption","sourcebytes":[116,101,114,109,105,110,97,108],"value":"terminal"},
 {"hash":54211143,"name":"tmainform.panel2.caption","sourcebytes":[83,109,97,114,116,112,104,111,110,101,32,109,97,110,97,103,105,110,103],"value":"Smartphone managing"}
 ]}
