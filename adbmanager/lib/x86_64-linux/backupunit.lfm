@@ -3,7 +3,7 @@ object BackupForm: TBackupForm
   Height = 90
   Top = 149
   Width = 385
-  Caption = 'Backup'
+  Caption = 'Backup copying'
   ClientHeight = 90
   ClientWidth = 385
   OnCreate = FormCreate

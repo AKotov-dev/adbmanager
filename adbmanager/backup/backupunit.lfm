@@ -8,6 +8,7 @@ object BackupForm: TBackupForm
   ClientWidth = 385
   OnCreate = FormCreate
   Position = poMainFormCenter
+  SessionProperties = 'Width;Height'
   LCLVersion = '2.0.10.0'
   object RadioGroup1: TRadioGroup
     AnchorSideRight.Control = OKBtn

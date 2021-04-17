@@ -1,11 +1,12 @@
 object MainForm: TMainForm
-  Left = 301
+  Left = 299
   Height = 497
   Top = 123
-  Width = 665
+  Width = 664
+  ActiveControl = Panel1
   Caption = 'ADBManager'
   ClientHeight = 497
-  ClientWidth = 665
+  ClientWidth = 664
   OnCreate = FormCreate
   SessionProperties = 'Left;Top;Width;Height'
   LCLVersion = '2.0.10.0'
@@ -13,7 +14,7 @@ object MainForm: TMainForm
     Left = 0
     Height = 88
     Top = 0
-    Width = 665
+    Width = 664
     ButtonHeight = 80
     ButtonWidth = 80
     Caption = 'ToolBar1'
@@ -58,14 +59,33 @@ object MainForm: TMainForm
       Caption = 'ToolButton12'
       Style = tbsDivider
     end
+    object StaticText2: TStaticText
+      Left = 251
+      Height = 80
+      Top = 2
+      Width = 13
+      TabOrder = 0
+    end
+    object Label3: TLabel
+      Left = 264
+      Height = 60
+      Top = 2
+      Width = 307
+      Caption = '1. Turn on the "USB Debugging" on smartphone'#10#10'2. Set the USB access rights on your the PC:'#10'usermod -a -G usb plugdev $USER; reboot'
+      Font.Height = -13
+      Font.Name = 'Sans'
+      ParentColor = False
+      ParentFont = False
+      WordWrap = True
+    end
   end
   object StaticText1: TStaticText
     Left = 0
     Height = 20
     Top = 477
-    Width = 665
+    Width = 664
     Align = alBottom
-    Caption = 'License: GPLv3  Author: alex_q_2000 (C) 2021'
+    Caption = 'License: GPLv3   Author: alex_q_2000 (C) 2021   URL: https://linuxforum.ru'
     Color = clDefault
     Font.Color = clGray
     Font.Height = -12
@@ -78,7 +98,7 @@ object MainForm: TMainForm
     Left = 0
     Height = 253
     Top = 224
-    Width = 665
+    Width = 664
     ActivePage = DevSheet
     Align = alBottom
     Anchors = [akTop, akLeft, akRight, akBottom]
@@ -90,7 +110,7 @@ object MainForm: TMainForm
     object DevSheet: TTabSheet
       Caption = 'no device'
       ClientHeight = 216
-      ClientWidth = 659
+      ClientWidth = 658
       Font.Height = -13
       Font.Name = 'Sans'
       Font.Style = [fsBold]
@@ -99,7 +119,7 @@ object MainForm: TMainForm
         Left = 0
         Height = 216
         Top = 0
-        Width = 659
+        Width = 658
         Align = alClient
         BorderStyle = bsNone
         Font.Height = -13
@@ -116,11 +136,11 @@ object MainForm: TMainForm
     Left = 0
     Height = 34
     Top = 88
-    Width = 665
+    Width = 664
     Align = alTop
     BevelOuter = bvNone
     ClientHeight = 34
-    ClientWidth = 665
+    ClientWidth = 664
     TabOrder = 3
     object Label1: TLabel
       Left = 8
@@ -186,7 +206,7 @@ object MainForm: TMainForm
     Left = 0
     Height = 66
     Top = 148
-    Width = 665
+    Width = 664
     AutoSize = True
     ButtonHeight = 64
     ButtonWidth = 64
@@ -296,7 +316,7 @@ object MainForm: TMainForm
     object ToolButton5: TToolButton
       Left = 1
       Top = 2
-      Caption = 'connect'
+      Caption = 'ip/usb'
       ImageIndex = 0
       OnClick = ApkInfoBtnClick
     end
@@ -312,7 +332,7 @@ object MainForm: TMainForm
     Left = 0
     Height = 26
     Top = 122
-    Width = 665
+    Width = 664
     Align = alTop
     BevelOuter = bvNone
     Caption = 'Smartphone managing'
@@ -324,7 +344,7 @@ object MainForm: TMainForm
   end
   object ProgressBar1: TProgressBar
     AnchorSideTop.Control = PageControl1
-    Left = 426
+    Left = 425
     Height = 14
     Top = 229
     Width = 232

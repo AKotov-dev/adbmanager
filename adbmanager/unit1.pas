@@ -20,6 +20,7 @@ type
     KeyLabel: TLabel;
     Label1: TLabel;
     Label2: TLabel;
+    Label3: TLabel;
     LogMemo: TMemo;
     OpenDialog1: TOpenDialog;
     PageControl1: TPageControl;
@@ -30,6 +31,7 @@ type
     SelectDirectoryDialog1: TSelectDirectoryDialog;
     StaticText1: TStaticText;
     DevSheet: TTabSheet;
+    StaticText2: TStaticText;
     ToolBar1: TToolBar;
     DeleteKeyBtn: TToolButton;
     ToolBar2: TToolBar;
@@ -76,11 +78,10 @@ resourcestring
   SDeleteCaption = 'Deleting a package';
   SPackageName = 'Input the package name:';
   SSearchCaption = 'Search packages';
-  SSearchString = 'Input search string ("*" - all packages):';
+  SSearchString = 'Input search string or "*":';
   SIPConnectCaption = 'Connection';
-  SIPAddress = 'Input IP address ок "usb":';
+  SIPAddress = 'Input IP address or "usb":';
   SNoDevice = 'no device';
-
 
 var
   MainForm: TMainForm;
@@ -187,6 +188,7 @@ begin
       if BackupForm.ModalResult <> mrOk then
         Exit;
     end;
+
     5: //restore
     begin
       OpenDialog1.Filter := 'ADB Backup files (*.adb)|*.adb';

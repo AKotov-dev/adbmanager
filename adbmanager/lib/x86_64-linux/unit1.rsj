@@ -5,8 +5,8 @@
 {"hash":178083845,"name":"unit1.sdeletecaption","sourcebytes":[68,101,108,101,116,105,110,103,32,97,32,112,97,99,107,97,103,101],"value":"Deleting a package"},
 {"hash":121693418,"name":"unit1.spackagename","sourcebytes":[73,110,112,117,116,32,116,104,101,32,112,97,99,107,97,103,101,32,110,97,109,101,58],"value":"Input the package name:"},
 {"hash":254313235,"name":"unit1.ssearchcaption","sourcebytes":[83,101,97,114,99,104,32,112,97,99,107,97,103,101,115],"value":"Search packages"},
-{"hash":236927850,"name":"unit1.ssearchstring","sourcebytes":[73,110,112,117,116,32,115,101,97,114,99,104,32,115,116,114,105,110,103,32,40,34,42,34,32,45,32,97,108,108,32,112,97,99,107,97,103,101,115,41,58],"value":"Input search string (\"*\" - all packages):"},
+{"hash":42175338,"name":"unit1.ssearchstring","sourcebytes":[73,110,112,117,116,32,115,101,97,114,99,104,32,115,116,114,105,110,103,32,111,114,32,34,42,34,58],"value":"Input search string or \"*\":"},
 {"hash":79563278,"name":"unit1.sipconnectcaption","sourcebytes":[67,111,110,110,101,99,116,105,111,110],"value":"Connection"},
-{"hash":210650154,"name":"unit1.sipaddress","sourcebytes":[73,110,112,117,116,32,73,80,32,97,100,100,114,101,115,115,32,208,190,208,186,32,34,117,115,98,34,58],"value":"Input IP address \u00D0\u00BE\u00D0\u00BA \"usb\":"},
+{"hash":153233530,"name":"unit1.sipaddress","sourcebytes":[73,110,112,117,116,32,73,80,32,97,100,100,114,101,115,115,32,111,114,32,34,117,115,98,34,58],"value":"Input IP address or \"usb\":"},
 {"hash":111983237,"name":"unit1.snodevice","sourcebytes":[110,111,32,100,101,118,105,99,101],"value":"no device"}
 ]}

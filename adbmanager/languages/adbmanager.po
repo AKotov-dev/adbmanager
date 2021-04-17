@@ -44,7 +44,7 @@ msgstr ""
 
 #: tbackupform.caption
 msgctxt "tbackupform.caption"
-msgid "Backup"
+msgid "Backup copying"
 msgstr ""
 
 #: tbackupform.okbtn.caption
@@ -97,6 +97,15 @@ msgstr ""
 msgid "Key:"
 msgstr ""
 
+#: tmainform.label3.caption
+msgctxt "tmainform.label3.caption"
+msgid ""
+"1. Turn on the \"USB Debugging\" on smartphone\n"
+"\n"
+"2. Set the USB access rights on your the PC:\n"
+"usermod -a -G usb plugdev $USER; reboot\n"
+msgstr ""
+
 #: tmainform.panel2.caption
 msgid "Smartphone managing"
 msgstr ""
@@ -127,7 +136,7 @@ msgid "search apk"
 msgstr ""
 
 #: tmainform.statictext1.caption
-msgid "License: GPLv3  Author: alex_q_2000 (C) 2021"
+msgid "License: GPLv3   Author: alex_q_2000 (C) 2021   URL: https://linuxforum.ru"
 msgstr ""
 
 #: tmainform.toolbar1.caption
@@ -159,7 +168,7 @@ msgid "ToolButton2"
 msgstr ""
 
 #: tmainform.toolbutton5.caption
-msgid "connect"
+msgid "ip/usb"
 msgstr ""
 
 #: tmainform.toolbutton6.caption
@@ -212,7 +221,7 @@ msgid "Enable"
 msgstr ""
 
 #: unit1.sipaddress
-msgid "Input IP address ок \"usb\":"
+msgid "Input IP address or \"usb\":"
 msgstr ""
 
 #: unit1.sipconnectcaption
@@ -237,6 +246,6 @@ msgid "Search packages"
 msgstr ""
 
 #: unit1.ssearchstring
-msgid "Input search string (\"*\" - all packages):"
+msgid "Input search string or \"*\":"
 msgstr ""
 
