@@ -285,14 +285,14 @@ object MainForm: TMainForm
     end
     object RebootBtn: TToolButton
       Tag = 8
-      Left = 576
+      Left = 571
       Top = 2
       Caption = 'reboot'
       ImageIndex = 8
       OnClick = ApkInfoBtnClick
     end
     object ToolButton15: TToolButton
-      Left = 571
+      Left = 566
       Height = 64
       Top = 2
       Caption = 'ToolButton15'
@@ -338,7 +338,7 @@ object MainForm: TMainForm
       Tag = 7
       Left = 502
       Top = 2
-      Caption = 'command'
+      Caption = 'terminal'
       ImageIndex = 7
       OnClick = ApkInfoBtnClick
     end

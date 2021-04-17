@@ -59,7 +59,7 @@ begin
 
       //Status-is-active?
       ExProcess.Parameters.Delete(1);
-      ExProcess.Parameters.Add('lsof -n -i4TCP:5037 | grep LISTEN');
+      ExProcess.Parameters.Add('ss -lt | grep 5037');
       Exprocess.Execute;
 
       Result.LoadFromStream(ExProcess.Output);
