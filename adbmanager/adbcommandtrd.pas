@@ -47,18 +47,22 @@ begin
     ExProcess.Parameters.Add('-c');
     ExProcess.Parameters.Add(adbcmd);
 
-    ExProcess.Options := ExProcess.Options + [poUsePipes,
-      poStderrToOutPut, poWaitOnExit];
+    ExProcess.Options := ExProcess.Options + [poUsePipes, poStderrToOutPut];
+    //, poWaitOnExit (синхронный вывод)
 
     ExProcess.Execute;
 
-    Result.LoadFromStream(ExProcess.Output);
+    //Выводим лог динамически
+    while ExProcess.Running do
+    begin
+      Result.LoadFromStream(ExProcess.Output);
 
-    //Выводим лог
-    Result.Text:=Trim(Result.Text);
+      //Выводим лог
+      Result.Text := Trim(Result.Text);
 
-    if Result.Count <> 0 then
-      Synchronize(@ShowLog);
+      if Result.Count <> 0 then
+        Synchronize(@ShowLog);
+    end;
 
   finally
     Synchronize(@StopProgress);
@@ -93,8 +97,15 @@ end;
 
 //Вывод лога
 procedure StartADBCommand.ShowLog;
+var
+  i: integer;
 begin
-  MainForm.LogMemo.Lines.Assign(Result);
+  //Вывод построчно
+  for i := 0 to Result.Count - 1 do
+    MainForm.LogMemo.Lines.Append(Result[i]);
+
+  //Вывод пачками
+  //MainForm.LogMemo.Lines.Assign(Result);
 end;
 
 end.

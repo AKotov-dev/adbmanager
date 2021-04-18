@@ -66,6 +66,11 @@ msgstr "бэкап"
 msgid "ADBManager"
 msgstr ""
 
+#: tmainform.connectbtn.caption
+msgctxt "tmainform.connectbtn.caption"
+msgid "connect"
+msgstr "коннект"
+
 #: tmainform.deletekeybtn.caption
 msgid "Delete Key"
 msgstr "Удалить Ключ"
@@ -179,10 +184,6 @@ msgstr ""
 
 #: tmainform.toolbutton2.caption
 msgid "ToolButton2"
-msgstr ""
-
-#: tmainform.toolbutton5.caption
-msgid "ip/usb"
 msgstr ""
 
 #: tmainform.toolbutton6.caption

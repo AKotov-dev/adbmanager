@@ -48,29 +48,32 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="Unit1"/>
-        <EditorIndex Value="-1"/>
         <TopLine Value="114"/>
         <CursorPos X="55" Y="124"/>
         <UsageCount Value="51"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
       </Unit1>
       <Unit2>
         <Filename Value="showstatustrd.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="ShowStatusTRD"/>
-        <IsVisibleTab Value="True"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="46"/>
+        <EditorIndex Value="1"/>
+        <TopLine Value="31"/>
         <CursorPos X="62" Y="57"/>
         <UsageCount Value="43"/>
+        <Loaded Value="True"/>
       </Unit2>
       <Unit3>
         <Filename Value="adbcommandtrd.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="ADBCommandTRD"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="41"/>
-        <CursorPos X="5" Y="59"/>
+        <IsVisibleTab Value="True"/>
+        <EditorIndex Value="2"/>
+        <TopLine Value="79"/>
+        <CursorPos Y="51"/>
         <UsageCount Value="40"/>
+        <Loaded Value="True"/>
       </Unit3>
       <Unit4>
         <Filename Value="rebootunit.pas"/>
@@ -95,10 +98,16 @@
         <UsageCount Value="24"/>
       </Unit5>
     </Units>
-    <General>
-      <ActiveWindowIndexAtStart Value="-1"/>
-    </General>
-    <JumpHistory HistoryIndex="-1"/>
+    <JumpHistory Count="2" HistoryIndex="1">
+      <Position1>
+        <Filename Value="adbcommandtrd.pas"/>
+        <Caret Line="102" Column="27" TopLine="73"/>
+      </Position1>
+      <Position2>
+        <Filename Value="adbcommandtrd.pas"/>
+        <Caret Line="103" Column="23" TopLine="76"/>
+      </Position2>
+    </JumpHistory>
     <RunParams>
       <FormatVersion Value="2"/>
       <Modes Count="0" ActiveMode=""/>

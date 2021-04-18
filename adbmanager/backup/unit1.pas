@@ -48,7 +48,7 @@ type
     ToolButton2: TToolButton;
     RestartBtn: TToolButton;
     ShellBtn: TToolButton;
-    ToolButton5: TToolButton;
+    ConnectBtn: TToolButton;
     ToolButton7: TToolButton;
     UninstallBtn: TToolButton;
     ToolButton6: TToolButton;
@@ -116,7 +116,7 @@ var
   FStartShowStatusThread: TThread;
 begin
   //Перезапуск сервера, если не запущен (adb devices и сам сервер запускаются в потоке статуса)
-  StartProcess('[[ $(lsof -n -i4TCP:5037 | grep LISTEN) ]] || (adb kill-server; killall adb)');
+  StartProcess('[[ $(ss -lt | grep 5037) ]] || (adb kill-server; killall adb)');
 
   //Запуск потока отображения статуса
   FStartShowStatusThread := ShowStatus.Create(False);

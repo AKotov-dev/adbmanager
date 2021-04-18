@@ -1,7 +1,7 @@
 object MainForm: TMainForm
-  Left = 304
+  Left = 303
   Height = 522
-  Top = 125
+  Top = 124
   Width = 707
   ActiveControl = Panel1
   Caption = 'ADBManager'
@@ -313,10 +313,10 @@ object MainForm: TMainForm
       ImageIndex = 1
       OnClick = ApkInfoBtnClick
     end
-    object ToolButton5: TToolButton
+    object ConnectBtn: TToolButton
       Left = 1
       Top = 2
-      Caption = 'ip/usb'
+      Caption = 'ip <> usb'
       ImageIndex = 0
       OnClick = ApkInfoBtnClick
     end

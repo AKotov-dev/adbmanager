@@ -48,7 +48,7 @@ type
     ToolButton2: TToolButton;
     RestartBtn: TToolButton;
     ShellBtn: TToolButton;
-    ToolButton5: TToolButton;
+    ConnectBtn: TToolButton;
     ToolButton7: TToolButton;
     UninstallBtn: TToolButton;
     ToolButton6: TToolButton;
