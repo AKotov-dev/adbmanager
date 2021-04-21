@@ -48,6 +48,7 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="Unit1"/>
+        <IsVisibleTab Value="True"/>
         <EditorIndex Value="2"/>
         <TopLine Value="180"/>
         <CursorPos X="9" Y="202"/>
@@ -102,7 +103,6 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="SDCardManager"/>
-        <IsVisibleTab Value="True"/>
         <TopLine Value="259"/>
         <CursorPos X="16" Y="268"/>
         <UsageCount Value="40"/>

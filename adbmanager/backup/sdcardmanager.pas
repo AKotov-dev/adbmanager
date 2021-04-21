@@ -264,6 +264,9 @@ begin
   CompDir.Select(CompDir.TopItem, [ssCtrl]);
   CompDir.SetFocus;
 
+  //Очищаем лог
+  SDMemo.Clear;
+
   //Перечитываем текущий каталог SDBox (GroupBox2.Caption)
   //Возвращаем исходную директорию SD-Card
   GroupBox2.Caption := '/sdcard/';
