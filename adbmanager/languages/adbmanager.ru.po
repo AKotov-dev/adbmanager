@@ -247,6 +247,10 @@ msgstr "Создать папку"
 msgid "Panel2"
 msgstr ""
 
+#: tsdform.refreshbtn.hint
+msgid "Update"
+msgstr "Обновить"
+
 #: tsdform.selectallbtn.hint
 msgid "Select all"
 msgstr "Выделить всё"

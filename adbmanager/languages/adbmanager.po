@@ -242,6 +242,10 @@ msgstr ""
 msgid "Panel2"
 msgstr ""
 
+#: tsdform.refreshbtn.hint
+msgid "Update"
+msgstr ""
+
 #: tsdform.selectallbtn.hint
 msgid "Select all"
 msgstr ""

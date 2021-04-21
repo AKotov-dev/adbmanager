@@ -28,6 +28,7 @@ type
     SelectAllBtn: TSpeedButton;
     MkDirBtn: TSpeedButton;
     DelBtn: TSpeedButton;
+    RefreshBtn: TSpeedButton;
     Splitter1: TSplitter;
     Splitter2: TSplitter;
     UpBtn: TSpeedButton;
@@ -39,6 +40,7 @@ type
     procedure FormShow(Sender: TObject);
     procedure MkDirBtnClick(Sender: TObject);
     procedure MkPCDirBtnClick(Sender: TObject);
+    procedure RefreshBtnClick(Sender: TObject);
     procedure SDBoxDblClick(Sender: TObject);
     procedure StartProcess(command: string);
     procedure UpBtnClick(Sender: TObject);
@@ -249,14 +251,14 @@ end;
 
 procedure TSDForm.FormShow(Sender: TObject);
 begin
-  //Вся SDCard
-  StartProcess('adb shell ls -F /sdcard/');
-
   //Перечитываем корень CompDir (могли быть изменения на диске извне)
   CompDir.Select(CompDir.TopItem, [ssCtrl]);
   CompDir.Refresh(CompDir.Selected.Parent);
   CompDir.Select(CompDir.TopItem, [ssCtrl]);
   CompDir.SetFocus;
+
+  //Вся SDCard
+  StartProcess('adb shell ls -F /sdcard/');
 
   //Возвращаем исходную директорию SD-Card
   GroupBox2.Caption := '/sdcard/';
@@ -308,6 +310,15 @@ begin
 
   if not CompDir.Selected.Expanded then
     CompDir.Refresh(CompDir.Selected);
+  CompDir.SetFocus;
+end;
+
+procedure TSDForm.RefreshBtnClick(Sender: TObject);
+begin
+  //Перечитываем корень CompDir (могли быть изменения на диске извне)
+  CompDir.Select(CompDir.TopItem, [ssCtrl]);
+  CompDir.Refresh(CompDir.Selected.Parent);
+  CompDir.Select(CompDir.TopItem, [ssCtrl]);
   CompDir.SetFocus;
 end;
 
