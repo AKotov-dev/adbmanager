@@ -103,8 +103,8 @@
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="SDCardManager"/>
         <IsVisibleTab Value="True"/>
-        <TopLine Value="330"/>
-        <CursorPos X="80" Y="339"/>
+        <TopLine Value="105"/>
+        <CursorPos Y="128"/>
         <UsageCount Value="40"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
