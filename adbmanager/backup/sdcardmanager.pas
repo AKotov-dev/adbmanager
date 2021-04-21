@@ -263,7 +263,7 @@ begin
   CompDir.SetFocus;
 
   //Вся SDCard
-  StartProcess('adb shell ls -F /sdcard/ | sort -k 1,1');
+  StartProcess('adb shell ls -F /sdcard/ | sort -k 1,1 | sort');
 
   //Возвращаем исходную директорию SD-Card
   GroupBox2.Caption := '/sdcard/';
@@ -282,7 +282,7 @@ begin
       Exit
   until S <> '';
 
-  sdcmd := 'adb shell mkdir ' + GroupBox2.Caption + S + '| sort -k 1,1';
+  sdcmd := 'adb shell mkdir ' + GroupBox2.Caption + S + '| sort -k 1,1 | sort';
 
   StartCommand;
 end;
@@ -336,7 +336,7 @@ begin
       Length(SDBox.Items[SDBox.ItemIndex])) + '/';
 
     Screen.Cursor := crHourGlass;
-    StartProcess('adb shell ls -F ' + GroupBox2.Caption + '| sort -k 1,1');
+    StartProcess('adb shell ls -F ' + GroupBox2.Caption + '| sort -k 1,1 | sort');
 
     if SDBox.Count > 0 then
       SDBox.ItemIndex := 0;
