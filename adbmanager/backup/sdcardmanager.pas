@@ -252,8 +252,16 @@ begin
   //Вся SDCard
   StartProcess('adb shell ls -F /sdcard/');
 
- // CompDir.TopItem.Expand();
+  //Перечитываем корень CompDir (могли быть изменения на диске извне)
+ // CompDir.TopItem.Selected:=True;
+  CompDir.Select(CompDir.TopItem, [ssCtrl]);
+  CompDir.Refresh(CompDir.Selected.Parent);
+ // CompDir.Select(CompDir.TopItem, [ssCtrl]);
+  CompDir.SetFocus;
+
+  //Возвращаем исходную директорию SD-Card
   GroupBox2.Caption := '/sdcard/';
+
   if SDBox.Count > 0 then
     SDBox.ItemIndex := 0;
 end;
