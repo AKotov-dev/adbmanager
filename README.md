@@ -9,4 +9,6 @@ Free icons: https://icon-icons.com/ru/
 Linux Mint: sudo usermod -a -G plugdev $USER; reboot  
 Mageia Linux: su/password; usermod -a -G usb $USER; reboot
 
-![](https://github.com/AKotov-dev/adbmanager/blob/main/ScreenShot/ADBManager.png)
+![](https://github.com/AKotov-dev/adbmanager/blob/main/ScreenShot/ADBManager1.png)  
+
+![](https://github.com/AKotov-dev/adbmanager/blob/main/ScreenShot/ADBManager2.png)
