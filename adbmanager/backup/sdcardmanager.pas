@@ -43,11 +43,15 @@ type
     procedure MkPCDirBtnClick(Sender: TObject);
     procedure RefreshBtnClick(Sender: TObject);
     procedure SDBoxDblClick(Sender: TObject);
-    procedure SDBoxDrawItem(Control: TWinControl; Index: Integer; ARect: TRect;
-      State: TOwnerDrawState);
-    procedure StartProcess(command: string);
+    procedure SDBoxDrawItem(Control: TWinControl; Index: integer;
+      ARect: TRect; State: TOwnerDrawState);
+
+    procedure StartLS;
+    //перечитывание и отображение текущей директории SDBox
+
     procedure UpBtnClick(Sender: TObject);
     procedure StartCommand;
+    //Отработка команд копирования с выводом в лог
   private
 
   public
@@ -84,7 +88,7 @@ begin
 end;
 
 //ls в директории /sdcard/...
-procedure TSDForm.StartProcess(command: string);
+procedure TSDForm.StartLS;
 var
   S: TStringList;
   ExProcess: TProcess;
@@ -94,11 +98,15 @@ begin
   try
     ExProcess.Executable := 'bash';
     ExProcess.Parameters.Add('-c');
-    ExProcess.Parameters.Add(command);
+    ExProcess.Parameters.Add('adb shell ls -F ' + GroupBox2.Caption + '| sort -k 1,1');
     ExProcess.Options := [poWaitOnExit, poUsePipes, poStderrToOutPut];
     ExProcess.Execute;
 
+    //Грузим директорию из GroupBox2.caption в SDBox
     SDBox.Items.LoadFromStream(ExProcess.Output);
+    //Ставим курсор в "0"
+    if SDBox.Count > 0 then
+      SDBox.ItemIndex := 0;
   finally
     S.Free;
     ExProcess.Free;
@@ -117,11 +125,8 @@ begin
     if GroupBox2.Caption[i] = '/' then
     begin
       GroupBox2.Caption := Copy(GroupBox2.Caption, 1, i);
-
-      StartProcess('adb shell ls -F ' + GroupBox2.Caption + '| sort -k 1,1 | sort');
-
-      if SDBox.Count > 0 then
-        SDBox.ItemIndex := 0;
+      //Перечитываем текущий каталог SDBox (GroupBox2.Caption)
+      StartLS;
 
       break;
     end;
@@ -259,14 +264,10 @@ begin
   CompDir.Select(CompDir.TopItem, [ssCtrl]);
   CompDir.SetFocus;
 
-  //Вся SDCard
-  StartProcess('adb shell ls -F /sdcard/ | sort -k 1,1 | sort');
-
+  //Перечитываем текущий каталог SDBox (GroupBox2.Caption)
   //Возвращаем исходную директорию SD-Card
   GroupBox2.Caption := '/sdcard/';
-
-  if SDBox.Count > 0 then
-    SDBox.ItemIndex := 0;
+  StartLS;
 end;
 
 procedure TSDForm.MkDirBtnClick(Sender: TObject);
@@ -279,7 +280,7 @@ begin
       Exit
   until S <> '';
 
-  sdcmd := 'adb shell mkdir ' + GroupBox2.Caption + S + '| sort -k 1,1 | sort';
+  sdcmd := 'adb shell mkdir ' + GroupBox2.Caption + S + '| sort -k 1,1';
 
   StartCommand;
 end;
@@ -331,47 +332,42 @@ begin
     GroupBox2.Caption := GroupBox2.Caption +
       Copy(SDBox.Items[SDBox.ItemIndex], 3,
       Length(SDBox.Items[SDBox.ItemIndex])) + '/';
-
-    Screen.Cursor := crHourGlass;
-    StartProcess('adb shell ls -F ' + GroupBox2.Caption + '| sort -k 1,1');
-
-    if SDBox.Count > 0 then
-      SDBox.ItemIndex := 0;
-
-    Screen.Cursor := crDefault;
+    //Перечитываем текущий каталог SDBox (GroupBox2.Caption)
+    StartLS;
   end;
 end;
 
-procedure TSDForm.SDBoxDrawItem(Control: TWinControl; Index: Integer;
+procedure TSDForm.SDBoxDrawItem(Control: TWinControl; Index: integer;
   ARect: TRect; State: TOwnerDrawState);
-  var
-    BitMap: TBitMap;
-  begin
-    BitMap := TBitMap.Create;
-    try
-      ImageList1.GetBitMap(0, BitMap);
+var
+  BitMap: TBitMap;
+begin
+  BitMap := TBitMap.Create;
+  try
+    ImageList1.GetBitMap(0, BitMap);
 
-      with TListBox(Control) do
+    with TListBox(Control) do
+    begin
+      Canvas.FillRect(aRect);
+      //Вывод текста со сдвигом
+      Canvas.TextOut(aRect.Left + 15, aRect.Top + 5, Items[Index]);
+
+      //Сверху иконки взависимости от первого символа
+      if Copy(Items[Index], 1, 1) = 'd' then
       begin
-        Canvas.FillRect(aRect);
-        //Вывод текста со сдвигом
-        Canvas.TextOut(aRect.Left + 15, aRect.Top + 5, Items[Index]);
-
-        //Сверху иконки взависимости от первого символа
-        if Copy(Items[Index], 1, 1) = 'd' then
-        begin
-          ImageList1.GetBitMap(0, BitMap);
-          Canvas.Draw(aRect.Left + 2, aRect.Top + 2, BitMap);
-        end
-        else
-        begin
-          ImageList1.GetBitMap(1, BitMap);
-          Canvas.Draw(aRect.Left + 2, aRect.Top + 2, BitMap);
-        end;
+        ImageList1.GetBitMap(0, BitMap);
+        Canvas.Draw(aRect.Left + 2, aRect.Top + 2, BitMap);
+      end
+      else
+      if Copy(Items[Index], 1, 1) = '-' then
+      begin
+        ImageList1.GetBitMap(1, BitMap);
+        Canvas.Draw(aRect.Left + 2, aRect.Top + 2, BitMap);
       end;
-    finally
-      BitMap.Free;
     end;
+  finally
+    BitMap.Free;
   end;
+end;
 
 end.

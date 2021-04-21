@@ -1,7 +1,7 @@
 object MainForm: TMainForm
   Left = 302
   Height = 546
-  Top = 154
+  Top = 128
   Width = 745
   ActiveControl = Panel1
   Caption = 'ADBManager'

@@ -100,10 +100,8 @@ var
 begin
   with SDForm do
   begin
-    StartProcess('adb shell ls -F ' + GroupBox2.Caption + '| sort -k 1,1');
-
-    if SDBox.Count > 0 then
-      SDBox.ItemIndex := 0;
+    //Перечитываем текущий каталог SDBox (GroupBox2.Caption)
+    StartLS;
 
     //Обновление каталога назначения
     if Pos('pull', sdcmd) <> 0 then
