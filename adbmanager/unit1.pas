@@ -38,24 +38,15 @@ type
     InstallBtn: TToolButton;
     RestoreBtn: TToolButton;
     SearchBtn: TToolButton;
-    ToolButton1: TToolButton;
-    ToolButton11: TToolButton;
-    ToolButton12: TToolButton;
     ScreenShotBtn: TToolButton;
     RebootBtn: TToolButton;
-    ToolButton15: TToolButton;
-    ToolButton17: TToolButton;
-    ToolButton2: TToolButton;
     RestartBtn: TToolButton;
     ShellBtn: TToolButton;
     ConnectBtn: TToolButton;
-    ToolButton7: TToolButton;
+    ToolButton4: TToolButton;
     UninstallBtn: TToolButton;
-    ToolButton6: TToolButton;
     BackupBtn: TToolButton;
-    ToolButton8: TToolButton;
     ExitBtn: TToolButton;
-    ToolButton9: TToolButton;
     procedure ApkInfoBtnClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure ActiveLabelChangeBounds(Sender: TObject);
@@ -64,6 +55,7 @@ type
     procedure LogMemoKeyDown(Sender: TObject; var Key: word; Shift: TShiftState);
     procedure RestartBtnClick(Sender: TObject);
     procedure StartProcess(command: string);
+    procedure ToolButton4Click(Sender: TObject);
   private
 
   public
@@ -88,7 +80,7 @@ var
 
 implementation
 
-uses ShowStatusTRD, ADBCommandTRD, RebootUnit, BackUpUnit;
+uses ShowStatusTRD, ADBCommandTRD, RebootUnit, BackUpUnit, SDCardManager;
 
 {$R *.lfm}
 
@@ -109,6 +101,11 @@ begin
   finally
     ExProcess.Free;
   end;
+end;
+
+procedure TMainForm.ToolButton4Click(Sender: TObject);
+begin
+  SDForm.Show;
 end;
 
 procedure TMainForm.FormCreate(Sender: TObject);
@@ -138,7 +135,7 @@ begin
   S := '';
 
   //Определяем команду по кнопке
-  case (Sender as TToolButton).Tag of
+  case (Sender as TToolButton).ImageIndex of
     0: //Connect
     begin
       repeat
@@ -198,7 +195,13 @@ begin
         Exit;
     end;
 
-    6: //screenshot
+    6: //SD-FileManager
+    begin
+      SDForm.Show;
+      Exit;
+    end;
+
+    7: //screenshot
       if SelectDirectoryDialog1.Execute then
       begin
         SetCurrentDir(SelectDirectoryDialog1.FileName);
@@ -212,13 +215,13 @@ begin
       else
         Exit;
 
-    7: //Android Shell
+    8: //Android Shell
     begin
       StartProcess('sakura --title="Android Shell" -x "adb shell"');
       Exit;
     end;
 
-    8: //reboot
+    9: //reboot
     begin
       RebootForm.ShowModal; //Показываем варианты Reboot
       if RebootForm.ModalResult <> mrOk then

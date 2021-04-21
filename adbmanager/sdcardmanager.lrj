@@ -1,0 +1,13 @@
+{"version":1,"strings":[
+{"hash":50113762,"name":"tsdform.caption","sourcebytes":[83,68,45,67,97,114,100,32,109,97,110,97,103,101,114],"value":"SD-Card manager"},
+{"hash":15098804,"name":"tsdform.copyfrompc.hint","sourcebytes":[67,111,112,121,32,116,111,32,83,68,45,67,97,114,100],"value":"Copy to SD-Card"},
+{"hash":192918323,"name":"tsdform.copyfromsmartphone.hint","sourcebytes":[67,111,112,121,32,116,111,32,80,67],"value":"Copy to PC"},
+{"hash":72268412,"name":"tsdform.upbtn.hint","sourcebytes":[85,112,112,101,114,32,108,101,118,101,108],"value":"Upper level"},
+{"hash":195296268,"name":"tsdform.selectallbtn.hint","sourcebytes":[83,101,108,101,99,116,32,97,108,108],"value":"Select all"},
+{"hash":111651762,"name":"tsdform.mkdirbtn.hint","sourcebytes":[77,97,107,101,32,102,111,108,100,101,114],"value":"Make folder"},
+{"hash":231525187,"name":"tsdform.delbtn.hint","sourcebytes":[68,101,108,101,116,101,32,70,105,108,101,115,47,70,111,108,100,101,114,115],"value":"Delete Files/Folders"},
+{"hash":111651762,"name":"tsdform.mkpcdirbtn.hint","sourcebytes":[77,97,107,101,32,102,111,108,100,101,114],"value":"Make folder"},
+{"hash":90721266,"name":"tsdform.panel2.caption","sourcebytes":[80,97,110,101,108,50],"value":"Panel2"},
+{"hash":105368674,"name":"tsdform.groupbox1.caption","sourcebytes":[99,111,109,112,117,116,101,114],"value":"computer"},
+{"hash":162106127,"name":"tsdform.groupbox2.caption","sourcebytes":[47,115,100,99,97,114,100,47],"value":"/sdcard/"}
+]}

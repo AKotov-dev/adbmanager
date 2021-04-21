@@ -47,7 +47,7 @@ begin
     ExProcess.Parameters.Add('-c');
     ExProcess.Parameters.Add(adbcmd);
 
-    ExProcess.Options := ExProcess.Options + [poUsePipes, poStderrToOutPut];
+    ExProcess.Options := [poUsePipes, poStderrToOutPut];
     //, poWaitOnExit (синхронный вывод)
 
     ExProcess.Execute;
@@ -60,6 +60,7 @@ begin
       //Выводим лог
       Result.Text := Trim(Result.Text);
 
+      //sleep(100);
       if Result.Count <> 0 then
         Synchronize(@ShowLog);
     end;

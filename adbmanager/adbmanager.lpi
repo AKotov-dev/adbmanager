@@ -5,7 +5,7 @@
     <General>
       <SessionStorage Value="InProjectDir"/>
       <MainUnit Value="0"/>
-      <Title Value="ADBManager v0.8"/>
+      <Title Value="ADBManager v0.9"/>
       <Scaled Value="True"/>
       <ResourceType Value="res"/>
       <UseXPManifest Value="True"/>
@@ -73,7 +73,7 @@
         <PackageName Value="LCL"/>
       </Item1>
     </RequiredPackages>
-    <Units Count="6">
+    <Units Count="8">
       <Unit0>
         <Filename Value="adbmanager.pas"/>
         <IsPartOfProject Value="True"/>
@@ -111,6 +111,19 @@
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="BackUpUnit"/>
       </Unit5>
+      <Unit6>
+        <Filename Value="sdcardmanager.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="SDForm"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="SDCardManager"/>
+      </Unit6>
+      <Unit7>
+        <Filename Value="sdcommandtrd.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="SDCommandTRD"/>
+      </Unit7>
     </Units>
   </ProjectOptions>
   <CompilerOptions>

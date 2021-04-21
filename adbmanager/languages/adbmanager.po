@@ -37,6 +37,28 @@ msgstr ""
 msgid "Shutdown the device"
 msgstr ""
 
+#: sdcardmanager.screatedir
+msgid "Create directory"
+msgstr ""
+
+#: sdcardmanager.sdelete
+msgid "Delete selected objects?"
+msgstr ""
+
+#: sdcardmanager.sinputname
+msgid "Input name:"
+msgstr ""
+
+#: sdcardmanager.sobjectexists
+msgctxt "sdcardmanager.sobjectexists"
+msgid "The folder already exists!"
+msgstr ""
+
+#: sdcardmanager.soverwriteobject
+msgctxt "sdcardmanager.soverwriteobject"
+msgid "Overwrite existing objects?"
+msgstr ""
+
 #: tbackupform.cancelbtn.caption
 msgctxt "tbackupform.cancelbtn.caption"
 msgid "Cancel"
@@ -157,44 +179,8 @@ msgstr ""
 msgid "ToolBar2"
 msgstr ""
 
-#: tmainform.toolbutton1.caption
-msgid "ToolButton1"
-msgstr ""
-
-#: tmainform.toolbutton11.caption
-msgid "ToolButton11"
-msgstr ""
-
-#: tmainform.toolbutton12.caption
-msgid "ToolButton12"
-msgstr ""
-
-#: tmainform.toolbutton15.caption
-msgid "ToolButton15"
-msgstr ""
-
-#: tmainform.toolbutton17.caption
-msgid "ToolButton17"
-msgstr ""
-
-#: tmainform.toolbutton2.caption
-msgid "ToolButton2"
-msgstr ""
-
-#: tmainform.toolbutton6.caption
-msgid "ToolButton6"
-msgstr ""
-
-#: tmainform.toolbutton7.caption
-msgid "ToolButton7"
-msgstr ""
-
-#: tmainform.toolbutton8.caption
-msgid "ToolButton8"
-msgstr ""
-
-#: tmainform.toolbutton9.caption
-msgid "ToolButton9"
+#: tmainform.toolbutton4.caption
+msgid "sd-card"
 msgstr ""
 
 #: tmainform.uninstallbtn.caption
@@ -214,6 +200,54 @@ msgstr ""
 #: trebootform.okbtn.caption
 msgctxt "trebootform.okbtn.caption"
 msgid "OK"
+msgstr ""
+
+#: tsdform.caption
+msgctxt "tsdform.caption"
+msgid "SD-Card manager"
+msgstr ""
+
+#: tsdform.copyfrompc.hint
+msgid "Copy to SD-Card"
+msgstr ""
+
+#: tsdform.copyfromsmartphone.hint
+msgid "Copy to PC"
+msgstr ""
+
+#: tsdform.delbtn.hint
+msgid "Delete Files/Folders"
+msgstr ""
+
+#: tsdform.groupbox1.caption
+msgid "computer"
+msgstr ""
+
+#: tsdform.groupbox2.caption
+msgctxt "tsdform.groupbox2.caption"
+msgid "/sdcard/"
+msgstr ""
+
+#: tsdform.mkdirbtn.hint
+msgctxt "tsdform.mkdirbtn.hint"
+msgid "Make folder"
+msgstr ""
+
+#: tsdform.mkpcdirbtn.hint
+msgctxt "tsdform.mkpcdirbtn.hint"
+msgid "Make folder"
+msgstr ""
+
+#: tsdform.panel2.caption
+msgid "Panel2"
+msgstr ""
+
+#: tsdform.selectallbtn.hint
+msgid "Select all"
+msgstr ""
+
+#: tsdform.upbtn.hint
+msgid "Upper level"
 msgstr ""
 
 #: unit1.sdeletecaption
