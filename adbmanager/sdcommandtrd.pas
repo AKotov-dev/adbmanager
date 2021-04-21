@@ -100,7 +100,7 @@ var
 begin
   with SDForm do
   begin
-    StartProcess('adb shell ls -F ' + GroupBox2.Caption);
+    StartProcess('adb shell ls -F ' + GroupBox2.Caption + '| sort -k 1,1');
 
     if SDBox.Count > 0 then
       SDBox.ItemIndex := 0;

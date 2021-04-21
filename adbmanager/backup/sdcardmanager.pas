@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, ExtCtrls, StdCtrls,
-  ShellCtrls, ComCtrls, Buttons, IniPropStorage, Process;
+  ShellCtrls, ComCtrls, Buttons, IniPropStorage, Process, Types;
 
 type
 
@@ -17,6 +17,7 @@ type
     CopyFromSmartphone: TSpeedButton;
     GroupBox1: TGroupBox;
     GroupBox2: TGroupBox;
+    ImageList1: TImageList;
     IniPropStorage1: TIniPropStorage;
     MkPCDirBtn: TSpeedButton;
     ProgressBar1: TProgressBar;
@@ -42,6 +43,8 @@ type
     procedure MkPCDirBtnClick(Sender: TObject);
     procedure RefreshBtnClick(Sender: TObject);
     procedure SDBoxDblClick(Sender: TObject);
+    procedure SDBoxDrawItem(Control: TWinControl; Index: Integer; ARect: TRect;
+      State: TOwnerDrawState);
     procedure StartProcess(command: string);
     procedure UpBtnClick(Sender: TObject);
     procedure StartCommand;
@@ -56,7 +59,7 @@ resourcestring
   SOverwriteObject = 'Overwrite existing objects?';
   SObjectExists = 'The folder already exists!';
   SCreateDir = 'Create directory';
-  SInputName = 'Input name:';
+  SInputName = 'Enter the name without spaces::';
 
 var
   SDForm: TSDForm;
@@ -116,10 +119,11 @@ begin
     begin
       GroupBox2.Caption := Copy(GroupBox2.Caption, 1, i);
 
-      StartProcess('adb shell ls -F ' + GroupBox2.Caption);
+      StartProcess('adb shell ls -F ' + GroupBox2.Caption + '| sort -k 1,1');
 
       if SDBox.Count > 0 then
         SDBox.ItemIndex := 0;
+
       break;
     end;
 
@@ -259,7 +263,7 @@ begin
   CompDir.SetFocus;
 
   //Вся SDCard
-  StartProcess('adb shell ls -F /sdcard/');
+  StartProcess('adb shell ls -F /sdcard/ | sort -k 1,1');
 
   //Возвращаем исходную директорию SD-Card
   GroupBox2.Caption := '/sdcard/';
@@ -278,7 +282,7 @@ begin
       Exit
   until S <> '';
 
-  sdcmd := 'adb shell mkdir ' + GroupBox2.Caption + S;
+  sdcmd := 'adb shell mkdir ' + GroupBox2.Caption + S + '| sort -k 1,1';
 
   StartCommand;
 end;
@@ -332,7 +336,7 @@ begin
       Length(SDBox.Items[SDBox.ItemIndex])) + '/';
 
     Screen.Cursor := crHourGlass;
-    StartProcess('adb shell ls -F ' + GroupBox2.Caption);
+    StartProcess('adb shell ls -F ' + GroupBox2.Caption + '| sort -k 1,1');
 
     if SDBox.Count > 0 then
       SDBox.ItemIndex := 0;
@@ -340,5 +344,37 @@ begin
     Screen.Cursor := crDefault;
   end;
 end;
+
+procedure TSDForm.SDBoxDrawItem(Control: TWinControl; Index: Integer;
+  ARect: TRect; State: TOwnerDrawState);
+  var
+    BitMap: TBitMap;
+  begin
+    BitMap := TBitMap.Create;
+    try
+      ImageList1.GetBitMap(0, BitMap);
+
+      with TListBox(Control) do
+      begin
+        Canvas.FillRect(aRect);
+        //Вывод текста со сдвигом
+        Canvas.TextOut(aRect.Left + 15, aRect.Top + 5, Items[Index]);
+
+        //Сверху иконки взависимости от первого символа
+        if Copy(Items[Index], 1, 1) = 'd' then
+        begin
+          ImageList1.GetBitMap(0, BitMap);
+          Canvas.Draw(aRect.Left + 2, aRect.Top + 2, BitMap);
+        end
+        else
+        begin
+          ImageList1.GetBitMap(1, BitMap);
+          Canvas.Draw(aRect.Left + 2, aRect.Top + 2, BitMap);
+        end;
+      end;
+    finally
+      BitMap.Free;
+    end;
+  end;
 
 end.

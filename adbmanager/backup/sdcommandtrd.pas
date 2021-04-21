@@ -59,7 +59,7 @@ begin
       //Выводим лог
       S.Text := Trim(S.Text);
 
-      sleep(100);
+      //sleep(100);
       if S.Count <> 0 then
         Synchronize(@ShowSDLog);
     end;
