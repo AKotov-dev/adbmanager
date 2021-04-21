@@ -46,7 +46,7 @@ msgid "Delete selected objects?"
 msgstr ""
 
 #: sdcardmanager.sinputname
-msgid "Input name:"
+msgid "Enter the name without spaces::"
 msgstr ""
 
 #: sdcardmanager.sobjectexists

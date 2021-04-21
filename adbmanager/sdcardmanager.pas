@@ -56,7 +56,7 @@ resourcestring
   SOverwriteObject = 'Overwrite existing objects?';
   SObjectExists = 'The folder already exists!';
   SCreateDir = 'Create directory';
-  SInputName = 'Input name:';
+  SInputName = 'Enter the name without spaces::';
 
 var
   SDForm: TSDForm;
