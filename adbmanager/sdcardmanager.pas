@@ -150,7 +150,8 @@ begin
 
         //Ищем совпадения (перезапись объектов)
         if not e then
-          if Pos(ExtractFileName(CompDir.Items[i].GetTextPath), SDBox.Items.Text) <> 0 then
+          if Pos(ExtractFileName(CompDir.Items[i].GetTextPath),
+            SDBox.Items.Text) <> 0 then
             e := True;
 
         c := 'adb push ' + ExcludeTrailingPathDelimiter(CompDir.Items[i].GetTextPath) +
@@ -251,6 +252,8 @@ begin
   //Вся SDCard
   StartProcess('adb shell ls -F /sdcard/');
 
+  //Возвращаем исходную директорию
+  GroupBox2.Caption := '/sdcard/';
   if SDBox.Count > 0 then
     SDBox.ItemIndex := 0;
 end;
