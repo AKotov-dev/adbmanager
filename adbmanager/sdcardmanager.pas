@@ -66,7 +66,7 @@ resourcestring
   SOverwriteObject = 'Overwrite existing objects?';
   SObjectExists = 'The folder already exists!';
   SCreateDir = 'Create directory';
-  SInputName = 'Enter the name without spaces::';
+  SInputName = 'Enter the name without spaces:';
 
 var
   SDForm: TSDForm;
@@ -159,7 +159,6 @@ begin
     begin
       if CompDir.Items[i].Selected then
       begin
-
         //Ищем совпадения (перезапись объектов)
         if not e then
           if Pos(ExtractFileName(CompDir.Items[i].GetTextPath),
