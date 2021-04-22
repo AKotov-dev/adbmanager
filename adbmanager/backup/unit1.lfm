@@ -1,7 +1,7 @@
 object MainForm: TMainForm
-  Left = 347
+  Left = 302
   Height = 546
-  Top = 222
+  Top = 126
   Width = 745
   ActiveControl = Panel1
   Caption = 'ADBManager'
@@ -108,7 +108,7 @@ object MainForm: TMainForm
         Width = 739
         Align = alClient
         BorderStyle = bsNone
-        Font.Height = -13
+        Font.Height = -12
         Font.Name = 'Monospace'
         OnKeyDown = LogMemoKeyDown
         ParentFont = False

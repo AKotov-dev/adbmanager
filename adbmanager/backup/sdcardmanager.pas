@@ -14,22 +14,23 @@ type
 
   TSDForm = class(TForm)
     CompDir: TShellTreeView;
+    CopyFromPC: TSpeedButton;
     CopyFromSmartphone: TSpeedButton;
+    DelBtn: TSpeedButton;
     GroupBox1: TGroupBox;
     GroupBox2: TGroupBox;
     ImageList1: TImageList;
     IniPropStorage1: TIniPropStorage;
+    MkDirBtn: TSpeedButton;
     MkPCDirBtn: TSpeedButton;
+    Panel3: TPanel;
+    Panel4: TPanel;
     ProgressBar1: TProgressBar;
+    RefreshBtn: TSpeedButton;
     SDBox: TListBox;
     SDMemo: TMemo;
     Panel2: TPanel;
-    Panel1: TPanel;
-    CopyFromPC: TSpeedButton;
     SelectAllBtn: TSpeedButton;
-    MkDirBtn: TSpeedButton;
-    DelBtn: TSpeedButton;
-    RefreshBtn: TSpeedButton;
     Splitter1: TSplitter;
     Splitter2: TSplitter;
     UpBtn: TSpeedButton;
@@ -352,18 +353,24 @@ begin
     with TListBox(Control) do
     begin
       Canvas.FillRect(aRect);
-      //Вывод текста со сдвигом
-      Canvas.TextOut(aRect.Left + 15, aRect.Top + 5, Items[Index]);
+      //Вывод текста со сдвигом (общий)
+      // Canvas.TextOut(aRect.Left + 14, aRect.Top + 5, Items[Index]);
 
       //Сверху иконки взависимости от первого символа
       if Copy(Items[Index], 1, 1) = 'd' then
       begin
+        //Имя папки
+        Canvas.TextOut(aRect.Left + 14, aRect.Top + 5, Items[Index]);
+        //Иконка папки
         ImageList1.GetBitMap(0, BitMap);
         Canvas.Draw(aRect.Left + 2, aRect.Top + 2, BitMap);
       end
       else
       if Copy(Items[Index], 1, 1) = '-' then
       begin
+        //Имя файла
+        Canvas.TextOut(aRect.Left + 17, aRect.Top + 5, Items[Index]);
+        //Иконка файла
         ImageList1.GetBitMap(1, BitMap);
         Canvas.Draw(aRect.Left + 2, aRect.Top + 2, BitMap);
       end;
