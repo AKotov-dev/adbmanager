@@ -1,7 +1,7 @@
 object SDForm: TSDForm
-  Left = 309
+  Left = 302
   Height = 612
-  Top = 159
+  Top = 122
   Width = 854
   Caption = 'SD-Card manager'
   ClientHeight = 612
@@ -565,7 +565,7 @@ object SDForm: TSDForm
       object CopyFromSmartphone: TSpeedButton
         Left = 56
         Height = 40
-        Hint = 'Copy to PC'
+        Hint = 'Copy to computer'
         Top = 8
         Width = 40
         Flat = True

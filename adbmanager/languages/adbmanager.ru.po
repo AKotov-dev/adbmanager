@@ -217,8 +217,8 @@ msgid "Copy to SD-Card"
 msgstr "Копировать на SD-Карту"
 
 #: tsdform.copyfromsmartphone.hint
-msgid "Copy to PC"
-msgstr "Копировать на PC"
+msgid "Copy to computer"
+msgstr "Копировать на компьютер"
 
 #: tsdform.delbtn.hint
 msgid "Delete Files/Folders"

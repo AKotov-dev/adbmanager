@@ -212,7 +212,7 @@ msgid "Copy to SD-Card"
 msgstr ""
 
 #: tsdform.copyfromsmartphone.hint
-msgid "Copy to PC"
+msgid "Copy to computer"
 msgstr ""
 
 #: tsdform.delbtn.hint
