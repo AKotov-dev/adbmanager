@@ -1,7 +1,7 @@
 object MainForm: TMainForm
   Left = 302
   Height = 546
-  Top = 126
+  Top = 123
   Width = 745
   ActiveControl = Panel1
   Caption = 'ADBManager'
@@ -298,7 +298,7 @@ object MainForm: TMainForm
   object ProgressBar1: TProgressBar
     AnchorSideTop.Control = PageControl1
     Left = 506
-    Height = 8
+    Height = 12
     Top = 229
     Width = 232
     Anchors = [akTop, akRight]

@@ -108,7 +108,7 @@ object MainForm: TMainForm
         Width = 739
         Align = alClient
         BorderStyle = bsNone
-        Font.Height = -12
+        Font.Height = -13
         Font.Name = 'Monospace'
         OnKeyDown = LogMemoKeyDown
         ParentFont = False
