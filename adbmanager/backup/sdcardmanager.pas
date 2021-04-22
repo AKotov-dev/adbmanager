@@ -47,12 +47,14 @@ type
     procedure SDBoxDrawItem(Control: TWinControl; Index: integer;
       ARect: TRect; State: TOwnerDrawState);
 
-    procedure StartLS;
     //перечитывание и отображение текущей директории SDBox
+    procedure StartLS;
 
     procedure UpBtnClick(Sender: TObject);
-    procedure StartCommand;
+
     //Отработка команд копирования с выводом в лог
+    procedure StartCommand;
+
   private
 
   public

@@ -39,7 +39,7 @@
         <IsPartOfProject Value="True"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="30" Y="18"/>
-        <UsageCount Value="73"/>
+        <UsageCount Value="76"/>
       </Unit0>
       <Unit1>
         <Filename Value="unit1.pas"/>
@@ -51,7 +51,7 @@
         <EditorIndex Value="2"/>
         <TopLine Value="180"/>
         <CursorPos X="9" Y="202"/>
-        <UsageCount Value="73"/>
+        <UsageCount Value="76"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit1>
@@ -62,7 +62,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="31"/>
         <CursorPos X="62" Y="57"/>
-        <UsageCount Value="65"/>
+        <UsageCount Value="68"/>
       </Unit2>
       <Unit3>
         <Filename Value="adbcommandtrd.pas"/>
@@ -71,7 +71,7 @@
         <EditorIndex Value="3"/>
         <TopLine Value="31"/>
         <CursorPos X="9" Y="63"/>
-        <UsageCount Value="62"/>
+        <UsageCount Value="65"/>
         <Loaded Value="True"/>
       </Unit3>
       <Unit4>
@@ -83,7 +83,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="35"/>
         <CursorPos X="95" Y="41"/>
-        <UsageCount Value="50"/>
+        <UsageCount Value="53"/>
       </Unit4>
       <Unit5>
         <Filename Value="backupunit.pas"/>
@@ -94,7 +94,7 @@
         <UnitName Value="BackUpUnit"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="71" Y="72"/>
-        <UsageCount Value="46"/>
+        <UsageCount Value="49"/>
       </Unit5>
       <Unit6>
         <Filename Value="sdcardmanager.pas"/>
@@ -104,9 +104,9 @@
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="SDCardManager"/>
         <IsVisibleTab Value="True"/>
-        <TopLine Value="350"/>
-        <CursorPos X="23" Y="373"/>
-        <UsageCount Value="42"/>
+        <TopLine Value="41"/>
+        <CursorPos X="5" Y="55"/>
+        <UsageCount Value="45"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit6>
@@ -117,7 +117,7 @@
         <EditorIndex Value="1"/>
         <TopLine Value="87"/>
         <CursorPos X="5" Y="103"/>
-        <UsageCount Value="40"/>
+        <UsageCount Value="43"/>
         <Loaded Value="True"/>
       </Unit7>
     </Units>
