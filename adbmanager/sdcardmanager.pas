@@ -233,14 +233,10 @@ var
   i: integer;
   c: string; //сборка команд...
 begin
-  if MessageDlg(SDelete, mtConfirmation, [mbYes, mbNo], 0) <> mrYes then
-    Exit;
-
   sdcmd := '';
 
   if SDBox.SelCount <> 0 then
   begin
-
     for i := 0 to SDBox.Count - 1 do
     begin
       if SDBox.Selected[i] then
@@ -255,7 +251,8 @@ begin
         sdcmd := c + '; ' + sdcmd;
       end;
     end;
-    StartCommand;
+    if MessageDlg(SDelete, mtConfirmation, [mbYes, mbNo], 0) = mrYes then
+      StartCommand;
   end;
 end;
 
