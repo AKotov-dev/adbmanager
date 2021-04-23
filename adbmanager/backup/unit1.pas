@@ -54,7 +54,6 @@ type
     procedure KeyLabelChangeBounds(Sender: TObject);
     procedure DisableBtnClick(Sender: TObject);
     procedure LogMemoKeyDown(Sender: TObject; var Key: word; Shift: TShiftState);
-    procedure PageControl1Changing(Sender: TObject; var AllowChange: Boolean);
     procedure RestartBtnClick(Sender: TObject);
     procedure StartProcess(command: string);
     procedure ToolButton4Click(Sender: TObject);
@@ -267,12 +266,6 @@ end;
 procedure TMainForm.LogMemoKeyDown(Sender: TObject; var Key: word; Shift: TShiftState);
 begin
   Key := $0;
-end;
-
-procedure TMainForm.PageControl1Changing(Sender: TObject;
-  var AllowChange: Boolean);
-begin
-    if PageControl1.Pages[0].Caption  = SNoDevice then PageControl1.Pages[0].Font.Color:=clRed else PageControl1.Pages[0].Font.Color:=clDefault;
 end;
 
 //Обработка нажатия кнопок управления ADB
