@@ -48,6 +48,7 @@ type
     BackupBtn: TToolButton;
     ExitBtn: TToolButton;
     procedure ApkInfoBtnClick(Sender: TObject);
+    procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
     procedure FormCreate(Sender: TObject);
     procedure ActiveLabelChangeBounds(Sender: TObject);
     procedure KeyLabelChangeBounds(Sender: TObject);
@@ -232,6 +233,12 @@ begin
   //Запуск команды и потока отображения лога исполнения
   FADBCommandThread := StartADBCommand.Create(False);
   FADBCommandThread.Priority := tpNormal;
+end;
+
+procedure TMainForm.FormClose(Sender: TObject; var CloseAction: TCloseAction);
+begin
+  //Прерывание/Сброс запущенного/зависшего бэкапа
+  StartProcess('adb shell su 0 "killall com.android.backupconfirm"');
 end;
 
 //Индикация статуса цветом

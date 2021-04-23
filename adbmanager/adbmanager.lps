@@ -49,8 +49,8 @@
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="Unit1"/>
         <EditorIndex Value="2"/>
-        <TopLine Value="180"/>
-        <CursorPos X="9" Y="202"/>
+        <TopLine Value="238"/>
+        <CursorPos X="50" Y="240"/>
         <UsageCount Value="76"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -59,17 +59,18 @@
         <Filename Value="showstatustrd.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="ShowStatusTRD"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="31"/>
+        <IsVisibleTab Value="True"/>
+        <EditorIndex Value="4"/>
+        <TopLine Value="111"/>
         <CursorPos X="62" Y="57"/>
         <UsageCount Value="68"/>
+        <Loaded Value="True"/>
       </Unit2>
       <Unit3>
         <Filename Value="adbcommandtrd.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="ADBCommandTRD"/>
         <EditorIndex Value="3"/>
-        <TopLine Value="31"/>
         <CursorPos X="9" Y="63"/>
         <UsageCount Value="65"/>
         <Loaded Value="True"/>
@@ -103,7 +104,6 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="SDCardManager"/>
-        <IsVisibleTab Value="True"/>
         <TopLine Value="57"/>
         <CursorPos Y="70"/>
         <UsageCount Value="45"/>
@@ -121,7 +121,7 @@
         <Loaded Value="True"/>
       </Unit7>
     </Units>
-    <JumpHistory Count="29" HistoryIndex="28">
+    <JumpHistory Count="30" HistoryIndex="29">
       <Position1>
         <Filename Value="sdcardmanager.pas"/>
         <Caret Line="329" Column="3" TopLine="327"/>
@@ -238,6 +238,10 @@
         <Filename Value="sdcardmanager.pas"/>
         <Caret Line="163" Column="36" TopLine="147"/>
       </Position29>
+      <Position30>
+        <Filename Value="unit1.pas"/>
+        <Caret Line="203" Column="9" TopLine="181"/>
+      </Position30>
     </JumpHistory>
     <RunParams>
       <FormatVersion Value="2"/>

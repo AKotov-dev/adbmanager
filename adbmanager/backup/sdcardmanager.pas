@@ -67,7 +67,6 @@ resourcestring
   SObjectExists = 'The folder already exists!';
   SCreateDir = 'Create directory';
   SInputName = 'Enter the name without spaces:';
-  SSpaceError = 'Spaces are not allowed:';
 
 var
   SDForm: TSDForm;
@@ -160,14 +159,6 @@ begin
     begin
       if CompDir.Items[i].Selected then
       begin
-        //Проверка пути на пробелы
-        if Pos(' ', CompDir.Items[i].GetTextPath) <> 0 then
-        begin
-          MessageDlg(SSpaceError + #13#10 + CompDir.Items[i].GetTextPath,
-            mtError, [mbOK], 0);
-          Exit;
-        end;
-
         //Ищем совпадения (перезапись объектов)
         if not e then
           if Pos(ExtractFileName(CompDir.Items[i].GetTextPath),
