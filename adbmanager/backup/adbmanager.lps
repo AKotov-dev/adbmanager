@@ -59,10 +59,9 @@
         <Filename Value="showstatustrd.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="ShowStatusTRD"/>
-        <IsVisibleTab Value="True"/>
         <EditorIndex Value="4"/>
         <TopLine Value="107"/>
-        <CursorPos X="42" Y="113"/>
+        <CursorPos X="44" Y="113"/>
         <UsageCount Value="68"/>
         <Loaded Value="True"/>
       </Unit2>
@@ -105,8 +104,9 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="SDCardManager"/>
-        <TopLine Value="57"/>
-        <CursorPos Y="70"/>
+        <IsVisibleTab Value="True"/>
+        <TopLine Value="93"/>
+        <CursorPos X="84" Y="104"/>
         <UsageCount Value="45"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>

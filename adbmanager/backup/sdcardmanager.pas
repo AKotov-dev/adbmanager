@@ -101,7 +101,7 @@ begin
   try
     ExProcess.Executable := 'bash';
     ExProcess.Parameters.Add('-c');
-    ExProcess.Parameters.Add('adb shell ls -F ' + GroupBox2.Caption + '| sort -k 1,1');
+    ExProcess.Parameters.Add('adb shell ls -F ' + GroupBox2.Caption + '| sort -t "d" -k 1,1');
     ExProcess.Options := [poWaitOnExit, poUsePipes, poStderrToOutPut];
     ExProcess.Execute;
 
