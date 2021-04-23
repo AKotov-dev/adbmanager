@@ -81,7 +81,7 @@ begin
   //Вывод построчно
   for i := 0 to S.Count - 1 do
     SDForm.SDMemo.Lines.Append(S[i]);
-//  SDForm.SDMemo.Lines.Assign(S);
+  //  SDForm.SDMemo.Lines.Assign(S);
 end;
 
 
@@ -90,7 +90,7 @@ procedure StartSDCommand.StartProgress;
 begin
   SDForm.SDMemo.Clear;
   SDForm.ProgressBar1.Style := pbstMarquee;
-  SDForm.ProgressBar1.Visible:=True;
+  SDForm.ProgressBar1.Visible := True;
 end;
 
 //Стоп индикатора
@@ -100,26 +100,27 @@ var
 begin
   with SDForm do
   begin
-    //Перечитываем текущий каталог SDBox (GroupBox2.Caption)
-    StartLS;
-
-    //Обновление каталога назначения
+    //Обновление каталога назначения на компе
     if Pos('pull', sdcmd) <> 0 then
     begin
+      //Запоминаем позицию курсора
       i := CompDir.Selected.AbsoluteIndex;
-
+      //Обновляем  выбранного родителя
       CompDir.Refresh(CompDir.Selected.Parent);
-
+      //Возвращаем курсор на исходную
       CompDir.Select(CompDir.Items[i], [ssCtrl]);
-
+      //Если был раскрыт - переоткрываем
       if not CompDir.Selected.Expanded then
         CompDir.Refresh(CompDir.Selected);
 
       CompDir.SetFocus;
-    end;
+    end
+    else
+      //Обновление каталога назначения на смартфоне
+      StartLS;
 
     ProgressBar1.Style := pbstNormal;
-    ProgressBar1.Visible:=False;
+    ProgressBar1.Visible := False;
     //ProgressBar1.Position := 0;
   end;
 end;

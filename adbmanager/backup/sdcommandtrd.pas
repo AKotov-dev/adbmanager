@@ -81,7 +81,7 @@ begin
   //Вывод построчно
   for i := 0 to S.Count - 1 do
     SDForm.SDMemo.Lines.Append(S[i]);
-//  SDForm.SDMemo.Lines.Assign(S);
+  //  SDForm.SDMemo.Lines.Assign(S);
 end;
 
 
@@ -90,7 +90,7 @@ procedure StartSDCommand.StartProgress;
 begin
   SDForm.SDMemo.Clear;
   SDForm.ProgressBar1.Style := pbstMarquee;
-  SDForm.ProgressBar1.Visible:=True;
+  SDForm.ProgressBar1.Visible := True;
 end;
 
 //Стоп индикатора
@@ -100,12 +100,7 @@ var
 begin
   with SDForm do
   begin
-    StartProcess('adb shell ls -F ' + GroupBox2.Caption + '| sort -k 1,1');
-
-    if SDBox.Count > 0 then
-      SDBox.ItemIndex := 0;
-
-    //Обновление каталога назначения
+    //Обновление каталога назначения на компе
     if Pos('pull', sdcmd) <> 0 then
     begin
       i := CompDir.Selected.AbsoluteIndex;
@@ -118,10 +113,13 @@ begin
         CompDir.Refresh(CompDir.Selected);
 
       CompDir.SetFocus;
-    end;
+    end
+    else
+      //Обновление каталога назначения на смартфоне
+      StartLS;
 
     ProgressBar1.Style := pbstNormal;
-    ProgressBar1.Visible:=False;
+    ProgressBar1.Visible := False;
     //ProgressBar1.Position := 0;
   end;
 end;

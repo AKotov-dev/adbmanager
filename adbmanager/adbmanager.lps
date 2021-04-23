@@ -104,7 +104,6 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="SDCardManager"/>
-        <IsVisibleTab Value="True"/>
         <TopLine Value="231"/>
         <CursorPos X="20" Y="255"/>
         <UsageCount Value="45"/>
@@ -115,9 +114,10 @@
         <Filename Value="sdcommandtrd.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="SDCommandTRD"/>
+        <IsVisibleTab Value="True"/>
         <EditorIndex Value="1"/>
-        <TopLine Value="87"/>
-        <CursorPos X="5" Y="103"/>
+        <TopLine Value="95"/>
+        <CursorPos X="41" Y="112"/>
         <UsageCount Value="43"/>
         <Loaded Value="True"/>
       </Unit7>
