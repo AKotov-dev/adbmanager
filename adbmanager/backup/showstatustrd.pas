@@ -59,7 +59,7 @@ begin
 
       //Status-is-active?
       ExProcess.Parameters.Delete(1);
-      ExProcess.Parameters.Add('lsof -n -i4TCP:5037 | grep LISTEN');
+      ExProcess.Parameters.Add('ss -lt | grep 5037');
       Exprocess.Execute;
 
       Result.LoadFromStream(ExProcess.Output);
@@ -109,6 +109,7 @@ var
   i: integer;
   dev0, dev1: string;
 begin
+  MainForm.DevSheet.Font.Color := clDefault;
   //Удаляем начальные и конечные переводы строки/пробелы
   Result.Text := Trim(Result.Text);
 
@@ -137,7 +138,10 @@ begin
   if Result.Text <> '' then
     MainForm.DevSheet.Caption := Result[0]
   else
+  begin
     MainForm.DevSheet.Caption := SNoDevice;
+    MainForm.DevSheet.Font.Color := clRed;
+  end;
 end;
 
 end.

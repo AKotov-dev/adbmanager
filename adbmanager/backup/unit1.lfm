@@ -94,6 +94,7 @@ object MainForm: TMainForm
     ParentFont = False
     TabIndex = 0
     TabOrder = 2
+    OnChanging = PageControl1Changing
     object DevSheet: TTabSheet
       Caption = 'no device'
       ClientHeight = 265

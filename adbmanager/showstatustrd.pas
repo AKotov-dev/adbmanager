@@ -109,6 +109,8 @@ var
   i: integer;
   dev0, dev1: string;
 begin
+  //Исходный цвет устройства - clDefault
+  MainForm.DevSheet.Font.Color := clDefault;
   //Удаляем начальные и конечные переводы строки/пробелы
   Result.Text := Trim(Result.Text);
 
@@ -137,7 +139,11 @@ begin
   if Result.Text <> '' then
     MainForm.DevSheet.Caption := Result[0]
   else
+  begin
     MainForm.DevSheet.Caption := SNoDevice;
+    //Цвет устройства - аварийный
+    MainForm.DevSheet.Font.Color := clRed;
+  end;
 end;
 
 end.
