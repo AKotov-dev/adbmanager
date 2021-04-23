@@ -48,7 +48,6 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="Unit1"/>
-        <IsVisibleTab Value="True"/>
         <EditorIndex Value="2"/>
         <TopLine Value="238"/>
         <CursorPos X="50" Y="240"/>
@@ -60,17 +59,18 @@
         <Filename Value="showstatustrd.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="ShowStatusTRD"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="31"/>
+        <IsVisibleTab Value="True"/>
+        <EditorIndex Value="4"/>
+        <TopLine Value="111"/>
         <CursorPos X="62" Y="57"/>
         <UsageCount Value="68"/>
+        <Loaded Value="True"/>
       </Unit2>
       <Unit3>
         <Filename Value="adbcommandtrd.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="ADBCommandTRD"/>
         <EditorIndex Value="3"/>
-        <TopLine Value="31"/>
         <CursorPos X="9" Y="63"/>
         <UsageCount Value="65"/>
         <Loaded Value="True"/>

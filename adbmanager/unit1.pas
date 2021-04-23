@@ -210,8 +210,8 @@ begin
         //Имя скриншота (сек + 1)
         S := Concat('screenshot-', FormatDateTime('dd-mm-yyyy_hh-nn-ss', Now), '.png');
         adbcmd :=
-          'adb shell screencap -p /sdcard/' + S + '; adb pull /sdcard/' +
-          S + '; adb shell rm /sdcard/' + S;
+          'adb shell screencap -p /sdcard/' + S + ' && adb pull /sdcard/' +
+          S + '&& adb shell rm /sdcard/' + S;
       end
       else
         Exit;
