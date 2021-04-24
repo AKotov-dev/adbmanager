@@ -225,7 +225,7 @@ end;
 
 procedure TSDForm.CompDirGetImageIndex(Sender: TObject; Node: TTreeNode);
 begin
-    if FileGetAttr(CompDir.GetPathFromNode(node)) and faDirectory <> 0 then
+  if FileGetAttr(CompDir.GetPathFromNode(node)) and faDirectory <> 0 then
     Node.ImageIndex := 0
   else
     Node.ImageIndex := 1;

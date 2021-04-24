@@ -96,21 +96,29 @@ end;
 //Стоп индикатора
 procedure StartSDCommand.StopProgress;
 var
-  i: integer;
+  i: integer; //Абсолютный индекс выделенного
+  p: string; //Выделенная директория
 begin
   with SDForm do
   begin
     //Обновление каталога назначения на компе
     if Pos('pull', sdcmd) <> 0 then
     begin
+      //Запоминаем позицию курсора
       i := CompDir.Selected.AbsoluteIndex;
+      p:= ExtractFilePath(CompDir.GetPathFromNode(CompDir.Selected));
 
-      CompDir.Refresh(CompDir.Selected.Parent);
-
-      CompDir.Select(CompDir.Items[i], [ssCtrl]);
-
-      if not CompDir.Selected.Expanded then
-        CompDir.Refresh(CompDir.Selected);
+      //Обновляем  выбранного родителя
+     // CompDir.Refresh(CompDir.Selected.Parent);
+       CompDir.Refresh(CompDir.Selected);
+      //Возвращаем курсор на исходную
+     CompDir.Path:=p;
+      //CompDir.Select(CompDir.Items[i], [ssCtrl]);
+        CompDir.Select(CompDir.Items[i]);
+      //Если был раскрыт - переоткрываем
+     // if CompDir.Selected.Expanded then
+      //    CompDir.Selected.Expand(False);
+     // CompDir.Refresh(CompDir.Selected);
 
       CompDir.SetFocus;
     end
@@ -119,8 +127,8 @@ begin
       StartLS;
 
     ProgressBar1.Style := pbstNormal;
+    ProgressBar1.Position := 0;
     ProgressBar1.Visible := False;
-    //ProgressBar1.Position := 0;
   end;
 end;
 

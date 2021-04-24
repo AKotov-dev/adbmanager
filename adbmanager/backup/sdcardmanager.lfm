@@ -1,7 +1,7 @@
 object SDForm: TSDForm
-  Left = 320
+  Left = 311
   Height = 612
-  Top = 124
+  Top = 129
   Width = 854
   Caption = 'SD-Card manager'
   ClientHeight = 612
@@ -69,6 +69,7 @@ object SDForm: TSDForm
       Font.Height = -13
       Font.Name = 'Sans'
       FileSortType = fstFoldersFirst
+      HideSelection = False
       Images = ImageList1
       ParentFont = False
       ReadOnly = True
@@ -77,7 +78,8 @@ object SDForm: TSDForm
       ScrollBars = ssVertical
       TabOrder = 0
       OnGetImageIndex = CompDirGetImageIndex
-      Options = [tvoAllowMultiselect, tvoAutoExpand, tvoAutoItemHeight, tvoHideSelection, tvoKeepCollapsedNodes, tvoReadOnly, tvoRowSelect, tvoShowButtons, tvoShowLines, tvoShowRoot, tvoToolTips, tvoThemedDraw]
+      OnGetSelectedIndex = CompDirGetImageIndex
+      Options = [tvoAllowMultiselect, tvoAutoExpand, tvoAutoItemHeight, tvoKeepCollapsedNodes, tvoReadOnly, tvoRowSelect, tvoShowButtons, tvoShowLines, tvoShowRoot, tvoToolTips, tvoThemedDraw]
       ObjectTypes = [otFolders, otNonFolders]
     end
     object Panel4: TPanel
