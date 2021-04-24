@@ -98,6 +98,7 @@ object MainForm: TMainForm
       Caption = 'no device'
       ClientHeight = 265
       ClientWidth = 739
+      Font.Color = clRed
       Font.Height = -13
       Font.Name = 'Sans'
       Font.Style = [fsBold]

@@ -52,7 +52,6 @@ type
     procedure FormCreate(Sender: TObject);
     procedure ActiveLabelChangeBounds(Sender: TObject);
     procedure KeyLabelChangeBounds(Sender: TObject);
-    procedure DisableBtnClick(Sender: TObject);
     procedure LogMemoKeyDown(Sender: TObject; var Key: word; Shift: TShiftState);
     procedure RestartBtnClick(Sender: TObject);
     procedure StartProcess(command: string);
@@ -238,7 +237,8 @@ end;
 procedure TMainForm.FormClose(Sender: TObject; var CloseAction: TCloseAction);
 begin
   //Прерывание/Сброс запущенного/зависшего бэкапа
-  StartProcess('adb shell su 0 "killall com.android.backupconfirm"');
+  // StartProcess('adb shell su 0 "killall com.android.backupconfirm"');
+  StartProcess('adb shell am force-stop com.android.backupconfirm');
 end;
 
 //Индикация статуса цветом
@@ -256,11 +256,6 @@ begin
     KeyLabel.Font.Color := clGreen
   else
     KeyLabel.Font.Color := clRed;
-end;
-
-procedure TMainForm.DisableBtnClick(Sender: TObject);
-begin
-  StartProcess('systemctl disable adb');
 end;
 
 procedure TMainForm.LogMemoKeyDown(Sender: TObject; var Key: word; Shift: TShiftState);

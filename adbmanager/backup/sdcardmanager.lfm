@@ -845,7 +845,7 @@ object SDForm: TSDForm
           B0F3C5BEB24F0000000000000000C6BDB051C5BEB0F3C5BEB0FFC5BEB0F2C4BF
           B0AEC4BEB1270000000000000000000000000000000000000000
         }
-        OnClick = Button1Click
+        OnClick = SelectAllBtnClick
         ShowHint = True
         ParentShowHint = False
       end

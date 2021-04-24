@@ -34,7 +34,6 @@ type
     Splitter1: TSplitter;
     Splitter2: TSplitter;
     UpBtn: TSpeedButton;
-    procedure Button1Click(Sender: TObject);
     procedure CopyFromSmartphoneClick(Sender: TObject);
     procedure CopyFromPCClick(Sender: TObject);
     procedure DelBtnClick(Sender: TObject);
@@ -46,6 +45,7 @@ type
     procedure SDBoxDblClick(Sender: TObject);
     procedure SDBoxDrawItem(Control: TWinControl; Index: integer;
       ARect: TRect; State: TOwnerDrawState);
+    procedure SelectAllBtnClick(Sender: TObject);
 
     //перечитывание и отображение текущей директории SDBox
     procedure StartLS;
@@ -93,10 +93,8 @@ end;
 //ls в директории /sdcard/...
 procedure TSDForm.StartLS;
 var
-  S: TStringList;
   ExProcess: TProcess;
 begin
-  S := TStringList.Create;
   ExProcess := TProcess.Create(nil);
   try
     ExProcess.Executable := 'bash';
@@ -108,11 +106,11 @@ begin
 
     //Грузим директорию из GroupBox2.caption в SDBox
     SDBox.Items.LoadFromStream(ExProcess.Output);
+
     //Ставим курсор в "0"
     if SDBox.Count > 0 then
       SDBox.ItemIndex := 0;
   finally
-    S.Free;
     ExProcess.Free;
   end;
 end;
@@ -221,11 +219,6 @@ begin
 
     StartCommand;
   end;
-end;
-
-procedure TSDForm.Button1Click(Sender: TObject);
-begin
-  SDBox.SelectAll;
 end;
 
 procedure TSDForm.DelBtnClick(Sender: TObject);
@@ -377,6 +370,11 @@ begin
   finally
     BitMap.Free;
   end;
+end;
+
+procedure TSDForm.SelectAllBtnClick(Sender: TObject);
+begin
+  SDBox.SelectAll;
 end;
 
 end.

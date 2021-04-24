@@ -34,7 +34,6 @@ type
     Splitter1: TSplitter;
     Splitter2: TSplitter;
     UpBtn: TSpeedButton;
-    procedure Button1Click(Sender: TObject);
     procedure CopyFromSmartphoneClick(Sender: TObject);
     procedure CopyFromPCClick(Sender: TObject);
     procedure DelBtnClick(Sender: TObject);
@@ -46,6 +45,7 @@ type
     procedure SDBoxDblClick(Sender: TObject);
     procedure SDBoxDrawItem(Control: TWinControl; Index: integer;
       ARect: TRect; State: TOwnerDrawState);
+    procedure SelectAllBtnClick(Sender: TObject);
 
     //перечитывание и отображение текущей директории SDBox
     procedure StartLS;
@@ -223,24 +223,15 @@ begin
   end;
 end;
 
-procedure TSDForm.Button1Click(Sender: TObject);
-begin
-  SDBox.SelectAll;
-end;
-
 procedure TSDForm.DelBtnClick(Sender: TObject);
 var
   i: integer;
   c: string; //сборка команд...
 begin
-  if MessageDlg(SDelete, mtConfirmation, [mbYes, mbNo], 0) <> mrYes then
-    Exit;
-
   sdcmd := '';
 
   if SDBox.SelCount <> 0 then
   begin
-
     for i := 0 to SDBox.Count - 1 do
     begin
       if SDBox.Selected[i] then
@@ -255,7 +246,8 @@ begin
         sdcmd := c + '; ' + sdcmd;
       end;
     end;
-    StartCommand;
+    if MessageDlg(SDelete, mtConfirmation, [mbYes, mbNo], 0) = mrYes then
+      StartCommand;
   end;
 end;
 
@@ -380,6 +372,11 @@ begin
   finally
     BitMap.Free;
   end;
+end;
+
+procedure TSDForm.SelectAllBtnClick(Sender: TObject);
+begin
+  SDBox.SelectAll;
 end;
 
 end.
