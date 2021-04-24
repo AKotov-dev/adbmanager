@@ -37,6 +37,7 @@ type
     procedure CopyFromSmartphoneClick(Sender: TObject);
     procedure CopyFromPCClick(Sender: TObject);
     procedure DelBtnClick(Sender: TObject);
+    procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure MkDirBtnClick(Sender: TObject);
@@ -247,6 +248,13 @@ begin
     if MessageDlg(SDelete, mtConfirmation, [mbYes, mbNo], 0) = mrYes then
       StartCommand;
   end;
+end;
+
+procedure TSDForm.FormClose(Sender: TObject; var CloseAction: TCloseAction);
+begin
+  //Отменяем долгое копирование с и на sd-card
+  sdcmd := 'kill $(ps -ax | grep "/sdcard/" | cut -f2 -d " ")';
+  StartCommand;
 end;
 
 procedure TSDForm.FormShow(Sender: TObject);

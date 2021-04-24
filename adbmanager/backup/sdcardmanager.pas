@@ -37,6 +37,7 @@ type
     procedure CopyFromSmartphoneClick(Sender: TObject);
     procedure CopyFromPCClick(Sender: TObject);
     procedure DelBtnClick(Sender: TObject);
+    procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure MkDirBtnClick(Sender: TObject);
@@ -93,10 +94,8 @@ end;
 //ls в директории /sdcard/...
 procedure TSDForm.StartLS;
 var
-  S: TStringList;
   ExProcess: TProcess;
 begin
-  S := TStringList.Create;
   ExProcess := TProcess.Create(nil);
   try
     ExProcess.Executable := 'bash';
@@ -108,11 +107,11 @@ begin
 
     //Грузим директорию из GroupBox2.caption в SDBox
     SDBox.Items.LoadFromStream(ExProcess.Output);
+
     //Ставим курсор в "0"
     if SDBox.Count > 0 then
       SDBox.ItemIndex := 0;
   finally
-    S.Free;
     ExProcess.Free;
   end;
 end;
@@ -249,6 +248,12 @@ begin
     if MessageDlg(SDelete, mtConfirmation, [mbYes, mbNo], 0) = mrYes then
       StartCommand;
   end;
+end;
+
+procedure TSDForm.FormClose(Sender: TObject; var CloseAction: TCloseAction);
+begin
+  sdcmd := 'kill $(ps -ax | grep "/sdcard/" | cut -f2 -d " ")';
+  StartCommand;
 end;
 
 procedure TSDForm.FormShow(Sender: TObject);

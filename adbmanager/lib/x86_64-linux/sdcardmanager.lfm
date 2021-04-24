@@ -6,6 +6,7 @@ object SDForm: TSDForm
   Caption = 'SD-Card manager'
   ClientHeight = 612
   ClientWidth = 854
+  OnClose = FormClose
   OnCreate = FormCreate
   OnShow = FormShow
   Position = poMainFormCenter
