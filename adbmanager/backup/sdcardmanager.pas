@@ -34,6 +34,7 @@ type
     Splitter1: TSplitter;
     Splitter2: TSplitter;
     UpBtn: TSpeedButton;
+    procedure CompDirGetImageIndex(Sender: TObject; Node: TTreeNode);
     procedure CopyFromSmartphoneClick(Sender: TObject);
     procedure CopyFromPCClick(Sender: TObject);
     procedure DelBtnClick(Sender: TObject);
@@ -220,6 +221,15 @@ begin
 
     StartCommand;
   end;
+end;
+
+procedure TSDForm.CompDirGetImageIndex(Sender: TObject; Node: TTreeNode);
+begin
+    if FileGetAttr(CompDir.GetPathFromNode(node)) and faDirectory <> 0 then
+    Node.ImageIndex := 0
+  else
+    Node.ImageIndex := 1;
+  Node.SelectedIndex := Node.ImageIndex;
 end;
 
 procedure TSDForm.DelBtnClick(Sender: TObject);

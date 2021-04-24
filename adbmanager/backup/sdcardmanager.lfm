@@ -1,7 +1,7 @@
 object SDForm: TSDForm
-  Left = 352
+  Left = 320
   Height = 612
-  Top = 123
+  Top = 124
   Width = 854
   Caption = 'SD-Card manager'
   ClientHeight = 612
@@ -9,8 +9,8 @@ object SDForm: TSDForm
   OnClose = FormClose
   OnCreate = FormCreate
   OnShow = FormShow
-  Position = poMainFormCenter
-  SessionProperties = 'GroupBox1.Width;Height;Width;SDMemo.Height'
+  Position = poDefault
+  SessionProperties = 'GroupBox1.Width;Height;SDMemo.Height;Width;Left;Top'
   LCLVersion = '2.0.10.0'
   object Panel2: TPanel
     Left = 0
@@ -68,13 +68,15 @@ object SDForm: TSDForm
       BorderStyle = bsNone
       Font.Height = -13
       Font.Name = 'Sans'
-      FileSortType = fstNone
+      FileSortType = fstFoldersFirst
+      Images = ImageList1
       ParentFont = False
       ReadOnly = True
       Root = '/'
       RowSelect = True
       ScrollBars = ssVertical
       TabOrder = 0
+      OnGetImageIndex = CompDirGetImageIndex
       Options = [tvoAllowMultiselect, tvoAutoExpand, tvoAutoItemHeight, tvoHideSelection, tvoKeepCollapsedNodes, tvoReadOnly, tvoRowSelect, tvoShowButtons, tvoShowLines, tvoShowRoot, tvoToolTips, tvoThemedDraw]
       ObjectTypes = [otFolders, otNonFolders]
     end
