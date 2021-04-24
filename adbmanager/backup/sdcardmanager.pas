@@ -253,7 +253,7 @@ end;
 procedure TSDForm.FormClose(Sender: TObject; var CloseAction: TCloseAction);
 begin
   //Отменяем долгое копирование с и на sd-card
-  sdcmd := 'kill $(pgrep "/sdcard/")';
+  sdcmd := 'kill $(pgrep -f "/sdcard/")';
   StartCommand;
 end;
 
