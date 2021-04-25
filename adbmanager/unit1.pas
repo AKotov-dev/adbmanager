@@ -237,7 +237,7 @@ end;
 procedure TMainForm.FormClose(Sender: TObject; var CloseAction: TCloseAction);
 begin
   //Прерывание/Сброс запущенного/зависшего бэкапа
-  StartProcess('adb shell am force-stop com.android.backupconfirm');
+  // StartProcess('[[ $(adb shell pgrep -f com.android.backupconfirm) ]] && adb shell am force-stop com.android.backupconfirm');
   // StartProcess('adb shell su 0 "killall com.android.backupconfirm"');
 end;
 

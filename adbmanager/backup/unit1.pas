@@ -215,9 +215,9 @@ begin
       else
         Exit;
 
-    8: //Android Shell
+    8: //Терминал Android Shell
     begin
-      StartProcess('sakura --title="Android Shell" -x "adb shell"');
+      StartProcess('sakura -c 110 -r 35 -f 10 -t "Android Shell" -x "adb shell"');
       Exit;
     end;
 
@@ -237,7 +237,7 @@ end;
 procedure TMainForm.FormClose(Sender: TObject; var CloseAction: TCloseAction);
 begin
   //Прерывание/Сброс запущенного/зависшего бэкапа
-  StartProcess('adb shell am force-stop com.android.backupconfirm');
+  StartProcess('[[ $(adb shell pgrep -f com.android.backupconfirm) ]] && adb shell am force-stop com.android.backupconfirm');
   // StartProcess('adb shell su 0 "killall com.android.backupconfirm"');
 end;
 

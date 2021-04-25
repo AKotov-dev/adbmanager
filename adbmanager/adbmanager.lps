@@ -48,11 +48,13 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="Unit1"/>
-        <EditorIndex Value="-1"/>
-        <WindowIndex Value="-1"/>
-        <TopLine Value="207"/>
-        <CursorPos X="65" Y="220"/>
+        <IsVisibleTab Value="True"/>
+        <EditorIndex Value="1"/>
+        <TopLine Value="237"/>
+        <CursorPos X="129" Y="240"/>
         <UsageCount Value="77"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
       </Unit1>
       <Unit2>
         <Filename Value="showstatustrd.pas"/>
@@ -78,10 +80,12 @@
         <ComponentName Value="RebootForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="35"/>
-        <CursorPos X="95" Y="41"/>
+        <EditorIndex Value="2"/>
+        <TopLine Value="36"/>
+        <CursorPos X="3" Y="56"/>
         <UsageCount Value="54"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
       </Unit4>
       <Unit5>
         <Filename Value="backupunit.pas"/>
@@ -101,7 +105,6 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="SDCardManager"/>
-        <IsVisibleTab Value="True"/>
         <TopLine Value="240"/>
         <CursorPos X="50" Y="256"/>
         <UsageCount Value="46"/>
@@ -112,14 +115,14 @@
         <Filename Value="sdcommandtrd.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="SDCommandTRD"/>
-        <EditorIndex Value="1"/>
-        <TopLine Value="96"/>
-        <CursorPos X="53" Y="123"/>
+        <EditorIndex Value="3"/>
+        <TopLine Value="69"/>
+        <CursorPos X="40" Y="115"/>
         <UsageCount Value="44"/>
         <Loaded Value="True"/>
       </Unit7>
     </Units>
-    <JumpHistory Count="7" HistoryIndex="6">
+    <JumpHistory Count="9" HistoryIndex="8">
       <Position1>
         <Filename Value="sdcardmanager.pas"/>
         <Caret Line="206" Column="99" TopLine="175"/>
@@ -148,6 +151,14 @@
         <Filename Value="sdcardmanager.pas"/>
         <Caret Line="257" Column="19" TopLine="240"/>
       </Position7>
+      <Position8>
+        <Filename Value="unit1.pas"/>
+        <Caret Line="220" Column="65" TopLine="207"/>
+      </Position8>
+      <Position9>
+        <Filename Value="rebootunit.pas"/>
+        <Caret Line="41" Column="95" TopLine="35"/>
+      </Position9>
     </JumpHistory>
     <RunParams>
       <FormatVersion Value="2"/>

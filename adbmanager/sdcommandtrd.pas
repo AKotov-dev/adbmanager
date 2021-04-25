@@ -106,20 +106,13 @@ begin
     begin
       //Запоминаем позицию курсора
       i := CompDir.Selected.AbsoluteIndex;
-      p:= ExtractFilePath(CompDir.GetPathFromNode(CompDir.Selected));
+      p := ExtractFilePath(CompDir.GetPathFromNode(CompDir.Selected));
 
       //Обновляем  выбранного родителя
       CompDir.Refresh(CompDir.Selected.Parent);
-      // CompDir.Refresh(CompDir.Selected);
       //Возвращаем курсор на исходную
-     CompDir.Path:=p;
-      //CompDir.Select(CompDir.Items[i], [ssCtrl]);
-        CompDir.Select(CompDir.Items[i]);
-      //Если был раскрыт - переоткрываем
-     // if CompDir.Selected.Expanded then
-      //    CompDir.Selected.Expand(False);
-     // CompDir.Refresh(CompDir.Selected);
-
+      CompDir.Path := p;
+      CompDir.Select(CompDir.Items[i]);
       CompDir.SetFocus;
     end
     else
