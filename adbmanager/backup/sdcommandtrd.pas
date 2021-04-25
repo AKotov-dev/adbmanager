@@ -109,8 +109,8 @@ begin
       p:= ExtractFilePath(CompDir.GetPathFromNode(CompDir.Selected));
 
       //Обновляем  выбранного родителя
-     // CompDir.Refresh(CompDir.Selected.Parent);
-       CompDir.Refresh(CompDir.Selected);
+      CompDir.Refresh(CompDir.Selected.Parent);
+      // CompDir.Refresh(CompDir.Selected);
       //Возвращаем курсор на исходную
      CompDir.Path:=p;
       //CompDir.Select(CompDir.Items[i], [ssCtrl]);

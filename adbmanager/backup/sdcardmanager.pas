@@ -322,11 +322,12 @@ begin
     ExtractFilePath(CompDir.GetPathFromNode(CompDir.Selected))) + S);
 
   i := CompDir.Selected.AbsoluteIndex;
+  S := ExtractFilePath(CompDir.GetPathFromNode(CompDir.Selected));
+  //Обновляем  выбранного родителя
   CompDir.Refresh(CompDir.Selected.Parent);
-  CompDir.Select(CompDir.Items[i], [ssCtrl]);
-
-  if not CompDir.Selected.Expanded then
-    CompDir.Refresh(CompDir.Selected);
+  //Возвращаем курсор на исходную
+  CompDir.Path := S;
+  CompDir.Select(CompDir.Items[i]);
   CompDir.SetFocus;
 end;
 
