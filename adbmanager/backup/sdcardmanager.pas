@@ -239,6 +239,7 @@ var
 begin
   sdcmd := '';
 
+  //Удаление файлов и папок + содержащих пробелы
   if SDBox.SelCount <> 0 then
   begin
     for i := 0 to SDBox.Count - 1 do
@@ -249,8 +250,11 @@ begin
           c := 'adb shell rm -rf ' + GroupBox2.Caption +
             Copy(SDBox.Items[i], 3, Length(SDBox.Items[i]))
         else
-          c := 'adb shell rm -f ' + GroupBox2.Caption +
-            Copy(SDBox.Items[i], 3, Length(SDBox.Items[i]));
+          c := 'adb shell rm -f ' + StringReplace(GroupBox2.Caption +
+            Copy(SDBox.Items[i], 3, Length(SDBox.Items[i])), ' ', '\\ ', [rfReplaceAll, rfIgnoreCase]);
+
+        //StringReplace(c, ' ', 'aaa', [rfReplaceAll, rfIgnoreCase]);
+        showmessage(c);
 
         sdcmd := c + '; ' + sdcmd;
       end;
@@ -317,10 +321,11 @@ begin
     MessageDlg(SObjectExists, mtWarning, [mbOK], 0);
     Exit;
   end;
-
+  //Создаём директорию
   MkDir(IncludeTrailingPathDelimiter(
     ExtractFilePath(CompDir.GetPathFromNode(CompDir.Selected))) + S);
 
+  //Обновляем содержимое выделенного нода
   i := CompDir.Selected.AbsoluteIndex;
   S := ExtractFilePath(CompDir.GetPathFromNode(CompDir.Selected));
   //Обновляем  выбранного родителя
