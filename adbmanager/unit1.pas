@@ -215,9 +215,9 @@ begin
       else
         Exit;
 
-    8: //Android Shell
+    8: //Терминал Android Shell
     begin
-      StartProcess('sakura --title="Android Shell" -x "adb shell"');
+      StartProcess('sakura -c 110 -r 35 -f 10 -t "Android Shell" -x "adb shell"');
       Exit;
     end;
 
