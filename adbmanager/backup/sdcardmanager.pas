@@ -247,11 +247,11 @@ begin
       if SDBox.Selected[i] then
       begin
         if Copy(SDBox.Items[i], 1, 1) = 'd' then
-          c := 'adb shell rm -rf ' + StringReplace(GroupBox2.Caption +
+          c := 'adb shell echo -n "remove: "; adb shell rm -rfv ' + StringReplace(GroupBox2.Caption +
             Copy(SDBox.Items[i], 3, Length(SDBox.Items[i])), ' ',
             '\\ ', [rfReplaceAll, rfIgnoreCase])
         else
-          c := 'adb shell rm -f ' + StringReplace(GroupBox2.Caption +
+          c := 'adb shell rm -fv ' + StringReplace(GroupBox2.Caption +
             Copy(SDBox.Items[i], 3, Length(SDBox.Items[i])), ' ',
             '\\ ', [rfReplaceAll, rfIgnoreCase]);
 

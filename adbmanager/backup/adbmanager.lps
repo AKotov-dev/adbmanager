@@ -50,7 +50,7 @@
         <UnitName Value="Unit1"/>
         <EditorIndex Value="1"/>
         <TopLine Value="237"/>
-        <CursorPos X="71" Y="240"/>
+        <CursorPos X="129" Y="240"/>
         <UsageCount Value="77"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -79,9 +79,8 @@
         <ComponentName Value="RebootForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <IsVisibleTab Value="True"/>
         <EditorIndex Value="2"/>
-        <TopLine Value="37"/>
+        <TopLine Value="36"/>
         <CursorPos X="3" Y="56"/>
         <UsageCount Value="54"/>
         <Loaded Value="True"/>
@@ -105,8 +104,9 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="SDCardManager"/>
-        <TopLine Value="240"/>
-        <CursorPos X="50" Y="256"/>
+        <IsVisibleTab Value="True"/>
+        <TopLine Value="235"/>
+        <CursorPos X="17" Y="250"/>
         <UsageCount Value="46"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -116,13 +116,13 @@
         <IsPartOfProject Value="True"/>
         <UnitName Value="SDCommandTRD"/>
         <EditorIndex Value="3"/>
-        <TopLine Value="96"/>
-        <CursorPos X="53" Y="123"/>
+        <TopLine Value="69"/>
+        <CursorPos X="40" Y="115"/>
         <UsageCount Value="44"/>
         <Loaded Value="True"/>
       </Unit7>
     </Units>
-    <JumpHistory Count="9" HistoryIndex="8">
+    <JumpHistory Count="10" HistoryIndex="9">
       <Position1>
         <Filename Value="sdcardmanager.pas"/>
         <Caret Line="206" Column="99" TopLine="175"/>
@@ -159,6 +159,10 @@
         <Filename Value="rebootunit.pas"/>
         <Caret Line="41" Column="95" TopLine="35"/>
       </Position9>
+      <Position10>
+        <Filename Value="sdcardmanager.pas"/>
+        <Caret Line="256" Column="50" TopLine="240"/>
+      </Position10>
     </JumpHistory>
     <RunParams>
       <FormatVersion Value="2"/>
