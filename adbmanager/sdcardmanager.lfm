@@ -568,7 +568,7 @@ object SDForm: TSDForm
       ClientWidth = 418
       TabOrder = 1
       object CopyFromSmartphone: TSpeedButton
-        Left = 56
+        Left = 8
         Height = 40
         Hint = 'Copy to computer'
         Top = 8
@@ -1143,7 +1143,7 @@ object SDForm: TSDForm
         ParentShowHint = False
       end
       object UpBtn: TSpeedButton
-        Left = 8
+        Left = 56
         Height = 40
         Hint = 'Upper level'
         Top = 8
