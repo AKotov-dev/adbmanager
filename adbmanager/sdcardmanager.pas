@@ -129,10 +129,11 @@ end;
 
 procedure TSDForm.CopyFromPCClick(Sender: TObject);
 var
-  i: integer;
+  i, sd: integer;
   c: string;
   e: boolean;
 begin
+  //Флаг совпадения имени
   e := False;
   sdcmd := '';
 
@@ -145,9 +146,10 @@ begin
       begin
         //Ищем совпадения (перезапись объектов)
         if not e then
-          if Pos(ExtractFileName(CompDir.Items[i].GetTextPath),
-            SDBox.Items.Text) <> 0 then
-            e := True;
+          for sd := 0 to SDBox.Count - 1 do
+            if CompDir.Items[i].Text = Copy(SDBox.Items[sd], 3,
+              Length(SDBox.Items[sd])) then
+              e := True;
 
         c := 'adb push ' + ExcludeTrailingPathDelimiter(CompDir.Items[i].GetTextPath) +
           ' ' + GroupBox2.Caption;
