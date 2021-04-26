@@ -64,11 +64,12 @@ begin
 end;
 
 { БЛОК ВЫВОДА LS в SDBox }
-
 procedure StartLSSD.UpdateSDBox;
 begin
   //Вывод обновленного списка
   SDForm.SDBox.Items.Assign(S);
+  if SDForm.SDBox.Count <> 0 then
+    SDForm.SDBox.ItemIndex := 0;
 end;
 
 end.

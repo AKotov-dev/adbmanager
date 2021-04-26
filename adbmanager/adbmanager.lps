@@ -103,8 +103,8 @@
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="SDCardManager"/>
         <EditorIndex Value="1"/>
-        <TopLine Value="79"/>
-        <CursorPos Y="99"/>
+        <TopLine Value="103"/>
+        <CursorPos X="3" Y="108"/>
         <UsageCount Value="47"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -113,7 +113,6 @@
         <Filename Value="sdcommandtrd.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="SDCommandTRD"/>
-        <IsVisibleTab Value="True"/>
         <EditorIndex Value="5"/>
         <CursorPos Y="24"/>
         <UsageCount Value="45"/>
@@ -123,14 +122,15 @@
         <Filename Value="lssdfoldertrd.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="LSSDFolderTRD"/>
+        <IsVisibleTab Value="True"/>
         <EditorIndex Value="4"/>
-        <TopLine Value="30"/>
-        <CursorPos Y="67"/>
+        <TopLine Value="46"/>
+        <CursorPos X="3" Y="71"/>
         <UsageCount Value="21"/>
         <Loaded Value="True"/>
       </Unit8>
     </Units>
-    <JumpHistory Count="15" HistoryIndex="14">
+    <JumpHistory Count="16" HistoryIndex="15">
       <Position1>
         <Filename Value="sdcardmanager.pas"/>
         <Caret Line="206" Column="99" TopLine="175"/>
@@ -191,6 +191,10 @@
         <Filename Value="sdcardmanager.pas"/>
         <Caret Line="58" Column="22" TopLine="46"/>
       </Position15>
+      <Position16>
+        <Filename Value="sdcardmanager.pas"/>
+        <Caret Line="99" TopLine="79"/>
+      </Position16>
     </JumpHistory>
     <RunParams>
       <FormatVersion Value="2"/>

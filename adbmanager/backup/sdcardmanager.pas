@@ -82,16 +82,13 @@ uses SDCommandTRD, Unit1, LSSDFolderTRD;
 
 { TSDForm }
 
-//Исполнения команд/вывод лога
+//Исполнения команд/вывод лога (sdcmd)
 procedure TSDForm.StartCommand;
 var
   FSDCommandThread: TThread;
 begin
-  Screen.Cursor := crHourGlass;
-  //Запуск команды и потока отображения списка каталога SD-Карты
   FSDCommandThread := StartSDCommand.Create(False);
   FSDCommandThread.Priority := tpNormal;
-  Screen.Cursor := crDefault;
 end;
 
 //ls в директории /sdcard/...
@@ -99,11 +96,8 @@ procedure TSDForm.StartLS;
 var
   FLSSDThread: TThread;
 begin
-  Screen.Cursor := crHourGlass;
-  //Запуск команды и потока отображения лога исполнения
   FLSSDThread := StartLSSD.Create(False);
   FLSSDThread.Priority := tpNormal;
-  Screen.Cursor := crDefault;
 end;
 
 //На уровень вверх
