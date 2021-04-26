@@ -1,20 +1,21 @@
-object BackupForm: TBackupForm
+object RebootForm: TRebootForm
   Left = 446
-  Height = 90
-  Top = 149
+  Height = 148
+  Top = 271
   Width = 385
-  Caption = 'Backup copying'
-  ClientHeight = 90
+  ActiveControl = OKBtn
+  Caption = 'Reboot/Shutdown'
+  ClientHeight = 148
   ClientWidth = 385
-  OnClose = FormClose
   OnCreate = FormCreate
   Position = poMainFormCenter
   SessionProperties = 'Width;Height'
   LCLVersion = '2.0.10.0'
   object RadioGroup1: TRadioGroup
     AnchorSideRight.Control = OKBtn
+    AnchorSideBottom.Side = asrBottom
     Left = 8
-    Height = 73
+    Height = 132
     Top = 8
     Width = 276
     Anchors = [akTop, akLeft, akRight, akBottom]
@@ -26,12 +27,14 @@ object BackupForm: TBackupForm
     ChildSizing.ShrinkVertical = crsScaleChilds
     ChildSizing.Layout = cclLeftToRightThenTopToBottom
     ChildSizing.ControlsPerLine = 1
-    ClientHeight = 71
+    ClientHeight = 130
     ClientWidth = 274
     ItemIndex = 0
     Items.Strings = (
-      'Backup without SD-сard'
-      'Full backup (long procedure)'
+      'Normal reboot'
+      'Reboot to Bootloader'
+      'Reboot to Recovery mode'
+      'Shutdown the device'
     )
     TabOrder = 0
   end
@@ -66,7 +69,7 @@ object BackupForm: TBackupForm
   end
   object IniPropStorage1: TIniPropStorage
     StoredValues = <>
-    Left = 256
-    Top = 32
+    Left = 320
+    Top = 96
   end
 end

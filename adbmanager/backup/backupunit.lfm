@@ -6,7 +6,6 @@ object BackupForm: TBackupForm
   Caption = 'Backup copying'
   ClientHeight = 90
   ClientWidth = 385
-  OnClose = FormClose
   OnCreate = FormCreate
   Position = poMainFormCenter
   SessionProperties = 'Width;Height'

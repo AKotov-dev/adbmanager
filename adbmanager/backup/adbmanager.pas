@@ -16,7 +16,6 @@ begin
   Application.Scaled := True;
   Application.Initialize;
   Application.CreateForm(TMainForm, MainForm);
-  Application.CreateForm(TSDForm, SDForm);
   Application.Run;
 end.
 

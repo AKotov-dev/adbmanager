@@ -105,6 +105,7 @@ end;
 
 procedure TMainForm.ToolButton4Click(Sender: TObject);
 begin
+  SDForm := TSDForm.Create(Application);
   SDForm.Show;
 end;
 

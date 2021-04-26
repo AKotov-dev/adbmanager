@@ -1,12 +1,13 @@
 object RebootForm: TRebootForm
-  Left = 446
+  Left = 462
   Height = 148
-  Top = 271
+  Top = 261
   Width = 385
   ActiveControl = OKBtn
   Caption = 'Reboot/Shutdown'
   ClientHeight = 148
   ClientWidth = 385
+  OnClose = FormClose
   OnCreate = FormCreate
   Position = poMainFormCenter
   SessionProperties = 'Width;Height'

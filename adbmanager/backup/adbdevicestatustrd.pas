@@ -5,7 +5,7 @@ unit ADBDeviceStatusTRD;
 interface
 
 uses
-  Classes, Process, SysUtils;
+  Classes, Process;
 
 type
   ShowStatus = class(TThread)

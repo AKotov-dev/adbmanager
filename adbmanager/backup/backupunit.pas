@@ -17,7 +17,6 @@ type
     IniPropStorage1: TIniPropStorage;
     OKBtn: TButton;
     RadioGroup1: TRadioGroup;
-    procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
     procedure FormCreate(Sender: TObject);
     procedure OKBtnClick(Sender: TObject);
   private
@@ -71,11 +70,6 @@ begin
   RadioGroup1.Items[0] := SNoShared;
   RadioGroup1.Items[1] := SShared;
   IniPropStorage1.IniFileName := MainForm.IniPropStorage1.IniFileName;
-end;
-
-procedure TBackupForm.FormClose(Sender: TObject; var CloseAction: TCloseAction);
-begin
-  CloseAction := caFree;
 end;
 
 end.

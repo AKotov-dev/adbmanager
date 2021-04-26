@@ -5,7 +5,7 @@ unit ADBCommandTRD;
 interface
 
 uses
-  Classes, Process, SysUtils, ComCtrls;
+  Classes, Process, SysUtils;
 
 type
   StartADBCommand = class(TThread)
