@@ -80,9 +80,10 @@
         <ComponentName Value="RebootForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
+        <IsVisibleTab Value="True"/>
         <EditorIndex Value="7"/>
-        <TopLine Value="45"/>
-        <CursorPos X="3" Y="60"/>
+        <TopLine Value="27"/>
+        <CursorPos X="42" Y="33"/>
         <UsageCount Value="56"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -107,7 +108,6 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="SDCardManager"/>
-        <IsVisibleTab Value="True"/>
         <EditorIndex Value="1"/>
         <TopLine Value="218"/>
         <CursorPos X="32" Y="237"/>

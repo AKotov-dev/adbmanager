@@ -57,6 +57,7 @@ begin
   //Закрываем SD-Manager, если открыт
   if SDForm.Visible then
     SDForm.Close;
+
   //Отключаем терминал, если использовался
   MainForm.StartProcess('[ $(pidof sakura) ] && killall sakura');
 

@@ -34,7 +34,7 @@ msgid "Reboot to Recovery mode"
 msgstr ""
 
 #: rebootunit.sshutdown
-msgid "Shutdown the device"
+msgid "Shutdown the device (v4.4+)"
 msgstr ""
 
 #: sdcardmanager.screatedir

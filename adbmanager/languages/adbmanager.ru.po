@@ -34,8 +34,8 @@ msgid "Reboot to Recovery mode"
 msgstr "Перезагрузка в Recovery mode"
 
 #: rebootunit.sshutdown
-msgid "Shutdown the device"
-msgstr "Выключить устройство"
+msgid "Shutdown the device (v4.4+)"
+msgstr "Выключить устройство (v4.4+)"
 
 #: sdcardmanager.screatedir
 msgid "Create directory"
@@ -292,4 +292,3 @@ msgstr "Поиск пакетов"
 #: unit1.ssearchstring
 msgid "Input search string or \"*\":"
 msgstr "Введите строку поиска или \"*\":"
-

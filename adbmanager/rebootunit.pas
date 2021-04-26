@@ -30,7 +30,7 @@ resourcestring
   SNormalReboot = 'Normal reboot';
   SBootLoader = 'Reboot to Bootloader';
   SRecoveryReboot = 'Reboot to Recovery mode';
-  SShutDown = 'Shutdown the device';
+  SShutDown = 'Shutdown the device (v4.4+)';
 
 var
   RebootForm: TRebootForm;
