@@ -37,7 +37,7 @@ var
 
 implementation
 
-uses unit1;
+uses unit1, SDCardManager;
 
 {$R *.lfm}
 
@@ -54,6 +54,10 @@ end;
 
 procedure TRebootForm.OKBtnClick(Sender: TObject);
 begin
+  //Закрываем SD-Manager, если открыт
+  if SDForm.Visible then
+    SDForm.Close;
+
   //Отключаем терминал, если использовался
   MainForm.StartProcess('[ $(pidof sakura) ] && killall sakura');
 

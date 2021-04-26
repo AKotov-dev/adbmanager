@@ -17,6 +17,7 @@ type
     OKBtn: TButton;
     CancelBtn: TButton;
     RadioGroup1: TRadioGroup;
+    procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
     procedure OKBtnClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
   private
@@ -36,7 +37,7 @@ var
 
 implementation
 
-uses unit1;
+uses unit1, SDCardManager;
 
 {$R *.lfm}
 
@@ -53,6 +54,9 @@ end;
 
 procedure TRebootForm.OKBtnClick(Sender: TObject);
 begin
+  //Закрываем SD-Manager, если открыт
+  if SDForm.Visible then
+    SDForm.Close;
   //Отключаем терминал, если использовался
   MainForm.StartProcess('[ $(pidof sakura) ] && killall sakura');
 
@@ -63,6 +67,11 @@ begin
     2: adbcmd := 'adb reboot recovery';
     3: adbcmd := 'adb shell reboot -p';
   end;
+end;
+
+procedure TRebootForm.FormClose(Sender: TObject; var CloseAction: TCloseAction);
+begin
+  CloseAction := caFree;
 end;
 
 end.
