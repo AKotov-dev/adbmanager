@@ -18,9 +18,9 @@ type
 
     procedure Execute; override;
 
-    procedure StartProgress;
-    procedure StopProgress;
     procedure ShowSDLog;
+    procedure StopProgress;
+    procedure StartProgress;
 
   end;
 

@@ -80,7 +80,7 @@ var
 
 implementation
 
-uses ShowStatusTRD, ADBCommandTRD, RebootUnit, BackUpUnit, SDCardManager;
+uses ADBDeviceStatusTRD, ADBCommandTRD, RebootUnit, BackUpUnit, SDCardManager;
 
 {$R *.lfm}
 

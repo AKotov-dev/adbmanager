@@ -73,7 +73,7 @@
         <PackageName Value="LCL"/>
       </Item1>
     </RequiredPackages>
-    <Units Count="8">
+    <Units Count="9">
       <Unit0>
         <Filename Value="adbmanager.pas"/>
         <IsPartOfProject Value="True"/>
@@ -87,9 +87,9 @@
         <UnitName Value="Unit1"/>
       </Unit1>
       <Unit2>
-        <Filename Value="showstatustrd.pas"/>
+        <Filename Value="adbdevicestatustrd.pas"/>
         <IsPartOfProject Value="True"/>
-        <UnitName Value="ShowStatusTRD"/>
+        <UnitName Value="ADBDeviceStatusTRD"/>
       </Unit2>
       <Unit3>
         <Filename Value="adbcommandtrd.pas"/>
@@ -124,6 +124,11 @@
         <IsPartOfProject Value="True"/>
         <UnitName Value="SDCommandTRD"/>
       </Unit7>
+      <Unit8>
+        <Filename Value="lssdfoldertrd.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="LSSDFolderTRD"/>
+      </Unit8>
     </Units>
   </ProjectOptions>
   <CompilerOptions>

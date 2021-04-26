@@ -76,7 +76,7 @@ var
 
 implementation
 
-uses SDCommandTRD, Unit1;
+uses SDCommandTRD, Unit1, LSSDFolderTRD;
 
 {$R *.lfm}
 
@@ -87,34 +87,23 @@ procedure TSDForm.StartCommand;
 var
   FSDCommandThread: TThread;
 begin
-  //Запуск команды и потока отображения лога исполнения
+  Screen.Cursor := crHourGlass;
+  //Запуск команды и потока отображения списка каталога SD-Карты
   FSDCommandThread := StartSDCommand.Create(False);
   FSDCommandThread.Priority := tpNormal;
+  Screen.Cursor := crDefault;
 end;
 
 //ls в директории /sdcard/...
 procedure TSDForm.StartLS;
 var
-  ExProcess: TProcess;
+  FLSSDThread: TThread;
 begin
-  ExProcess := TProcess.Create(nil);
-  try
-    ExProcess.Executable := 'bash';
-    ExProcess.Parameters.Add('-c');
-    ExProcess.Parameters.Add('adb shell ls -F ' + GroupBox2.Caption +
-      '| sort -t "d" -k 1,1');
-    ExProcess.Options := [poWaitOnExit, poUsePipes, poStderrToOutPut];
-    ExProcess.Execute;
-
-    //Грузим директорию из GroupBox2.caption в SDBox
-    SDBox.Items.LoadFromStream(ExProcess.Output);
-
-    //Ставим курсор в "0"
-    if SDBox.Count > 0 then
-      SDBox.ItemIndex := 0;
-  finally
-    ExProcess.Free;
-  end;
+  Screen.Cursor := crHourGlass;
+  //Запуск команды и потока отображения лога исполнения
+  FLSSDThread := StartLSSD.Create(False);
+  FLSSDThread.Priority := tpNormal;
+  Screen.Cursor := crDefault;
 end;
 
 //На уровень вверх
@@ -150,6 +139,9 @@ var
   c: string;
   e: boolean;
 begin
+  if SDBox.Count = 0 then
+    Exit;
+
   e := False;
   sdcmd := '';
 
@@ -291,15 +283,18 @@ procedure TSDForm.MkDirBtnClick(Sender: TObject);
 var
   S: string;
 begin
-  S := '';
-  repeat
-    if not InputQuery(SCreateDir, SInputName, S) then
-      Exit
-  until S <> '';
+  if SDBox.Count <> 0 then
+  begin
+    S := '';
+    repeat
+      if not InputQuery(SCreateDir, SInputName, S) then
+        Exit
+    until S <> '';
 
-  sdcmd := 'adb shell mkdir ' + GroupBox2.Caption + S + '| sort -k 1,1';
+    sdcmd := 'adb shell mkdir ' + GroupBox2.Caption + S + '| sort -k 1,1';
 
-  StartCommand;
+    StartCommand;
+  end;
 end;
 
 procedure TSDForm.MkPCDirBtnClick(Sender: TObject);
@@ -346,14 +341,15 @@ end;
 
 procedure TSDForm.SDBoxDblClick(Sender: TObject);
 begin
-  if Copy(SDBox.Items[SDBox.ItemIndex], 1, 1) = 'd' then
-  begin
-    GroupBox2.Caption := GroupBox2.Caption +
-      Copy(SDBox.Items[SDBox.ItemIndex], 3,
-      Length(SDBox.Items[SDBox.ItemIndex])) + '/';
-    //Перечитываем текущий каталог SDBox (GroupBox2.Caption)
-    StartLS;
-  end;
+  if SDBox.Count <> 0 then
+    if Copy(SDBox.Items[SDBox.ItemIndex], 1, 1) = 'd' then
+    begin
+      GroupBox2.Caption := GroupBox2.Caption +
+        Copy(SDBox.Items[SDBox.ItemIndex], 3,
+        Length(SDBox.Items[SDBox.ItemIndex])) + '/';
+      //Перечитываем текущий каталог SDBox (GroupBox2.Caption)
+      StartLS;
+    end;
 end;
 
 procedure TSDForm.SDBoxDrawItem(Control: TWinControl; Index: integer;

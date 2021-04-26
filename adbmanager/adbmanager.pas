@@ -5,8 +5,8 @@ program adbmanager;
 uses {$IFDEF UNIX}
   cthreads, {$ENDIF}
   Interfaces, // this includes the LCL widgetset
-  Forms, Unit1, ShowStatusTRD, ADBCommandTRD, rebootunit, BackUpUnit,
-  SDCardManager, SDCommandTRD { you can add units after this };
+  Forms, Unit1, ADBDeviceStatusTRD, ADBCommandTRD, rebootunit, BackUpUnit,
+  SDCardManager, SDCommandTRD, LSSDFolderTRD { you can add units after this };
 
 {$R *.res}
 

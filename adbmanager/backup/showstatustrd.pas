@@ -110,7 +110,7 @@ var
   dev0, dev1: string;
 begin
   //Исходный цвет устройства - clDefault
-  MainForm.DevSheet.Font.Color := clGreen;
+  MainForm.DevSheet.Font.Color := clDefault;
   //Удаляем начальные и конечные переводы строки/пробелы
   Result.Text := Trim(Result.Text);
 

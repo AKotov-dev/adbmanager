@@ -1,5 +1,5 @@
 object MainForm: TMainForm
-  Left = 301
+  Left = 300
   Height = 546
   Top = 124
   Width = 745
@@ -98,7 +98,6 @@ object MainForm: TMainForm
       Caption = 'no device'
       ClientHeight = 265
       ClientWidth = 739
-      Font.Color = clRed
       Font.Height = -13
       Font.Name = 'Sans'
       Font.Style = [fsBold]
