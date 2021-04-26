@@ -133,9 +133,6 @@ var
   c: string;
   e: boolean;
 begin
-  if SDBox.Count = 0 then
-    Exit;
-
   e := False;
   sdcmd := '';
 

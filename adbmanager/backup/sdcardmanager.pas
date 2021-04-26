@@ -122,9 +122,9 @@ end;
 //Домашний каталог текущий
 procedure TSDForm.FormCreate(Sender: TObject);
 begin
-  {CompDir.Root := ExcludeTrailingPathDelimiter(GetUserDir);
+  CompDir.Root := ExcludeTrailingPathDelimiter(GetUserDir);
   CompDir.Items.Item[0].Selected := True;
-  IniPropStorage1.IniFileName := MainForm.IniPropStorage1.IniFileName;}
+  IniPropStorage1.IniFileName := MainForm.IniPropStorage1.IniFileName;
 end;
 
 procedure TSDForm.CopyFromPCClick(Sender: TObject);
@@ -251,7 +251,6 @@ end;
 
 procedure TSDForm.FormClose(Sender: TObject; var CloseAction: TCloseAction);
 begin
-  CloseAction := caFree;
   //Отменяем долгое копирование с и на sd-card
   sdcmd := 'kill $(pgrep -f "/sdcard/")';
   StartCommand;
