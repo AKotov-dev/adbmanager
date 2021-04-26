@@ -48,6 +48,7 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="Unit1"/>
+        <IsVisibleTab Value="True"/>
         <TopLine Value="237"/>
         <CursorPos X="129" Y="240"/>
         <UsageCount Value="78"/>
@@ -59,7 +60,7 @@
         <IsPartOfProject Value="True"/>
         <UnitName Value="ADBDeviceStatusTRD"/>
         <EditorIndex Value="2"/>
-        <TopLine Value="70"/>
+        <TopLine Value="11"/>
         <CursorPos X="7" Y="11"/>
         <UsageCount Value="70"/>
         <Loaded Value="True"/>
@@ -69,6 +70,7 @@
         <IsPartOfProject Value="True"/>
         <UnitName Value="ADBCommandTRD"/>
         <EditorIndex Value="3"/>
+        <TopLine Value="32"/>
         <CursorPos X="9" Y="63"/>
         <UsageCount Value="67"/>
         <Loaded Value="True"/>
@@ -122,10 +124,9 @@
         <Filename Value="lssdfoldertrd.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="LSSDFolderTRD"/>
-        <IsVisibleTab Value="True"/>
         <EditorIndex Value="4"/>
-        <TopLine Value="42"/>
-        <CursorPos X="33" Y="72"/>
+        <TopLine Value="45"/>
+        <CursorPos X="3" Y="71"/>
         <UsageCount Value="21"/>
         <Loaded Value="True"/>
       </Unit8>
