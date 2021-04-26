@@ -95,26 +95,13 @@ end;
 
 //Стоп индикатора
 procedure StartSDCommand.StopProgress;
-var
-  i: integer; //Абсолютный индекс выделенного
-  p: string; //Выделенная директория
 begin
   with SDForm do
   begin
     //Обновление каталога назначения на компе
     if Pos('pull', sdcmd) <> 0 then
-    begin
-      //Запоминаем позицию курсора
-      i := CompDir.Selected.AbsoluteIndex;
-      p := ExtractFilePath(CompDir.GetPathFromNode(CompDir.Selected));
-
-      //Обновляем  выбранного родителя
-      CompDir.Refresh(CompDir.Selected.Parent);
-      //Возвращаем курсор на исходную
-      CompDir.Path := p;
-      CompDir.Select(CompDir.Items[i]);
-      CompDir.SetFocus;
-    end
+      //Обновление каталога назначения на компе
+      CompDirUpdate
     else
       //Обновление каталога назначения на смартфоне
       StartLS;

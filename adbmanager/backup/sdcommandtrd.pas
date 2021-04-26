@@ -5,7 +5,7 @@ unit SDCommandTRD;
 interface
 
 uses
-  Classes, Process, SysUtils;
+  Classes, Process, SysUtils, ComCtrls;
 
 type
   StartSDCommand = class(TThread)

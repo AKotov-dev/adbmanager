@@ -52,6 +52,9 @@ type
     //перечитывание и отображение текущей директории SDBox
     procedure StartLS;
 
+    //перечитывание текущей директории CompDir
+    procedure CompDirUpdate;
+
     procedure UpBtnClick(Sender: TObject);
 
     //Отработка команд копирования с выводом в лог
@@ -91,13 +94,31 @@ begin
   FSDCommandThread.Priority := tpNormal;
 end;
 
-//ls в директории /sdcard/...
+//ls в директории /sdcard/... (ListBox)
 procedure TSDForm.StartLS;
 var
   FLSSDThread: TThread;
 begin
   FLSSDThread := StartLSSD.Create(False);
   FLSSDThread.Priority := tpNormal;
+end;
+
+//апдейт текущей директории CompDir (ShellTreeView)
+procedure TSDForm.CompDirUpdate;
+var
+  i: integer; //Абсолютный индекс выделенного
+  d: string; //Выделенная директория
+begin
+  //Запоминаем позицию курсора
+  i := CompDir.Selected.AbsoluteIndex;
+  d := ExtractFilePath(CompDir.GetPathFromNode(CompDir.Selected));
+
+  //Обновляем  выбранного родителя
+  CompDir.Refresh(CompDir.Selected.Parent);
+  //Возвращаем курсор на исходную
+  CompDir.Path := d;
+  CompDir.Select(CompDir.Items[i]);
+  CompDir.SetFocus;
 end;
 
 //На уровень вверх
@@ -145,10 +166,11 @@ begin
       if CompDir.Items[i].Selected then
       begin
         //Ищем совпадения (перезапись объектов)
-        for sd := 0 to SDBox.Count - 1 do
-          if CompDir.Items[i].Text = Copy(SDBox.Items[sd], 3,
-            Length(SDBox.Items[sd])) then
-            e := True;
+        if not e then
+          for sd := 0 to SDBox.Count - 1 do
+            if CompDir.Items[i].Text = Copy(SDBox.Items[sd], 3,
+              Length(SDBox.Items[sd])) then
+              e := True;
 
         c := 'adb push ' + ExcludeTrailingPathDelimiter(CompDir.Items[i].GetTextPath) +
           ' ' + GroupBox2.Caption;

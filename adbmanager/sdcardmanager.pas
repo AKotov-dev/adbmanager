@@ -52,6 +52,9 @@ type
     //перечитывание и отображение текущей директории SDBox
     procedure StartLS;
 
+    //перечитывание текущей директории CompDir
+    procedure CompDirUpdate;
+
     procedure UpBtnClick(Sender: TObject);
 
     //Отработка команд копирования с выводом в лог
@@ -91,13 +94,31 @@ begin
   FSDCommandThread.Priority := tpNormal;
 end;
 
-//ls в директории /sdcard/...
+//ls в директории /sdcard/... (ListBox)
 procedure TSDForm.StartLS;
 var
   FLSSDThread: TThread;
 begin
   FLSSDThread := StartLSSD.Create(False);
   FLSSDThread.Priority := tpNormal;
+end;
+
+//апдейт текущей директории CompDir (ShellTreeView)
+procedure TSDForm.CompDirUpdate;
+var
+  i: integer; //Абсолютный индекс выделенного
+  d: string; //Выделенная директория
+begin
+  //Запоминаем позицию курсора
+  i := CompDir.Selected.AbsoluteIndex;
+  d := ExtractFilePath(CompDir.GetPathFromNode(CompDir.Selected));
+
+  //Обновляем  выбранного родителя
+  CompDir.Refresh(CompDir.Selected.Parent);
+  //Возвращаем курсор на исходную
+  CompDir.Path := d;
+  CompDir.Select(CompDir.Items[i]);
+  CompDir.SetFocus;
 end;
 
 //На уровень вверх
@@ -293,7 +314,6 @@ end;
 procedure TSDForm.MkPCDirBtnClick(Sender: TObject);
 var
   S: string;
-  i: integer;
 begin
   S := '';
   repeat
@@ -313,14 +333,7 @@ begin
     ExtractFilePath(CompDir.GetPathFromNode(CompDir.Selected))) + S);
 
   //Обновляем содержимое выделенного нода
-  i := CompDir.Selected.AbsoluteIndex;
-  S := ExtractFilePath(CompDir.GetPathFromNode(CompDir.Selected));
-  //Обновляем  выбранного родителя
-  CompDir.Refresh(CompDir.Selected.Parent);
-  //Возвращаем курсор на исходную
-  CompDir.Path := S;
-  CompDir.Select(CompDir.Items[i]);
-  CompDir.SetFocus;
+  CompDirUpdate;
 end;
 
 procedure TSDForm.RefreshBtnClick(Sender: TObject);
