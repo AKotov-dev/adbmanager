@@ -5,7 +5,7 @@ unit LSSDFolderTRD;
 interface
 
 uses
-  Classes, Process, SysUtils, ComCtrls;
+  Classes, Process, SysUtils;
 
 type
   StartLSSD = class(TThread)

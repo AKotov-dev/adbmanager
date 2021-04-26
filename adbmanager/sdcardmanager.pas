@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, ExtCtrls, StdCtrls,
-  ShellCtrls, ComCtrls, Buttons, IniPropStorage, Process;
+  ShellCtrls, ComCtrls, Buttons, IniPropStorage, Process, LCLType;
 
 type
 
@@ -40,6 +40,7 @@ type
     procedure DelBtnClick(Sender: TObject);
     procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
     procedure FormCreate(Sender: TObject);
+    procedure FormKeyUp(Sender: TObject; var Key: word; Shift: TShiftState);
     procedure FormShow(Sender: TObject);
     procedure MkDirBtnClick(Sender: TObject);
     procedure MkPCDirBtnClick(Sender: TObject);
@@ -47,18 +48,22 @@ type
     procedure SDBoxDblClick(Sender: TObject);
     procedure SDBoxDrawItem(Control: TWinControl; Index: integer;
       ARect: TRect; State: TOwnerDrawState);
+    procedure SDMemoKeyDown(Sender: TObject; var Key: word; Shift: TShiftState);
     procedure SelectAllBtnClick(Sender: TObject);
 
-    //перечитывание и отображение текущей директории SDBox
+    //апдейт текущей директории SDBox (смартфон)
     procedure StartLS;
 
-    //перечитывание текущей директории CompDir
+    //апдейт текущей директории CompDir (компьютер)
     procedure CompDirUpdate;
 
     procedure UpBtnClick(Sender: TObject);
 
     //Отработка команд копирования с выводом в лог
     procedure StartCommand;
+
+    //Отмена копирования
+    procedure CancelCopy;
 
   private
 
@@ -146,6 +151,19 @@ begin
   CompDir.Root := ExcludeTrailingPathDelimiter(GetUserDir);
   CompDir.Items.Item[0].Selected := True;
   IniPropStorage1.IniFileName := MainForm.IniPropStorage1.IniFileName;
+end;
+
+procedure TSDForm.CancelCopy;
+begin
+  //Отменяем долгое копирование с и на sd-card
+  sdcmd := 'kill $(pgrep -f "/sdcard/")';
+  StartCommand;
+end;
+
+procedure TSDForm.FormKeyUp(Sender: TObject; var Key: word; Shift: TShiftState);
+begin
+  if Key = VK_ESCAPE then
+    CancelCopy;
 end;
 
 procedure TSDForm.CopyFromPCClick(Sender: TObject);
@@ -271,9 +289,7 @@ end;
 
 procedure TSDForm.FormClose(Sender: TObject; var CloseAction: TCloseAction);
 begin
-  //Отменяем долгое копирование с и на sd-card
-  sdcmd := 'kill $(pgrep -f "/sdcard/")';
-  StartCommand;
+  CancelCopy;
 end;
 
 procedure TSDForm.FormShow(Sender: TObject);
@@ -397,8 +413,15 @@ begin
   end;
 end;
 
+procedure TSDForm.SDMemoKeyDown(Sender: TObject; var Key: word; Shift: TShiftState);
+begin
+  //Исключаем нажатие клавиш в логе
+  Key := 0;
+end;
+
 procedure TSDForm.SelectAllBtnClick(Sender: TObject);
 begin
+  //Выделить всё
   SDBox.SelectAll;
 end;
 

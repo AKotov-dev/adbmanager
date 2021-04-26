@@ -1,13 +1,15 @@
 object SDForm: TSDForm
-  Left = 312
+  Left = 303
   Height = 612
-  Top = 132
+  Top = 124
   Width = 854
   Caption = 'SD-Card manager'
   ClientHeight = 612
   ClientWidth = 854
+  KeyPreview = True
   OnClose = FormClose
   OnCreate = FormCreate
+  OnKeyUp = FormKeyUp
   OnShow = FormShow
   Position = poDefault
   SessionProperties = 'GroupBox1.Width;Height;SDMemo.Height;Width;Left;Top'
@@ -29,6 +31,7 @@ object SDForm: TSDForm
     Align = alBottom
     Font.Height = -12
     Font.Name = 'Monospace'
+    OnKeyDown = SDMemoKeyDown
     ParentFont = False
     ScrollBars = ssVertical
     TabOrder = 1
