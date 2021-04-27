@@ -38,7 +38,7 @@ msgid "Shutdown the device (v4.4+)"
 msgstr ""
 
 #: sdcardmanager.scancelcopyng
-msgid "Esc - cancel copyng... "
+msgid "Esc - cancel... "
 msgstr ""
 
 #: sdcardmanager.screatedir

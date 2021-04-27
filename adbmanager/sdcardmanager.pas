@@ -77,7 +77,7 @@ resourcestring
   SObjectExists = 'The folder already exists!';
   SCreateDir = 'Create directory';
   SInputName = 'Enter the name without spaces:';
-  SCancelCopyng = 'Esc - cancel copyng... ';
+  SCancelCopyng = 'Esc - cancel... ';
 
 var
   SDForm: TSDForm;
