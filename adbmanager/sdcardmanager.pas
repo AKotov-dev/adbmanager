@@ -338,8 +338,6 @@ procedure TSDForm.MkDirBtnClick(Sender: TObject);
 var
   S: string;
 begin
-  if SDBox.Count <> 0 then
-  begin
     S := '';
     repeat
       if not InputQuery(SCreateDir, SInputName, S) then
@@ -350,7 +348,6 @@ begin
     sdcmd := 'adb shell mkdir "' + DetoxName(GroupBox2.Caption + S) + '"';
 
     StartCommand;
-  end;
 end;
 
 procedure TSDForm.MkPCDirBtnClick(Sender: TObject);
