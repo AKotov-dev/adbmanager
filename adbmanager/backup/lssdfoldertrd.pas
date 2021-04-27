@@ -57,7 +57,7 @@ begin
 
     //Размер SD-Card, использовано и свободно
     ExProcess.Parameters.Delete(1);
-    ExProcess.Parameters.Add('adb shell df /mnt/sdca1rd | tail -n1 | awk ' +
+    ExProcess.Parameters.Add('adb shell df /mnt/sdcard | tail -n1 | awk ' +
       '''' + '{ print $2, $3, $4 }' + '''');
     Exprocess.Execute;
 

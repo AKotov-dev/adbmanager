@@ -94,7 +94,7 @@ begin
   //Вывод обновленного списка
   SDForm.SDBox.Items.Assign(S);
   //Апдейт содержимого
-  SDForm.SDBox.Update;
+  SDForm.SDBox.Refresh;
 
   //Если список не пуст - курсор в "0"
   if SDForm.SDBox.Count <> 0 then
