@@ -65,6 +65,8 @@ type
     //Отмена копирования
     procedure CancelCopy;
 
+    function DetoxName(N: string): string;
+
   private
 
   public
@@ -90,6 +92,18 @@ uses SDCommandTRD, Unit1, LSSDFolderTRD;
 {$R *.lfm}
 
 { TSDForm }
+
+//Автозамена "плохих" символов
+function TSDForm.DetoxName(N: string): string;
+begin
+  Result := StringReplace(N, ' ', '\\ ', [rfReplaceAll, rfIgnoreCase]);
+  Result := StringReplace(Result, '<', '\<', [rfReplaceAll, rfIgnoreCase]);
+  Result := StringReplace(Result, '>', '\>', [rfReplaceAll, rfIgnoreCase]);
+  Result := StringReplace(Result, '(', '\(', [rfReplaceAll, rfIgnoreCase]);
+  Result := StringReplace(Result, ')', '\)', [rfReplaceAll, rfIgnoreCase]);
+  Result := StringReplace(Result, '|', '\|', [rfReplaceAll, rfIgnoreCase]);
+  Result := StringReplace(Result, ':', '\:', [rfReplaceAll, rfIgnoreCase]);
+end;
 
 //Исполнения команд/вывод лога (sdcmd)
 procedure TSDForm.StartCommand;
@@ -192,10 +206,8 @@ begin
               e := True;
 
         //Замена пробелов в именах и путях на '\ '
-        c := 'adb push ' + StringReplace(ExcludeTrailingPathDelimiter(
-          CompDir.Items[i].GetTextPath), ' ', '\ ', [rfReplaceAll, rfIgnoreCase]) +
-          ' ' + StringReplace(GroupBox2.Caption, ' ', '\ ',
-          [rfReplaceAll, rfIgnoreCase]);
+        c := 'adb push "' + ExcludeTrailingPathDelimiter(
+          CompDir.Items[i].GetTextPath) + '" "' + GroupBox2.Caption + '"';
 
         sdcmd := c + '; ' + sdcmd;
       end;
@@ -234,12 +246,9 @@ begin
             3, Length(SDBox.Items[i]))))) then
             e := True;
 
-        //Замена пробелов на '\ '
-        c := 'adb pull ' + StringReplace(GroupBox2.Caption +
-          Copy(SDBox.Items[i], 3, Length(SDBox.Items[i])), ' ', '\ ',
-          [rfReplaceAll, rfIgnoreCase]) + ' ' + StringReplace(
-          ExtractFilePath(CompDir.GetPathFromNode(CompDir.Selected)),
-          ' ', '\ ', [rfReplaceAll, rfIgnoreCase]);
+        c := 'adb pull "' + GroupBox2.Caption +
+          Copy(SDBox.Items[i], 3, Length(SDBox.Items[i])) + '" "' +
+          ExtractFilePath(CompDir.GetPathFromNode(CompDir.Selected)) + '"';
 
         sdcmd := c + '; ' + sdcmd;
       end;
@@ -278,13 +287,11 @@ begin
       if SDBox.Selected[i] then
       begin
         if Copy(SDBox.Items[i], 1, 1) = 'd' then
-          c := 'adb shell rm -rf ' + StringReplace(GroupBox2.Caption +
-            Copy(SDBox.Items[i], 3, Length(SDBox.Items[i])), ' ',
-            '\\ ', [rfReplaceAll, rfIgnoreCase])
+          c := 'adb shell rm -rf "' + DetoxName(GroupBox2.Caption +
+            Copy(SDBox.Items[i], 3, Length(SDBox.Items[i]))) + '"'
         else
-          c := 'adb shell rm -f ' + StringReplace(GroupBox2.Caption +
-            Copy(SDBox.Items[i], 3, Length(SDBox.Items[i])), ' ',
-            '\\ ', [rfReplaceAll, rfIgnoreCase]);
+          c := 'adb shell rm -f "' + DetoxName(GroupBox2.Caption +
+            Copy(SDBox.Items[i], 3, Length(SDBox.Items[i]))) + '"';
 
         sdcmd := c + '; ' + sdcmd;
       end;
@@ -328,9 +335,8 @@ begin
         Exit
     until S <> '';
 
-    //Замена пробелов на '\\ '
-    sdcmd := 'adb shell mkdir ' + StringReplace(GroupBox2.Caption +
-      S, ' ', '\\ ', [rfReplaceAll, rfIgnoreCase]);
+    //DetoxName - Замена пробелов и спецсимволов
+    sdcmd := 'adb shell mkdir "' + DetoxName(GroupBox2.Caption + S) + '"';
 
     StartCommand;
   end;
