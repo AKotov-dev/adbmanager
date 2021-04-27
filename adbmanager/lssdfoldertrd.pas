@@ -70,6 +70,8 @@ procedure StartLSSD.UpdateSDBox;
 begin
   //Вывод обновленного списка
   SDForm.SDBox.Items.Assign(S);
+  //Апдейт содержимого
+  SDForm.SDBox.Update;
 
   //Если список не пуст - курсор в "0"
   if SDForm.SDBox.Count <> 0 then

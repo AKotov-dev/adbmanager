@@ -45,8 +45,7 @@ begin
     ExProcess.Parameters.Add('-c');
     //ls с заменой пробелов
     ExProcess.Parameters.Add('adb shell ls -F "' +
-      SDForm.DetoxName(SDForm.GroupBox2.Caption) +
-      '" | sort -t "d" -k 1,1');
+      SDForm.DetoxName(SDForm.GroupBox2.Caption) + '" | sort -t "d" -k 1,1');
 
     //Ошибки не выводим, только список
     ExProcess.Options := [poWaitOnExit, poUsePipes];
@@ -71,6 +70,8 @@ procedure StartLSSD.UpdateSDBox;
 begin
   //Вывод обновленного списка
   SDForm.SDBox.Items.Assign(S);
+
+  SDForm.SDBox.Update;
 
   //Если список не пуст - курсор в "0"
   if SDForm.SDBox.Count <> 0 then
