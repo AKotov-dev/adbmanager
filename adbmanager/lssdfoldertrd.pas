@@ -20,6 +20,7 @@ type
 
     //Перечитываем текущую директорию SD-Card
     procedure UpdateSDBox;
+    procedure SDSizeUsedFree;
 
   end;
 
@@ -52,17 +53,39 @@ begin
 
     ExProcess.Execute;
     S.LoadFromStream(ExProcess.Output);
-    //S.Text := Trim(S.Text);
-
-    //sleep(100);
-    //if S.Count <> 0 then
     Synchronize(@UpdateSDBox);
+
+    //Размер SD-Card, использовано и свободно
+    ExProcess.Parameters.Delete(1);
+    ExProcess.Parameters.Add('adb shell df /mnt/sdcard | tail -n1 | awk ' +
+      '''' + '{ print $2, $3, $4 }' + '''');
+    Exprocess.Execute;
+
+    S.LoadFromStream(ExProcess.Output);
+    S.Text := Trim(S.Text);
+
+    //Если есть, что выводить и SD-Карта существует
+    if (S.Count <> 0) and (Pos('No', S[0]) = 0) then
+      Synchronize(@SDSizeUsedFree);
 
   finally
     S.Free;
     ExProcess.Free;
     Terminate;
   end;
+end;
+
+//Общий размер SD-Card, использовано и осталось
+procedure StartLSSD.SDSizeUsedFree;
+begin
+  //Выделяем три значения раздельно
+  S.Delimiter := ' ';
+  S.StrictDelimiter := True;
+  S.DelimitedText := S[0];
+
+  SDForm.Label4.Caption := S[0];
+  SDForm.Label5.Caption := S[1];
+  SDForm.Label6.Caption := S[2];
 end;
 
 { БЛОК ВЫВОДА LS в SDBox }

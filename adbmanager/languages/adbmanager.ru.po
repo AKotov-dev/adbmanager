@@ -237,6 +237,33 @@ msgctxt "tsdform.groupbox2.caption"
 msgid "/sdcard/"
 msgstr ""
 
+#: tsdform.label1.caption
+msgid "Free:"
+msgstr "Свободно:"
+
+#: tsdform.label2.caption
+msgid "Used:"
+msgstr "Занято:"
+
+#: tsdform.label3.caption
+msgid "Size:"
+msgstr "Размер:"
+
+#: tsdform.label4.caption
+msgctxt "tsdform.label4.caption"
+msgid "..."
+msgstr ""
+
+#: tsdform.label5.caption
+msgctxt "tsdform.label5.caption"
+msgid "..."
+msgstr ""
+
+#: tsdform.label6.caption
+msgctxt "tsdform.label6.caption"
+msgid "..."
+msgstr ""
+
 #: tsdform.mkdirbtn.hint
 msgctxt "tsdform.mkdirbtn.hint"
 msgid "Make folder"
@@ -296,4 +323,3 @@ msgstr "Поиск пакетов"
 #: unit1.ssearchstring
 msgid "Input search string or \"*\":"
 msgstr "Введите строку поиска или \"*\":"
-

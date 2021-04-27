@@ -10,5 +10,11 @@
 {"hash":195296268,"name":"tsdform.selectallbtn.hint","sourcebytes":[83,101,108,101,99,116,32,97,108,108],"value":"Select all"},
 {"hash":111651762,"name":"tsdform.mkdirbtn.hint","sourcebytes":[77,97,107,101,32,102,111,108,100,101,114],"value":"Make folder"},
 {"hash":231525187,"name":"tsdform.delbtn.hint","sourcebytes":[68,101,108,101,116,101,32,70,105,108,101,115,47,70,111,108,100,101,114,115],"value":"Delete Files/Folders"},
-{"hash":72268412,"name":"tsdform.upbtn.hint","sourcebytes":[85,112,112,101,114,32,108,101,118,101,108],"value":"Upper level"}
+{"hash":72268412,"name":"tsdform.upbtn.hint","sourcebytes":[85,112,112,101,114,32,108,101,118,101,108],"value":"Upper level"},
+{"hash":5902474,"name":"tsdform.label3.caption","sourcebytes":[83,105,122,101,58],"value":"Size:"},
+{"hash":12558,"name":"tsdform.label4.caption","sourcebytes":[46,46,46],"value":"..."},
+{"hash":6069114,"name":"tsdform.label2.caption","sourcebytes":[85,115,101,100,58],"value":"Used:"},
+{"hash":12558,"name":"tsdform.label5.caption","sourcebytes":[46,46,46],"value":"..."},
+{"hash":5081994,"name":"tsdform.label1.caption","sourcebytes":[70,114,101,101,58],"value":"Free:"},
+{"hash":12558,"name":"tsdform.label6.caption","sourcebytes":[46,46,46],"value":"..."}
 ]}

@@ -21,6 +21,12 @@ type
     GroupBox2: TGroupBox;
     ImageList1: TImageList;
     IniPropStorage1: TIniPropStorage;
+    Label1: TLabel;
+    Label2: TLabel;
+    Label3: TLabel;
+    Label4: TLabel;
+    Label5: TLabel;
+    Label6: TLabel;
     MkDirBtn: TSpeedButton;
     MkPCDirBtn: TSpeedButton;
     Panel3: TPanel;
@@ -316,6 +322,11 @@ begin
 
   //Очищаем лог
   SDMemo.Clear;
+
+  //Обнуляем показания размера до перечитывания SD-Card
+  Label4.Caption := '...';
+  Label5.Caption := '...';
+  Label6.Caption := '...';
 
   //Перечитываем текущий каталог SDBox (GroupBox2.Caption)
   //Возвращаем исходную директорию SD-Card

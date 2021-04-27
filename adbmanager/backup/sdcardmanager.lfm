@@ -1,11 +1,11 @@
 object SDForm: TSDForm
-  Left = 309
+  Left = 303
   Height = 612
-  Top = 128
-  Width = 854
+  Top = 124
+  Width = 842
   Caption = 'SD-Card manager'
   ClientHeight = 612
-  ClientWidth = 854
+  ClientWidth = 842
   KeyPreview = True
   OnClose = FormClose
   OnCreate = FormCreate
@@ -27,7 +27,7 @@ object SDForm: TSDForm
     Left = 0
     Height = 71
     Top = 541
-    Width = 854
+    Width = 842
     Align = alBottom
     Font.Height = -12
     Font.Name = 'Monospace'
@@ -42,7 +42,7 @@ object SDForm: TSDForm
     Left = 0
     Height = 5
     Top = 536
-    Width = 854
+    Width = 842
     Align = alBottom
     ResizeAnchor = akBottom
   end
@@ -534,12 +534,12 @@ object SDForm: TSDForm
     Left = 434
     Height = 523
     Top = 5
-    Width = 420
+    Width = 408
     Align = alClient
     BorderSpacing.Top = 5
     Caption = '/sdcard/'
     ClientHeight = 505
-    ClientWidth = 418
+    ClientWidth = 406
     Font.Height = -13
     Font.Name = 'Sans'
     Font.Style = [fsBold]
@@ -549,7 +549,7 @@ object SDForm: TSDForm
       Left = 0
       Height = 449
       Top = 56
-      Width = 418
+      Width = 406
       Align = alClient
       BorderStyle = bsNone
       Font.Height = -13
@@ -559,7 +559,7 @@ object SDForm: TSDForm
       OnDblClick = SDBoxDblClick
       OnDrawItem = SDBoxDrawItem
       ParentFont = False
-      ScrollWidth = 418
+      ScrollWidth = 406
       Style = lbOwnerDrawFixed
       TabOrder = 0
       TopIndex = -1
@@ -568,11 +568,15 @@ object SDForm: TSDForm
       Left = 0
       Height = 56
       Top = 0
-      Width = 418
+      Width = 406
       Align = alTop
+      Alignment = taLeftJustify
       BevelOuter = bvNone
       ClientHeight = 56
-      ClientWidth = 418
+      ClientWidth = 406
+      Font.Height = -13
+      Font.Name = 'Sans'
+      ParentFont = False
       TabOrder = 1
       object CopyFromSmartphone: TSpeedButton
         Left = 8
@@ -718,12 +722,11 @@ object SDForm: TSDForm
         ParentShowHint = False
       end
       object SelectAllBtn: TSpeedButton
-        Left = 272
+        Left = 96
         Height = 40
         Hint = 'Select all'
         Top = 8
         Width = 40
-        Anchors = [akTop, akRight]
         Flat = True
         Glyph.Data = {
           36100000424D3610000000000000360000002800000020000000200000000100
@@ -862,12 +865,11 @@ object SDForm: TSDForm
         ParentShowHint = False
       end
       object MkDirBtn: TSpeedButton
-        Left = 320
+        Left = 142
         Height = 40
         Hint = 'Make folder'
         Top = 8
         Width = 40
-        Anchors = [akTop, akRight]
         Flat = True
         Glyph.Data = {
           36100000424D3610000000000000360000002800000020000000200000000100
@@ -1006,12 +1008,11 @@ object SDForm: TSDForm
         ParentShowHint = False
       end
       object DelBtn: TSpeedButton
-        Left = 368
+        Left = 187
         Height = 40
         Hint = 'Delete Files/Folders'
         Top = 8
         Width = 40
-        Anchors = [akTop, akRight]
         Flat = True
         Glyph.Data = {
           36100000424D3610000000000000360000002800000020000000200000000100
@@ -1150,7 +1151,7 @@ object SDForm: TSDForm
         ParentShowHint = False
       end
       object UpBtn: TSpeedButton
-        Left = 56
+        Left = 52
         Height = 40
         Hint = 'Upper level'
         Top = 8
@@ -1292,6 +1293,107 @@ object SDForm: TSDForm
         ShowHint = True
         ParentShowHint = False
       end
+      object Label3: TLabel
+        AnchorSideTop.Control = Label4
+        AnchorSideRight.Control = Label4
+        Left = 338
+        Height = 13
+        Top = -1
+        Width = 35
+        Anchors = [akTop, akRight]
+        BorderSpacing.Right = 4
+        Caption = 'Size:'
+        Font.Height = -12
+        Font.Name = 'Monospace'
+        ParentColor = False
+        ParentFont = False
+      end
+      object Label4: TLabel
+        AnchorSideLeft.Control = Label3
+        AnchorSideLeft.Side = asrBottom
+        AnchorSideRight.Control = Panel3
+        AnchorSideRight.Side = asrBottom
+        Left = 377
+        Height = 13
+        Top = -1
+        Width = 21
+        Anchors = [akTop, akRight]
+        BorderSpacing.Left = 4
+        BorderSpacing.Right = 8
+        Caption = '...'
+        Font.Height = -12
+        Font.Name = 'Monospace'
+        ParentColor = False
+        ParentFont = False
+      end
+      object Label2: TLabel
+        AnchorSideTop.Control = Label5
+        AnchorSideRight.Control = Label5
+        Left = 338
+        Height = 13
+        Top = 17
+        Width = 35
+        Anchors = [akTop, akRight]
+        BorderSpacing.Right = 4
+        Caption = 'Used:'
+        Font.Height = -12
+        Font.Name = 'Monospace'
+        ParentColor = False
+        ParentFont = False
+      end
+      object Label5: TLabel
+        AnchorSideLeft.Control = Label2
+        AnchorSideLeft.Side = asrBottom
+        AnchorSideRight.Control = Panel3
+        AnchorSideRight.Side = asrBottom
+        Left = 377
+        Height = 13
+        Top = 17
+        Width = 21
+        Anchors = [akTop, akRight]
+        BorderSpacing.Left = 4
+        BorderSpacing.Right = 8
+        Caption = '...'
+        Font.Color = clRed
+        Font.Height = -12
+        Font.Name = 'Monospace'
+        ParentColor = False
+        ParentFont = False
+      end
+      object Label1: TLabel
+        AnchorSideTop.Control = Label6
+        AnchorSideRight.Control = Label6
+        Left = 338
+        Height = 13
+        Top = 35
+        Width = 35
+        Anchors = [akTop, akRight]
+        BorderSpacing.Right = 4
+        Caption = 'Free:'
+        Font.Height = -12
+        Font.Name = 'Monospace'
+        ParentColor = False
+        ParentFont = False
+      end
+      object Label6: TLabel
+        AnchorSideLeft.Control = Label1
+        AnchorSideLeft.Side = asrBottom
+        AnchorSideRight.Control = Panel3
+        AnchorSideRight.Side = asrBottom
+        Left = 377
+        Height = 13
+        Top = 35
+        Width = 21
+        Anchors = [akTop, akRight]
+        BorderSpacing.Left = 4
+        BorderSpacing.Right = 8
+        Caption = '...'
+        Font.Color = clGreen
+        Font.Height = -12
+        Font.Name = 'Monospace'
+        ParentColor = False
+        ParentFont = False
+      end
     end
   end
   object Splitter2: TSplitter
@@ -1304,7 +1406,7 @@ object SDForm: TSDForm
     Left = 0
     Height = 8
     Top = 528
-    Width = 854
+    Width = 842
     Align = alBottom
     TabOrder = 6
     Visible = False
