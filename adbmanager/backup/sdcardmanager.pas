@@ -77,7 +77,7 @@ resourcestring
   SObjectExists = 'The folder already exists!';
   SCreateDir = 'Create directory';
   SInputName = 'Enter the name without spaces:';
-  SCancelCopyng = 'Esc - Cancel... ';
+  SCancelCopyng = 'Esc - cancel... ';
 
 var
   SDForm: TSDForm;
@@ -191,8 +191,11 @@ begin
               Length(SDBox.Items[sd])) then
               e := True;
 
-        c := 'adb push ' + ExcludeTrailingPathDelimiter(CompDir.Items[i].GetTextPath) +
-          ' ' + GroupBox2.Caption;
+        //Замена пробелов в именах и путях на '\ '
+        c := 'adb push ' + StringReplace(ExcludeTrailingPathDelimiter(
+          CompDir.Items[i].GetTextPath), ' ', '\ ', [rfReplaceAll, rfIgnoreCase]) +
+          ' ' + StringReplace(GroupBox2.Caption, ' ', '\ ',
+          [rfReplaceAll, rfIgnoreCase]);
 
         sdcmd := c + '; ' + sdcmd;
       end;
@@ -231,9 +234,12 @@ begin
             3, Length(SDBox.Items[i]))))) then
             e := True;
 
-        c := 'adb pull ' + GroupBox2.Caption +
-          Copy(SDBox.Items[i], 3, Length(SDBox.Items[i])) + ' ' +
-          ExtractFilePath(CompDir.GetPathFromNode(CompDir.Selected));
+        //Замена пробелов на '\ '
+        c := 'adb pull ' + StringReplace(GroupBox2.Caption +
+          Copy(SDBox.Items[i], 3, Length(SDBox.Items[i])), ' ', '\ ',
+          [rfReplaceAll, rfIgnoreCase]) + ' ' + StringReplace(
+          ExtractFilePath(CompDir.GetPathFromNode(CompDir.Selected)),
+          ' ', '\ ', [rfReplaceAll, rfIgnoreCase]);
 
         sdcmd := c + '; ' + sdcmd;
       end;
@@ -322,7 +328,9 @@ begin
         Exit
     until S <> '';
 
-    sdcmd := 'adb shell mkdir ' + GroupBox2.Caption + S + '| sort -k 1,1';
+    //Замена пробелов на '\\ '
+    sdcmd := 'adb shell mkdir ' + StringReplace(GroupBox2.Caption +
+      S, ' ', '\\ ', [rfReplaceAll, rfIgnoreCase]);
 
     StartCommand;
   end;

@@ -17,6 +17,7 @@ type
     S: TStringList;
 
     procedure Execute; override;
+
     //Перечитываем текущую директорию SD-Card
     procedure UpdateSDBox;
 
@@ -42,7 +43,8 @@ begin
 
     ExProcess.Executable := 'bash';
     ExProcess.Parameters.Add('-c');
-    ExProcess.Parameters.Add('adb shell ls -F ' + SDForm.GroupBox2.Caption +
+    ExProcess.Parameters.Add('adb shell ls -F ' +
+      StringReplace(SDForm.GroupBox2.Caption, ' ', '\\ ', [rfReplaceAll, rfIgnoreCase]) +
       '| sort -t "d" -k 1,1');
 
     //Ошибки не выводим, только список

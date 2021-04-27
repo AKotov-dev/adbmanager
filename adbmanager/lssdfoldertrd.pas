@@ -43,7 +43,9 @@ begin
 
     ExProcess.Executable := 'bash';
     ExProcess.Parameters.Add('-c');
-    ExProcess.Parameters.Add('adb shell ls -F ' + SDForm.GroupBox2.Caption +
+    //ls с заменой пробелов
+    ExProcess.Parameters.Add('adb shell ls -F ' +
+      StringReplace(SDForm.GroupBox2.Caption, ' ', '\\ ', [rfReplaceAll, rfIgnoreCase]) +
       '| sort -t "d" -k 1,1');
 
     //Ошибки не выводим, только список

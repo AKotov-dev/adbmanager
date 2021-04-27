@@ -5,7 +5,7 @@ The program is designed for visual and easy management of the ADB-Server and con
 Dependencies: adb, iproute2, sakura  
 Free icons: https://icon-icons.com/ru/
 
-**Access permissions via USB**  
+**Access permissions via USB:**  
 Linux Mint: sudo usermod -a -G plugdev $USER; reboot  
 Mageia Linux: su/password; usermod -a -G usb $USER; reboot
 
