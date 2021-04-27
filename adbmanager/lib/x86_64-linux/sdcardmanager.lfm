@@ -91,9 +91,13 @@ object SDForm: TSDForm
       Top = 0
       Width = 427
       Align = alTop
+      Alignment = taRightJustify
       BevelOuter = bvNone
       ClientHeight = 56
       ClientWidth = 427
+      Font.Height = -13
+      Font.Name = 'Sans'
+      ParentFont = False
       TabOrder = 1
       object CopyFromPC: TSpeedButton
         Left = 8

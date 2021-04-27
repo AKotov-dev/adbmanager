@@ -88,6 +88,8 @@ end;
 //Старт индикатора
 procedure StartSDCommand.StartProgress;
 begin
+  //Метка отмены копирования
+  SDForm.Panel4.Caption := SCancelCopyng;
   SDForm.SDMemo.Clear;
   SDForm.ProgressBar1.Style := pbstMarquee;
   SDForm.ProgressBar1.Visible := True;
@@ -98,6 +100,8 @@ procedure StartSDCommand.StopProgress;
 begin
   with SDForm do
   begin
+    //Метка отмены копирования
+    SDForm.Panel4.Caption := '';
     //Обновление каталога назначения на компе
     if Pos('pull', sdcmd) <> 0 then
       //Обновление каталога назначения на компе

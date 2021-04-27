@@ -5,7 +5,7 @@ unit ADBDeviceStatusTRD;
 interface
 
 uses
-  Classes, Process;
+  Classes, Process, SysUtils;
 
 type
   ShowStatus = class(TThread)
@@ -73,7 +73,7 @@ begin
       Result.LoadFromStream(ExProcess.Output);
       Synchronize(@ShowKey);
 
-      Sleep(250);
+     // Sleep(250);
     end;
 
   finally

@@ -37,6 +37,10 @@ msgstr "Перезагрузка в Recovery mode"
 msgid "Shutdown the device (v4.4+)"
 msgstr "Выключить устройство (v4.4+)"
 
+#: sdcardmanager.scancelcopyng
+msgid "Esc - cancel copyng... "
+msgstr "Esc - отмена копирования... "
+
 #: sdcardmanager.screatedir
 msgid "Create directory"
 msgstr "Создать директорию"
