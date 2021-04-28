@@ -5,7 +5,7 @@ unit SDCommandTRD;
 interface
 
 uses
-  Classes, Process, SysUtils, ComCtrls;
+  Classes, SysUtils, Forms, Controls, Graphics, ComCtrls, Process;
 
 type
   StartSDCommand = class(TThread)
@@ -30,15 +30,15 @@ uses SDCardManager;
 
 { TRD }
 
+//Вывод лога и прогресса
 procedure StartSDCommand.Execute;
 var
   ExProcess: TProcess;
 begin
-  try //Вывод лога и прогресса
+  try
+    Synchronize(@StartProgress);
 
     S := TStringList.Create;
-
-    Synchronize(@StartProgress);
 
     FreeOnTerminate := True; //Уничтожить по завершении
 
@@ -88,6 +88,8 @@ end;
 //Старт индикатора
 procedure StartSDCommand.StartProgress;
 begin
+  Screen.Cursor:=crHourGlass;
+  //Метка отмены копирования
   SDForm.Panel4.Caption := SCancelCopyng;
   SDForm.SDMemo.Clear;
   SDForm.ProgressBar1.Style := pbstMarquee;
@@ -97,8 +99,10 @@ end;
 //Стоп индикатора
 procedure StartSDCommand.StopProgress;
 begin
+    Screen.Cursor:=crDefault;
   with SDForm do
   begin
+    //Метка отмены копирования
     SDForm.Panel4.Caption := '';
     //Обновление каталога назначения на компе
     if Pos('pull', sdcmd) <> 0 then

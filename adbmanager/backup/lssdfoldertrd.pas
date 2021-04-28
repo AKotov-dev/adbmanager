@@ -5,7 +5,7 @@ unit LSSDFolderTRD;
 interface
 
 uses
-  Classes, Process, SysUtils;
+  Classes, Process, SysUtils, Forms, Controls;
 
 type
   StartLSSD = class(TThread)
@@ -21,6 +21,8 @@ type
     //Перечитываем текущую директорию SD-Card
     procedure UpdateSDBox;
     procedure SDSizeUsedFree;
+    procedure ShowProgress;
+    procedure HideProgress;
 
   end;
 
@@ -30,11 +32,13 @@ uses SDCardManager;
 
 { TRD }
 
+//Апдейт текущего каталога SDBox
 procedure StartLSSD.Execute;
 var
   ExProcess: TProcess;
 begin
   try
+    Synchronize(@ShowProgress);
     S := TStringList.Create;
 
     FreeOnTerminate := True; //Уничтожить по завершении
@@ -68,11 +72,24 @@ begin
     if (S.Count <> 0) and (Pos('No', S[0]) = 0) then
       Synchronize(@SDSizeUsedFree);
 
+    Synchronize(@HideProgress);
   finally
     S.Free;
     ExProcess.Free;
     Terminate;
   end;
+end;
+
+//Начало операции
+procedure StartLSSD.ShowProgress;
+begin
+  Screen.cursor := crHourGlass;
+end;
+
+//Окончание операции
+procedure StartLSSD.HideProgress;
+begin
+  Screen.cursor := crDefault;
 end;
 
 //Общий размер SD-Card, использовано и осталось
@@ -94,7 +111,7 @@ begin
   //Вывод обновленного списка
   SDForm.SDBox.Items.Assign(S);
   //Апдейт содержимого
-  SDForm.SDBox.Update;
+  SDForm.SDBox.Refresh;
 
   //Если список не пуст - курсор в "0"
   if SDForm.SDBox.Count <> 0 then

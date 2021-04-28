@@ -338,16 +338,16 @@ procedure TSDForm.MkDirBtnClick(Sender: TObject);
 var
   S: string;
 begin
-    S := '';
-    repeat
-      if not InputQuery(SCreateDir, SInputName, S) then
-        Exit
-    until S <> '';
+  S := '';
+  repeat
+    if not InputQuery(SCreateDir, SInputName, S) then
+      Exit
+  until S <> '';
 
-    //DetoxName - Замена пробелов и спецсимволов
-    sdcmd := 'adb shell mkdir "' + DetoxName(GroupBox2.Caption + S) + '"';
+  //DetoxName - Замена пробелов и спецсимволов
+  sdcmd := 'adb shell mkdir "' + DetoxName(GroupBox2.Caption + S) + '"';
 
-    StartCommand;
+  StartCommand;
 end;
 
 procedure TSDForm.MkPCDirBtnClick(Sender: TObject);
