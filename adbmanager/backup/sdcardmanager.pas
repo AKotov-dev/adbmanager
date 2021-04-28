@@ -126,7 +126,7 @@ var
   FLSSDThread: TThread;
 begin
   FLSSDThread := StartLSSD.Create(False);
-  FLSSDThread.Priority := tpHighest;
+  FLSSDThread.Priority := tpHighest; //tpHigher
 end;
 
 //апдейт текущей директории CompDir (ShellTreeView)

@@ -164,7 +164,7 @@ begin
 
     2: //install
     begin
-      OpenDialog1.Filter := 'APK-Package files (*.akp)|*.apk';
+      OpenDialog1.Filter := 'APK-Package files (*.apk)|*.apk';
       if OpenDialog1.Execute then
         adbcmd := 'adb install "' + OpenDialog1.FileName + '"'
       else
@@ -189,7 +189,7 @@ begin
 
     5: //restore
     begin
-      OpenDialog1.Filter := 'ADB Backup files (*.adb)|*.adb';
+      OpenDialog1.Filter := 'ADB-Backup files (*.adb)|*.adb';
       if OpenDialog1.Execute then
         adbcmd := 'adb restore "' + Opendialog1.FileName + '"'
       else
