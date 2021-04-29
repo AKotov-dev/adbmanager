@@ -215,7 +215,6 @@ begin
               Length(SDBox.Items[sd])) then
               e := True;
 
-        //Замена пробелов в именах и путях на '\ '
         c := 'adb push ' + '''' + ExcludeTrailingPathDelimiter(
           CompDir.Items[i].GetTextPath) + '''' + ' ' + '''' + GroupBox2.Caption + '''';
 
@@ -257,8 +256,8 @@ begin
             e := True;
 
         c := 'adb pull ' + '''' + GroupBox2.Caption +
-          Copy(SDBox.Items[i], 3, Length(SDBox.Items[i])) + '''' + ' ' + '''' +
-          ExtractFilePath(CompDir.GetPathFromNode(CompDir.Selected)) + '''';
+          Copy(SDBox.Items[i], 3, Length(SDBox.Items[i])) + '''' +
+          ' ' + '''' + ExtractFilePath(CompDir.GetPathFromNode(CompDir.Selected)) + '''';
 
         sdcmd := c + '; ' + sdcmd;
       end;

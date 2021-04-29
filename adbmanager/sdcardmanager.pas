@@ -170,7 +170,7 @@ begin
     end;
 end;
 
-//Домашний каталог текущий
+//Домашний каталог - текущий
 procedure TSDForm.FormCreate(Sender: TObject);
 begin
   CompDir.Root := ExcludeTrailingPathDelimiter(GetUserDir);
