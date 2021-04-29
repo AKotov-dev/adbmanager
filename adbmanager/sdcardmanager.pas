@@ -91,7 +91,8 @@ resourcestring
 var
   SDForm: TSDForm;
   //Команда ADB и флаг панели, которую нужно обновить
-  sdcmd, select_update: string;
+  sdcmd: string;
+  left_panel: boolean;
 
 implementation
 
@@ -156,7 +157,6 @@ end;
 //Отменяем долгое копирование по "Esc" и при закрытии
 procedure TSDForm.CancelCopy;
 begin
-  select_update := 'all';
   sdcmd := 'kill $(pgrep -f "/sdcard/")';
   StartCommand;
 end;
@@ -194,6 +194,7 @@ begin
     CancelCopy;
 end;
 
+//Копирование с компа на SD-Card
 procedure TSDForm.CopyFromPCClick(Sender: TObject);
 var
   i, sd: integer;
@@ -201,7 +202,7 @@ var
   e: boolean;
 begin
   //Флаг выбора панели
-  select_update := 'right';
+  left_panel := False;
 
   //Флаг совпадения имени
   e := False;
@@ -237,6 +238,7 @@ begin
   end;
 end;
 
+//Копирование с SD-Card на комп
 procedure TSDForm.CopyFromSmartphoneClick(Sender: TObject);
 var
   i: integer;
@@ -244,7 +246,7 @@ var
   e: boolean;
 begin
   //Флаг выбора панели
-  select_update := 'left';
+  left_panel := True;
 
   e := False; //Флаг совпадения файлов/папок (перезапись)
   sdcmd := '';  //Команда
@@ -290,13 +292,14 @@ begin
   Node.SelectedIndex := Node.ImageIndex;
 end;
 
+//Удаление на SD-Card
 procedure TSDForm.DelBtnClick(Sender: TObject);
 var
   i: integer;
   c: string; //сборка команд...
 begin
   //Флаг выбора панели
-  select_update := 'right';
+  left_panel := False;
 
   sdcmd := '';
 
@@ -355,7 +358,7 @@ var
   S: string;
 begin
   //Флаг выбора панели
-  select_update := 'right';
+  left_panel := False;
 
   S := '';
   repeat
@@ -369,12 +372,14 @@ begin
   StartCommand;
 end;
 
+//Создать каталог на SD-Card
 procedure TSDForm.MkPCDirBtnClick(Sender: TObject);
 var
   S: string;
 begin
   //Флаг выбора панели
-  select_update := 'left';
+  left_panel := False;
+
   S := '';
   repeat
     if not InputQuery(SCreateDir, SInputName, S) then

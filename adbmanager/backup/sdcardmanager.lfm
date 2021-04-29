@@ -1,5 +1,5 @@
 object SDForm: TSDForm
-  Left = 329
+  Left = 311
   Height = 612
   Top = 124
   Width = 867

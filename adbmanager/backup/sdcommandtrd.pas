@@ -107,11 +107,13 @@ begin
     case select_update of
       'left': CompDirUpdate;
       'right': StartLS;
-      'all': begin
+      'all':
+      begin
         CompDirUpdate;
-      StartLS;
-        end;
+        StartLS;
       end;
+    end;
+
     ProgressBar1.Style := pbstNormal;
   end;
 end;
