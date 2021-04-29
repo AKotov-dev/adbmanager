@@ -49,7 +49,7 @@ begin
     ExProcess.Parameters.Add('-c');
     ExProcess.Parameters.Add(sdcmd);
 
-    ExProcess.Options := [poUsePipes, poStderrToOutPut]; //poWaitOnExit,
+    ExProcess.Options := [poWaitOnExit, poUsePipes, poStderrToOutPut]; //
 
     ExProcess.Execute;
 
@@ -104,15 +104,10 @@ begin
     Panel4.Caption := '';
 
     //Обновление каталогов назначения (выборочно)
-    case select_update of
-      'left': CompDirUpdate;
-      'right': StartLS;
-      'all':
-      begin
-        CompDirUpdate;
-        StartLS;
-      end;
-    end;
+    if left_panel then
+      CompDirUpdate
+    else
+      StartLS;
 
     ProgressBar1.Style := pbstNormal;
   end;

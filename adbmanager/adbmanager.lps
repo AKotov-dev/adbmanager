@@ -103,8 +103,8 @@
         <UnitName Value="SDCardManager"/>
         <IsVisibleTab Value="True"/>
         <EditorIndex Value="1"/>
-        <TopLine Value="366"/>
-        <CursorPos X="3" Y="382"/>
+        <TopLine Value="147"/>
+        <CursorPos X="2" Y="163"/>
         <UsageCount Value="59"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -114,8 +114,8 @@
         <IsPartOfProject Value="True"/>
         <UnitName Value="SDCommandTRD"/>
         <EditorIndex Value="2"/>
-        <TopLine Value="88"/>
-        <CursorPos X="15" Y="110"/>
+        <TopLine Value="36"/>
+        <CursorPos X="60" Y="52"/>
         <UsageCount Value="57"/>
         <Loaded Value="True"/>
       </Unit7>
