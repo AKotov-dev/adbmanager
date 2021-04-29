@@ -102,14 +102,14 @@ begin
   begin
     //Метка отмены копирования
     Panel4.Caption := '';
+    ProgressBar1.Style := pbstNormal;
+    ProgressBar1.Refresh;
 
     //Обновление каталогов назначения (выборочно)
     if left_panel then
       CompDirUpdate
     else
       StartLS;
-
-    ProgressBar1.Style := pbstNormal;
   end;
 end;
 

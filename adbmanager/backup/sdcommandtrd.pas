@@ -49,7 +49,7 @@ begin
     ExProcess.Parameters.Add('-c');
     ExProcess.Parameters.Add(sdcmd);
 
-    ExProcess.Options := [poWaitOnExit, poUsePipes, poStderrToOutPut]; //
+    ExProcess.Options := [poUsePipes, poStderrToOutPut]; //poWaitOnExit,
 
     ExProcess.Execute;
 

@@ -160,7 +160,8 @@ begin
   sdcmd := 'kill $(pgrep -f "/sdcard/")';
   StartCommand;
 
- // ProgressBar1.Style := pbstNormal;
+  SDForm.Panel4.Caption := '';
+  ProgressBar1.Style := pbstNormal;
 end;
 
 //На уровень вверх
