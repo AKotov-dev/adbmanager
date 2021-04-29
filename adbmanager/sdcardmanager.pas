@@ -29,13 +29,14 @@ type
     Label6: TLabel;
     MkDirBtn: TSpeedButton;
     MkPCDirBtn: TSpeedButton;
+    Panel1: TPanel;
     Panel3: TPanel;
     Panel4: TPanel;
     ProgressBar1: TProgressBar;
     RefreshBtn: TSpeedButton;
     SDBox: TListBox;
-    SDMemo: TMemo;
     Panel2: TPanel;
+    SDMemo: TMemo;
     SelectAllBtn: TSpeedButton;
     Splitter1: TSplitter;
     Splitter2: TSplitter;
@@ -151,6 +152,13 @@ begin
   CompDir.SetFocus;
 end;
 
+//Отменяем долгое копирование по "Esc" и при закрытии
+procedure TSDForm.CancelCopy;
+begin
+  sdcmd := 'kill $(pgrep -f "/sdcard/")';
+  StartCommand;
+end;
+
 //На уровень вверх
 procedure TSDForm.UpBtnClick(Sender: TObject);
 var
@@ -176,13 +184,6 @@ begin
   CompDir.Root := ExcludeTrailingPathDelimiter(GetUserDir);
   CompDir.Items.Item[0].Selected := True;
   IniPropStorage1.IniFileName := MainForm.IniPropStorage1.IniFileName;
-end;
-
-procedure TSDForm.CancelCopy;
-begin
-  //Отменяем долгое копирование с и на sd-card
-  sdcmd := 'kill $(pgrep -f "/sdcard/")';
-  StartCommand;
 end;
 
 procedure TSDForm.FormKeyUp(Sender: TObject; var Key: word; Shift: TShiftState);

@@ -1,18 +1,18 @@
 object SDForm: TSDForm
-  Left = 335
+  Left = 329
   Height = 612
   Top = 124
-  Width = 842
+  Width = 867
   Caption = 'SD-Card manager'
   ClientHeight = 612
-  ClientWidth = 842
+  ClientWidth = 867
   KeyPreview = True
   OnClose = FormClose
   OnCreate = FormCreate
   OnKeyUp = FormKeyUp
   OnShow = FormShow
   Position = poDefault
-  SessionProperties = 'GroupBox1.Width;Height;SDMemo.Height;Width;Left;Top'
+  SessionProperties = 'GroupBox1.Width;Height;Left;Top;Width;Panel1.Height'
   LCLVersion = '2.0.10.0'
   object Panel2: TPanel
     Left = 0
@@ -23,49 +23,26 @@ object SDForm: TSDForm
     Caption = 'Panel2'
     TabOrder = 0
   end
-  object SDMemo: TMemo
-    Left = 0
-    Height = 71
-    Top = 541
-    Width = 842
-    Align = alBottom
-    Font.Height = -12
-    Font.Name = 'Monospace'
-    OnKeyDown = SDMemoKeyDown
-    ParentFont = False
-    ScrollBars = ssVertical
-    TabOrder = 1
-    WantReturns = False
-  end
-  object Splitter1: TSplitter
-    Cursor = crVSplit
-    Left = 0
-    Height = 5
-    Top = 536
-    Width = 842
-    Align = alBottom
-    ResizeAnchor = akBottom
-  end
   object GroupBox1: TGroupBox
     Left = 0
-    Height = 523
+    Height = 526
     Top = 5
-    Width = 429
+    Width = 432
     Align = alLeft
     BorderSpacing.Top = 5
     Caption = 'computer'
-    ClientHeight = 505
-    ClientWidth = 427
+    ClientHeight = 508
+    ClientWidth = 430
     Font.Height = -13
     Font.Name = 'Sans'
     Font.Style = [fsBold]
     ParentFont = False
-    TabOrder = 3
+    TabOrder = 1
     object CompDir: TShellTreeView
       Left = 0
-      Height = 449
+      Height = 452
       Top = 56
-      Width = 427
+      Width = 430
       Align = alClient
       AutoExpand = True
       BorderStyle = bsNone
@@ -91,12 +68,12 @@ object SDForm: TSDForm
       Left = 0
       Height = 56
       Top = 0
-      Width = 427
+      Width = 430
       Align = alTop
       Alignment = taRightJustify
       BevelOuter = bvNone
       ClientHeight = 56
-      ClientWidth = 427
+      ClientWidth = 430
       Font.Height = -13
       Font.Name = 'Sans'
       ParentFont = False
@@ -533,25 +510,25 @@ object SDForm: TSDForm
     end
   end
   object GroupBox2: TGroupBox
-    Left = 434
-    Height = 523
+    Left = 437
+    Height = 526
     Top = 5
-    Width = 408
+    Width = 430
     Align = alClient
     BorderSpacing.Top = 5
     Caption = '/sdcard/'
-    ClientHeight = 505
-    ClientWidth = 406
+    ClientHeight = 508
+    ClientWidth = 428
     Font.Height = -13
     Font.Name = 'Sans'
     Font.Style = [fsBold]
     ParentFont = False
-    TabOrder = 4
+    TabOrder = 2
     object SDBox: TListBox
       Left = 0
-      Height = 449
+      Height = 452
       Top = 56
-      Width = 406
+      Width = 428
       Align = alClient
       BorderStyle = bsNone
       Font.Height = -13
@@ -561,7 +538,7 @@ object SDForm: TSDForm
       OnDblClick = SDBoxDblClick
       OnDrawItem = SDBoxDrawItem
       ParentFont = False
-      ScrollWidth = 406
+      ScrollWidth = 428
       Style = lbOwnerDrawFixed
       TabOrder = 0
       TopIndex = -1
@@ -570,12 +547,12 @@ object SDForm: TSDForm
       Left = 0
       Height = 56
       Top = 0
-      Width = 406
+      Width = 428
       Align = alTop
       Alignment = taLeftJustify
       BevelOuter = bvNone
       ClientHeight = 56
-      ClientWidth = 406
+      ClientWidth = 428
       Font.Height = -13
       Font.Name = 'Sans'
       ParentFont = False
@@ -1298,7 +1275,7 @@ object SDForm: TSDForm
       object Label3: TLabel
         AnchorSideTop.Control = Label4
         AnchorSideRight.Control = Label4
-        Left = 338
+        Left = 360
         Height = 13
         Top = -1
         Width = 35
@@ -1315,7 +1292,7 @@ object SDForm: TSDForm
         AnchorSideLeft.Side = asrBottom
         AnchorSideRight.Control = Panel3
         AnchorSideRight.Side = asrBottom
-        Left = 377
+        Left = 399
         Height = 13
         Top = -1
         Width = 21
@@ -1331,7 +1308,7 @@ object SDForm: TSDForm
       object Label2: TLabel
         AnchorSideTop.Control = Label5
         AnchorSideRight.Control = Label5
-        Left = 338
+        Left = 360
         Height = 13
         Top = 17
         Width = 35
@@ -1348,7 +1325,7 @@ object SDForm: TSDForm
         AnchorSideLeft.Side = asrBottom
         AnchorSideRight.Control = Panel3
         AnchorSideRight.Side = asrBottom
-        Left = 377
+        Left = 399
         Height = 13
         Top = 17
         Width = 21
@@ -1365,7 +1342,7 @@ object SDForm: TSDForm
       object Label1: TLabel
         AnchorSideTop.Control = Label6
         AnchorSideRight.Control = Label6
-        Left = 338
+        Left = 360
         Height = 13
         Top = 35
         Width = 35
@@ -1382,7 +1359,7 @@ object SDForm: TSDForm
         AnchorSideLeft.Side = asrBottom
         AnchorSideRight.Control = Panel3
         AnchorSideRight.Side = asrBottom
-        Left = 377
+        Left = 399
         Height = 13
         Top = 35
         Width = 21
@@ -1399,19 +1376,57 @@ object SDForm: TSDForm
     end
   end
   object Splitter2: TSplitter
-    Left = 429
-    Height = 528
+    Left = 432
+    Height = 531
     Top = 0
     Width = 5
   end
-  object ProgressBar1: TProgressBar
+  object Panel1: TPanel
     Left = 0
-    Height = 8
-    Top = 528
-    Width = 842
+    Height = 76
+    Top = 536
+    Width = 867
     Align = alBottom
-    TabOrder = 6
-    Visible = False
+    BevelOuter = bvNone
+    Caption = 'Panel1'
+    ClientHeight = 76
+    ClientWidth = 867
+    TabOrder = 4
+    object SDMemo: TMemo
+      AnchorSideTop.Control = Panel1
+      AnchorSideBottom.Control = ProgressBar1
+      Left = 2
+      Height = 64
+      Top = 0
+      Width = 865
+      Anchors = [akTop, akLeft, akRight, akBottom]
+      BorderStyle = bsNone
+      Font.Height = -12
+      Font.Name = 'Monospace'
+      OnKeyDown = SDMemoKeyDown
+      ParentFont = False
+      ScrollBars = ssVertical
+      TabOrder = 0
+      WantReturns = False
+    end
+    object ProgressBar1: TProgressBar
+      AnchorSideTop.Control = SDMemo
+      Left = 0
+      Height = 12
+      Top = 64
+      Width = 867
+      Align = alBottom
+      TabOrder = 1
+    end
+  end
+  object Splitter1: TSplitter
+    Cursor = crVSplit
+    Left = 0
+    Height = 5
+    Top = 531
+    Width = 867
+    Align = alBottom
+    ResizeAnchor = akBottom
   end
   object IniPropStorage1: TIniPropStorage
     StoredValues = <>

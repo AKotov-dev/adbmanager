@@ -274,6 +274,10 @@ msgctxt "tsdform.mkpcdirbtn.hint"
 msgid "Make folder"
 msgstr "Создать папку"
 
+#: tsdform.panel1.caption
+msgid "Panel1"
+msgstr ""
+
 #: tsdform.panel2.caption
 msgid "Panel2"
 msgstr ""
@@ -323,3 +327,4 @@ msgstr "Поиск пакетов"
 #: unit1.ssearchstring
 msgid "Input search string or \"*\":"
 msgstr "Введите строку поиска или \"*\":"
+

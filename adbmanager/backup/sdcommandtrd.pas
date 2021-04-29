@@ -88,7 +88,6 @@ end;
 //Старт индикатора
 procedure StartSDCommand.StartProgress;
 begin
-  Screen.Cursor:=crHourGlass;
   //Метка отмены копирования
   SDForm.Panel4.Caption := SCancelCopyng;
   SDForm.SDMemo.Clear;
@@ -99,23 +98,14 @@ end;
 //Стоп индикатора
 procedure StartSDCommand.StopProgress;
 begin
-    Screen.Cursor:=crDefault;
-  with SDForm do
-  begin
     //Метка отмены копирования
     SDForm.Panel4.Caption := '';
-    //Обновление каталога назначения на компе
-    if Pos('pull', sdcmd) <> 0 then
-      //Обновление каталога назначения на компе
-      CompDirUpdate
-    else
-      //Обновление каталога назначения на смартфоне
-      StartLS;
 
-    ProgressBar1.Style := pbstNormal;
-    ProgressBar1.Position := 0;
-    ProgressBar1.Visible := False;
-  end;
+    //Обновление каталогов
+    SDForm.StartLS;
+    SDForm.CompDirUpdate;
+
+    SDForm.ProgressBar1.Style := pbstNormal;
 end;
 
 end.

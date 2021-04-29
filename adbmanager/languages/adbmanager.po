@@ -269,6 +269,10 @@ msgctxt "tsdform.mkpcdirbtn.hint"
 msgid "Make folder"
 msgstr ""
 
+#: tsdform.panel1.caption
+msgid "Panel1"
+msgstr ""
+
 #: tsdform.panel2.caption
 msgid "Panel2"
 msgstr ""
