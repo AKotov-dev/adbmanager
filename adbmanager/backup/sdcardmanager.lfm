@@ -69,7 +69,7 @@ object SDForm: TSDForm
       Align = alClient
       AutoExpand = True
       BorderStyle = bsNone
-      ExpandSignType = tvestPlusMinus
+      ExpandSignType = tvestArrowFill
       Font.Height = -13
       Font.Name = 'Sans'
       FileSortType = fstFoldersFirst

@@ -84,6 +84,7 @@ object SDForm: TSDForm
       OnGetImageIndex = CompDirGetImageIndex
       OnGetSelectedIndex = CompDirGetImageIndex
       Options = [tvoAllowMultiselect, tvoAutoExpand, tvoAutoItemHeight, tvoKeepCollapsedNodes, tvoReadOnly, tvoRowSelect, tvoShowButtons, tvoShowLines, tvoShowRoot, tvoToolTips, tvoThemedDraw]
+      ExpandSignColor = clGray
       ObjectTypes = [otFolders, otNonFolders]
     end
     object Panel4: TPanel
