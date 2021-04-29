@@ -189,7 +189,7 @@ begin
 
     5: //restore
     begin
-      OpenDialog1.Filter := 'ADB Backup files (*.adb)|*.adb';
+      OpenDialog1.Filter := 'ADB-Backup files (*.adb)|*.adb';
       if OpenDialog1.Execute then
         adbcmd := 'adb restore "' + Opendialog1.FileName + '"'
       else

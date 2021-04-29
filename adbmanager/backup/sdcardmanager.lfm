@@ -1,5 +1,5 @@
 object SDForm: TSDForm
-  Left = 395
+  Left = 335
   Height = 612
   Top = 124
   Width = 842
@@ -69,6 +69,7 @@ object SDForm: TSDForm
       Align = alClient
       AutoExpand = True
       BorderStyle = bsNone
+      ExpandSignType = tvestPlusMinus
       Font.Height = -13
       Font.Name = 'Sans'
       FileSortType = fstFoldersFirst
