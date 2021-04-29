@@ -90,7 +90,8 @@ resourcestring
 
 var
   SDForm: TSDForm;
-  sdcmd: string; //Команда ADB
+  //Команда ADB и флаг панели, которую нужно обновить
+  sdcmd, select_update: string;
 
 implementation
 
@@ -198,6 +199,9 @@ var
   c: string;
   e: boolean;
 begin
+  //Флаг выбора панели
+  select_update := 'right';
+
   //Флаг совпадения имени
   e := False;
   sdcmd := '';
@@ -238,6 +242,9 @@ var
   c: string;
   e: boolean;
 begin
+  //Флаг выбора панели
+  select_update := 'left';
+
   e := False; //Флаг совпадения файлов/папок (перезапись)
   sdcmd := '';  //Команда
 
@@ -287,6 +294,9 @@ var
   i: integer;
   c: string; //сборка команд...
 begin
+  //Флаг выбора панели
+  select_update := 'right';
+
   sdcmd := '';
 
   //Удаление файлов и папок + содержащих пробелы
@@ -306,6 +316,7 @@ begin
         sdcmd := c + '; ' + sdcmd;
       end;
     end;
+
     if MessageDlg(SDelete, mtConfirmation, [mbYes, mbNo], 0) = mrYes then
       StartCommand;
   end;
@@ -342,6 +353,9 @@ procedure TSDForm.MkDirBtnClick(Sender: TObject);
 var
   S: string;
 begin
+  //Флаг выбора панели
+  select_update := 'right';
+
   S := '';
   repeat
     if not InputQuery(SCreateDir, SInputName, S) then
@@ -358,6 +372,8 @@ procedure TSDForm.MkPCDirBtnClick(Sender: TObject);
 var
   S: string;
 begin
+  //Флаг выбора панели
+  select_update := 'left';
   S := '';
   repeat
     if not InputQuery(SCreateDir, SInputName, S) then

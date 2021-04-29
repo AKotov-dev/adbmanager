@@ -1,7 +1,7 @@
 object SDForm: TSDForm
-  Left = 323
+  Left = 329
   Height = 612
-  Top = 123
+  Top = 124
   Width = 867
   Caption = 'SD-Card manager'
   ClientHeight = 612
@@ -1400,6 +1400,7 @@ object SDForm: TSDForm
       Top = 0
       Width = 865
       Anchors = [akTop, akLeft, akRight, akBottom]
+      BorderStyle = bsNone
       Font.Height = -12
       Font.Name = 'Monospace'
       OnKeyDown = SDMemoKeyDown

@@ -98,14 +98,22 @@ end;
 //Стоп индикатора
 procedure StartSDCommand.StopProgress;
 begin
+  with SDForm do
+  begin
     //Метка отмены копирования
-    SDForm.Panel4.Caption := '';
+    Panel4.Caption := '';
 
-    //Обновление каталогов
-    SDForm.StartLS;
-    SDForm.CompDirUpdate;
-
-    SDForm.ProgressBar1.Style := pbstNormal;
+    //Обновление каталогов назначения (выборочно)
+    case select_update of
+      'left': CompDirUpdate;
+      'right': StartLS;
+      'all': begin
+        CompDirUpdate;
+      StartLS;
+        end;
+      end;
+    ProgressBar1.Style := pbstNormal;
+  end;
 end;
 
 end.

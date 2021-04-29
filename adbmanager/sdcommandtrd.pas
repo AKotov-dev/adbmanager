@@ -104,15 +104,14 @@ begin
     Panel4.Caption := '';
 
     //Обновление каталогов назначения (выборочно)
-    if Pos('push', sdcmd) <> 0 then
-      StartLS
-    else
-    if Pos('pull', sdcmd) <> 0 then
-      CompDirUpdate
-    else
-    begin
-      StartLS;
-      CompDirUpdate;
+    case select_update of
+      'left': CompDirUpdate;
+      'right': StartLS;
+      'all':
+      begin
+        CompDirUpdate;
+        StartLS;
+      end;
     end;
 
     ProgressBar1.Style := pbstNormal;
