@@ -39,6 +39,7 @@ var
 begin
   try
     Synchronize(@ShowProgress);
+
     S := TStringList.Create;
 
     FreeOnTerminate := True; //Уничтожить по завершении
