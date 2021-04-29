@@ -92,7 +92,7 @@ begin
   SDForm.Panel4.Caption := SCancelCopyng;
   SDForm.SDMemo.Clear;
   SDForm.ProgressBar1.Style := pbstMarquee;
-  SDForm.ProgressBar1.Visible := True;
+  SDForm.ProgressBar1.Refresh;
 end;
 
 //Стоп индикатора
