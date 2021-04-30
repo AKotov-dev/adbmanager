@@ -103,8 +103,8 @@
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="SDCardManager"/>
         <IsVisibleTab Value="True"/>
-        <TopLine Value="299"/>
-        <CursorPos X="18" Y="323"/>
+        <TopLine Value="293"/>
+        <CursorPos Y="304"/>
         <UsageCount Value="60"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -130,7 +130,7 @@
         <Loaded Value="True"/>
       </Unit8>
     </Units>
-    <JumpHistory Count="7" HistoryIndex="6">
+    <JumpHistory Count="6" HistoryIndex="5">
       <Position1>
         <Filename Value="sdcardmanager.pas"/>
         <Caret Line="402" Column="14" TopLine="378"/>
@@ -155,10 +155,6 @@
         <Filename Value="sdcardmanager.pas"/>
         <Caret Line="302" Column="15" TopLine="293"/>
       </Position6>
-      <Position7>
-        <Filename Value="sdcardmanager.pas"/>
-        <Caret Line="119" Column="43" TopLine="200"/>
-      </Position7>
     </JumpHistory>
     <RunParams>
       <FormatVersion Value="2"/>

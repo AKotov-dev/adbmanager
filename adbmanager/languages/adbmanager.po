@@ -135,7 +135,7 @@ msgid ""
 "1. Turn on the \"USB Debugging\" on smartphone\n"
 "\n"
 "2. Set the USB access rights on your the PC:\n"
-"usermod -a -G usb, plugdev $USER; reboot\n"
+"usermod -a -G usb,plugdev $USER; reboot\n"
 msgstr ""
 
 #: tmainform.panel2.caption
