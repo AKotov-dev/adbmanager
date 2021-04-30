@@ -116,6 +116,7 @@ begin
   Result := StringReplace(Result, '|', '\|', [rfReplaceAll]);
   Result := StringReplace(Result, ':', '\:', [rfReplaceAll]);
   Result := StringReplace(Result, '"', '\"', [rfReplaceAll]);
+  Result := StringReplace(Result, '&', '\&', [rfReplaceAll]);
 end;
 
 //Исполнение команд/вывод лога (sdcmd)
