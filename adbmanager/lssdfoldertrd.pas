@@ -73,8 +73,8 @@ begin
     if S.Count <> 0 then
       Synchronize(@SDSizeUsedFree);
 
-    Synchronize(@HideProgress);
   finally
+    Synchronize(@HideProgress);
     S.Free;
     ExProcess.Free;
     Terminate;

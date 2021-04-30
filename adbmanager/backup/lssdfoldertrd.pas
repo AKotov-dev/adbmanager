@@ -49,7 +49,7 @@ begin
 
     ExProcess.Executable := 'bash';
     ExProcess.Parameters.Add('-c');
-    //ls с заменой пробелов
+    //ls с заменой спецсимволов
     ExProcess.Parameters.Add('adb shell ls -F ' + '''' +
       SDForm.DetoxName(SDForm.GroupBox2.Caption) + '''' + ' | sort -t "d" -k 1,1');
 

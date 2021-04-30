@@ -159,6 +159,7 @@ procedure TSDForm.CancelCopy;
 begin
   sdcmd := 'kill $(pgrep -f "/sdcard/")';
   StartCommand;
+  Screen.Cursor:=crDefault;
 end;
 
 //На уровень вверх
@@ -469,7 +470,7 @@ end;
 //Исключаем нажатие клавиш в логе
 procedure TSDForm.SDMemoKeyDown(Sender: TObject; var Key: word; Shift: TShiftState);
 begin
-  Key := 0;
+  Key := $0;
 end;
 
 //Выделить всё
