@@ -90,6 +90,8 @@ end;
 //Окончание операции
 procedure StartLSSD.HideProgress;
 begin
+  //Очищаем команду для корректного "Esc"
+  sdcmd := '';
   Screen.cursor := crDefault;
 end;
 

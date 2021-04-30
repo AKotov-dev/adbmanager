@@ -73,8 +73,8 @@ begin
     if S.Count <> 0 then
       Synchronize(@SDSizeUsedFree);
 
-    Synchronize(@HideProgress);
   finally
+    Synchronize(@HideProgress);
     S.Free;
     ExProcess.Free;
     Terminate;
@@ -91,6 +91,7 @@ end;
 procedure StartLSSD.HideProgress;
 begin
   Screen.cursor := crDefault;
+  sdcmd := '';
 end;
 
 //Общий размер SD-Card, использовано и осталось

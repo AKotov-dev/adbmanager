@@ -88,11 +88,14 @@ end;
 //Старт индикатора
 procedure StartSDCommand.StartProgress;
 begin
-  //Метка отмены копирования
-  SDForm.Panel4.Caption := SCancelCopyng;
-  SDForm.SDMemo.Clear;
-  SDForm.ProgressBar1.Style := pbstMarquee;
-  SDForm.ProgressBar1.Refresh;
+  with SDForm do
+  begin
+    //Метка отмены копирования
+    Panel4.Caption := SCancelCopyng;
+    SDMemo.Clear;
+    ProgressBar1.Style := pbstMarquee;
+    ProgressBar1.Refresh;
+  end;
 end;
 
 //Стоп индикатора
@@ -111,6 +114,8 @@ begin
     else
       StartLS;
   end;
+
+  sdcmd:='';
 end;
 
 end.

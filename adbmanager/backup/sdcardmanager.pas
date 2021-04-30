@@ -157,9 +157,11 @@ end;
 //Отменяем долгое копирование по "Esc" и при закрытии
 procedure TSDForm.CancelCopy;
 begin
-  sdcmd := 'kill $(pgrep -f "/sdcard/")';
-  StartCommand;
-  Screen.Cursor:=crDefault;
+  if sdcmd <> '' then
+  begin
+    sdcmd := 'kill $(pgrep -f "/sdcard/")';
+    StartCommand;
+  end;
 end;
 
 //На уровень вверх
