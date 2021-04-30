@@ -116,6 +116,7 @@ begin
   Result := StringReplace(Result, '|', '\|', [rfReplaceAll]);
   Result := StringReplace(Result, ':', '\:', [rfReplaceAll]);
   Result := StringReplace(Result, '"', '\"', [rfReplaceAll]);
+  Result := StringReplace(Result, '&', '\&', [rfReplaceAll]);
 end;
 
 //Исполнение команд/вывод лога (sdcmd)
@@ -302,7 +303,8 @@ begin
   sdcmd := '';
 
   //Удаление файлов и папок + содержащих спецсимволы
-  if SDBox.SelCount <> 0 then
+  if (SDBox.SelCount <> 0) and (MessageDlg(SDelete, mtConfirmation,
+    [mbYes, mbNo], 0) = mrYes) then
   begin
     for i := 0 to SDBox.Count - 1 do
     begin
@@ -318,9 +320,7 @@ begin
         sdcmd := c + '; ' + sdcmd;
       end;
     end;
-
-    if MessageDlg(SDelete, mtConfirmation, [mbYes, mbNo], 0) = mrYes then
-      StartCommand;
+    StartCommand;
   end;
 end;
 
