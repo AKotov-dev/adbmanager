@@ -49,11 +49,11 @@ begin
 
     ExProcess.Executable := 'bash';
     ExProcess.Parameters.Add('-c');
-    //ls с заменой пробелов
+    //ls с заменой спецсимволов
     ExProcess.Parameters.Add('adb shell ls -F ' + '''' +
       SDForm.DetoxName(SDForm.GroupBox2.Caption) + '''' + ' | sort -t "d" -k 1,1');
 
-    //Ошибки не выводим, только список
+    //Ошибки не выводим, только список, ждём окончания потока
     ExProcess.Options := [poWaitOnExit, poUsePipes];
 
     ExProcess.Execute;
@@ -70,7 +70,7 @@ begin
     S.Text := Trim(S.Text);
 
     //Если есть, что выводить и SD-Карта существует
-    if (S.Count <> 0) and (Pos('No', S[0]) = 0) then
+    if S.Count <> 0 then
       Synchronize(@SDSizeUsedFree);
 
     Synchronize(@HideProgress);
@@ -96,7 +96,7 @@ end;
 //Общий размер SD-Card, использовано и осталось
 procedure StartLSSD.SDSizeUsedFree;
 begin
-  //Выделяем три значения раздельно
+  //Разделяем три пришедших значения
   S.Delimiter := ' ';
   S.StrictDelimiter := True;
   S.DelimitedText := S[0];
@@ -113,6 +113,9 @@ begin
   SDForm.SDBox.Items.Assign(S);
   //Апдейт содержимого
   SDForm.SDBox.Refresh;
+
+  //Фокусируем
+  SDForm.SDBox.SetFocus;
 
   //Если список не пуст - курсор в "0"
   if SDForm.SDBox.Count <> 0 then

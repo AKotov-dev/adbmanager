@@ -102,7 +102,7 @@ uses SDCommandTRD, Unit1, LSSDFolderTRD;
 
 { TSDForm }
 
-//Автозамена сецсимволов символов
+//Автозамена сецсимволов
 function TSDForm.DetoxName(N: string): string;
 begin
   //заранее исключаем экранирование
@@ -118,7 +118,7 @@ begin
   Result := StringReplace(Result, '"', '\"', [rfReplaceAll]);
 end;
 
-//Исполнения команд/вывод лога (sdcmd)
+//Исполнение команд/вывод лога (sdcmd)
 procedure TSDForm.StartCommand;
 var
   FSDCommandThread: TThread;
@@ -127,7 +127,7 @@ begin
   FSDCommandThread.Priority := tpNormal;
 end;
 
-//ls в директории /sdcard/... (ListBox)
+//ls в директории /sdcard/... (SDBox)
 procedure TSDForm.StartLS;
 var
   FLSSDThread: TThread;
@@ -136,7 +136,7 @@ begin
   FLSSDThread.Priority := tpHighest; //tpHigher
 end;
 
-//апдейт текущей директории CompDir (ShellTreeView)
+//Апдейт текущей директории CompDir (ShellTreeView)
 procedure TSDForm.CompDirUpdate;
 var
   i: integer; //Абсолютный индекс выделенного
@@ -188,6 +188,7 @@ begin
   IniPropStorage1.IniFileName := MainForm.IniPropStorage1.IniFileName;
 end;
 
+//Отмена копирования по "Esc"
 procedure TSDForm.FormKeyUp(Sender: TObject; var Key: word; Shift: TShiftState);
 begin
   if Key = VK_ESCAPE then
@@ -206,6 +207,7 @@ begin
 
   //Флаг совпадения имени
   e := False;
+  //Команда
   sdcmd := '';
 
   //Если выбрано и выбран не корень
@@ -283,16 +285,7 @@ begin
   end;
 end;
 
-procedure TSDForm.CompDirGetImageIndex(Sender: TObject; Node: TTreeNode);
-begin
-  if FileGetAttr(CompDir.GetPathFromNode(node)) and faDirectory <> 0 then
-    Node.ImageIndex := 0
-  else
-    Node.ImageIndex := 1;
-  Node.SelectedIndex := Node.ImageIndex;
-end;
-
-//Удаление на SD-Card
+//Удаление объектов на SD-Card
 procedure TSDForm.DelBtnClick(Sender: TObject);
 var
   i: integer;
@@ -300,10 +293,10 @@ var
 begin
   //Флаг выбора панели
   left_panel := False;
-
+  //Команда в поток
   sdcmd := '';
 
-  //Удаление файлов и папок + содержащих пробелы
+  //Удаление файлов и папок + содержащих спецсимволы
   if SDBox.SelCount <> 0 then
   begin
     for i := 0 to SDBox.Count - 1 do
@@ -326,6 +319,7 @@ begin
   end;
 end;
 
+//Отмена копирования при закрытии формы
 procedure TSDForm.FormClose(Sender: TObject; var CloseAction: TCloseAction);
 begin
   CancelCopy;
@@ -344,8 +338,7 @@ begin
   Label5.Caption := '...';
   Label6.Caption := '...';
 
-  //Перечитываем текущий каталог SDBox (GroupBox2.Caption)
-  //Возвращаем исходную директорию SD-Card
+  //Возвращаем и перечитываем исходную директорию SD-Card
   GroupBox2.Caption := '/sdcard/';
   StartLS;
 end;
@@ -398,13 +391,16 @@ begin
   CompDirUpdate;
 end;
 
+//Перечитываем корень CompDir (могли быть изменения на диске извне)
 procedure TSDForm.RefreshBtnClick(Sender: TObject);
 begin
-  //Перечитываем корень CompDir (могли быть изменения на диске извне)
-  CompDir.Select(CompDir.TopItem, [ssCtrl]);
-  CompDir.Refresh(CompDir.Selected.Parent);
-  CompDir.Select(CompDir.TopItem, [ssCtrl]);
-  CompDir.SetFocus;
+  with CompDir do
+  begin
+    Select(CompDir.TopItem, [ssCtrl]);
+    Refresh(CompDir.Selected.Parent);
+    Select(CompDir.TopItem, [ssCtrl]);
+    SetFocus;
+  end;
 end;
 
 procedure TSDForm.SDBoxDblClick(Sender: TObject);
@@ -420,6 +416,17 @@ begin
     end;
 end;
 
+//Подстановка иконок папка/файл в ShellTreeView
+procedure TSDForm.CompDirGetImageIndex(Sender: TObject; Node: TTreeNode);
+begin
+  if FileGetAttr(CompDir.GetPathFromNode(node)) and faDirectory <> 0 then
+    Node.ImageIndex := 0
+  else
+    Node.ImageIndex := 1;
+  Node.SelectedIndex := Node.ImageIndex;
+end;
+
+//Перерисовка элементов списка ShellTreeView
 procedure TSDForm.SDBoxDrawItem(Control: TWinControl; Index: integer;
   ARect: TRect; State: TOwnerDrawState);
 var
@@ -459,15 +466,15 @@ begin
   end;
 end;
 
+//Исключаем нажатие клавиш в логе
 procedure TSDForm.SDMemoKeyDown(Sender: TObject; var Key: word; Shift: TShiftState);
 begin
-  //Исключаем нажатие клавиш в логе
-  Key := 0;
+  Key := $0;
 end;
 
+//Выделить всё
 procedure TSDForm.SelectAllBtnClick(Sender: TObject);
 begin
-  //Выделить всё
   SDBox.SelectAll;
 end;
 
