@@ -159,9 +159,6 @@ procedure TSDForm.CancelCopy;
 begin
   sdcmd := 'kill $(pgrep -f "/sdcard/")';
   StartCommand;
-
-  SDForm.Panel4.Caption := '';
-  ProgressBar1.Style := pbstNormal;
 end;
 
 //На уровень вверх
@@ -337,10 +334,7 @@ end;
 procedure TSDForm.FormShow(Sender: TObject);
 begin
   //Перечитываем корень CompDir (могли быть изменения на диске извне)
-  CompDir.Select(CompDir.TopItem, [ssCtrl]);
-  CompDir.Refresh(CompDir.Selected.Parent);
-  CompDir.Select(CompDir.TopItem, [ssCtrl]);
-  CompDir.SetFocus;
+  RefreshBtn.Click;
 
   //Очищаем лог
   SDMemo.Clear;

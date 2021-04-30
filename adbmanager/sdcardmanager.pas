@@ -106,16 +106,16 @@ uses SDCommandTRD, Unit1, LSSDFolderTRD;
 function TSDForm.DetoxName(N: string): string;
 begin
   //заранее исключаем экранирование
-  Result := StringReplace(N, '\', '\\', [rfReplaceAll, rfIgnoreCase]);
+  Result := StringReplace(N, '\', '\\', [rfReplaceAll]);
   //Заменяем все остальные
-  Result := StringReplace(Result, ' ', '\ ', [rfReplaceAll, rfIgnoreCase]);
-  Result := StringReplace(Result, '<', '\<', [rfReplaceAll, rfIgnoreCase]);
-  Result := StringReplace(Result, '>', '\>', [rfReplaceAll, rfIgnoreCase]);
-  Result := StringReplace(Result, '(', '\(', [rfReplaceAll, rfIgnoreCase]);
-  Result := StringReplace(Result, ')', '\)', [rfReplaceAll, rfIgnoreCase]);
-  Result := StringReplace(Result, '|', '\|', [rfReplaceAll, rfIgnoreCase]);
-  Result := StringReplace(Result, ':', '\:', [rfReplaceAll, rfIgnoreCase]);
-  Result := StringReplace(Result, '"', '\"', [rfReplaceAll, rfIgnoreCase]);
+  Result := StringReplace(Result, ' ', '\ ', [rfReplaceAll]);
+  Result := StringReplace(Result, '<', '\<', [rfReplaceAll]);
+  Result := StringReplace(Result, '>', '\>', [rfReplaceAll]);
+  Result := StringReplace(Result, '(', '\(', [rfReplaceAll]);
+  Result := StringReplace(Result, ')', '\)', [rfReplaceAll]);
+  Result := StringReplace(Result, '|', '\|', [rfReplaceAll]);
+  Result := StringReplace(Result, ':', '\:', [rfReplaceAll]);
+  Result := StringReplace(Result, '"', '\"', [rfReplaceAll]);
 end;
 
 //Исполнения команд/вывод лога (sdcmd)
@@ -334,10 +334,7 @@ end;
 procedure TSDForm.FormShow(Sender: TObject);
 begin
   //Перечитываем корень CompDir (могли быть изменения на диске извне)
-  CompDir.Select(CompDir.TopItem, [ssCtrl]);
-  CompDir.Refresh(CompDir.Selected.Parent);
-  CompDir.Select(CompDir.TopItem, [ssCtrl]);
-  CompDir.SetFocus;
+  RefreshBtn.Click;
 
   //Очищаем лог
   SDMemo.Clear;
