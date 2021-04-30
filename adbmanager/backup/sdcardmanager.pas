@@ -157,6 +157,7 @@ end;
 //Отменяем долгое копирование по "Esc" и при закрытии
 procedure TSDForm.CancelCopy;
 begin
+  //Если копирование выполняется - отменяем
   if sdcmd <> '' then
   begin
     sdcmd := 'kill $(pgrep -f "/sdcard/")';
@@ -296,6 +297,7 @@ var
 begin
   //Флаг выбора панели
   left_panel := False;
+
   //Команда в поток
   sdcmd := '';
 
@@ -340,6 +342,8 @@ begin
   Label4.Caption := '...';
   Label5.Caption := '...';
   Label6.Caption := '...';
+  //Скрываем "Esc - отмена"
+  Panel4.Caption := '';
 
   //Возвращаем и перечитываем исходную директорию SD-Card
   GroupBox2.Caption := '/sdcard/';

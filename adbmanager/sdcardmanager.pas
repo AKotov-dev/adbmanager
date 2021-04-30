@@ -297,6 +297,7 @@ var
 begin
   //Флаг выбора панели
   left_panel := False;
+
   //Команда в поток
   sdcmd := '';
 
@@ -341,6 +342,8 @@ begin
   Label4.Caption := '...';
   Label5.Caption := '...';
   Label6.Caption := '...';
+  //Скрываем "Esc - отмена"
+  Panel4.Caption := '';
 
   //Возвращаем и перечитываем исходную директорию SD-Card
   GroupBox2.Caption := '/sdcard/';
