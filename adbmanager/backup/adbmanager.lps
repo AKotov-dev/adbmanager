@@ -39,7 +39,7 @@
         <IsPartOfProject Value="True"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="43" Y="19"/>
-        <UsageCount Value="91"/>
+        <UsageCount Value="92"/>
       </Unit0>
       <Unit1>
         <Filename Value="unit1.pas"/>
@@ -48,10 +48,9 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="Unit1"/>
-        <EditorIndex Value="1"/>
-        <TopLine Value="144"/>
-        <CursorPos X="43" Y="144"/>
-        <UsageCount Value="91"/>
+        <TopLine Value="218"/>
+        <CursorPos X="18" Y="242"/>
+        <UsageCount Value="92"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit1>
@@ -59,9 +58,12 @@
         <Filename Value="adbdevicestatustrd.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="ADBDeviceStatusTRD"/>
-        <EditorIndex Value="-1"/>
-        <CursorPos Y="60"/>
-        <UsageCount Value="83"/>
+        <IsVisibleTab Value="True"/>
+        <EditorIndex Value="2"/>
+        <TopLine Value="109"/>
+        <CursorPos X="9" Y="133"/>
+        <UsageCount Value="84"/>
+        <Loaded Value="True"/>
       </Unit2>
       <Unit3>
         <Filename Value="adbcommandtrd.pas"/>
@@ -70,7 +72,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="86"/>
         <CursorPos X="26" Y="97"/>
-        <UsageCount Value="80"/>
+        <UsageCount Value="81"/>
       </Unit3>
       <Unit4>
         <Filename Value="rebootunit.pas"/>
@@ -81,7 +83,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="50"/>
         <CursorPos X="42" Y="33"/>
-        <UsageCount Value="68"/>
+        <UsageCount Value="69"/>
       </Unit4>
       <Unit5>
         <Filename Value="backupunit.pas"/>
@@ -93,7 +95,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="38"/>
         <CursorPos X="25" Y="78"/>
-        <UsageCount Value="64"/>
+        <UsageCount Value="65"/>
       </Unit5>
       <Unit6>
         <Filename Value="sdcardmanager.pas"/>
@@ -102,10 +104,10 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="SDCardManager"/>
-        <IsVisibleTab Value="True"/>
+        <EditorIndex Value="1"/>
         <TopLine Value="293"/>
         <CursorPos Y="304"/>
-        <UsageCount Value="60"/>
+        <UsageCount Value="61"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit6>
@@ -113,24 +115,24 @@
         <Filename Value="sdcommandtrd.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="SDCommandTRD"/>
-        <EditorIndex Value="3"/>
+        <EditorIndex Value="4"/>
         <TopLine Value="91"/>
         <CursorPos X="42" Y="117"/>
-        <UsageCount Value="58"/>
+        <UsageCount Value="59"/>
         <Loaded Value="True"/>
       </Unit7>
       <Unit8>
         <Filename Value="lssdfoldertrd.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="LSSDFolderTRD"/>
-        <EditorIndex Value="2"/>
+        <EditorIndex Value="3"/>
         <TopLine Value="70"/>
         <CursorPos X="42" Y="93"/>
-        <UsageCount Value="34"/>
+        <UsageCount Value="35"/>
         <Loaded Value="True"/>
       </Unit8>
     </Units>
-    <JumpHistory Count="6" HistoryIndex="5">
+    <JumpHistory Count="9" HistoryIndex="8">
       <Position1>
         <Filename Value="sdcardmanager.pas"/>
         <Caret Line="402" Column="14" TopLine="378"/>
@@ -155,6 +157,18 @@
         <Filename Value="sdcardmanager.pas"/>
         <Caret Line="302" Column="15" TopLine="293"/>
       </Position6>
+      <Position7>
+        <Filename Value="unit1.pas"/>
+        <Caret Line="92" Column="77" TopLine="84"/>
+      </Position7>
+      <Position8>
+        <Filename Value="unit1.pas"/>
+        <Caret Line="117" Column="15" TopLine="92"/>
+      </Position8>
+      <Position9>
+        <Filename Value="unit1.pas"/>
+        <Caret Line="222" Column="19" TopLine="197"/>
+      </Position9>
     </JumpHistory>
     <RunParams>
       <FormatVersion Value="2"/>
