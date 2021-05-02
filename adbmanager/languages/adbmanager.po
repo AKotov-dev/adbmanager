@@ -290,11 +290,6 @@ msgstr ""
 msgid "Upper level"
 msgstr ""
 
-#: tsdform.vbtn.hint
-msgctxt "tsdform.vbtn.hint"
-msgid "Android v7.1+"
-msgstr ""
-
 #: unit1.sdeletecaption
 msgctxt "unit1.sdeletecaption"
 msgid "Deleting a package"

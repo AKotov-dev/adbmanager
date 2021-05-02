@@ -295,13 +295,6 @@ msgstr "Выделить всё"
 msgid "Upper level"
 msgstr "Верхний уровень"
 
-#: tsdform.vbtn.hint
-#, fuzzy
-#| msgid "Delete Files/Folders"
-msgctxt "tsdform.vbtn.hint"
-msgid "Android v7.1+"
-msgstr "Удалить Файлы/Папки"
-
 #: unit1.sdeletecaption
 msgctxt "unit1.sdeletecaption"
 msgid "Deleting a package"

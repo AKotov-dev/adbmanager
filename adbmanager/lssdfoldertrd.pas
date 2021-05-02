@@ -26,9 +26,13 @@ type
 
   end;
 
+var
+  android7: boolean;
+
 implementation
 
-uses SDCardManager;
+
+uses Unit1, SDCardManager;
 
 { TRD }
 
@@ -50,7 +54,7 @@ begin
     ExProcess.Executable := 'bash';
     ExProcess.Parameters.Add('-c');
     //ls с заменой спецсимволов
-    if not SDForm.VBtn.Down then
+    if not android7 then
       ExProcess.Parameters.Add('adb shell ls -F ' + '''' +
         SDForm.DetoxName(SDForm.GroupBox2.Caption) + '''' + ' | sort -t "d" -k 1,1')
     else
@@ -89,8 +93,17 @@ end;
 
 //Начало операции
 procedure StartLSSD.ShowProgress;
+var
+  v: ansistring;
 begin
   Screen.cursor := crHourGlass;
+
+  //Определяем версию Android > 7
+  if RunCommand('bash', ['-c', 'adb shell ls -p'], v) then
+    if Pos('Aborting', v) <> 0 then
+      android7 := False
+    else
+      android7 := True;
 end;
 
 //Окончание операции

@@ -64,6 +64,7 @@ type
 
 var //Команда ADB
   adbcmd: string;
+  android7: boolean;
 
 resourcestring
   SRebootMsg = 'Reboot device?';
@@ -146,6 +147,13 @@ begin
         adbcmd := 'adb usb'
       else
         adbcmd := 'adb connect ' + Trim(S) + ':5555';
+
+      //Определяем версию Android > 7
+      if RunCommand('bash', ['-c', 'adb shell ls -p'], S) then
+        if Pos('Abort', S) <> 0 then
+          android7 := True
+        else
+          android7 := False;
     end;
 
     1: //Search Package

@@ -14,7 +14,6 @@ type
 
   TSDForm = class(TForm)
     Bevel1: TBevel;
-    VBtn: TSpeedButton;
     CompDir: TShellTreeView;
     CopyFromPC: TSpeedButton;
     CopyFromSmartphone: TSpeedButton;
@@ -236,7 +235,7 @@ begin
         if not e then
           for sd := 0 to SDBox.Count - 1 do
           begin
-            if not SDForm.VBtn.Down then
+            if not android7 then
             begin
               if CompDir.Items[i].Text = Copy(SDBox.Items[sd], 3,
                 Length(SDBox.Items[sd])) then
@@ -287,7 +286,7 @@ begin
       if SDBox.Selected[i] then
       begin
         if not e then
-          if not SDForm.VBtn.Down then
+          if not android7 then
           begin
             if (FileExists(ExtractFilePath(CompDir.GetPathFromNode(CompDir.Selected)) +
               ExtractFileName(GroupBox2.Caption +
@@ -353,7 +352,7 @@ begin
     begin
       if SDBox.Selected[i] then
       begin
-        if not SDForm.VBtn.Down then
+        if not android7 then
         begin
           if Copy(SDBox.Items[i], 1, 1) = 'd' then
             c := 'adb shell rm -rf ' + '''' + DetoxName(GroupBox2.Caption +
@@ -403,6 +402,7 @@ begin
 
   //Возвращаем и перечитываем исходную директорию SD-Card
   GroupBox2.Caption := '/sdcard/';
+
   StartLS;
 end;
 
@@ -471,7 +471,7 @@ procedure TSDForm.SDBoxDblClick(Sender: TObject);
 begin
   if SDBox.Count <> 0 then
   begin
-    if not SDForm.VBtn.Down then //Android > 7?
+    if not android7 then //Android > 7?
     begin
       if Copy(SDBox.Items[SDBox.ItemIndex], 1, 1) = 'd' then
       begin
@@ -517,7 +517,7 @@ begin
       Canvas.FillRect(aRect);
       //Вывод текста со сдвигом (общий)
       // Canvas.TextOut(aRect.Left + 14, aRect.Top + 5, Items[Index]);
-      if not SDForm.VBtn.Down then
+      if not android7 then
       begin
         //Сверху иконки взависимости от первого символа
         if Copy(Items[Index], 1, 1) = 'd' then

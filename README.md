@@ -2,7 +2,7 @@ ADBManager - ADB server manager for Android devices
 ---
 The program is designed for visual and easy management of the ADB-Server and connection of Android smartphones. Allows you to monitor the status of the "adb" service, manage it, and control the list of connected devices. Allows you to manage your smartphone: search for installed packages by part name, install, delete APK, backup, restore, screenshot, reboot (Normal, Bootloader, Recovery mode) and shutdown the device. For advanced users, there is an Android Shell terminal and an SD-Card file manager.  
 
-Depending on the version of Android, the mode of working with files in the SD-card Manager is switched by the "7" button (Android-7.1+). Tested in Mageia-8 and Linux Mint-20.  
+Starting from `ADBManager v1.0`, the SD-Card Manager supports all Android versions. Tested in Mageia-8 and Linux Mint-20.  
 
 Dependencies: adb, iproute2, sakura  
 Free icons: https://icon-icons.com/ru/
