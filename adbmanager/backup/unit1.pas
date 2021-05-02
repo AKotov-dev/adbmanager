@@ -148,8 +148,9 @@ begin
         adbcmd := 'adb connect ' + Trim(S) + ':5555';
 
       //Если открыт - закрываем SD-Manager
-      if SDForm.Visible then
-        SDForm.Close;
+      SDForm.Close;
+      //Отключаем терминал, если использовался
+      MainForm.StartProcess('[ $(pidof sakura) ] && killall sakura');
     end;
 
     1: //Search Package
