@@ -146,6 +146,10 @@ begin
         adbcmd := 'adb usb'
       else
         adbcmd := 'adb connect ' + Trim(S) + ':5555';
+
+      //Если открыт - закрываем SD-Manager
+      if SDForm.Visible then
+        SDForm.Close;
     end;
 
     1: //Search Package

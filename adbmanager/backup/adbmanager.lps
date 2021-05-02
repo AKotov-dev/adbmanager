@@ -48,6 +48,7 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="Unit1"/>
+        <IsVisibleTab Value="True"/>
         <TopLine Value="132"/>
         <CursorPos X="7" Y="149"/>
         <UsageCount Value="102"/>
@@ -124,7 +125,6 @@
         <Filename Value="lssdfoldertrd.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="LSSDFolderTRD"/>
-        <IsVisibleTab Value="True"/>
         <EditorIndex Value="3"/>
         <TopLine Value="13"/>
         <CursorPos X="6" Y="35"/>
