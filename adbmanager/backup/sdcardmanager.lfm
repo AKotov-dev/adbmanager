@@ -1374,9 +1374,9 @@ object SDForm: TSDForm
         ParentFont = False
       end
       object VBtn: TSpeedButton
-        Left = 248
+        Left = 246
         Height = 40
-        Hint = 'Delete Files/Folders'
+        Hint = 'Android v7.1+'
         Top = 8
         Width = 40
         AllowAllUp = True
@@ -1517,6 +1517,13 @@ object SDForm: TSDForm
         OnClick = VBtnClick
         ShowHint = True
         ParentShowHint = False
+      end
+      object Bevel1: TBevel
+        Left = 236
+        Height = 40
+        Top = 8
+        Width = 6
+        Shape = bsLeftLine
       end
     end
   end

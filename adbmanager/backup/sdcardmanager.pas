@@ -13,6 +13,7 @@ type
   { TSDForm }
 
   TSDForm = class(TForm)
+    Bevel1: TBevel;
     VBtn: TSpeedButton;
     CompDir: TShellTreeView;
     CopyFromPC: TSpeedButton;

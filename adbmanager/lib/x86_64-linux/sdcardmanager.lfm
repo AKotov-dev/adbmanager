@@ -1,7 +1,7 @@
 object SDForm: TSDForm
-  Left = 306
+  Left = 377
   Height = 612
-  Top = 124
+  Top = 160
   Width = 867
   Caption = 'SD-Card manager'
   ClientHeight = 612
@@ -1374,7 +1374,7 @@ object SDForm: TSDForm
         ParentFont = False
       end
       object VBtn: TSpeedButton
-        Left = 248
+        Left = 246
         Height = 40
         Hint = 'Android v7.1+'
         Top = 8
@@ -1517,6 +1517,13 @@ object SDForm: TSDForm
         OnClick = VBtnClick
         ShowHint = True
         ParentShowHint = False
+      end
+      object Bevel1: TBevel
+        Left = 236
+        Height = 40
+        Top = 8
+        Width = 6
+        Shape = bsLeftLine
       end
     end
   end
