@@ -280,13 +280,14 @@ begin
 
   if SDBox.SelCount <> 0 then
   begin
+
     for i := 0 to SDBox.Count - 1 do
     begin
       if SDBox.Selected[i] then
       begin
-        if not e then
-          if not android7 then
-          begin
+        if not android7 then
+        begin
+          if not e then
             if (FileExists(ExtractFilePath(CompDir.GetPathFromNode(CompDir.Selected)) +
               ExtractFileName(GroupBox2.Caption +
               Copy(SDBox.Items[i], 3, Length(SDBox.Items[i]))))) or
@@ -296,13 +297,14 @@ begin
               Copy(SDBox.Items[i], 3, Length(SDBox.Items[i]))))) then
               e := True;
 
-            c := 'adb pull ' + '''' + GroupBox2.Caption +
-              Copy(SDBox.Items[i], 3, Length(SDBox.Items[i])) + '''' +
-              ' ' + '''' + ExtractFilePath(CompDir.GetPathFromNode(
-              CompDir.Selected)) + '''';
-          end
-          else
-          begin
+          c := 'adb pull ' + '''' + GroupBox2.Caption +
+            Copy(SDBox.Items[i], 3, Length(SDBox.Items[i])) + '''' +
+            ' ' + '''' + ExtractFilePath(CompDir.GetPathFromNode(
+            CompDir.Selected)) + '''';
+        end
+        else
+        begin
+          if not e then
             if (FileExists(ExtractFilePath(CompDir.GetPathFromNode(CompDir.Selected)) +
               ExtractFileName(GroupBox2.Caption +
               ExcludeTrailingPathDelimiter(SDBox.Items[i])))) or
@@ -312,13 +314,13 @@ begin
               ExcludeTrailingPathDelimiter(SDBox.Items[i])))) then
               e := True;
 
-            c := 'adb pull ' + '''' + GroupBox2.Caption +
-              ExcludeTrailingPathDelimiter(SDBox.Items[i]) + '''' +
-              ' ' + '''' + ExtractFilePath(CompDir.GetPathFromNode(
-              CompDir.Selected)) + '''';
-          end;
-
+          c := 'adb pull ' + '''' + GroupBox2.Caption +
+            ExcludeTrailingPathDelimiter(SDBox.Items[i]) + '''' +
+            ' ' + '''' + ExtractFilePath(CompDir.GetPathFromNode(
+            CompDir.Selected)) + '''';
+        end;
         sdcmd := c + '; ' + sdcmd;
+
       end;
     end;
 
