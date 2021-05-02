@@ -32,7 +32,7 @@ var
 implementation
 
 
-uses Unit1, SDCardManager;
+uses SDCardManager;
 
 { TRD }
 
@@ -45,33 +45,16 @@ begin
     Synchronize(@ShowProgress);
 
     S := TStringList.Create;
-
     FreeOnTerminate := True; //Уничтожить по завершении
 
     //Рабочий процесс
     ExProcess := TProcess.Create(nil);
-
     ExProcess.Executable := 'bash';
     ExProcess.Parameters.Add('-c');
-    //ls с заменой спецсимволов
-    if not android7 then
-      ExProcess.Parameters.Add('adb shell ls -F ' + '''' +
-        SDForm.DetoxName(SDForm.GroupBox2.Caption) + '''' + ' | sort -t "d" -k 1,1')
-    else
-      //Android > 7?
-      ExProcess.Parameters.Add('a=$(adb shell ls -p ' + '''' +
-        SDForm.DetoxName(SDForm.GroupBox2.Caption) + '''' +
-        '); b=$(echo "$a" | grep "/"); c=$(echo "$a" | grep -v "/"); echo -e "$b\n$c"  | grep -v "^$"');
-
     //Ошибки не выводим, только список, ждём окончания потока
     ExProcess.Options := [poWaitOnExit, poUsePipes];
 
-    ExProcess.Execute;
-    S.LoadFromStream(ExProcess.Output);
-    Synchronize(@UpdateSDBox);
-
     //Размер SD-Card, использовано и свободно
-    ExProcess.Parameters.Delete(1);
     ExProcess.Parameters.Add('adb shell df -h /mnt/sdcard | tail -n1 | awk ' +
       '''' + '{ print $2, $3, $4 }' + '''');
     Exprocess.Execute;
@@ -82,6 +65,21 @@ begin
     //Если есть, что выводить и SD-Карта существует
     if S.Count <> 0 then
       Synchronize(@SDSizeUsedFree);
+
+    //ls текущего каталога с заменой спецсимволов
+    ExProcess.Parameters.Delete(1);
+    if not android7 then
+      ExProcess.Parameters.Add('adb shell ls -F ' + '''' +
+        SDForm.DetoxName(SDForm.GroupBox2.Caption) + '''' + ' | sort -t "d" -k 1,1')
+    else
+      //Android > 7?
+      ExProcess.Parameters.Add('a=$(adb shell ls -p ' + '''' +
+        SDForm.DetoxName(SDForm.GroupBox2.Caption) + '''' +
+        '); b=$(echo "$a" | grep "/"); c=$(echo "$a" | grep -v "/"); echo -e "$b\n$c"  | grep -v "^$"');
+
+    ExProcess.Execute;
+    S.LoadFromStream(ExProcess.Output);
+    Synchronize(@UpdateSDBox);
 
   finally
     Synchronize(@HideProgress);

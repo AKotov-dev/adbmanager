@@ -1373,13 +1373,6 @@ object SDForm: TSDForm
         ParentColor = False
         ParentFont = False
       end
-      object Bevel1: TBevel
-        Left = 236
-        Height = 40
-        Top = 8
-        Width = 6
-        Shape = bsLeftLine
-      end
     end
   end
   object Splitter2: TSplitter
