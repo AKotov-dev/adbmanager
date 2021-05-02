@@ -17,5 +17,6 @@
 {"hash":12558,"name":"tsdform.label5.caption","sourcebytes":[46,46,46],"value":"..."},
 {"hash":5081994,"name":"tsdform.label1.caption","sourcebytes":[70,114,101,101,58],"value":"Free:"},
 {"hash":12558,"name":"tsdform.label6.caption","sourcebytes":[46,46,46],"value":"..."},
+{"hash":238163083,"name":"tsdform.vbtn.hint","sourcebytes":[65,110,100,114,111,105,100,32,118,55,46,49,43],"value":"Android v7.1+"},
 {"hash":90721265,"name":"tsdform.panel1.caption","sourcebytes":[80,97,110,101,108,49],"value":"Panel1"}
 ]}

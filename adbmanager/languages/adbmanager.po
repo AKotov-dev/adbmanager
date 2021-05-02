@@ -220,6 +220,7 @@ msgid "Copy to computer"
 msgstr ""
 
 #: tsdform.delbtn.hint
+msgctxt "tsdform.delbtn.hint"
 msgid "Delete Files/Folders"
 msgstr ""
 
@@ -287,6 +288,11 @@ msgstr ""
 
 #: tsdform.upbtn.hint
 msgid "Upper level"
+msgstr ""
+
+#: tsdform.vbtn.hint
+msgctxt "tsdform.vbtn.hint"
+msgid "Android v7.1+"
 msgstr ""
 
 #: unit1.sdeletecaption

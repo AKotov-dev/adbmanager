@@ -13,6 +13,7 @@ type
   { TSDForm }
 
   TSDForm = class(TForm)
+    VBtn: TSpeedButton;
     CompDir: TShellTreeView;
     CopyFromPC: TSpeedButton;
     CopyFromSmartphone: TSpeedButton;
@@ -73,6 +74,7 @@ type
     procedure CancelCopy;
 
     function DetoxName(N: string): string;
+    procedure VBtnClick(Sender: TObject);
 
   private
 
@@ -117,6 +119,12 @@ begin
   Result := StringReplace(Result, ':', '\:', [rfReplaceAll]);
   Result := StringReplace(Result, '"', '\"', [rfReplaceAll]);
   Result := StringReplace(Result, '&', '\&', [rfReplaceAll]);
+end;
+
+//Версия просмотра Android 7.1+
+procedure TSDForm.VBtnClick(Sender: TObject);
+begin
+  StartLS;
 end;
 
 //Исполнение команд/вывод лога (sdcmd)
@@ -210,6 +218,7 @@ begin
   //Флаг выбора панели
   left_panel := False;
 
+  c := '';
   //Флаг совпадения имени
   e := False;
   //Команда
@@ -225,9 +234,20 @@ begin
         //Ищем совпадения (перезапись объектов)
         if not e then
           for sd := 0 to SDBox.Count - 1 do
-            if CompDir.Items[i].Text = Copy(SDBox.Items[sd], 3,
-              Length(SDBox.Items[sd])) then
-              e := True;
+          begin
+            if not SDForm.VBtn.Down then
+            begin
+              if CompDir.Items[i].Text = Copy(SDBox.Items[sd], 3,
+                Length(SDBox.Items[sd])) then
+                e := True;
+            end
+            else
+            begin
+              if CompDir.Items[i].Text = ExcludeTrailingPathDelimiter(
+                SDBox.Items[sd]) then
+                e := True;
+            end;
+          end;
 
         c := 'adb push ' + '''' + ExcludeTrailingPathDelimiter(
           CompDir.Items[i].GetTextPath) + '''' + ' ' + '''' + GroupBox2.Caption + '''';
@@ -255,6 +275,7 @@ begin
   //Флаг выбора панели
   left_panel := True;
 
+  c := '';
   e := False; //Флаг совпадения файлов/папок (перезапись)
   sdcmd := '';  //Команда
 
@@ -265,17 +286,38 @@ begin
       if SDBox.Selected[i] then
       begin
         if not e then
-          if (FileExists(ExtractFilePath(CompDir.GetPathFromNode(CompDir.Selected)) +
-            ExtractFileName(GroupBox2.Caption + Copy(SDBox.Items[i],
-            3, Length(SDBox.Items[i]))))) or
-            (DirectoryExists(ExtractFilePath(CompDir.GetPathFromNode(CompDir.Selected)) +
-            ExtractFileName(GroupBox2.Caption + Copy(SDBox.Items[i],
-            3, Length(SDBox.Items[i]))))) then
-            e := True;
+          if not SDForm.VBtn.Down then
+          begin
+            if (FileExists(ExtractFilePath(CompDir.GetPathFromNode(CompDir.Selected)) +
+              ExtractFileName(GroupBox2.Caption +
+              Copy(SDBox.Items[i], 3, Length(SDBox.Items[i]))))) or
+              (DirectoryExists(
+              ExtractFilePath(CompDir.GetPathFromNode(CompDir.Selected)) +
+              ExtractFileName(GroupBox2.Caption +
+              Copy(SDBox.Items[i], 3, Length(SDBox.Items[i]))))) then
+              e := True;
 
-        c := 'adb pull ' + '''' + GroupBox2.Caption +
-          Copy(SDBox.Items[i], 3, Length(SDBox.Items[i])) + '''' +
-          ' ' + '''' + ExtractFilePath(CompDir.GetPathFromNode(CompDir.Selected)) + '''';
+            c := 'adb pull ' + '''' + GroupBox2.Caption +
+              Copy(SDBox.Items[i], 3, Length(SDBox.Items[i])) + '''' +
+              ' ' + '''' + ExtractFilePath(CompDir.GetPathFromNode(
+              CompDir.Selected)) + '''';
+          end
+          else
+          begin
+            if (FileExists(ExtractFilePath(CompDir.GetPathFromNode(CompDir.Selected)) +
+              ExtractFileName(GroupBox2.Caption +
+              ExcludeTrailingPathDelimiter(SDBox.Items[i])))) or
+              (DirectoryExists(
+              ExtractFilePath(CompDir.GetPathFromNode(CompDir.Selected)) +
+              ExtractFileName(GroupBox2.Caption +
+              ExcludeTrailingPathDelimiter(SDBox.Items[i])))) then
+              e := True;
+
+            c := 'adb pull ' + '''' + GroupBox2.Caption +
+              ExcludeTrailingPathDelimiter(SDBox.Items[i]) + '''' +
+              ' ' + '''' + ExtractFilePath(CompDir.GetPathFromNode(
+              CompDir.Selected)) + '''';
+          end;
 
         sdcmd := c + '; ' + sdcmd;
       end;
@@ -310,13 +352,26 @@ begin
     begin
       if SDBox.Selected[i] then
       begin
-        if Copy(SDBox.Items[i], 1, 1) = 'd' then
-          c := 'adb shell rm -rf ' + '''' + DetoxName(GroupBox2.Caption +
-            Copy(SDBox.Items[i], 3, Length(SDBox.Items[i]))) + ''''
+        if not SDForm.VBtn.Down then
+        begin
+          if Copy(SDBox.Items[i], 1, 1) = 'd' then
+            c := 'adb shell rm -rf ' + '''' + DetoxName(GroupBox2.Caption +
+              Copy(SDBox.Items[i], 3, Length(SDBox.Items[i]))) + ''''
+          else
+            c := 'adb shell rm -f ' + '''' + DetoxName(GroupBox2.Caption +
+              Copy(SDBox.Items[i], 3, Length(SDBox.Items[i]))) + '''';
+        end
         else
-          c := 'adb shell rm -f ' + '''' + DetoxName(GroupBox2.Caption +
-            Copy(SDBox.Items[i], 3, Length(SDBox.Items[i]))) + '''';
+        begin
+          if Pos('/', SDBox.Items[i]) <> 0 then
+            c := 'adb shell rm -rf ' + '''' + DetoxName(GroupBox2.Caption +
+              SDBox.Items[i]) + ''''
+          else
+            c := 'adb shell rm -f ' + '''' + DetoxName(GroupBox2.Caption +
+              SDBox.Items[i]) + '''';
+        end;
 
+        //Собираем команду
         sdcmd := c + '; ' + sdcmd;
       end;
     end;
@@ -410,17 +465,30 @@ begin
   end;
 end;
 
+//Каталог вверх
 procedure TSDForm.SDBoxDblClick(Sender: TObject);
 begin
   if SDBox.Count <> 0 then
-    if Copy(SDBox.Items[SDBox.ItemIndex], 1, 1) = 'd' then
+  begin
+    if not SDForm.VBtn.Down then //Android > 7?
     begin
-      GroupBox2.Caption := GroupBox2.Caption +
-        Copy(SDBox.Items[SDBox.ItemIndex], 3,
-        Length(SDBox.Items[SDBox.ItemIndex])) + '/';
-      //Перечитываем текущий каталог SDBox (GroupBox2.Caption)
-      StartLS;
+      if Copy(SDBox.Items[SDBox.ItemIndex], 1, 1) = 'd' then
+      begin
+        GroupBox2.Caption := GroupBox2.Caption +
+          Copy(SDBox.Items[SDBox.ItemIndex], 3,
+          Length(SDBox.Items[SDBox.ItemIndex])) + '/';
+        StartLS;
+      end;
+    end
+    else
+    begin
+      if Pos('/', SDBox.Items[SDBox.ItemIndex]) <> 0 then
+      begin
+        GroupBox2.Caption := GroupBox2.Caption + SDBox.Items[SDBox.ItemIndex];
+        StartLS;
+      end;
     end;
+  end;
 end;
 
 //Подстановка иконок папка/файл в ShellTreeView
@@ -443,29 +511,51 @@ begin
   try
     ImageList1.GetBitMap(0, BitMap);
 
-    with TListBox(Control) do
+    with SDForm.SDBox do
     begin
       Canvas.FillRect(aRect);
       //Вывод текста со сдвигом (общий)
       // Canvas.TextOut(aRect.Left + 14, aRect.Top + 5, Items[Index]);
-
-      //Сверху иконки взависимости от первого символа
-      if Copy(Items[Index], 1, 1) = 'd' then
+      if not SDForm.VBtn.Down then
       begin
-        //Имя папки
-        Canvas.TextOut(aRect.Left + 14, aRect.Top + 5, Items[Index]);
-        //Иконка папки
-        ImageList1.GetBitMap(0, BitMap);
-        Canvas.Draw(aRect.Left + 2, aRect.Top + 2, BitMap);
+        //Сверху иконки взависимости от первого символа
+        if Copy(Items[Index], 1, 1) = 'd' then
+        begin
+          //Имя папки
+          Canvas.TextOut(aRect.Left + 14, aRect.Top + 5, Items[Index]);
+          //Иконка папки
+          ImageList1.GetBitMap(0, BitMap);
+          Canvas.Draw(aRect.Left + 2, aRect.Top + 2, BitMap);
+        end
+        else
+        if Copy(Items[Index], 1, 1) = '-' then
+        begin
+          //Имя файла
+          Canvas.TextOut(aRect.Left + 17, aRect.Top + 5, Items[Index]);
+          //Иконка файла
+          ImageList1.GetBitMap(1, BitMap);
+          Canvas.Draw(aRect.Left + 2, aRect.Top + 2, BitMap);
+        end;
       end
       else
-      if Copy(Items[Index], 1, 1) = '-' then
       begin
-        //Имя файла
-        Canvas.TextOut(aRect.Left + 17, aRect.Top + 5, Items[Index]);
-        //Иконка файла
-        ImageList1.GetBitMap(1, BitMap);
-        Canvas.Draw(aRect.Left + 2, aRect.Top + 2, BitMap);
+        //Сверху иконки взависимости от последнего символа ('/')
+        if Pos('/', Items[Index]) <> 0 then
+        begin
+          //Имя папки
+          Canvas.TextOut(aRect.Left + 27, aRect.Top + 5, Items[Index]);
+          //Иконка папки
+          ImageList1.GetBitMap(0, BitMap);
+          Canvas.Draw(aRect.Left + 2, aRect.Top + 2, BitMap);
+        end
+        else
+        begin
+          //Имя файла
+          Canvas.TextOut(aRect.Left + 27, aRect.Top + 5, Items[Index]);
+          //Иконка файла
+          ImageList1.GetBitMap(1, BitMap);
+          Canvas.Draw(aRect.Left + 2, aRect.Top + 2, BitMap);
+        end;
       end;
     end;
   finally

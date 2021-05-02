@@ -50,8 +50,14 @@ begin
     ExProcess.Executable := 'bash';
     ExProcess.Parameters.Add('-c');
     //ls с заменой спецсимволов
-    ExProcess.Parameters.Add('adb shell ls -F ' + '''' +
-      SDForm.DetoxName(SDForm.GroupBox2.Caption) + '''' + ' | sort -t "d" -k 1,1');
+    if SDForm.VBtn.up then
+      ExProcess.Parameters.Add('adb shell ls -F ' + '''' +
+        SDForm.DetoxName(SDForm.GroupBox2.Caption) + '''' + ' | sort -t "d" -k 1,1')
+    else
+      //Android > 7?
+      ExProcess.Parameters.Add('a=$(adb shell ls -p ' + '''' +
+        SDForm.DetoxName(SDForm.GroupBox2.Caption) + '''' +
+        '); b=$(echo "$a" | grep "/"); c=$(echo "$a" | grep -v "/"); echo -e "$b\n$c"  | grep -v "^$"');
 
     //Ошибки не выводим, только список, ждём окончания потока
     ExProcess.Options := [poWaitOnExit, poUsePipes];
@@ -62,7 +68,7 @@ begin
 
     //Размер SD-Card, использовано и свободно
     ExProcess.Parameters.Delete(1);
-    ExProcess.Parameters.Add('adb shell df /mnt/sdcard | tail -n1 | awk ' +
+    ExProcess.Parameters.Add('adb shell df -h /mnt/sdcard | tail -n1 | awk ' +
       '''' + '{ print $2, $3, $4 }' + '''');
     Exprocess.Execute;
 
@@ -90,8 +96,9 @@ end;
 //Окончание операции
 procedure StartLSSD.HideProgress;
 begin
-  Screen.cursor := crDefault;
+  //Очищаем команду для корректного "Esc"
   sdcmd := '';
+  Screen.cursor := crDefault;
 end;
 
 //Общий размер SD-Card, использовано и осталось
