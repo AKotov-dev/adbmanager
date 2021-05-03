@@ -54,7 +54,7 @@ begin
     //Ошибки не выводим, только список, ждём окончания потока
     ExProcess.Options := [poWaitOnExit, poUsePipes];
 
-    //Размер SD-Card, использовано и свободно
+    //Размер SD-Card, использовано и свободно (работает во всех Android)
     ExProcess.Parameters.Add('adb shell df -h /mnt/sdcard | tail -n1 | awk ' +
       '''' + '{ print $2, $3, $4 }' + '''');
     Exprocess.Execute;
@@ -65,6 +65,16 @@ begin
     //Если есть, что выводить и SD-Карта существует
     if S.Count <> 0 then
       Synchronize(@SDSizeUsedFree);
+
+    //Определяем версию Android > 7
+    ExProcess.Parameters.Delete(1);
+    ExProcess.Parameters.Add('adb shell ls -p /sdcard/');
+    ExProcess.Execute;
+    S.LoadFromStream(ExProcess.Output);
+    if Pos('Aborting', S[0]) <> 0 then
+      android7 := False
+    else
+      android7 := True;
 
     //ls текущего каталога с заменой спецсимволов
     ExProcess.Parameters.Delete(1);
@@ -91,17 +101,8 @@ end;
 
 //Начало операции
 procedure StartLSSD.ShowProgress;
-var
-  v: ansistring;
 begin
   Screen.cursor := crHourGlass;
-
-  //Определяем версию Android > 7
-  if RunCommand('bash', ['-c', 'adb shell ls -p'], v) then
-    if Pos('Aborting', v) <> 0 then
-      android7 := False
-    else
-      android7 := True;
 end;
 
 //Окончание операции

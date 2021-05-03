@@ -378,10 +378,22 @@ begin
   end;
 end;
 
-//Отмена копирования при закрытии формы
+//Отмена копирования и очистка SDBox при закрытии формы
 procedure TSDForm.FormClose(Sender: TObject; var CloseAction: TCloseAction);
 begin
   CancelCopy;
+  SDBox.Clear;
+
+    //Очищаем лог
+  SDMemo.Clear;
+
+  //Обнуляем показания размера до перечитывания SD-Card
+  Label4.Caption := '...';
+  Label5.Caption := '...';
+  Label6.Caption := '...';
+
+  //Скрываем "Esc - отмена"
+  Panel4.Caption := '';
 end;
 
 procedure TSDForm.FormShow(Sender: TObject);
@@ -389,19 +401,10 @@ begin
   //Перечитываем корень CompDir (могли быть изменения на диске извне)
   RefreshBtn.Click;
 
-  //Очищаем лог
-  SDMemo.Clear;
-
-  //Обнуляем показания размера до перечитывания SD-Card
-  Label4.Caption := '...';
-  Label5.Caption := '...';
-  Label6.Caption := '...';
-  //Скрываем "Esc - отмена"
-  Panel4.Caption := '';
-
   //Возвращаем и перечитываем исходную директорию SD-Card
   GroupBox2.Caption := '/sdcard/';
 
+  //Перечитываем /sdcard/
   StartLS;
 end;
 

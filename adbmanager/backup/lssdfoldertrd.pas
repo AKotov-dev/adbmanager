@@ -32,7 +32,7 @@ var
 implementation
 
 
-uses Unit1, SDCardManager;
+uses SDCardManager;
 
 { TRD }
 
@@ -66,6 +66,16 @@ begin
     if S.Count <> 0 then
       Synchronize(@SDSizeUsedFree);
 
+    //Определяем версию Android > 7
+    ExProcess.Parameters.Delete(1);
+    ExProcess.Parameters.Add('adb shell ls -p /sdcard/');
+    ExProcess.Execute;
+    S.LoadFromStream(ExProcess.Output);
+    if Pos('Aborting', S[0]) <> 0 then
+      android7 := False
+    else
+      android7 := True;
+
     //ls текущего каталога с заменой спецсимволов
     ExProcess.Parameters.Delete(1);
     if not android7 then
@@ -91,17 +101,8 @@ end;
 
 //Начало операции
 procedure StartLSSD.ShowProgress;
-var
-  v: ansistring;
 begin
   Screen.cursor := crHourGlass;
-
-  //Определяем версию Android > 7
-  if RunCommand('bash', ['-c', 'adb shell ls -p'], v) then
-    if Pos('Aborting', v) <> 0 then
-      android7 := False
-    else
-      android7 := True;
 end;
 
 //Окончание операции
