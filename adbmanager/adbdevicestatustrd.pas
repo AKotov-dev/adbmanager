@@ -26,7 +26,7 @@ type
 
 implementation
 
-uses Unit1;
+uses Unit1, SDCardManager;
 
 { TRD }
 
@@ -139,9 +139,15 @@ begin
     if (Pos(':', dev1) <> 0) and (Pos(':', dev0) = 0) then
       adbcmd := 'adb disconnect ' + dev1;
 
-    //Запуск команды и потока отображения лога исполнения
+    //Запуск команды и потока отображения лога отключения
     if adbcmd <> '' then
+    begin
+      //Если открыт - закрываем SD-Manager
+      SDForm.Close;
+      //Отключаем терминал, если использовался
+      MainForm.StartProcess('[ $(pidof sakura) ] && killall sakura');
       MainForm.StartADBCmd;
+    end;
   end
   else //Единственное устройство и статус выводим сразу, либо "no device"
   if Result.Text <> '' then

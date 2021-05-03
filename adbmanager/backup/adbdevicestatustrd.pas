@@ -116,6 +116,7 @@ begin
   if Result.Count > 1 then
   begin
     adbcmd := '';
+
     i := Pos(#9, Result[0]); //Выделяем имя-1
     dev0 := Trim(Copy(Result[0], 1, i));
     i := Pos(#9, Result[1]); //Выделяем имя-2
@@ -138,8 +139,15 @@ begin
     if (Pos(':', dev1) <> 0) and (Pos(':', dev0) = 0) then
       adbcmd := 'adb disconnect ' + dev1;
 
+    //Запуск команды и потока отображения лога отключения
     if adbcmd <> '' then
+    begin
+      //Если открыт - закрываем SD-Manager
+      SDForm.Close;
+      //Отключаем терминал, если использовался
+      MainForm.StartProcess('[ $(pidof sakura) ] && killall sakura');
       MainForm.StartADBCmd;
+    end;
   end
   else //Единственное устройство и статус выводим сразу, либо "no device"
   if Result.Text <> '' then
