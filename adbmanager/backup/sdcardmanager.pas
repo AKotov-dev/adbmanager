@@ -404,6 +404,7 @@ begin
   //Возвращаем и перечитываем исходную директорию SD-Card
   GroupBox2.Caption := '/sdcard/';
 
+  //Перечитываем /sdcard/
   StartLS;
 end;
 

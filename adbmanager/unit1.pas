@@ -56,6 +56,7 @@ type
     procedure RestartBtnClick(Sender: TObject);
     procedure StartProcess(command: string);
     procedure ToolButton4Click(Sender: TObject);
+    procedure StartADBCmd;
   private
 
   public
@@ -85,6 +86,15 @@ uses ADBDeviceStatusTRD, ADBCommandTRD, RebootUnit, BackUpUnit, SDCardManager;
 {$R *.lfm}
 
 { TMainForm }
+
+//Запуск команды и потока отображения лога исполнения
+procedure TMainForm.StartADBCmd;
+var
+  FADBCommandThread: TThread;
+begin
+  FADBCommandThread := StartADBCommand.Create(False);
+  FADBCommandThread.Priority := tpNormal;
+end;
 
 //StartCommand
 procedure TMainForm.StartProcess(command: string);
@@ -130,7 +140,6 @@ end;
 procedure TMainForm.ApkInfoBtnClick(Sender: TObject);
 var
   S: string;
-  FADBCommandThread: TThread;
 begin
   S := '';
 
@@ -240,8 +249,7 @@ begin
   end;
 
   //Запуск команды и потока отображения лога исполнения
-  FADBCommandThread := StartADBCommand.Create(False);
-  FADBCommandThread.Priority := tpNormal;
+  StartADBCmd;
 end;
 
 procedure TMainForm.FormClose(Sender: TObject; var CloseAction: TCloseAction);
