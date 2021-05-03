@@ -94,8 +94,8 @@ msgstr ""
 
 #: tmainform.connectbtn.caption
 msgctxt "tmainform.connectbtn.caption"
-msgid "connect"
-msgstr "коннект"
+msgid "emulator"
+msgstr "эмулятор"
 
 #: tmainform.deletekeybtn.caption
 msgid "Delete Key"
@@ -328,4 +328,3 @@ msgstr "Поиск пакетов"
 #: unit1.ssearchstring
 msgid "Input search string or \"*\":"
 msgstr "Введите строку поиска или \"*\":"
-

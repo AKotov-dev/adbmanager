@@ -94,7 +94,7 @@ msgstr ""
 
 #: tmainform.connectbtn.caption
 msgctxt "tmainform.connectbtn.caption"
-msgid "connect"
+msgid "emulator"
 msgstr ""
 
 #: tmainform.deletekeybtn.caption
