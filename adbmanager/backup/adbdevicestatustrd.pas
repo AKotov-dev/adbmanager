@@ -26,7 +26,7 @@ type
 
 implementation
 
-uses Unit1;
+uses Unit1, SDCardManager;
 
 { TRD }
 
@@ -89,18 +89,18 @@ end;
 procedure ShowStatus.ShowKey;
 begin
   if Result.Count <> 0 then
-    MainForm.KeyLabel.Caption := 'yes'
+    MainForm.KeyLabel.Caption := SYes
   else
-    MainForm.KeyLabel.Caption := 'no';
+    MainForm.KeyLabel.Caption := SNo;
 end;
 
 //Вывод активности ADB
 procedure ShowStatus.ShowIsActive;
 begin
   if Result.Count <> 0 then
-    MainForm.ActiveLabel.Caption := 'active'
+    MainForm.ActiveLabel.Caption := SWorks
   else
-    MainForm.ActiveLabel.Caption := 'launch...';
+    MainForm.ActiveLabel.Caption := SRestart;
 end;
 
 //Вывод найденного устройства и статуса

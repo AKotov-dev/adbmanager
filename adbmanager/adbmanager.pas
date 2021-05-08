@@ -12,7 +12,7 @@ uses {$IFDEF UNIX}
 
 begin
   RequireDerivedFormResource := True;
-  Application.Title:='ADBManager v1.0';
+  Application.Title:='ADBManager v2.0';
   Application.Scaled := True;
   Application.Initialize;
   Application.CreateForm(TMainForm, MainForm);

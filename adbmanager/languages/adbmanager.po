@@ -80,7 +80,7 @@ msgstr ""
 
 #: tmainform.activelabel.caption
 msgctxt "tmainform.activelabel.caption"
-msgid "running..."
+msgid "launch..."
 msgstr ""
 
 #: tmainform.backupbtn.caption
@@ -135,7 +135,7 @@ msgid ""
 "1. Turn on the \"USB Debugging\" on smartphone\n"
 "\n"
 "2. Set the USB access rights on your the PC:\n"
-"usermod -a -G usb,plugdev $USER; reboot\n"
+"usermod -aG usb,plugdev $LOGNAME; reboot\n"
 msgstr ""
 
 #: tmainform.panel2.caption
@@ -303,6 +303,14 @@ msgstr ""
 msgid "Connection"
 msgstr ""
 
+#: unit1.slaunched
+msgid "launched"
+msgstr ""
+
+#: unit1.sno
+msgid "no"
+msgstr ""
+
 #: unit1.snodevice
 msgctxt "unit1.snodevice"
 msgid "no device"
@@ -316,11 +324,20 @@ msgstr ""
 msgid "Reboot device?"
 msgstr ""
 
+#: unit1.srestart
+msgctxt "unit1.srestart"
+msgid "restart..."
+msgstr ""
+
 #: unit1.ssearchcaption
 msgid "Search packages"
 msgstr ""
 
 #: unit1.ssearchstring
 msgid "Input search string or \"*\":"
+msgstr ""
+
+#: unit1.syes
+msgid "yes"
 msgstr ""
 

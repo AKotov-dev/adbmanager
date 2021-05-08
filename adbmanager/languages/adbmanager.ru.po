@@ -80,7 +80,7 @@ msgstr ""
 
 #: tmainform.activelabel.caption
 msgctxt "tmainform.activelabel.caption"
-msgid "running..."
+msgid "launch..."
 msgstr "запуск..."
 
 #: tmainform.backupbtn.caption
@@ -135,13 +135,13 @@ msgid ""
 "1. Turn on the \"USB Debugging\" on smartphone\n"
 "\n"
 "2. Set the USB access rights on your the PC:\n"
-"usermod -a -G usb,plugdev $USER; reboot\n"
+"usermod -aG usb,plugdev $LOGNAME; reboot\n"
 msgstr ""
 "\n"
 "1. Включите \"Отладка по USB\" на смартфоне\n"
 "\n"
 "2. Установите права доступа к USB на PC:\n"
-"usermod -a -G usb,plugdev $USER; reboot\n"
+"usermod -aG usb,plugdev $LOGNAME; reboot\n"
 
 #: tmainform.panel2.caption
 msgid "Smartphone managing"
@@ -308,6 +308,14 @@ msgstr "Введите IP адрес или \"usb\":"
 msgid "Connection"
 msgstr "Подключение"
 
+#: unit1.slaunched
+msgid "launched"
+msgstr "запущен"
+
+#: unit1.sno
+msgid "no"
+msgstr "нет"
+
 #: unit1.snodevice
 msgctxt "unit1.snodevice"
 msgid "no device"
@@ -321,6 +329,11 @@ msgstr "Введите имя пакета:"
 msgid "Reboot device?"
 msgstr "Перезагрузить устройство?"
 
+#: unit1.srestart
+msgctxt "unit1.srestart"
+msgid "restart..."
+msgstr "перезапуск..."
+
 #: unit1.ssearchcaption
 msgid "Search packages"
 msgstr "Поиск пакетов"
@@ -328,3 +341,7 @@ msgstr "Поиск пакетов"
 #: unit1.ssearchstring
 msgid "Input search string or \"*\":"
 msgstr "Введите строку поиска или \"*\":"
+
+#: unit1.syes
+msgid "yes"
+msgstr "да"

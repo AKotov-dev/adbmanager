@@ -75,6 +75,10 @@ resourcestring
   SIPConnectCaption = 'Connection';
   SIPAddress = 'Input IP address or "usb":';
   SNoDevice = 'no device';
+  SYes = 'yes';
+  SNo = 'no';
+  SRestart = 'restart...';
+  SLaunched = 'launched';
 
 var
   MainForm: TMainForm;
@@ -262,7 +266,7 @@ end;
 //Индикация статуса цветом
 procedure TMainForm.ActiveLabelChangeBounds(Sender: TObject);
 begin
-  if ActiveLabel.Caption = 'active' then
+  if ActiveLabel.Caption = SLaunched then
     ActiveLabel.Font.Color := clGreen
   else
     ActiveLabel.Font.Color := clRed;
@@ -270,7 +274,7 @@ end;
 
 procedure TMainForm.KeyLabelChangeBounds(Sender: TObject);
 begin
-  if KeyLabel.Caption = 'yes' then
+  if KeyLabel.Caption = SYes then
     KeyLabel.Font.Color := clGreen
   else
     KeyLabel.Font.Color := clRed;
@@ -291,7 +295,7 @@ begin
     0: //Restart
     begin
       LogMemo.Clear;
-      ActiveLabel.Caption := 'resume...';
+      ActiveLabel.Caption := SRestart;
       StartProcess('killall adb; adb kill-server');
     end;
 

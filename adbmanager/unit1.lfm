@@ -1,5 +1,5 @@
 object MainForm: TMainForm
-  Left = 310
+  Left = 324
   Height = 546
   Top = 124
   Width = 740
@@ -58,7 +58,7 @@ object MainForm: TMainForm
       Height = 75
       Top = 2
       Width = 307
-      Caption = #10'1. Turn on the "USB Debugging" on smartphone'#10#10'2. Set the USB access rights on your the PC:'#10'usermod -a -G usb,plugdev $USER; reboot'
+      Caption = #10'1. Turn on the "USB Debugging" on smartphone'#10#10'2. Set the USB access rights on your the PC:'#10'usermod -aG usb,plugdev $LOGNAME; reboot'
       Font.Height = -13
       Font.Name = 'Sans'
       ParentColor = False
@@ -143,7 +143,7 @@ object MainForm: TMainForm
     object Label2: TLabel
       AnchorSideLeft.Control = ActiveLabel
       AnchorSideLeft.Side = asrBottom
-      Left = 142
+      Left = 133
       Height = 16
       Top = 8
       Width = 31
@@ -161,9 +161,9 @@ object MainForm: TMainForm
       Left = 47
       Height = 16
       Top = 8
-      Width = 75
+      Width = 66
       BorderSpacing.Left = 2
-      Caption = 'running...'
+      Caption = 'launch...'
       Font.Color = clRed
       Font.Height = -15
       Font.Name = 'Sans'
@@ -175,7 +175,7 @@ object MainForm: TMainForm
       AnchorSideLeft.Control = Label2
       AnchorSideLeft.Side = asrBottom
       AnchorSideTop.Control = Label2
-      Left = 175
+      Left = 166
       Height = 16
       Top = 8
       Width = 46
