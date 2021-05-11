@@ -2,12 +2,12 @@ ADBManager - ADB server manager for Android devices
 ---
 The program is designed for visual and easy management of the ADB-Server and connection of Android smartphones. Allows you to monitor the status of the "adb" service, manage it, and control the list of connected devices. Allows you to manage your smartphone: search for installed packages by part name, install, delete APK, backup, restore, screenshot, reboot (Normal, Bootloader, Recovery mode) and shutdown the device. For advanced users, there is an Android Shell terminal and an SD-Card file manager.  
 
-To connect the device via Wi-Fi
+Connecting via Wi-Fi
 ---
 1. Connect the smartphone via USB  
-2. Press the "emulator" button and enter "tcpip"  
+2. Press the `emulator` button and enter `tcpip`  
 3. Disconnect the smartphone from the USB  
-4. Press the "emulator" button and enter the IP address of the smartphone
+4. Press the `emulator` button and enter the IP address of the smartphone
 
 Tested in Mageia-8 and Linux Mint-20.  
 
