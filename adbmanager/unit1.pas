@@ -71,9 +71,9 @@ resourcestring
   SDeleteCaption = 'Deleting a package';
   SPackageName = 'Input the package name:';
   SSearchCaption = 'Search packages';
-  SSearchString = 'Input search string or "*":';
+  SSearchString = 'Input search string or *:';
   SIPConnectCaption = 'Connection';
-  SIPAddress = 'Input IP address or "usb":';
+  SIPAddress = 'Input IP address, usb or tcpip:';
   SNoDevice = 'no device';
   SYes = 'yes';
   SNo = 'no';
@@ -155,10 +155,16 @@ begin
         if not InputQuery(SIPConnectCaption, SIPAddress, S) then
           Exit
       until S <> '';
-      if S = 'usb' then
-        adbcmd := 'adb usb'
-      else
-        adbcmd := 'adb connect ' + Trim(S) + ':5555';
+
+      case S of
+        //Перевести в режим USB
+        'usb': adbcmd := 'adb usb';
+        //Перевести в режим TCPIP
+        'tcpip': adbcmd := 'adb tcpip 5555';
+        else
+          //Подключение эмулятора по IP
+          adbcmd := 'adb connect ' + Trim(S) + ':5555';
+      end;
 
       if Pos(S, DevSheet.Caption) = 0 then
       begin

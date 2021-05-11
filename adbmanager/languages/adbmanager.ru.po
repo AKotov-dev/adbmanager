@@ -301,8 +301,8 @@ msgid "Deleting a package"
 msgstr "Удаление пакета"
 
 #: unit1.sipaddress
-msgid "Input IP address or \"usb\":"
-msgstr "Введите IP адрес или \"usb\":"
+msgid "Input IP address, usb or tcpip:"
+msgstr "Введите IP адрес, usb или tcpip:"
 
 #: unit1.sipconnectcaption
 msgid "Connection"
@@ -339,8 +339,8 @@ msgid "Search packages"
 msgstr "Поиск пакетов"
 
 #: unit1.ssearchstring
-msgid "Input search string or \"*\":"
-msgstr "Введите строку поиска или \"*\":"
+msgid "Input search string or *:"
+msgstr "Введите строку поиска или *:"
 
 #: unit1.syes
 msgid "yes"
