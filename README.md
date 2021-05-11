@@ -7,7 +7,7 @@ Access permissions via USB
 Linux Mint: sudo usermod -aG plugdev $LOGNAME; reboot  
 Mageia Linux: replace the file /usr/lib/udev/rules.d/51-android.rules with a file from the repository and reboot
 
-Connecting via ADB via Wi-Fi
+Connecting via ADB over Wi-Fi
 ---
 + Connect the smartphone via USB  
 + Press the `emulator` button and enter `tcpip`  
