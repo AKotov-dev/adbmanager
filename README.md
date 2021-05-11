@@ -2,21 +2,22 @@ ADBManager - ADB server manager for Android devices
 ---
 The program is designed for visual and easy management of the ADB-Server and connection of Android smartphones. Allows you to monitor the status of the "adb" service, manage it, and control the list of connected devices. Allows you to manage your smartphone: search for installed packages by part name, install, delete APK, backup, restore, screenshot, reboot (Normal, Bootloader, Recovery mode) and shutdown the device. For advanced users, there is an Android Shell terminal and an SD-Card file manager.  
 
-Connecting via Wi-Fi
+Access permissions via USB
 ---
-1. Connect the smartphone via USB  
-2. Press the `emulator` button and enter `tcpip`  
-3. Disconnect the smartphone from the USB  
-4. Press the `emulator` button and enter the IP address of the smartphone
+Linux Mint: sudo usermod -aG plugdev $LOGNAME; reboot  
+Mageia Linux: replace the file /usr/lib/udev/rules.d/51-android.rules with a file from the repository and reboot
+
+Connecting via ADB via Wi-Fi
+---
++ Connect the smartphone via USB  
++ Press the `emulator` button and enter `tcpip`  
++ Disconnect the smartphone from the USB  
++ Press the `emulator` button and enter the IP address of the smartphone
 
 Tested in Mageia-8 and Linux Mint-20.  
 
 Dependencies: adb, iproute2, sakura  
 Free icons: https://icon-icons.com/ru/
-
-**Access permissions via USB:**  
-Linux Mint: sudo usermod -aG plugdev $LOGNAME; reboot  
-Mageia Linux: replace the file /usr/lib/udev/rules.d/51-android.rules with a file from the repository and reboot
 
 ![](https://github.com/AKotov-dev/adbmanager/blob/main/ScreenShot/ADBManager1.png)  
 ![](https://github.com/AKotov-dev/adbmanager/blob/main/ScreenShot/ADBManager2.png)
