@@ -16,7 +16,7 @@ Connecting via ADB over Wi-Fi
 
 Tested in Mageia-8 and Linux Mint-20.  
 
-Dependencies: adb, iproute2, sakura  
+Dependencies: adb, iproute2, sakura, nmap  
 Free icons: https://icon-icons.com/ru/
 
 ![](https://github.com/AKotov-dev/adbmanager/blob/main/ScreenShot/ADBManager1.png)  
