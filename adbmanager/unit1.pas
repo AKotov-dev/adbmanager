@@ -71,9 +71,9 @@ resourcestring
   SDeleteCaption = 'Deleting a package';
   SPackageName = 'Input the package name:';
   SSearchCaption = 'Search packages';
-  SSearchString = 'Input search string or *:';
-  SIPConnectCaption = 'Connection';
-  SIPAddress = 'Input IP address, usb or tcpip:';
+  SSearchString = 'Input search string or "*":';
+  SIPConnectCaption = 'Connection/Scanning';
+  SIPAddress = 'Input IP address, usb, tcpip or scan:';
   SNoDevice = 'no device';
   SYes = 'yes';
   SNo = 'no';
@@ -161,6 +161,9 @@ begin
         'usb': adbcmd := 'adb usb';
         //Перевести в режим TCPIP
         'tcpip': adbcmd := 'adb tcpip 5555';
+        //Ping-сканирование активных хостов
+        'scan': adbcmd := 'nmap -sn $(ip a | grep -w 192.168 | awk ' +
+            '''' + '{ print $2 }' + '''' + ') | grep Nmap';
         else
           //Подключение эмулятора по IP
           adbcmd := 'adb connect ' + Trim(S) + ':5555';
