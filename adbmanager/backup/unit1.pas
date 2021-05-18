@@ -161,7 +161,7 @@ begin
         'usb': adbcmd := 'adb usb';
         //Перевести в режим TCPIP
         'tcpip': adbcmd := 'adb tcpip 5555';
-        //Ping-сканирование
+        //Ping-сканирование активных хостов
         'scan': adbcmd := 'nmap -sn $(ip a | grep -w 192.168 | awk ' +
             '''' + '{ print $2 }' + '''' + ') | grep Nmap';
         else

@@ -5,7 +5,7 @@
 {"hash":254313235,"name":"unit1.ssearchcaption","sourcebytes":[83,101,97,114,99,104,32,112,97,99,107,97,103,101,115],"value":"Search packages"},
 {"hash":42175338,"name":"unit1.ssearchstring","sourcebytes":[73,110,112,117,116,32,115,101,97,114,99,104,32,115,116,114,105,110,103,32,111,114,32,34,42,34,58],"value":"Input search string or \"*\":"},
 {"hash":166072631,"name":"unit1.sipconnectcaption","sourcebytes":[67,111,110,110,101,99,116,105,111,110,47,83,99,97,110,110,105,110,103],"value":"Connection\/Scanning"},
-{"hash":69645322,"name":"unit1.sipaddress","sourcebytes":[73,110,112,117,116,32,73,80,32,97,100,100,114,101,115,115,44,32,117,115,98,44,32,116,99,112,105,112,32,111,114,32,115,99,97,110,58],"value":"Input IP address, usb, tcpip or scan:"},
+{"hash":78885898,"name":"unit1.sipaddress","sourcebytes":[73,110,112,117,116,32,73,80,45,97,100,100,114,101,115,115,44,32,117,115,98,44,32,116,99,112,105,112,32,111,114,32,115,99,97,110,58],"value":"Input IP-address, usb, tcpip or scan:"},
 {"hash":111983237,"name":"unit1.snodevice","sourcebytes":[110,111,32,100,101,118,105,99,101],"value":"no device"},
 {"hash":32707,"name":"unit1.syes","sourcebytes":[121,101,115],"value":"yes"},
 {"hash":1871,"name":"unit1.sno","sourcebytes":[110,111],"value":"no"},

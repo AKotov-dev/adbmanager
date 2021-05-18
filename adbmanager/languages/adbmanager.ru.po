@@ -301,8 +301,8 @@ msgid "Deleting a package"
 msgstr "Удаление пакета"
 
 #: unit1.sipaddress
-msgid "Input IP address, usb, tcpip or scan:"
-msgstr "Введите IP адрес, usb,  tcpip или scan:"
+msgid "Input IP-address, usb, tcpip or scan:"
+msgstr "Введите IP-адрес, usb,  tcpip или scan:"
 
 #: unit1.sipconnectcaption
 msgid "Connection/Scanning"

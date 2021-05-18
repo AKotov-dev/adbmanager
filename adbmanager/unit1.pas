@@ -73,7 +73,7 @@ resourcestring
   SSearchCaption = 'Search packages';
   SSearchString = 'Input search string or "*":';
   SIPConnectCaption = 'Connection/Scanning';
-  SIPAddress = 'Input IP address, usb, tcpip or scan:';
+  SIPAddress = 'Input IP-address, usb, tcpip or scan:';
   SNoDevice = 'no device';
   SYes = 'yes';
   SNo = 'no';

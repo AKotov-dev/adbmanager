@@ -296,7 +296,7 @@ msgid "Deleting a package"
 msgstr ""
 
 #: unit1.sipaddress
-msgid "Input IP address, usb, tcpip or scan:"
+msgid "Input IP-address, usb, tcpip or scan:"
 msgstr ""
 
 #: unit1.sipconnectcaption
