@@ -26,7 +26,7 @@ msgid "Scan active connection"
 msgstr ""
 
 #: emulatorunit.sswitchtotcpip
-msgid "Switch to TCPIP mode"
+msgid "Switch to TCP/IP mode"
 msgstr ""
 
 #: emulatorunit.sswitchtousb

@@ -32,7 +32,7 @@ object EmulatorForm: TEmulatorForm
     ClientWidth = 310
     Items.Strings = (
       'Switch to USB mode'
-      'Switch to TCPIP mode'
+      'Switch to TCP/IP mode'
       'Scan active connections'
     )
     TabOrder = 0

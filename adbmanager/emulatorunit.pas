@@ -32,7 +32,7 @@ type
 
 resourcestring
   SSwitchToUSB = 'Switch to USB mode';
-  SSwitchToTCPIP = 'Switch to TCPIP mode';
+  SSwitchToTCPIP = 'Switch to TCP/IP mode';
   SScanActiveConnection = 'Scan active connection';
 
 var
