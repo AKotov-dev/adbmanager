@@ -73,7 +73,7 @@
         <PackageName Value="LCL"/>
       </Item1>
     </RequiredPackages>
-    <Units Count="9">
+    <Units Count="10">
       <Unit0>
         <Filename Value="adbmanager.pas"/>
         <IsPartOfProject Value="True"/>
@@ -129,6 +129,14 @@
         <IsPartOfProject Value="True"/>
         <UnitName Value="LSSDFolderTRD"/>
       </Unit8>
+      <Unit9>
+        <Filename Value="emulatorunit.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="EmulatorForm"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="EmulatorUnit"/>
+      </Unit9>
     </Units>
   </ProjectOptions>
   <CompilerOptions>

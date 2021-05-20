@@ -21,6 +21,18 @@ msgstr ""
 msgid "Full backup (long procedure)"
 msgstr ""
 
+#: emulatorunit.sscanactiveconnection
+msgid "Scan active connection"
+msgstr ""
+
+#: emulatorunit.sswitchtotcpip
+msgid "Switch to TCPIP mode"
+msgstr ""
+
+#: emulatorunit.sswitchtousb
+msgid "Switch to USB mode"
+msgstr ""
+
 #: rebootunit.sbootloader
 msgid "Reboot to Bootloader"
 msgstr ""
@@ -75,6 +87,25 @@ msgstr ""
 
 #: tbackupform.okbtn.caption
 msgctxt "tbackupform.okbtn.caption"
+msgid "OK"
+msgstr ""
+
+#: temulatorform.cancelbtn.caption
+msgctxt "temulatorform.cancelbtn.caption"
+msgid "Cancel"
+msgstr ""
+
+#: temulatorform.caption
+msgctxt "temulatorform.caption"
+msgid "Connection/Scanning"
+msgstr ""
+
+#: temulatorform.label1.caption
+msgid "Emulator/Device IP-address:"
+msgstr ""
+
+#: temulatorform.okbtn.caption
+msgctxt "temulatorform.okbtn.caption"
 msgid "OK"
 msgstr ""
 
@@ -293,14 +324,6 @@ msgstr ""
 #: unit1.sdeletecaption
 msgctxt "unit1.sdeletecaption"
 msgid "Deleting a package"
-msgstr ""
-
-#: unit1.sipaddress
-msgid "Input IP-address, usb, tcpip or scan:"
-msgstr ""
-
-#: unit1.sipconnectcaption
-msgid "Connection/Scanning"
 msgstr ""
 
 #: unit1.slaunched

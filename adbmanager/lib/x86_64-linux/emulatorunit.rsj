@@ -1,0 +1,5 @@
+{"version":1,"strings":[
+{"hash":143932053,"name":"emulatorunit.sswitchtousb","sourcebytes":[83,119,105,116,99,104,32,116,111,32,85,83,66,32,109,111,100,101],"value":"Switch to USB mode"},
+{"hash":188363317,"name":"emulatorunit.sswitchtotcpip","sourcebytes":[83,119,105,116,99,104,32,116,111,32,84,67,80,73,80,32,109,111,100,101],"value":"Switch to TCPIP mode"},
+{"hash":145628814,"name":"emulatorunit.sscanactiveconnection","sourcebytes":[83,99,97,110,32,97,99,116,105,118,101,32,99,111,110,110,101,99,116,105,111,110],"value":"Scan active connection"}
+]}

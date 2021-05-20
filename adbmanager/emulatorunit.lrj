@@ -1,0 +1,6 @@
+{"version":1,"strings":[
+{"hash":166072631,"name":"temulatorform.caption","sourcebytes":[67,111,110,110,101,99,116,105,111,110,47,83,99,97,110,110,105,110,103],"value":"Connection/Scanning"},
+{"hash":41086106,"name":"temulatorform.label1.caption","sourcebytes":[69,109,117,108,97,116,111,114,47,68,101,118,105,99,101,32,73,80,45,97,100,100,114,101,115,115,58],"value":"Emulator/Device IP-address:"},
+{"hash":1339,"name":"temulatorform.okbtn.caption","sourcebytes":[79,75],"value":"OK"},
+{"hash":77089212,"name":"temulatorform.cancelbtn.caption","sourcebytes":[67,97,110,99,101,108],"value":"Cancel"}
+]}

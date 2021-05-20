@@ -72,8 +72,6 @@ resourcestring
   SPackageName = 'Input the package name:';
   SSearchCaption = 'Search packages';
   SSearchString = 'Input search string or "*":';
-  SIPConnectCaption = 'Connection/Scanning';
-  SIPAddress = 'Input IP-address, usb, tcpip or scan:';
   SNoDevice = 'no device';
   SYes = 'yes';
   SNo = 'no';
@@ -85,7 +83,8 @@ var
 
 implementation
 
-uses ADBDeviceStatusTRD, ADBCommandTRD, RebootUnit, BackUpUnit, SDCardManager;
+uses ADBDeviceStatusTRD, ADBCommandTRD, RebootUnit, BackUpUnit,
+  SDCardManager, EmulatorUnit;
 
 {$R *.lfm}
 
@@ -151,31 +150,10 @@ begin
   case (Sender as TToolButton).ImageIndex of
     0: //Connect
     begin
-      repeat
-        if not InputQuery(SIPConnectCaption, SIPAddress, S) then
-          Exit
-      until S <> '';
-
-      case S of
-        //Перевести в режим USB
-        'usb': adbcmd := 'adb usb';
-        //Перевести в режим TCPIP
-        'tcpip': adbcmd := 'adb tcpip 5555';
-        //Ping-сканирование активных хостов
-        'scan': adbcmd := 'nmap -sn $(ip a | grep -w 192.168 | awk ' +
-            '''' + '{ print $2 }' + '''' + ') | grep Nmap';
-        else
-          //Подключение эмулятора по IP
-          adbcmd := 'adb connect ' + Trim(S) + ':5555';
-      end;
-
-      if Pos(S, DevSheet.Caption) = 0 then
-      begin
-        //Если открыт - закрываем SD-Manager
-        SDForm.Close;
-        //Отключаем терминал, если использовался
-        MainForm.StartProcess('[ $(pidof sakura) ] && killall sakura');
-      end;
+      EmulatorForm := TEmulatorForm.Create(Application);
+      EmulatorForm.ShowModal; //Показываем Подключение/Сканирование
+      if EmulatorForm.ModalResult <> mrOk then
+        Exit;
     end;
 
     1: //Search Package
