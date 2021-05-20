@@ -10,7 +10,7 @@ Access permissions via USB
 Connecting via ADB over Wi-Fi
 ---
 + Connect the smartphone via USB  
-+ Press the `emulator` button and `Switch to TCPIP mode`  
++ Press the `emulator` button and `Switch to TCP/IP mode`  
 + Disconnect the smartphone from the USB  
 + Press the `emulator` button and enter the IP address of the smartphone
 
