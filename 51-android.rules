@@ -8676,4 +8676,3 @@ SUBSYSTEM=="usb", ATTR{idVendor}=="f4ec", ENV{adb_user}="yes"
 ENV{adb_user}=="yes", MODE="0660", GROUP="usb", TAG+="uaccess"
 
 LABEL="android_usb_rules_end"
-
