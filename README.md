@@ -19,8 +19,7 @@ Tested in Mageia-8 and Linux Mint-20.
 Dependencies: adb, iproute2, sakura, nmap  
 Free icons: https://icon-icons.com/ru/
 
-ADB v31.0.2 rpm-packages for Mageia-8 (testing only):  
-https://github.com/AKotov-dev/android-tools/tree/platform-tools-31.0.2/RPM-for-testing
+ADB v31.0.2 rpm-packages for Mageia-8 (testing only): https://github.com/AKotov-dev/android-tools-rpm
 
 ![](https://github.com/AKotov-dev/adbmanager/blob/main/ScreenShot/ADBManager1.png)  
 ![](https://github.com/AKotov-dev/adbmanager/blob/main/ScreenShot/ADBManager2.png)
