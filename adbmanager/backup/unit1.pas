@@ -83,7 +83,8 @@ var
 
 implementation
 
-uses ADBDeviceStatusTRD, ADBCommandTRD, RebootUnit, BackUpUnit, SDCardManager, EmulatorUnit;
+uses ADBDeviceStatusTRD, ADBCommandTRD, RebootUnit, BackUpUnit,
+  SDCardManager, EmulatorUnit;
 
 {$R *.lfm}
 
@@ -148,9 +149,9 @@ begin
   //Определяем команду по кнопке
   case (Sender as TToolButton).ImageIndex of
     0: //Connect
-      begin
+    begin
       EmulatorForm := TEmulatorForm.Create(Application);
-      EmulatorForm.ShowModal; //Показываем варианты бэкапа
+      EmulatorForm.ShowModal; //Показываем Подключение/Сканирование
       if EmulatorForm.ModalResult <> mrOk then
         Exit;
     end;

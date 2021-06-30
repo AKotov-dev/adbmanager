@@ -2,20 +2,20 @@ object MainForm: TMainForm
   Left = 304
   Height = 546
   Top = 125
-  Width = 740
+  Width = 728
   ActiveControl = Panel1
   Caption = 'ADBManager'
   ClientHeight = 546
-  ClientWidth = 740
+  ClientWidth = 728
   OnClose = FormClose
   OnCreate = FormCreate
   SessionProperties = 'Left;Top;Width;Height'
-  LCLVersion = '2.0.10.0'
+  LCLVersion = '2.0.12.0'
   object ToolBar1: TToolBar
     Left = 0
     Height = 88
     Top = 0
-    Width = 740
+    Width = 728
     ButtonHeight = 80
     ButtonWidth = 80
     Caption = 'ToolBar1'
@@ -58,7 +58,7 @@ object MainForm: TMainForm
       Height = 75
       Top = 2
       Width = 307
-      Caption = #10'1. Turn on the "USB Debugging" on smartphone'#10#10'2. Set the USB access rights on your the PC:'#10'usermod -aG usb,plugdev $LOGNAME; reboot'
+      Caption = #10'1. Turn on the "USB Debugging" on smartphone'#10#10'2. Set the USB access rights on your the PC:'#10'usermod -aG adbusers $LOGNAME; reboot'
       Font.Height = -13
       Font.Name = 'Sans'
       ParentColor = False
@@ -70,7 +70,7 @@ object MainForm: TMainForm
     Left = 0
     Height = 20
     Top = 526
-    Width = 740
+    Width = 728
     Align = alBottom
     Caption = 'License: GPLv3   Author: alex_q_2000 (C) 2021   URL: https://linuxforum.ru'
     Color = clDefault
@@ -82,12 +82,17 @@ object MainForm: TMainForm
     TabOrder = 1
   end
   object PageControl1: TPageControl
+    AnchorSideLeft.Control = Owner
+    AnchorSideTop.Control = ToolBar2
+    AnchorSideTop.Side = asrBottom
+    AnchorSideRight.Control = Owner
+    AnchorSideRight.Side = asrBottom
+    AnchorSideBottom.Control = StaticText1
     Left = 0
-    Height = 302
-    Top = 224
-    Width = 740
+    Height = 312
+    Top = 214
+    Width = 728
     ActivePage = DevSheet
-    Align = alBottom
     Anchors = [akTop, akLeft, akRight, akBottom]
     Font.Height = -13
     Font.Name = 'Sans'
@@ -96,17 +101,17 @@ object MainForm: TMainForm
     TabOrder = 2
     object DevSheet: TTabSheet
       Caption = 'no device'
-      ClientHeight = 265
-      ClientWidth = 734
+      ClientHeight = 275
+      ClientWidth = 722
       Font.Height = -13
       Font.Name = 'Sans'
       Font.Style = [fsBold]
       ParentFont = False
       object LogMemo: TMemo
         Left = 0
-        Height = 265
+        Height = 275
         Top = 0
-        Width = 734
+        Width = 722
         Align = alClient
         BorderStyle = bsNone
         Font.Height = -13
@@ -123,11 +128,11 @@ object MainForm: TMainForm
     Left = 0
     Height = 34
     Top = 88
-    Width = 740
+    Width = 728
     Align = alTop
     BevelOuter = bvNone
     ClientHeight = 34
-    ClientWidth = 740
+    ClientWidth = 728
     TabOrder = 3
     object Label1: TLabel
       Left = 8
@@ -193,7 +198,7 @@ object MainForm: TMainForm
     Left = 0
     Height = 66
     Top = 148
-    Width = 740
+    Width = 728
     AutoSize = True
     ButtonHeight = 64
     ButtonWidth = 64
@@ -286,7 +291,7 @@ object MainForm: TMainForm
     Left = 0
     Height = 26
     Top = 122
-    Width = 740
+    Width = 728
     Align = alTop
     BevelOuter = bvNone
     Caption = 'Smartphone managing'
@@ -298,9 +303,9 @@ object MainForm: TMainForm
   end
   object ProgressBar1: TProgressBar
     AnchorSideTop.Control = PageControl1
-    Left = 501
+    Left = 489
     Height = 12
-    Top = 229
+    Top = 219
     Width = 232
     Anchors = [akTop, akRight]
     BorderSpacing.Top = 5
