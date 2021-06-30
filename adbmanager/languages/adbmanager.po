@@ -166,7 +166,7 @@ msgid ""
 "1. Turn on the \"USB Debugging\" on smartphone\n"
 "\n"
 "2. Set the USB access rights on your the PC:\n"
-"usermod -aG adbusers $LOGNAME; reboot\n"
+"usermod -aG adbusers,plugdev $LOGNAME; reboot\n"
 msgstr ""
 
 #: tmainform.panel2.caption
