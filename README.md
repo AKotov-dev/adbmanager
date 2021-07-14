@@ -5,9 +5,7 @@ The program is designed for visual and easy management of the ADB-Server and con
 Access permissions via USB
 ---
 `Linux Mint:` sudo usermod -aG plugdev $LOGNAME; reboot  
-`Mageia Linux:`
-+ Replace the file /usr/lib/udev/rules.d/51-android.rules with a file from the repository
-+ usermod -aG adbusers $LOGNAME; reboot
+`Mageia Linux:` usermod -aG adbusers $LOGNAME; reboot
 
 Connecting via ADB over Wi-Fi
 ---
