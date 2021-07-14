@@ -23,3 +23,4 @@ ADB v31.0.2 rpm-packages for Mageia-8 (testing only): https://github.com/AKotov-
 
 ![](https://github.com/AKotov-dev/adbmanager/blob/main/ScreenShot/ADBManager1.png)  
 ![](https://github.com/AKotov-dev/adbmanager/blob/main/ScreenShot/ADBManager2.png)
+
