@@ -19,6 +19,7 @@ type
     RadioGroup1: TRadioGroup;
     procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
     procedure FormCreate(Sender: TObject);
+    procedure FormShow(Sender: TObject);
     procedure OKBtnClick(Sender: TObject);
   private
 
@@ -71,6 +72,12 @@ begin
   RadioGroup1.Items[0] := SNoShared;
   RadioGroup1.Items[1] := SShared;
   IniPropStorage1.IniFileName := MainForm.IniPropStorage1.IniFileName;
+end;
+
+procedure TBackupForm.FormShow(Sender: TObject);
+begin
+  //For Plasma
+  IniPropStorage1.Restore;
 end;
 
 procedure TBackupForm.FormClose(Sender: TObject; var CloseAction: TCloseAction);

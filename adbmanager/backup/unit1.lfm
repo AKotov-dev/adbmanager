@@ -1,7 +1,7 @@
 object MainForm: TMainForm
-  Left = 304
+  Left = 644
   Height = 546
-  Top = 125
+  Top = 268
   Width = 728
   ActiveControl = Panel1
   Caption = 'ADBManager'
@@ -9,6 +9,7 @@ object MainForm: TMainForm
   ClientWidth = 728
   OnClose = FormClose
   OnCreate = FormCreate
+  OnShow = FormShow
   SessionProperties = 'Left;Top;Width;Height'
   LCLVersion = '2.0.12.0'
   object ToolBar1: TToolBar
@@ -57,8 +58,8 @@ object MainForm: TMainForm
       Left = 254
       Height = 75
       Top = 2
-      Width = 307
-      Caption = #10'1. Turn on the "USB Debugging" on smartphone'#10#10'2. Set the USB access rights on your the PC:'#10'usermod -aG adbusers $LOGNAME; reboot'
+      Width = 330
+      Caption = #10'1. Turn on the "USB Debugging" on smartphone'#10#10'2. Set the USB access rights on your the PC:'#10'usermod -aG adbusers,plugdev $LOGNAME; reboot'
       Font.Height = -13
       Font.Name = 'Sans'
       ParentColor = False

@@ -381,10 +381,13 @@ end;
 //Отмена копирования и очистка SDBox при закрытии формы
 procedure TSDForm.FormClose(Sender: TObject; var CloseAction: TCloseAction);
 begin
+  //For Plasma
+  IniPropStorage1.Save;
+
   CancelCopy;
   SDBox.Clear;
 
-    //Очищаем лог
+  //Очищаем лог
   SDMemo.Clear;
 
   //Обнуляем показания размера до перечитывания SD-Card
@@ -398,6 +401,9 @@ end;
 
 procedure TSDForm.FormShow(Sender: TObject);
 begin
+  //For Plasma
+  IniPropStorage1.Restore;
+
   //Перечитываем корень CompDir (могли быть изменения на диске извне)
   RefreshBtn.Click;
 
