@@ -51,6 +51,7 @@ type
     procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
     procedure FormCreate(Sender: TObject);
     procedure ActiveLabelChangeBounds(Sender: TObject);
+    procedure FormShow(Sender: TObject);
     procedure KeyLabelChangeBounds(Sender: TObject);
     procedure LogMemoKeyDown(Sender: TObject; var Key: word; Shift: TShiftState);
     procedure RestartBtnClick(Sender: TObject);
@@ -83,7 +84,8 @@ var
 
 implementation
 
-uses ADBDeviceStatusTRD, ADBCommandTRD, RebootUnit, BackUpUnit, SDCardManager, EmulatorUnit;
+uses ADBDeviceStatusTRD, ADBCommandTRD, RebootUnit, BackUpUnit,
+  SDCardManager, EmulatorUnit;
 
 {$R *.lfm}
 
@@ -148,9 +150,10 @@ begin
   //Определяем команду по кнопке
   case (Sender as TToolButton).ImageIndex of
     0: //Connect
-      begin
+    begin
       EmulatorForm := TEmulatorForm.Create(Application);
-      EmulatorForm.ShowModal; //Показываем варианты бэкапа
+      EmulatorForm.ShowModal;
+      //Показываем Подключение/Сканирование
       if EmulatorForm.ModalResult <> mrOk then
         Exit;
     end;
@@ -256,6 +259,11 @@ begin
     ActiveLabel.Font.Color := clGreen
   else
     ActiveLabel.Font.Color := clRed;
+end;
+
+procedure TMainForm.FormShow(Sender: TObject);
+begin
+  IniPropStorage1.Restore;
 end;
 
 procedure TMainForm.KeyLabelChangeBounds(Sender: TObject);

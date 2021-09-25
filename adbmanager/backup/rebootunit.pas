@@ -18,6 +18,7 @@ type
     CancelBtn: TButton;
     RadioGroup1: TRadioGroup;
     procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
+    procedure FormShow(Sender: TObject);
     procedure OKBtnClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
   private
@@ -30,7 +31,7 @@ resourcestring
   SNormalReboot = 'Normal reboot';
   SBootLoader = 'Reboot to Bootloader';
   SRecoveryReboot = 'Reboot to Recovery mode';
-  SShutDown = 'Shutdown the device';
+  SShutDown = 'Shutdown the device (v4.4+)';
 
 var
   RebootForm: TRebootForm;
@@ -73,6 +74,12 @@ end;
 procedure TRebootForm.FormClose(Sender: TObject; var CloseAction: TCloseAction);
 begin
   CloseAction := caFree;
+end;
+
+procedure TRebootForm.FormShow(Sender: TObject);
+begin
+  //For Plasma
+  IniPropStorage1.Restore;
 end;
 
 end.

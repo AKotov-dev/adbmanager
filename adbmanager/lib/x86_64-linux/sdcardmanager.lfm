@@ -1,7 +1,7 @@
 object SDForm: TSDForm
-  Left = 491
+  Left = 288
   Height = 612
-  Top = 124
+  Top = 125
   Width = 867
   Caption = 'SD-Card manager'
   ClientHeight = 612
@@ -13,7 +13,7 @@ object SDForm: TSDForm
   OnShow = FormShow
   Position = poDefault
   SessionProperties = 'GroupBox1.Width;Height;Left;Panel1.Height;Top;Width;VBtn.Down'
-  LCLVersion = '2.0.10.0'
+  LCLVersion = '2.0.12.0'
   object Panel2: TPanel
     Left = 0
     Height = 1

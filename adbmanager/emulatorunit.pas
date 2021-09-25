@@ -23,6 +23,7 @@ type
     procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
     procedure FormCreate(Sender: TObject);
     procedure FormKeyDown(Sender: TObject; var Key: word; Shift: TShiftState);
+    procedure FormShow(Sender: TObject);
     procedure OKBtnClick(Sender: TObject);
   private
 
@@ -60,6 +61,12 @@ begin
   //Ловим Enter
   if Key = $0D then
     OkBtn.Click;
+end;
+
+procedure TEmulatorForm.FormShow(Sender: TObject);
+begin
+  //For Plasma
+  IniPropStorage1.Restore;
 end;
 
 procedure TEmulatorForm.FormClose(Sender: TObject; var CloseAction: TCloseAction);

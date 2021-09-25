@@ -18,6 +18,7 @@ type
     CancelBtn: TButton;
     RadioGroup1: TRadioGroup;
     procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
+    procedure FormShow(Sender: TObject);
     procedure OKBtnClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
   private
@@ -73,6 +74,12 @@ end;
 procedure TRebootForm.FormClose(Sender: TObject; var CloseAction: TCloseAction);
 begin
   CloseAction := caFree;
+end;
+
+procedure TRebootForm.FormShow(Sender: TObject);
+begin
+  //For Plasma
+  IniPropStorage1.Restore;
 end;
 
 end.
