@@ -20,6 +20,9 @@ object MainForm: TMainForm
     AutoSize = True
     ButtonHeight = 80
     ButtonWidth = 80
+    EdgeBorders = []
+    EdgeInner = esNone
+    EdgeOuter = esNone
     Images = ImageList1
     ShowCaptions = True
     TabOrder = 0
