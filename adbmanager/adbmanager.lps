@@ -49,7 +49,6 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="Unit1"/>
-        <IsVisibleTab Value="True"/>
         <TopLine Value="58"/>
         <CursorPos X="44" Y="74"/>
         <UsageCount Value="107"/>
@@ -80,11 +79,13 @@
         <ComponentName Value="RebootForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
+        <IsVisibleTab Value="True"/>
         <EditorIndex Value="1"/>
         <TopLine Value="35"/>
         <CursorPos X="24" Y="60"/>
         <UsageCount Value="84"/>
         <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
       </Unit4>
       <Unit5>
         <Filename Value="backupunit.pas"/>
