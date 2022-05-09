@@ -1,10 +1,10 @@
 object BackupForm: TBackupForm
-  Left = 439
-  Height = 118
-  Top = 137
+  Left = 517
+  Height = 112
+  Top = 626
   Width = 385
   Caption = 'Backup copying'
-  ClientHeight = 118
+  ClientHeight = 112
   ClientWidth = 385
   OnClose = FormClose
   OnCreate = FormCreate
@@ -19,7 +19,7 @@ object BackupForm: TBackupForm
     AnchorSideBottom.Control = Owner
     AnchorSideBottom.Side = asrBottom
     Left = 6
-    Height = 104
+    Height = 98
     Top = 7
     Width = 277
     Anchors = [akTop, akLeft, akRight, akBottom]
@@ -33,7 +33,7 @@ object BackupForm: TBackupForm
     ChildSizing.ShrinkVertical = crsScaleChilds
     ChildSizing.Layout = cclLeftToRightThenTopToBottom
     ChildSizing.ControlsPerLine = 1
-    ClientHeight = 102
+    ClientHeight = 96
     ClientWidth = 275
     ItemIndex = 0
     Items.Strings = (

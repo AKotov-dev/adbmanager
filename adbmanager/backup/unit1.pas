@@ -53,7 +53,6 @@ type
     procedure ActiveLabelChangeBounds(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure KeyLabelChangeBounds(Sender: TObject);
-    procedure LogMemoKeyDown(Sender: TObject; var Key: word; Shift: TShiftState);
     procedure RestartBtnClick(Sender: TObject);
     procedure StartProcess(command: string);
     procedure ToolButton4Click(Sender: TObject);
@@ -272,11 +271,6 @@ begin
     KeyLabel.Font.Color := clGreen
   else
     KeyLabel.Font.Color := clRed;
-end;
-
-procedure TMainForm.LogMemoKeyDown(Sender: TObject; var Key: word; Shift: TShiftState);
-begin
-  Key := $0;
 end;
 
 //Обработка нажатия кнопок управления ADB

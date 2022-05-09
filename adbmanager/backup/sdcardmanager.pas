@@ -200,11 +200,13 @@ begin
   IniPropStorage1.IniFileName := MainForm.IniPropStorage1.IniFileName;
 end;
 
-//Отмена копирования по "Esc"
+//Отмена копирования = "Esc"; На уровень вверх = "BackSpace"
 procedure TSDForm.FormKeyUp(Sender: TObject; var Key: word; Shift: TShiftState);
 begin
-  if Key = VK_ESCAPE then
-    CancelCopy;
+  case Key of
+    VK_ESCAPE: CancelCopy;
+    VK_BACK: UpBtn.Click;
+  end;
 end;
 
 //Копирование с компа на SD-Card

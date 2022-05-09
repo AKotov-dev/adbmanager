@@ -1,12 +1,12 @@
 object EmulatorForm: TEmulatorForm
-  Left = 522
-  Height = 185
-  Top = 383
-  Width = 405
+  Left = 524
+  Height = 193
+  Top = 295
+  Width = 411
   ActiveControl = Edit1
   Caption = 'Connection/Scanning'
-  ClientHeight = 185
-  ClientWidth = 405
+  ClientHeight = 193
+  ClientWidth = 411
   KeyPreview = True
   OnClose = FormClose
   OnCreate = FormCreate
@@ -14,7 +14,7 @@ object EmulatorForm: TEmulatorForm
   OnShow = FormShow
   Position = poMainFormCenter
   SessionProperties = 'Width;Height;Edit1.Text'
-  LCLVersion = '2.0.12.0'
+  LCLVersion = '2.2.0.4'
   object RadioGroup1: TRadioGroup
     AnchorSideLeft.Control = Owner
     AnchorSideRight.Control = Edit1
@@ -22,9 +22,9 @@ object EmulatorForm: TEmulatorForm
     AnchorSideBottom.Control = Owner
     AnchorSideBottom.Side = asrBottom
     Left = 7
-    Height = 114
+    Height = 122
     Top = 64
-    Width = 296
+    Width = 302
     Anchors = [akTop, akLeft, akRight, akBottom]
     AutoFill = True
     BorderSpacing.Left = 7
@@ -36,8 +36,8 @@ object EmulatorForm: TEmulatorForm
     ChildSizing.ShrinkVertical = crsScaleChilds
     ChildSizing.Layout = cclLeftToRightThenTopToBottom
     ChildSizing.ControlsPerLine = 1
-    ClientHeight = 112
-    ClientWidth = 294
+    ClientHeight = 120
+    ClientWidth = 300
     Items.Strings = (
       'Switch to USB mode'
       'Switch to TCP/IP mode'
@@ -51,7 +51,7 @@ object EmulatorForm: TEmulatorForm
     Left = 7
     Height = 36
     Top = 26
-    Width = 296
+    Width = 302
     Anchors = [akTop, akLeft, akRight]
     BorderSpacing.Left = 7
     BorderSpacing.Right = 7
@@ -61,11 +61,10 @@ object EmulatorForm: TEmulatorForm
   object Label1: TLabel
     AnchorSideLeft.Control = Edit1
     Left = 7
-    Height = 15
+    Height = 17
     Top = 8
     Width = 170
     Caption = 'Emulator/Device IP-address:'
-    ParentColor = False
   end
   object OKBtn: TButton
     AnchorSideLeft.Control = RadioGroup1
@@ -74,7 +73,7 @@ object EmulatorForm: TEmulatorForm
     AnchorSideRight.Control = Owner
     AnchorSideRight.Side = asrBottom
     AnchorSideBottom.Control = CancelBtn
-    Left = 310
+    Left = 316
     Height = 28
     Top = 7
     Width = 88
@@ -95,7 +94,7 @@ object EmulatorForm: TEmulatorForm
     AnchorSideTop.Side = asrBottom
     AnchorSideRight.Control = Owner
     AnchorSideRight.Side = asrBottom
-    Left = 310
+    Left = 316
     Height = 28
     Top = 38
     Width = 88

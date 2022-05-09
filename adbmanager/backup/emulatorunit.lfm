@@ -1,11 +1,11 @@
 object EmulatorForm: TEmulatorForm
-  Left = 518
-  Height = 198
-  Top = 391
+  Left = 522
+  Height = 185
+  Top = 383
   Width = 405
   ActiveControl = Edit1
   Caption = 'Connection/Scanning'
-  ClientHeight = 198
+  ClientHeight = 185
   ClientWidth = 405
   KeyPreview = True
   OnClose = FormClose
@@ -22,7 +22,7 @@ object EmulatorForm: TEmulatorForm
     AnchorSideBottom.Control = Owner
     AnchorSideBottom.Side = asrBottom
     Left = 7
-    Height = 127
+    Height = 114
     Top = 64
     Width = 296
     Anchors = [akTop, akLeft, akRight, akBottom]
@@ -36,7 +36,7 @@ object EmulatorForm: TEmulatorForm
     ChildSizing.ShrinkVertical = crsScaleChilds
     ChildSizing.Layout = cclLeftToRightThenTopToBottom
     ChildSizing.ControlsPerLine = 1
-    ClientHeight = 125
+    ClientHeight = 112
     ClientWidth = 294
     Items.Strings = (
       'Switch to USB mode'

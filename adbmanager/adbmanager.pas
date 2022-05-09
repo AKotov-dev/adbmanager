@@ -20,8 +20,8 @@ uses {$IFDEF UNIX}
 
 begin
   RequireDerivedFormResource := True;
-  Application.Title := 'ADBManager v2.5';
-  Application.Scaled := True;
+  Application.Title:='ADBManager v2.6';
+  Application.Scaled:=True;
   Application.Initialize;
   Application.CreateForm(TMainForm, MainForm);
   Application.CreateForm(TSDForm, SDForm);
