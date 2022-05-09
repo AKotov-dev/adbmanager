@@ -2,7 +2,7 @@
 name=adbmanager
 
 [VERSION]
-version=2.5
+version=2.6
 
 [RELEASE]
 release=0.mrx8
@@ -52,6 +52,9 @@ deb=1
 3=/usr/share/icons/adbmanager.png
 4=/usr/share/applications/adbmanager.desktop
 
+[AFTERINSTALL]
+0=[ $(grep "adbusers" /etc/group) ] || groupadd adbusers
+
 [URL32]
 url32=https://github.com/AKotov-dev/adbmanager
 
@@ -65,59 +68,63 @@ programname=ADBManager
 devtool=Lazarus
 
 [TOOLVERSION]
-toolversion=2.0.10
+toolversion=2.2.0
 
 [INFO]
 0=The program is designed for visual and easy management of the ADB server
 1=and connection of Android smartphones. Allows you to monitor the status of the "adb" service,
 2=manage it, and control the list of connected devices.
 3=
-4=v2.5 + saving the correct scaling in Plasma
-5=
-6=v2.4 + non-standard scaling in Plasma is taken into account
+4=v2.6
+5=+ BackSpace in the SD Сard manager
+6=+ adding the adbusers group to spec
 7=
-8=v2.3 + separate form for emulator/device commands
+8=v2.5 + saving the correct scaling in Plasma
 9=
-10=v2.2 + emulator/scan command; active host scanner (192.168. x. x)
+10=v2.4 + non-standard scaling in Plasma is taken into account
 11=
-12=v2.1 + adb connect over Wi-Fi (emulator/tcpip)
+12=v2.3 + separate form for emulator/device commands
 13=
-14=v2.0
-15=+ russian translate is finished
-16=+ Final Release
+14=v2.2 + emulator/scan command; active host scanner (192.168. x. x)
+15=
+16=v2.1 + adb connect over Wi-Fi (emulator/tcpip)
 17=
-18=v1.0
-19=+ sd-manager: Android 7.1+ support
-20=
-21=v0.9
-22=+ add SD-Card Manager
-23=
-24=v0.8
-25=+ general device tab+status/log
-26=+ manage one device (USB/IP)
-27=+ autocorrect the active device with a new one when connected
-28=+ restart your smartphone: Normal, Bootloader, Recovery mode, and Shutdown
-29=+ backup options: no SD card and full backup
-30=+ log in to the Android Shell (the "terminal" button")
-31=
-32=v0.7
-33=+ adb kill-server; killall adb on start program (Mageia)
-34=+ screenshot and backup files set auto name
-35=+ new icons in the smartphone control panel
-36=
-37=v0.6
-38=+ pkexec excluded
-39=+ adapted for Debian
+18=v2.0
+19=+ russian translate is finished
+20=+ Final Release
+21=
+22=v1.0
+23=+ sd-manager: Android 7.1+ support
+24=
+25=v0.9
+26=+ add SD-Card Manager
+27=
+28=v0.8
+29=+ general device tab+status/log
+30=+ manage one device (USB/IP)
+31=+ autocorrect the active device with a new one when connected
+32=+ restart your smartphone: Normal, Bootloader, Recovery mode, and Shutdown
+33=+ backup options: no SD card and full backup
+34=+ log in to the Android Shell (the "terminal" button")
+35=
+36=v0.7
+37=+ adb kill-server; killall adb on start program (Mageia)
+38=+ screenshot and backup files set auto name
+39=+ new icons in the smartphone control panel
 40=
-41=v0.5
-42=+ usb/tcpip connection
-43=+ changed the package search engine
+41=v0.6
+42=+ pkexec excluded
+43=+ adapted for Debian
 44=
-45=v0.4
-46=+ Smartphone Management panel
-47=+ execution log monitor
+45=v0.5
+46=+ usb/tcpip connection
+47=+ changed the package search engine
 48=
-49=v0.3
-50=+ status polling in a separate thread
-51=+ monospaced font in devices log
-52=+ Russian and English languages
+49=v0.4
+50=+ Smartphone Management panel
+51=+ execution log monitor
+52=
+53=v0.3
+54=+ status polling in a separate thread
+55=+ monospaced font in devices log
+56=+ Russian and English languages
