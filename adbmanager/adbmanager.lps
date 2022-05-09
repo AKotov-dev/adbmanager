@@ -49,7 +49,9 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="Unit1"/>
-        <CursorPos X="47" Y="10"/>
+        <IsVisibleTab Value="True"/>
+        <TopLine Value="58"/>
+        <CursorPos X="44" Y="74"/>
         <UsageCount Value="107"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -79,8 +81,8 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <EditorIndex Value="1"/>
-        <TopLine Value="53"/>
-        <CursorPos X="31" Y="60"/>
+        <TopLine Value="35"/>
+        <CursorPos X="24" Y="60"/>
         <UsageCount Value="84"/>
         <Loaded Value="True"/>
       </Unit4>
@@ -104,12 +106,12 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="SDCardManager"/>
-        <IsVisibleTab Value="True"/>
         <EditorIndex Value="2"/>
         <TopLine Value="200"/>
         <CursorPos X="17" Y="206"/>
         <UsageCount Value="76"/>
         <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
       </Unit6>
       <Unit7>
         <Filename Value="sdcommandtrd.pas"/>

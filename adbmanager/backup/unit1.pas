@@ -71,7 +71,7 @@ resourcestring
   SDeleteCaption = 'Deleting a package';
   SPackageName = 'Input the package name:';
   SSearchCaption = 'Search packages';
-  SSearchString = 'Input search string or "*":';
+  SSearchString = 'Input search string or *:';
   SNoDevice = 'no device';
   SYes = 'yes';
   SNo = 'no';

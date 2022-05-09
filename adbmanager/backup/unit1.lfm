@@ -14,19 +14,22 @@ object MainForm: TMainForm
   LCLVersion = '2.2.0.4'
   object ToolBar1: TToolBar
     Left = 0
-    Height = 87
+    Height = 85
     Top = 0
     Width = 767
     AutoSize = True
     ButtonHeight = 80
     ButtonWidth = 80
+    EdgeBorders = []
+    EdgeInner = esNone
+    EdgeOuter = esNone
     Images = ImageList1
     ShowCaptions = True
     TabOrder = 0
     Wrapable = False
     object RestartBtn: TToolButton
       Left = 1
-      Top = 2
+      Top = 0
       Caption = 'Restart'
       ImageIndex = 0
       OnClick = RestartBtnClick
@@ -34,7 +37,7 @@ object MainForm: TMainForm
     object ExitBtn: TToolButton
       Tag = 2
       Left = 161
-      Top = 2
+      Top = 0
       Caption = 'Exit'
       ImageIndex = 2
       OnClick = RestartBtnClick
@@ -42,7 +45,7 @@ object MainForm: TMainForm
     object DeleteKeyBtn: TToolButton
       Tag = 1
       Left = 81
-      Top = 2
+      Top = 0
       Caption = 'Delete Key'
       ImageIndex = 1
       OnClick = RestartBtnClick
@@ -50,7 +53,7 @@ object MainForm: TMainForm
     object StaticText2: TStaticText
       Left = 241
       Height = 80
-      Top = 2
+      Top = 0
       Width = 24
       TabOrder = 0
     end
@@ -58,7 +61,7 @@ object MainForm: TMainForm
       AnchorSideTop.Side = asrBottom
       Left = 265
       Height = 85
-      Top = 2
+      Top = 0
       Width = 330
       Caption = ' '#10'1. Turn on the "USB Debugging" on smartphone'#10' '#10'2. Set the USB access rights on your the PC:'#10'usermod -aG adbusers,plugdev $LOGNAME; reboot'
       Font.Height = -13
@@ -90,8 +93,8 @@ object MainForm: TMainForm
     AnchorSideRight.Side = asrBottom
     AnchorSideBottom.Control = StaticText1
     Left = 0
-    Height = 327
-    Top = 213
+    Height = 329
+    Top = 211
     Width = 767
     ActivePage = DevSheet
     Anchors = [akTop, akLeft, akRight, akBottom]
@@ -102,7 +105,7 @@ object MainForm: TMainForm
     TabOrder = 2
     object DevSheet: TTabSheet
       Caption = 'no device'
-      ClientHeight = 290
+      ClientHeight = 292
       ClientWidth = 761
       Font.Height = -13
       Font.Name = 'Sans'
@@ -110,7 +113,7 @@ object MainForm: TMainForm
       ParentFont = False
       object LogMemo: TMemo
         Left = 0
-        Height = 290
+        Height = 292
         Top = 0
         Width = 761
         Align = alClient
@@ -128,7 +131,7 @@ object MainForm: TMainForm
   object Panel1: TPanel
     Left = 0
     Height = 34
-    Top = 87
+    Top = 85
     Width = 767
     Align = alTop
     BevelOuter = bvNone
@@ -194,7 +197,7 @@ object MainForm: TMainForm
   object ToolBar2: TToolBar
     Left = 0
     Height = 66
-    Top = 147
+    Top = 145
     Width = 767
     AutoSize = True
     ButtonHeight = 64
@@ -287,7 +290,7 @@ object MainForm: TMainForm
   object Panel2: TPanel
     Left = 0
     Height = 26
-    Top = 121
+    Top = 119
     Width = 767
     Align = alTop
     BevelOuter = bvNone
@@ -302,7 +305,7 @@ object MainForm: TMainForm
     AnchorSideTop.Control = PageControl1
     Left = 528
     Height = 12
-    Top = 218
+    Top = 216
     Width = 232
     Anchors = [akTop, akRight]
     BorderSpacing.Top = 5

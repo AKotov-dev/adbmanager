@@ -358,8 +358,8 @@ msgid "Search packages"
 msgstr "Поиск пакетов"
 
 #: unit1.ssearchstring
-msgid "Input search string or \"*\":"
-msgstr "Введите строку поиска или \"*\":"
+msgid "Input search string or *"
+msgstr "Введите строку поиска или *"
 
 #: unit1.syes
 msgid "yes"

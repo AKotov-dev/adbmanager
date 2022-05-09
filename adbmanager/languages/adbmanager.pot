@@ -320,7 +320,7 @@ msgid "Search packages"
 msgstr ""
 
 #: unit1.ssearchstring
-msgid "Input search string or \"*\":"
+msgid "Input search string or *"
 msgstr ""
 
 #: unit1.syes
