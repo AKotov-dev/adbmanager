@@ -160,13 +160,6 @@ msgid "Key:"
 msgstr "Ключ:"
 
 #: tmainform.label3.caption
-#, fuzzy
-#| msgid ""
-#| "\n"
-#| "1. Turn on the \"USB Debugging\" on smartphone\n"
-#| "\n"
-#| "2. Set the USB access rights on your the PC:\n"
-#| "usermod -aG adbusers,plugdev $LOGNAME; reboot\n"
 msgctxt "tmainform.label3.caption"
 msgid ""
 " \n"
@@ -175,11 +168,11 @@ msgid ""
 "2. Set the USB access rights on your the PC:\n"
 "usermod -aG adbusers,plugdev $LOGNAME; reboot"
 msgstr ""
-"\n"
+" \n"
 "1. Включите \"Отладка по USB\" на смартфоне\n"
-"\n"
+" \n"
 "2. Установите права доступа к USB на PC:\n"
-"usermod -aG adbusers,plugdev $LOGNAME; reboot\n"
+"usermod -aG adbusers,plugdev $LOGNAME; reboot"
 
 #: tmainform.panel2.caption
 msgid "Smartphone managing"
@@ -371,4 +364,3 @@ msgstr "Введите строку поиска или \"*\":"
 #: unit1.syes
 msgid "yes"
 msgstr "да"
-

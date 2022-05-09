@@ -83,7 +83,6 @@
         <CursorPos X="31" Y="60"/>
         <UsageCount Value="84"/>
         <Loaded Value="True"/>
-        <LoadedDesigner Value="True"/>
       </Unit4>
       <Unit5>
         <Filename Value="backupunit.pas"/>
@@ -97,7 +96,6 @@
         <CursorPos X="26" Y="63"/>
         <UsageCount Value="80"/>
         <Loaded Value="True"/>
-        <LoadedDesigner Value="True"/>
       </Unit5>
       <Unit6>
         <Filename Value="sdcardmanager.pas"/>
@@ -112,7 +110,6 @@
         <CursorPos X="17" Y="206"/>
         <UsageCount Value="76"/>
         <Loaded Value="True"/>
-        <LoadedDesigner Value="True"/>
       </Unit6>
       <Unit7>
         <Filename Value="sdcommandtrd.pas"/>
@@ -144,7 +141,6 @@
         <CursorPos X="3" Y="68"/>
         <UsageCount Value="23"/>
         <Loaded Value="True"/>
-        <LoadedDesigner Value="True"/>
       </Unit9>
     </Units>
     <JumpHistory Count="5" HistoryIndex="4">
