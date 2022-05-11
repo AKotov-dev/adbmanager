@@ -14,7 +14,7 @@ msgstr ""
 
 #: backupunit.snoshared
 msgid "Backup without SD-card"
-msgstr ""
+msgstr "111"
 
 #: backupunit.sshared
 msgid "Full backup (long procedure)"

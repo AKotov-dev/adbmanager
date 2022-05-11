@@ -40,7 +40,7 @@
         <IsPartOfProject Value="True"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="5" Y="29"/>
-        <UsageCount Value="107"/>
+        <UsageCount Value="108"/>
       </Unit0>
       <Unit1>
         <Filename Value="unit1.pas"/>
@@ -49,9 +49,8 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="Unit1"/>
-        <TopLine Value="58"/>
-        <CursorPos X="44" Y="74"/>
-        <UsageCount Value="107"/>
+        <CursorPos X="40" Y="5"/>
+        <UsageCount Value="108"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit1>
@@ -62,7 +61,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="73"/>
         <CursorPos X="64" Y="77"/>
-        <UsageCount Value="99"/>
+        <UsageCount Value="100"/>
       </Unit2>
       <Unit3>
         <Filename Value="adbcommandtrd.pas"/>
@@ -71,7 +70,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="85"/>
         <CursorPos X="26" Y="97"/>
-        <UsageCount Value="96"/>
+        <UsageCount Value="97"/>
       </Unit3>
       <Unit4>
         <Filename Value="rebootunit.pas"/>
@@ -79,13 +78,10 @@
         <ComponentName Value="RebootForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <IsVisibleTab Value="True"/>
-        <EditorIndex Value="1"/>
+        <EditorIndex Value="-1"/>
         <TopLine Value="35"/>
         <CursorPos X="24" Y="60"/>
-        <UsageCount Value="84"/>
-        <Loaded Value="True"/>
-        <LoadedDesigner Value="True"/>
+        <UsageCount Value="85"/>
       </Unit4>
       <Unit5>
         <Filename Value="backupunit.pas"/>
@@ -94,11 +90,13 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="BackUpUnit"/>
+        <IsVisibleTab Value="True"/>
         <EditorIndex Value="3"/>
         <TopLine Value="56"/>
         <CursorPos X="26" Y="63"/>
-        <UsageCount Value="80"/>
+        <UsageCount Value="81"/>
         <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
       </Unit5>
       <Unit6>
         <Filename Value="sdcardmanager.pas"/>
@@ -107,10 +105,10 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="SDCardManager"/>
-        <EditorIndex Value="2"/>
-        <TopLine Value="200"/>
-        <CursorPos X="17" Y="206"/>
-        <UsageCount Value="76"/>
+        <EditorIndex Value="1"/>
+        <TopLine Value="128"/>
+        <CursorPos X="27" Y="141"/>
+        <UsageCount Value="77"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit6>
@@ -121,16 +119,17 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="89"/>
         <CursorPos X="42" Y="117"/>
-        <UsageCount Value="74"/>
+        <UsageCount Value="75"/>
       </Unit7>
       <Unit8>
         <Filename Value="lssdfoldertrd.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="LSSDFolderTRD"/>
-        <EditorIndex Value="-1"/>
+        <EditorIndex Value="2"/>
         <TopLine Value="67"/>
         <CursorPos X="50" Y="67"/>
-        <UsageCount Value="50"/>
+        <UsageCount Value="51"/>
+        <Loaded Value="True"/>
       </Unit8>
       <Unit9>
         <Filename Value="emulatorunit.pas"/>
@@ -139,14 +138,13 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="EmulatorUnit"/>
-        <EditorIndex Value="4"/>
+        <EditorIndex Value="-1"/>
         <TopLine Value="66"/>
         <CursorPos X="3" Y="68"/>
-        <UsageCount Value="23"/>
-        <Loaded Value="True"/>
+        <UsageCount Value="24"/>
       </Unit9>
     </Units>
-    <JumpHistory Count="5" HistoryIndex="4">
+    <JumpHistory Count="9" HistoryIndex="8">
       <Position1>
         <Filename Value="unit1.pas"/>
         <Caret Line="265" Column="27" TopLine="263"/>
@@ -167,6 +165,22 @@
         <Filename Value="sdcardmanager.pas"/>
         <Caret Line="3" Column="31"/>
       </Position5>
+      <Position6>
+        <Filename Value="sdcardmanager.pas"/>
+        <Caret Line="206" Column="17" TopLine="200"/>
+      </Position6>
+      <Position7>
+        <Filename Value="sdcardmanager.pas"/>
+        <Caret Line="5" Column="37"/>
+      </Position7>
+      <Position8>
+        <Filename Value="sdcardmanager.pas"/>
+        <Caret Line="63" Column="22" TopLine="36"/>
+      </Position8>
+      <Position9>
+        <Filename Value="sdcardmanager.pas"/>
+        <Caret Line="127" Column="21" TopLine="109"/>
+      </Position9>
     </JumpHistory>
     <RunParams>
       <FormatVersion Value="2"/>
