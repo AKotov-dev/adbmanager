@@ -1,11 +1,11 @@
 object BackupForm: TBackupForm
-  Left = 530
+  Left = 538
   Height = 121
-  Top = 318
-  Width = 391
-  Caption = 'Backup copying'
+  Top = 289
+  Width = 445
+  Caption = 'Backup'
   ClientHeight = 121
-  ClientWidth = 391
+  ClientWidth = 445
   OnClose = FormClose
   OnCreate = FormCreate
   OnShow = FormShow
@@ -21,7 +21,7 @@ object BackupForm: TBackupForm
     Left = 6
     Height = 107
     Top = 7
-    Width = 283
+    Width = 337
     Anchors = [akTop, akLeft, akRight, akBottom]
     AutoFill = True
     BorderSpacing.Left = 6
@@ -34,7 +34,7 @@ object BackupForm: TBackupForm
     ChildSizing.Layout = cclLeftToRightThenTopToBottom
     ChildSizing.ControlsPerLine = 1
     ClientHeight = 105
-    ClientWidth = 281
+    ClientWidth = 335
     ItemIndex = 0
     Items.Strings = (
       'Backup without SD-сard'
@@ -49,7 +49,7 @@ object BackupForm: TBackupForm
     AnchorSideRight.Control = Owner
     AnchorSideRight.Side = asrBottom
     AnchorSideBottom.Control = CancelBtn
-    Left = 296
+    Left = 350
     Height = 28
     Top = 7
     Width = 88
@@ -70,7 +70,7 @@ object BackupForm: TBackupForm
     AnchorSideTop.Side = asrBottom
     AnchorSideRight.Control = Owner
     AnchorSideRight.Side = asrBottom
-    Left = 296
+    Left = 350
     Height = 28
     Top = 38
     Width = 88

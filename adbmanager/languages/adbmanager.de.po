@@ -18,19 +18,19 @@ msgstr "Backup ohne SD-Karte"
 
 #: backupunit.sshared
 msgid "Full backup (long procedure)"
-msgstr "Vollständige Sicherung (längerer Vorgang)"
+msgstr "Vollständige Sicherung (langer)"
 
 #: emulatorunit.sscanactiveconnection
 msgid "Scan active connection"
-msgstr "Aktive Verbindung scannen"
+msgstr "Aktive verbindung scannen"
 
 #: emulatorunit.sswitchtotcpip
 msgid "Switch to TCP/IP mode"
-msgstr "Wechsel in den TCP/IP-Modus"
+msgstr "Wechseln Sie in den TCP/IP-Modus"
 
 #: emulatorunit.sswitchtousb
 msgid "Switch to USB mode"
-msgstr "Wechsel in den USB-Modus"
+msgstr "Wechseln Sie in den USB-Modus"
 
 #: rebootunit.sbootloader
 msgid "Reboot to Bootloader"
@@ -38,11 +38,11 @@ msgstr "Neustart zum Bootloader"
 
 #: rebootunit.snormalreboot
 msgid "Normal reboot"
-msgstr "Normaler Neustart"
+msgstr "Normaler neustart"
 
 #: rebootunit.srecoveryreboot
 msgid "Reboot to Recovery mode"
-msgstr "Neustart zum Wiederherstellungsmodus"
+msgstr "Neustart im Wiederherstellungsmodus"
 
 #: rebootunit.sshutdown
 msgid "Shutdown the device (v4.4+)"
@@ -58,19 +58,19 @@ msgstr "Verzeichnis erstellen"
 
 #: sdcardmanager.sdelete
 msgid "Delete selected objects?"
-msgstr "Ausgewählte Objekte löschen?"
+msgstr "Ausgewählte objekte löschen?"
 
 #: sdcardmanager.sinputname
 msgid "Enter the name:"
-msgstr "Geben Sie den Namen ein:"
+msgstr "Geben Sie den namen ein:"
 
 #: sdcardmanager.sobjectexists
 msgid "The folder already exists!"
-msgstr "Der Ordner existiert bereits!"
+msgstr "Der ordner existiert bereits!"
 
 #: sdcardmanager.soverwriteobject
 msgid "Overwrite existing objects?"
-msgstr "Vorhandene Objekte überschreiben?"
+msgstr "Vorhandene objekte überschreiben?"
 
 #: tbackupform.cancelbtn.caption
 msgctxt "tbackupform.cancelbtn.caption"
@@ -78,8 +78,8 @@ msgid "Cancel"
 msgstr "Abbrechen"
 
 #: tbackupform.caption
-msgid "Backup copying"
-msgstr "Backup kopieren"
+msgid "Backup"
+msgstr "Backup"
 
 #: tbackupform.okbtn.caption
 msgctxt "tbackupform.okbtn.caption"
@@ -106,11 +106,11 @@ msgstr "OK"
 
 #: tmainform.activelabel.caption
 msgid "launch..."
-msgstr "Start..."
+msgstr "start..."
 
 #: tmainform.backupbtn.caption
 msgid "backup"
-msgstr "Backup"
+msgstr "backup"
 
 #: tmainform.caption
 msgid "ADBManager"
@@ -118,7 +118,7 @@ msgstr ""
 
 #: tmainform.connectbtn.caption
 msgid "emulator"
-msgstr "Emulator"
+msgstr "emulator"
 
 #: tmainform.deletekeybtn.caption
 msgid "Delete Key"
@@ -127,15 +127,15 @@ msgstr "Schlüssel löschen"
 #: tmainform.devsheet.caption
 msgctxt "tmainform.devsheet.caption"
 msgid "no device"
-msgstr "kein Gerät"
+msgstr "kein gerät"
 
 #: tmainform.exitbtn.caption
 msgid "Exit"
-msgstr "Beenden"
+msgstr "Ausgang"
 
 #: tmainform.installbtn.caption
 msgid "install"
-msgstr "installieren"
+msgstr "aufstellen"
 
 #: tmainform.keylabel.caption
 msgid "wait..."
@@ -158,18 +158,18 @@ msgid ""
 "usermod -aG adbusers,plugdev $LOGNAME; reboot"
 msgstr ""
 " \n"
-"1. Schalten Sie \"USB-Debugging\" auf dem Smartphone ein\n"
+"1. Schalten Sie das \"USB-Debugging\" auf dem Smartphone ein\n"
 " \n"
 "2. Legen Sie die USB-Zugriffsrechte auf Ihrem PC fest:\n"
 "usermod -aG adbusers,plugdev $LOGNAME; restart"
 
 #: tmainform.panel2.caption
 msgid "Smartphone managing"
-msgstr "Smartphone Verwaltung"
+msgstr "Smartphone verwaltung"
 
 #: tmainform.rebootbtn.caption
 msgid "reboot"
-msgstr "Neustart"
+msgstr "neustart"
 
 #: tmainform.restartbtn.caption
 msgid "Restart"
@@ -181,15 +181,15 @@ msgstr "restore"
 
 #: tmainform.screenshotbtn.caption
 msgid "screenshot"
-msgstr "Screenshot"
+msgstr "screenshot"
 
 #: tmainform.searchbtn.caption
 msgid "search apk"
-msgstr "Suche apk"
+msgstr "suche apk"
 
 #: tmainform.shellbtn.caption
 msgid "terminal"
-msgstr "Terminal"
+msgstr "terminal"
 
 #: tmainform.statictext1.caption
 msgid "License: GPLv3   Author: alex_q_2000 (C) 2021   URL: https://linuxforum.ru"
@@ -201,11 +201,11 @@ msgstr ""
 
 #: tmainform.toolbutton4.caption
 msgid "sd-card"
-msgstr "SD-Karte"
+msgstr "sd-karte"
 
 #: tmainform.uninstallbtn.caption
 msgid "uninstall"
-msgstr "Entfernen"
+msgstr "entfernen"
 
 #: trebootform.cancelbtn.caption
 msgctxt "trebootform.cancelbtn.caption"
@@ -223,7 +223,7 @@ msgstr "OK"
 
 #: tsdform.caption
 msgid "SD-Card manager"
-msgstr "SD-Karten-Manager"
+msgstr "SD-Karten manager"
 
 #: tsdform.copyfrompc.hint
 msgid "Copy to SD-Card"
@@ -292,7 +292,7 @@ msgstr ""
 
 #: tsdform.refreshbtn.hint
 msgid "Update"
-msgstr "Update"
+msgstr "Neuern"
 
 #: tsdform.selectallbtn.hint
 msgid "Select all"
@@ -304,11 +304,11 @@ msgstr "Obere ebene"
 
 #: unit1.sdeletecaption
 msgid "Deleting a package"
-msgstr "Ein Paket löschen"
+msgstr "Ein paket löschen"
 
 #: unit1.slaunched
 msgid "launched"
-msgstr "gestartet"
+msgstr "aktiviert"
 
 #: unit1.sno
 msgid "no"
@@ -317,11 +317,11 @@ msgstr "nein"
 #: unit1.snodevice
 msgctxt "unit1.snodevice"
 msgid "no device"
-msgstr "kein Gerät"
+msgstr "kein gerät"
 
 #: unit1.spackagename
 msgid "Input the package name:"
-msgstr "Geben Sie den Paketnamen ein:"
+msgstr "Geben Sie den paketnamen ein:"
 
 #: unit1.srebootmsg
 msgid "Reboot device?"
@@ -329,7 +329,7 @@ msgstr "Gerät neu starten?"
 
 #: unit1.srestart
 msgid "restart..."
-msgstr "Neustart..."
+msgstr "neustart..."
 
 #: unit1.ssearchcaption
 msgid "Search packages"

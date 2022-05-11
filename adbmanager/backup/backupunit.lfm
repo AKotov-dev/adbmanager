@@ -1,17 +1,17 @@
 object BackupForm: TBackupForm
-  Left = 517
-  Height = 112
-  Top = 626
-  Width = 385
-  Caption = 'Backup copying'
-  ClientHeight = 112
-  ClientWidth = 385
+  Left = 538
+  Height = 121
+  Top = 289
+  Width = 391
+  Caption = 'Backup copy'
+  ClientHeight = 121
+  ClientWidth = 391
   OnClose = FormClose
   OnCreate = FormCreate
   OnShow = FormShow
   Position = poMainFormCenter
   SessionProperties = 'Width;Height'
-  LCLVersion = '2.0.12.0'
+  LCLVersion = '2.2.0.4'
   object RadioGroup1: TRadioGroup
     AnchorSideLeft.Control = Owner
     AnchorSideTop.Control = OKBtn
@@ -19,9 +19,9 @@ object BackupForm: TBackupForm
     AnchorSideBottom.Control = Owner
     AnchorSideBottom.Side = asrBottom
     Left = 6
-    Height = 98
+    Height = 107
     Top = 7
-    Width = 277
+    Width = 283
     Anchors = [akTop, akLeft, akRight, akBottom]
     AutoFill = True
     BorderSpacing.Left = 6
@@ -33,8 +33,8 @@ object BackupForm: TBackupForm
     ChildSizing.ShrinkVertical = crsScaleChilds
     ChildSizing.Layout = cclLeftToRightThenTopToBottom
     ChildSizing.ControlsPerLine = 1
-    ClientHeight = 96
-    ClientWidth = 275
+    ClientHeight = 105
+    ClientWidth = 281
     ItemIndex = 0
     Items.Strings = (
       'Backup without SD-сard'
@@ -49,7 +49,7 @@ object BackupForm: TBackupForm
     AnchorSideRight.Control = Owner
     AnchorSideRight.Side = asrBottom
     AnchorSideBottom.Control = CancelBtn
-    Left = 290
+    Left = 296
     Height = 28
     Top = 7
     Width = 88
@@ -70,7 +70,7 @@ object BackupForm: TBackupForm
     AnchorSideTop.Side = asrBottom
     AnchorSideRight.Control = Owner
     AnchorSideRight.Side = asrBottom
-    Left = 290
+    Left = 296
     Height = 28
     Top = 38
     Width = 88

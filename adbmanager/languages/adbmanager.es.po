@@ -78,7 +78,7 @@ msgid "Cancel"
 msgstr ""
 
 #: tbackupform.caption
-msgid "Backup copying"
+msgid "Backup"
 msgstr ""
 
 #: tbackupform.okbtn.caption
@@ -337,3 +337,4 @@ msgstr ""
 #: unit1.syes
 msgid "yes"
 msgstr ""
+
