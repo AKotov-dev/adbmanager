@@ -1,12 +1,12 @@
 object EmulatorForm: TEmulatorForm
-  Left = 524
+  Left = 547
   Height = 193
-  Top = 295
-  Width = 411
+  Top = 232
+  Width = 449
   ActiveControl = Edit1
   Caption = 'Connection/Scanning'
   ClientHeight = 193
-  ClientWidth = 411
+  ClientWidth = 449
   KeyPreview = True
   OnClose = FormClose
   OnCreate = FormCreate
@@ -24,7 +24,7 @@ object EmulatorForm: TEmulatorForm
     Left = 7
     Height = 122
     Top = 64
-    Width = 302
+    Width = 338
     Anchors = [akTop, akLeft, akRight, akBottom]
     AutoFill = True
     BorderSpacing.Left = 7
@@ -37,7 +37,7 @@ object EmulatorForm: TEmulatorForm
     ChildSizing.Layout = cclLeftToRightThenTopToBottom
     ChildSizing.ControlsPerLine = 1
     ClientHeight = 120
-    ClientWidth = 300
+    ClientWidth = 336
     Items.Strings = (
       'Switch to USB mode'
       'Switch to TCP/IP mode'
@@ -51,7 +51,7 @@ object EmulatorForm: TEmulatorForm
     Left = 7
     Height = 36
     Top = 26
-    Width = 302
+    Width = 338
     Anchors = [akTop, akLeft, akRight]
     BorderSpacing.Left = 7
     BorderSpacing.Right = 7
@@ -73,10 +73,10 @@ object EmulatorForm: TEmulatorForm
     AnchorSideRight.Control = Owner
     AnchorSideRight.Side = asrBottom
     AnchorSideBottom.Control = CancelBtn
-    Left = 316
+    Left = 352
     Height = 28
     Top = 7
-    Width = 88
+    Width = 90
     Anchors = [akTop, akRight]
     BorderSpacing.Left = 7
     BorderSpacing.Top = 7
@@ -94,10 +94,10 @@ object EmulatorForm: TEmulatorForm
     AnchorSideTop.Side = asrBottom
     AnchorSideRight.Control = Owner
     AnchorSideRight.Side = asrBottom
-    Left = 316
+    Left = 352
     Height = 28
     Top = 38
-    Width = 88
+    Width = 90
     Anchors = [akTop, akRight]
     BorderSpacing.Left = 7
     BorderSpacing.Right = 7

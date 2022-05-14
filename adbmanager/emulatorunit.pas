@@ -47,6 +47,44 @@ uses unit1, SDCardManager;
 
 { TEmulatorForm }
 
+
+//Валидация IP-адреса
+function IsIP(const S: string): boolean;
+var
+  i: integer;
+  DotCount: integer;
+  NumVal: integer;
+begin
+  Result := False;
+  DotCount := 0;
+  NumVal := 0;
+  i := 1;
+  while (i <= Length(S)) and (S[i] = ' ') do Inc(i);
+  if (i <= Length(S)) and (S[i] = '.') then exit;
+  while i <= Length(S) do
+  begin
+    if S[i] = '.' then
+    begin
+      Inc(DotCount);
+      if (DotCount > 3) or (NumVal > 255) then exit;
+      NumVal := 0;
+      if (i >= Length(S)) or (not (S[i + 1] in ['0'..'9'])) then exit;
+    end
+    else
+    if S[i] in ['0'..'9'] then
+      NumVal := NumVal * 10 + Ord(S[i]) - Ord('0')
+    else
+    begin
+      while (i <= Length(S)) and (S[i] = ' ') do Inc(i);
+      if i <= Length(S) then exit;
+      break;
+    end;
+    Inc(i);
+  end;
+  if (DotCount <> 3) or (NumVal > 255) then exit;
+  Result := True;
+end;
+
 procedure TEmulatorForm.FormCreate(Sender: TObject);
 begin
   RadioGroup1.Items[0] := SSwitchToUSB;
@@ -96,11 +134,15 @@ begin
   case RadioGroup1.ItemIndex of
     0: adbcmd := 'adb usb';
     1: adbcmd := 'adb tcpip 5555';
-    2: adbcmd := 'nmap -sn $(ip a | grep -w 192.168 | awk ' + '''' +
-        '{ print $2 }' + '''' + ') | grep Nmap';
+    //Выделяем адрес вида x.x.x.x/nn
+    2: adbcmd := 'nmap -sn $(ip a | grep -w $(ip route get 1.1.1.1 | awk ' +
+        '''' + '{print $3}' + '''' + ' | cut -d "." -f1,2) | awk ' +
+        '''' + '{print $2}' + '''' + ') | grep Nmap';
     else
-      if Trim(Edit1.Text) <> '' then
-        adbcmd := 'adb connect ' + Trim(Edit1.Text) + ':5555'
+      //Если введён валидный IP и он пингуется - выполняется коннект, иначе - отмена после ping -c3
+      if IsIP(Trim(Edit1.Text)) then
+        adbcmd := 'ping -c2 ' + Trim(Edit1.Text) + ' &> /dev/null && adb connect ' +
+          Trim(Edit1.Text) + ':5555'
       else
         EmulatorForm.ModalResult := 2;
   end;
