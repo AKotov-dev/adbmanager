@@ -1,0 +1,339 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.4.2\n"
+"Last-Translator: alex_q_2000\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n>=2 && n<=4 ? 1 : 2);\n"
+"Language: cs\n"
+
+#: backupunit.snoshared
+msgid "Backup without SD-card"
+msgstr ""
+
+#: backupunit.sshared
+msgid "Full backup (long procedure)"
+msgstr ""
+
+#: emulatorunit.sscanactiveconnection
+msgid "Scan active connection"
+msgstr ""
+
+#: emulatorunit.sswitchtotcpip
+msgid "Switch to TCP/IP mode"
+msgstr ""
+
+#: emulatorunit.sswitchtousb
+msgid "Switch to USB mode"
+msgstr ""
+
+#: rebootunit.sbootloader
+msgid "Reboot to Bootloader"
+msgstr ""
+
+#: rebootunit.snormalreboot
+msgid "Normal reboot"
+msgstr ""
+
+#: rebootunit.srecoveryreboot
+msgid "Reboot to Recovery mode"
+msgstr ""
+
+#: rebootunit.sshutdown
+msgid "Shutdown the device (v4.4+)"
+msgstr ""
+
+#: sdcardmanager.scancelcopyng
+msgid "Esc - cancel... "
+msgstr ""
+
+#: sdcardmanager.screatedir
+msgid "Create directory"
+msgstr ""
+
+#: sdcardmanager.sdelete
+msgid "Delete selected objects?"
+msgstr ""
+
+#: sdcardmanager.sinputname
+msgid "Enter the name:"
+msgstr ""
+
+#: sdcardmanager.sobjectexists
+msgid "The folder already exists!"
+msgstr ""
+
+#: sdcardmanager.soverwriteobject
+msgid "Overwrite existing objects?"
+msgstr ""
+
+#: tbackupform.cancelbtn.caption
+msgctxt "tbackupform.cancelbtn.caption"
+msgid "Cancel"
+msgstr ""
+
+#: tbackupform.caption
+msgid "Backup"
+msgstr ""
+
+#: tbackupform.okbtn.caption
+msgctxt "tbackupform.okbtn.caption"
+msgid "OK"
+msgstr ""
+
+#: temulatorform.cancelbtn.caption
+msgctxt "temulatorform.cancelbtn.caption"
+msgid "Cancel"
+msgstr ""
+
+#: temulatorform.caption
+msgid "Connection/Scanning"
+msgstr ""
+
+#: temulatorform.label1.caption
+msgid "Emulator/Device IP-address:"
+msgstr ""
+
+#: temulatorform.okbtn.caption
+msgctxt "temulatorform.okbtn.caption"
+msgid "OK"
+msgstr ""
+
+#: tmainform.activelabel.caption
+msgid "launch..."
+msgstr ""
+
+#: tmainform.backupbtn.caption
+msgid "backup"
+msgstr ""
+
+#: tmainform.caption
+msgid "ADBManager"
+msgstr ""
+
+#: tmainform.connectbtn.caption
+msgid "emulator"
+msgstr ""
+
+#: tmainform.deletekeybtn.caption
+msgid "Delete Key"
+msgstr ""
+
+#: tmainform.devsheet.caption
+msgctxt "tmainform.devsheet.caption"
+msgid "no device"
+msgstr ""
+
+#: tmainform.exitbtn.caption
+msgid "Exit"
+msgstr ""
+
+#: tmainform.installbtn.caption
+msgid "install"
+msgstr ""
+
+#: tmainform.keylabel.caption
+msgid "wait..."
+msgstr ""
+
+#: tmainform.label1.caption
+msgid "ADB:"
+msgstr ""
+
+#: tmainform.label2.caption
+msgid "Key:"
+msgstr ""
+
+#: tmainform.label3.caption
+msgid ""
+" \n"
+"1. Turn on the \"USB Debugging\" on smartphone\n"
+" \n"
+"2. Set the USB access rights on your the PC:\n"
+"usermod -aG adbusers,plugdev $LOGNAME; reboot"
+msgstr ""
+
+#: tmainform.panel2.caption
+msgid "Smartphone managing"
+msgstr ""
+
+#: tmainform.rebootbtn.caption
+msgid "reboot"
+msgstr ""
+
+#: tmainform.restartbtn.caption
+msgid "Restart"
+msgstr ""
+
+#: tmainform.restorebtn.caption
+msgid "restore"
+msgstr ""
+
+#: tmainform.screenshotbtn.caption
+msgid "screenshot"
+msgstr ""
+
+#: tmainform.searchbtn.caption
+msgid "search apk"
+msgstr ""
+
+#: tmainform.shellbtn.caption
+msgid "terminal"
+msgstr ""
+
+#: tmainform.statictext1.caption
+msgid "License: GPLv3   Author: alex_q_2000 (C) 2021   URL: https://linuxforum.ru"
+msgstr ""
+
+#: tmainform.toolbar2.caption
+msgid "ToolBar2"
+msgstr ""
+
+#: tmainform.toolbutton4.caption
+msgid "sd-card"
+msgstr ""
+
+#: tmainform.uninstallbtn.caption
+msgid "uninstall"
+msgstr ""
+
+#: trebootform.cancelbtn.caption
+msgctxt "trebootform.cancelbtn.caption"
+msgid "Cancel"
+msgstr ""
+
+#: trebootform.caption
+msgid "Reboot/Shutdown"
+msgstr ""
+
+#: trebootform.okbtn.caption
+msgctxt "trebootform.okbtn.caption"
+msgid "OK"
+msgstr ""
+
+#: tsdform.caption
+msgid "SD-Card manager"
+msgstr ""
+
+#: tsdform.copyfrompc.hint
+msgid "Copy to SD-Card"
+msgstr ""
+
+#: tsdform.copyfromsmartphone.hint
+msgid "Copy to computer"
+msgstr ""
+
+#: tsdform.delbtn.hint
+msgid "Delete Files/Folders"
+msgstr ""
+
+#: tsdform.groupbox1.caption
+msgid "computer"
+msgstr ""
+
+#: tsdform.groupbox2.caption
+msgid "/sdcard/"
+msgstr ""
+
+#: tsdform.label1.caption
+msgid "Free:"
+msgstr ""
+
+#: tsdform.label2.caption
+msgid "Used:"
+msgstr ""
+
+#: tsdform.label3.caption
+msgid "Size:"
+msgstr ""
+
+#: tsdform.label4.caption
+msgctxt "tsdform.label4.caption"
+msgid "..."
+msgstr ""
+
+#: tsdform.label5.caption
+msgctxt "tsdform.label5.caption"
+msgid "..."
+msgstr ""
+
+#: tsdform.label6.caption
+msgctxt "tsdform.label6.caption"
+msgid "..."
+msgstr ""
+
+#: tsdform.mkdirbtn.hint
+msgctxt "tsdform.mkdirbtn.hint"
+msgid "Make folder"
+msgstr ""
+
+#: tsdform.mkpcdirbtn.hint
+msgctxt "tsdform.mkpcdirbtn.hint"
+msgid "Make folder"
+msgstr ""
+
+#: tsdform.panel1.caption
+msgid "Panel1"
+msgstr ""
+
+#: tsdform.panel2.caption
+msgid "Panel2"
+msgstr ""
+
+#: tsdform.refreshbtn.hint
+msgid "Update"
+msgstr ""
+
+#: tsdform.selectallbtn.hint
+msgid "Select all"
+msgstr ""
+
+#: tsdform.upbtn.hint
+msgid "Upper level"
+msgstr ""
+
+#: unit1.sdeletecaption
+msgid "Deleting a package"
+msgstr ""
+
+#: unit1.slaunched
+msgid "launched"
+msgstr ""
+
+#: unit1.sno
+msgid "no"
+msgstr ""
+
+#: unit1.snodevice
+msgctxt "unit1.snodevice"
+msgid "no device"
+msgstr ""
+
+#: unit1.spackagename
+msgid "Input the package name:"
+msgstr ""
+
+#: unit1.srebootmsg
+msgid "Reboot device?"
+msgstr ""
+
+#: unit1.srestart
+msgid "restart..."
+msgstr ""
+
+#: unit1.ssearchcaption
+msgid "Search packages"
+msgstr ""
+
+#: unit1.ssearchstring
+msgid "Input search string or *"
+msgstr ""
+
+#: unit1.syes
+msgid "yes"
+msgstr ""
