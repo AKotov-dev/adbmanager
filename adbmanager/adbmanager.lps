@@ -49,7 +49,6 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="Unit1"/>
-        <IsVisibleTab Value="True"/>
         <EditorIndex Value="1"/>
         <TopLine Value="116"/>
         <CursorPos X="41" Y="147"/>
@@ -135,6 +134,7 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="EmulatorUnit"/>
+        <IsVisibleTab Value="True"/>
         <TopLine Value="117"/>
         <CursorPos X="55" Y="134"/>
         <UsageCount Value="25"/>
