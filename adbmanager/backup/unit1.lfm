@@ -1,12 +1,12 @@
 object MainForm: TMainForm
-  Left = 560
-  Height = 560
-  Top = 382
-  Width = 767
+  Left = 312
+  Height = 577
+  Top = 123
+  Width = 794
   ActiveControl = Panel1
   Caption = 'ADBManager'
-  ClientHeight = 560
-  ClientWidth = 767
+  ClientHeight = 577
+  ClientWidth = 794
   OnClose = FormClose
   OnCreate = FormCreate
   OnShow = FormShow
@@ -16,7 +16,7 @@ object MainForm: TMainForm
     Left = 0
     Height = 85
     Top = 0
-    Width = 767
+    Width = 794
     AutoSize = True
     ButtonHeight = 80
     ButtonWidth = 80
@@ -73,8 +73,8 @@ object MainForm: TMainForm
   object StaticText1: TStaticText
     Left = 0
     Height = 20
-    Top = 540
-    Width = 767
+    Top = 557
+    Width = 794
     Align = alBottom
     Caption = 'License: GPLv3   Author: alex_q_2000 (C) 2021   URL: https://linuxforum.ru'
     Color = clDefault
@@ -93,9 +93,9 @@ object MainForm: TMainForm
     AnchorSideRight.Side = asrBottom
     AnchorSideBottom.Control = StaticText1
     Left = 0
-    Height = 329
+    Height = 346
     Top = 211
-    Width = 767
+    Width = 794
     ActivePage = DevSheet
     Anchors = [akTop, akLeft, akRight, akBottom]
     Font.Height = -13
@@ -105,17 +105,17 @@ object MainForm: TMainForm
     TabOrder = 2
     object DevSheet: TTabSheet
       Caption = 'no device'
-      ClientHeight = 292
-      ClientWidth = 761
+      ClientHeight = 309
+      ClientWidth = 788
       Font.Height = -13
       Font.Name = 'Sans'
       Font.Style = [fsBold]
       ParentFont = False
       object LogMemo: TMemo
         Left = 0
-        Height = 292
+        Height = 309
         Top = 0
-        Width = 761
+        Width = 788
         Align = alClient
         BorderStyle = bsNone
         Font.Height = -13
@@ -132,11 +132,11 @@ object MainForm: TMainForm
     Left = 0
     Height = 34
     Top = 85
-    Width = 767
+    Width = 794
     Align = alTop
     BevelOuter = bvNone
     ClientHeight = 34
-    ClientWidth = 767
+    ClientWidth = 794
     TabOrder = 3
     object Label1: TLabel
       Left = 8
@@ -198,7 +198,7 @@ object MainForm: TMainForm
     Left = 0
     Height = 66
     Top = 145
-    Width = 767
+    Width = 794
     AutoSize = True
     ButtonHeight = 64
     ButtonWidth = 64
@@ -291,7 +291,7 @@ object MainForm: TMainForm
     Left = 0
     Height = 26
     Top = 119
-    Width = 767
+    Width = 794
     Align = alTop
     BevelOuter = bvNone
     Caption = 'Smartphone managing'
@@ -303,7 +303,7 @@ object MainForm: TMainForm
   end
   object ProgressBar1: TProgressBar
     AnchorSideTop.Control = PageControl1
-    Left = 528
+    Left = 555
     Height = 12
     Top = 216
     Width = 232
