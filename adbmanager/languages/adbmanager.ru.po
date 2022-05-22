@@ -314,13 +314,17 @@ msgstr ""
 msgid "Update"
 msgstr "Обновить"
 
+#: tsdform.sdchangebtn.hint
+msgid "SD-Card Search (F12)"
+msgstr "Поиск SD-Карты (F12)"
+
 #: tsdform.selectallbtn.hint
 msgid "Select all"
 msgstr "Выделить всё"
 
 #: tsdform.upbtn.hint
-msgid "Upper level"
-msgstr "Верхний уровень"
+msgid "Upper level (BackSpace)"
+msgstr "Верхний уровень (BackSpace)"
 
 #: unit1.sdeletecaption
 msgctxt "unit1.sdeletecaption"

@@ -36,6 +36,7 @@ type
     RefreshBtn: TSpeedButton;
     SDBox: TListBox;
     Panel2: TPanel;
+    SDChangeBtn: TSpeedButton;
     SDMemo: TMemo;
     SelectAllBtn: TSpeedButton;
     Splitter1: TSplitter;
@@ -55,6 +56,7 @@ type
     procedure SDBoxDblClick(Sender: TObject);
     procedure SDBoxDrawItem(Control: TWinControl; Index: integer;
       ARect: TRect; State: TOwnerDrawState);
+    procedure SDChangeBtnClick(Sender: TObject);
     procedure SDMemoKeyDown(Sender: TObject; var Key: word; Shift: TShiftState);
     procedure SelectAllBtnClick(Sender: TObject);
 
@@ -73,7 +75,6 @@ type
     procedure CancelCopy;
 
     function DetoxName(N: string): string;
-    procedure VBtnClick(Sender: TObject);
 
   private
 
@@ -118,12 +119,6 @@ begin
   Result := StringReplace(Result, ':', '\:', [rfReplaceAll]);
   Result := StringReplace(Result, '"', '\"', [rfReplaceAll]);
   Result := StringReplace(Result, '&', '\&', [rfReplaceAll]);
-end;
-
-//Версия просмотра Android 7.1+
-procedure TSDForm.VBtnClick(Sender: TObject);
-begin
-  StartLS;
 end;
 
 //Исполнение команд/вывод лога (sdcmd)
@@ -178,7 +173,14 @@ procedure TSDForm.UpBtnClick(Sender: TObject);
 var
   i: integer;
 begin
-  if GroupBox2.Caption = '/sdcard/' then
+  //Чтобы не проскочить верхний уровень
+  if (GroupBox2.Caption = '/sdcard/') or (GroupBox2.Caption = '/mnt/sdcard0/') or
+    (GroupBox2.Caption = '/mnt/sdcard1/') or (GroupBox2.Caption = '/mnt/sdcard2/') or
+    (GroupBox2.Caption = '/storage/sdcard0/') or (GroupBox2.Caption =
+    '/storage/sdcard1/') or (GroupBox2.Caption = '/storage/sdcard2/') or
+    (GroupBox2.Caption = '/mnt/extSdCard/') or (GroupBox2.Caption = '/mnt/external/') or
+    (GroupBox2.Caption = '/mnt/external_sd/') or (GroupBox2.Caption =
+    '/mnt/sdcard/ext_sd/') or (GroupBox2.Caption = '/mnt/sdcard/external_sd/') then
     Exit;
 
   for i := Length(GroupBox2.Caption) - 1 downto 1 do
@@ -206,6 +208,7 @@ begin
   case Key of
     VK_ESCAPE: CancelCopy;
     VK_BACK: UpBtn.Click;
+    VK_F12: SDChangeBtn.Click;
   end;
 end;
 
@@ -409,8 +412,8 @@ begin
   //Перечитываем корень CompDir (могли быть изменения на диске извне)
   RefreshBtn.Click;
 
-  //Возвращаем и перечитываем исходную директорию SD-Card
-  GroupBox2.Caption := '/sdcard/';
+  //Возвращаем сохраненную SD-Card (по умолчанию - /sdcard/)
+  GroupBox2.Caption := IniPropStorage1.StoredValue['SDCard'];
 
   //Перечитываем /sdcard/
   StartLS;
@@ -476,7 +479,7 @@ begin
   end;
 end;
 
-//Каталог вверх
+//Каталог вниз
 procedure TSDForm.SDBoxDblClick(Sender: TObject);
 begin
   if SDBox.Count <> 0 then
@@ -572,6 +575,43 @@ begin
   finally
     BitMap.Free;
   end;
+end;
+
+//Выбор SD-Card
+procedure TSDForm.SDChangeBtnClick(Sender: TObject);
+begin
+  SDBox.Clear;
+
+  Label4.Caption := '...';
+  Label5.Caption := '...';
+  Label6.Caption := '...';
+
+  //Возможные варианты SD-Card (учитываются UpBtn - верхний уровень)
+  case GroupBox2.Caption of
+    '/sdcard/': GroupBox2.Caption := '/mnt/sdcard0/';
+    '/mnt/sdcard0/': GroupBox2.Caption := '/mnt/sdcard1/';
+    '/mnt/sdcard1/': GroupBox2.Caption := '/mnt/sdcard2/';
+    '/mnt/sdcard2/': GroupBox2.Caption := '/storage/sdcard0/';
+
+    '/storage/sdcard0/': GroupBox2.Caption := '/storage/sdcard1/';
+    '/storage/sdcard1/': GroupBox2.Caption := '/storage/sdcard2/';
+
+    '/storage/sdcard2/': GroupBox2.Caption := '/mnt/extSdCard/';
+
+    '/mnt/extSdCard/': GroupBox2.Caption := '/mnt/external/';
+    '/mnt/external/': GroupBox2.Caption := '/mnt/external_sd/';
+
+    '/mnt/external_sd/': GroupBox2.Caption := '/mnt/sdcard/ext_sd/';
+    '/mnt/sdcard/ext_sd/': GroupBox2.Caption := '/sdcard/';
+    else
+      GroupBox2.Caption := '/sdcard/';
+  end;
+
+  //Запоминаем SD-Card
+  INIPropStorage1.StoredValue['SDCard'] := GroupBox2.Caption;
+  INIPropStorage1.Save;
+
+  StartLS;
 end;
 
 //Исключаем нажатие клавиш в логе

@@ -39,6 +39,7 @@ uses SDCardManager;
 //Апдейт текущего каталога SDBox
 procedure StartLSSD.Execute;
 var
+  sd_card: string;
   ExProcess: TProcess;
 begin
   try
@@ -46,6 +47,8 @@ begin
 
     S := TStringList.Create;
     FreeOnTerminate := True; //Уничтожить по завершении
+    //SD-Card
+    sd_card := SDForm.IniPropStorage1.StoredValue['SDCard'];
 
     //Рабочий процесс
     ExProcess := TProcess.Create(nil);
@@ -54,9 +57,9 @@ begin
     //Ошибки не выводим, только список, ждём окончания потока
     ExProcess.Options := [poWaitOnExit, poUsePipes];
 
-    //Размер SD-Card, использовано и свободно
-    ExProcess.Parameters.Add('adb shell df -h /mnt/sdcard | tail -n1 | awk ' +
-      '''' + '{ print $2, $3, $4 }' + '''');
+    //Размер SD-Card, использовано и свободно (работает во всех Android)
+    ExProcess.Parameters.Add('adb shell df -h ' + sd_card +
+      ' | tail -n1 | awk ' + '''' + '{ print $2, $3, $4 }' + '''');
     Exprocess.Execute;
 
     S.LoadFromStream(ExProcess.Output);
@@ -68,7 +71,7 @@ begin
 
     //Определяем версию Android > 7
     ExProcess.Parameters.Delete(1);
-    ExProcess.Parameters.Add('adb shell ls -p /sdcard/');
+    ExProcess.Parameters.Add('adb shell ls -p ' + sd_card);
     ExProcess.Execute;
     S.LoadFromStream(ExProcess.Output);
     if Pos('Aborting', S[0]) <> 0 then
@@ -110,6 +113,7 @@ procedure StartLSSD.HideProgress;
 begin
   //Очищаем команду для корректного "Esc"
   sdcmd := '';
+
   Screen.cursor := crDefault;
 end;
 
@@ -121,9 +125,18 @@ begin
   S.StrictDelimiter := True;
   S.DelimitedText := S[0];
 
-  SDForm.Label4.Caption := S[0];
-  SDForm.Label5.Caption := S[1];
-  SDForm.Label6.Caption := S[2];
+  if S[2] <> 'file' then
+  begin
+    SDForm.Label4.Caption := S[0];
+    SDForm.Label5.Caption := S[1];
+    SDForm.Label6.Caption := S[2];
+  end
+  else
+  begin
+    SDForm.Label4.Caption := '...';
+    SDForm.Label5.Caption := '...';
+    SDForm.Label6.Caption := '...';
+  end;
 end;
 
 { БЛОК ВЫВОДА LS в SDBox }

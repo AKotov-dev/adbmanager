@@ -294,13 +294,17 @@ msgstr ""
 msgid "Update"
 msgstr "Update"
 
+#: tsdform.sdchangebtn.hint
+msgid "SD-Card Search (F12)"
+msgstr "SD-Kartensuche (F12)"
+
 #: tsdform.selectallbtn.hint
 msgid "Select all"
 msgstr "Alle auswählen"
 
 #: tsdform.upbtn.hint
-msgid "Upper level"
-msgstr "Obere ebene"
+msgid "Upper level (BackSpace)"
+msgstr "Obere ebene (BackSpace)"
 
 #: unit1.sdeletecaption
 msgid "Deleting a package"
