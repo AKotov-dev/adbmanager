@@ -24,6 +24,9 @@ type
 
   end;
 
+var
+  android7: boolean;
+
 implementation
 
 uses Unit1, SDCardManager;
@@ -73,7 +76,17 @@ begin
       Result.LoadFromStream(ExProcess.Output);
       Synchronize(@ShowKey);
 
-      Sleep(250);
+      //Определяем версию Android > 7
+      ExProcess.Parameters.Delete(1);
+      ExProcess.Parameters.Add('adb shell ls -p');
+      ExProcess.Execute;
+      Result.LoadFromStream(ExProcess.Output);
+      if Pos('Aborting', Result[0]) <> 0 then
+        android7 := False
+      else
+        android7 := True;
+
+      Sleep(300);
     end;
 
   finally
@@ -98,7 +111,7 @@ end;
 procedure ShowStatus.ShowIsActive;
 begin
   if Result.Count <> 0 then
-    MainForm.ActiveLabel.Caption := SWorks
+    MainForm.ActiveLabel.Caption := SLaunched
   else
     MainForm.ActiveLabel.Caption := SRestart;
 end;

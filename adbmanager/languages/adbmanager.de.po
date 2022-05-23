@@ -296,7 +296,7 @@ msgstr "Update"
 
 #: tsdform.sdchangebtn.hint
 msgid "SD-Card Search (F12)"
-msgstr "SD-Kartensuche (F12)"
+msgstr "SD-Karte suchen (F12)"
 
 #: tsdform.selectallbtn.hint
 msgid "Select all"

@@ -26,13 +26,10 @@ type
 
   end;
 
-var
-  android7: boolean;
-
 implementation
 
 
-uses SDCardManager;
+uses SDCardManager, ADBDeviceStatusTRD;
 
 { TRD }
 
@@ -69,17 +66,7 @@ begin
     if S.Count <> 0 then
       Synchronize(@SDSizeUsedFree);
 
-    //Определяем версию Android > 7
-    ExProcess.Parameters.Delete(1);
-    ExProcess.Parameters.Add('adb shell ls -p ' + sd_card);
-    ExProcess.Execute;
-    S.LoadFromStream(ExProcess.Output);
-    if Pos('Aborting', S[0]) <> 0 then
-      android7 := False
-    else
-      android7 := True;
-
-    //ls текущего каталога с заменой спецсимволов
+    //ls текущего каталога с заменой спецсимволов (android7 in ADBDeviceStatusTRD)
     ExProcess.Parameters.Delete(1);
     if not android7 then
       ExProcess.Parameters.Add('adb shell ls -F ' + '''' +
@@ -125,6 +112,7 @@ begin
   S.StrictDelimiter := True;
   S.DelimitedText := S[0];
 
+  //Для Android 4.x
   if S[2] <> 'file' then
   begin
     SDForm.Label4.Caption := S[0];

@@ -296,17 +296,15 @@ msgstr "Mettre"
 
 #: tsdform.sdchangebtn.hint
 msgid "SD-Card Search (F12)"
-msgstr ""
+msgstr "Recherche de carte SD (F12)"
 
 #: tsdform.selectallbtn.hint
 msgid "Select all"
 msgstr "Tout sélectionner"
 
 #: tsdform.upbtn.hint
-#, fuzzy
-#| msgid "Upper level"
 msgid "Upper level (BackSpace)"
-msgstr "Niveau supérieur"
+msgstr "Niveau supérieur (BackSpace)"
 
 #: unit1.sdeletecaption
 msgid "Deleting a package"
@@ -348,4 +346,3 @@ msgstr "Chaîne de recherche d'entrée ou *"
 #: unit1.syes
 msgid "yes"
 msgstr "oui"
-
