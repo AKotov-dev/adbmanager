@@ -95,6 +95,9 @@ var
   //Команда ADB и флаг панели, которую нужно обновить
   sdcmd: string;
   left_panel: boolean;
+  //Список возможных точек монтирования SD-Card
+  SDMountPoint: TStringList;
+
 
 implementation
 
@@ -174,14 +177,8 @@ var
   i: integer;
 begin
   //Чтобы не проскочить верхний уровень
-  if (GroupBox2.Caption = '/sdcard/') or (GroupBox2.Caption = '/mnt/sdcard0/') or
-    (GroupBox2.Caption = '/mnt/sdcard1/') or (GroupBox2.Caption = '/mnt/sdcard2/') or
-    (GroupBox2.Caption = '/storage/sdcard0/') or (GroupBox2.Caption =
-    '/storage/sdcard1/') or (GroupBox2.Caption = '/storage/sdcard2/') or
-    (GroupBox2.Caption = '/mnt/extSdCard/') or (GroupBox2.Caption = '/mnt/external/') or
-    (GroupBox2.Caption = '/mnt/external_sd/') or (GroupBox2.Caption =
-    '/mnt/sdcard/ext_sd/') or (GroupBox2.Caption = '/mnt/sdcard/external_sd/') then
-    Exit;
+  for i := 0 to SDMountPoint.Count - 1 do
+    if GroupBox2.Caption = SDMountPoint[i] then Exit;
 
   for i := Length(GroupBox2.Caption) - 1 downto 1 do
     if GroupBox2.Caption[i] = '/' then
@@ -386,22 +383,27 @@ end;
 //Отмена копирования и очистка SDBox при закрытии формы
 procedure TSDForm.FormClose(Sender: TObject; var CloseAction: TCloseAction);
 begin
-  //For Plasma
-  IniPropStorage1.Save;
+  try
+    //For Plasma
+    IniPropStorage1.Save;
 
-  CancelCopy;
-  SDBox.Clear;
+    CancelCopy;
+    SDBox.Clear;
 
-  //Очищаем лог
-  SDMemo.Clear;
+    //Очищаем лог
+    SDMemo.Clear;
 
-  //Обнуляем показания размера до перечитывания SD-Card
-  Label4.Caption := '...';
-  Label5.Caption := '...';
-  Label6.Caption := '...';
+    //Обнуляем показания размера до перечитывания SD-Card
+    Label4.Caption := '...';
+    Label5.Caption := '...';
+    Label6.Caption := '...';
 
-  //Скрываем "Esc - отмена"
-  Panel4.Caption := '';
+    //Скрываем "Esc - отмена"
+    Panel4.Caption := '';
+  finally
+    //Освобождаем список точек монтирования SD-Card
+    SDMountPoint.Free;
+  end;
 end;
 
 procedure TSDForm.FormShow(Sender: TObject);
@@ -417,6 +419,27 @@ begin
 
   //Перечитываем /sdcard/
   StartLS;
+
+  //Список возможных точек монтирования SD-Card
+  SDMountPoint := TStringList.Create;
+
+  with SDMountPoint do
+  begin
+    Add('/sdcard/');
+    Add('/mnt/sdcard0/');
+    Add('/mnt/sdcard1/');
+    Add('/mnt/sdcard2/');
+    Add('/mnt/external/');
+    Add('/mnt/external_sd/');
+    Add('/mnt/sdcard/ext_sd/');
+    Add('/mnt/sdcard/external_sd/');
+    Add('/mnt/extSdCard/');
+    Add('/storage/sdcard0/');
+    Add('/storage/sdcard1/');
+    Add('/storage/sdcard2/');
+    Add('/storage/extSdCard/');
+  end;
+
 end;
 
 procedure TSDForm.MkDirBtnClick(Sender: TObject);
@@ -587,25 +610,10 @@ begin
   Label6.Caption := '...';
 
   //Возможные варианты SD-Card (учитываются UpBtn - верхний уровень)
-  case GroupBox2.Caption of
-    '/sdcard/': GroupBox2.Caption := '/mnt/sdcard0/';
-    '/mnt/sdcard0/': GroupBox2.Caption := '/mnt/sdcard1/';
-    '/mnt/sdcard1/': GroupBox2.Caption := '/mnt/sdcard2/';
-    '/mnt/sdcard2/': GroupBox2.Caption := '/storage/sdcard0/';
-
-    '/storage/sdcard0/': GroupBox2.Caption := '/storage/sdcard1/';
-    '/storage/sdcard1/': GroupBox2.Caption := '/storage/sdcard2/';
-
-    '/storage/sdcard2/': GroupBox2.Caption := '/mnt/extSdCard/';
-
-    '/mnt/extSdCard/': GroupBox2.Caption := '/mnt/external/';
-    '/mnt/external/': GroupBox2.Caption := '/mnt/external_sd/';
-
-    '/mnt/external_sd/': GroupBox2.Caption := '/mnt/sdcard/ext_sd/';
-    '/mnt/sdcard/ext_sd/': GroupBox2.Caption := '/sdcard/';
-    else
-      GroupBox2.Caption := '/sdcard/';
-  end;
+  if SDMountPoint.IndexOf(GroupBox2.Caption) <> SDMountPoint.Count - 1 then
+    GroupBox2.Caption := SDMountPoint[SDMountPoint.IndexOf(GroupBox2.Caption) + 1]
+  else
+    GroupBox2.Caption := SDMountPoint[0];
 
   //Запоминаем SD-Card
   INIPropStorage1.StoredValue['SDCard'] := GroupBox2.Caption;
