@@ -24,6 +24,7 @@ type
 
   end;
 
+//Версия Android подключенного устройства
 var
   android7: boolean;
 

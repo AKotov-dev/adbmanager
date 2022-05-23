@@ -78,14 +78,17 @@ begin
       Synchronize(@ShowKey);
 
       //Определяем версию Android > 7
-      ExProcess.Parameters.Delete(1);
-      ExProcess.Parameters.Add('adb shell ls -p');
-      ExProcess.Execute;
-      Result.LoadFromStream(ExProcess.Output);
-      if Pos('Aborting', Result[0]) <> 0 then
-        android7 := False
-      else
-        android7 := True;
+      if MainForm.DevSheet.Caption <> SNoDevice then
+      begin
+        ExProcess.Parameters.Delete(1);
+        ExProcess.Parameters.Add('adb shell ls -p');
+        ExProcess.Execute;
+        Result.LoadFromStream(ExProcess.Output);
+        if Pos('Aborting', Result[0]) <> 0 then
+          android7 := False
+        else
+          android7 := True;
+      end;
 
       Sleep(300);
     end;

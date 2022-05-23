@@ -5,7 +5,7 @@ name=adbmanager
 version=2.6
 
 [RELEASE]
-release=4.mrx8
+release=5.mrx8
 
 [GROUP]
 group=Applications/System
@@ -75,7 +75,7 @@ toolversion=2.2.0
 1=and connection of Android smartphones. Allows you to monitor the status of the "adb" service,
 2=manage it, and control the list of connected devices.
 3=
-4=v2.6-4
+4=v2.6-5
 5=+ SD-Сard manager: [F12] - (SD-Card Search)
 6=+ SD-Сard manager: [BackSpace ] (Level UP)
 7=+ adding the adbusers group to spec

@@ -414,7 +414,7 @@ begin
   //Перечитываем корень CompDir (могли быть изменения на диске извне)
   RefreshBtn.Click;
 
-  //Возвращаем сохраненную SD-Card (по умолчанию - /sdcard/)
+  //Возвращаем сохраненную SD-Card (по умолчанию = /sdcard/ в IniPropStorage)
   GroupBox2.Caption := IniPropStorage1.StoredValue['SDCard'];
 
   //Перечитываем /sdcard/
@@ -439,7 +439,6 @@ begin
     Add('/storage/sdcard2/');
     Add('/storage/extSdCard/');
   end;
-
 end;
 
 procedure TSDForm.MkDirBtnClick(Sender: TObject);
