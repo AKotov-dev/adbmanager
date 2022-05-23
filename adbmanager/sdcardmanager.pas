@@ -439,6 +439,7 @@ begin
     Add('/storage/sdcard1/');
     Add('/storage/sdcard2/');
     Add('/storage/extSdCard/');
+    Add('/storage/emulated/0/');
   end;
 end;
 

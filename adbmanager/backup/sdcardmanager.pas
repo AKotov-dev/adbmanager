@@ -432,6 +432,7 @@ begin
     Add('/mnt/external/');
     Add('/mnt/external_sd/');
     Add('/mnt/sdcard/ext_sd/');
+    Add('/mnt/sdcard/ext_sdcard/');
     Add('/mnt/sdcard/external_sd/');
     Add('/mnt/extSdCard/');
     Add('/storage/sdcard0/');
