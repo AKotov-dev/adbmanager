@@ -24,10 +24,6 @@ type
 
   end;
 
-//Версия Android подключенного устройства
-var
-  android7: boolean;
-
 implementation
 
 uses Unit1, SDCardManager;
@@ -77,20 +73,7 @@ begin
       Result.LoadFromStream(ExProcess.Output);
       Synchronize(@ShowKey);
 
-      //Определяем версию Android > 7
-      if MainForm.DevSheet.Caption <> SNoDevice then
-      begin
-        ExProcess.Parameters.Delete(1);
-        ExProcess.Parameters.Add('adb shell ls -p');
-        ExProcess.Execute;
-        Result.LoadFromStream(ExProcess.Output);
-        if Pos('Aborting', Result[0]) <> 0 then
-          android7 := False
-        else
-          android7 := True;
-      end;
-
-      Sleep(300);
+      Sleep(250);
     end;
 
   finally

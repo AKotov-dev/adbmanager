@@ -26,9 +26,13 @@ type
 
   end;
 
+//Версия Android подключенного устройства
+var
+  android7: boolean;
+
 implementation
 
-uses SDCardManager, ADBDeviceStatusTRD;
+uses Unit1, SDCardManager;
 
 { TRD }
 
@@ -64,6 +68,19 @@ begin
     //Если есть, что выводить и SD-Карта существует
     if S.Count <> 0 then
       Synchronize(@SDSizeUsedFree);
+
+    //Определяем версию Android > 7
+    if Pos('device', MainForm.DevSheet.Caption) <> 0 then
+    begin
+      ExProcess.Parameters.Delete(1);
+      ExProcess.Parameters.Add('adb shell ls -p ' + sd_card);
+      ExProcess.Execute;
+      S.LoadFromStream(ExProcess.Output);
+      if Pos('Aborting', S[0]) <> 0 then
+        android7 := False
+      else
+        android7 := True;
+    end;
 
     //ls текущего каталога с заменой спецсимволов (android7 in ADBDeviceStatusTRD)
     ExProcess.Parameters.Delete(1);
