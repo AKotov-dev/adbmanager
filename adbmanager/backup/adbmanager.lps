@@ -49,17 +49,16 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="Unit1"/>
-        <EditorIndex Value="-1"/>
-        <WindowIndex Value="-1"/>
-        <TopLine Value="247"/>
-        <CursorPos X="3" Y="249"/>
+        <CursorPos X="31" Y="2"/>
         <UsageCount Value="116"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
       </Unit1>
       <Unit2>
         <Filename Value="adbdevicestatustrd.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="ADBDeviceStatusTRD"/>
-        <EditorIndex Value="1"/>
+        <EditorIndex Value="2"/>
         <CursorPos X="18" Y="27"/>
         <UsageCount Value="108"/>
         <Loaded Value="True"/>
@@ -104,7 +103,9 @@
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="SDCardManager"/>
         <IsVisibleTab Value="True"/>
-        <CursorPos X="25" Y="4"/>
+        <EditorIndex Value="1"/>
+        <TopLine Value="582"/>
+        <CursorPos X="25" Y="602"/>
         <UsageCount Value="85"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -122,7 +123,7 @@
         <Filename Value="lssdfoldertrd.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="LSSDFolderTRD"/>
-        <EditorIndex Value="2"/>
+        <EditorIndex Value="3"/>
         <CursorPos X="33"/>
         <UsageCount Value="59"/>
         <Loaded Value="True"/>
@@ -140,7 +141,7 @@
         <UsageCount Value="32"/>
       </Unit9>
     </Units>
-    <JumpHistory Count="17" HistoryIndex="16">
+    <JumpHistory Count="20" HistoryIndex="19">
       <Position1>
         <Filename Value="sdcardmanager.pas"/>
         <Caret Line="542" Column="15" TopLine="527"/>
@@ -209,6 +210,18 @@
         <Filename Value="sdcardmanager.pas"/>
         <Caret Line="101" Column="27" TopLine="92"/>
       </Position17>
+      <Position18>
+        <Filename Value="sdcardmanager.pas"/>
+        <Caret Line="4" Column="25"/>
+      </Position18>
+      <Position19>
+        <Filename Value="sdcardmanager.pas"/>
+        <Caret Line="600" Column="66" TopLine="580"/>
+      </Position19>
+      <Position20>
+        <Filename Value="sdcardmanager.pas"/>
+        <Caret Line="184" Column="47" TopLine="171"/>
+      </Position20>
     </JumpHistory>
     <RunParams>
       <FormatVersion Value="2"/>

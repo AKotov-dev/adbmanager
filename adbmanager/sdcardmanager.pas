@@ -180,7 +180,9 @@ begin
     '/storage/sdcard1/') or (GroupBox2.Caption = '/storage/sdcard2/') or
     (GroupBox2.Caption = '/mnt/extSdCard/') or (GroupBox2.Caption = '/mnt/external/') or
     (GroupBox2.Caption = '/mnt/external_sd/') or (GroupBox2.Caption =
-    '/mnt/sdcard/ext_sd/') or (GroupBox2.Caption = '/mnt/sdcard/external_sd/') then
+    '/mnt/sdcard/ext_sd/') or (GroupBox2.Caption = '/mnt/sdcard/external_sd/') or
+    (GroupBox2.Caption = '/sdcard/external_sd/') or
+    (GroupBox2.Caption = '/storage/extSdCard/') then
     Exit;
 
   for i := Length(GroupBox2.Caption) - 1 downto 1 do
@@ -596,13 +598,15 @@ begin
     '/storage/sdcard0/': GroupBox2.Caption := '/storage/sdcard1/';
     '/storage/sdcard1/': GroupBox2.Caption := '/storage/sdcard2/';
 
-    '/storage/sdcard2/': GroupBox2.Caption := '/mnt/extSdCard/';
+    '/storage/sdcard2/': GroupBox2.Caption := '/storage/extSdCard/';
+    '/storage/extSdCard/': GroupBox2.Caption := '/mnt/extSdCard/';
 
     '/mnt/extSdCard/': GroupBox2.Caption := '/mnt/external/';
     '/mnt/external/': GroupBox2.Caption := '/mnt/external_sd/';
 
     '/mnt/external_sd/': GroupBox2.Caption := '/mnt/sdcard/ext_sd/';
-    '/mnt/sdcard/ext_sd/': GroupBox2.Caption := '/sdcard/';
+    '/mnt/sdcard/ext_sd/': GroupBox2.Caption := '/sdcard/external_sd/';
+    '/sdcard/external_sd/': GroupBox2.Caption := '/sdcard/';
     else
       GroupBox2.Caption := '/sdcard/';
   end;
