@@ -101,7 +101,7 @@ var
 
 implementation
 
-uses SDCommandTRD, Unit1, ADBDeviceStatusTRD, LSSDFolderTRD;
+uses SDCommandTRD, Unit1, LSSDFolderTRD;
 
 {$R *.lfm}
 
