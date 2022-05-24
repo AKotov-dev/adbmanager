@@ -1,7 +1,7 @@
 object SDForm: TSDForm
-  Left = 324
+  Left = 312
   Height = 631
-  Top = 153
+  Top = 123
   Width = 888
   Caption = 'SD-Card manager'
   ClientHeight = 631
@@ -1368,7 +1368,7 @@ object SDForm: TSDForm
         ParentFont = False
       end
       object SDChangeBtn: TSpeedButton
-        Left = 272
+        Left = 267
         Height = 40
         Hint = 'SD-Card Search (F12)'
         Top = 8

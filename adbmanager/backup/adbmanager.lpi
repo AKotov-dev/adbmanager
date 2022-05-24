@@ -74,7 +74,7 @@
         <PackageName Value="LCL"/>
       </Item1>
     </RequiredPackages>
-    <Units Count="10">
+    <Units Count="11">
       <Unit0>
         <Filename Value="adbmanager.pas"/>
         <IsPartOfProject Value="True"/>
@@ -138,6 +138,11 @@
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="EmulatorUnit"/>
       </Unit9>
+      <Unit10>
+        <Filename Value="sdmountpointtrd.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="SDMountPointTRD"/>
+      </Unit10>
     </Units>
   </ProjectOptions>
   <CompilerOptions>

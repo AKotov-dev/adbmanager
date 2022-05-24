@@ -101,7 +101,7 @@ var
 
 implementation
 
-uses SDCommandTRD, Unit1, LSSDFolderTRD;
+uses SDCommandTRD, Unit1, LSSDFolderTRD, SDMountPointTRD;
 
 {$R *.lfm}
 
@@ -407,6 +407,8 @@ begin
 end;
 
 procedure TSDForm.FormShow(Sender: TObject);
+var
+  FSDMountPointThread: TThread;
 begin
   //For Plasma
   IniPropStorage1.Restore;
@@ -423,23 +425,8 @@ begin
   //Список возможных точек монтирования SD-Card
   SDMountPoint := TStringList.Create;
 
-  with SDMountPoint do
-  begin
-    Add('/sdcard/');
-    Add('/mnt/sdcard0/');
-    Add('/mnt/sdcard1/');
-    Add('/mnt/sdcard2/');
-    Add('/mnt/external/');
-    Add('/mnt/external_sd/');
-    Add('/mnt/sdcard/ext_sd/');
-    Add('/mnt/sdcard/ext_sdcard/');
-    Add('/mnt/sdcard/external_sd/');
-    Add('/mnt/extSdCard/');
-    Add('/storage/sdcard0/');
-    Add('/storage/sdcard1/');
-    Add('/storage/sdcard2/');
-    Add('/storage/extSdCard/');
-  end;
+  FSDMountPointThread := ReadSDMountPoint.Create(False);
+  FSDMountPointThread.Priority := tpNormal;
 end;
 
 procedure TSDForm.MkDirBtnClick(Sender: TObject);

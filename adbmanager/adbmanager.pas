@@ -14,7 +14,7 @@ uses {$IFDEF UNIX}
   SDCardManager,
   SDCommandTRD,
   LSSDFolderTRD,
-  EmulatorUnit { you can add units after this };
+  EmulatorUnit, SDMountPointTRD { you can add units after this };
 
 {$R *.res}
 

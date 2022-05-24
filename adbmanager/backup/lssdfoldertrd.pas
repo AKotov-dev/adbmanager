@@ -29,9 +29,10 @@ type
 //Версия Android подключенного устройства
 var
   android7: boolean;
+
 implementation
 
-uses Unit1, SDCardManager, ADBDeviceStatusTRD;
+uses Unit1, SDCardManager;
 
 { TRD }
 
@@ -51,51 +52,53 @@ begin
 
     //Рабочий процесс
     ExProcess := TProcess.Create(nil);
-    ExProcess.Executable := 'bash';
-    ExProcess.Parameters.Add('-c');
-    //Ошибки не выводим, только список, ждём окончания потока
-    ExProcess.Options := [poWaitOnExit, poUsePipes];
 
-    //Размер SD-Card, использовано и свободно (работает во всех Android)
-    ExProcess.Parameters.Add('adb shell df -h ' + sd_card +
-      ' | tail -n1 | awk ' + '''' + '{ print $2, $3, $4 }' + '''');
-    Exprocess.Execute;
+    //Если устройство подключено
+    if (MainForm.DevSheet.Caption <> SNoDevice) and
+      (Pos('offline', MainForm.DevSheet.Caption) = 0) then
+    begin
+      ExProcess.Executable := 'bash';
+      ExProcess.Parameters.Add('-c');
+      //Ошибки не выводим, только список, ждём окончания потока
+      ExProcess.Options := [poWaitOnExit, poUsePipes];
 
-    S.LoadFromStream(ExProcess.Output);
-    S.Text := Trim(S.Text);
+      //Размер SD-Card, использовано и свободно (работает во всех Android)
+      ExProcess.Parameters.Add('adb shell df -h ' + sd_card +
+        ' | tail -n1 | awk ' + '''' + '{ print $2, $3, $4 }' + '''');
+      Exprocess.Execute;
 
-    //Если есть, что выводить и SD-Карта существует
-    if S.Count <> 0 then
-      Synchronize(@SDSizeUsedFree);
+      S.LoadFromStream(ExProcess.Output);
+      S.Text := Trim(S.Text);
 
-   //Определяем версию Android > 7
-      if Pos('device', MainForm.DevSheet.Caption) <> 0 then
-      begin
-        ExProcess.Parameters.Delete(1);
-        ExProcess.Parameters.Add('adb shell ls -p ' + sd_card);
-        ExProcess.Execute;
-        S.LoadFromStream(ExProcess.Output);
-        if Pos('Aborting', S[0]) <> 0 then
-          android7 := False
-        else
-          android7 := True;
-      end;
+      //Если есть, что выводить и SD-Карта существует
+      if S.Count <> 0 then
+        Synchronize(@SDSizeUsedFree);
 
-    //ls текущего каталога с заменой спецсимволов (android7 in ADBDeviceStatusTRD)
-    ExProcess.Parameters.Delete(1);
-    if not android7 then
-      ExProcess.Parameters.Add('adb shell ls -F ' + '''' +
-        SDForm.DetoxName(SDForm.GroupBox2.Caption) + '''' + ' | sort -t "d" -k 1,1')
-    else
-      //Android > 7?
-      ExProcess.Parameters.Add('a=$(adb shell ls -p ' + '''' +
-        SDForm.DetoxName(SDForm.GroupBox2.Caption) + '''' +
-        '); b=$(echo "$a" | grep "/"); c=$(echo "$a" | grep -v "/"); echo -e "$b\n$c"  | grep -v "^$"');
+      //Определяем версию Android > 7
+      ExProcess.Parameters.Delete(1);
+      ExProcess.Parameters.Add('adb shell ls -p ' + sd_card);
+      ExProcess.Execute;
+      S.LoadFromStream(ExProcess.Output);
+      if Pos('Aborting', S[0]) <> 0 then
+        android7 := False
+      else
+        android7 := True;
 
-    ExProcess.Execute;
-    S.LoadFromStream(ExProcess.Output);
-    Synchronize(@UpdateSDBox);
+      //ls текущего каталога с заменой спецсимволов (android7 in ADBDeviceStatusTRD)
+      ExProcess.Parameters.Delete(1);
+      if not android7 then
+        ExProcess.Parameters.Add('adb shell ls -F ' + '''' +
+          SDForm.DetoxName(SDForm.GroupBox2.Caption) + '''' + ' | sort -t "d" -k 1,1')
+      else
+        //Android > 7?
+        ExProcess.Parameters.Add('a=$(adb shell ls -p ' + '''' +
+          SDForm.DetoxName(SDForm.GroupBox2.Caption) + '''' +
+          '); b=$(echo "$a" | grep "/"); c=$(echo "$a" | grep -v "/"); echo -e "$b\n$c"  | grep -v "^$"');
 
+      ExProcess.Execute;
+      S.LoadFromStream(ExProcess.Output);
+      Synchronize(@UpdateSDBox);
+    end;
   finally
     Synchronize(@HideProgress);
     S.Free;
