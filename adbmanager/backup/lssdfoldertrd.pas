@@ -76,7 +76,7 @@ begin
 
       //Определяем версию Android > 7
       ExProcess.Parameters.Delete(1);
-      ExProcess.Parameters.Add('adb shell ls -p ' + sd_card);
+      ExProcess.Parameters.Add('adb shell ls -p');
       ExProcess.Execute;
       S.LoadFromStream(ExProcess.Output);
       if Pos('Aborting', S[0]) <> 0 then
@@ -99,6 +99,7 @@ begin
       S.LoadFromStream(ExProcess.Output);
       Synchronize(@UpdateSDBox);
     end;
+
   finally
     Synchronize(@HideProgress);
     S.Free;
