@@ -5,7 +5,7 @@ unit SDMountPointTRD;
 interface
 
 uses
-  Classes, Process, SysUtils, Forms, Controls;
+  Classes, Process, SysUtils, Forms, Controls, Dialogs;
 
 type
   ReadSDMountPoint = class(TThread)
@@ -82,12 +82,16 @@ begin
           if SDMountPoint.IndexOf('/storage/' + Trim(S[i]) + '/') = -1 then
             SDMountPoint.Append('/storage/' + Trim(S[i]) + '/');
 
-      //Проверить все на существование, несуществующие - удалить
+      //Проверить все точки на откытие/существование, несуществующие - удалить
       for i := SDMountPoint.Count - 1 downto 0 do
       begin
         ExProcess.Parameters.Delete(1);
-        ExProcess.Parameters.Add('adb shell ' + '''' + '[ -d ' +
-          SDMountPoint[i] + ' ] && echo "yes" || echo "no"' + '''');
+       { ExProcess.Parameters.Add('adb shell ' + '''' + '[ -d ' +
+          SDMountPoint[i] + ' ] && echo "yes" || echo "no"' + '''');}
+
+        ExProcess.Parameters.Add('adb shell ' + '''' + 'cd ' +
+          SDMountPoint[i] + ' &> /dev/null && echo "yes" || echo "no"' + '''');
+
         ExProcess.Execute;
         S.LoadFromStream(ExProcess.Output);
         if S[0] = 'no' then SDMountPoint.Delete(i);

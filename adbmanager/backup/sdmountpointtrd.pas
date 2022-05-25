@@ -5,7 +5,7 @@ unit SDMountPointTRD;
 interface
 
 uses
-  Classes, Process, SysUtils, Forms, Controls;
+  Classes, Process, SysUtils, Forms, Controls, Dialogs;
 
 type
   ReadSDMountPoint = class(TThread)
@@ -59,6 +59,9 @@ begin
       Add('/storage/sdcard2/');
       Add('/storage/extSdCard/');
       Add('/storage/emulated/0/');
+      Add('/chroot/mnt/XVMbox/extcard0/');
+      Add('/chroot/mnt/XVMbox/extcard1/');
+      Add('/chroot/mnt/XVMbox/extcard2/');
     end;
 
     //Если устройство подключено
@@ -83,8 +86,12 @@ begin
       for i := SDMountPoint.Count - 1 downto 0 do
       begin
         ExProcess.Parameters.Delete(1);
-        ExProcess.Parameters.Add('adb shell ' + '''' + '[ -d ' +
-          SDMountPoint[i] + ' ] && echo "yes" || echo "no"' + '''');
+       { ExProcess.Parameters.Add('adb shell ' + '''' + '[ -d ' +
+          SDMountPoint[i] + ' ] && echo "yes" || echo "no"' + '''');}
+
+        ExProcess.Parameters.Add('adb shell ' + '''' + 'cd ' +
+          SDMountPoint[i] + ' &> /dev/null && echo "yes" || echo "no"' + '''');
+
         ExProcess.Execute;
         S.LoadFromStream(ExProcess.Output);
         if S[0] = 'no' then SDMountPoint.Delete(i);
