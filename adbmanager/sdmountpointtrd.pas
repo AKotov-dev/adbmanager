@@ -5,7 +5,7 @@ unit SDMountPointTRD;
 interface
 
 uses
-  Classes, Process, SysUtils, Forms, Controls, Dialogs;
+  Classes, Process, SysUtils, Forms, Controls;
 
 type
   ReadSDMountPoint = class(TThread)
@@ -118,12 +118,21 @@ end;
 //Стоп процедуры
 procedure ReadSDMountPoint.StopProgress;
 begin
-  //Заголовок на первую существующую точку монтирования, если не открывалась ранее
-  if SDMountPoint.IndexOf(SDForm.GroupBox2.Caption) = -1 then
-    SDForm.GroupBox2.Caption := SDMountPoint[0];
+  if SDMountPoint.Count <> 0 then
+  begin
+    //Заголовок на первую существующую точку монтирования, если не открывалась ранее
+    if SDMountPoint.IndexOf(SDForm.GroupBox2.Caption) = -1 then
+      SDForm.GroupBox2.Caption := SDMountPoint[0];
+    SDForm.SDChangeBtn.Enabled := True;
+  end
+  else
+    //Если список точек монтирования пуст
+  begin
+    SDForm.GroupBox2.Caption := '/sdcard/';
+    SDForm.SDChangeBtn.Enabled := False;
+  end;
 
   Screen.cursor := crDefault;
-  SDForm.SDChangeBtn.Enabled := True;
 
   //Перечитываем точку монтирования
   SDForm.StartLS;

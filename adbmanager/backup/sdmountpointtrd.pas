@@ -118,12 +118,22 @@ end;
 //Стоп процедуры
 procedure ReadSDMountPoint.StopProgress;
 begin
-  Screen.cursor := crDefault;
-  SDForm.SDChangeBtn.Enabled := True;
+  if SDMountPoint.Count <> 0 then
+  begin
+    //Заголовок на первую существующую точку монтирования, если не открывалась ранее
+    if SDMountPoint.IndexOf(SDForm.GroupBox2.Caption) = -1 then
+      SDForm.GroupBox2.Caption := SDMountPoint[0];
+    SDForm.SDChangeBtn.Enabled := True;
+  end
+  else
+    //Если список точек монтирования пуст
+  begin
+    SDForm.GroupBox2.Caption := '/sdcard/';
+    SDForm.SDChangeBtn.Enabled := False;
+  end;
 
-  //Заголовок на первую существующую точку монтирования, если не открывалась ранее
-  if SDMountPoint.IndexOf(SDForm.GroupBox2.Caption) = -1 then
-  SDForm.GroupBox2.Caption := SDMountPoint[0];
+  Screen.cursor := crDefault;
+
   //Перечитываем точку монтирования
   SDForm.StartLS;
 end;
