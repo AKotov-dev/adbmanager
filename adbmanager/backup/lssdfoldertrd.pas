@@ -76,7 +76,7 @@ begin
 
       //Определяем версию Android > 7
       ExProcess.Parameters.Delete(1);
-      ExProcess.Parameters.Add('adb shell ls -p');
+      ExProcess.Parameters.Add('adb shell ls -p /');
       ExProcess.Execute;
       S.LoadFromStream(ExProcess.Output);
       if Pos('Aborting', S[0]) <> 0 then
