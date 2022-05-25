@@ -101,9 +101,8 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="SDCardManager"/>
-        <IsVisibleTab Value="True"/>
-        <TopLine Value="587"/>
-        <CursorPos X="3" Y="590"/>
+        <TopLine Value="409"/>
+        <CursorPos X="3" Y="413"/>
         <UsageCount Value="88"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -143,14 +142,15 @@
         <Filename Value="sdmountpointtrd.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="SDMountPointTRD"/>
+        <IsVisibleTab Value="True"/>
         <EditorIndex Value="2"/>
         <TopLine Value="109"/>
-        <CursorPos X="53" Y="130"/>
+        <CursorPos X="40" Y="115"/>
         <UsageCount Value="22"/>
         <Loaded Value="True"/>
       </Unit10>
     </Units>
-    <JumpHistory Count="3" HistoryIndex="2">
+    <JumpHistory Count="6" HistoryIndex="5">
       <Position1>
         <Filename Value="sdmountpointtrd.pas"/>
         <Caret Line="125" Column="41" TopLine="101"/>
@@ -163,6 +163,18 @@
         <Filename Value="sdcardmanager.pas"/>
         <Caret Line="4" Column="26"/>
       </Position3>
+      <Position4>
+        <Filename Value="sdcardmanager.pas"/>
+        <Caret Line="590" Column="3" TopLine="587"/>
+      </Position4>
+      <Position5>
+        <Filename Value="sdcardmanager.pas"/>
+        <Caret Line="420" Column="5" TopLine="409"/>
+      </Position5>
+      <Position6>
+        <Filename Value="sdcardmanager.pas"/>
+        <Caret Line="602" Column="62" TopLine="587"/>
+      </Position6>
     </JumpHistory>
     <RunParams>
       <FormatVersion Value="2"/>

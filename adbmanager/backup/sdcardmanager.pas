@@ -417,10 +417,7 @@ begin
   RefreshBtn.Click;
 
   //Возвращаем сохраненную SD-Card (по умолчанию = /sdcard/ в IniPropStorage)
-  GroupBox2.Caption := IniPropStorage1.StoredValue['SDCard'];
-
-  //Перечитываем /sdcard/
-  StartLS;
+  //GroupBox2.Caption := IniPropStorage1.StoredValue['SDCard'];
 
   //Список возможных точек монтирования SD-Card
   SDMountPoint := TStringList.Create;
@@ -603,7 +600,6 @@ begin
     GroupBox2.Caption := SDMountPoint[0];
 
   //Запоминаем SD-Card
-  INIPropStorage1.StoredValue['SDCard'] := GroupBox2.Caption;
   INIPropStorage1.Save;
 
   StartLS;

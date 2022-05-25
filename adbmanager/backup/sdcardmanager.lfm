@@ -1,5 +1,5 @@
 object SDForm: TSDForm
-  Left = 312
+  Left = 316
   Height = 631
   Top = 123
   Width = 888
@@ -12,7 +12,7 @@ object SDForm: TSDForm
   OnKeyUp = FormKeyUp
   OnShow = FormShow
   Position = poDefault
-  SessionProperties = 'GroupBox1.Width;Height;Left;Panel1.Height;Top;VBtn.Down;Width'
+  SessionProperties = 'GroupBox1.Width;Height;Left;Panel1.Height;Top;VBtn.Down;Width;GroupBox2.Caption'
   LCLVersion = '2.2.0.4'
   object Panel2: TPanel
     Left = 0
@@ -1566,11 +1566,7 @@ object SDForm: TSDForm
     ResizeAnchor = akBottom
   end
   object IniPropStorage1: TIniPropStorage
-    StoredValues = <    
-      item
-        Name = 'SDCard'
-        Value = '/sdcard/'
-      end>
+    StoredValues = <>
     Left = 576
     Top = 120
   end
