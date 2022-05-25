@@ -59,6 +59,9 @@ begin
       Add('/storage/sdcard2/');
       Add('/storage/extSdCard/');
       Add('/storage/emulated/0/');
+      Add('/chroot/mnt/XVMbox/extcard0/');
+      Add('/chroot/mnt/XVMbox/extcard1/');
+      Add('/chroot/mnt/XVMbox/extcard2/');
     end;
 
     //Если устройство подключено

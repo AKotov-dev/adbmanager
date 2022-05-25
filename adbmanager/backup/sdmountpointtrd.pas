@@ -68,7 +68,7 @@ begin
       //Получаем каталоги /storage/*
       ExProcess.Executable := 'bash';
       ExProcess.Parameters.Add('-c');
-      ExProcess.Parameters.Add('adb shell ls /storage1 | grep -Ev "emul*|self"');
+      ExProcess.Parameters.Add('adb shell ls /storage | grep -Ev "emul*|self"');
       ExProcess.Options := [poUsePipes, poWaitOnExit];
       ExProcess.Execute;
       S.LoadFromStream(ExProcess.Output);

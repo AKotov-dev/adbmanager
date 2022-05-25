@@ -124,7 +124,6 @@
         <Filename Value="lssdfoldertrd.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="LSSDFolderTRD"/>
-        <IsVisibleTab Value="True"/>
         <EditorIndex Value="4"/>
         <TopLine Value="64"/>
         <CursorPos X="50" Y="79"/>
@@ -147,9 +146,10 @@
         <Filename Value="sdmountpointtrd.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="SDMountPointTRD"/>
+        <IsVisibleTab Value="True"/>
         <EditorIndex Value="5"/>
-        <TopLine Value="62"/>
-        <CursorPos X="53" Y="78"/>
+        <TopLine Value="47"/>
+        <CursorPos Y="65"/>
         <UsageCount Value="21"/>
         <Loaded Value="True"/>
       </Unit10>
