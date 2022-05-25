@@ -82,7 +82,7 @@ begin
           if SDMountPoint.IndexOf('/storage/' + Trim(S[i]) + '/') = -1 then
             SDMountPoint.Append('/storage/' + Trim(S[i]) + '/');
 
-      //Проверить все на существование, несуществующие - удалить
+      //Проверить все точки на откытие/существование, несуществующие - удалить
       for i := SDMountPoint.Count - 1 downto 0 do
       begin
         ExProcess.Parameters.Delete(1);
@@ -120,6 +120,12 @@ procedure ReadSDMountPoint.StopProgress;
 begin
   Screen.cursor := crDefault;
   SDForm.SDChangeBtn.Enabled := True;
+
+  //Заголовок на первую существующую точку монтирования, если не открывалась ранее
+  if SDMountPoint.IndexOf(SDForm.GroupBox2.Caption) = -1 then
+  SDForm.GroupBox2.Caption := SDMountPoint[0];
+  //Перечитываем точку монтирования
+  SDForm.StartLS;
 end;
 
 

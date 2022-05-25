@@ -118,8 +118,15 @@ end;
 //Стоп процедуры
 procedure ReadSDMountPoint.StopProgress;
 begin
+  //Заголовок на первую существующую точку монтирования, если не открывалась ранее
+  if SDMountPoint.IndexOf(SDForm.GroupBox2.Caption) = -1 then
+    SDForm.GroupBox2.Caption := SDMountPoint[0];
+
   Screen.cursor := crDefault;
   SDForm.SDChangeBtn.Enabled := True;
+
+  //Перечитываем точку монтирования
+  SDForm.StartLS;
 end;
 
 
