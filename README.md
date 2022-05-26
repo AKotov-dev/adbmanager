@@ -21,4 +21,5 @@ Dependencies: adb, iproute2, sakura, nmap
 Free icons: https://icon-icons.com/ru/
 
 ![](https://github.com/AKotov-dev/adbmanager/blob/main/ScreenShot/ADBManager-v2.6-1.png)  
+  
 ![](https://github.com/AKotov-dev/adbmanager/blob/main/ScreenShot/ADBManager-v2.6-2.png)
