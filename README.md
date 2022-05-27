@@ -23,3 +23,17 @@ Free icons: https://icon-icons.com/ru/
 ![](https://github.com/AKotov-dev/adbmanager/blob/main/ScreenShot/ADBManager-v2.6-1.png)  
   
 ![](https://github.com/AKotov-dev/adbmanager/blob/main/ScreenShot/ADBManager-v2.6-2.png)
+  
+Translations
+--
+en - English
+de - German (completed, doktor5000)
+es - Spanish (in progress, Rizado)
+fr - French (free/author)
+it - Italian (free/author)
+ru - Russian  
+  
+If you would like to add to this list then get in touch.  
+To create your own translation, download the main translation template: [adbmanager.pot](https://raw.githubusercontent.com/AKotov-dev/adbmanager/main/adbmanager/languages/adbmanager.pot -O ./adbmanager.pot)
+  
+Install and run the `PoEdit` editor. Open in it: `Menu`-`File`-`Create from POT/PO file` and select the file `adbmanager.pot'. Immediately specify the language into which you want to translate and... `Menu`-`File`-`Save As...` Specify the file name `adbmanager.xx.po', where `xx` is the language prefix.
