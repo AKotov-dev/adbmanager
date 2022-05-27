@@ -11,6 +11,7 @@ usermod -aG adbusers $(logname)
 cd /usr/lib/udev/rules.d
 wget https://raw.githubusercontent.com/M0Rf30/android-udev-rules/master/51-android.rules -O ./51-android.rules
 reboot
+```
   
 Connecting via ADB over Wi-Fi
 ---
