@@ -4,10 +4,12 @@ The program is designed for visual and easy management of the ADB-Server and con
 
 Access permissions via USB
 ---
-`Linux Mint:` sudo usermod -aG plugdev $LOGNAME; reboot  
-`Mageia Linux:` groupadd adbusers; usermod -aG adbusers $LOGNAME  
-replace the file /usr/lib/udev/rules.d/51-android.rules with a file from the repository and reboot
-
+Update the rules for Android devices on your computer, include the active user in the `adbusers` group and reboot:  
+```
+su/password
+usermod -aG adbusers $(logname); cd /usr/lib/udev/rules.d; wget https://raw.githubusercontent.com/M0Rf30/android-udev-rules/master/51-android.rules -O ./51-android.rules; reboot
+```
+  
 Connecting via ADB over Wi-Fi
 ---
 + Connect the smartphone via USB  
