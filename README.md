@@ -26,12 +26,12 @@ Free icons: https://icon-icons.com/ru/
   
 Translations
 --
-en - English
-de - German (completed, doktor5000)
-es - Spanish (in progress, Rizado)
-fr - French (free/author)
-it - Italian (free/author)
-ru - Russian  
++ en - English
++ de - German (completed, doktor5000)
++ es - Spanish (in progress, Rizado)
++ fr - French (free/author)
++ it - Italian (free/author)
++ ru - Russian  
   
 If you would like to add to this list then get in touch.  
 To create your own translation, download the main translation template: [adbmanager.pot](https://raw.githubusercontent.com/AKotov-dev/adbmanager/main/adbmanager/languages/adbmanager.pot)
