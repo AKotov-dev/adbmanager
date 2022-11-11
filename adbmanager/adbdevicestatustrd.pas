@@ -92,6 +92,8 @@ begin
     MainForm.KeyLabel.Caption := SYes
   else
     MainForm.KeyLabel.Caption := SNo;
+
+  MainForm.KeyLabel.Repaint;
 end;
 
 //Вывод активности ADB
@@ -101,6 +103,8 @@ begin
     MainForm.ActiveLabel.Caption := SLaunched
   else
     MainForm.ActiveLabel.Caption := SRestart;
+
+  MainForm.ActiveLabel.Repaint;
 end;
 
 //Вывод найденного устройства и статуса

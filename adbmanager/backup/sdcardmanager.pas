@@ -599,7 +599,7 @@ begin
   else
     GroupBox2.Caption := SDMountPoint[0];
 
-  //Запоминаем SD-Card
+  //Запоминаем точку монтирования SD-Card
   INIPropStorage1.Save;
 
   StartLS;

@@ -26,7 +26,7 @@ type
 
 implementation
 
-uses Unit1;
+uses Unit1, SDCardManager;
 
 { TRD }
 
