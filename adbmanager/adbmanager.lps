@@ -50,8 +50,9 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="Unit1"/>
-        <TopLine Value="221"/>
-        <CursorPos X="26" Y="223"/>
+        <IsVisibleTab Value="True"/>
+        <TopLine Value="182"/>
+        <CursorPos X="49" Y="192"/>
         <UsageCount Value="127"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -156,10 +157,9 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="CheckUnit"/>
-        <IsVisibleTab Value="True"/>
         <EditorIndex Value="1"/>
         <TopLine Value="43"/>
-        <CursorPos X="21" Y="45"/>
+        <CursorPos X="26" Y="45"/>
         <UsageCount Value="27"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -170,7 +170,7 @@
         <UnitName Value="ReadAppsTRDUnit"/>
         <EditorIndex Value="2"/>
         <TopLine Value="97"/>
-        <CursorPos X="17" Y="99"/>
+        <CursorPos X="47" Y="99"/>
         <UsageCount Value="26"/>
         <Loaded Value="True"/>
       </Unit12>
