@@ -11,7 +11,7 @@ object BackupForm: TBackupForm
   OnShow = FormShow
   Position = poMainFormCenter
   SessionProperties = 'Width;Height'
-  LCLVersion = '2.2.0.4'
+  LCLVersion = '2.2.4.0'
   object RadioGroup1: TRadioGroup
     AnchorSideLeft.Control = Owner
     AnchorSideTop.Control = OKBtn
@@ -50,7 +50,7 @@ object BackupForm: TBackupForm
     AnchorSideRight.Side = asrBottom
     AnchorSideBottom.Control = CancelBtn
     Left = 375
-    Height = 28
+    Height = 32
     Top = 7
     Width = 90
     Anchors = [akTop, akRight]
@@ -71,8 +71,8 @@ object BackupForm: TBackupForm
     AnchorSideRight.Control = Owner
     AnchorSideRight.Side = asrBottom
     Left = 375
-    Height = 28
-    Top = 38
+    Height = 32
+    Top = 42
     Width = 90
     Anchors = [akTop, akRight]
     BorderSpacing.Left = 7

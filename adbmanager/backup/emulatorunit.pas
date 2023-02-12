@@ -134,9 +134,10 @@ begin
   case RadioGroup1.ItemIndex of
     0: adbcmd := 'adb usb';
     1: adbcmd := 'adb tcpip 5555';
+    //Выделяем адрес вида x.x.x.x/nn
     2: adbcmd := 'nmap -sn $(ip a | grep -w $(ip route get 1.1.1.1 | awk ' +
-        '''' + '{print $3}' + '''' + ' | cut -d "." -f1,2) | awk ' + '''' +
-        '{print $2}' + '''' + ') | grep Nmap';
+        '''' + '{print $3}' + '''' + ' | cut -d "." -f1,2) | awk ' +
+        '''' + '{print $2}' + '''' + ') | grep Nmap';
     else
       //Если введён валидный IP и он пингуется - выполняется коннект, иначе - отмена после ping -c3
       if IsIP(Trim(Edit1.Text)) then

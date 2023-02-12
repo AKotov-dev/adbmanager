@@ -1,7 +1,7 @@
 object RebootForm: TRebootForm
-  Left = 521
+  Left = 812
   Height = 168
-  Top = 158
+  Top = 142
   Width = 433
   ActiveControl = OKBtn
   Caption = 'Reboot/Shutdown'
@@ -12,7 +12,7 @@ object RebootForm: TRebootForm
   OnShow = FormShow
   Position = poMainFormCenter
   SessionProperties = 'Width;Height'
-  LCLVersion = '2.2.0.4'
+  LCLVersion = '2.2.4.0'
   object RadioGroup1: TRadioGroup
     AnchorSideLeft.Control = Owner
     AnchorSideRight.Control = OKBtn
@@ -21,7 +21,7 @@ object RebootForm: TRebootForm
     Left = 6
     Height = 154
     Top = 8
-    Width = 326
+    Width = 324
     Anchors = [akTop, akLeft, akRight, akBottom]
     AutoFill = True
     BorderSpacing.Left = 6
@@ -34,7 +34,7 @@ object RebootForm: TRebootForm
     ChildSizing.Layout = cclLeftToRightThenTopToBottom
     ChildSizing.ControlsPerLine = 1
     ClientHeight = 152
-    ClientWidth = 324
+    ClientWidth = 322
     ItemIndex = 0
     Items.Strings = (
       'Normal reboot'
@@ -51,10 +51,10 @@ object RebootForm: TRebootForm
     AnchorSideRight.Control = Owner
     AnchorSideRight.Side = asrBottom
     AnchorSideBottom.Control = CancelBtn
-    Left = 339
-    Height = 28
+    Left = 337
+    Height = 32
     Top = 8
-    Width = 88
+    Width = 90
     Anchors = [akTop, akRight]
     BorderSpacing.Left = 7
     BorderSpacing.Top = 8
@@ -72,10 +72,10 @@ object RebootForm: TRebootForm
     AnchorSideTop.Side = asrBottom
     AnchorSideRight.Control = Owner
     AnchorSideRight.Side = asrBottom
-    Left = 339
-    Height = 28
-    Top = 39
-    Width = 88
+    Left = 337
+    Height = 32
+    Top = 43
+    Width = 90
     Anchors = [akTop, akRight]
     BorderSpacing.Left = 7
     BorderSpacing.Right = 6

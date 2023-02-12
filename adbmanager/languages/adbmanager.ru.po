@@ -1,16 +1,16 @@
 msgid ""
 msgstr ""
-"Content-Type: text/plain; charset=UTF-8\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "Project-Id-Version: ADBManager\n"
 "POT-Creation-Date: \n"
 "PO-Revision-Date: \n"
 "Last-Translator: alex_q_2000\n"
 "Language-Team: alex_q_2000 (C) 2021\n"
-"MIME-Version: 1.0\n"
-"Content-Transfer-Encoding: 8bit\n"
 "Language: ru\n"
-"X-Generator: Poedit 2.4.2\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.2.2\n"
 
 #: backupunit.snoshared
 msgctxt "backupunit.snoshared"
@@ -90,6 +90,28 @@ msgctxt "tbackupform.okbtn.caption"
 msgid "OK"
 msgstr ""
 
+#: tcheckform.applybtn.caption
+msgctxt "tcheckform.applybtn.caption"
+msgid "Apply"
+msgstr "Применить"
+
+#: tcheckform.caption
+msgid "Enable/Disable applications"
+msgstr "Включение/Отключение приложений"
+
+#: tcheckform.label1.caption
+msgid "Search:"
+msgstr "Поиск:"
+
+#: tcheckform.modebox.caption
+msgctxt "tcheckform.modebox.caption"
+msgid "OS 6/9"
+msgstr "ОС 6/9"
+
+#: tcheckform.modebox.hint
+msgid "Disabling variant"
+msgstr "Вариант отключения"
+
 #: temulatorform.cancelbtn.caption
 msgctxt "temulatorform.cancelbtn.caption"
 msgid "Cancel"
@@ -113,6 +135,11 @@ msgstr ""
 msgctxt "tmainform.activelabel.caption"
 msgid "launch..."
 msgstr "запуск..."
+
+#: tmainform.applistbtn.caption
+msgctxt "tmainform.applistbtn.caption"
+msgid "applications"
+msgstr "приложения"
 
 #: tmainform.backupbtn.caption
 msgctxt "tmainform.backupbtn.caption"

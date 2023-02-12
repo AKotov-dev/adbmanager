@@ -1,4 +1,4 @@
-unit rebootunit;
+unit RebootUnit;
 
 {$mode objfpc}{$H+}
 

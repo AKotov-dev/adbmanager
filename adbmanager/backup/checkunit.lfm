@@ -1,0 +1,152 @@
+object CheckForm: TCheckForm
+  Left = 414
+  Height = 510
+  Top = 138
+  Width = 593
+  Caption = 'Enable/Disable applications'
+  ClientHeight = 510
+  ClientWidth = 593
+  OnClose = FormClose
+  OnCreate = FormCreate
+  OnShow = FormShow
+  Position = poMainFormCenter
+  SessionProperties = 'Height;Width;ModeBox.Checked'
+  LCLVersion = '2.2.4.0'
+  object AppListBox: TCheckListBox
+    AnchorSideTop.Control = Edit1
+    AnchorSideTop.Side = asrBottom
+    Left = 5
+    Height = 455
+    Top = 50
+    Width = 583
+    Align = alBottom
+    Anchors = [akTop, akLeft, akRight, akBottom]
+    BorderSpacing.Left = 5
+    BorderSpacing.Top = 5
+    BorderSpacing.Right = 5
+    BorderSpacing.Bottom = 5
+    ItemHeight = 0
+    TabOrder = 3
+    TopIndex = -1
+  end
+  object Edit1: TEdit
+    AnchorSideLeft.Control = Label1
+    AnchorSideLeft.Side = asrBottom
+    Left = 50
+    Height = 37
+    Top = 8
+    Width = 211
+    BorderSpacing.Left = 2
+    OnChange = Edit1Change
+    TabOrder = 0
+  end
+  object Label1: TLabel
+    AnchorSideTop.Control = Edit1
+    AnchorSideTop.Side = asrCenter
+    Left = 5
+    Height = 17
+    Top = 18
+    Width = 43
+    Caption = 'Search:'
+    ParentColor = False
+  end
+  object ApplyBtn: TButton
+    AnchorSideTop.Control = Edit1
+    AnchorSideRight.Control = Owner
+    AnchorSideRight.Side = asrBottom
+    AnchorSideBottom.Control = Edit1
+    AnchorSideBottom.Side = asrBottom
+    Left = 481
+    Height = 37
+    Top = 8
+    Width = 107
+    Anchors = [akTop, akRight, akBottom]
+    BorderSpacing.Right = 5
+    Caption = 'Apply'
+    OnClick = ApplyBtnClick
+    TabOrder = 2
+  end
+  object ProgressBar1: TProgressBar
+    AnchorSideLeft.Control = AppListBox
+    AnchorSideLeft.Side = asrCenter
+    AnchorSideTop.Control = AppListBox
+    AnchorSideTop.Side = asrCenter
+    Left = 176
+    Height = 10
+    Top = 272
+    Width = 240
+    TabOrder = 4
+  end
+  object ModeBox: TCheckBox
+    AnchorSideTop.Control = ApplyBtn
+    AnchorSideTop.Side = asrCenter
+    AnchorSideRight.Control = ApplyBtn
+    Left = 401
+    Height = 32
+    Hint = 'Disabling variant'
+    Top = 10
+    Width = 75
+    Anchors = [akTop, akRight]
+    BorderSpacing.Right = 5
+    Caption = 'OS 6/9'
+    Checked = True
+    ParentShowHint = False
+    ShowHint = True
+    State = cbChecked
+    TabOrder = 1
+  end
+  object ClearBtn: TSpeedButton
+    AnchorSideLeft.Control = Edit1
+    AnchorSideLeft.Side = asrBottom
+    AnchorSideTop.Control = Edit1
+    AnchorSideBottom.Control = Edit1
+    AnchorSideBottom.Side = asrBottom
+    Left = 261
+    Height = 37
+    Top = 8
+    Width = 40
+    Anchors = [akTop, akLeft, akBottom]
+    Glyph.Data = {
+      36040000424D3604000000000000360000002800000010000000100000000100
+      2000000000000004000064000000640000000000000000000000536DE862546E
+      E7EE546DE7C65870E72000000000000000000000000000000000000000000000
+      000000000000000000005870E720556EE7C7546EE7EE536DE862546EE8EF546E
+      E7FF546EE7FF536EE7DF5870E720000000000000000000000000000000000000
+      0000000000005870E720536EE7DF546EE7FF546EE7FF546EE7EE546EE7C8546E
+      E7FF546EE7FF546EE7FF536EE7DF5870E7200000000000000000000000000000
+      00005870E720536EE7DF546EE7FF546EE7FF546EE7FF556EE7C7556FE61E546E
+      E7DD546EE7FF546EE7FF546EE7FF546EE7E15371E9220000000000000000556F
+      E61E546EE7DD546EE7FF546EE7FF546EE7FF546EE7E15371E92200000000556F
+      E61E546EE7DD546EE7FF546EE7FF546EE7FF546EE7E15371E922556FE61E546E
+      E7DD546EE7FF546EE7FF546EE7FF546EE7E15371E92200000000000000000000
+      00005870E720536EE7DF546EE7FF546EE7FF546EE7FF536EE7DF536EE7DF546E
+      E7FF546EE7FF546EE7FF536EE7DF5870E7200000000000000000000000000000
+      000000000000556FE61E546EE7DD546EE7FF546EE7FF546EE7FF546EE7FF546E
+      E7FF546EE7FF546EE7E15371E922000000000000000000000000000000000000
+      00000000000000000000556FE61E546EE7DD546EE7FF546EE7FF546EE7FF546E
+      E7FF546EE7E15371E92200000000000000000000000000000000000000000000
+      00000000000000000000556FE61E546EE7DD546EE7FF546EE7FF546EE7FF546E
+      E7FF546EE7E15371E92200000000000000000000000000000000000000000000
+      000000000000556FE61E546EE7DD546EE7FF546EE7FF546EE7FF546EE7FF546E
+      E7FF546EE7FF546EE7E15371E922000000000000000000000000000000000000
+      00005870E720536EE7DF546EE7FF546EE7FF546EE7FF536EE7DF536EE7DF546E
+      E7FF546EE7FF546EE7FF536EE7DF5870E720000000000000000000000000556F
+      E61E546EE7DD546EE7FF546EE7FF546EE7FF546EE7E15371E922556FE61E546E
+      E7DD546EE7FF546EE7FF546EE7FF546EE7E15371E92200000000556FE61E546E
+      E7DD546EE7FF546EE7FF546EE7FF546EE7E15371E9220000000000000000556F
+      E61E546EE7DD546EE7FF546EE7FF546EE7FF546EE7E15371E922556EE7C7546E
+      E7FF546EE7FF546EE7FF536EE7DF5870E7200000000000000000000000000000
+      00005870E720536EE7DF546EE7FF546EE7FF546EE7FF546DE7C6546EE8EF546E
+      E7FF546EE7FF536EE7DF5870E720000000000000000000000000000000000000
+      0000000000005870E720536EE7DF546EE7FF546EE7FF546EE7EE556FE863546E
+      E8EF556EE7C75870E72000000000000000000000000000000000000000000000
+      000000000000000000005870E720546EE7C8546EE8EF536DE862
+    }
+    OnClick = ClearBtnClick
+  end
+  object IniPropStorage1: TIniPropStorage
+    StoredValues = <>
+    Left = 432
+    Top = 72
+  end
+end

@@ -75,6 +75,28 @@ msgctxt "tbackupform.okbtn.caption"
 msgid "OK"
 msgstr ""
 
+#: tcheckform.applybtn.caption
+msgctxt "tcheckform.applybtn.caption"
+msgid "Apply"
+msgstr ""
+
+#: tcheckform.caption
+msgid "Enable/Disable applications"
+msgstr ""
+
+#: tcheckform.label1.caption
+msgid "Search:"
+msgstr ""
+
+#: tcheckform.modebox.caption
+msgctxt "tcheckform.modebox.caption"
+msgid "OS 6/9"
+msgstr ""
+
+#: tcheckform.modebox.hint
+msgid "Disabling variant"
+msgstr ""
+
 #: temulatorform.cancelbtn.caption
 msgctxt "temulatorform.cancelbtn.caption"
 msgid "Cancel"
@@ -95,6 +117,11 @@ msgstr ""
 
 #: tmainform.activelabel.caption
 msgid "launch..."
+msgstr ""
+
+#: tmainform.applistbtn.caption
+msgctxt "tmainform.applistbtn.caption"
+msgid "applications"
 msgstr ""
 
 #: tmainform.backupbtn.caption
@@ -127,6 +154,7 @@ msgid "install"
 msgstr ""
 
 #: tmainform.keylabel.caption
+msgctxt "tmainform.keylabel.caption"
 msgid "wait..."
 msgstr ""
 

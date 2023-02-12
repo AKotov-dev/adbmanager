@@ -27,6 +27,7 @@ type
     Panel1: TPanel;
     Panel2: TPanel;
     ProgressBar1: TProgressBar;
+    AppListBtn: TToolButton;
     SaveDialog1: TSaveDialog;
     SelectDirectoryDialog1: TSelectDirectoryDialog;
     StaticText1: TStaticText;
@@ -84,7 +85,7 @@ var
 implementation
 
 uses ADBDeviceStatusTRD, ADBCommandTRD, RebootUnit, BackUpUnit,
-  SDCardManager, EmulatorUnit;
+  SDCardManager, EmulatorUnit, CheckUnit;
 
 {$R *.lfm}
 
@@ -173,7 +174,7 @@ begin
 
     2: //install
     begin
-      OpenDialog1.Filter := 'APK-Package files (*.apk)|*.apk';
+      OpenDialog1.Filter := 'Package files (*.apk)|*.apk';
       if OpenDialog1.Execute then
         adbcmd := 'adb install "' + OpenDialog1.FileName + '"'
       else
@@ -188,7 +189,13 @@ begin
           adbcmd := 'adb uninstall ' + Trim(S);
       until S <> '';
 
-    4: //backup
+    4: //Отключение ненужных программ (список)
+    begin
+      CheckForm.ShowModal;
+      Exit;
+    end;
+
+    5: //backup
     begin
       BackUPForm := TBackUPForm.Create(Application);
       BackupForm.ShowModal; //Показываем варианты бэкапа
@@ -196,22 +203,22 @@ begin
         Exit;
     end;
 
-    5: //restore
+    6: //restore
     begin
-      OpenDialog1.Filter := 'ADB-Backup files (*.adb)|*.adb';
+      OpenDialog1.Filter := 'Backup files (*.adb)|*.adb';
       if OpenDialog1.Execute then
         adbcmd := 'adb restore "' + Opendialog1.FileName + '"'
       else
         Exit;
     end;
 
-    6: //SD-FileManager
+    7: //SD-FileManager
     begin
       SDForm.Show;
       Exit;
     end;
 
-    7: //screenshot
+    8: //screenshot
       if SelectDirectoryDialog1.Execute then
       begin
         SetCurrentDir(SelectDirectoryDialog1.FileName);
@@ -225,13 +232,13 @@ begin
       else
         Exit;
 
-    8: //Терминал Android Shell
+    9: //Терминал Android Shell
     begin
-      StartProcess('sakura -c 110 -r 35 -f 10 -x "adb shell"');
+      StartProcess('sakura -t "Android Shell" -c 110 -r 35 -f 10 -x "adb shell"');
       Exit;
     end;
 
-    9: //reboot
+    10: //reboot
     begin
       RebootForm := TRebootForm.Create(Application);
       RebootForm.ShowModal; //Показываем варианты Reboot
