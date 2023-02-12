@@ -1,11 +1,11 @@
 object CheckForm: TCheckForm
-  Left = 414
+  Left = 335
   Height = 510
-  Top = 138
-  Width = 593
+  Top = 142
+  Width = 586
   Caption = 'Enable/Disable applications'
   ClientHeight = 510
-  ClientWidth = 593
+  ClientWidth = 586
   OnClose = FormClose
   OnCreate = FormCreate
   OnShow = FormShow
@@ -18,7 +18,7 @@ object CheckForm: TCheckForm
     Left = 5
     Height = 455
     Top = 50
-    Width = 583
+    Width = 576
     Align = alBottom
     Anchors = [akTop, akLeft, akRight, akBottom]
     BorderSpacing.Left = 5
@@ -56,7 +56,7 @@ object CheckForm: TCheckForm
     AnchorSideRight.Side = asrBottom
     AnchorSideBottom.Control = Edit1
     AnchorSideBottom.Side = asrBottom
-    Left = 481
+    Left = 474
     Height = 37
     Top = 8
     Width = 107
@@ -71,7 +71,7 @@ object CheckForm: TCheckForm
     AnchorSideLeft.Side = asrCenter
     AnchorSideTop.Control = AppListBox
     AnchorSideTop.Side = asrCenter
-    Left = 176
+    Left = 173
     Height = 8
     Top = 273
     Width = 240
@@ -81,7 +81,7 @@ object CheckForm: TCheckForm
     AnchorSideTop.Control = ApplyBtn
     AnchorSideTop.Side = asrCenter
     AnchorSideRight.Control = ApplyBtn
-    Left = 401
+    Left = 394
     Height = 32
     Hint = 'Disabling variant'
     Top = 10

@@ -1,11 +1,11 @@
 object MainForm: TMainForm
-  Left = 298
-  Height = 634
-  Top = 127
+  Left = 295
+  Height = 627
+  Top = 125
   Width = 828
   ActiveControl = Panel1
   Caption = 'ADBManager'
-  ClientHeight = 634
+  ClientHeight = 627
   ClientWidth = 828
   OnClose = FormClose
   OnCreate = FormCreate
@@ -74,7 +74,7 @@ object MainForm: TMainForm
   object StaticText1: TStaticText
     Left = 0
     Height = 20
-    Top = 614
+    Top = 607
     Width = 828
     Align = alBottom
     Caption = 'License: GPLv3   Author: alex_q_2000 (C) 2021   URL: https://linuxforum.ru'
@@ -94,7 +94,7 @@ object MainForm: TMainForm
     AnchorSideRight.Side = asrBottom
     AnchorSideBottom.Control = StaticText1
     Left = 0
-    Height = 403
+    Height = 396
     Top = 211
     Width = 828
     ActivePage = DevSheet
@@ -106,7 +106,7 @@ object MainForm: TMainForm
     TabOrder = 2
     object DevSheet: TTabSheet
       Caption = 'no device'
-      ClientHeight = 366
+      ClientHeight = 359
       ClientWidth = 822
       Font.Height = -13
       Font.Name = 'Sans'
@@ -114,7 +114,7 @@ object MainForm: TMainForm
       ParentFont = False
       object LogMemo: TMemo
         Left = 0
-        Height = 366
+        Height = 359
         Top = 0
         Width = 822
         Align = alClient

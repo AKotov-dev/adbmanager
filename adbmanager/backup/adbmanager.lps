@@ -38,11 +38,10 @@
       <Unit0>
         <Filename Value="adbmanager.pas"/>
         <IsPartOfProject Value="True"/>
-        <EditorIndex Value="3"/>
+        <EditorIndex Value="-1"/>
         <TopLine Value="3"/>
         <CursorPos X="22" Y="11"/>
         <UsageCount Value="127"/>
-        <Loaded Value="True"/>
       </Unit0>
       <Unit1>
         <Filename Value="unit1.pas"/>
@@ -61,21 +60,19 @@
         <Filename Value="adbdevicestatustrd.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="ADBDeviceStatusTRD"/>
-        <EditorIndex Value="2"/>
+        <EditorIndex Value="-1"/>
         <TopLine Value="107"/>
         <CursorPos X="32" Y="107"/>
         <UsageCount Value="119"/>
-        <Loaded Value="True"/>
       </Unit2>
       <Unit3>
         <Filename Value="adbcommandtrd.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="ADBCommandTRD"/>
-        <EditorIndex Value="1"/>
+        <EditorIndex Value="-1"/>
         <TopLine Value="78"/>
         <CursorPos X="34" Y="80"/>
         <UsageCount Value="116"/>
-        <Loaded Value="True"/>
       </Unit3>
       <Unit4>
         <Filename Value="rebootunit.pas"/>
@@ -84,11 +81,10 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="RebootUnit"/>
-        <EditorIndex Value="9"/>
+        <EditorIndex Value="-1"/>
         <TopLine Value="47"/>
         <CursorPos X="68" Y="50"/>
         <UsageCount Value="104"/>
-        <Loaded Value="True"/>
       </Unit4>
       <Unit5>
         <Filename Value="backupunit.pas"/>
@@ -97,11 +93,10 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="BackUpUnit"/>
-        <EditorIndex Value="4"/>
+        <EditorIndex Value="-1"/>
         <TopLine Value="32"/>
         <CursorPos X="26" Y="63"/>
         <UsageCount Value="100"/>
-        <Loaded Value="True"/>
       </Unit5>
       <Unit6>
         <Filename Value="sdcardmanager.pas"/>
@@ -110,31 +105,28 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="SDCardManager"/>
-        <EditorIndex Value="10"/>
+        <EditorIndex Value="-1"/>
         <TopLine Value="390"/>
         <CursorPos X="51" Y="392"/>
         <UsageCount Value="96"/>
-        <Loaded Value="True"/>
       </Unit6>
       <Unit7>
         <Filename Value="sdcommandtrd.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="SDCommandTRD"/>
-        <EditorIndex Value="11"/>
+        <EditorIndex Value="-1"/>
         <TopLine Value="90"/>
         <CursorPos X="53" Y="121"/>
         <UsageCount Value="94"/>
-        <Loaded Value="True"/>
       </Unit7>
       <Unit8>
         <Filename Value="lssdfoldertrd.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="LSSDFolderTRD"/>
-        <EditorIndex Value="7"/>
+        <EditorIndex Value="-1"/>
         <TopLine Value="42"/>
         <CursorPos X="48" Y="46"/>
         <UsageCount Value="70"/>
-        <Loaded Value="True"/>
       </Unit8>
       <Unit9>
         <Filename Value="emulatorunit.pas"/>
@@ -143,22 +135,19 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="EmulatorUnit"/>
-        <EditorIndex Value="6"/>
+        <EditorIndex Value="-1"/>
         <TopLine Value="119"/>
         <CursorPos X="3" Y="122"/>
         <UsageCount Value="43"/>
-        <Loaded Value="True"/>
       </Unit9>
       <Unit10>
         <Filename Value="sdmountpointtrd.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="SDMountPointTRD"/>
-        <IsVisibleTab Value="True"/>
-        <EditorIndex Value="12"/>
+        <EditorIndex Value="-1"/>
         <TopLine Value="84"/>
         <CursorPos X="69" Y="88"/>
         <UsageCount Value="30"/>
-        <Loaded Value="True"/>
       </Unit10>
       <Unit11>
         <Filename Value="checkunit.pas"/>
@@ -167,9 +156,10 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="CheckUnit"/>
-        <EditorIndex Value="5"/>
+        <IsVisibleTab Value="True"/>
+        <EditorIndex Value="1"/>
         <TopLine Value="43"/>
-        <CursorPos X="68" Y="50"/>
+        <CursorPos X="21" Y="45"/>
         <UsageCount Value="27"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -178,9 +168,9 @@
         <Filename Value="readappstrdunit.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="ReadAppsTRDUnit"/>
-        <EditorIndex Value="8"/>
+        <EditorIndex Value="2"/>
         <TopLine Value="97"/>
-        <CursorPos X="60" Y="101"/>
+        <CursorPos X="17" Y="99"/>
         <UsageCount Value="26"/>
         <Loaded Value="True"/>
       </Unit12>
