@@ -1,16 +1,16 @@
 object CheckForm: TCheckForm
-  Left = 414
+  Left = 303
   Height = 510
-  Top = 138
-  Width = 593
-  Caption = 'Enable/Disable applications'
+  Top = 128
+  Width = 592
+  Caption = 'Enable/Disable/Uninstall applications'
   ClientHeight = 510
-  ClientWidth = 593
+  ClientWidth = 592
   OnClose = FormClose
   OnCreate = FormCreate
   OnShow = FormShow
   Position = poMainFormCenter
-  SessionProperties = 'Height;Width;ModeBox.Checked'
+  SessionProperties = 'Height;Width'
   LCLVersion = '2.2.4.0'
   object AppListBox: TCheckListBox
     AnchorSideTop.Control = Edit1
@@ -18,7 +18,7 @@ object CheckForm: TCheckForm
     Left = 5
     Height = 455
     Top = 50
-    Width = 583
+    Width = 582
     Align = alBottom
     Anchors = [akTop, akLeft, akRight, akBottom]
     BorderSpacing.Left = 5
@@ -56,7 +56,7 @@ object CheckForm: TCheckForm
     AnchorSideRight.Side = asrBottom
     AnchorSideBottom.Control = Edit1
     AnchorSideBottom.Side = asrBottom
-    Left = 481
+    Left = 480
     Height = 37
     Top = 8
     Width = 107
@@ -81,18 +81,17 @@ object CheckForm: TCheckForm
     AnchorSideTop.Control = ApplyBtn
     AnchorSideTop.Side = asrCenter
     AnchorSideRight.Control = ApplyBtn
-    Left = 401
+    Left = 364
     Height = 32
-    Hint = 'Disabling variant'
+    Hint = 'Uninstalling selected applications (Android >= 6)'
     Top = 10
-    Width = 75
+    Width = 111
     Anchors = [akTop, akRight]
     BorderSpacing.Right = 5
-    Caption = 'OS 6/9'
-    Checked = True
+    Caption = 'Delete mode'
+    OnClick = ModeBoxClick
     ParentShowHint = False
     ShowHint = True
-    State = cbChecked
     TabOrder = 1
   end
   object ClearBtn: TSpeedButton
@@ -143,6 +142,7 @@ object CheckForm: TCheckForm
       000000000000000000005870E720546EE7C8546EE8EF536DE862
     }
     OnClick = ClearBtnClick
+    ParentShowHint = False
   end
   object IniPropStorage1: TIniPropStorage
     StoredValues = <>

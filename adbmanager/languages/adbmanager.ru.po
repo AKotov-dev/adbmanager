@@ -96,8 +96,8 @@ msgid "Apply"
 msgstr "Применить"
 
 #: tcheckform.caption
-msgid "Enable/Disable applications"
-msgstr "Включение/Отключение приложений"
+msgid "Enable/Disable/Uninstall applications"
+msgstr "Включить/Отключить/Удалить приложения"
 
 #: tcheckform.label1.caption
 msgid "Search:"
@@ -105,12 +105,12 @@ msgstr "Поиск:"
 
 #: tcheckform.modebox.caption
 msgctxt "tcheckform.modebox.caption"
-msgid "OS 6/9"
-msgstr "ОС 6/9"
+msgid "Delete mode"
+msgstr "Режим удаления"
 
 #: tcheckform.modebox.hint
-msgid "Disabling variant"
-msgstr "Вариант отключения"
+msgid "Uninstalling selected applications (Android >= 6)"
+msgstr "Удалять выбранные приложения (Android >= 6)"
 
 #: temulatorform.cancelbtn.caption
 msgctxt "temulatorform.cancelbtn.caption"
@@ -352,6 +352,24 @@ msgstr "Выделить всё"
 #: tsdform.upbtn.hint
 msgid "Upper level (BackSpace)"
 msgstr "Верхний уровень (BackSpace)"
+
+#: unit1.sdeleteapk
+msgid ""
+"ATTENTION! BE CAREFUL!\n"
+"\n"
+"Removing packages may disrupt the system! \n"
+"\n"
+"Before deleting, BE SURE TO MAKE A BACKUP! \n"
+"\n"
+"Delete selected applications?"
+msgstr ""
+"ВНИМАНИЕ! БУДЬТЕ ОСТОРОЖНЫ!\n"
+"\n"
+"Удаление пакетов может нарушить работу системы!\n"
+"\n"
+"Перед удалением ОБЯЗАТЕЛЬНО СДЕЛАЙТЕ BACKUP!\n"
+"\n"
+"Удалить выбранные приложения?"
 
 #: unit1.sdeletecaption
 msgctxt "unit1.sdeletecaption"

@@ -27,6 +27,7 @@ type
     procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
+    procedure ModeBoxClick(Sender: TObject);
   private
 
   public
@@ -52,8 +53,9 @@ begin
   //For Plasma
   IniPropStorage1.Restore;
 
-  Edit1.Clear;
   AppListBox.Clear;
+  Edit1.Clear;
+  ModeBox.Checked := False;
   ClearBtn.Width := Edit1.Height;
 
   //Виртуальный список для сравнения чекбоксов (исходный)
@@ -64,11 +66,36 @@ begin
   FReadAppsTRD.Priority := tpNormal;
 end;
 
-//Поиск в списке по части слова
+//Режим: Отключение или Удаление приложений
+procedure TCheckForm.ModeBoxClick(Sender: TObject);
+var
+  FReadAppsTRD: TThread;
+begin
+  if AppListBox.Count <> 0 then
+  begin
+    ClearBtn.Click;
+
+    if ModeBox.Checked then
+      //Снимаем все чекбоксы
+      AppListBox.CheckAll(cbUnchecked)
+    else
+    begin
+      AppListBox.Clear;
+      //Запуск потока загрузки списка приложений
+      FReadAppsTRD := ReadAppsTRD.Create(False);
+      FReadAppsTRD.Priority := tpNormal;
+    end;
+  end;
+end;
+
+//Поиск в списке по части *имени_приложения*
 procedure TCheckForm.Edit1Change(Sender: TObject);
 var
   I: integer;
 begin
+  //Обход при Form.ShowModal, списка ещё нет
+  if AppListBox.Count = 0 then Exit;
+
   AppListBox.Items.BeginUpdate;
   try
     for I := 0 to AppListBox.Items.Count - 1 do
@@ -78,6 +105,7 @@ begin
   end;
 end;
 
+//Очищаем виртуальный список чекеров, сохраняем настройки формы
 procedure TCheckForm.FormClose(Sender: TObject; var CloseAction: TCloseAction);
 begin
   VList.Free;
@@ -89,25 +117,49 @@ begin
   IniPropStorage1.IniFileName := MainForm.IniPropStorage1.IniFileName;
 end;
 
-//Применение параметров Включения/Отключения
+//Применение параметров: Включение/Отключение/Удаление приложений
 procedure TCheckForm.ApplyBtnClick(Sender: TObject);
 var
+  a: boolean;
   i: integer;
 begin
+  a := False;
   adbcmd := '';
 
-  for i := 0 to VList.Count - 1 do
-    if AppListBox.Checked[i] <> StrToBool(VList[i]) then
-    begin
+  //Удаление?
+  if ModeBox.Checked then
+  begin
+    //Выбран ли хоть один чекер?
+    for i := 0 to AppListBox.Count - 1 do
       if AppListBox.Checked[i] = True then
-        adbcmd := adbcmd + 'adb shell pm enable ' + AppListBox.Items[i] + ';'
-      else
-      if ModeBox.Checked then
-        adbcmd := adbcmd + 'adb shell pm disable-user --user 0 ' +
-          AppListBox.Items[i] + ';'
-      else
-        adbcmd := adbcmd + 'adb shell pm disable ' + AppListBox.Items[i] + ';';
-    end;
+      begin
+        a := True;
+        Break;
+      end;
+
+    if not a then CheckForm.Close
+    else if MessageDlg(SDeleteAPK, mtWarning, [mbYes, mbNo], 0) <> mrYes then
+      Exit;
+
+    //Команда для удаления приложений
+    for i := 0 to AppListBox.Count - 1 do
+      if AppListBox.Checked[i] = True then
+        adbcmd := adbcmd + 'adb shell pm uninstall -k --user 0 ' +
+          AppListBox.Items[i] + ';';
+  end
+  else //Отключение?
+  begin
+    //Команда для отключения приложений
+    for i := 0 to VList.Count - 1 do
+      if AppListBox.Checked[i] <> StrToBool(VList[i]) then
+      begin
+        if AppListBox.Checked[i] = True then
+          adbcmd := adbcmd + 'adb shell pm enable ' + AppListBox.Items[i] + ';'
+        else
+          adbcmd := adbcmd + 'adb shell pm disable-user --user 0 ' +
+            AppListBox.Items[i] + ';';
+      end;
+  end;
 
   //Запуск команды и потока отображения лога исполнения
   if adbcmd <> '' then

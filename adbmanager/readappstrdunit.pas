@@ -19,8 +19,8 @@ type
     procedure Execute; override;
 
     procedure ShowAppList;
-    procedure StopProgress;
-    procedure StartProgress;
+    procedure StopRead;
+    procedure StartRead;
 
   end;
 
@@ -30,13 +30,13 @@ uses CheckUnit;
 
 { TRD }
 
-//Вывод списка и прогресса
+//Вывод списка приложений для Включения/Отключения
 procedure ReadAppsTRD.Execute;
 var
   ExProcess: TProcess;
 begin
   try
-    Synchronize(@StartProgress);
+    Synchronize(@StartRead);
 
     S := TStringList.Create;
 
@@ -59,7 +59,7 @@ begin
     if S.Count <> 0 then
       Synchronize(@ShowAppList);
 
-    //Все неактивные приложения
+    //Читаем все неактивные приложения
     ExProcess.Parameters.Delete(1);
     ExProcess.Parameters.Add('adb shell pm list packages -d | cut -d":" -f2');
     ExProcess.Execute;
@@ -68,7 +68,7 @@ begin
     S.Text := Trim(S.Text);
 
   finally
-    Synchronize(@StopProgress);
+    Synchronize(@StopRead);
     S.Free;
     ExProcess.Free;
     Terminate;
@@ -86,20 +86,20 @@ begin
 end;
 
 //Старт
-procedure ReadAppsTRD.StartProgress;
+procedure ReadAppsTRD.StartRead;
 begin
- { CheckForm.Label2.Visible := True;
-  CheckForm.Label2.Repaint;}
   with CheckForm do
   begin
+    ModeBox.Enabled := False;
+    ApplyBtn.Enabled := False;
+    ProgressBar1.Style := pbstMarquee;
     ProgressBar1.Visible := True;
     ProgressBar1.Repaint;
-    ProgressBar1.Style := pbstMarquee;
   end;
 end;
 
 //Стоп
-procedure ReadAppsTRD.StopProgress;
+procedure ReadAppsTRD.StopRead;
 var
   i: integer;
 begin
@@ -109,20 +109,24 @@ begin
     for i := 0 to AppListBox.Items.Count - 1 do
       AppListBox.Checked[i] := True;
 
-    //Отключение неактивных
+    //Отключение неактивных приложений
     for i := 0 to S.Count - 1 do
       AppListBox.Checked[AppListBox.Items.IndexOf(S[i])] := False;
 
-    //Сохраняем состояние чекбоксов в виртуальный список
+    //Сохраняем состояние items-чекбоксов в виртуальный список VList
+    //Очищаем для повторного использования и начитываем заново
     VList.Clear;
+
     for i := 0 to AppListBox.Items.Count - 1 do
       if AppListBox.Checked[i] then VList.Add('1')
       else
         VList.Add('0');
 
+    ModeBox.Enabled := True;
+    ApplyBtn.Enabled := True;
+    ProgressBar1.Style := pbstNormal;
     ProgressBar1.Visible := False;
     ProgressBar1.Repaint;
-    ProgressBar1.Style := pbstNormal;
   end;
 end;
 

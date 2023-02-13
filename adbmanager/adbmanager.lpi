@@ -7,7 +7,7 @@
         <CompatibilityMode Value="True"/>
       </Flags>
       <SessionStorage Value="InProjectDir"/>
-      <Title Value="ADBManager v2.8"/>
+      <Title Value="ADBManager v2.9"/>
       <Scaled Value="True"/>
       <ResourceType Value="res"/>
       <UseXPManifest Value="True"/>

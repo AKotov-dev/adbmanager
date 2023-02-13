@@ -92,7 +92,7 @@ msgid "Apply"
 msgstr ""
 
 #: tcheckform.caption
-msgid "Enable/Disable applications"
+msgid "Enable/Disable/Uninstall applications"
 msgstr ""
 
 #: tcheckform.label1.caption
@@ -101,11 +101,11 @@ msgstr ""
 
 #: tcheckform.modebox.caption
 msgctxt "tcheckform.modebox.caption"
-msgid "OS 6/9"
+msgid "Delete mode"
 msgstr ""
 
 #: tcheckform.modebox.hint
-msgid "Disabling variant"
+msgid "Uninstalling selected applications (Android >= 6)"
 msgstr ""
 
 #: temulatorform.cancelbtn.caption
@@ -327,6 +327,17 @@ msgstr ""
 
 #: tsdform.upbtn.hint
 msgid "Upper level (BackSpace)"
+msgstr ""
+
+#: unit1.sdeleteapk
+msgid ""
+"ATTENTION! BE CAREFUL!\n"
+"\n"
+"Removing packages may disrupt the system! \n"
+"\n"
+"Before deleting, BE SURE TO MAKE A BACKUP! \n"
+"\n"
+"Delete selected applications?"
 msgstr ""
 
 #: unit1.sdeletecaption
