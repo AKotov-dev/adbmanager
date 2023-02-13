@@ -51,7 +51,7 @@
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="Unit1"/>
         <IsVisibleTab Value="True"/>
-        <CursorPos X="21"/>
+        <CursorPos X="14"/>
         <UsageCount Value="129"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -167,7 +167,7 @@
         <IsPartOfProject Value="True"/>
         <UnitName Value="ReadAppsTRDUnit"/>
         <EditorIndex Value="2"/>
-        <CursorPos X="28"/>
+        <CursorPos X="24"/>
         <UsageCount Value="28"/>
         <Loaded Value="True"/>
       </Unit12>
