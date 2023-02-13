@@ -38,10 +38,12 @@
       <Unit0>
         <Filename Value="adbmanager.pas"/>
         <IsPartOfProject Value="True"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="3"/>
-        <CursorPos X="22" Y="11"/>
+        <IsVisibleTab Value="True"/>
+        <EditorIndex Value="1"/>
+        <TopLine Value="2"/>
+        <CursorPos X="37" Y="11"/>
         <UsageCount Value="129"/>
+        <Loaded Value="True"/>
       </Unit0>
       <Unit1>
         <Filename Value="unit1.pas"/>
@@ -50,9 +52,8 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="Unit1"/>
-        <IsVisibleTab Value="True"/>
         <TopLine Value="59"/>
-        <CursorPos X="28" Y="62"/>
+        <CursorPos X="47" Y="65"/>
         <UsageCount Value="129"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -157,7 +158,7 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="CheckUnit"/>
-        <EditorIndex Value="1"/>
+        <EditorIndex Value="2"/>
         <TopLine Value="67"/>
         <CursorPos X="7" Y="73"/>
         <UsageCount Value="29"/>
@@ -168,9 +169,8 @@
         <Filename Value="readappstrdunit.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="ReadAppsTRDUnit"/>
-        <EditorIndex Value="2"/>
-        <TopLine Value="88"/>
-        <CursorPos X="9" Y="88"/>
+        <EditorIndex Value="3"/>
+        <CursorPos X="28"/>
         <UsageCount Value="28"/>
         <Loaded Value="True"/>
       </Unit12>

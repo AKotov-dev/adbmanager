@@ -39,8 +39,8 @@
         <Filename Value="adbmanager.pas"/>
         <IsPartOfProject Value="True"/>
         <EditorIndex Value="-1"/>
-        <TopLine Value="3"/>
-        <CursorPos X="22" Y="11"/>
+        <TopLine Value="2"/>
+        <CursorPos X="37" Y="11"/>
         <UsageCount Value="129"/>
       </Unit0>
       <Unit1>
@@ -51,8 +51,7 @@
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="Unit1"/>
         <IsVisibleTab Value="True"/>
-        <TopLine Value="59"/>
-        <CursorPos X="28" Y="62"/>
+        <CursorPos X="21"/>
         <UsageCount Value="129"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -158,8 +157,7 @@
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="CheckUnit"/>
         <EditorIndex Value="1"/>
-        <TopLine Value="67"/>
-        <CursorPos X="7" Y="73"/>
+        <CursorPos X="18"/>
         <UsageCount Value="29"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -169,8 +167,7 @@
         <IsPartOfProject Value="True"/>
         <UnitName Value="ReadAppsTRDUnit"/>
         <EditorIndex Value="2"/>
-        <TopLine Value="88"/>
-        <CursorPos X="9" Y="88"/>
+        <CursorPos X="28"/>
         <UsageCount Value="28"/>
         <Loaded Value="True"/>
       </Unit12>

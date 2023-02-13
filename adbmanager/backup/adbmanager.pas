@@ -2,18 +2,29 @@ program adbmanager;
 
 {$mode objfpc}{$H+}
 
-uses {$IFDEF UNIX}
-  cthreads, {$ENDIF}
+uses
+ {$IFDEF UNIX}
+  cthreads,  {$ENDIF}
   Interfaces, // this includes the LCL widgetset
-  Forms, Unit1, ADBDeviceStatusTRD, ADBCommandTRD, RebootUnit, BackUpUnit,
-  SDCardManager, SDCommandTRD, LSSDFolderTRD, EmulatorUnit, SDMountPointTRD,
-  CheckUnit, ReadAppsTRDUnit { you can add units after this };
+  Forms,
+  Unit1,
+  ADBDeviceStatusTRD,
+  ADBCommandTRD,
+  RebootUnit,
+  BackUpUnit,
+  SDCardManager,
+  SDCommandTRD,
+  LSSDFolderTRD,
+  EmulatorUnit,
+  SDMountPointTRD,
+  CheckUnit,
+  ReadAppsTRDUnit { you can add units after this };
 
 {$R *.res}
 
 begin
   RequireDerivedFormResource := True;
-  Application.Title:='ADBManager v2.8';
+  Application.Title:='ADBManager v2.9';
   Application.Scaled:=True;
   Application.Initialize;
   Application.CreateForm(TMainForm, MainForm);
