@@ -294,10 +294,13 @@ object MainForm: TMainForm
     object AppListBtn: TToolButton
       Tag = 4
       Left = 265
+      Hint = 'For Android >= 6'
       Top = 2
       Caption = 'applications'
       ImageIndex = 4
       OnClick = ApkInfoBtnClick
+      ParentShowHint = False
+      ShowHint = True
     end
   end
   object Panel2: TPanel

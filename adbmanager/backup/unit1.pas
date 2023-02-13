@@ -81,7 +81,7 @@ resourcestring
   SDeleteAPK = 'ATTENTION! BE CAREFUL!' + #13#10 + #13#10 +
     'Removing packages may disrupt the system! ' + #13#10 + #13#10 +
     'Before deleting, ' + 'BE SURE TO MAKE A BACKUP! ' + #13#10 +
-    #13#10 + 'Delete selected packages?';
+    #13#10 + 'Delete selected applications?';
 
 var
   MainForm: TMainForm;

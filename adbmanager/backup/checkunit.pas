@@ -66,7 +66,7 @@ begin
   FReadAppsTRD.Priority := tpNormal;
 end;
 
-//Отключение или Удаление приложений
+//Режим: Отключение или Удаление приложений
 procedure TCheckForm.ModeBoxClick(Sender: TObject);
 var
   FReadAppsTRD: TThread;

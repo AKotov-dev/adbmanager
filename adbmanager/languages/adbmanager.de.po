@@ -135,6 +135,10 @@ msgctxt "tmainform.applistbtn.caption"
 msgid "applications"
 msgstr ""
 
+#: tmainform.applistbtn.hint
+msgid "For Android >= 6"
+msgstr ""
+
 #: tmainform.backupbtn.caption
 msgid "backup"
 msgstr "Backup"
