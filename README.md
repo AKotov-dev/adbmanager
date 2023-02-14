@@ -21,7 +21,7 @@ Connecting via ADB over Wi-Fi
 + Disconnect the smartphone from the USB  
 + Press the `emulator` button and enter the IP address of the smartphone
 
-Tested in Mageia-8 and Linux Mint-20.  
+Tested in Mageia-8/9 and Linux Mint-20.  
 
 Dependencies: adb, iproute2, sakura, nmap, gtk2  
 Free icons: https://icon-icons.com/ru/
