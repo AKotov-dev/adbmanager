@@ -26,9 +26,9 @@ Tested in Mageia-8 and Linux Mint-20.
 Dependencies: adb, iproute2, sakura, nmap, gtk2  
 Free icons: https://icon-icons.com/ru/
 
-![](https://github.com/AKotov-dev/adbmanager/blob/main/ScreenShot/ADBManager-v2.9-0.png)  
+![](https://github.com/AKotov-dev/adbmanager/blob/main/ScreenShot/ADBManager1.png)  
   
-![](https://github.com/AKotov-dev/adbmanager/blob/main/ScreenShot/ADBManager-v2.6-2.png)
+![](https://github.com/AKotov-dev/adbmanager/blob/main/ScreenShot/ADBManager2.png)
   
 Translations
 --
