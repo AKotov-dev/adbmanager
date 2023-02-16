@@ -144,7 +144,7 @@ begin
     //Команда для удаления приложений
     for i := 0 to AppListBox.Count - 1 do
       if AppListBox.Checked[i] = True then
-        adbcmd := adbcmd + 'adb shell pm uninstall -k --user 0 ' +
+        adbcmd := adbcmd + 'adb shell pm uninstall --user 0 ' +
           AppListBox.Items[i] + ';';
   end
   else //Отключение?
