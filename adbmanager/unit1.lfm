@@ -7,7 +7,6 @@ object MainForm: TMainForm
   Caption = 'ADBManager'
   ClientHeight = 627
   ClientWidth = 828
-  OnClose = FormClose
   OnCreate = FormCreate
   OnShow = FormShow
   SessionProperties = 'Left;Top;Width;Height'

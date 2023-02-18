@@ -47,7 +47,6 @@ type
     UninstallBtn: TToolButton;
     ExitBtn: TToolButton;
     procedure ApkInfoBtnClick(Sender: TObject);
-    procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
     procedure FormCreate(Sender: TObject);
     procedure ActiveLabelChangeBounds(Sender: TObject);
     procedure FormShow(Sender: TObject);
@@ -77,8 +76,8 @@ resourcestring
   SRestart = 'restart...';
   SLaunched = 'launched';
   SDeleteAPK = 'ATTENTION! BE CAREFUL!' + #13#10 + #13#10 +
-    'Removing packages may disrupt the system! ' + #13#10 + #13#10 +
-    'Before deleting, ' + 'BE SURE TO MAKE A BACKUP! ' + #13#10 +
+    'Removing packages may disrupt the system!' + #13#10 + #13#10 +
+    'Before deleting, ' + 'BE SURE TO MAKE A BACKUP!' + #13#10 +
     #13#10 + 'Delete selected applications?';
 
 var
@@ -86,8 +85,8 @@ var
 
 implementation
 
-uses ADBDeviceStatusTRD, ADBCommandTRD, RebootUnit, BackUpUnit,
-  SDCardManager, EmulatorUnit, CheckUnit;
+uses ADBDeviceStatusTRD, ADBCommandTRD, RebootUnit, SDCardManager,
+  EmulatorUnit, CheckUnit;
 
 {$R *.lfm}
 
@@ -234,13 +233,6 @@ begin
 
   //Запуск команды и потока отображения лога исполнения
   StartADBCmd;
-end;
-
-procedure TMainForm.FormClose(Sender: TObject; var CloseAction: TCloseAction);
-begin
-  //Прерывание/Сброс запущенного/зависшего бэкапа
-  // StartProcess('[[ $(adb shell pgrep -f com.android.backupconfirm) ]] && adb shell am force-stop com.android.backupconfirm');
-  // StartProcess('adb shell su 0 "killall com.android.backupconfirm"');
 end;
 
 //Индикация статуса цветом

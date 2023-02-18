@@ -4,14 +4,13 @@ program adbmanager;
 
 uses
  {$IFDEF UNIX}
-  cthreads,  {$ENDIF}
+  cthreads,   {$ENDIF}
   Interfaces, // this includes the LCL widgetset
   Forms,
   Unit1,
   ADBDeviceStatusTRD,
   ADBCommandTRD,
   RebootUnit,
-  BackUpUnit,
   SDCardManager,
   SDCommandTRD,
   LSSDFolderTRD,
@@ -24,7 +23,7 @@ uses
 
 begin
   RequireDerivedFormResource := True;
-  Application.Title:='ADBManager v2.9';
+  Application.Title:='ADBManager v3.1';
   Application.Scaled:=True;
   Application.Initialize;
   Application.CreateForm(TMainForm, MainForm);
