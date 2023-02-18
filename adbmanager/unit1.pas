@@ -191,7 +191,7 @@ begin
           adbcmd := 'adb uninstall ' + Trim(S);
       until S <> '';
 
-    4: //Отключение ненужных программ (список)
+    4: //Отключение/Удаление приложений
     begin
       CheckForm.ShowModal;
       Exit;

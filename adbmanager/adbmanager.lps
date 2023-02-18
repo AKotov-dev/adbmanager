@@ -51,8 +51,8 @@
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="Unit1"/>
         <IsVisibleTab Value="True"/>
-        <TopLine Value="211"/>
-        <CursorPos X="6" Y="226"/>
+        <TopLine Value="190"/>
+        <CursorPos X="40" Y="194"/>
         <UsageCount Value="129"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -62,7 +62,7 @@
         <IsPartOfProject Value="True"/>
         <UnitName Value="ADBDeviceStatusTRD"/>
         <EditorIndex Value="1"/>
-        <TopLine Value="65"/>
+        <TopLine Value="76"/>
         <CursorPos X="32" Y="107"/>
         <UsageCount Value="121"/>
         <Loaded Value="True"/>
@@ -148,7 +148,7 @@
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="CheckUnit"/>
         <EditorIndex Value="3"/>
-        <CursorPos X="25" Y="2"/>
+        <CursorPos X="58" Y="4"/>
         <UsageCount Value="29"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>

@@ -37,7 +37,6 @@ type
     DeleteKeyBtn: TToolButton;
     ToolBar2: TToolBar;
     InstallBtn: TToolButton;
-    RestoreBtn: TToolButton;
     SearchBtn: TToolButton;
     ScreenShotBtn: TToolButton;
     RebootBtn: TToolButton;
@@ -46,7 +45,6 @@ type
     ConnectBtn: TToolButton;
     ToolButton4: TToolButton;
     UninstallBtn: TToolButton;
-    BackupBtn: TToolButton;
     ExitBtn: TToolButton;
     procedure ApkInfoBtnClick(Sender: TObject);
     procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
@@ -199,30 +197,13 @@ begin
       Exit;
     end;
 
-    5: //backup
-    begin
-      BackUPForm := TBackUPForm.Create(Application);
-      BackupForm.ShowModal; //Показываем варианты бэкапа
-      if BackupForm.ModalResult <> mrOk then
-        Exit;
-    end;
-
-    6: //restore
-    begin
-      OpenDialog1.Filter := 'Backup files (*.adb)|*.adb';
-      if OpenDialog1.Execute then
-        adbcmd := 'adb restore "' + Opendialog1.FileName + '"'
-      else
-        Exit;
-    end;
-
-    7: //SD-FileManager
+    5: //SD-FileManager
     begin
       SDForm.Show;
       Exit;
     end;
 
-    8: //screenshot
+    6: //screenshot
       if SelectDirectoryDialog1.Execute then
       begin
         SetCurrentDir(SelectDirectoryDialog1.FileName);
@@ -236,13 +217,13 @@ begin
       else
         Exit;
 
-    9: //Терминал Android Shell
+    7: //Терминал Android Shell
     begin
       StartProcess('sakura -t "Android Shell" -c 110 -r 36 -f 10 -x "adb shell"');
       Exit;
     end;
 
-    10: //reboot
+    8: //reboot
     begin
       RebootForm := TRebootForm.Create(Application);
       RebootForm.ShowModal; //Показываем варианты Reboot
