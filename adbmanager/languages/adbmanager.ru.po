@@ -12,15 +12,6 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Poedit 3.2.2\n"
 
-#: backupunit.snoshared
-msgctxt "backupunit.snoshared"
-msgid "Backup without SD-card"
-msgstr "Бэкап без SD-карты"
-
-#: backupunit.sshared
-msgid "Full backup (long procedure)"
-msgstr "Полный бэкап (долгая процедура)"
-
 #: emulatorunit.sscanactiveconnection
 msgid "Scan active connection"
 msgstr "Сканировать активные подключения"
@@ -74,21 +65,6 @@ msgstr "Папка уже существует!"
 msgctxt "sdcardmanager.soverwriteobject"
 msgid "Overwrite existing objects?"
 msgstr "Перезаписать существующие объекты?"
-
-#: tbackupform.cancelbtn.caption
-msgctxt "tbackupform.cancelbtn.caption"
-msgid "Cancel"
-msgstr "Отмена"
-
-#: tbackupform.caption
-msgctxt "tbackupform.caption"
-msgid "Backup"
-msgstr "Бэкап"
-
-#: tbackupform.okbtn.caption
-msgctxt "tbackupform.okbtn.caption"
-msgid "OK"
-msgstr ""
 
 #: tcheckform.applybtn.caption
 msgctxt "tcheckform.applybtn.caption"
@@ -144,11 +120,6 @@ msgstr "приложения"
 #: tmainform.applistbtn.hint
 msgid "For Android >= 6"
 msgstr "Для Android >= 6"
-
-#: tmainform.backupbtn.caption
-msgctxt "tmainform.backupbtn.caption"
-msgid "backup"
-msgstr "бэкап"
 
 #: tmainform.caption
 msgid "ADBManager"
@@ -218,11 +189,6 @@ msgstr "перезагрузка"
 msgctxt "tmainform.restartbtn.caption"
 msgid "Restart"
 msgstr "Рестарт"
-
-#: tmainform.restorebtn.caption
-msgctxt "tmainform.restorebtn.caption"
-msgid "restore"
-msgstr "рестор"
 
 #: tmainform.screenshotbtn.caption
 msgctxt "tmainform.screenshotbtn.caption"
@@ -417,3 +383,4 @@ msgstr "Введите строку поиска или *"
 #: unit1.syes
 msgid "yes"
 msgstr "да"
+

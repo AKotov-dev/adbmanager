@@ -13,8 +13,6 @@
 {"hash":106991074,"name":"tmainform.toolbar2.caption","sourcebytes":[84,111,111,108,66,97,114,50],"value":"ToolBar2"},
 {"hash":5941340,"name":"tmainform.installbtn.caption","sourcebytes":[105,110,115,116,97,108,108],"value":"install"},
 {"hash":5954684,"name":"tmainform.uninstallbtn.caption","sourcebytes":[117,110,105,110,115,116,97,108,108],"value":"uninstall"},
-{"hash":109552320,"name":"tmainform.backupbtn.caption","sourcebytes":[98,97,99,107,117,112],"value":"backup"},
-{"hash":147502837,"name":"tmainform.restorebtn.caption","sourcebytes":[114,101,115,116,111,114,101],"value":"restore"},
 {"hash":197264868,"name":"tmainform.screenshotbtn.caption","sourcebytes":[115,99,114,101,101,110,115,104,111,116],"value":"screenshot"},
 {"hash":126588516,"name":"tmainform.rebootbtn.caption","sourcebytes":[114,101,98,111,111,116],"value":"reboot"},
 {"hash":144569323,"name":"tmainform.searchbtn.caption","sourcebytes":[115,101,97,114,99,104,32,97,112,107],"value":"search apk"},

@@ -11,7 +11,6 @@ uses
   ADBDeviceStatusTRD,
   ADBCommandTRD,
   RebootUnit,
-  BackUpUnit,
   SDCardManager,
   SDCommandTRD,
   LSSDFolderTRD,
@@ -24,7 +23,7 @@ uses
 
 begin
   RequireDerivedFormResource := True;
-  Application.Title:='ADBManager v3.0';
+  Application.Title:='ADBManager v3.1';
   Application.Scaled:=True;
   Application.Initialize;
   Application.CreateForm(TMainForm, MainForm);

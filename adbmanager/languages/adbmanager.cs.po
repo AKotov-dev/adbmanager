@@ -12,14 +12,6 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n>=2 && n<=4 ? 1 : 2);\n"
 "Language: cs\n"
 
-#: backupunit.snoshared
-msgid "Backup without SD-card"
-msgstr ""
-
-#: backupunit.sshared
-msgid "Full backup (long procedure)"
-msgstr ""
-
 #: emulatorunit.sscanactiveconnection
 msgid "Scan active connection"
 msgstr ""
@@ -70,20 +62,6 @@ msgstr ""
 
 #: sdcardmanager.soverwriteobject
 msgid "Overwrite existing objects?"
-msgstr ""
-
-#: tbackupform.cancelbtn.caption
-msgctxt "tbackupform.cancelbtn.caption"
-msgid "Cancel"
-msgstr ""
-
-#: tbackupform.caption
-msgid "Backup"
-msgstr ""
-
-#: tbackupform.okbtn.caption
-msgctxt "tbackupform.okbtn.caption"
-msgid "OK"
 msgstr ""
 
 #: tcheckform.applybtn.caption
@@ -137,10 +115,6 @@ msgstr ""
 
 #: tmainform.applistbtn.hint
 msgid "For Android >= 6"
-msgstr ""
-
-#: tmainform.backupbtn.caption
-msgid "backup"
 msgstr ""
 
 #: tmainform.caption
@@ -200,10 +174,6 @@ msgstr ""
 
 #: tmainform.restartbtn.caption
 msgid "Restart"
-msgstr ""
-
-#: tmainform.restorebtn.caption
-msgid "restore"
 msgstr ""
 
 #: tmainform.screenshotbtn.caption
