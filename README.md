@@ -11,7 +11,7 @@ Update the rules for Android devices on your computer, include the active user i
 su/password
 groupadd adbusers #if ADBManager is not installed from the package (portable)
 usermod -aG adbusers $(logname)
-cd /usr/lib/udev/rules.d
+cd /etc/udev/rules.d
 wget https://raw.githubusercontent.com/M0Rf30/android-udev-rules/master/51-android.rules -O ./51-android.rules
 reboot
 ```
