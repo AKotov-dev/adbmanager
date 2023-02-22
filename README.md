@@ -9,8 +9,7 @@ Access to the device via USB and rules
 Update the rules for Android devices on your computer, include the active user in the `adbusers` group and reboot:  
 ```
 su/password
-groupadd adbusers #if ADBManager is not installed from the package (portable)
-usermod -aG adbusers $(logname)
+groupadd adbusers; usermod -aG adbusers $(logname)
 wget https://raw.githubusercontent.com/M0Rf30/android-udev-rules/master/51-android.rules -O /etc/udev/rules.d/51-android.rules
 reboot
 ```
