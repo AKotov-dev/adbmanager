@@ -19,7 +19,7 @@ group=Applications/System
 maintainer=Alex Kotov
 
 [VENDOR]
-vendor=alex_q_2000 (C) 2021
+vendor=alex_q_2000 (C) 2025
 
 [SUMMARY]
 summary=Graphical ADB Manager
