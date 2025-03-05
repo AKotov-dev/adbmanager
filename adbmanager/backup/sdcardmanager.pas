@@ -43,6 +43,7 @@ type
     Splitter1: TSplitter;
     Splitter2: TSplitter;
     UpBtn: TSpeedButton;
+    procedure CheckBox1Change(Sender: TObject);
     procedure CompDirGetImageIndex(Sender: TObject; Node: TTreeNode);
     procedure CopyFromSmartphoneClick(Sender: TObject);
     procedure CopyFromPCClick(Sender: TObject);
@@ -527,6 +528,19 @@ begin
   else
     Node.ImageIndex := 1;
   Node.SelectedIndex := Node.ImageIndex;
+end;
+
+//Show hidden files and folders
+procedure TSDForm.CheckBox1Change(Sender: TObject);
+begin
+  if FormLoaded then
+  begin
+    if CheckBox1.Checked then CompDir.ObjectTypes := [otFolders, otHidden, otNonFolders]
+    else
+      CompDir.ObjectTypes := [otFolders, otNonFolders];
+
+    RefreshBtn.Click;
+  end;
 end;
 
 //Перерисовка элементов списка ShellTreeView

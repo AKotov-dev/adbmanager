@@ -194,7 +194,9 @@ msgid "terminal"
 msgstr "terminal"
 
 #: tmainform.statictext1.caption
-msgid "License: GPLv3   Author: alex_q_2000 (C) 2021   URL: https://linuxforum.ru"
+#, fuzzy
+#| msgid "License: GPLv3   Author: alex_q_2000 (C) 2021   URL: https://linuxforum.ru"
+msgid "License: GPLv3   Author: alex_q_2000 (C) 2025   URL: https://linuxforum.ru"
 msgstr "Licence: GPLv3   Auteur: alex_q_2000 (C) 2021   URL: https://linuxforum.ru"
 
 #: tmainform.toolbar2.caption

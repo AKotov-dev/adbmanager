@@ -512,16 +512,17 @@ object SDForm: TSDForm
         AnchorSideLeft.Side = asrBottom
         AnchorSideTop.Control = RefreshBtn
         AnchorSideTop.Side = asrCenter
-        Left = 150
+        Left = 154
         Height = 32
         Hint = 'Show hidden'
         Top = 12
         Width = 78
-        BorderSpacing.Left = 6
+        BorderSpacing.Left = 10
         Caption = 'hidden'
         ParentShowHint = False
         ShowHint = True
         TabOrder = 0
+        OnChange = CheckBox1Change
       end
     end
   end
