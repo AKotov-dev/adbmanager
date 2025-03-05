@@ -114,8 +114,8 @@ begin
     else
       StartLS;
   end;
-
-  sdcmd:='';
+  //Очищаем команду для корректного "Esc"
+  sdcmd := '';
 end;
 
 end.

@@ -1,7 +1,7 @@
 object SDForm: TSDForm
-  Left = 316
+  Left = 303
   Height = 631
-  Top = 123
+  Top = 126
   Width = 888
   Caption = 'SD-Card manager'
   ClientHeight = 631
@@ -12,8 +12,8 @@ object SDForm: TSDForm
   OnKeyUp = FormKeyUp
   OnShow = FormShow
   Position = poDefault
-  SessionProperties = 'GroupBox1.Width;Height;Left;Panel1.Height;Top;VBtn.Down;Width;GroupBox2.Caption'
-  LCLVersion = '2.2.0.4'
+  SessionProperties = 'GroupBox1.Width;GroupBox2.Caption;Height;Left;Panel1.Height;Top;VBtn.Down;Width;CheckBox1.Checked'
+  LCLVersion = '3.8.0.0'
   object Panel2: TPanel
     Left = 0
     Height = 1
@@ -507,6 +507,22 @@ object SDForm: TSDForm
         ShowHint = True
         ParentShowHint = False
       end
+      object CheckBox1: TCheckBox
+        AnchorSideLeft.Control = RefreshBtn
+        AnchorSideLeft.Side = asrBottom
+        AnchorSideTop.Control = RefreshBtn
+        AnchorSideTop.Side = asrCenter
+        Left = 150
+        Height = 32
+        Hint = 'Show hidden'
+        Top = 12
+        Width = 78
+        BorderSpacing.Left = 6
+        Caption = 'hidden'
+        ParentShowHint = False
+        ShowHint = True
+        TabOrder = 0
+      end
     end
   end
   object GroupBox2: TGroupBox
@@ -535,13 +551,13 @@ object SDForm: TSDForm
       Font.Name = 'Sans'
       ItemHeight = 22
       MultiSelect = True
-      OnDblClick = SDBoxDblClick
-      OnDrawItem = SDBoxDrawItem
       ParentFont = False
       ScrollWidth = 428
       Style = lbOwnerDrawFixed
       TabOrder = 0
       TopIndex = -1
+      OnDblClick = SDBoxDblClick
+      OnDrawItem = SDBoxDrawItem
     end
     object Panel3: TPanel
       Left = 0
@@ -1540,11 +1556,11 @@ object SDForm: TSDForm
       BorderStyle = bsNone
       Font.Height = -12
       Font.Name = 'Monospace'
-      OnKeyDown = SDMemoKeyDown
       ParentFont = False
       ScrollBars = ssVertical
       TabOrder = 0
       WantReturns = False
+      OnKeyDown = SDMemoKeyDown
     end
     object ProgressBar1: TProgressBar
       AnchorSideTop.Control = SDMemo

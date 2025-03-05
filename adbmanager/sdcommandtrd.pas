@@ -28,7 +28,7 @@ implementation
 
 uses SDCardManager;
 
-{ TRD }
+  { TRD }
 
 //Вывод лога и прогресса
 procedure StartSDCommand.Execute;

@@ -26,7 +26,7 @@ type
 
   end;
 
-//Версия Android подключенного устройства
+  //Версия Android подключенного устройства
 var
   android7: boolean;
 
@@ -34,7 +34,7 @@ implementation
 
 uses Unit1, SDCardManager;
 
-{ TRD }
+  { TRD }
 
 //Апдейт текущего каталога SDBox
 procedure StartLSSD.Execute;
@@ -84,11 +84,11 @@ begin
       //ls текущего каталога с заменой спецсимволов (android7 in ADBDeviceStatusTRD)
       ExProcess.Parameters.Delete(1);
       if not android7 then
-        ExProcess.Parameters.Add('adb shell ls -F ' + '''' +
+        ExProcess.Parameters.Add('adb shell ls -a -F ' + '''' +
           SDForm.DetoxName(SDForm.GroupBox2.Caption) + '''' + ' | sort -t "d" -k 1,1')
       else
         //Android > 7?
-        ExProcess.Parameters.Add('a=$(adb shell ls -p ' + '''' +
+        ExProcess.Parameters.Add('a=$(adb shell ls -A -p ' + '''' +
           SDForm.DetoxName(SDForm.GroupBox2.Caption) + '''' +
           '); b=$(echo "$a" | grep "/"); c=$(echo "$a" | grep -v "/"); echo -e "$b\n$c"  | grep -v "^$"');
 

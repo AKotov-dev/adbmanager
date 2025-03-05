@@ -39,7 +39,6 @@ uses Unit1, SDCardManager;
 //Апдейт текущего каталога SDBox
 procedure StartLSSD.Execute;
 var
-  sd_card: string;
   ExProcess: TProcess;
 begin
   try
@@ -47,8 +46,6 @@ begin
 
     S := TStringList.Create;
     FreeOnTerminate := True; //Уничтожить по завершении
-    //SD-Card
-    sd_card := SDForm.IniPropStorage1.StoredValue['SDCard'];
 
     //Рабочий процесс
     ExProcess := TProcess.Create(nil);
@@ -63,7 +60,7 @@ begin
       ExProcess.Options := [poWaitOnExit, poUsePipes];
 
       //Размер SD-Card, использовано и свободно (работает во всех Android)
-      ExProcess.Parameters.Add('adb shell df -h ' + sd_card +
+      ExProcess.Parameters.Add('adb shell df -h ' + SDForm.GroupBox2.Caption +
         ' | tail -n1 | awk ' + '''' + '{ print $2, $3, $4 }' + '''');
       Exprocess.Execute;
 
@@ -87,11 +84,11 @@ begin
       //ls текущего каталога с заменой спецсимволов (android7 in ADBDeviceStatusTRD)
       ExProcess.Parameters.Delete(1);
       if not android7 then
-        ExProcess.Parameters.Add('adb shell ls -F ' + '''' +
+        ExProcess.Parameters.Add('adb shell ls -a -F ' + '''' +
           SDForm.DetoxName(SDForm.GroupBox2.Caption) + '''' + ' | sort -t "d" -k 1,1')
       else
         //Android > 7?
-        ExProcess.Parameters.Add('a=$(adb shell ls -p ' + '''' +
+        ExProcess.Parameters.Add('a=$(adb shell ls -A -p ' + '''' +
           SDForm.DetoxName(SDForm.GroupBox2.Caption) + '''' +
           '); b=$(echo "$a" | grep "/"); c=$(echo "$a" | grep -v "/"); echo -e "$b\n$c"  | grep -v "^$"');
 

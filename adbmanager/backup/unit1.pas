@@ -85,7 +85,8 @@ var
 
 implementation
 
-uses ADBDeviceStatusTRD, ADBCommandTRD, RebootUnit, SDCardManager, EmulatorUnit, CheckUnit;
+uses ADBDeviceStatusTRD, ADBCommandTRD, RebootUnit, SDCardManager,
+  EmulatorUnit, CheckUnit;
 
 {$R *.lfm}
 

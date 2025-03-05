@@ -222,6 +222,14 @@ msgstr ""
 msgid "SD-Card manager"
 msgstr ""
 
+#: tsdform.checkbox1.caption
+msgid "hidden"
+msgstr ""
+
+#: tsdform.checkbox1.hint
+msgid "Show hidden"
+msgstr ""
+
 #: tsdform.copyfrompc.hint
 msgid "Copy to SD-Card"
 msgstr ""

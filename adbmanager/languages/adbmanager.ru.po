@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.2.2\n"
+"X-Generator: Poedit 3.5\n"
 
 #: emulatorunit.sscanactiveconnection
 msgid "Scan active connection"
@@ -239,6 +239,14 @@ msgstr ""
 msgctxt "tsdform.caption"
 msgid "SD-Card manager"
 msgstr "Менеджер SD-Карты"
+
+#: tsdform.checkbox1.caption
+msgid "hidden"
+msgstr "скрытые"
+
+#: tsdform.checkbox1.hint
+msgid "Show hidden"
+msgstr "Показать скрытые"
 
 #: tsdform.copyfrompc.hint
 msgid "Copy to SD-Card"

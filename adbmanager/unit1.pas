@@ -88,9 +88,9 @@ implementation
 uses ADBDeviceStatusTRD, ADBCommandTRD, RebootUnit, SDCardManager,
   EmulatorUnit, CheckUnit;
 
-{$R *.lfm}
+  {$R *.lfm}
 
-{ TMainForm }
+  { TMainForm }
 
 //Запуск команды и потока отображения лога исполнения
 procedure TMainForm.StartADBCmd;

@@ -5,7 +5,7 @@ unit SDMountPointTRD;
 interface
 
 uses
-  Classes, Process, SysUtils, Forms, Controls, Dialogs;
+  Classes, Process, SysUtils, Forms, Controls;
 
 type
   ReadSDMountPoint = class(TThread)

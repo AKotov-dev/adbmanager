@@ -13,6 +13,7 @@ type
   { TSDForm }
 
   TSDForm = class(TForm)
+    CheckBox1: TCheckBox;
     CompDir: TShellTreeView;
     CopyFromPC: TSpeedButton;
     CopyFromSmartphone: TSpeedButton;
@@ -94,7 +95,7 @@ var
   SDForm: TSDForm;
   //Команда ADB и флаг панели, которую нужно обновить
   sdcmd: string;
-  left_panel: boolean;
+  left_panel, FormLoaded: boolean;
   //Список возможных точек монтирования SD-Card
   SDMountPoint: TStringList;
 
@@ -103,9 +104,9 @@ implementation
 
 uses SDCommandTRD, Unit1, LSSDFolderTRD, SDMountPointTRD;
 
-{$R *.lfm}
+  {$R *.lfm}
 
-{ TSDForm }
+  { TSDForm }
 
 //Автозамена сецсимволов
 function TSDForm.DetoxName(N: string): string;
@@ -412,6 +413,12 @@ var
 begin
   //For Plasma
   IniPropStorage1.Restore;
+
+  FormLoaded := True;
+
+  if CheckBox1.Checked then CompDir.ObjectTypes := [otFolders, otHidden, otNonFolders]
+  else
+    CompDir.ObjectTypes := [otFolders, otNonFolders];
 
   //Перечитываем корень CompDir (могли быть изменения на диске извне)
   RefreshBtn.Click;

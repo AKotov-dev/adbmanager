@@ -1,7 +1,7 @@
 object MainForm: TMainForm
-  Left = 295
+  Left = 309
   Height = 627
-  Top = 125
+  Top = 130
   Width = 828
   ActiveControl = Panel1
   Caption = 'ADBManager'
@@ -10,7 +10,7 @@ object MainForm: TMainForm
   OnCreate = FormCreate
   OnShow = FormShow
   SessionProperties = 'Left;Top;Width;Height'
-  LCLVersion = '2.2.4.0'
+  LCLVersion = '3.8.0.0'
   object ToolBar1: TToolBar
     Left = 0
     Height = 85

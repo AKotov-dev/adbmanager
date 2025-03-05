@@ -83,6 +83,7 @@ begin
     LogMemo.Clear;
     ProgressBar1.Style := pbstMarquee;
     ProgressBar1.Visible := True;
+    ProgressBar1.Refresh;
   end;
 end;
 
@@ -93,6 +94,7 @@ begin
   begin
     ProgressBar1.Visible := False;
     ProgressBar1.Style := pbstNormal;
+    ProgressBar1.Refresh;
   end;
 end;
 
