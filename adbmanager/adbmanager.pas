@@ -23,7 +23,7 @@ uses
 
 begin
   RequireDerivedFormResource := True;
-  Application.Title:='ADBManager v3.2';
+  Application.Title:='ADBManager v3.3';
   Application.Scaled:=True;
   Application.Initialize;
   Application.CreateForm(TMainForm, MainForm);

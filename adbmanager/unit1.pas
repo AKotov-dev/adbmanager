@@ -55,6 +55,7 @@ type
     procedure StartProcess(command: string);
     procedure ToolButton4Click(Sender: TObject);
     procedure StartADBCmd;
+    procedure CreateInstallationScript;
   private
 
   public
@@ -91,6 +92,178 @@ uses ADBDeviceStatusTRD, ADBCommandTRD, RebootUnit, SDCardManager,
   {$R *.lfm}
 
   { TMainForm }
+
+//Создать скрипт установки пакетов ~/.adbmanager/install_packages.sh
+procedure TMainForm.CreateInstallationScript;
+var
+  S: TStringList;
+begin
+  //Если скрипт существует - выйти
+  //if FileExists(GetUserDir + '.adbmanager/install_packages.sh') then Exit;
+
+  try
+    S := TStringList.Create;
+
+    S.Add('#!/bin/bash');
+    S.Add('');
+
+    S.Add('set -e  # Exit on error');
+    S.Add('');
+
+    S.Add('# Проверка наличия подключенного устройства');
+    S.Add('if [ $(adb devices | grep -c "device$") -eq 0 ]; then');
+    S.Add('    echo "adb: no devices/emulators found"');
+    S.Add('    exit 1');
+    S.Add('fi');
+    S.Add('');
+
+  { S.Add('# Проверка, что процесс установки уже не запущен');
+    S.Add('if pgrep -f "adb install" > /dev/null; then');
+    S.Add('    echo "An installation process is already running. Please wait for it to finish."');
+    S.Add('    exit 1');
+    S.Add('fi');
+    S.Add('');
+
+    S.Add('if [ $# -lt 1 ]; then');
+    S.Add('    echo "Usage: $0 file1.apk file2.xapk file3.apks ..."');
+    S.Add('    exit 1');
+    S.Add('fi');
+    S.Add(''); }
+
+    S.Add('ADB_CMD="adb"');
+    S.Add('');
+
+    S.Add('# Check if /tmp exists, otherwise use $HOME/.adbmanager');
+    S.Add('if [ ! -d "/tmp" ]; then');
+    S.Add('    TEMP_BASE="$HOME/.adbmanager"');
+    S.Add('else');
+    S.Add('    TEMP_BASE="/tmp"');
+    S.Add('fi');
+    S.Add('');
+
+    S.Add('# Cleanup function on exit or interrupt (Ctrl+C)');
+    S.Add('cleanup() {');
+    S.Add('    echo "Cleaning up temporary files..."');
+    S.Add('    rm -rf $TEMP_BASE/android_install_*');
+    S.Add('}');
+    S.Add('trap cleanup EXIT');
+    S.Add('');
+
+    S.Add('# Function to install a single APK');
+    S.Add('install_apk() {');
+    S.Add('    echo "Installing APK: $1"');
+    S.Add('    if ! "$ADB_CMD" install "$1"; then');
+    S.Add('        echo "Installation failed for APK: $1"');
+    S.Add('        exit 1  # Exit immediately if installation fails');
+    S.Add('    fi');
+    S.Add('}');
+    S.Add('');
+
+    S.Add('# Function to install multiple APKs (split APKs)');
+    S.Add('install_multiple_apks() {');
+    S.Add('    echo "Installing multiple APKs..."');
+    S.Add('    if ! "$ADB_CMD" install-multiple "$1"/*.apk; then');
+    S.Add('        echo "Installation failed for multiple APKs in: $1"');
+    S.Add('        exit 1  # Exit immediately if installation fails');
+    S.Add('    fi');
+    S.Add('}');
+    S.Add('');
+
+    S.Add('# Function to move OBB files if they exist');
+    S.Add('move_obb() {');
+    S.Add('    local temp_dir="$1"');
+    S.Add('    OBB_PATH=$(find "$temp_dir" -type d -name "obb" | head -n 1)');
+    S.Add('    if [ -n "$OBB_PATH" ]; then');
+    S.Add('        PKG_NAME=$("$ADB_CMD" shell pm list packages | grep -oP ' +
+      '''' + 'package:\K\S+' + '''' + ' | head -n 1)');
+    S.Add('        echo "Moving OBB files to /sdcard/Android/obb/$PKG_NAME/"');
+    S.Add('        "$ADB_CMD" shell mkdir -p "/sdcard/Android/obb/$PKG_NAME/"');
+    S.Add('        "$ADB_CMD" push "$OBB_PATH" "/sdcard/Android/obb/$PKG_NAME/"');
+    S.Add('    fi');
+    S.Add('}');
+    S.Add('');
+
+    S.Add('# Function to extract archives');
+    S.Add('extract_archive() {');
+    S.Add('    local file="$1"');
+    S.Add('    local dest="$2"');
+    S.Add('');
+
+    S.Add('    echo "Extracting $file..."');
+    S.Add('    7z x "$file" -o"$dest" -y &>/dev/null');
+    S.Add('');
+
+    S.Add('    # List extracted files for debugging');
+    S.Add('    echo "Extracted files:"');
+    S.Add('    find "$dest" -type f');
+    S.Add('');
+
+    S.Add('    if [ $? -ne 0 ]; then');
+    S.Add('        echo "Failed to extract $file"');
+    S.Add('        return 1');
+    S.Add('    fi');
+    S.Add('');
+
+    S.Add('    return 0');
+    S.Add('}');
+    S.Add('');
+
+    S.Add('# Process each file');
+    S.Add('for FILE in "$@"; do');
+    S.Add('    if [ ! -f "$FILE" ]; then');
+    S.Add('        echo "File not found: $FILE"');
+    S.Add('        continue');
+    S.Add('    fi');
+    S.Add('');
+
+    S.Add('    EXT="${FILE##*.}"');
+    S.Add('    TEMP_DIR="$TEMP_BASE/android_install_$(basename "$FILE" ."$EXT")"');
+    S.Add('');
+
+    S.Add('    # Clear temp directory before starting');
+    S.Add('    rm -rf $TEMP_BASE/android_install_*');
+    S.Add('');
+
+    S.Add('    case "$EXT" in');
+    S.Add('        apk)');
+    S.Add('            install_apk "$FILE"');
+    S.Add('            ;;');
+    S.Add('        xapk|apks)');
+    S.Add('            if extract_archive "$FILE" "$TEMP_DIR"; then');
+    S.Add('                APK_COUNT=$(find "$TEMP_DIR" -type f -name "*.apk" | wc -l)');
+    S.Add('                if [ "$APK_COUNT" -eq 1 ]; then');
+    S.Add('                    install_apk "$TEMP_DIR"/*.apk');
+    S.Add('                else');
+    S.Add('                    install_multiple_apks "$TEMP_DIR"');
+    S.Add('                fi');
+    S.Add('                move_obb "$TEMP_DIR"');
+    S.Add('            else');
+    S.Add('                echo "Skipping $FILE due to extraction failure."');
+    S.Add('                continue');
+    S.Add('            fi');
+    S.Add('            ;;');
+    S.Add('        *)');
+    S.Add('            echo "Unsupported file format: $FILE"');
+    S.Add('            ;;');
+    S.Add('    esac');
+    S.Add('');
+
+    S.Add('    # Remove temp files after installation, even if it failed');
+    S.Add('    if [ -d "$TEMP_DIR" ]; then');
+    S.Add('        echo "Removing temporary files..."');
+    S.Add('        rm -rf $TEMP_BASE/android_install_*');
+    S.Add('    fi');
+    S.Add('done');
+    S.Add('');
+
+    S.Add('echo "Installation process completed."');
+
+    S.SaveToFile(GetUserDir + '.adbmanager/install_packages.sh');
+    StartProcess('chmod +x ' + GetUserDir + '.adbmanager/install_packages.sh');
+  finally
+    S.Free;
+  end;
+end;
 
 //Запуск команды и потока отображения лога исполнения
 procedure TMainForm.StartADBCmd;
@@ -136,17 +309,21 @@ begin
 
   MainForm.Caption := Application.Title;
 
-  if not DirectoryExists(GetUserDir + '.config') then
-    MkDir(GetUserDir + '.config');
-  IniPropStorage1.IniFileName := GetUserDir + '.config/adbmanager.conf';
+  //work directory ~/.adbmanager
+  if not DirectoryExists(GetUserDir + '.adbmanager') then
+    MkDir(GetUserDir + '.adbmanager');
+
+  IniPropStorage1.IniFileName := GetUserDir + '.adbmanager/adbmanager.conf';
 end;
 
 //Обработка кнопок панели "Управление Смартфоном"
 procedure TMainForm.ApkInfoBtnClick(Sender: TObject);
 var
-  S: string;
+  i: integer;
+  S, PackageNames: string;
 begin
   S := '';
+  PackageNames := '';
 
   //Определяем команду по кнопке
   case (Sender as TToolButton).ImageIndex of
@@ -161,6 +338,9 @@ begin
 
     1: //Search Package
     begin
+      //если adb выполняется - выйти
+      if ProgressBar1.Style in [pbstMarquee] then Exit;
+
       repeat
         if not InputQuery(SSearchCaption, SSearchString, S) then
           Exit
@@ -175,20 +355,37 @@ begin
 
     2: //install
     begin
-      OpenDialog1.Filter := 'Package files (*.apk)|*.apk';
+      //если adb выполняется - выйти
+      if ProgressBar1.Style in [pbstMarquee] then Exit;
+
+      //Проверка/создание скрипта установки пакетов
+      CreateInstallationScript;
+
+      OpenDialog1.Filter := 'Package files (*.apk, *.apks, *.xapk)|*.apk;*.apks;*.xapk';
       if OpenDialog1.Execute then
-        adbcmd := 'adb install "' + OpenDialog1.FileName + '"'
+      begin
+        for i := 0 to OpenDialog1.Files.Count - 1 do
+          PackageNames := PackageNames + ' "' + OpenDialog1.Files[i] + '"';
+
+        adbcmd := GetUserDir + '.adbmanager/install_packages.sh ' + PackageNames;
+      end
       else
         Exit;
     end;
 
     3: //uninstall
+    begin
+      //если adb выполняется - выйти
+      if ProgressBar1.Style in [pbstMarquee] then Exit;
+
       repeat
         if not InputQuery(SDeleteCaption, SPackageName, S) then
           Exit
         else
           adbcmd := 'adb uninstall ' + Trim(S);
       until S <> '';
+
+    end;
 
     4: //Отключение/Удаление приложений
     begin
