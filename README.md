@@ -1,5 +1,9 @@
 ADBManager - ADB manager for Android devices
 ---
++ Dependencies: adb iproute2 sakura nmap p7zip gtk2  
++ Working directory (settings): ~/.adbmanager  
++ Packages installation script: ~/.adbmanager/install_packages.sh (created automatically)  
+  
 The program is designed for visual and easy management of the ADB-Server and connection of Android smartphones. Allows you to monitor the status of the `adb` service, manage it, and control the list of connected devices. Allows you to manage your smartphone: search for installed packages by part name, install, delete APK, screenshot, reboot (Normal, Bootloader, Recovery mode) and shutdown the device. For advanced users, there is an Android Shell terminal and an SD-Card file manager.  
   
 Starting from `v2.9`, it is possible to enable, disable and delete non-removable applications for Android >= 6.  
