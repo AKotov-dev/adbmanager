@@ -466,6 +466,7 @@ begin
     ActiveLabel.Font.Color := clRed;
 end;
 
+//Отмена установки пакетов по Esc
 procedure TMainForm.FormKeyUp(Sender: TObject; var Key: word; Shift: TShiftState);
 begin
   if Key = VK_ESCAPE then

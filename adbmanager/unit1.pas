@@ -448,7 +448,7 @@ begin
   RunCommand('bash', ['-c', 'pgrep -f "adb install"'], S);
 
   if Trim(S) <> '' then
-    if MessageDlg(SCloseQuery, mtWarning, [mbYes, mbCancel], 0) <> mrYes then
+    if MessageDlg(SCloseQuery, mtConfirmation, [mbYes, mbCancel], 0) <> mrYes then
       Canclose := False
     else
     begin
