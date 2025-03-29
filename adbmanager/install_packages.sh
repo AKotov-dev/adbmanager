@@ -4,26 +4,15 @@ set -e  # Exit on error
 
 # Проверка наличия подключенного устройства
 if [ $(adb devices | grep -c "device$") -eq 0 ]; then
-    echo "No devices connected. Please connect a device and try again."
-    exit 1
-fi
-
-# Проверка, что процесс установки уже не запущен
-if pgrep -f "adb install" > /dev/null; then
-    echo "An installation process is already running. Please wait for it to finish."
-    exit 1
-fi
-
-if [ $# -lt 1 ]; then
-    echo "Usage: $0 file1.apk file2.xapk file3.apks ..."
+    echo "adb: no devices/emulators found"
     exit 1
 fi
 
 ADB_CMD="adb"
 
-# Check if /tmp exists, otherwise use $HOME/.config/adbmanager
+# Check if /tmp exists, otherwise use $HOME/.adbmanager
 if [ ! -d "/tmp" ]; then
-    TEMP_BASE="$HOME/.config/adbmanager"
+    TEMP_BASE="$HOME/.adbmanager"
 else
     TEMP_BASE="/tmp"
 fi
