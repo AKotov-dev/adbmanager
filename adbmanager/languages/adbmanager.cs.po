@@ -193,7 +193,7 @@ msgid "terminal"
 msgstr ""
 
 #: tmainform.statictext1.caption
-msgid "License: GPLv3   Author: alex_q_2000 (C) 2025   URL: https://linuxforum.ru"
+msgid "License: GPLv3   Author: alex_q_2000 (C) 2025   URL: https://github.com/AKotov-dev/adbmanager"
 msgstr ""
 
 #: tmainform.toolbar2.caption

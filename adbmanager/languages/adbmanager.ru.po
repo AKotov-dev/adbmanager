@@ -209,8 +209,8 @@ msgid "terminal"
 msgstr "терминал"
 
 #: tmainform.statictext1.caption
-msgid "License: GPLv3   Author: alex_q_2000 (C) 2025   URL: https://linuxforum.ru"
-msgstr "Лицензия: GPLv3   Автор: alex_q_2000 (C) 2025   URL: https://linuxforum.ru"
+msgid "License: GPLv3   Author: alex_q_2000 (C) 2025   URL: https://github.com/AKotov-dev/adbmanager"
+msgstr "Лицензия: GPLv3   Автор: alex_q_2000 (C) 2025   URL: https://github.com/AKotov-dev/adbmanager"
 
 #: tmainform.toolbar2.caption
 msgid "ToolBar2"

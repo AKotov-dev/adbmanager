@@ -448,7 +448,7 @@ begin
   SDForm.CancelCopy;
 end;
 
-//Отслеживание процесса установки
+//Отслеживание процесса установки пакетов
 procedure TMainForm.FormCloseQuery(Sender: TObject; var CanClose: boolean);
 var
   S: ansistring;

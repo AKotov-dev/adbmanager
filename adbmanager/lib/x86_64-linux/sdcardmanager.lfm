@@ -1,7 +1,7 @@
 object SDForm: TSDForm
-  Left = 316
+  Left = 321
   Height = 631
-  Top = 139
+  Top = 150
   Width = 888
   Caption = 'SD-Card manager'
   ClientHeight = 631
