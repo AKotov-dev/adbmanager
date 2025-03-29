@@ -47,6 +47,7 @@ type
     UninstallBtn: TToolButton;
     ExitBtn: TToolButton;
     procedure ApkInfoBtnClick(Sender: TObject);
+    procedure FormCloseQuery(Sender: TObject; var CanClose: boolean);
     procedure FormCreate(Sender: TObject);
     procedure ActiveLabelChangeBounds(Sender: TObject);
     procedure FormShow(Sender: TObject);
@@ -435,6 +436,23 @@ begin
 
   //Запуск команды и потока отображения лога исполнения
   StartADBCmd;
+end;
+
+//Отслеживание процесса установки
+procedure TMainForm.FormCloseQuery(Sender: TObject; var CanClose: boolean);
+var
+  S: ansistring;
+begin
+  RunCommand('bash', ['-c', 'pgrep -f "adb install"'], S);
+
+  if Trim(S) <> '' then
+    if MessageDlg('SCloseQuery', mtWarning, [mbYes, mbCancel], 0) <> mrYes then
+      Canclose := False
+    else
+    begin
+      StartProcess('kill $(pgrep -f "adb install") >/dev/null 2>&1');
+      CanClose := True;
+    end;
 end;
 
 //Индикация статуса цветом

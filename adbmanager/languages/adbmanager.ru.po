@@ -331,6 +331,10 @@ msgstr "Выделить всё"
 msgid "Upper level (BackSpace)"
 msgstr "Верхний уровень (BackSpace)"
 
+#: unit1.sclosequery
+msgid "Package installation started! Finish?"
+msgstr "Идёт установка пакетов! Завершить?"
+
 #: unit1.sdeleteapk
 msgid ""
 "ATTENTION! BE CAREFUL!\n"

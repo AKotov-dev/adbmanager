@@ -318,6 +318,10 @@ msgstr "Seleziona tutto"
 msgid "Upper level (BackSpace)"
 msgstr "Livello superiore (BackSpace)"
 
+#: unit1.sclosequery
+msgid "Package installation started! Finish?"
+msgstr ""
+
 #: unit1.sdeleteapk
 msgid ""
 "ATTENTION! BE CAREFUL!\n"

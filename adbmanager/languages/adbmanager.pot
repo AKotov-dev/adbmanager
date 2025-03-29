@@ -300,6 +300,10 @@ msgstr ""
 msgid "Upper level (BackSpace)"
 msgstr ""
 
+#: unit1.sclosequery
+msgid "Package installation started! Finish?"
+msgstr ""
+
 #: unit1.sdeleteapk
 msgid ""
 "ATTENTION! BE CAREFUL!\n"

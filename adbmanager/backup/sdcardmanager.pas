@@ -76,6 +76,9 @@ type
     //Отмена копирования
     procedure CancelCopy;
 
+    //Запуск произвольных команд BASH
+    procedure StartProcess(command: string);
+
     function DetoxName(N: string): string;
 
   private
@@ -126,6 +129,23 @@ begin
   Result := StringReplace(Result, '&', '\&', [rfReplaceAll]);
 end;
 
+//StartCommand
+procedure TSDForm.StartProcess(command: string);
+var
+  ExProcess: TProcess;
+begin
+  ExProcess := TProcess.Create(nil);
+  try
+    ExProcess.Executable := 'bash';
+    ExProcess.Parameters.Add('-c');
+    ExProcess.Parameters.Add(command);
+    // ExProcess.Options := [poUsePipes, poStderrToOutPut];
+    ExProcess.Execute;
+  finally
+    ExProcess.Free;
+  end;
+end;
+
 //Исполнение команд/вывод лога (sdcmd)
 procedure TSDForm.StartCommand;
 var
@@ -166,11 +186,9 @@ end;
 procedure TSDForm.CancelCopy;
 begin
   //Если копирование выполняется - отменяем
-  if sdcmd <> '' then
-  begin
-    sdcmd := 'kill $(pgrep -f "/sdcard/")';
-    StartCommand;
-  end;
+  StartProcess(
+    'if pgrep -f "adb pull" > /dev/null || pgrep -f "adb push" > /dev/null; then kill $(pgrep -f "adb pull") $(pgrep -f "adb push") >/dev/null 2>&1; fi');
+  //  StartProcess('if pgrep -f "adb push" > /dev/null; then kill $(pgrep -f "adb push") >/dev/null 2>&1; fi');
 end;
 
 //На уровень вверх
