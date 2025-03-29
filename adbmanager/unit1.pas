@@ -47,6 +47,7 @@ type
     UninstallBtn: TToolButton;
     ExitBtn: TToolButton;
     procedure ApkInfoBtnClick(Sender: TObject);
+    procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
     procedure FormCloseQuery(Sender: TObject; var CanClose: boolean);
     procedure FormCreate(Sender: TObject);
     procedure ActiveLabelChangeBounds(Sender: TObject);
@@ -440,7 +441,14 @@ begin
   StartADBCmd;
 end;
 
-//Отслеживание процесса установки
+//Закрытие MainForm - завершение процессов
+procedure TMainForm.FormClose(Sender: TObject; var CloseAction: TCloseAction);
+begin
+  //Аккуратное завершение копирования, если было запущено
+  SDForm.CancelCopy;
+end;
+
+//Отслеживание процесса установки пакетов
 procedure TMainForm.FormCloseQuery(Sender: TObject; var CanClose: boolean);
 var
   S: ansistring;

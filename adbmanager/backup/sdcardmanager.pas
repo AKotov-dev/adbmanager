@@ -432,7 +432,7 @@ var
 begin
   RunCommand('bash', ['-c', 'pgrep -f "adb pull|adb push"'], S);
   if Trim(S) <> '' then
-    if MessageDlg(SCloseQueryCopy, mtWarning, [mbYes, mbCancel], 0) <> mrYes then
+    if MessageDlg(SCloseQueryCopy, mtConfirmation, [mbYes, mbCancel], 0) <> mrYes then
       Canclose := False
     else
       CanClose := True;

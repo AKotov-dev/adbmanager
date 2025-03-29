@@ -47,6 +47,7 @@ type
     UninstallBtn: TToolButton;
     ExitBtn: TToolButton;
     procedure ApkInfoBtnClick(Sender: TObject);
+    procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
     procedure FormCloseQuery(Sender: TObject; var CanClose: boolean);
     procedure FormCreate(Sender: TObject);
     procedure ActiveLabelChangeBounds(Sender: TObject);
@@ -440,6 +441,13 @@ begin
   StartADBCmd;
 end;
 
+//Закрытие MainForm - завершение процессов
+procedure TMainForm.FormClose(Sender: TObject; var CloseAction: TCloseAction);
+begin
+  //Аккуратное завершение копирования, если было запущено
+  SDForm.CancelCopy;
+end;
+
 //Отслеживание процесса установки
 procedure TMainForm.FormCloseQuery(Sender: TObject; var CanClose: boolean);
 var
@@ -448,7 +456,7 @@ begin
   RunCommand('bash', ['-c', 'pgrep -f "adb install"'], S);
 
   if Trim(S) <> '' then
-    if MessageDlg(SCloseQuery, mtWarning, [mbYes, mbCancel], 0) <> mrYes then
+    if MessageDlg(SCloseQuery, mtConfirmation, [mbYes, mbCancel], 0) <> mrYes then
       Canclose := False
     else
     begin
