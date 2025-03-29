@@ -35,7 +35,16 @@ Free icons: https://icon-icons.com/ru/
 ![](https://github.com/AKotov-dev/adbmanager/blob/main/ScreenShot/Screenshot1.png)  
   
 ![](https://github.com/AKotov-dev/adbmanager/blob/main/ScreenShot/Screenshot2.png)
-  
+
+#### Possible errors when installing packages
++ [INSTALL_FAILED_NO_MATCHING_ABIS: ...] - the package architecture is not suitable for your device
++ [INSTALL_FAILED_ALREADY_EXISTS: ...] - Before installing, remove the previous package with this name
+
+#### Recommendations for installing XAPK packages
+1. Download files only from trusted and verified sources to minimize the risk of infecting your device with malware
+2. Enable permission to install from unknown sources in your device's security settings, while being aware of the potential risks
+3. Remember that installing apps from third-party sources may violate Google's security policy and lead to unwanted consequences
+
 Translations
 --
 + en - English
