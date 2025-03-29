@@ -4,7 +4,7 @@ ADBManager - ADB manager for Android devices
 + Working directory (settings, temporary files): ~/.adbmanager  
 + Packages installation script: ~/.adbmanager/install_packages.sh (created automatically)
   
-**Note:** It is advisable to connect the devices via the USB-2.0 port of your computer.
+**Note:** It is advisable to connect the devices via the USB-2.0 port of your computer ([info](https://www.systutorials.com/how-to-force-a-usb-3-0-port-to-work-in-usb-2-0-mode-in-linux/)).
     
 The program is designed for visual and easy management of the ADB-Server and connection of Android smartphones. Allows you to monitor the status of the `adb` service, manage it, and control the list of connected devices. Allows you to manage your smartphone: search for installed packages by part name, install, delete APK, screenshot, reboot (Normal, Bootloader, Recovery mode) and shutdown the device. For advanced users, there is an Android Shell terminal and an SD-Card file manager.  
   
