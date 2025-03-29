@@ -791,6 +791,7 @@ object MainForm: TMainForm
   end
   object OpenDialog1: TOpenDialog
     Filter = 'Backup files (*.adb)|*.adb'
+    Options = [ofAllowMultiSelect, ofEnableSizing, ofViewDetail]
     Left = 224
     Top = 304
   end

@@ -122,23 +122,28 @@ begin
     S.Add('    echo "An installation process is already running. Please wait for it to finish."');
     S.Add('    exit 1');
     S.Add('fi');
-    S.Add('');
+    S.Add(''); }
 
     S.Add('if [ $# -lt 1 ]; then');
     S.Add('    echo "Usage: $0 file1.apk file2.xapk file3.apks ..."');
     S.Add('    exit 1');
     S.Add('fi');
-    S.Add(''); }
+    S.Add('');
 
     S.Add('ADB_CMD="adb"');
     S.Add('');
 
-    S.Add('# Check if /tmp exists, otherwise use $HOME/.adbmanager');
+  { S.Add('# Check if /tmp exists, otherwise use $HOME/.adbmanager');
     S.Add('if [ ! -d "/tmp" ]; then');
     S.Add('    TEMP_BASE="$HOME/.adbmanager"');
     S.Add('else');
     S.Add('    TEMP_BASE="/tmp"');
     S.Add('fi');
+    S.Add(''); }
+
+    S.Add('# Check/Create $HOME/.adbmanager');
+    S.Add('[ -d "$HOME/.adbmanager" ] || mkdir "$HOME/.adbmanager"');
+    S.Add('TEMP_BASE="$HOME/.adbmanager"');
     S.Add('');
 
     S.Add('# Cleanup function on exit or interrupt (Ctrl+C)');
