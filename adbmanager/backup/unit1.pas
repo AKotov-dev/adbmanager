@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls, Buttons,
-  ComCtrls, ExtCtrls, IniPropStorage, Process, LCLTranslator, DefaultTranslator;
+  ComCtrls, ExtCtrls, IniPropStorage, Process, LCLTranslator, LCLType, DefaultTranslator;
 
 type
 
@@ -50,6 +50,7 @@ type
     procedure FormCloseQuery(Sender: TObject; var CanClose: boolean);
     procedure FormCreate(Sender: TObject);
     procedure ActiveLabelChangeBounds(Sender: TObject);
+    procedure FormKeyUp(Sender: TObject; var Key: word; Shift: TShiftState);
     procedure FormShow(Sender: TObject);
     procedure KeyLabelChangeBounds(Sender: TObject);
     procedure RestartBtnClick(Sender: TObject);
@@ -77,6 +78,7 @@ resourcestring
   SNo = 'no';
   SRestart = 'restart...';
   SLaunched = 'launched';
+  SCloseQuery = 'Package installation started! Finish?';
   SDeleteAPK = 'ATTENTION! BE CAREFUL!' + #13#10 + #13#10 +
     'Removing packages may disrupt the system!' + #13#10 + #13#10 +
     'Before deleting, ' + 'BE SURE TO MAKE A BACKUP!' + #13#10 +
@@ -446,7 +448,7 @@ begin
   RunCommand('bash', ['-c', 'pgrep -f "adb install"'], S);
 
   if Trim(S) <> '' then
-    if MessageDlg('SCloseQuery', mtWarning, [mbYes, mbCancel], 0) <> mrYes then
+    if MessageDlg(SCloseQuery, mtWarning, [mbYes, mbCancel], 0) <> mrYes then
       Canclose := False
     else
     begin
@@ -462,6 +464,12 @@ begin
     ActiveLabel.Font.Color := clGreen
   else
     ActiveLabel.Font.Color := clRed;
+end;
+
+procedure TMainForm.FormKeyUp(Sender: TObject; var Key: word; Shift: TShiftState);
+begin
+  if Key = VK_ESCAPE then
+    StartProcess('if pgrep -f "adb install" > /dev/null; then kill $(pgrep -f "adb install") >/dev/null 2>&1; fi');
 end;
 
 procedure TMainForm.FormShow(Sender: TObject);

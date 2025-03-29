@@ -44,6 +44,10 @@ msgstr ""
 msgid "Esc - cancel... "
 msgstr ""
 
+#: sdcardmanager.sclosequerycopy
+msgid "File copying started! Finish?"
+msgstr ""
+
 #: sdcardmanager.screatedir
 msgid "Create directory"
 msgstr ""

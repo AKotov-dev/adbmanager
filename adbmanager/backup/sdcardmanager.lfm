@@ -1,13 +1,14 @@
 object SDForm: TSDForm
-  Left = 314
+  Left = 330
   Height = 631
-  Top = 135
+  Top = 136
   Width = 888
   Caption = 'SD-Card manager'
   ClientHeight = 631
   ClientWidth = 888
   KeyPreview = True
   OnClose = FormClose
+  OnCloseQuery = FormCloseQuery
   OnCreate = FormCreate
   OnKeyUp = FormKeyUp
   OnShow = FormShow

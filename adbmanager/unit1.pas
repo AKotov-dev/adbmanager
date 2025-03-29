@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls, Buttons,
-  ComCtrls, ExtCtrls, IniPropStorage, Process, LCLTranslator, DefaultTranslator;
+  ComCtrls, ExtCtrls, IniPropStorage, Process, LCLTranslator, LCLType, DefaultTranslator;
 
 type
 
@@ -50,6 +50,7 @@ type
     procedure FormCloseQuery(Sender: TObject; var CanClose: boolean);
     procedure FormCreate(Sender: TObject);
     procedure ActiveLabelChangeBounds(Sender: TObject);
+    procedure FormKeyUp(Sender: TObject; var Key: word; Shift: TShiftState);
     procedure FormShow(Sender: TObject);
     procedure KeyLabelChangeBounds(Sender: TObject);
     procedure RestartBtnClick(Sender: TObject);
@@ -463,6 +464,13 @@ begin
     ActiveLabel.Font.Color := clGreen
   else
     ActiveLabel.Font.Color := clRed;
+end;
+
+//Отмена установки пакетов по Esc
+procedure TMainForm.FormKeyUp(Sender: TObject; var Key: word; Shift: TShiftState);
+begin
+  if Key = VK_ESCAPE then
+    StartProcess('if pgrep -f "adb install" > /dev/null; then kill $(pgrep -f "adb install") >/dev/null 2>&1; fi');
 end;
 
 procedure TMainForm.FormShow(Sender: TObject);

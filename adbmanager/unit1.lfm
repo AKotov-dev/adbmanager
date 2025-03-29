@@ -7,8 +7,10 @@ object MainForm: TMainForm
   Caption = 'ADBManager'
   ClientHeight = 627
   ClientWidth = 828
+  KeyPreview = True
   OnCloseQuery = FormCloseQuery
   OnCreate = FormCreate
+  OnKeyUp = FormKeyUp
   OnShow = FormShow
   SessionProperties = 'Left;Top;Width;Height'
   LCLVersion = '3.8.0.0'

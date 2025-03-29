@@ -44,6 +44,10 @@ msgstr "Gerät ausschalten (v4.4+)"
 msgid "Esc - cancel... "
 msgstr "Esc - Abbrechen... "
 
+#: sdcardmanager.sclosequerycopy
+msgid "File copying started! Finish?"
+msgstr ""
+
 #: sdcardmanager.screatedir
 msgid "Create directory"
 msgstr "Verzeichnis erstellen"

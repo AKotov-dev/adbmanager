@@ -44,6 +44,10 @@ msgstr "Éteignez l'appareil (v4. 4+)"
 msgid "Esc - cancel... "
 msgstr "Esc-annuler... "
 
+#: sdcardmanager.sclosequerycopy
+msgid "File copying started! Finish?"
+msgstr ""
+
 #: sdcardmanager.screatedir
 msgid "Create directory"
 msgstr "Créer un répertoire"

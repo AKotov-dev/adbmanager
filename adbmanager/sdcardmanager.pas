@@ -49,6 +49,7 @@ type
     procedure CopyFromPCClick(Sender: TObject);
     procedure DelBtnClick(Sender: TObject);
     procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
+    procedure FormCloseQuery(Sender: TObject; var CanClose: boolean);
     procedure FormCreate(Sender: TObject);
     procedure FormKeyUp(Sender: TObject; var Key: word; Shift: TShiftState);
     procedure FormShow(Sender: TObject);
@@ -94,6 +95,7 @@ resourcestring
   SCreateDir = 'Create directory';
   SInputName = 'Enter the name:';
   SCancelCopyng = 'Esc - cancel... ';
+  SCloseQueryCopy = 'File copying started! Finish?';
 
 var
   SDForm: TSDForm;
@@ -185,7 +187,7 @@ end;
 //Отменяем долгое копирование по "Esc" и при закрытии
 procedure TSDForm.CancelCopy;
 begin
-  //Если копирование выполняется - отменяем
+  //Если копирование или установка выполняется - отменяем
   StartProcess('if pgrep -f "adb push" > /dev/null; then kill $(pgrep -f "adb push") >/dev/null 2>&1; fi');
   StartProcess('if pgrep -f "adb pull" > /dev/null; then kill $(pgrep -f "adb pull") >/dev/null 2>&1; fi');
 end;
@@ -213,8 +215,6 @@ end;
 //Домашний каталог - текущий
 procedure TSDForm.FormCreate(Sender: TObject);
 begin
-  CompDir.Root := ExcludeTrailingPathDelimiter(GetUserDir);
-  CompDir.Items.Item[0].Selected := True;
   IniPropStorage1.IniFileName := MainForm.IniPropStorage1.IniFileName;
 end;
 
@@ -425,6 +425,19 @@ begin
   end;
 end;
 
+//Отслеживание копирования при закрытии
+procedure TSDForm.FormCloseQuery(Sender: TObject; var CanClose: boolean);
+var
+  S: ansistring;
+begin
+  RunCommand('bash', ['-c', 'pgrep -f "adb pull|adb push"'], S);
+  if Trim(S) <> '' then
+    if MessageDlg(SCloseQueryCopy, mtWarning, [mbYes, mbCancel], 0) <> mrYes then
+      Canclose := False
+    else
+      CanClose := True;
+end;
+
 procedure TSDForm.FormShow(Sender: TObject);
 var
   FSDMountPointThread: TThread;
@@ -504,6 +517,8 @@ procedure TSDForm.RefreshBtnClick(Sender: TObject);
 begin
   with CompDir do
   begin
+    Root := ExcludeTrailingPathDelimiter(GetUserDir);
+    Items.Item[0].Selected := True;
     Select(CompDir.TopItem, [ssCtrl]);
     Refresh(CompDir.Selected.Parent);
     Select(CompDir.TopItem, [ssCtrl]);
