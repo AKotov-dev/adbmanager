@@ -10,7 +10,7 @@ The program is designed for visual and easy management of the ADB-Server and con
   
 Starting from `v2.9`, it is possible to enable, disable and delete non-removable applications for Android >= 6.  
   
-Starting from `v3.3`, multiple installation of `APK`, `APKS` and `XAPK` packages is supported. Files are selected in the file selection window using the `Mouse+Ctrl`. Installation of `XAPK`packages with a single package architecture (32 bits or 64 bits) is supported. The presence of packages of both architectures (32 bits + 64 bits) in `XAPK` is not supported.
+Starting from `v3.3`, multiple installation of `APK`, `APKS` and `XAPK` packages is supported. Files are selected in the file selection window using the `Ctrl+Mouse`. Installation of `XAPK`packages with a single package architecture (32 bits or 64 bits) is supported. The presence of packages of both architectures (32 bits + 64 bits) in `XAPK` is not supported.
   
 Access to the device via USB and rules
 ---
