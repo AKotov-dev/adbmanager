@@ -1,7 +1,7 @@
 object SettingsForm: TSettingsForm
-  Left = 484
+  Left = 420
   Height = 580
-  Top = 179
+  Top = 152
   Width = 684
   Caption = 'Android TV Box settings'
   ClientHeight = 580
@@ -9,8 +9,8 @@ object SettingsForm: TSettingsForm
   OnClose = FormClose
   OnCreate = FormCreate
   OnShow = FormShow
-  Position = poMainFormCenter
-  SessionProperties = 'Height;Width'
+  Position = poDefault
+  SessionProperties = 'Height;Width;Top;Left'
   LCLVersion = '3.8.0.0'
   object ComboBox1: TComboBox
     AnchorSideLeft.Control = Label1
