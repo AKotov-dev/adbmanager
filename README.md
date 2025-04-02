@@ -10,7 +10,9 @@ The program is designed for visual and easy management of the ADB-Server and con
   
 Starting from `v2.9`, it is possible to enable, disable and delete non-removable applications for Android >= 6.  
   
-Starting from `v3.3`, multiple installation of `APK`, `APKS` and `XAPK` packages is supported. Files are selected in the file selection window using the `Ctrl+Mouse`. Installation of `XAPK`packages with a single package architecture (32 bits or 64 bits) is supported. The presence of packages of both architectures (32 bits + 64 bits) in `XAPK` is not supported.
+Starting from `v3.3`, multiple installation of `APK`, `APKS` and `XAPK` packages is supported. Files are selected in the file selection window using the `Ctrl+Mouse`. Installation of `XAPK`packages with a single package architecture (32 bits or 64 bits) is supported. The presence of packages of both architectures (32 bits + 64 bits) in `XAPK` is not supported.  
+  
+Starting with `v3.4`, fine-tuning for `Android TV Box` with truncated launchers (gear icon) has been added. Now missing settings can be made via `ADB`.
   
 Access to the device via USB and rules
 ---
@@ -29,10 +31,7 @@ Connecting via ADB over Wi-Fi
 + Disconnect the smartphone from the USB  
 + Press the `emulator` button and enter the IP address of the smartphone
 
-![](https://github.com/AKotov-dev/adbmanager/blob/main/ScreenShot/Screenshot1.png)  
-  
-![](https://github.com/AKotov-dev/adbmanager/blob/main/ScreenShot/Screenshot2.png)
-
+![](https://github.com/AKotov-dev/adbmanager/blob/main/ScreenShots/Screenshot11.png)  
 #### Possible errors when installing packages
 + [INSTALL_FAILED_NO_MATCHING_ABIS: ...] - the package architecture is not suitable for your device
 + [INSTALL_FAILED_ALREADY_EXISTS: ...] - before installing, remove the previous package with this name
@@ -41,6 +40,10 @@ Connecting via ADB over Wi-Fi
 1. Download files only from trusted and verified sources to minimize the risk of infecting your device with malware
 2. Enable permission to install from unknown sources in your device's security settings, while being aware of the potential risks
 3. Remember that installing apps from third-party sources may violate Google's security policy and lead to unwanted consequences
+
+![](https://github.com/AKotov-dev/adbmanager/blob/main/ScreenShots/Screenshot12.png)  
+  
+![](https://github.com/AKotov-dev/adbmanager/blob/main/ScreenShots/Screenshot13.png)  
 
 Translations
 --
