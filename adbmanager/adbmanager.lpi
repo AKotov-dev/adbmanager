@@ -7,7 +7,7 @@
         <CompatibilityMode Value="True"/>
       </Flags>
       <SessionStorage Value="InProjectDir"/>
-      <Title Value="ADBManager v3.3"/>
+      <Title Value="ADBManager v3.4"/>
       <Scaled Value="True"/>
       <ResourceType Value="res"/>
       <UseXPManifest Value="True"/>
@@ -74,7 +74,7 @@
         <PackageName Value="LCL"/>
       </Item1>
     </RequiredPackages>
-    <Units Count="12">
+    <Units Count="15">
       <Unit0>
         <Filename Value="adbmanager.pas"/>
         <IsPartOfProject Value="True"/>
@@ -149,6 +149,23 @@
         <IsPartOfProject Value="True"/>
         <UnitName Value="ReadAppsTRDUnit"/>
       </Unit11>
+      <Unit12>
+        <Filename Value="settings_unit.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="SettingsForm"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+      </Unit12>
+      <Unit13>
+        <Filename Value="readsettingstrdunit.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="ReadSettingsTRDUnit"/>
+      </Unit13>
+      <Unit14>
+        <Filename Value="writesettingstrdunit.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="WriteSettingsTRDUnit"/>
+      </Unit14>
     </Units>
   </ProjectOptions>
   <CompilerOptions>

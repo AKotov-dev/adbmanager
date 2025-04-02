@@ -68,6 +68,48 @@ msgstr ""
 msgid "Overwrite existing objects?"
 msgstr ""
 
+#: settings_unit.sautomaticsync
+msgid "Automatic synchronization of accounts (Google, Facebook, etc.)"
+msgstr ""
+
+#: settings_unit.sautorotatescreen
+msgid "Enable or disable auto-rotate screen"
+msgstr ""
+
+#: settings_unit.sautoupdate
+msgid "Automatic system update"
+msgstr ""
+
+#: settings_unit.sinterfaceanimation1
+msgid "Animation of transitions between screens and different states (transition_animation_scale)"
+msgstr ""
+
+#: settings_unit.sinterfaceanimation2
+msgid "Animation of button presses, scaling of elements (animator_duration_scale)"
+msgstr ""
+
+#: settings_unit.sinterfaceanimation3
+msgid "Animation of opening, closing and moving windows (window_animation_scale)"
+msgstr ""
+
+#: settings_unit.spowersavingmode
+msgid "Power saving mode"
+msgstr ""
+
+#: settings_unit.ssecnotifications
+msgctxt "settings_unit.ssecnotifications"
+msgid "Security notifications, such as notifications that the device is password protected"
+msgstr ""
+
+#: settings_unit.ssystemsound
+msgid "System sounds such as clicks when buttons are pressed"
+msgstr ""
+
+#: settings_unit.svibration
+msgctxt "settings_unit.svibration"
+msgid "Vibration when pressing buttons or other actions"
+msgstr ""
+
 #: tcheckform.applybtn.caption
 msgctxt "tcheckform.applybtn.caption"
 msgid "Apply"
@@ -118,6 +160,7 @@ msgid "applications"
 msgstr ""
 
 #: tmainform.applistbtn.hint
+msgctxt "tmainform.applistbtn.hint"
 msgid "For Android >= 6"
 msgstr ""
 
@@ -169,7 +212,7 @@ msgid ""
 msgstr ""
 
 #: tmainform.panel2.caption
-msgid "Smartphone managing"
+msgid "Device Management"
 msgstr ""
 
 #: tmainform.rebootbtn.caption
@@ -198,6 +241,14 @@ msgstr ""
 
 #: tmainform.toolbar2.caption
 msgid "ToolBar2"
+msgstr ""
+
+#: tmainform.toolbutton1.caption
+msgid "settings"
+msgstr ""
+
+#: tmainform.toolbutton1.hint
+msgid "For Android TV Box"
 msgstr ""
 
 #: tmainform.toolbutton4.caption
@@ -313,6 +364,37 @@ msgstr ""
 
 #: tsdform.upbtn.hint
 msgid "Upper level (BackSpace)"
+msgstr ""
+
+#: tsettingsform.applybtn.caption
+msgctxt "tsettingsform.applybtn.caption"
+msgid "Apply"
+msgstr ""
+
+#: tsettingsform.caption
+msgid "Android TV Box settings"
+msgstr ""
+
+#: tsettingsform.checkgroup1.caption
+msgctxt "tsettingsform.checkgroup1.caption"
+msgid "Useful settings that are often missing in stripped-down launchers..."
+msgstr ""
+
+#: tsettingsform.combobox1.text
+msgid "1.0"
+msgstr ""
+
+#: tsettingsform.label1.caption
+msgctxt "tsettingsform.label1.caption"
+msgid "System font size"
+msgstr ""
+
+#: tsettingsform.label1.hint
+msgid "Menus, panels, messages, etc."
+msgstr ""
+
+#: tsettingsform.label2.caption
+msgid "Sound volume level (from 0 to 15)"
 msgstr ""
 
 #: unit1.sclosequery

@@ -1,22 +1,22 @@
 object CheckForm: TCheckForm
-  Left = 303
-  Height = 510
-  Top = 132
+  Left = 711
+  Height = 520
+  Top = 220
   Width = 592
   Caption = 'Enable/Disable/Uninstall applications'
-  ClientHeight = 510
+  ClientHeight = 520
   ClientWidth = 592
   OnClose = FormClose
   OnCreate = FormCreate
   OnShow = FormShow
   Position = poMainFormCenter
   SessionProperties = 'Height;Width'
-  LCLVersion = '2.2.4.0'
+  LCLVersion = '3.8.0.0'
   object AppListBox: TCheckListBox
     AnchorSideTop.Control = Edit1
     AnchorSideTop.Side = asrBottom
     Left = 5
-    Height = 455
+    Height = 465
     Top = 50
     Width = 582
     Align = alBottom
@@ -37,8 +37,8 @@ object CheckForm: TCheckForm
     Top = 8
     Width = 211
     BorderSpacing.Left = 2
-    OnChange = Edit1Change
     TabOrder = 0
+    OnChange = Edit1Change
   end
   object Label1: TLabel
     AnchorSideTop.Control = Edit1
@@ -63,8 +63,8 @@ object CheckForm: TCheckForm
     Anchors = [akTop, akRight, akBottom]
     BorderSpacing.Right = 5
     Caption = 'Apply'
-    OnClick = ApplyBtnClick
     TabOrder = 2
+    OnClick = ApplyBtnClick
   end
   object ProgressBar1: TProgressBar
     AnchorSideLeft.Control = AppListBox
@@ -73,7 +73,7 @@ object CheckForm: TCheckForm
     AnchorSideTop.Side = asrCenter
     Left = 176
     Height = 8
-    Top = 273
+    Top = 278
     Width = 240
     TabOrder = 4
   end
@@ -89,10 +89,10 @@ object CheckForm: TCheckForm
     Anchors = [akTop, akRight]
     BorderSpacing.Right = 5
     Caption = 'Delete mode'
-    OnClick = ModeBoxClick
     ParentShowHint = False
     ShowHint = True
     TabOrder = 1
+    OnClick = ModeBoxClick
   end
   object ClearBtn: TSpeedButton
     AnchorSideLeft.Control = Edit1

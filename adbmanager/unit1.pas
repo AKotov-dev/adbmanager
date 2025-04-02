@@ -43,6 +43,7 @@ type
     RestartBtn: TToolButton;
     ShellBtn: TToolButton;
     ConnectBtn: TToolButton;
+    ToolButton1: TToolButton;
     ToolButton4: TToolButton;
     UninstallBtn: TToolButton;
     ExitBtn: TToolButton;
@@ -56,7 +57,6 @@ type
     procedure KeyLabelChangeBounds(Sender: TObject);
     procedure RestartBtnClick(Sender: TObject);
     procedure StartProcess(command: string);
-    procedure ToolButton4Click(Sender: TObject);
     procedure StartADBCmd;
     procedure CreateInstallationScript;
   private
@@ -91,7 +91,7 @@ var
 implementation
 
 uses ADBDeviceStatusTRD, ADBCommandTRD, RebootUnit, SDCardManager,
-  EmulatorUnit, CheckUnit;
+  EmulatorUnit, CheckUnit, Settings_Unit;
 
   {$R *.lfm}
 
@@ -160,7 +160,7 @@ begin
 
     S.Add('# Function to install a single APK');
     S.Add('install_apk() {');
-    S.Add('    echo "Installing APK: $1"');
+    S.Add('    echo "Installing APK: $1 (Esc - Cancel)"');
     S.Add('    if ! "$ADB_CMD" install "$1"; then');
     S.Add('        echo "Installation failed for APK: $1"');
     S.Add('        exit 1  # Exit immediately if installation fails');
@@ -170,7 +170,7 @@ begin
 
     S.Add('# Function to install multiple APKs (split APKs)');
     S.Add('install_multiple_apks() {');
-    S.Add('    echo "Installing multiple APKs..."');
+    S.Add('    echo "Installing multiple APKs... (Esc - Cancel)"');
     S.Add('    if ! "$ADB_CMD" install-multiple "$1"/*.apk; then');
     S.Add('        echo "Installation failed for multiple APKs in: $1"');
     S.Add('        exit 1  # Exit immediately if installation fails');
@@ -198,7 +198,7 @@ begin
     S.Add('    local dest="$2"');
     S.Add('');
 
-    S.Add('    echo "Extracting $file..."');
+    S.Add('    echo "Extracting $file... (Esc - Cancel)"');
     S.Add('    7z x "$file" -o"$dest" -y &>/dev/null');
     S.Add('');
 
@@ -300,11 +300,6 @@ begin
   end;
 end;
 
-procedure TMainForm.ToolButton4Click(Sender: TObject);
-begin
-  SDForm.Show;
-end;
-
 procedure TMainForm.FormCreate(Sender: TObject);
 var
   FStartShowStatusThread: TThread;
@@ -393,7 +388,6 @@ begin
         else
           adbcmd := 'adb uninstall ' + Trim(S);
       until S <> '';
-
     end;
 
     4: //Отключение/Удаление приложений
@@ -428,7 +422,13 @@ begin
       Exit;
     end;
 
-    8: //reboot
+    8: //Токие настройки Android
+    begin
+      SettingsForm.ShowModal;
+      Exit;
+    end;
+
+    9: //reboot
     begin
       RebootForm := TRebootForm.Create(Application);
       RebootForm.ShowModal; //Показываем варианты Reboot
@@ -453,14 +453,14 @@ procedure TMainForm.FormCloseQuery(Sender: TObject; var CanClose: boolean);
 var
   S: ansistring;
 begin
-  RunCommand('bash', ['-c', 'pgrep -f "adb install"'], S);
+  RunCommand('bash', ['-c', 'pgrep -f "adb install|7z"'], S);
 
   if Trim(S) <> '' then
     if MessageDlg(SCloseQuery, mtConfirmation, [mbYes, mbCancel], 0) <> mrYes then
       Canclose := False
     else
     begin
-      StartProcess('kill $(pgrep -f "adb install") >/dev/null 2>&1');
+      StartProcess('pidof 7z && killall 7z; kill $(pgrep -f "adb install") >/dev/null 2>&1');
       CanClose := True;
     end;
 end;
@@ -478,7 +478,8 @@ end;
 procedure TMainForm.FormKeyUp(Sender: TObject; var Key: word; Shift: TShiftState);
 begin
   if Key = VK_ESCAPE then
-    StartProcess('if pgrep -f "adb install" > /dev/null; then kill $(pgrep -f "adb install") >/dev/null 2>&1; fi');
+    StartProcess(
+      'pidof 7z && killall 7z; if pgrep -f "adb install" > /dev/null; then kill $(pgrep -f "adb install") >/dev/null 2>&1; fi');
 end;
 
 procedure TMainForm.FormShow(Sender: TObject);

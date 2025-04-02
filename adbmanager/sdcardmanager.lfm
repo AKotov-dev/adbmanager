@@ -1,8 +1,9 @@
 object SDForm: TSDForm
-  Left = 321
+  Left = 314
   Height = 631
-  Top = 150
+  Top = 141
   Width = 888
+  ActiveControl = Splitter2
   Caption = 'SD-Card manager'
   ClientHeight = 631
   ClientWidth = 888
@@ -551,7 +552,7 @@ object SDForm: TSDForm
       BorderStyle = bsNone
       Font.Height = -13
       Font.Name = 'Sans'
-      ItemHeight = 22
+      ItemHeight = 23
       MultiSelect = True
       ParentFont = False
       ScrollWidth = 428

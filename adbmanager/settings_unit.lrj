@@ -1,0 +1,9 @@
+{"version":1,"strings":[
+{"hash":233984355,"name":"tsettingsform.caption","sourcebytes":[65,110,100,114,111,105,100,32,84,86,32,66,111,120,32,115,101,116,116,105,110,103,115],"value":"Android TV Box settings"},
+{"hash":13328,"name":"tsettingsform.combobox1.text","sourcebytes":[49,46,48],"value":"1.0"},
+{"hash":4749113,"name":"tsettingsform.applybtn.caption","sourcebytes":[65,112,112,108,121],"value":"Apply"},
+{"hash":90177182,"name":"tsettingsform.checkgroup1.caption","sourcebytes":[85,115,101,102,117,108,32,115,101,116,116,105,110,103,115,32,116,104,97,116,32,97,114,101,32,111,102,116,101,110,32,109,105,115,115,105,110,103,32,105,110,32,115,116,114,105,112,112,101,100,45,100,111,119,110,32,108,97,117,110,99,104,101,114,115,46,46,46],"value":"Useful settings that are often missing in stripped-down launchers..."},
+{"hash":114225454,"name":"tsettingsform.label1.hint","sourcebytes":[77,101,110,117,115,44,32,112,97,110,101,108,115,44,32,109,101,115,115,97,103,101,115,44,32,101,116,99,46],"value":"Menus, panels, messages, etc."},
+{"hash":266166021,"name":"tsettingsform.label1.caption","sourcebytes":[83,121,115,116,101,109,32,102,111,110,116,32,115,105,122,101],"value":"System font size"},
+{"hash":118126537,"name":"tsettingsform.label2.caption","sourcebytes":[83,111,117,110,100,32,118,111,108,117,109,101,32,108,101,118,101,108,32,40,102,114,111,109,32,48,32,116,111,32,49,53,41],"value":"Sound volume level (from 0 to 15)"}
+]}

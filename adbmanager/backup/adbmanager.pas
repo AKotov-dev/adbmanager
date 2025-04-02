@@ -17,17 +17,18 @@ uses
   EmulatorUnit,
   SDMountPointTRD,
   CheckUnit,
-  ReadAppsTRDUnit { you can add units after this };
+  ReadAppsTRDUnit, settings_unit { you can add units after this };
 
 {$R *.res}
 
 begin
   RequireDerivedFormResource := True;
-  Application.Title := 'ADBManager v3.1';
-  Application.Scaled := True;
+  Application.Title:='ADBManager v3.3';
+  Application.Scaled:=True;
   Application.Initialize;
   Application.CreateForm(TMainForm, MainForm);
   Application.CreateForm(TSDForm, SDForm);
   Application.CreateForm(TCheckForm, CheckForm);
+  Application.CreateForm(TSettingsForm, SettingsForm);
   Application.Run;
 end.
