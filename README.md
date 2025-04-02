@@ -31,6 +31,8 @@ Connecting via ADB over Wi-Fi
 + Disconnect the smartphone from the USB  
 + Press the `emulator` button and enter the IP address of the smartphone
 
+**Note:** When connecting to the device via network, do not forget to disable the firewall (`TCP:5555`).  
+  
 ![](https://github.com/AKotov-dev/adbmanager/blob/main/ScreenShots/Screenshot11.png)  
 #### Possible errors when installing packages
 + [INSTALL_FAILED_NO_MATCHING_ABIS: ...] - the package architecture is not suitable for your device
