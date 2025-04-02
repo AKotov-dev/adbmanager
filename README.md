@@ -1,4 +1,4 @@
-ADBManager - ADB manager for Android devices
+ADBManager - Manager for Android devices using ADB
 ---
 + Dependencies: adb iproute2 sakura nmap p7zip gtk2  
 + Working directory (settings, temporary files): ~/.adbmanager  
