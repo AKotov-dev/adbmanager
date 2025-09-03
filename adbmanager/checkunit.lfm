@@ -1,22 +1,20 @@
 object CheckForm: TCheckForm
-  Left = 711
-  Height = 520
-  Top = 220
+  Left = 404
+  Height = 543
+  Top = 151
   Width = 592
   Caption = 'Enable/Disable/Uninstall applications'
-  ClientHeight = 520
+  ClientHeight = 543
   ClientWidth = 592
+  SessionProperties = 'Height;Width;Top;Left'
+  LCLVersion = '4.2.0.0'
   OnClose = FormClose
-  OnCreate = FormCreate
   OnShow = FormShow
-  Position = poMainFormCenter
-  SessionProperties = 'Height;Width'
-  LCLVersion = '3.8.0.0'
   object AppListBox: TCheckListBox
     AnchorSideTop.Control = Edit1
     AnchorSideTop.Side = asrBottom
     Left = 5
-    Height = 465
+    Height = 488
     Top = 50
     Width = 582
     Align = alBottom
@@ -73,7 +71,7 @@ object CheckForm: TCheckForm
     AnchorSideTop.Side = asrCenter
     Left = 176
     Height = 8
-    Top = 278
+    Top = 290
     Width = 240
     TabOrder = 4
   end
@@ -141,8 +139,8 @@ object CheckForm: TCheckForm
       E8EF556EE7C75870E72000000000000000000000000000000000000000000000
       000000000000000000005870E720546EE7C8546EE8EF536DE862
     }
-    OnClick = ClearBtnClick
     ParentShowHint = False
+    OnClick = ClearBtnClick
   end
   object IniPropStorage1: TIniPropStorage
     StoredValues = <>

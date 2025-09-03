@@ -12,7 +12,7 @@ object RebootForm: TRebootForm
   OnShow = FormShow
   Position = poMainFormCenter
   SessionProperties = 'Width;Height'
-  LCLVersion = '2.2.4.0'
+  LCLVersion = '3.8.0.0'
   object RadioGroup1: TRadioGroup
     AnchorSideLeft.Control = Owner
     AnchorSideRight.Control = OKBtn
@@ -62,8 +62,8 @@ object RebootForm: TRebootForm
     BorderSpacing.Bottom = 3
     Caption = 'OK'
     ModalResult = 1
-    OnClick = OKBtnClick
     TabOrder = 1
+    OnClick = OKBtnClick
   end
   object CancelBtn: TButton
     AnchorSideLeft.Control = RadioGroup1

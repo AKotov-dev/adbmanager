@@ -1,13 +1,12 @@
 object CheckForm: TCheckForm
-  Left = 487
-  Height = 520
-  Top = 128
+  Left = 404
+  Height = 543
+  Top = 151
   Width = 592
   Caption = 'Enable/Disable/Uninstall applications'
-  ClientHeight = 520
+  ClientHeight = 543
   ClientWidth = 592
   OnClose = FormClose
-  OnCreate = FormCreate
   OnShow = FormShow
   Position = poMainFormCenter
   SessionProperties = 'Height;Width'
@@ -16,7 +15,7 @@ object CheckForm: TCheckForm
     AnchorSideTop.Control = Edit1
     AnchorSideTop.Side = asrBottom
     Left = 5
-    Height = 465
+    Height = 488
     Top = 50
     Width = 582
     Align = alBottom
@@ -73,7 +72,7 @@ object CheckForm: TCheckForm
     AnchorSideTop.Side = asrCenter
     Left = 176
     Height = 8
-    Top = 278
+    Top = 290
     Width = 240
     TabOrder = 4
   end

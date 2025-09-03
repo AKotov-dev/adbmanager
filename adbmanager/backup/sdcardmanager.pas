@@ -50,8 +50,8 @@ type
     procedure DelBtnClick(Sender: TObject);
     procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
     procedure FormCloseQuery(Sender: TObject; var CanClose: boolean);
-    procedure FormCreate(Sender: TObject);
     procedure FormKeyUp(Sender: TObject; var Key: word; Shift: TShiftState);
+    procedure FormResize(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure MkDirBtnClick(Sender: TObject);
     procedure MkPCDirBtnClick(Sender: TObject);
@@ -212,12 +212,6 @@ begin
     end;
 end;
 
-//Домашний каталог - текущий
-procedure TSDForm.FormCreate(Sender: TObject);
-begin
-  IniPropStorage1.IniFileName := MainForm.IniPropStorage1.IniFileName;
-end;
-
 //Отмена копирования = "Esc"; На уровень вверх = "BackSpace"
 procedure TSDForm.FormKeyUp(Sender: TObject; var Key: word; Shift: TShiftState);
 begin
@@ -226,6 +220,13 @@ begin
     VK_BACK: UpBtn.Click;
     VK_F12: SDChangeBtn.Click;
   end;
+end;
+
+//Сплиттер 1/2 width, вывод команды - 1/6 height
+procedure TSDForm.FormResize(Sender: TObject);
+begin
+  GroupBox1.Width := SDForm.Width div 2;
+  Panel1.Height := SDForm.Height div 7;
 end;
 
 //Копирование с компа на SD-Card
@@ -443,6 +444,7 @@ var
   FSDMountPointThread: TThread;
 begin
   //For Plasma
+  IniPropStorage1.IniFileName := MainForm.IniPropStorage1.IniFileName;
   IniPropStorage1.Restore;
 
   FormLoaded := True;

@@ -304,6 +304,10 @@ procedure TMainForm.FormCreate(Sender: TObject);
 var
   FStartShowStatusThread: TThread;
 begin
+  //work directory ~/.adbmanager
+  if not DirectoryExists(GetUserDir + '.adbmanager') then
+    MkDir(GetUserDir + '.adbmanager');
+
   //Перезапуск сервера, если не запущен (adb devices и сам сервер запускаются в потоке статуса)
   StartProcess('[[ $(ss -lt | grep 5037) ]] || (adb kill-server; killall adb)');
 
@@ -312,12 +316,6 @@ begin
   FStartShowStatusThread.Priority := tpNormal;
 
   MainForm.Caption := Application.Title;
-
-  //work directory ~/.adbmanager
-  if not DirectoryExists(GetUserDir + '.adbmanager') then
-    MkDir(GetUserDir + '.adbmanager');
-
-  IniPropStorage1.IniFileName := GetUserDir + '.adbmanager/adbmanager.conf';
 end;
 
 //Обработка кнопок панели "Управление Смартфоном"
@@ -460,7 +458,7 @@ begin
       Canclose := False
     else
     begin
-      StartProcess('kill $(pgrep -f "adb install") >/dev/null 2>&1; pidof 7z && killall 7z');
+      StartProcess('pidof 7z && killall 7z; kill $(pgrep -f "adb install") >/dev/null 2>&1');
       CanClose := True;
     end;
 end;
@@ -484,6 +482,8 @@ end;
 
 procedure TMainForm.FormShow(Sender: TObject);
 begin
+  //For Plasma
+  IniPropStorage1.IniFileName := GetUserDir + '.adbmanager/adbmanager.conf';
   IniPropStorage1.Restore;
 end;
 

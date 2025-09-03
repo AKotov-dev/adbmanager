@@ -23,7 +23,6 @@ type
     TrackBar1: TTrackBar;
     procedure ApplyBtnClick(Sender: TObject);
     procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
-    procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
   private
 
@@ -59,11 +58,6 @@ uses unit1, ReadSettingsTRDUnit, WriteSettingsTRDUnit;
 
   { TSettingsForm }
 
-procedure TSettingsForm.FormCreate(Sender: TObject);
-begin
-  IniPropStorage1.IniFileName := MainForm.IniPropStorage1.IniFileName;
-end;
-
 //Показ формы
 procedure TSettingsForm.FormShow(Sender: TObject);
 var
@@ -71,6 +65,7 @@ var
   FReadSettingsTRD: TThread;
 begin
   //For Plasma
+  IniPropStorage1.IniFileName := MainForm.IniPropStorage1.IniFileName;
   IniPropStorage1.Restore;
 
   //Обнуляем все чеки для чистой загрузки из потока

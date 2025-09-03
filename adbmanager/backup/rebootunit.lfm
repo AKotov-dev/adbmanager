@@ -1,11 +1,11 @@
 object RebootForm: TRebootForm
-  Left = 812
-  Height = 168
-  Top = 142
+  Left = 424
+  Height = 189
+  Top = 179
   Width = 433
   ActiveControl = OKBtn
   Caption = 'Reboot/Shutdown'
-  ClientHeight = 168
+  ClientHeight = 189
   ClientWidth = 433
   OnClose = FormClose
   OnCreate = FormCreate
@@ -19,7 +19,7 @@ object RebootForm: TRebootForm
     AnchorSideBottom.Control = Owner
     AnchorSideBottom.Side = asrBottom
     Left = 6
-    Height = 154
+    Height = 175
     Top = 8
     Width = 324
     Anchors = [akTop, akLeft, akRight, akBottom]
@@ -33,7 +33,7 @@ object RebootForm: TRebootForm
     ChildSizing.ShrinkVertical = crsScaleChilds
     ChildSizing.Layout = cclLeftToRightThenTopToBottom
     ChildSizing.ControlsPerLine = 1
-    ClientHeight = 152
+    ClientHeight = 173
     ClientWidth = 322
     ItemIndex = 0
     Items.Strings = (

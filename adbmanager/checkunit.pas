@@ -25,7 +25,6 @@ type
     procedure ClearBtnClick(Sender: TObject);
     procedure Edit1Change(Sender: TObject);
     procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
-    procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure ModeBoxClick(Sender: TObject);
   private
@@ -51,6 +50,7 @@ var
   FReadAppsTRD: TThread;
 begin
   //For Plasma
+  IniPropStorage1.IniFileName := MainForm.IniPropStorage1.IniFileName;
   IniPropStorage1.Restore;
 
   AppListBox.Clear;
@@ -110,11 +110,6 @@ procedure TCheckForm.FormClose(Sender: TObject; var CloseAction: TCloseAction);
 begin
   VList.Free;
   IniPropStorage1.Save;
-end;
-
-procedure TCheckForm.FormCreate(Sender: TObject);
-begin
-  IniPropStorage1.IniFileName := MainForm.IniPropStorage1.IniFileName;
 end;
 
 //Применение параметров: Включение/Отключение/Удаление приложений

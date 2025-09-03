@@ -1,20 +1,20 @@
 object MainForm: TMainForm
-  Left = 299
+  Left = 334
   Height = 627
-  Top = 128
+  Top = 127
   Width = 828
   ActiveControl = Panel1
   Caption = 'ADBManager'
   ClientHeight = 627
   ClientWidth = 828
   KeyPreview = True
+  SessionProperties = 'Left;Top;Width;Height'
+  LCLVersion = '4.2.0.0'
   OnClose = FormClose
   OnCloseQuery = FormCloseQuery
   OnCreate = FormCreate
   OnKeyUp = FormKeyUp
   OnShow = FormShow
-  SessionProperties = 'Left;Top;Width;Height'
-  LCLVersion = '3.8.0.0'
   object ToolBar1: TToolBar
     Left = 0
     Height = 85
@@ -285,9 +285,9 @@ object MainForm: TMainForm
       Top = 2
       Caption = 'applications'
       ImageIndex = 4
-      OnClick = ApkInfoBtnClick
       ParentShowHint = False
       ShowHint = True
+      OnClick = ApkInfoBtnClick
     end
     object ToolButton1: TToolButton
       Left = 548
@@ -295,9 +295,9 @@ object MainForm: TMainForm
       Top = 2
       Caption = 'settings'
       ImageIndex = 8
-      OnClick = ApkInfoBtnClick
       ParentShowHint = False
       ShowHint = True
+      OnClick = ApkInfoBtnClick
     end
   end
   object Panel2: TPanel

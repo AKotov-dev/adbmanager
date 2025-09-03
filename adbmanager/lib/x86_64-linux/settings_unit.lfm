@@ -1,13 +1,12 @@
 object SettingsForm: TSettingsForm
-  Left = 420
+  Left = 418
   Height = 580
-  Top = 152
+  Top = 149
   Width = 684
   Caption = 'Android TV Box settings'
   ClientHeight = 580
   ClientWidth = 684
   OnClose = FormClose
-  OnCreate = FormCreate
   OnShow = FormShow
   Position = poDefault
   SessionProperties = 'Height;Width;Top;Left'

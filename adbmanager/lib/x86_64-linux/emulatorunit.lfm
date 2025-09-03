@@ -14,7 +14,7 @@ object EmulatorForm: TEmulatorForm
   OnShow = FormShow
   Position = poMainFormCenter
   SessionProperties = 'Width;Height;Edit1.Text'
-  LCLVersion = '2.2.4.0'
+  LCLVersion = '3.8.0.0'
   object RadioGroup1: TRadioGroup
     AnchorSideLeft.Control = Owner
     AnchorSideRight.Control = Edit1
@@ -55,8 +55,8 @@ object EmulatorForm: TEmulatorForm
     Anchors = [akTop, akLeft, akRight]
     BorderSpacing.Left = 7
     BorderSpacing.Right = 7
-    OnEnter = Edit1Enter
     TabOrder = 1
+    OnEnter = Edit1Enter
   end
   object Label1: TLabel
     AnchorSideLeft.Control = Edit1
@@ -85,8 +85,8 @@ object EmulatorForm: TEmulatorForm
     BorderSpacing.Bottom = 3
     Caption = 'OK'
     ModalResult = 1
-    OnClick = OKBtnClick
     TabOrder = 2
+    OnClick = OKBtnClick
   end
   object CancelBtn: TButton
     AnchorSideLeft.Control = RadioGroup1
