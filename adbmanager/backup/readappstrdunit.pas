@@ -5,13 +5,11 @@ unit ReadAppsTRDUnit;
 interface
 
 uses
-  Classes, SysUtils, Forms, Controls, Graphics, ComCtrls, Process;
+  Classes, SysUtils, Forms, Controls, Graphics, ComCtrls, Process, Math;
 
 type
   ReadAppsTRD = class(TThread)
   private
-
-    { Private declarations }
   protected
   var
     S: TStringList;
@@ -21,56 +19,104 @@ type
     procedure ShowAppList;
     procedure StopRead;
     procedure StartRead;
-
   end;
 
 implementation
 
 uses CheckUnit;
 
-{ TRD }
+  { TRD }
 
-//Вывод списка приложений для Включения/Отключения
 procedure ReadAppsTRD.Execute;
 var
   ExProcess: TProcess;
+  PIDExists: boolean;
+  Attempts: integer;
+
+  procedure RunCmd(const ACommand: string; AOutput: TStringList = nil);
+  begin
+    ExProcess := TProcess.Create(nil);
+    try
+      ExProcess.Executable := 'bash';
+      ExProcess.Parameters.Add('-c');
+      ExProcess.Parameters.Add(ACommand);
+      ExProcess.Options := [poUsePipes, poWaitOnExit, poStderrToOutPut];
+      ExProcess.Execute;
+      if Assigned(AOutput) then
+        AOutput.LoadFromStream(ExProcess.Output);
+    finally
+      ExProcess.Free;
+    end;
+  end;
+
 begin
   try
     Synchronize(@StartRead);
 
     S := TStringList.Create;
+    FreeOnTerminate := True;
 
-    FreeOnTerminate := True; //Уничтожить по завершении
+    //Проверка установлен ли пакет на смартфоне
+    RunCmd('adb shell pm list packages | grep com.example.iconextractor', S);
+    if Trim(S.Text) <> '' then
+    begin
+      // --- 1. Чистим каталог на компе и смартфоне ---
+      if Terminated then Exit;
+      RunCmd(
+        'rm -rf ~/.adbmanager/icons && ' +
+        'adb shell mkdir -p /sdcard/IconExtractor/icons && ' +
+        'adb shell rm -rf /sdcard/IconExtractor/icons/*');
 
-    //Рабочий процесс
-    ExProcess := TProcess.Create(nil);
+      // --- 2. Запуск Activity ---
+      if Terminated then Exit;
+      RunCmd('adb shell am start -n com.example.iconextractor/.MainActivity');
 
-    ExProcess.Executable := 'bash';
-    ExProcess.Parameters.Add('-c');
-    ExProcess.Options := [poUsePipes, poWaitOnExit]; //poWaitOnExit, poStderrToOutPut
+      // --- 3. Ждём появления pid ---
+      Attempts := 0;
+      repeat
+        RunCmd('adb shell pidof com.example.iconextractor', S);
+        PIDExists := Trim(S.Text) <> '';
+        if not PIDExists then Sleep(300);
+        Inc(Attempts);
+        if Terminated then Exit;
+      until (PIDExists) or (Attempts > 20); // максимум ~6 секунд
 
-    //Все приложения с сортировкой
-    ExProcess.Parameters.Add('adb shell pm list packages | sort | cut -d":" -f2');
+      // --- 4. Ждём исчезновения pid ---
+      Attempts := 0;
+      repeat
+        RunCmd('adb shell pidof com.example.iconextractor', S);
+        PIDExists := Trim(S.Text) <> '';
+        if PIDExists then Sleep(500);
+        Inc(Attempts);
+        if Terminated then Exit;
+      until (not PIDExists) or (Attempts > 120); // максимум ~1 минута
 
-    ExProcess.Execute;
-    S.LoadFromStream(ExProcess.Output);
-    //Выводим список
+      // --- 5. Копирование png на комп ---
+      if Terminated then Exit;
+      RunCmd('adb pull /sdcard/IconExtractor/icons ~/.adbmanager/');
+    end;
+
+
+    // --- 6. Ресайз png ---
+    if Terminated then Exit;
+    RunCmd('mogrify -resize ' + IntToStr(CheckForm.DefaultIcon.Height) +
+      'x' + IntToStr(CheckForm.DefaultIcon.Height) + ' ~/.adbmanager/icons/*.png');
+
+    // --- 7. Список всех пакетов ---
+    if Terminated then Exit;
+    RunCmd('adb shell pm list packages | sort | cut -d":" -f2', S);
     S.Text := Trim(S.Text);
-    if S.Count <> 0 then
+    if (S.Count > 0) and (not Terminated) then
       Synchronize(@ShowAppList);
 
-    //Читаем все неактивные приложения
-    ExProcess.Parameters.Delete(1);
-    ExProcess.Parameters.Add('adb shell pm list packages -d | cut -d":" -f2');
-    ExProcess.Execute;
-    S.LoadFromStream(ExProcess.Output);
-    //Отправляем для сравнения
+    // --- 8. Список отключённых пакетов ---
+    if Terminated then Exit;
+    RunCmd('adb shell pm list packages -d | cut -d":" -f2', S);
     S.Text := Trim(S.Text);
 
   finally
-    Synchronize(@StopProgress);
+    Synchronize(@StopRead);
     S.Free;
-    ExProcess.Free;
     Terminate;
   end;
 end;
@@ -78,11 +124,19 @@ end;
 { БЛОК ОТОБРАЖЕНИЯ СПИСКА ПРИЛОЖЕНИЙ }
 
 procedure ReadAppsTRD.ShowAppList;
+var
+  hText, hIcon: integer;
 begin
   CheckForm.AppListBox.Items.Assign(S);
 
+  //Выравнивание и центрирование
   if CheckForm.AppListBox.Count <> 0 then
+  begin
+    hText := CheckForm.AppListBox.Canvas.TextHeight('Wy');
+    hIcon := CheckForm.DefaultIcon.Height;
+    CheckForm.AppListBox.ItemHeight := Max(hText, hIcon) + 4;
     CheckForm.AppListBox.ItemIndex := 0;
+  end;
 end;
 
 //Старт
@@ -105,20 +159,16 @@ var
 begin
   with CheckForm do
   begin
-    //Отмечаем все чекбоксы
     for i := 0 to AppListBox.Items.Count - 1 do
       AppListBox.Checked[i] := True;
 
-    //Отключение неактивных приложений
     for i := 0 to S.Count - 1 do
       AppListBox.Checked[AppListBox.Items.IndexOf(S[i])] := False;
 
-    //Сохраняем состояние items-чекбоксов в виртуальный список VList
-    //Очищаем для повторного использования и начитываем заново
     VList.Clear;
-
     for i := 0 to AppListBox.Items.Count - 1 do
-      if AppListBox.Checked[i] then VList.Add('1')
+      if AppListBox.Checked[i] then
+        VList.Add('1')
       else
         VList.Add('0');
 

@@ -28,7 +28,7 @@ implementation
 
 uses Unit1, SDCardManager;
 
-{ TRD }
+  { TRD }
 
 //Scan ADB-device, status and adbkey
 procedure ShowStatus.Execute;

@@ -42,68 +42,81 @@ var
   ExProcess: TProcess;
 begin
   try
+    if Terminated then Exit;
     Synchronize(@ShowProgress);
 
-    S := TStringList.Create;
-    FreeOnTerminate := True; //Уничтожить по завершении
+    FreeOnTerminate := True; // уничтожить по завершении
 
-    //Рабочий процесс
+    if Terminated then Exit;
+    S := TStringList.Create;
     ExProcess := TProcess.Create(nil);
 
-    //Если устройство подключено
+    if Terminated then Exit;
+    // Если устройство подключено
     if (MainForm.DevSheet.Caption <> SNoDevice) and
       (Pos('offline', MainForm.DevSheet.Caption) = 0) then
     begin
+      if Terminated then Exit;
       ExProcess.Executable := 'bash';
       ExProcess.Parameters.Add('-c');
-      //Ошибки не выводим, только список, ждём окончания потока
       ExProcess.Options := [poWaitOnExit, poUsePipes];
 
-      //Размер SD-Card, использовано и свободно (работает во всех Android)
+      if Terminated then Exit;
+      // Размер SD-Card, использовано и свободно
       ExProcess.Parameters.Add('adb shell df -h ' + SDForm.GroupBox2.Caption +
         ' | tail -n1 | awk ' + '''' + '{ print $2, $3, $4 }' + '''');
-      Exprocess.Execute;
-
+      ExProcess.Execute;
+      if Terminated then Exit;
       S.LoadFromStream(ExProcess.Output);
       S.Text := Trim(S.Text);
 
-      //Если есть, что выводить и SD-Карта существует
+      if Terminated then Exit;
+      // Если есть что выводить и SD-Карта существует
       if S.Count <> 0 then
         Synchronize(@SDSizeUsedFree);
 
-      //Определяем версию Android > 7
+      if Terminated then Exit;
+      // Определяем версию Android > 7
       ExProcess.Parameters.Delete(1);
       ExProcess.Parameters.Add('adb shell ls -p /');
       ExProcess.Execute;
+      if Terminated then Exit;
       S.LoadFromStream(ExProcess.Output);
-      if Pos('Aborting', S[0]) <> 0 then
-        android7 := False
-      else
-        android7 := True;
+      if S.Count > 0 then
+        if Pos('Aborting', S[0]) <> 0 then
+          android7 := False
+        else
+          android7 := True;
 
-      //ls текущего каталога с заменой спецсимволов (android7 in ADBDeviceStatusTRD)
+      if Terminated then Exit;
+      // ls текущего каталога с заменой спецсимволов
       ExProcess.Parameters.Delete(1);
       if not android7 then
         ExProcess.Parameters.Add('adb shell ls -a -F ' + '''' +
           SDForm.DetoxName(SDForm.GroupBox2.Caption) + '''' + ' | sort -t "d" -k 1,1')
       else
-        //Android > 7?
         ExProcess.Parameters.Add('a=$(adb shell ls -A -p ' + '''' +
           SDForm.DetoxName(SDForm.GroupBox2.Caption) + '''' +
           '); b=$(echo "$a" | grep "/"); c=$(echo "$a" | grep -v "/"); echo -e "$b\n$c"  | grep -v "^$"');
 
       ExProcess.Execute;
+      if Terminated then Exit;
       S.LoadFromStream(ExProcess.Output);
+
+      if Terminated then Exit;
       Synchronize(@UpdateSDBox);
     end;
 
   finally
-    Synchronize(@HideProgress);
+    if not Terminated then
+      Synchronize(@HideProgress);
+
     S.Free;
     ExProcess.Free;
     Terminate;
   end;
 end;
+
 
 //Начало операции
 procedure StartLSSD.ShowProgress;

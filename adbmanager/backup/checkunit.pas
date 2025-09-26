@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, CheckLst, StdCtrls,
-  IniPropStorage, ComCtrls, Buttons, StrUtils;
+  IniPropStorage, ComCtrls, Buttons, Types;
 
 type
 
@@ -15,18 +15,22 @@ type
   TCheckForm = class(TForm)
     AppListBox: TCheckListBox;
     ApplyBtn: TButton;
+    DefaultIcon: TImageList;
     ModeBox: TCheckBox;
     Edit1: TEdit;
     IniPropStorage1: TIniPropStorage;
     Label1: TLabel;
     ProgressBar1: TProgressBar;
     ClearBtn: TSpeedButton;
+    procedure AppListBoxDrawItem(Control: TWinControl; Index: integer;
+      ARect: TRect; State: TOwnerDrawState);
     procedure ApplyBtnClick(Sender: TObject);
     procedure ClearBtnClick(Sender: TObject);
     procedure Edit1Change(Sender: TObject);
     procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
     procedure FormShow(Sender: TObject);
     procedure ModeBoxClick(Sender: TObject);
+
   private
 
   public
@@ -41,9 +45,9 @@ implementation
 
 uses Unit1, ReadAppsTrdUnit;
 
-{$R *.lfm}
+  {$R *.lfm}
 
-{ TCheckForm }
+  { TCheckForm }
 
 procedure TCheckForm.FormShow(Sender: TObject);
 var
@@ -93,21 +97,26 @@ procedure TCheckForm.Edit1Change(Sender: TObject);
 var
   I: integer;
 begin
-  //Обход при Form.ShowModal, списка ещё нет
+  // Обход при Form.ShowModal, списка ещё нет
   if AppListBox.Count = 0 then Exit;
 
   AppListBox.Items.BeginUpdate;
   try
     for I := 0 to AppListBox.Items.Count - 1 do
-      AppListBox.Selected[I] := ContainsText(AppListBox.Items[I], Edit1.Text);
+      // Поиск подстроки
+      AppListBox.Selected[I] :=
+        Pos(UpperCase(Edit1.Text), UpperCase(AppListBox.Items[I])) > 0;
   finally
     AppListBox.Items.EndUpdate;
   end;
 end;
 
+
 //Очищаем виртуальный список чекеров, сохраняем настройки формы
 procedure TCheckForm.FormClose(Sender: TObject; var CloseAction: TCloseAction);
 begin
+  MainForm.StartProcess('RunCmd('adb shell am force-stop com.example.iconextractor');
+
   VList.Free;
   IniPropStorage1.Save;
 end;
@@ -162,6 +171,59 @@ begin
 
   CheckForm.Close;
 end;
+
+//Отрисовка иконок приложений
+procedure TCheckForm.AppListBoxDrawItem(Control: TWinControl;
+  Index: integer; ARect: TRect; State: TOwnerDrawState);
+var
+  bmp: TBitmap;
+  png: TPortableNetworkGraphic;
+  fname: string;
+  textY, iconTop: integer;
+  textHeight, iconHeight: integer;
+begin
+  // фон строки
+  (Control as TCheckListBox).Canvas.FillRect(ARect);
+
+  fname := GetEnvironmentVariable('HOME') + '/.adbmanager/icons/' +
+    AppListBox.Items[Index] + '.png';
+
+  if FileExists(fname) then
+  begin
+    png := TPortableNetworkGraphic.Create;
+    bmp := TBitmap.Create;
+    try
+      png.LoadFromFile(fname);
+      bmp.Assign(png);
+      iconHeight := bmp.Height;
+
+      // вертикальное центрирование иконки
+      iconTop := ARect.Top + ((ARect.Bottom - ARect.Top) - iconHeight) div 2;
+
+      // рисуем PNG в оригинальном размере
+      (Control as TCheckListBox).Canvas.Draw(ARect.Left + 2, iconTop, bmp);
+    finally
+      png.Free;
+      bmp.Free;
+    end;
+  end
+  else
+  begin
+    // fallback из ImageList
+    iconHeight := DefaultIcon.Height;
+    iconTop := ARect.Top + ((ARect.Bottom - ARect.Top) - iconHeight) div 2;
+    DefaultIcon.Draw((Control as TCheckListBox).Canvas, ARect.Left +
+      2, iconTop, 0, True);
+  end;
+
+  // вертикальное центрирование текста
+  textHeight := AppListBox.Canvas.TextHeight(AppListBox.Items[Index]);
+  textY := ARect.Top + ((ARect.Bottom - ARect.Top) - textHeight) div 2;
+
+  // рисуем текст справа от иконки
+  AppListBox.Canvas.TextOut(ARect.Left + iconHeight + 6, textY, AppListBox.Items[Index]);
+end;
+
 
 //Очистка поиска
 procedure TCheckForm.ClearBtnClick(Sender: TObject);

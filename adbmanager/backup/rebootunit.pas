@@ -50,7 +50,6 @@ begin
   RadioGroup1.Items[1] := SBootLoader;
   RadioGroup1.Items[2] := SRecoveryReboot;
   RadioGroup1.Items[3] := SShutDown;
-  IniPropStorage1.IniFileName := MainForm.IniPropStorage1.IniFileName;
 end;
 
 procedure TRebootForm.OKBtnClick(Sender: TObject);
@@ -79,6 +78,7 @@ end;
 procedure TRebootForm.FormShow(Sender: TObject);
 begin
   //For Plasma
+  IniPropStorage1.IniFileName := MainForm.IniPropStorage1.IniFileName;
   IniPropStorage1.Restore;
 end;
 

@@ -6,24 +6,15 @@ uses
  {$IFDEF UNIX}
   cthreads,    {$ENDIF}
   Interfaces, // this includes the LCL widgetset
-  Forms,
-  Unit1,
-  ADBDeviceStatusTRD,
-  ADBCommandTRD,
-  RebootUnit,
-  SDCardManager,
-  SDCommandTRD,
-  LSSDFolderTRD,
-  EmulatorUnit,
-  SDMountPointTRD,
-  CheckUnit,
-  ReadAppsTRDUnit, settings_unit { you can add units after this };
+  Forms, Unit1, ADBDeviceStatusTRD, ADBCommandTRD, RebootUnit, SDCardManager,
+  SDCommandTRD, LSSDFolderTRD, EmulatorUnit, SDMountPointTRD, CheckUnit,
+  ReadAppsTRDUnit, settings_unit, ReadSettingsTRDUnit, WriteSettingsTRDUnit { you can add units after this };
 
 {$R *.res}
 
 begin
   RequireDerivedFormResource := True;
-  Application.Title:='ADBManager v3.3';
+  Application.Title:='ADBManager v3.6';
   Application.Scaled:=True;
   Application.Initialize;
   Application.CreateForm(TMainForm, MainForm);

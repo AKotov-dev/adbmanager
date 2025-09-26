@@ -40,9 +40,9 @@ implementation
 
 uses unit1, SDCardManager;
 
-{$R *.lfm}
+  {$R *.lfm}
 
-{ TRebootForm }
+  { TRebootForm }
 
 procedure TRebootForm.FormCreate(Sender: TObject);
 begin

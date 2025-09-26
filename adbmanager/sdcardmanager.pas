@@ -190,6 +190,7 @@ begin
   //Если копирование или установка выполняется - отменяем
   StartProcess('if pgrep -f "adb push" > /dev/null; then kill $(pgrep -f "adb push") >/dev/null 2>&1; fi');
   StartProcess('if pgrep -f "adb pull" > /dev/null; then kill $(pgrep -f "adb pull") >/dev/null 2>&1; fi');
+  StartProcess('if pgrep -f "adb shell" > /dev/null; then kill $(pgrep -f "adb shell") >/dev/null 2>&1; fi');
 end;
 
 //На уровень вверх
@@ -421,6 +422,7 @@ begin
     //Скрываем "Esc - отмена"
     Panel4.Caption := '';
   finally
+    Screen.cursor := crDefault;
     //Освобождаем список точек монтирования SD-Card
     SDMountPoint.Free;
   end;

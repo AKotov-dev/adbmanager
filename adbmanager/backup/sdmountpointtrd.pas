@@ -25,7 +25,7 @@ implementation
 
 uses Unit1, SDCardManager;
 
-{ TRD }
+  { TRD }
 
 procedure ReadSDMountPoint.Execute;
 var
@@ -33,15 +33,18 @@ var
   S: TStringList;
   ExProcess: TProcess;
 begin
-  try //Вывод лога и прогресса
+  try
+    if Terminated then Exit;
     Synchronize(@StartProgress);
 
-    FreeOnTerminate := True; //Уничтожить по завершении
+    FreeOnTerminate := True; // уничтожить по завершении
 
+    if Terminated then Exit;
     S := TStringList.Create;
     ExProcess := TProcess.Create(nil);
 
-    //Наполняем возможными точками монтирования SD-Card
+    if Terminated then Exit;
+    // Наполняем возможными точками монтирования SD-Card
     with SDMountPoint do
     begin
       Add('/sdcard/');
@@ -64,41 +67,49 @@ begin
       Add('/chroot/mnt/XVMbox/extcard2/');
     end;
 
-    //Если устройство подключено
+    if Terminated then Exit;
+
+    // Если устройство подключено
     if (MainForm.DevSheet.Caption <> SNoDevice) and
       (Pos('offline', MainForm.DevSheet.Caption) = 0) then
     begin
-      //Получаем каталоги /storage/*
+      if Terminated then Exit;
+      // Получаем каталоги /storage/*
       ExProcess.Executable := 'bash';
       ExProcess.Parameters.Add('-c');
       ExProcess.Parameters.Add('adb shell ls /storage | grep -Ev "emul*|self"');
       ExProcess.Options := [poUsePipes, poWaitOnExit];
       ExProcess.Execute;
+      if Terminated then Exit;
       S.LoadFromStream(ExProcess.Output);
 
-      //Если нет в списке SDMountPoint - добавить из /storage/*
+      if Terminated then Exit;
+      // Если нет в списке SDMountPoint - добавить из /storage/*
       if S.Count <> 0 then
         for i := 0 to S.Count - 1 do
           if SDMountPoint.IndexOf('/storage/' + Trim(S[i]) + '/') = -1 then
             SDMountPoint.Append('/storage/' + Trim(S[i]) + '/');
 
-      //Проверить все точки на откытие/существование, несуществующие - удалить
+      if Terminated then Exit;
+      // Проверить все точки на открытие/существование, несуществующие - удалить
       for i := SDMountPoint.Count - 1 downto 0 do
       begin
+        if Terminated then Exit;
         ExProcess.Parameters.Delete(1);
-       { ExProcess.Parameters.Add('adb shell ' + '''' + '[ -d ' +
-          SDMountPoint[i] + ' ] && echo "yes" || echo "no"' + '''');}
-
         ExProcess.Parameters.Add('adb shell ' + '''' + 'cd ' +
           SDMountPoint[i] + ' &> /dev/null && echo "yes" || echo "no"' + '''');
-
         ExProcess.Execute;
+        if Terminated then Exit;
         S.LoadFromStream(ExProcess.Output);
-        if S[0] = 'no' then SDMountPoint.Delete(i);
+        if S.Count > 0 then
+          if S[0] = 'no' then
+            SDMountPoint.Delete(i);
       end;
     end;
   finally
-    Synchronize(@StopProgress);
+    if not Terminated then
+      Synchronize(@StopProgress);
+
     S.Free;
     ExProcess.Free;
     Terminate;
@@ -106,12 +117,13 @@ begin
 end;
 
 
+
 { БЛОК ЗАВЕРШЕНИЯ }
 
 //Старт процедуры
 procedure ReadSDMountPoint.StartProgress;
 begin
-  Screen.cursor := crHourGlass;
+ // Screen.cursor := crHourGlass;
   SDForm.SDChangeBtn.Enabled := False;
 end;
 
@@ -132,7 +144,7 @@ begin
     SDForm.SDChangeBtn.Enabled := False;
   end;
 
-  Screen.cursor := crDefault;
+ // Screen.cursor := crDefault;
 
   //Перечитываем точку монтирования
   SDForm.StartLS;

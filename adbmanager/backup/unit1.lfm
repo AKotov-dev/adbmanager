@@ -1,20 +1,20 @@
 object MainForm: TMainForm
-  Left = 300
-  Height = 627
-  Top = 126
+  Left = 323
+  Height = 610
+  Top = 131
   Width = 828
   ActiveControl = Panel1
   Caption = 'ADBManager'
-  ClientHeight = 627
+  ClientHeight = 610
   ClientWidth = 828
   KeyPreview = True
+  SessionProperties = 'Left;Top;Width;Height'
+  LCLVersion = '4.2.0.0'
   OnClose = FormClose
   OnCloseQuery = FormCloseQuery
   OnCreate = FormCreate
   OnKeyUp = FormKeyUp
   OnShow = FormShow
-  SessionProperties = 'Left;Top;Width;Height'
-  LCLVersion = '3.8.0.0'
   object ToolBar1: TToolBar
     Left = 0
     Height = 85
@@ -77,7 +77,7 @@ object MainForm: TMainForm
   object StaticText1: TStaticText
     Left = 0
     Height = 20
-    Top = 607
+    Top = 590
     Width = 828
     Align = alBottom
     Caption = 'License: GPLv3   Author: alex_q_2000 (C) 2025   URL: https://github.com/AKotov-dev/adbmanager'
@@ -97,7 +97,7 @@ object MainForm: TMainForm
     AnchorSideRight.Side = asrBottom
     AnchorSideBottom.Control = StaticText1
     Left = 0
-    Height = 396
+    Height = 379
     Top = 211
     Width = 828
     ActivePage = DevSheet
@@ -109,7 +109,7 @@ object MainForm: TMainForm
     TabOrder = 2
     object DevSheet: TTabSheet
       Caption = 'no device'
-      ClientHeight = 359
+      ClientHeight = 342
       ClientWidth = 822
       Font.Height = -13
       Font.Name = 'Sans'
@@ -117,7 +117,7 @@ object MainForm: TMainForm
       ParentFont = False
       object LogMemo: TMemo
         Left = 0
-        Height = 359
+        Height = 342
         Top = 0
         Width = 822
         Align = alClient
@@ -285,9 +285,9 @@ object MainForm: TMainForm
       Top = 2
       Caption = 'applications'
       ImageIndex = 4
-      OnClick = ApkInfoBtnClick
       ParentShowHint = False
       ShowHint = True
+      OnClick = ApkInfoBtnClick
     end
     object ToolButton1: TToolButton
       Left = 548
@@ -295,9 +295,9 @@ object MainForm: TMainForm
       Top = 2
       Caption = 'settings'
       ImageIndex = 8
-      OnClick = ApkInfoBtnClick
       ParentShowHint = False
       ShowHint = True
+      OnClick = ApkInfoBtnClick
     end
   end
   object Panel2: TPanel

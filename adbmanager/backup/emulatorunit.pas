@@ -90,8 +90,6 @@ begin
   RadioGroup1.Items[0] := SSwitchToUSB;
   RadioGroup1.Items[1] := SSwitchToTCPIP;
   RadioGroup1.Items[2] := SScanActiveConnection;
-
-  IniPropStorage1.IniFileName := MainForm.IniPropStorage1.IniFileName;
 end;
 
 procedure TEmulatorForm.FormKeyDown(Sender: TObject; var Key: word; Shift: TShiftState);
@@ -104,6 +102,7 @@ end;
 procedure TEmulatorForm.FormShow(Sender: TObject);
 begin
   //For Plasma
+  IniPropStorage1.IniFileName := MainForm.IniPropStorage1.IniFileName;
   IniPropStorage1.Restore;
 end;
 

@@ -1,21 +1,21 @@
 object SDForm: TSDForm
-  Left = 315
+  Left = 325
   Height = 631
-  Top = 144
+  Top = 134
   Width = 888
   ActiveControl = Splitter2
   Caption = 'SD-Card manager'
   ClientHeight = 631
   ClientWidth = 888
   KeyPreview = True
+  Position = poDefault
+  SessionProperties = 'CheckBox1.Checked;GroupBox2.Caption;Height;Left;Top;VBtn.Down;Width'
+  LCLVersion = '4.2.0.0'
   OnClose = FormClose
   OnCloseQuery = FormCloseQuery
   OnKeyUp = FormKeyUp
   OnResize = FormResize
   OnShow = FormShow
-  Position = poDefault
-  SessionProperties = 'CheckBox1.Checked;GroupBox2.Caption;Height;Left;Top;VBtn.Down;Width'
-  LCLVersion = '3.8.0.0'
   object Panel2: TPanel
     Left = 0
     Height = 1
@@ -55,16 +55,15 @@ object SDForm: TSDForm
       HideSelection = False
       Images = ImageList1
       ParentFont = False
-      ReadOnly = True
       Root = '/'
       RowSelect = True
       ScrollBars = ssVertical
       TabOrder = 0
-      OnGetImageIndex = CompDirGetImageIndex
-      OnGetSelectedIndex = CompDirGetImageIndex
       Options = [tvoAllowMultiselect, tvoAutoExpand, tvoAutoItemHeight, tvoKeepCollapsedNodes, tvoReadOnly, tvoRowSelect, tvoShowButtons, tvoShowLines, tvoShowRoot, tvoToolTips, tvoThemedDraw]
       ExpandSignColor = clGray
       ObjectTypes = [otFolders, otNonFolders]
+      OnGetImageIndex = CompDirGetImageIndex
+      OnGetSelectedIndex = CompDirGetImageIndex
     end
     object Panel4: TPanel
       Left = 0
@@ -219,9 +218,9 @@ object SDForm: TSDForm
           605F5B33605F5B33605F5B33605F5B33605F5B33605F5B33605F5A32614C5F1F
           5F08000000000000000000000000000000000000000000000000
         }
-        OnClick = CopyFromPCClick
         ShowHint = True
         ParentShowHint = False
+        OnClick = CopyFromPCClick
       end
       object MkPCDirBtn: TSpeedButton
         Left = 56
@@ -362,9 +361,9 @@ object SDForm: TSDForm
           B0275C9BB84859A0BD6959A3BD8958A3BEAA5FA4BDCBA8DEE8B7000000000000
           0000000000000000000000000000000000000000000000000000
         }
-        OnClick = MkPCDirBtnClick
         ShowHint = True
         ParentShowHint = False
+        OnClick = MkPCDirBtnClick
       end
       object RefreshBtn: TSpeedButton
         Left = 104
@@ -505,9 +504,9 @@ object SDForm: TSDForm
           FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
           FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00
         }
-        OnClick = RefreshBtnClick
         ShowHint = True
         ParentShowHint = False
+        OnClick = RefreshBtnClick
       end
       object CheckBox1: TCheckBox
         AnchorSideLeft.Control = RefreshBtn
@@ -715,9 +714,9 @@ object SDForm: TSDForm
           605F5B33605F5B33605F5B33605F5B33605F5B33605F5B33605F5A32614C5F1F
           5F08000000000000000000000000000000000000000000000000
         }
-        OnClick = CopyFromSmartphoneClick
         ShowHint = True
         ParentShowHint = False
+        OnClick = CopyFromSmartphoneClick
       end
       object SelectAllBtn: TSpeedButton
         Left = 96
@@ -858,9 +857,9 @@ object SDForm: TSDForm
           B0F3C5BEB24F0000000000000000C6BDB051C5BEB0F3C5BEB0FFC5BEB0F2C4BF
           B0AEC4BEB1270000000000000000000000000000000000000000
         }
-        OnClick = SelectAllBtnClick
         ShowHint = True
         ParentShowHint = False
+        OnClick = SelectAllBtnClick
       end
       object MkDirBtn: TSpeedButton
         Left = 142
@@ -1001,9 +1000,9 @@ object SDForm: TSDForm
           B0275C9BB84859A0BD6959A3BD8958A3BEAA5FA4BDCBA8DEE8B7000000000000
           0000000000000000000000000000000000000000000000000000
         }
-        OnClick = MkDirBtnClick
         ShowHint = True
         ParentShowHint = False
+        OnClick = MkDirBtnClick
       end
       object DelBtn: TSpeedButton
         Left = 187
@@ -1144,9 +1143,9 @@ object SDForm: TSDForm
           42FFC48242FFC48242FFC48242FFC48242F9C48242DEC4824274C482420BC482
           4200000000000000000000000000000000000000000000000000
         }
-        OnClick = DelBtnClick
         ShowHint = True
         ParentShowHint = False
+        OnClick = DelBtnClick
       end
       object UpBtn: TSpeedButton
         Left = 52
@@ -1287,9 +1286,9 @@ object SDForm: TSDForm
           76F5D4B275D6D3B276A6D3B27564DAB679150000000000000000000000000000
           0000000000000000000000000000000000000000000000000000
         }
-        OnClick = UpBtnClick
         ShowHint = True
         ParentShowHint = False
+        OnClick = UpBtnClick
       end
       object Label3: TLabel
         AnchorSideTop.Control = Label4
@@ -1525,9 +1524,9 @@ object SDForm: TSDForm
           3C773E3C3C773E3C3C773E3C3C773E3C3C773E3C3C773E3C3C773E3C3C773E3C
           3C773E3C3C763E3C3C313E3C3C003E3C3C000000000000000000
         }
-        OnClick = SDChangeBtnClick
         ShowHint = True
         ParentShowHint = False
+        OnClick = SDChangeBtnClick
       end
     end
   end

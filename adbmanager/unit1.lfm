@@ -1,11 +1,11 @@
 object MainForm: TMainForm
-  Left = 334
-  Height = 627
-  Top = 127
+  Left = 317
+  Height = 618
+  Top = 126
   Width = 828
   ActiveControl = Panel1
   Caption = 'ADBManager'
-  ClientHeight = 627
+  ClientHeight = 618
   ClientWidth = 828
   KeyPreview = True
   SessionProperties = 'Left;Top;Width;Height'
@@ -77,7 +77,7 @@ object MainForm: TMainForm
   object StaticText1: TStaticText
     Left = 0
     Height = 20
-    Top = 607
+    Top = 598
     Width = 828
     Align = alBottom
     Caption = 'License: GPLv3   Author: alex_q_2000 (C) 2025   URL: https://github.com/AKotov-dev/adbmanager'
@@ -97,7 +97,7 @@ object MainForm: TMainForm
     AnchorSideRight.Side = asrBottom
     AnchorSideBottom.Control = StaticText1
     Left = 0
-    Height = 396
+    Height = 387
     Top = 211
     Width = 828
     ActivePage = DevSheet
@@ -109,7 +109,7 @@ object MainForm: TMainForm
     TabOrder = 2
     object DevSheet: TTabSheet
       Caption = 'no device'
-      ClientHeight = 359
+      ClientHeight = 350
       ClientWidth = 822
       Font.Height = -13
       Font.Name = 'Sans'
@@ -117,7 +117,7 @@ object MainForm: TMainForm
       ParentFont = False
       object LogMemo: TMemo
         Left = 0
-        Height = 359
+        Height = 350
         Top = 0
         Width = 822
         Align = alClient

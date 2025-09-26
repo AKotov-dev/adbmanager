@@ -190,6 +190,7 @@ begin
   //Если копирование или установка выполняется - отменяем
   StartProcess('if pgrep -f "adb push" > /dev/null; then kill $(pgrep -f "adb push") >/dev/null 2>&1; fi');
   StartProcess('if pgrep -f "adb pull" > /dev/null; then kill $(pgrep -f "adb pull") >/dev/null 2>&1; fi');
+  StartProcess('if pgrep -f "adb shell" > /dev/null; then kill $(pgrep -f "adb shell") >/dev/null 2>&1; fi');
 end;
 
 //На уровень вверх
@@ -222,7 +223,7 @@ begin
   end;
 end;
 
-//Сплиттер 1/2 width, вывод команды - 1/6 height
+//Сплиттер 1/2 width, вывод команды - 1/7 height
 procedure TSDForm.FormResize(Sender: TObject);
 begin
   GroupBox1.Width := SDForm.Width div 2;
@@ -421,6 +422,7 @@ begin
     //Скрываем "Esc - отмена"
     Panel4.Caption := '';
   finally
+    Screen.cursor := crDefault;
     //Освобождаем список точек монтирования SD-Card
     SDMountPoint.Free;
   end;

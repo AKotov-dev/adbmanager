@@ -39,9 +39,8 @@
         <Filename Value="adbmanager.pas"/>
         <IsPartOfProject Value="True"/>
         <EditorIndex Value="-1"/>
-        <TopLine Value="4"/>
-        <CursorPos X="54" Y="20"/>
-        <UsageCount Value="145"/>
+        <CursorPos X="21"/>
+        <UsageCount Value="165"/>
       </Unit0>
       <Unit1>
         <Filename Value="unit1.pas"/>
@@ -50,11 +49,9 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="Unit1"/>
-        <IsVisibleTab Value="True"/>
-        <EditorIndex Value="2"/>
-        <TopLine Value="480"/>
-        <CursorPos X="15" Y="485"/>
-        <UsageCount Value="145"/>
+        <TopLine Value="442"/>
+        <CursorPos X="3" Y="445"/>
+        <UsageCount Value="165"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit1>
@@ -64,15 +61,15 @@
         <UnitName Value="ADBDeviceStatusTRD"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="26"/>
-        <UsageCount Value="137"/>
+        <UsageCount Value="157"/>
       </Unit2>
       <Unit3>
         <Filename Value="adbcommandtrd.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="ADBCommandTRD"/>
         <EditorIndex Value="-1"/>
-        <CursorPos X="20"/>
-        <UsageCount Value="134"/>
+        <CursorPos X="21"/>
+        <UsageCount Value="154"/>
       </Unit3>
       <Unit4>
         <Filename Value="rebootunit.pas"/>
@@ -81,12 +78,9 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="RebootUnit"/>
-        <EditorIndex Value="3"/>
-        <TopLine Value="53"/>
-        <CursorPos X="3" Y="80"/>
-        <UsageCount Value="122"/>
-        <Loaded Value="True"/>
-        <LoadedDesigner Value="True"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="18"/>
+        <UsageCount Value="142"/>
       </Unit4>
       <Unit5>
         <Filename Value="sdcardmanager.pas"/>
@@ -95,28 +89,26 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="SDCardManager"/>
-        <EditorIndex Value="4"/>
-        <TopLine Value="442"/>
-        <CursorPos X="3" Y="446"/>
-        <UsageCount Value="114"/>
+        <EditorIndex Value="1"/>
+        <CursorPos X="21"/>
+        <UsageCount Value="134"/>
         <Loaded Value="True"/>
-        <LoadedDesigner Value="True"/>
       </Unit5>
       <Unit6>
         <Filename Value="sdcommandtrd.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="SDCommandTRD"/>
         <EditorIndex Value="-1"/>
-        <CursorPos X="19"/>
-        <UsageCount Value="112"/>
+        <CursorPos X="20"/>
+        <UsageCount Value="132"/>
       </Unit6>
       <Unit7>
         <Filename Value="lssdfoldertrd.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="LSSDFolderTRD"/>
         <EditorIndex Value="-1"/>
-        <CursorPos X="20"/>
-        <UsageCount Value="88"/>
+        <CursorPos X="90" Y="5"/>
+        <UsageCount Value="108"/>
       </Unit7>
       <Unit8>
         <Filename Value="emulatorunit.pas"/>
@@ -125,20 +117,17 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="EmulatorUnit"/>
-        <EditorIndex Value="1"/>
-        <TopLine Value="88"/>
-        <CursorPos X="3" Y="104"/>
-        <UsageCount Value="61"/>
-        <Loaded Value="True"/>
-        <LoadedDesigner Value="True"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="20"/>
+        <UsageCount Value="81"/>
       </Unit8>
       <Unit9>
         <Filename Value="sdmountpointtrd.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="SDMountPointTRD"/>
         <EditorIndex Value="-1"/>
-        <CursorPos X="22"/>
-        <UsageCount Value="48"/>
+        <CursorPos X="23"/>
+        <UsageCount Value="68"/>
       </Unit9>
       <Unit10>
         <Filename Value="checkunit.pas"/>
@@ -147,9 +136,10 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="CheckUnit"/>
-        <TopLine Value="48"/>
-        <CursorPos X="3" Y="52"/>
-        <UsageCount Value="45"/>
+        <EditorIndex Value="2"/>
+        <TopLine Value="103"/>
+        <CursorPos X="25" Y="118"/>
+        <UsageCount Value="65"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit10>
@@ -157,10 +147,12 @@
         <Filename Value="readappstrdunit.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="ReadAppsTRDUnit"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="104"/>
-        <CursorPos X="5" Y="133"/>
-        <UsageCount Value="44"/>
+        <IsVisibleTab Value="True"/>
+        <EditorIndex Value="3"/>
+        <TopLine Value="53"/>
+        <CursorPos X="36" Y="60"/>
+        <UsageCount Value="64"/>
+        <Loaded Value="True"/>
       </Unit11>
       <Unit12>
         <Filename Value="settings_unit.pas"/>
@@ -168,29 +160,25 @@
         <ComponentName Value="SettingsForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <EditorIndex Value="5"/>
-        <TopLine Value="61"/>
-        <CursorPos X="3" Y="67"/>
-        <UsageCount Value="30"/>
-        <Loaded Value="True"/>
-        <LoadedDesigner Value="True"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="21"/>
+        <UsageCount Value="50"/>
       </Unit12>
       <Unit13>
         <Filename Value="readsettingstrdunit.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="ReadSettingsTRDUnit"/>
         <EditorIndex Value="-1"/>
-        <WindowIndex Value="-1"/>
-        <CursorPos X="58" Y="3"/>
-        <UsageCount Value="27"/>
+        <CursorPos X="27"/>
+        <UsageCount Value="47"/>
       </Unit13>
       <Unit14>
         <Filename Value="writesettingstrdunit.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="WriteSettingsTRDUnit"/>
         <EditorIndex Value="-1"/>
-        <CursorPos X="27"/>
-        <UsageCount Value="24"/>
+        <CursorPos X="28"/>
+        <UsageCount Value="44"/>
       </Unit14>
       <Unit15>
         <Filename Value="backupunit.pas"/>
@@ -201,10 +189,127 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="32"/>
         <CursorPos X="26" Y="63"/>
-        <UsageCount Value="102"/>
+        <UsageCount Value="101"/>
       </Unit15>
     </Units>
-    <JumpHistory HistoryIndex="-1"/>
+    <JumpHistory Count="29" HistoryIndex="28">
+      <Position1>
+        <Filename Value="unit1.pas"/>
+        <Caret Line="485" Column="15" TopLine="480"/>
+      </Position1>
+      <Position2>
+        <Filename Value="checkunit.pas"/>
+        <Caret Column="17"/>
+      </Position2>
+      <Position3>
+        <Filename Value="checkunit.pas"/>
+        <Caret Line="112" TopLine="92"/>
+      </Position3>
+      <Position4>
+        <Filename Value="checkunit.pas"/>
+        <Caret Line="9" Column="38"/>
+      </Position4>
+      <Position5>
+        <Filename Value="checkunit.pas"/>
+        <Caret Line="244" Column="7" TopLine="218"/>
+      </Position5>
+      <Position6>
+        <Filename Value="checkunit.pas"/>
+        <Caret Line="198" Column="18" TopLine="178"/>
+      </Position6>
+      <Position7>
+        <Filename Value="checkunit.pas"/>
+        <Caret Line="197" Column="10" TopLine="182"/>
+      </Position7>
+      <Position8>
+        <Filename Value="readappstrdunit.pas"/>
+        <Caret Line="67" Column="66" TopLine="49"/>
+      </Position8>
+      <Position9>
+        <Filename Value="checkunit.pas"/>
+        <Caret Line="184" Column="51" TopLine="173"/>
+      </Position9>
+      <Position10>
+        <Filename Value="readappstrdunit.pas"/>
+        <Caret Line="111" Column="15" TopLine="82"/>
+      </Position10>
+      <Position11>
+        <Filename Value="readappstrdunit.pas"/>
+        <Caret Line="8" Column="72"/>
+      </Position11>
+      <Position12>
+        <Filename Value="readappstrdunit.pas"/>
+        <Caret Line="106" Column="23" TopLine="91"/>
+      </Position12>
+      <Position13>
+        <Filename Value="readappstrdunit.pas"/>
+        <Caret Line="62" Column="28" TopLine="51"/>
+      </Position13>
+      <Position14>
+        <Filename Value="readappstrdunit.pas"/>
+        <Caret Line="77" Column="107" TopLine="61"/>
+      </Position14>
+      <Position15>
+        <Filename Value="readappstrdunit.pas"/>
+        <Caret Line="66" Column="20" TopLine="55"/>
+      </Position15>
+      <Position16>
+        <Filename Value="unit1.pas"/>
+        <Caret Column="13" TopLine="106"/>
+      </Position16>
+      <Position17>
+        <Filename Value="checkunit.pas"/>
+        <Caret Column="17"/>
+      </Position17>
+      <Position18>
+        <Filename Value="checkunit.pas"/>
+        <Caret Line="118" Column="26" TopLine="115"/>
+      </Position18>
+      <Position19>
+        <Filename Value="readappstrdunit.pas"/>
+        <Caret Line="66" Column="26" TopLine="60"/>
+      </Position19>
+      <Position20>
+        <Filename Value="readappstrdunit.pas"/>
+        <Caret Line="98" Column="42" TopLine="84"/>
+      </Position20>
+      <Position21>
+        <Filename Value="readappstrdunit.pas"/>
+        <Caret Line="171" Column="15" TopLine="167"/>
+      </Position21>
+      <Position22>
+        <Filename Value="readappstrdunit.pas"/>
+        <Caret Line="30"/>
+      </Position22>
+      <Position23>
+        <Filename Value="readappstrdunit.pas"/>
+        <Caret Line="170" Column="23" TopLine="167"/>
+      </Position23>
+      <Position24>
+        <Filename Value="readappstrdunit.pas"/>
+        <Caret Line="108" Column="26" TopLine="101"/>
+      </Position24>
+      <Position25>
+        <Filename Value="readappstrdunit.pas"/>
+        <Caret Line="153" Column="21" TopLine="149"/>
+      </Position25>
+      <Position26>
+        <Filename Value="readappstrdunit.pas"/>
+        <Caret Line="168" Column="12" TopLine="167"/>
+      </Position26>
+      <Position27>
+        <Filename Value="readappstrdunit.pas"/>
+        <Caret Line="202" TopLine="173"/>
+      </Position27>
+      <Position28>
+        <Filename Value="readappstrdunit.pas"/>
+        <Caret Line="181" Column="36" TopLine="176"/>
+      </Position28>
+      <Position29>
+        <Filename Value="readappstrdunit.pas"/>
+        <Caret Line="215" TopLine="186"/>
+      </Position29>
+    </JumpHistory>
     <RunParams>
       <FormatVersion Value="2"/>
       <Modes ActiveMode=""/>

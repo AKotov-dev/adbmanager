@@ -43,9 +43,9 @@ implementation
 
 uses unit1, SDCardManager;
 
-{$R *.lfm}
+  {$R *.lfm}
 
-{ TEmulatorForm }
+  { TEmulatorForm }
 
 
 //Валидация IP-адреса
