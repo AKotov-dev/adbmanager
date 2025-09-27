@@ -3,6 +3,7 @@ ADBManager - Manager for Android devices using ADB
 + Dependencies: adb iproute2 sakura nmap p7zip imagemagick gtk2  
 + Working directory (settings, temporary files): ~/.adbmanager  
 + Packages installation script: ~/.adbmanager/install_packages.sh (created automatically)
++ If you use app icons and have the [IconExtractor.apk](https://github.com/AKotov-dev/adbmanager/tree/main/IconExtractor) package installed on your smartphone, the icons are saved to the directory: /storage/emulated/0/Pictures/IconExtractor/icons
   
 **Note:** It is advisable to connect the devices via the `USB-2.0` port of your computer ([info](https://www.systutorials.com/how-to-force-a-usb-3-0-port-to-work-in-usb-2-0-mode-in-linux/)).
     
