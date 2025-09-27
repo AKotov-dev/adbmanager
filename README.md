@@ -5,6 +5,8 @@ ADBManager - Manager for Android devices using ADB
 + Packages installation script: ~/.adbmanager/install_packages.sh (created automatically)
 + If you use app icons and have the [IconExtractor.apk](https://github.com/AKotov-dev/adbmanager/tree/main/IconExtractor) package installed on your smartphone, the icons are saved to the directory: /storage/emulated/0/Pictures/IconExtractor/icons
   
+![](https://github.com/AKotov-dev/adbmanager/blob/main/ScreenShots/Applications1.png)
+  
 **Note:** It is advisable to connect the devices via the `USB-2.0` port of your computer ([info](https://www.systutorials.com/how-to-force-a-usb-3-0-port-to-work-in-usb-2-0-mode-in-linux/)).
     
 The program is designed for visual and easy management of the ADB-Server and connection of Android smartphones. Allows you to monitor the status of the `adb` service, manage it, and control the list of connected devices. Allows you to manage your smartphone: search for installed packages by part name, install, delete APK, screenshot, reboot (Normal, Bootloader, Recovery mode) and shutdown the device. For advanced users, there is an Android Shell terminal and an SD-Card file manager.  
