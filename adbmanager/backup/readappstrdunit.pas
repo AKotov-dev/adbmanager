@@ -56,16 +56,22 @@ begin
     S := TStringList.Create;
     FreeOnTerminate := True;
 
+    RunCmd('adb devices | grep -w "device"', S);
+    if Trim(S.Text) = '' then Exit;
+
     //Проверка установлен ли пакет на смартфоне
     RunCmd('adb shell pm list packages | grep com.example.iconextractor', S);
     if Trim(S.Text) <> '' then
     begin
       // --- 1. Чистим каталог на компе и смартфоне ---
       if Terminated then Exit;
-      RunCmd(
-        'rm -rf ~/.adbmanager/icons && ' +
-        'adb shell mkdir -p /sdcard/IconExtractor/icons && ' +
-        'adb shell rm -rf /sdcard/IconExtractor/icons/*');
+     // RunCmd(
+     // 'rm -rf ~/.adbmanager/icons && ' +
+      //  'adb shell mkdir -p /sdcard/IconExtractor/icons && ' +
+      //  'adb shell rm -rf /sdcard/IconExtractor/icons/*');
+
+     //   'adb shell mkdir -p /sdcard/Android/data/com.example.iconextractor/files/icons && ' +
+     //   'adb shell rm -rf /sdcard/Android/data/com.example.iconextractor/files/icons/*');
 
       // --- 2. Запуск Activity ---
       if Terminated then Exit;
@@ -93,7 +99,8 @@ begin
 
       // --- 5. Копирование png на комп ---
       if Terminated then Exit;
-      RunCmd('adb pull /sdcard/IconExtractor/icons ~/.adbmanager/');
+     // RunCmd('adb pull /sdcard/IconExtractor/icons ~/.adbmanager/');
+        RunCmd('adb pull /storage/emulated/0/Pictures/IconExtractor/icons ~/.adbmanager/');
     end;
 
 
