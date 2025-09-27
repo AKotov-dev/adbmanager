@@ -3,19 +3,21 @@ ADBManager - Manager for Android devices using ADB
 + Dependencies: adb iproute2 sakura nmap p7zip imagemagick gtk2  
 + Working directory (settings, temporary files): ~/.adbmanager  
 + Packages installation script: ~/.adbmanager/install_packages.sh (created automatically)
-+ If you use app icons and have the [IconExtractor.apk](https://github.com/AKotov-dev/adbmanager/tree/main/IconExtractor) package installed on your smartphone, the icons are saved to the directory: /storage/emulated/0/Pictures/IconExtractor/icons
-  
-![](https://github.com/AKotov-dev/adbmanager/blob/main/ScreenShots/Applications1.png)
++ If [IconExtractor.apk](https://github.com/AKotov-dev/adbmanager/tree/main/IconExtractor) is installed, the path to application icons: /storage/emulated/0/Pictures/IconExtractor/icons
   
 **Note:** It is advisable to connect the devices via the `USB-2.0` port of your computer ([info](https://www.systutorials.com/how-to-force-a-usb-3-0-port-to-work-in-usb-2-0-mode-in-linux/)).
     
 The program is designed for visual and easy management of the ADB-Server and connection of Android smartphones. Allows you to monitor the status of the `adb` service, manage it, and control the list of connected devices. Allows you to manage your smartphone: search for installed packages by part name, install, delete APK, screenshot, reboot (Normal, Bootloader, Recovery mode) and shutdown the device. For advanced users, there is an Android Shell terminal and an SD-Card file manager.  
   
-Starting from `v2.9`, it is possible to enable, disable and delete non-removable applications for Android >= 6.  
+Starting with `v3.6`, the application manager can display application icons from a connected device. This requires installing the `IconExtractor.apk`.
   
-Starting from `v3.3`, multiple installation of `APK`, `APKS` and `XAPK` packages is supported. Files are selected in the file selection window using the `Ctrl+Mouse`. Installation of `XAPK`packages with a single package architecture (32 bits or 64 bits) is supported. The presence of packages of both architectures (32 bits + 64 bits) in `XAPK` is not supported.  
+![](https://github.com/AKotov-dev/adbmanager/blob/main/ScreenShots/Applications1.png)
   
 Starting with `v3.4`, fine-tuning for `Android TV Box` with truncated launchers (gear icon) has been added. Now missing settings can be made via `ADB`.
+  
+Starting from `v3.3`, multiple installation of `APK`, `APKS` and `XAPK` packages is supported. Files are selected in the file selection window using the `Ctrl+Mouse`. Installation of `XAPK`packages with a single package architecture (32 bits or 64 bits) is supported. The presence of packages of both architectures (32 bits + 64 bits) in `XAPK` is not supported.
+  
+Starting from `v2.9`, it is possible to enable, disable and delete non-removable applications for Android >= 6.  
   
 Access to the device via USB and rules
 ---
