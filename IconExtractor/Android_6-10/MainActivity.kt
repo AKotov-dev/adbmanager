@@ -34,8 +34,18 @@ class MainActivity : ComponentActivity() {
     }
 
     private fun extractIconsAndFinish() {
-        val iconsDir = File(Environment.getExternalStorageDirectory(), "IconExtractor/icons")
-        if (!iconsDir.exists()) iconsDir.mkdirs()
+        // Путь: /storage/emulated/0/Pictures/IconExtractor/icons
+        val picturesDir = File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES), "IconExtractor/icons")
+
+        // Создаём каталог, если его нет
+        if (!picturesDir.exists()) picturesDir.mkdirs()
+
+        // Очищаем старые PNG-файлы
+        picturesDir.listFiles()?.forEach { file ->
+            if (file.isFile && file.extension.lowercase() == "png") {
+                file.delete()
+            }
+        }
 
         val pm = packageManager
         val packages = pm.getInstalledApplications(0)
@@ -56,7 +66,7 @@ class MainActivity : ComponentActivity() {
                     try {
                         val drawable = pm.getApplicationIcon(app)
                         val bitmap = drawableToBitmap(drawable)
-                        val file = File(iconsDir, "${app.packageName}.png")
+                        val file = File(picturesDir, "${app.packageName}.png")
                         FileOutputStream(file).use { out ->
                             bitmap.compress(Bitmap.CompressFormat.PNG, 100, out)
                         }
@@ -75,7 +85,7 @@ class MainActivity : ComponentActivity() {
         // Завершаем Activity и процесс
         finish()
         android.os.Process.killProcess(android.os.Process.myPid())
-        System.exit(0)
+        //System.exit(0)
     }
 
     override fun onRequestPermissionsResult(
@@ -87,18 +97,15 @@ class MainActivity : ComponentActivity() {
         if (requestCode == 100 && grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
             extractIconsAndFinish()
         } else {
-            // Пользователь не дал разрешение → завершаем Activity и процесс
             finish()
             android.os.Process.killProcess(android.os.Process.myPid())
-            System.exit(0)
+          //System.exit(0)
         }
     }
 
-    // --- Функция безопасного преобразования Drawable в Bitmap ---
+    // --- Преобразуем Drawable в Bitmap ---
     private fun drawableToBitmap(drawable: Drawable): Bitmap {
-        if (drawable is BitmapDrawable) {
-            drawable.bitmap?.let { return it }
-        }
+        if (drawable is BitmapDrawable) drawable.bitmap?.let { return it }
 
         val width = if (drawable.intrinsicWidth > 0) drawable.intrinsicWidth else 1
         val height = if (drawable.intrinsicHeight > 0) drawable.intrinsicHeight else 1
