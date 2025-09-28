@@ -40,7 +40,7 @@
         <IsPartOfProject Value="True"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="21"/>
-        <UsageCount Value="170"/>
+        <UsageCount Value="171"/>
       </Unit0>
       <Unit1>
         <Filename Value="unit1.pas"/>
@@ -51,7 +51,7 @@
         <UnitName Value="Unit1"/>
         <TopLine Value="442"/>
         <CursorPos X="3" Y="445"/>
-        <UsageCount Value="170"/>
+        <UsageCount Value="171"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit1>
@@ -61,7 +61,7 @@
         <UnitName Value="ADBDeviceStatusTRD"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="26"/>
-        <UsageCount Value="162"/>
+        <UsageCount Value="163"/>
       </Unit2>
       <Unit3>
         <Filename Value="adbcommandtrd.pas"/>
@@ -69,7 +69,7 @@
         <UnitName Value="ADBCommandTRD"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="21"/>
-        <UsageCount Value="159"/>
+        <UsageCount Value="160"/>
       </Unit3>
       <Unit4>
         <Filename Value="rebootunit.pas"/>
@@ -80,7 +80,7 @@
         <UnitName Value="RebootUnit"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="18"/>
-        <UsageCount Value="147"/>
+        <UsageCount Value="148"/>
       </Unit4>
       <Unit5>
         <Filename Value="sdcardmanager.pas"/>
@@ -91,7 +91,7 @@
         <UnitName Value="SDCardManager"/>
         <EditorIndex Value="1"/>
         <CursorPos X="21"/>
-        <UsageCount Value="139"/>
+        <UsageCount Value="140"/>
         <Loaded Value="True"/>
       </Unit5>
       <Unit6>
@@ -100,7 +100,7 @@
         <UnitName Value="SDCommandTRD"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="20"/>
-        <UsageCount Value="137"/>
+        <UsageCount Value="138"/>
       </Unit6>
       <Unit7>
         <Filename Value="lssdfoldertrd.pas"/>
@@ -108,7 +108,7 @@
         <UnitName Value="LSSDFolderTRD"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="90" Y="5"/>
-        <UsageCount Value="113"/>
+        <UsageCount Value="114"/>
       </Unit7>
       <Unit8>
         <Filename Value="emulatorunit.pas"/>
@@ -119,7 +119,7 @@
         <UnitName Value="EmulatorUnit"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="20"/>
-        <UsageCount Value="86"/>
+        <UsageCount Value="87"/>
       </Unit8>
       <Unit9>
         <Filename Value="sdmountpointtrd.pas"/>
@@ -127,7 +127,7 @@
         <UnitName Value="SDMountPointTRD"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="23"/>
-        <UsageCount Value="73"/>
+        <UsageCount Value="74"/>
       </Unit9>
       <Unit10>
         <Filename Value="checkunit.pas"/>
@@ -139,7 +139,7 @@
         <EditorIndex Value="2"/>
         <TopLine Value="103"/>
         <CursorPos X="25" Y="118"/>
-        <UsageCount Value="70"/>
+        <UsageCount Value="71"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit10>
@@ -149,9 +149,8 @@
         <UnitName Value="ReadAppsTRDUnit"/>
         <IsVisibleTab Value="True"/>
         <EditorIndex Value="3"/>
-        <TopLine Value="78"/>
-        <CursorPos Y="96"/>
-        <UsageCount Value="69"/>
+        <CursorPos X="23"/>
+        <UsageCount Value="70"/>
         <Loaded Value="True"/>
       </Unit11>
       <Unit12>
@@ -162,7 +161,7 @@
         <ResourceBaseClass Value="Form"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="21"/>
-        <UsageCount Value="55"/>
+        <UsageCount Value="56"/>
       </Unit12>
       <Unit13>
         <Filename Value="readsettingstrdunit.pas"/>
@@ -170,7 +169,7 @@
         <UnitName Value="ReadSettingsTRDUnit"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="27"/>
-        <UsageCount Value="52"/>
+        <UsageCount Value="53"/>
       </Unit13>
       <Unit14>
         <Filename Value="writesettingstrdunit.pas"/>
@@ -178,7 +177,7 @@
         <UnitName Value="WriteSettingsTRDUnit"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="28"/>
-        <UsageCount Value="49"/>
+        <UsageCount Value="50"/>
       </Unit14>
       <Unit15>
         <Filename Value="backupunit.pas"/>
