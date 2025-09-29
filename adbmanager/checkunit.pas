@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, CheckLst, StdCtrls,
-  IniPropStorage, ComCtrls, Buttons, Types;
+  IniPropStorage, ComCtrls, Buttons, Types, LCLIntf;
 
 type
 
@@ -22,6 +22,7 @@ type
     Label1: TLabel;
     ProgressBar1: TProgressBar;
     ClearBtn: TSpeedButton;
+    PkgBtn: TSpeedButton;
     procedure AppListBoxDrawItem(Control: TWinControl; Index: integer;
       ARect: TRect; State: TOwnerDrawState);
     procedure ApplyBtnClick(Sender: TObject);
@@ -30,7 +31,7 @@ type
     procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
     procedure FormShow(Sender: TObject);
     procedure ModeBoxClick(Sender: TObject);
-
+    procedure PkgBtnClick(Sender: TObject);
   private
 
   public
@@ -61,6 +62,7 @@ begin
   Edit1.Clear;
   ModeBox.Checked := False;
   ClearBtn.Width := Edit1.Height;
+  PkgBtn.Width := Edit1.Height;
 
   //Виртуальный список для сравнения чекбоксов (исходный)
   VList := TStringList.Create;
@@ -90,6 +92,12 @@ begin
       FReadAppsTRD.Priority := tpNormal;
     end;
   end;
+end;
+
+//CСсылка на IconExtractor.apk
+procedure TCheckForm.PkgBtnClick(Sender: TObject);
+begin
+  OpenURL('https://github.com/AKotov-dev/adbmanager/tree/main/IconExtractor');
 end;
 
 //Поиск в списке по части *имени_приложения*
