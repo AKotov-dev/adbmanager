@@ -2,11 +2,11 @@ object CheckForm: TCheckForm
   Left = 327
   Height = 555
   Top = 137
-  Width = 595
+  Width = 605
   ActiveControl = Edit1
   Caption = 'Enable/Disable/Uninstall applications'
   ClientHeight = 555
-  ClientWidth = 595
+  ClientWidth = 605
   SessionProperties = 'Height;Width;Top;Left'
   LCLVersion = '4.2.0.0'
   OnClose = FormClose
@@ -17,7 +17,7 @@ object CheckForm: TCheckForm
     Left = 5
     Height = 500
     Top = 50
-    Width = 585
+    Width = 595
     Align = alBottom
     Anchors = [akTop, akLeft, akRight, akBottom]
     BorderSpacing.Left = 5
@@ -57,7 +57,7 @@ object CheckForm: TCheckForm
     AnchorSideRight.Side = asrBottom
     AnchorSideBottom.Control = Edit1
     AnchorSideBottom.Side = asrBottom
-    Left = 483
+    Left = 493
     Height = 37
     Top = 8
     Width = 107
@@ -72,7 +72,7 @@ object CheckForm: TCheckForm
     AnchorSideLeft.Side = asrCenter
     AnchorSideTop.Control = AppListBox
     AnchorSideTop.Side = asrCenter
-    Left = 177
+    Left = 182
     Height = 10
     Top = 295
     Width = 240
@@ -82,7 +82,7 @@ object CheckForm: TCheckForm
     AnchorSideTop.Control = ApplyBtn
     AnchorSideTop.Side = asrCenter
     AnchorSideRight.Control = ApplyBtn
-    Left = 367
+    Left = 377
     Height = 32
     Hint = 'Uninstalling selected applications (Android >= 6)'
     Top = 10
@@ -103,6 +103,7 @@ object CheckForm: TCheckForm
     AnchorSideBottom.Side = asrBottom
     Left = 261
     Height = 37
+    Hint = 'Clear'
     Top = 8
     Width = 37
     Anchors = [akTop, akLeft, akBottom]
@@ -182,6 +183,7 @@ object CheckForm: TCheckForm
       28B8E6A628D8E6A728F4E6A728F4E6A628D8E6A628B8E5A8286CE5A72C1D0000
       0000000000000000000000000000000000000000000000000000
     }
+    ShowHint = True
     ParentShowHint = False
     OnClick = ClearBtnClick
   end
