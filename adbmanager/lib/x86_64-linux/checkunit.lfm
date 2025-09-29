@@ -103,6 +103,7 @@ object CheckForm: TCheckForm
     AnchorSideBottom.Side = asrBottom
     Left = 261
     Height = 37
+    Hint = 'Clear'
     Top = 8
     Width = 37
     Anchors = [akTop, akLeft, akBottom]
@@ -182,6 +183,7 @@ object CheckForm: TCheckForm
       28B8E6A628D8E6A728F4E6A728F4E6A628D8E6A628B8E5A8286CE5A72C1D0000
       0000000000000000000000000000000000000000000000000000
     }
+    ShowHint = True
     ParentShowHint = False
     OnClick = ClearBtnClick
   end
@@ -193,6 +195,7 @@ object CheckForm: TCheckForm
     AnchorSideBottom.Side = asrBottom
     Left = 298
     Height = 37
+    Hint = 'IconExtractor.apk'
     Top = 8
     Width = 37
     Anchors = [akTop, akLeft, akBottom]
@@ -272,6 +275,8 @@ object CheckForm: TCheckForm
       FA3175C2F98976C2FADC76C2FADC75C2F98978C1FA3100000000000000000000
       0000000000000000000000000000000000000000000000000000
     }
+    ShowHint = True
+    ParentShowHint = False
     OnClick = PkgBtnClick
   end
   object IniPropStorage1: TIniPropStorage

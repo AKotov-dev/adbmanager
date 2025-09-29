@@ -1,7 +1,7 @@
 object CheckForm: TCheckForm
-  Left = 334
+  Left = 327
   Height = 555
-  Top = 141
+  Top = 137
   Width = 595
   ActiveControl = Edit1
   Caption = 'Enable/Disable/Uninstall applications'
@@ -193,6 +193,7 @@ object CheckForm: TCheckForm
     AnchorSideBottom.Side = asrBottom
     Left = 298
     Height = 37
+    Hint = 'IconExtractor.apk'
     Top = 8
     Width = 37
     Anchors = [akTop, akLeft, akBottom]
@@ -272,6 +273,8 @@ object CheckForm: TCheckForm
       FA3175C2F98976C2FADC76C2FADC75C2F98978C1FA3100000000000000000000
       0000000000000000000000000000000000000000000000000000
     }
+    ShowHint = True
+    ParentShowHint = False
     OnClick = PkgBtnClick
   end
   object IniPropStorage1: TIniPropStorage

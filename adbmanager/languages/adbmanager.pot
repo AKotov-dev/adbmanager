@@ -108,6 +108,10 @@ msgstr ""
 msgid "Enable/Disable/Uninstall applications"
 msgstr ""
 
+#: tcheckform.clearbtn.hint
+msgid "Clear"
+msgstr ""
+
 #: tcheckform.label1.caption
 msgid "Search:"
 msgstr ""
@@ -119,6 +123,10 @@ msgstr ""
 
 #: tcheckform.modebox.hint
 msgid "Uninstalling selected applications (Android >= 6)"
+msgstr ""
+
+#: tcheckform.pkgbtn.hint
+msgid "IconExtractor.apk"
 msgstr ""
 
 #: temulatorform.cancelbtn.caption

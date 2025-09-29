@@ -3,5 +3,7 @@
 {"hash":163088874,"name":"tcheckform.label1.caption","sourcebytes":[83,101,97,114,99,104,58],"value":"Search:"},
 {"hash":4749113,"name":"tcheckform.applybtn.caption","sourcebytes":[65,112,112,108,121],"value":"Apply"},
 {"hash":111948185,"name":"tcheckform.modebox.hint","sourcebytes":[85,110,105,110,115,116,97,108,108,105,110,103,32,115,101,108,101,99,116,101,100,32,97,112,112,108,105,99,97,116,105,111,110,115,32,40,65,110,100,114,111,105,100,32,62,61,32,54,41],"value":"Uninstalling selected applications (Android >= 6)"},
-{"hash":171837285,"name":"tcheckform.modebox.caption","sourcebytes":[68,101,108,101,116,101,32,109,111,100,101],"value":"Delete mode"}
+{"hash":171837285,"name":"tcheckform.modebox.caption","sourcebytes":[68,101,108,101,116,101,32,109,111,100,101],"value":"Delete mode"},
+{"hash":4860802,"name":"tcheckform.clearbtn.hint","sourcebytes":[67,108,101,97,114],"value":"Clear"},
+{"hash":131164651,"name":"tcheckform.pkgbtn.hint","sourcebytes":[73,99,111,110,69,120,116,114,97,99,116,111,114,46,97,112,107],"value":"IconExtractor.apk"}
 ]}

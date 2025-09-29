@@ -121,6 +121,10 @@ msgstr "Применить"
 msgid "Enable/Disable/Uninstall applications"
 msgstr "Включить/Отключить/Удалить приложения"
 
+#: tcheckform.clearbtn.hint
+msgid "Clear"
+msgstr "Очистить"
+
 #: tcheckform.label1.caption
 msgid "Search:"
 msgstr "Поиск:"
@@ -133,6 +137,10 @@ msgstr "Режим удаления"
 #: tcheckform.modebox.hint
 msgid "Uninstalling selected applications (Android >= 6)"
 msgstr "Удалять выбранные приложения (Android >= 6)"
+
+#: tcheckform.pkgbtn.hint
+msgid "IconExtractor.apk"
+msgstr ""
 
 #: temulatorform.cancelbtn.caption
 msgctxt "temulatorform.cancelbtn.caption"
@@ -481,4 +489,3 @@ msgstr "Введите строку поиска или *"
 #: unit1.syes
 msgid "yes"
 msgstr "да"
-
