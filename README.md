@@ -11,7 +11,7 @@ The program is designed for visual and easy management of the ADB-Server and con
   
 Starting with `v3.6`, the application manager can display application icons from a connected device. This requires installing the [IconExtractor.apk](https://github.com/AKotov-dev/adbmanager/tree/main/IconExtractor). On Android_6-10, you will need to grant permission to access media storage.
   
-![](https://github.com/AKotov-dev/adbmanager/blob/main/ScreenShots/Applications1.png)
+![](https://github.com/AKotov-dev/adbmanager/blob/main/ScreenShots/Applications2.png)
   
 Starting with `v3.4`, fine-tuning for `Android TV Box` with truncated launchers (gear icon) has been added. Now missing settings can be made via `ADB`.
   
