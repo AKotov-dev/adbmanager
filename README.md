@@ -1,6 +1,6 @@
 ADBManager - Manager for Android devices using ADB
 ---
-+ Dependencies: adb iproute2 sakura nmap p7zip imagemagick gtk2  
++ Dependencies: adb iproute2 sakura nmap p7zip imagemagick gtk2 (libgtk2.0-0 on Ubuntu)  
 + Working directory (settings, temporary files): ~/.adbmanager  
 + Packages installation script: ~/.adbmanager/install_packages.sh (created automatically)
 + `IconExtractor.apk`: /storage/emulated/0/Pictures/IconExtractor/icons
