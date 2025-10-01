@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, ExtCtrls, StdCtrls,
-  ShellCtrls, ComCtrls, Buttons, IniPropStorage, Process, LCLType;
+  ShellCtrls, ComCtrls, Buttons, IniPropStorage, Process, LCLType, Math;
 
 type
 
@@ -108,7 +108,7 @@ var
 
 implementation
 
-uses SDCommandTRD, Unit1, LSSDFolderTRD, SDMountPointTRD;
+uses SDCommandTRD, Unit1, LSSDFolderTRD, SDMountPointTRD, ShowImageThread;
 
   {$R *.lfm}
 
@@ -589,8 +589,8 @@ begin
   end;
 end;
 
-//Перерисовка элементов списка ShellTreeView
-procedure TSDForm.SDBoxDrawItem(Control: TWinControl; Index: integer;
+//Перерисовка элементов списка ListBox
+{procedure TSDForm.SDBoxDrawItem(Control: TWinControl; Index: integer;
   ARect: TRect; State: TOwnerDrawState);
 var
   BitMap: TBitMap;
@@ -646,6 +646,88 @@ begin
         end;
       end;
     end;
+  finally
+    BitMap.Free;
+  end;
+end;
+}
+
+//Перерисовка элементов списка ListBox
+procedure TSDForm.SDBoxDrawItem(Control: TWinControl; Index: integer;
+  ARect: TRect; State: TOwnerDrawState);
+var
+  BitMap: TBitMap;
+  ItemName: string;
+  IconIndex: integer;
+  TextWidth, TextHeight: integer;
+  TextX, TextY, IconY, IconLeft: integer;
+  DPI: integer;
+  IconMargin, TextMargin: integer;
+begin
+  BitMap := TBitMap.Create;
+  try
+    DPI := Screen.PixelsPerInch;
+    ItemName := SDBox.Items[Index];
+
+    // Определяем тип элемента и удаляем служебные символы
+    if not android7 then
+    begin
+      if Copy(ItemName, 1, 1) = 'd' then
+      begin
+        IconIndex := 0;
+        Delete(ItemName, 1, 1);
+      end
+      else if Copy(ItemName, 1, 1) = '-' then
+      begin
+        IconIndex := 1;
+        Delete(ItemName, 1, 1);
+      end
+      else
+        IconIndex := 1;
+
+      IconMargin := MulDiv(2, DPI, 96);   // меньший отступ иконки
+      TextMargin := MulDiv(0, DPI, 96);
+      // отступ текста от края иконки
+    end
+    else
+    begin
+      if Pos('/', ItemName) <> 0 then
+      begin
+        IconIndex := 0;
+        Delete(ItemName, Length(ItemName), 1);
+      end
+      else
+        IconIndex := 1;
+
+      IconMargin := MulDiv(2, DPI, 96);   // чуть больше для android7
+      TextMargin := MulDiv(3, DPI, 96);
+      // текст подальше от иконки
+    end;
+
+    // Получаем иконку
+    ImageList1.GetBitmap(IconIndex, BitMap);
+
+    // Заливаем фон
+    SDBox.Canvas.FillRect(ARect);
+
+    // Размер текста
+    TextWidth := SDBox.Canvas.TextWidth(ItemName);
+    TextHeight := SDBox.Canvas.TextHeight(ItemName);
+
+    // Вертикальное центрирование иконки
+    IconY := ARect.Top + (ARect.Height - BitMap.Height) div 2;
+
+    // Горизонтальное позиционирование
+    IconLeft := ARect.Left + IconMargin;
+    TextX := IconLeft + BitMap.Width + TextMargin;
+    TextY := ARect.Top + (ARect.Height - TextHeight) div 2;
+
+    // Рисуем иконку
+    SDBox.Canvas.Draw(IconLeft, IconY, BitMap);
+
+    // Рисуем текст
+    SDBox.Canvas.TextOut(TextX, TextY, ItemName);
+
   finally
     BitMap.Free;
   end;
