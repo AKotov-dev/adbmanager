@@ -5,7 +5,7 @@ unit LSSDFolderTRD;
 interface
 
 uses
-  Classes, Process, SysUtils, Forms, Controls;
+  Classes, Process, SysUtils, Forms, Controls, Math;
 
 type
   StartLSSD = class(TThread)
@@ -133,7 +133,6 @@ procedure StartLSSD.HideProgress;
 begin
   //Очищаем команду для корректного "Esc"
   sdcmd := '';
-
   Screen.cursor := crDefault;
 end;
 
@@ -162,9 +161,12 @@ end;
 
 { БЛОК ВЫВОДА LS в SDBox }
 procedure StartLSSD.UpdateSDBox;
+var
+  hText, hIcon: integer;
 begin
   //Вывод обновленного списка
   SDForm.SDBox.Items.Assign(S);
+
   //Апдейт содержимого
   SDForm.SDBox.Refresh;
 
@@ -173,7 +175,13 @@ begin
 
   //Если список не пуст - курсор в "0"
   if SDForm.SDBox.Count <> 0 then
+  begin
+    //Выравнивание и центрирование
+    hText := SDForm.SDBox.Canvas.TextHeight('Wy');
+    hIcon := SDForm.ImageList1.Height;
+    SDForm.SDBox.ItemHeight := Max(hText, hIcon + 2);
     SDForm.SDBox.ItemIndex := 0;
+  end;
 end;
 
 end.

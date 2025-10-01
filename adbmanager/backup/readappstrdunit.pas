@@ -94,13 +94,12 @@ begin
       // --- 5. Копирование png на комп ---
       if Terminated then Exit;
       RunCmd('adb pull /storage/emulated/0/Pictures/IconExtractor/icons ~/.adbmanager/');
+
+      // --- 6. Ресайз png ---
+      if Terminated then Exit;
+      RunCmd('mogrify -resize ' + IntToStr(CheckForm.DefaultIcon.Height) +
+        'x' + IntToStr(CheckForm.DefaultIcon.Height) + ' ~/.adbmanager/icons/*.png');
     end;
-
-
-    // --- 6. Ресайз png ---
-    if Terminated then Exit;
-    RunCmd('mogrify -resize ' + IntToStr(CheckForm.DefaultIcon.Height) +
-      'x' + IntToStr(CheckForm.DefaultIcon.Height) + ' ~/.adbmanager/icons/*.png');
 
     // --- 7. Список всех пакетов ---
     if Terminated then Exit;

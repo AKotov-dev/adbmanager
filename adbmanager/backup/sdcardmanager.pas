@@ -700,7 +700,7 @@ begin
         IconIndex := 1;
 
       IconMargin := MulDiv(2, DPI, 96);   // чуть больше для android7
-      TextMargin := MulDiv(3, DPI, 96);
+      TextMargin := MulDiv(4, DPI, 96);
       // текст подальше от иконки
     end;
 
