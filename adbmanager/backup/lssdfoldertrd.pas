@@ -179,7 +179,7 @@ begin
     //Выравнивание и центрирование
     hText := SDForm.SDBox.Canvas.TextHeight('Wy');
     hIcon := SDForm.ImageList1.Height;
-    SDForm.SDBox.ItemHeight := Max(hText, hIcon + 10);
+    SDForm.SDBox.ItemHeight := Max(hText, hIcon + 2);
     SDForm.SDBox.ItemIndex := 0;
   end;
 end;

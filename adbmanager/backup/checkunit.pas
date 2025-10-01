@@ -94,7 +94,7 @@ begin
   end;
 end;
 
-//CСсылка на IconExtractor.apk
+//URL IconExtractor.apk
 procedure TCheckForm.PkgBtnClick(Sender: TObject);
 begin
   OpenURL('https://github.com/AKotov-dev/adbmanager/tree/main/IconExtractor');

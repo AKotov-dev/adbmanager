@@ -25,7 +25,7 @@ object CheckForm: TCheckForm
     BorderSpacing.Right = 5
     BorderSpacing.Bottom = 5
     ItemHeight = 0
-    Style = lbOwnerDrawVariable
+    Style = lbOwnerDrawFixed
     TabOrder = 3
     TopIndex = -1
     OnDrawItem = AppListBoxDrawItem

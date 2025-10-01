@@ -121,7 +121,6 @@ begin
   end;
 end;
 
-
 //Начало операции
 procedure StartLSSD.ShowProgress;
 begin

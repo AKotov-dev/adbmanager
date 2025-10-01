@@ -49,6 +49,7 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="Unit1"/>
+        <IsVisibleTab Value="True"/>
         <CursorPos X="13"/>
         <UsageCount Value="175"/>
         <Loaded Value="True"/>
@@ -88,9 +89,8 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="SDCardManager"/>
-        <EditorIndex Value="1"/>
-        <TopLine Value="153"/>
-        <CursorPos X="3" Y="538"/>
+        <EditorIndex Value="2"/>
+        <CursorPos X="21"/>
         <UsageCount Value="144"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -107,9 +107,8 @@
         <Filename Value="lssdfoldertrd.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="LSSDFolderTRD"/>
-        <EditorIndex Value="2"/>
-        <TopLine Value="158"/>
-        <CursorPos X="52" Y="182"/>
+        <EditorIndex Value="3"/>
+        <CursorPos X="21"/>
         <UsageCount Value="118"/>
         <Loaded Value="True"/>
       </Unit7>
@@ -139,18 +138,18 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="CheckUnit"/>
-        <EditorIndex Value="-1"/>
+        <EditorIndex Value="1"/>
         <CursorPos X="18"/>
         <UsageCount Value="75"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
       </Unit10>
       <Unit11>
         <Filename Value="readappstrdunit.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="ReadAppsTRDUnit"/>
-        <IsVisibleTab Value="True"/>
-        <EditorIndex Value="3"/>
-        <TopLine Value="121"/>
-        <CursorPos X="32" Y="130"/>
+        <EditorIndex Value="4"/>
+        <CursorPos X="23"/>
         <UsageCount Value="74"/>
         <Loaded Value="True"/>
       </Unit11>

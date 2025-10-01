@@ -1,7 +1,7 @@
 object SDForm: TSDForm
-  Left = 328
+  Left = 338
   Height = 631
-  Top = 136
+  Top = 146
   Width = 888
   ActiveControl = Splitter2
   Caption = 'SD-Card manager'
@@ -80,6 +80,8 @@ object SDForm: TSDForm
       ParentFont = False
       TabOrder = 1
       object CopyFromPC: TSpeedButton
+        AnchorSideTop.Control = Panel4
+        AnchorSideTop.Side = asrCenter
         Left = 8
         Height = 40
         Hint = 'Copy to SD-Card'
@@ -223,6 +225,8 @@ object SDForm: TSDForm
         OnClick = CopyFromPCClick
       end
       object MkPCDirBtn: TSpeedButton
+        AnchorSideTop.Control = Panel4
+        AnchorSideTop.Side = asrCenter
         Left = 56
         Height = 40
         Hint = 'Make folder'
@@ -366,6 +370,8 @@ object SDForm: TSDForm
         OnClick = MkPCDirBtnClick
       end
       object RefreshBtn: TSpeedButton
+        AnchorSideTop.Control = Panel4
+        AnchorSideTop.Side = asrCenter
         Left = 104
         Height = 40
         Hint = 'Update'
@@ -511,7 +517,7 @@ object SDForm: TSDForm
       object CheckBox1: TCheckBox
         AnchorSideLeft.Control = RefreshBtn
         AnchorSideLeft.Side = asrBottom
-        AnchorSideTop.Control = RefreshBtn
+        AnchorSideTop.Control = Panel4
         AnchorSideTop.Side = asrCenter
         Left = 154
         Height = 32
@@ -576,6 +582,8 @@ object SDForm: TSDForm
       ParentFont = False
       TabOrder = 1
       object CopyFromSmartphone: TSpeedButton
+        AnchorSideTop.Control = Panel3
+        AnchorSideTop.Side = asrCenter
         Left = 8
         Height = 40
         Hint = 'Copy to computer'
@@ -719,6 +727,8 @@ object SDForm: TSDForm
         OnClick = CopyFromSmartphoneClick
       end
       object SelectAllBtn: TSpeedButton
+        AnchorSideTop.Control = Panel3
+        AnchorSideTop.Side = asrCenter
         Left = 96
         Height = 40
         Hint = 'Select all'
@@ -862,6 +872,8 @@ object SDForm: TSDForm
         OnClick = SelectAllBtnClick
       end
       object MkDirBtn: TSpeedButton
+        AnchorSideTop.Control = Panel3
+        AnchorSideTop.Side = asrCenter
         Left = 142
         Height = 40
         Hint = 'Make folder'
@@ -1005,6 +1017,8 @@ object SDForm: TSDForm
         OnClick = MkDirBtnClick
       end
       object DelBtn: TSpeedButton
+        AnchorSideTop.Control = Panel3
+        AnchorSideTop.Side = asrCenter
         Left = 187
         Height = 40
         Hint = 'Delete Files/Folders'
@@ -1148,6 +1162,8 @@ object SDForm: TSDForm
         OnClick = DelBtnClick
       end
       object UpBtn: TSpeedButton
+        AnchorSideTop.Control = Panel3
+        AnchorSideTop.Side = asrCenter
         Left = 52
         Height = 40
         Hint = 'Upper level (BackSpace)'
@@ -1386,6 +1402,8 @@ object SDForm: TSDForm
         ParentFont = False
       end
       object SDChangeBtn: TSpeedButton
+        AnchorSideTop.Control = Panel3
+        AnchorSideTop.Side = asrCenter
         Left = 267
         Height = 40
         Hint = 'SD-Card Search (F12)'
