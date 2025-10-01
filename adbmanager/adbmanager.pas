@@ -20,14 +20,14 @@ uses
   ReadAppsTRDUnit,
   settings_unit,
   ReadSettingsTRDUnit,
-  WriteSettingsTRDUnit { you can add units after this };
+  WriteSettingsTRDUnit, ShowImageThread { you can add units after this };
 
   {$R *.res}
 
 begin
   RequireDerivedFormResource := True;
-  Application.Title := 'ADBManager v3.6';
-  Application.Scaled := True;
+  Application.Title:='ADBManager v3.7';
+  Application.Scaled:=True;
   Application.Initialize;
   Application.CreateForm(TMainForm, MainForm);
   Application.CreateForm(TSDForm, SDForm);

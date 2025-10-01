@@ -452,6 +452,14 @@ msgctxt "unit1.sdeletecaption"
 msgid "Deleting a package"
 msgstr "Удаление пакета"
 
+#: unit1.simageopenerror
+msgid ""
+"Failed to open image.\n"
+"The file is corrupted or the format is not supported."
+msgstr ""
+"Не удалось открыть изображение.\n"
+"Файл повреждён или формат не поддерживается."
+
 #: unit1.slaunched
 msgid "launched"
 msgstr "запущен"

@@ -433,6 +433,12 @@ msgstr ""
 msgid "Deleting a package"
 msgstr "Eliminazione di un pacchetto"
 
+#: unit1.simageopenerror
+msgid ""
+"Failed to open image.\n"
+"The file is corrupted or the format is not supported."
+msgstr ""
+
 #: unit1.slaunched
 msgid "launched"
 msgstr "lanciato"
