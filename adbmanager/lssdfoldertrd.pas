@@ -92,12 +92,16 @@ begin
       // ls текущего каталога с заменой спецсимволов
       ExProcess.Parameters.Delete(1);
       if not android7 then
-        ExProcess.Parameters.Add('adb shell ls -a -F ' + '''' +
+        ExProcess.Parameters.Add('adb shell ls -aF ' + '''' +
           SDForm.DetoxName(SDForm.GroupBox2.Caption) + '''' + ' | sort -t "d" -k 1,1')
       else
-        ExProcess.Parameters.Add('a=$(adb shell ls -A -p ' + '''' +
+      {  ExProcess.Parameters.Add('a=$(adb shell ls -A -p ' + '''' +
           SDForm.DetoxName(SDForm.GroupBox2.Caption) + '''' +
-          '); b=$(echo "$a" | grep "/"); c=$(echo "$a" | grep -v "/"); echo -e "$b\n$c"  | grep -v "^$"');
+          '); b=$(echo "$a" | grep "/"); c=$(echo "$a" | grep -v "/"); echo -e "$b\n$c" | grep -v "^$"');
+       }
+        ExProcess.Parameters.Add(
+          'a=$(adb shell ls -Ap "' + SDForm.DetoxName(SDForm.GroupBox2.Caption) +
+          '"); echo -e "$(echo "$a" | grep "/$")\n$(echo "$a" | grep -v "/$")" | grep -v "^$"');
 
       ExProcess.Execute;
       if Terminated then Exit;

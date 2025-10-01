@@ -40,7 +40,7 @@
         <IsPartOfProject Value="True"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="21"/>
-        <UsageCount Value="173"/>
+        <UsageCount Value="175"/>
       </Unit0>
       <Unit1>
         <Filename Value="unit1.pas"/>
@@ -50,7 +50,7 @@
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="Unit1"/>
         <CursorPos X="12"/>
-        <UsageCount Value="173"/>
+        <UsageCount Value="175"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit1>
@@ -60,7 +60,7 @@
         <UnitName Value="ADBDeviceStatusTRD"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="26"/>
-        <UsageCount Value="165"/>
+        <UsageCount Value="167"/>
       </Unit2>
       <Unit3>
         <Filename Value="adbcommandtrd.pas"/>
@@ -68,7 +68,7 @@
         <UnitName Value="ADBCommandTRD"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="21"/>
-        <UsageCount Value="162"/>
+        <UsageCount Value="164"/>
       </Unit3>
       <Unit4>
         <Filename Value="rebootunit.pas"/>
@@ -79,7 +79,7 @@
         <UnitName Value="RebootUnit"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="18"/>
-        <UsageCount Value="150"/>
+        <UsageCount Value="152"/>
       </Unit4>
       <Unit5>
         <Filename Value="sdcardmanager.pas"/>
@@ -90,7 +90,7 @@
         <UnitName Value="SDCardManager"/>
         <EditorIndex Value="1"/>
         <CursorPos X="21"/>
-        <UsageCount Value="142"/>
+        <UsageCount Value="144"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit5>
@@ -100,15 +100,18 @@
         <UnitName Value="SDCommandTRD"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="20"/>
-        <UsageCount Value="140"/>
+        <UsageCount Value="142"/>
       </Unit6>
       <Unit7>
         <Filename Value="lssdfoldertrd.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="LSSDFolderTRD"/>
-        <EditorIndex Value="-1"/>
-        <CursorPos X="90" Y="5"/>
-        <UsageCount Value="116"/>
+        <IsVisibleTab Value="True"/>
+        <EditorIndex Value="3"/>
+        <TopLine Value="88"/>
+        <CursorPos X="21"/>
+        <UsageCount Value="118"/>
+        <Loaded Value="True"/>
       </Unit7>
       <Unit8>
         <Filename Value="emulatorunit.pas"/>
@@ -119,7 +122,7 @@
         <UnitName Value="EmulatorUnit"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="20"/>
-        <UsageCount Value="89"/>
+        <UsageCount Value="91"/>
       </Unit8>
       <Unit9>
         <Filename Value="sdmountpointtrd.pas"/>
@@ -127,7 +130,7 @@
         <UnitName Value="SDMountPointTRD"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="23"/>
-        <UsageCount Value="76"/>
+        <UsageCount Value="78"/>
       </Unit9>
       <Unit10>
         <Filename Value="checkunit.pas"/>
@@ -138,7 +141,7 @@
         <UnitName Value="CheckUnit"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="16"/>
-        <UsageCount Value="73"/>
+        <UsageCount Value="75"/>
       </Unit10>
       <Unit11>
         <Filename Value="readappstrdunit.pas"/>
@@ -147,7 +150,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="118"/>
         <CursorPos X="47" Y="124"/>
-        <UsageCount Value="72"/>
+        <UsageCount Value="74"/>
       </Unit11>
       <Unit12>
         <Filename Value="settings_unit.pas"/>
@@ -157,7 +160,7 @@
         <ResourceBaseClass Value="Form"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="21"/>
-        <UsageCount Value="58"/>
+        <UsageCount Value="60"/>
       </Unit12>
       <Unit13>
         <Filename Value="readsettingstrdunit.pas"/>
@@ -165,7 +168,7 @@
         <UnitName Value="ReadSettingsTRDUnit"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="27"/>
-        <UsageCount Value="55"/>
+        <UsageCount Value="57"/>
       </Unit13>
       <Unit14>
         <Filename Value="writesettingstrdunit.pas"/>
@@ -173,17 +176,15 @@
         <UnitName Value="WriteSettingsTRDUnit"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="28"/>
-        <UsageCount Value="52"/>
+        <UsageCount Value="54"/>
       </Unit14>
       <Unit15>
         <Filename Value="showimagethread.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="ShowImageThread"/>
-        <IsVisibleTab Value="True"/>
         <EditorIndex Value="2"/>
-        <TopLine Value="68"/>
-        <CursorPos X="47" Y="80"/>
-        <UsageCount Value="20"/>
+        <CursorPos X="23"/>
+        <UsageCount Value="22"/>
         <Loaded Value="True"/>
       </Unit15>
       <Unit16>
@@ -198,7 +199,7 @@
         <UsageCount Value="101"/>
       </Unit16>
     </Units>
-    <JumpHistory Count="10" HistoryIndex="9">
+    <JumpHistory Count="11" HistoryIndex="10">
       <Position1>
         <Filename Value="sdcardmanager.pas"/>
         <Caret Column="21"/>
@@ -239,6 +240,10 @@
         <Filename Value="sdcardmanager.pas"/>
         <Caret Line="9" Column="66"/>
       </Position10>
+      <Position11>
+        <Filename Value="lssdfoldertrd.pas"/>
+        <Caret Line="103" Column="93" TopLine="88"/>
+      </Position11>
     </JumpHistory>
     <RunParams>
       <FormatVersion Value="2"/>
