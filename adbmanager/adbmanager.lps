@@ -90,9 +90,10 @@
         <UnitName Value="SDCardManager"/>
         <IsVisibleTab Value="True"/>
         <EditorIndex Value="1"/>
-        <CursorPos X="66" Y="9"/>
+        <CursorPos X="21"/>
         <UsageCount Value="142"/>
         <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
       </Unit5>
       <Unit6>
         <Filename Value="sdcommandtrd.pas"/>
@@ -195,7 +196,7 @@
         <UsageCount Value="101"/>
       </Unit16>
     </Units>
-    <JumpHistory Count="9" HistoryIndex="8">
+    <JumpHistory Count="10" HistoryIndex="9">
       <Position1>
         <Filename Value="sdcardmanager.pas"/>
         <Caret Column="21"/>
@@ -232,6 +233,10 @@
         <Filename Value="sdcardmanager.pas"/>
         <Caret Line="261" Column="57" TopLine="256"/>
       </Position9>
+      <Position10>
+        <Filename Value="sdcardmanager.pas"/>
+        <Caret Line="9" Column="66"/>
+      </Position10>
     </JumpHistory>
     <RunParams>
       <FormatVersion Value="2"/>
