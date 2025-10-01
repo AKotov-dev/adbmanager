@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, ExtCtrls, StdCtrls,
-  ShellCtrls, ComCtrls, Buttons, IniPropStorage, Process, LCLType;
+  ShellCtrls, ComCtrls, Buttons, IniPropStorage, Process, LCLType, StrUtils;
 
 type
 
@@ -538,12 +538,19 @@ begin
   if SDBox.Count <> 0 then
   begin
     //Если картинка - показать; путь на смартфоне
-    RemotePath := GroupBox2.Caption + '/' + SDBox.Items[SDBox.ItemIndex];
+    if Android7 then
+      RemotePath := GroupBox2.Caption + SDBox.Items[SDBox.ItemIndex]
+    else
+      RemotePAth := GroupBox2.Caption + Copy(SDBox.Items[SDBox.ItemIndex],
+        3, Length(SDBox.Items[SDBox.ItemIndex]));
+
     // Проверка расширений
     Ext := LowerCase(ExtractFileExt(RemotePath));
-    if (Ext = '.jpg') or (Ext = '.jpeg') or (Ext = '.png') or
-      (Ext = 'bmp') or (Ext = '.webp') then
-      TShowImageThread.Create(RemotePath, 70);
+    if MatchStr(Ext, ['.jpg', '.jpeg', '.png', '.bmp', '.webp', '.gif',
+      '.heic', '.heif', '.tiff', '.mp4', '.mkv', '.avi', '.mov', '.mp3',
+      '.wav', '.ogg', '.flac', '.m4a', '.pdf', '.txt', '.log', '.doc',
+      '.docx', '.xls', '.xlsx']) then
+      TShowImageThread.Create(RemotePath);
 
     if not android7 then //Android > 7?
     begin

@@ -84,6 +84,7 @@ resourcestring
     'Removing packages may disrupt the system!' + #13#10 + #13#10 +
     'Before deleting, ' + 'BE SURE TO MAKE A BACKUP!' + #13#10 +
     #13#10 + 'Delete selected applications?';
+  SErrorImageCopy = 'Error copying file from device.';
 
 var
   MainForm: TMainForm;

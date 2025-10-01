@@ -433,10 +433,8 @@ msgstr ""
 msgid "Deleting a package"
 msgstr "Ein Paket löschen"
 
-#: unit1.simageopenerror
-msgid ""
-"Failed to open image.\n"
-"The file is corrupted or the format is not supported."
+#: unit1.serrorimagecopy
+msgid "Error copying file from device!"
 msgstr ""
 
 #: unit1.slaunched
