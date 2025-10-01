@@ -1,4 +1,5 @@
-unit ShowImageThread;  //Показываем картинку (используем пакет imagemagick)
+unit ShowImageThread;
+//Показываем картинку (используем пакет imagemagick)
 
 {$mode ObjFPC}{$H+}
 
@@ -74,6 +75,9 @@ begin
 
     // временный файл в ~/.adbmanager
     TempFile := GetEnvironmentVariable('HOME') + '/.adbmanager/adb_image.jpg';
+
+     // 1. Закрываем старый display, если есть
+  RunCommand('pkill', ['-f', 'display'], Cmd);
 
     // конвейер: adb -> convert -> файл
     Cmd := Format(

@@ -76,6 +76,9 @@ begin
     // временный файл в ~/.adbmanager
     TempFile := GetEnvironmentVariable('HOME') + '/.adbmanager/adb_image.jpg';
 
+    // Закрываем старый display, если есть
+    RunCommand('pkill', ['-f', 'display'], Cmd);
+
     // конвейер: adb -> convert -> файл
     Cmd := Format(
       'adb exec-out cat "%s" | convert -auto-orient -resize %dx%d\> - "%s"',

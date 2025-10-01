@@ -88,7 +88,6 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="SDCardManager"/>
-        <IsVisibleTab Value="True"/>
         <EditorIndex Value="1"/>
         <CursorPos X="21"/>
         <UsageCount Value="142"/>
@@ -180,9 +179,11 @@
         <Filename Value="showimagethread.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="ShowImageThread"/>
-        <EditorIndex Value="-1"/>
-        <CursorPos Y="2"/>
+        <IsVisibleTab Value="True"/>
+        <EditorIndex Value="2"/>
+        <CursorPos X="23"/>
         <UsageCount Value="20"/>
+        <Loaded Value="True"/>
       </Unit15>
       <Unit16>
         <Filename Value="backupunit.pas"/>
