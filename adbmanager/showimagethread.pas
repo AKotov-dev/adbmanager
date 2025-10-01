@@ -102,6 +102,8 @@ begin
       Proc := TProcess.Create(nil);
       try
         Proc.Executable := 'display';
+        Proc.Parameters.Add('-geometry');
+        Proc.Parameters.Add('+50+50');
         Proc.Parameters.Add('-title');
         Proc.Parameters.Add(Title);
         Proc.Parameters.Add(TempFile);
