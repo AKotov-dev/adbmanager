@@ -6,7 +6,9 @@ ADBManager - Manager for Android devices using ADB
 + `IconExtractor.apk`: /storage/emulated/0/Pictures/IconExtractor/icons
   
 **Note:** It is advisable to connect the devices via the `USB-2.0` port of your computer ([info](https://www.systutorials.com/how-to-force-a-usb-3-0-port-to-work-in-usb-2-0-mode-in-linux/)).
-    
+  
+**Announcement:** Detailed instructions for building and setting up on `macOS` were prepared by `Andrii Murashkin` (@murich) and are available [here](https://github.com/murich/adbmanager).
+  
 The program is designed for visual and easy management of the ADB-Server and connection of Android smartphones. Allows you to monitor the status of the `adb` service, manage it, and control the list of connected devices. Allows you to manage your smartphone: search for installed packages by part name, install, delete APK, screenshot, reboot (Normal, Bootloader, Recovery mode) and shutdown the device. For advanced users, there is an Android Shell terminal and an SD-Card file manager.  
   
 Starting with `v3.7`, a double click in the SDCard manager opens 40+ file formats (multimedia, documents, archives, etc.) via `xdg-open`. Of course, the appropriate applications must be installed on the computer to open them.
