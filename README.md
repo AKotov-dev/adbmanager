@@ -9,6 +9,8 @@ ADBManager - Manager for Android devices using ADB
     
 The program is designed for visual and easy management of the ADB-Server and connection of Android smartphones. Allows you to monitor the status of the `adb` service, manage it, and control the list of connected devices. Allows you to manage your smartphone: search for installed packages by part name, install, delete APK, screenshot, reboot (Normal, Bootloader, Recovery mode) and shutdown the device. For advanced users, there is an Android Shell terminal and an SD-Card file manager.  
   
+Starting with `v3.7`, a double click in the SDCard manager opens 40+ file formats (multimedia, documents, archives, etc.) via `xdg-open`. Of course, the appropriate applications must be installed on the computer to open them.
+  
 Starting with `v3.6`, the application manager can display application icons from a connected device. This requires installing the [IconExtractor.apk](https://github.com/AKotov-dev/adbmanager/tree/main/IconExtractor). On Android_6-10, you will need to grant permission to access media storage.
   
 ![](https://github.com/AKotov-dev/adbmanager/blob/main/ScreenShots/Applications2.png)
