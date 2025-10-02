@@ -403,6 +403,9 @@ end;
 
 //Отмена копирования и очистка SDBox при закрытии формы
 procedure TSDForm.FormClose(Sender: TObject; var CloseAction: TCloseAction);
+var
+  SR: TSearchRec;
+  TempDir: string;
 begin
   try
     //For Plasma
@@ -421,6 +424,18 @@ begin
 
     //Скрываем "Esc - отмена"
     Panel4.Caption := '';
+
+    // Очистить каталог временных файлов (xdg-open)
+    TempDir := GetEnvironmentVariable('HOME') + '/.adbmanager/tmp';
+    if FindFirst(TempDir + '/*', faAnyFile, SR) = 0 then
+    begin
+      repeat
+        if (SR.Name <> '.') and (SR.Name <> '..') then
+          DeleteFile(TempDir + '/' + SR.Name);
+      until FindNext(SR) <> 0;
+      FindClose(SR);
+    end;
+
   finally
     Screen.cursor := crDefault;
     //Освобождаем список точек монтирования SD-Card

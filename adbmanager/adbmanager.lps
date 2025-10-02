@@ -59,10 +59,9 @@
         <Filename Value="adbdevicestatustrd.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="ADBDeviceStatusTRD"/>
-        <EditorIndex Value="2"/>
+        <EditorIndex Value="-1"/>
         <CursorPos X="26"/>
         <UsageCount Value="168"/>
-        <Loaded Value="True"/>
       </Unit2>
       <Unit3>
         <Filename Value="adbcommandtrd.pas"/>
@@ -147,10 +146,9 @@
         <Filename Value="readappstrdunit.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="ReadAppsTRDUnit"/>
-        <EditorIndex Value="3"/>
+        <EditorIndex Value="-1"/>
         <CursorPos X="23"/>
         <UsageCount Value="75"/>
-        <Loaded Value="True"/>
       </Unit11>
       <Unit12>
         <Filename Value="settings_unit.pas"/>
@@ -182,7 +180,7 @@
         <Filename Value="xdgopentrd.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="XDGOpenTRD"/>
-        <EditorIndex Value="4"/>
+        <EditorIndex Value="2"/>
         <CursorPos X="18"/>
         <UsageCount Value="23"/>
         <Loaded Value="True"/>
@@ -199,7 +197,7 @@
         <UsageCount Value="101"/>
       </Unit16>
     </Units>
-    <JumpHistory Count="17" HistoryIndex="16">
+    <JumpHistory Count="20" HistoryIndex="19">
       <Position1>
         <Filename Value="sdcardmanager.pas"/>
         <Caret Column="21"/>
@@ -268,6 +266,18 @@
         <Filename Value="sdcardmanager.pas"/>
         <Caret Line="599" TopLine="599"/>
       </Position17>
+      <Position18>
+        <Filename Value="sdcardmanager.pas"/>
+        <Caret Column="21"/>
+      </Position18>
+      <Position19>
+        <Filename Value="xdgopentrd.pas"/>
+        <Caret Line="8" Column="48"/>
+      </Position19>
+      <Position20>
+        <Filename Value="unit1.pas"/>
+        <Caret Column="13"/>
+      </Position20>
     </JumpHistory>
     <RunParams>
       <FormatVersion Value="2"/>

@@ -1,12 +1,11 @@
 unit XDGOpenTRD;
-//Показываем картинку (используем пакет imagemagick)
 
 {$mode ObjFPC}{$H+}
 
 interface
 
 uses
-  Classes, SysUtils, Process, Forms, Controls, ComCtrls, Dialogs;
+  Classes, SysUtils, Process, Forms, Controls, Dialogs;
 
 type
   TXDGOpenTRD = class(TThread)
@@ -24,7 +23,7 @@ type
 implementation
 
 uses
-  SDCardManager, Unit1; // для SDForm и Screen.Width/Height
+  SDCardManager, Unit1;
 
 constructor TXDGOpenTRD.Create(const ARemotePath: string);
 begin
@@ -48,17 +47,10 @@ begin
   SDForm.ProgressBar1.Refresh;
 end;
 
-//Показываем ошибку, если файл битый
-{procedure TXDGOpenTRD.ShowError;
-begin
-  MessageDlg(FErrorMessage, mtError, [mbOK], 0);
-end;}
-
 //Запуск приложений по mime-типу (xdg-open)
 procedure TXDGOpenTRD.Execute;
 var
   TempDir, TempFile, Cmd, S: string;
-  SR: TSearchRec;
 begin
   Synchronize(@ShowProgress);
   try
@@ -68,16 +60,6 @@ begin
     // Создать каталог, если не существует
     if not DirectoryExists(TempDir) then
       ForceDirectories(TempDir);
-
-    // Очистить каталог
-    if FindFirst(TempDir + '/*', faAnyFile, SR) = 0 then
-    begin
-      repeat
-        if (SR.Name <> '.') and (SR.Name <> '..') then
-          DeleteFile(TempDir + '/' + SR.Name);
-      until FindNext(SR) <> 0;
-      FindClose(SR);
-    end;
 
     // --- 2. Подготовка временного файла ---
     TempFile := TempDir + '/' + ExtractFileName(FRemotePath);
@@ -98,6 +80,5 @@ begin
     Synchronize(@HideProgress);
   end;
 end;
-
 
 end.

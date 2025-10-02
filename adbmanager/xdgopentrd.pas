@@ -51,7 +51,6 @@ end;
 procedure TXDGOpenTRD.Execute;
 var
   TempDir, TempFile, Cmd, S: string;
-  SR: TSearchRec;
 begin
   Synchronize(@ShowProgress);
   try
@@ -61,16 +60,6 @@ begin
     // Создать каталог, если не существует
     if not DirectoryExists(TempDir) then
       ForceDirectories(TempDir);
-
-    // Очистить каталог
-    if FindFirst(TempDir + '/*', faAnyFile, SR) = 0 then
-    begin
-      repeat
-        if (SR.Name <> '.') and (SR.Name <> '..') then
-          DeleteFile(TempDir + '/' + SR.Name);
-      until FindNext(SR) <> 0;
-      FindClose(SR);
-    end;
 
     // --- 2. Подготовка временного файла ---
     TempFile := TempDir + '/' + ExtractFileName(FRemotePath);
