@@ -20,7 +20,7 @@ uses
   ReadAppsTRDUnit,
   settings_unit,
   ReadSettingsTRDUnit,
-  WriteSettingsTRDUnit, ShowImageThread { you can add units after this };
+  WriteSettingsTRDUnit, xdgopentrd { you can add units after this };
 
   {$R *.res}
 

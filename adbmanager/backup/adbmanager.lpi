@@ -167,9 +167,9 @@
         <UnitName Value="WriteSettingsTRDUnit"/>
       </Unit14>
       <Unit15>
-        <Filename Value="showimagethread.pas"/>
+        <Filename Value="xdgopentrd.pas"/>
         <IsPartOfProject Value="True"/>
-        <UnitName Value="ShowImageThread"/>
+        <UnitName Value="XDGOpenTRD"/>
       </Unit15>
     </Units>
   </ProjectOptions>

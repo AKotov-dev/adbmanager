@@ -108,7 +108,7 @@ var
 
 implementation
 
-uses SDCommandTRD, Unit1, LSSDFolderTRD, SDMountPointTRD, ShowImageThread;
+uses SDCommandTRD, Unit1, LSSDFolderTRD, SDMountPointTRD, xdgopentrd;
 
   {$R *.lfm}
 
@@ -550,7 +550,7 @@ begin
       '.heic', '.heif', '.tiff', '.mp4', '.mkv', '.avi', '.mov',
       '.mp3', '.wav', '.ogg', '.flac', '.m4a', '.pdf', '.txt', '.log',
       '.doc', '.docx', '.xls', '.xlsx', '.odp', '.ods', '.odt']) then
-      TShowImageThread.Create(RemotePath);
+      TXDGOpenTRD.Create(RemotePath);
 
     if not android7 then //Android > 7?
     begin
@@ -595,69 +595,6 @@ begin
     RefreshBtn.Click;
   end;
 end;
-
-//Перерисовка элементов списка ListBox
-{procedure TSDForm.SDBoxDrawItem(Control: TWinControl; Index: integer;
-  ARect: TRect; State: TOwnerDrawState);
-var
-  BitMap: TBitMap;
-begin
-  BitMap := TBitMap.Create;
-  try
-    ImageList1.GetBitMap(0, BitMap);
-
-    with SDForm.SDBox do
-    begin
-      Canvas.FillRect(aRect);
-      //Вывод текста со сдвигом (общий)
-      // Canvas.TextOut(aRect.Left + 14, aRect.Top + 5, Items[Index]);
-      if not android7 then
-      begin
-        //Сверху иконки взависимости от первого символа
-        if Copy(Items[Index], 1, 1) = 'd' then
-        begin
-          //Имя папки
-          Canvas.TextOut(aRect.Left + 14, aRect.Top + 5, Items[Index]);
-          //Иконка папки
-          ImageList1.GetBitMap(0, BitMap);
-          Canvas.Draw(aRect.Left + 2, aRect.Top + 2, BitMap);
-        end
-        else
-        if Copy(Items[Index], 1, 1) = '-' then
-        begin
-          //Имя файла
-          Canvas.TextOut(aRect.Left + 17, aRect.Top + 5, Items[Index]);
-          //Иконка файла
-          ImageList1.GetBitMap(1, BitMap);
-          Canvas.Draw(aRect.Left + 2, aRect.Top + 2, BitMap);
-        end;
-      end
-      else
-      begin
-        //Сверху иконки взависимости от последнего символа ('/')
-        if Pos('/', Items[Index]) <> 0 then
-        begin
-          //Имя папки
-          Canvas.TextOut(aRect.Left + 27, aRect.Top + 5, Items[Index]);
-          //Иконка папки
-          ImageList1.GetBitMap(0, BitMap);
-          Canvas.Draw(aRect.Left + 2, aRect.Top + 2, BitMap);
-        end
-        else
-        begin
-          //Имя файла
-          Canvas.TextOut(aRect.Left + 27, aRect.Top + 5, Items[Index]);
-          //Иконка файла
-          ImageList1.GetBitMap(1, BitMap);
-          Canvas.Draw(aRect.Left + 2, aRect.Top + 2, BitMap);
-        end;
-      end;
-    end;
-  finally
-    BitMap.Free;
-  end;
-end;
-}
 
 //Перерисовка элементов списка ListBox
 procedure TSDForm.SDBoxDrawItem(Control: TWinControl; Index: integer;

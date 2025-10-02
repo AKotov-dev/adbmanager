@@ -1,22 +1,19 @@
-unit ShowImageThread;
-//Показываем картинку (используем пакет imagemagick)
+unit XDGOpenTRD;
 
 {$mode ObjFPC}{$H+}
 
 interface
 
 uses
-  Classes, SysUtils, Process, Forms, Controls, LCLIntf, ComCtrls, Dialogs;
+  Classes, SysUtils, Process, Forms, Controls, ComCtrls, Dialogs;
 
 type
-  TShowImageThread = class(TThread)
+  TXDGOpenTRD = class(TThread)
   private
     FRemotePath: string;
-    FScale: integer;
-    FErrorMessage: string;
     procedure ShowProgress;
     procedure HideProgress;
-    procedure ShowError;
+
   protected
     procedure Execute; override;
   public
@@ -26,9 +23,9 @@ type
 implementation
 
 uses
-  SDCardManager, Unit1, LSSDFolderTRD; // для SDForm и Screen.Width/Height
+  SDCardManager, Unit1;
 
-constructor TShowImageThread.Create(const ARemotePath: string);
+constructor TXDGOpenTRD.Create(const ARemotePath: string);
 begin
   inherited Create(True); // создаём в Suspended
   FreeOnTerminate := True;
@@ -37,27 +34,21 @@ begin
 end;
 
 //Показываем прогресс
-procedure TShowImageThread.ShowProgress;
+procedure TXDGOpenTRD.ShowProgress;
 begin
   SDForm.ProgressBar1.Style := pbstMarquee;
   SDForm.ProgressBar1.Refresh;
 end;
 
 //Останавливаем прогресс
-procedure TShowImageThread.HideProgress;
+procedure TXDGOpenTRD.HideProgress;
 begin
   SDForm.ProgressBar1.Style := pbstNormal;
   SDForm.ProgressBar1.Refresh;
 end;
 
-//Показываем ошибку, если файл битый
-procedure TShowImageThread.ShowError;
-begin
-  MessageDlg(FErrorMessage, mtError, [mbOK], 0);
-end;
-
-//Запуск показа картинки
-procedure TShowImageThread.Execute;
+//Запуск приложений по mime-типу (xdg-open)
+procedure TXDGOpenTRD.Execute;
 var
   TempDir, TempFile, Cmd, S: string;
   SR: TSearchRec;
@@ -100,6 +91,5 @@ begin
     Synchronize(@HideProgress);
   end;
 end;
-
 
 end.

@@ -60,7 +60,6 @@
         <IsPartOfProject Value="True"/>
         <UnitName Value="ADBDeviceStatusTRD"/>
         <EditorIndex Value="2"/>
-        <TopLine Value="132"/>
         <CursorPos X="26"/>
         <UsageCount Value="168"/>
         <Loaded Value="True"/>
@@ -92,8 +91,8 @@
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="SDCardManager"/>
         <EditorIndex Value="1"/>
-        <TopLine Value="524"/>
-        <CursorPos X="43" Y="537"/>
+        <TopLine Value="664"/>
+        <CursorPos Y="599"/>
         <UsageCount Value="145"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -149,7 +148,6 @@
         <Filename Value="readappstrdunit.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="ReadAppsTRDUnit"/>
-        <IsVisibleTab Value="True"/>
         <EditorIndex Value="3"/>
         <CursorPos X="23"/>
         <UsageCount Value="75"/>
@@ -182,12 +180,12 @@
         <UsageCount Value="55"/>
       </Unit14>
       <Unit15>
-        <Filename Value="showimagethread.pas"/>
+        <Filename Value="xdgopentrd.pas"/>
         <IsPartOfProject Value="True"/>
-        <UnitName Value="ShowImageThread"/>
+        <UnitName Value="XDGOpenTRD"/>
+        <IsVisibleTab Value="True"/>
         <EditorIndex Value="4"/>
-        <TopLine Value="52"/>
-        <CursorPos X="54" Y="81"/>
+        <CursorPos Y="17"/>
         <UsageCount Value="23"/>
         <Loaded Value="True"/>
       </Unit15>
@@ -203,7 +201,7 @@
         <UsageCount Value="101"/>
       </Unit16>
     </Units>
-    <JumpHistory Count="21" HistoryIndex="20">
+    <JumpHistory Count="16" HistoryIndex="15">
       <Position1>
         <Filename Value="sdcardmanager.pas"/>
         <Caret Column="21"/>
@@ -253,41 +251,21 @@
         <Caret Column="21"/>
       </Position12>
       <Position13>
-        <Filename Value="showimagethread.pas"/>
-        <Caret Line="83" Column="21" TopLine="70"/>
-      </Position13>
-      <Position14>
-        <Filename Value="showimagethread.pas"/>
-        <Caret Line="62" Column="25" TopLine="57"/>
-      </Position14>
-      <Position15>
-        <Filename Value="showimagethread.pas"/>
-        <Caret Line="72" Column="3" TopLine="52"/>
-      </Position15>
-      <Position16>
-        <Filename Value="showimagethread.pas"/>
-        <Caret Line="23" Column="49" TopLine="13"/>
-      </Position16>
-      <Position17>
-        <Filename Value="showimagethread.pas"/>
-        <Caret Line="31" Column="62" TopLine="16"/>
-      </Position17>
-      <Position18>
-        <Filename Value="showimagethread.pas"/>
-        <Caret Line="77" Column="7" TopLine="58"/>
-      </Position18>
-      <Position19>
-        <Filename Value="showimagethread.pas"/>
-        <Caret Line="81" Column="38" TopLine="59"/>
-      </Position19>
-      <Position20>
-        <Filename Value="showimagethread.pas"/>
-        <Caret Line="89" TopLine="60"/>
-      </Position20>
-      <Position21>
         <Filename Value="sdcardmanager.pas"/>
         <Caret Line="550" Column="39" TopLine="542"/>
-      </Position21>
+      </Position13>
+      <Position14>
+        <Filename Value="sdcardmanager.pas"/>
+        <Caret Line="537" Column="43" TopLine="524"/>
+      </Position14>
+      <Position15>
+        <Filename Value="xdgopentrd.pas"/>
+        <Caret Line="12" Column="14"/>
+      </Position15>
+      <Position16>
+        <Filename Value="xdgopentrd.pas"/>
+        <Caret Line="30" Column="13" TopLine="15"/>
+      </Position16>
     </JumpHistory>
     <RunParams>
       <FormatVersion Value="2"/>

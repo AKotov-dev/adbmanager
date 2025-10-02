@@ -108,7 +108,7 @@ var
 
 implementation
 
-uses SDCommandTRD, Unit1, LSSDFolderTRD, SDMountPointTRD, ShowImageThread;
+uses SDCommandTRD, Unit1, LSSDFolderTRD, SDMountPointTRD, xdgopentrd;
 
   {$R *.lfm}
 
@@ -547,10 +547,10 @@ begin
     // Проверка расширений
     Ext := LowerCase(ExtractFileExt(RemotePath));
     if MatchStr(Ext, ['.jpg', '.jpeg', '.png', '.bmp', '.webp', '.gif',
-      '.heic', '.heif', '.tiff', '.mp4', '.mkv', '.avi', '.mov', '.mp3',
-      '.wav', '.ogg', '.flac', '.m4a', '.pdf', '.txt', '.log', '.doc',
-      '.docx', '.xls', '.xlsx']) then
-      TShowImageThread.Create(RemotePath);
+      '.heic', '.heif', '.tiff', '.mp4', '.mkv', '.avi', '.mov',
+      '.mp3', '.wav', '.ogg', '.flac', '.m4a', '.pdf', '.txt', '.log',
+      '.doc', '.docx', '.xls', '.xlsx', '.odp', '.ods', '.odt']) then
+      TXDGOpenTRD.Create(RemotePath);
 
     if not android7 then //Android > 7?
     begin
