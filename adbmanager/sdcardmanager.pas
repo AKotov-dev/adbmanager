@@ -551,7 +551,7 @@ begin
       '.webm', '.3gp', '.mp3', '.wav', '.ogg', '.flac', '.m4a', '.aac',
       '.pdf', '.txt', '.log', '.doc', '.docx', '.xls', '.xlsx', '.odp',
       '.ods', '.odt', '.rtf', '.csv', '.epub', '.zip', '.rar', '.7z',
-      '.tar', '.gz', '.json', '.xml', '.html', '.vcf']) then
+      '.tar', '.gz', '.json', '.xml', '.html', '.vcf', '.url']) then
       TXDGOpenTRD.Create(RemotePath);
 
     if not android7 then //Android > 7?
