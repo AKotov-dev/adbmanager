@@ -49,7 +49,6 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="Unit1"/>
-        <TopLine Value="79"/>
         <CursorPos X="53" Y="87"/>
         <UsageCount Value="176"/>
         <Loaded Value="True"/>
@@ -185,7 +184,7 @@
         <UnitName Value="XDGOpenTRD"/>
         <IsVisibleTab Value="True"/>
         <EditorIndex Value="4"/>
-        <CursorPos Y="17"/>
+        <CursorPos X="18"/>
         <UsageCount Value="23"/>
         <Loaded Value="True"/>
       </Unit15>
