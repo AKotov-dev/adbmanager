@@ -31,6 +31,56 @@ wget https://raw.githubusercontent.com/M0Rf30/android-udev-rules/master/51-andro
 reboot
 ```
   
+Compilation on macOS (Apple Silicon/Intel)
+---
+**Prerequisites:** macOS 10.15+ with Homebrew installed
+
+### Step 1: Install dependencies via Homebrew
+```bash
+# Install Free Pascal Compiler and dependencies
+brew install fpc gtk+ graphicsmagick nmap p7zip
+
+# Android platform tools (includes adb)
+brew install android-platform-tools
+```
+
+### Step 2: Download and install Lazarus IDE for ARM64 (Apple Silicon)
+```bash
+# Download Lazarus for Apple Silicon
+wget https://sourceforge.net/projects/lazarus/files/Lazarus%20macOS%20aarch64/Lazarus%204.2/lazarus-darwin-aarch64-4.2.zip/download -O lazarus-darwin-aarch64-4.2.zip
+
+# Extract to home directory
+unzip lazarus-darwin-aarch64-4.2.zip
+mv lazarus ~/lazarus
+```
+
+**For Intel Macs:** Download the x86-64 version instead:
+```bash
+wget https://sourceforge.net/projects/lazarus/files/Lazarus%20macOS%20x86-64/Lazarus%204.2/Lazarus-4.2-macosx-x86_64.pkg/download -O Lazarus-4.2-macosx-x86_64.pkg
+# Install the .pkg file by double-clicking it
+```
+
+### Step 3: Clone and compile ADBManager
+```bash
+# Clone the repository
+git clone https://github.com/AKotov-dev/adbmanager.git
+cd adbmanager/adbmanager
+
+# Compile using lazbuild
+~/lazarus/lazbuild --lazarusdir=/Users/$USER/lazarus --compiler=/opt/homebrew/bin/fpc adbmanager.lpi
+```
+
+### Step 4: Launch the application
+```bash
+# Launch GUI application
+open adbmanager.app
+
+# Or run command line version
+./adbmanager
+```
+
+**Note:** The compiled binary is a native ARM64/x86_64 Mach-O executable. All dependencies are satisfied through Homebrew, providing full compatibility with macOS.
+
 Connecting via ADB over Wi-Fi
 ---
 + Connect the smartphone via USB  
