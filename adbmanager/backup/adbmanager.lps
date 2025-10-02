@@ -151,8 +151,7 @@
         <UnitName Value="ReadAppsTRDUnit"/>
         <IsVisibleTab Value="True"/>
         <EditorIndex Value="3"/>
-        <TopLine Value="91"/>
-        <CursorPos X="18" Y="100"/>
+        <CursorPos X="23"/>
         <UsageCount Value="75"/>
         <Loaded Value="True"/>
       </Unit11>

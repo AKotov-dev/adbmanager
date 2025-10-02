@@ -546,8 +546,11 @@ begin
 
     // Проверка расширений
     Ext := LowerCase(ExtractFileExt(RemotePath));
-    if MatchStr(Ext, ['.jpg', '.jpeg', '.png', '.bmp', '.webp', '.mp3']) then
-  TShowImageThread.Create(RemotePath);
+    if MatchStr(Ext, ['.jpg', '.jpeg', '.png', '.bmp', '.webp', '.gif',
+      '.heic', '.heif', '.tiff', '.mp4', '.mkv', '.avi', '.mov', '.mp3',
+      '.wav', '.ogg', '.flac', '.m4a', '.pdf', '.txt', '.log', '.doc',
+      '.docx', '.xls', '.xlsx']) then
+      TShowImageThread.Create(RemotePath);
 
     if not android7 then //Android > 7?
     begin
