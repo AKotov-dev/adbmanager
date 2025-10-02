@@ -56,12 +56,10 @@ begin
     S := TStringList.Create;
     FreeOnTerminate := True;
 
-    if Terminated then Exit;
     RunCmd('adb devices | grep -w "device"', S);
     if Trim(S.Text) = '' then Exit;
 
     //Проверка установлен ли пакет на смартфоне
-    if Terminated then Exit;
     RunCmd('adb shell pm list packages | grep com.example.iconextractor', S);
     if Trim(S.Text) <> '' then
     begin
