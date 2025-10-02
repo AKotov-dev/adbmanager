@@ -73,7 +73,7 @@ begin
       Result.LoadFromStream(ExProcess.Output);
       Synchronize(@ShowKey);
 
-      Sleep(300);
+      Sleep(250);
     end;
 
   finally

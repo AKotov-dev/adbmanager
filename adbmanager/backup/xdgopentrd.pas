@@ -5,7 +5,7 @@ unit XDGOpenTRD;
 interface
 
 uses
-  Classes, SysUtils, Process, Forms, Controls, Dialogs;
+  Classes, SysUtils, Process, Forms, Controls, ComCtrls, Dialogs;
 
 type
   TXDGOpenTRD = class(TThread)

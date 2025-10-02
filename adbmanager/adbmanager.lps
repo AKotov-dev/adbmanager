@@ -60,7 +60,8 @@
         <IsPartOfProject Value="True"/>
         <UnitName Value="ADBDeviceStatusTRD"/>
         <EditorIndex Value="-1"/>
-        <CursorPos X="26"/>
+        <TopLine Value="55"/>
+        <CursorPos X="16" Y="76"/>
         <UsageCount Value="168"/>
       </Unit2>
       <Unit3>
@@ -197,7 +198,7 @@
         <UsageCount Value="101"/>
       </Unit16>
     </Units>
-    <JumpHistory Count="20" HistoryIndex="19">
+    <JumpHistory Count="23" HistoryIndex="22">
       <Position1>
         <Filename Value="sdcardmanager.pas"/>
         <Caret Column="21"/>
@@ -278,6 +279,18 @@
         <Filename Value="unit1.pas"/>
         <Caret Column="13"/>
       </Position20>
+      <Position21>
+        <Filename Value="sdcardmanager.pas"/>
+        <Caret Column="21" TopLine="76"/>
+      </Position21>
+      <Position22>
+        <Filename Value="unit1.pas"/>
+        <Caret Column="13"/>
+      </Position22>
+      <Position23>
+        <Filename Value="unit1.pas"/>
+        <Caret Line="459" TopLine="443"/>
+      </Position23>
     </JumpHistory>
     <RunParams>
       <FormatVersion Value="2"/>

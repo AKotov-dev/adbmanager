@@ -305,7 +305,7 @@ procedure TMainForm.FormCreate(Sender: TObject);
 var
   FStartShowStatusThread: TThread;
 begin
-  //рабочая директория ~/.adbmanager
+  //work directory ~/.adbmanager
   if not DirectoryExists(GetUserDir + '.adbmanager') then
     MkDir(GetUserDir + '.adbmanager');
   //для файлов xdg-open

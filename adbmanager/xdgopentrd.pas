@@ -57,10 +57,6 @@ begin
     // --- 1. Подкаталог для временных файлов ---
     TempDir := GetEnvironmentVariable('HOME') + '/.adbmanager/tmp';
 
-    // Создать каталог, если не существует
-    if not DirectoryExists(TempDir) then
-      ForceDirectories(TempDir);
-
     // --- 2. Подготовка временного файла ---
     TempFile := TempDir + '/' + ExtractFileName(FRemotePath);
 
