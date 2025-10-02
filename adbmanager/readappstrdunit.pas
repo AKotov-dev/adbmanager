@@ -97,7 +97,7 @@ begin
 
       // --- 6. Ресайз png ---
       if Terminated then Exit;
-      RunCmd('mogrify -resize ' + IntToStr(CheckForm.DefaultIcon.Height) +
+      RunCmd('gm mogrify -resize ' + IntToStr(CheckForm.DefaultIcon.Height) +
         'x' + IntToStr(CheckForm.DefaultIcon.Height) + ' ~/.adbmanager/icons/*.png');
     end;
 

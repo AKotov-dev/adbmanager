@@ -127,6 +127,7 @@ var
   hText, hIcon: integer;
 begin
   CheckForm.AppListBox.Items.Assign(S);
+  CheckForm.AppListBox.Refresh;
 
   //Выравнивание и центрирование
   if CheckForm.AppListBox.Count <> 0 then

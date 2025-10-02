@@ -59,9 +59,8 @@
         <Filename Value="adbdevicestatustrd.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="ADBDeviceStatusTRD"/>
-        <IsVisibleTab Value="True"/>
         <EditorIndex Value="2"/>
-        <TopLine Value="134"/>
+        <TopLine Value="132"/>
         <CursorPos X="26"/>
         <UsageCount Value="168"/>
         <Loaded Value="True"/>
@@ -150,10 +149,11 @@
         <Filename Value="readappstrdunit.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="ReadAppsTRDUnit"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="55"/>
+        <IsVisibleTab Value="True"/>
+        <EditorIndex Value="3"/>
         <CursorPos X="23"/>
         <UsageCount Value="75"/>
+        <Loaded Value="True"/>
       </Unit11>
       <Unit12>
         <Filename Value="settings_unit.pas"/>
@@ -185,8 +185,8 @@
         <Filename Value="showimagethread.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="ShowImageThread"/>
-        <EditorIndex Value="3"/>
-        <TopLine Value="32"/>
+        <EditorIndex Value="4"/>
+        <TopLine Value="52"/>
         <CursorPos X="54" Y="81"/>
         <UsageCount Value="23"/>
         <Loaded Value="True"/>
