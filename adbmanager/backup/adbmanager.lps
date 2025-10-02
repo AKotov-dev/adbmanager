@@ -89,9 +89,10 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="SDCardManager"/>
+        <IsVisibleTab Value="True"/>
         <EditorIndex Value="1"/>
-        <TopLine Value="664"/>
-        <CursorPos Y="599"/>
+        <TopLine Value="533"/>
+        <CursorPos X="16" Y="554"/>
         <UsageCount Value="145"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -182,7 +183,6 @@
         <Filename Value="xdgopentrd.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="XDGOpenTRD"/>
-        <IsVisibleTab Value="True"/>
         <EditorIndex Value="4"/>
         <CursorPos X="18"/>
         <UsageCount Value="23"/>
@@ -200,7 +200,7 @@
         <UsageCount Value="101"/>
       </Unit16>
     </Units>
-    <JumpHistory Count="16" HistoryIndex="15">
+    <JumpHistory Count="17" HistoryIndex="16">
       <Position1>
         <Filename Value="sdcardmanager.pas"/>
         <Caret Column="21"/>
@@ -265,6 +265,10 @@
         <Filename Value="xdgopentrd.pas"/>
         <Caret Line="30" Column="13" TopLine="15"/>
       </Position16>
+      <Position17>
+        <Filename Value="sdcardmanager.pas"/>
+        <Caret Line="599" TopLine="599"/>
+      </Position17>
     </JumpHistory>
     <RunParams>
       <FormatVersion Value="2"/>

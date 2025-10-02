@@ -548,8 +548,10 @@ begin
     Ext := LowerCase(ExtractFileExt(RemotePath));
     if MatchStr(Ext, ['.jpg', '.jpeg', '.png', '.bmp', '.webp', '.gif',
       '.heic', '.heif', '.tiff', '.mp4', '.mkv', '.avi', '.mov',
-      '.mp3', '.wav', '.ogg', '.flac', '.m4a', '.pdf', '.txt', '.log',
-      '.doc', '.docx', '.xls', '.xlsx', '.odp', '.ods', '.odt']) then
+      '.webm', '.3gp', '.mp3', '.wav', '.ogg', '.flac', '.m4a', '.aac',
+      '.pdf', '.txt', '.log', '.doc', '.docx', '.xls', '.xlsx', '.odp',
+      '.ods', '.odt', '.rtf', '.csv', '.epub', '.zip', '.rar', '.7z',
+      '.tar', '.gz', '.apk', '.json', '.xml', '.html', '.vcf']) then
       TXDGOpenTRD.Create(RemotePath);
 
     if not android7 then //Android > 7?
