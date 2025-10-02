@@ -10,117 +10,138 @@ uses
 type
   ReadAppsTRD = class(TThread)
   private
-  protected
-  var
     S: TStringList;
-
-    procedure Execute; override;
-
     procedure ShowAppList;
     procedure StopRead;
     procedure StartRead;
+    function RunCmd(const ACommand: string; AOutput: TStringList = nil): boolean;
+  protected
+    procedure Execute; override;
   end;
 
 implementation
 
-uses CheckUnit;
+uses
+  CheckUnit;
 
-  { TRD }
+function ReadAppsTRD.RunCmd(const ACommand: string; AOutput: TStringList): boolean;
+var
+  ExProcess: TProcess;
+begin
+  Result := False;
+  if Terminated then Exit;
+
+  ExProcess := TProcess.Create(nil);
+  try
+    ExProcess.Executable := 'bash';
+    ExProcess.Parameters.Add('-c');
+    ExProcess.Parameters.Add(ACommand);
+    ExProcess.Options := [poUsePipes, poStderrToOutPut];
+    ExProcess.Execute;
+
+    while ExProcess.Running do
+    begin
+      if Terminated then
+      begin
+        ExProcess.Terminate(0);
+        Exit;
+      end;
+      Sleep(50);
+    end;
+
+    if Assigned(AOutput) then
+      AOutput.LoadFromStream(ExProcess.Output);
+
+    Result := True;
+  finally
+    ExProcess.Free;
+  end;
+end;
 
 procedure ReadAppsTRD.Execute;
 var
-  ExProcess: TProcess;
   PIDExists: boolean;
   Attempts: integer;
-
-  procedure RunCmd(const ACommand: string; AOutput: TStringList = nil);
-  begin
-    ExProcess := TProcess.Create(nil);
-    try
-      ExProcess.Executable := 'bash';
-      ExProcess.Parameters.Add('-c');
-      ExProcess.Parameters.Add(ACommand);
-      ExProcess.Options := [poUsePipes, poWaitOnExit, poStderrToOutPut];
-      ExProcess.Execute;
-      if Assigned(AOutput) then
-        AOutput.LoadFromStream(ExProcess.Output);
-    finally
-      ExProcess.Free;
-    end;
-  end;
-
 begin
   try
     Synchronize(@StartRead);
 
     S := TStringList.Create;
-    FreeOnTerminate := True;
 
-    RunCmd('adb devices | grep -w "device"', S);
-    if Trim(S.Text) = '' then Exit;
+    // --- Проверка устройства ---
+    if Terminated then Exit;
+    if not RunCmd('adb devices | grep -w "device"', S) then Exit;
+    if Terminated or (Trim(S.Text) = '') then Exit;
 
-    //Проверка установлен ли пакет на смартфоне
-    RunCmd('adb shell pm list packages | grep com.example.iconextractor', S);
+    // --- Проверка пакета ---
+    if not RunCmd('adb shell pm list packages | grep com.example.iconextractor', S) then
+      Exit;
+    if Terminated then Exit;
+
     if Trim(S.Text) <> '' then
     begin
-      // --- 1. Чистим каталог на компе (в смартфоне делает IconExtractor ---
-      if Terminated then Exit;
       RunCmd('rm -rf ~/.adbmanager/icons');
-
-      // --- 2. Запуск Activity ---
       if Terminated then Exit;
+
       RunCmd('adb shell am start -n com.example.iconextractor/.MainActivity');
-
-      // --- 3. Ждём появления pid ---
-      Attempts := 0;
-      repeat
-        RunCmd('adb shell pidof com.example.iconextractor', S);
-        PIDExists := Trim(S.Text) <> '';
-        if not PIDExists then Sleep(300);
-        Inc(Attempts);
-        if Terminated then Exit;
-      until (PIDExists) or (Attempts > 20); // максимум ~6 секунд
-
-      // --- 4. Ждём исчезновения pid ---
-      Attempts := 0;
-      repeat
-        RunCmd('adb shell pidof com.example.iconextractor', S);
-        PIDExists := Trim(S.Text) <> '';
-        if PIDExists then Sleep(500);
-        Inc(Attempts);
-        if Terminated then Exit;
-      until (not PIDExists) or (Attempts > 120); // максимум ~1 минута
-
-      // --- 5. Копирование png на комп ---
       if Terminated then Exit;
+
+      // --- ждём появления pid ---
+      Attempts := 0;
+      repeat
+        if not RunCmd('adb shell pidof com.example.iconextractor', S) then Exit;
+        if Terminated then Exit;
+
+        PIDExists := Trim(S.Text) <> '';
+        if not PIDExists then Sleep(100);
+        Inc(Attempts);
+      until (PIDExists) or (Attempts > 20);
+
+      if Terminated then Exit;
+
+      // --- ждём исчезновения pid ---
+      Attempts := 0;
+      repeat
+        if not RunCmd('adb shell pidof com.example.iconextractor', S) then Exit;
+        if Terminated then Exit;
+
+        PIDExists := Trim(S.Text) <> '';
+        if PIDExists then Sleep(100);
+        Inc(Attempts);
+      until (not PIDExists) or (Attempts > 120);
+
+      if Terminated then Exit;
+
       RunCmd('adb pull /storage/emulated/0/Pictures/IconExtractor/icons ~/.adbmanager/');
-
-      // --- 6. Ресайз png ---
       if Terminated then Exit;
+
       RunCmd('gm mogrify -resize ' + IntToStr(CheckForm.DefaultIcon.Height) +
         'x' + IntToStr(CheckForm.DefaultIcon.Height) + ' ~/.adbmanager/icons/*.png');
+      if Terminated then Exit;
     end;
 
-    // --- 7. Список всех пакетов ---
+    // --- Список пакетов ---
+    if not RunCmd('adb shell pm list packages | sort | cut -d":" -f2', S) then Exit;
     if Terminated then Exit;
-    RunCmd('adb shell pm list packages | sort | cut -d":" -f2', S);
     S.Text := Trim(S.Text);
+
     if (S.Count > 0) and (not Terminated) then
       Synchronize(@ShowAppList);
 
-    // --- 8. Список отключённых пакетов ---
+    // --- Список отключённых пакетов ---
+    if not RunCmd('adb shell pm list packages -d | cut -d":" -f2', S) then Exit;
     if Terminated then Exit;
-    RunCmd('adb shell pm list packages -d | cut -d":" -f2', S);
     S.Text := Trim(S.Text);
 
   finally
-    Synchronize(@StopRead);
-    S.Free;
-    Terminate;
+    if (not Application.Terminated) and Assigned(CheckForm) and
+      CheckForm.HandleAllocated then
+      Synchronize(@StopRead);
+
+    if Assigned(S) then
+      S.Free;
   end;
 end;
-
-{ БЛОК ОТОБРАЖЕНИЯ СПИСКА ПРИЛОЖЕНИЙ }
 
 procedure ReadAppsTRD.ShowAppList;
 var
@@ -129,7 +150,6 @@ begin
   CheckForm.AppListBox.Items.Assign(S);
   CheckForm.AppListBox.Refresh;
 
-  //Выравнивание и центрирование
   if CheckForm.AppListBox.Count <> 0 then
   begin
     hText := CheckForm.AppListBox.Canvas.TextHeight('Wy');
@@ -139,7 +159,6 @@ begin
   end;
 end;
 
-//Старт
 procedure ReadAppsTRD.StartRead;
 begin
   with CheckForm do
@@ -152,7 +171,6 @@ begin
   end;
 end;
 
-//Стоп
 procedure ReadAppsTRD.StopRead;
 var
   i: integer;

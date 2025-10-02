@@ -152,7 +152,7 @@ procedure TCheckForm.FormClose(Sender: TObject; var CloseAction: TCloseAction);
 begin
   StopThread;       // гарантированно завершить поток
 
-  // MainForm.StartProcess('adb shell am force-stop com.example.iconextractor');
+ // MainForm.StartProcess('adb shell am force-stop com.example.iconextractor');
 
   VList.Free;
   IniPropStorage1.Save;
