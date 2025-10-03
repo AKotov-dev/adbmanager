@@ -314,26 +314,25 @@ begin
     bmp.PixelFormat := pf32bit;
     bmp.Assign(Image1.Picture.Graphic);
     Application.Icon.Assign(bmp);
-
-    //рабочая директория ~/.adbmanager
-    if not DirectoryExists(GetUserDir + '.adbmanager') then
-      MkDir(GetUserDir + '.adbmanager');
-    //для файлов xdg-open
-    if not DirectoryExists(GetUserDir + '.adbmanager/tmp') then
-      MkDir(GetUserDir + '.adbmanager/tmp');
-
-    MainForm.Caption := Application.Title;
-
-    //Перезапуск сервера, если не запущен (adb devices и сам сервер запускаются в потоке статуса)
-    StartProcess('[[ $(ss -lt | grep 5037) ]] || (adb kill-server; killall adb)');
-
-    //Запуск потока отображения статуса
-    FStartShowStatusThread := ShowStatus.Create(False);
-    FStartShowStatusThread.Priority := tpNormal;
-
   finally
     bmp.Free;
   end;
+
+  //рабочая директория ~/.adbmanager
+  if not DirectoryExists(GetUserDir + '.adbmanager') then
+    MkDir(GetUserDir + '.adbmanager');
+  //для файлов xdg-open
+  if not DirectoryExists(GetUserDir + '.adbmanager/tmp') then
+    MkDir(GetUserDir + '.adbmanager/tmp');
+
+  MainForm.Caption := Application.Title;
+
+  //Перезапуск сервера, если не запущен (adb devices и сам сервер запускаются в потоке статуса)
+  StartProcess('[[ $(ss -lt | grep 5037) ]] || (adb kill-server; killall adb)');
+
+  //Запуск потока отображения статуса
+  FStartShowStatusThread := ShowStatus.Create(False);
+  FStartShowStatusThread.Priority := tpNormal;
 end;
 
 //Обработка кнопок панели "Управление Смартфоном"

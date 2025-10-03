@@ -541,7 +541,7 @@ object MainForm: TMainForm
     end
     object ToolButton1: TToolButton
       Left = 548
-      Hint = 'For Android TV Box'
+      Hint = 'Android TV Box'
       Top = 2
       Caption = 'settings'
       ImageIndex = 8
