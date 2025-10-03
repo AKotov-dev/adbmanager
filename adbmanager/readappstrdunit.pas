@@ -135,27 +135,28 @@ begin
     if (S.Count > 0) and (not Terminated) then
       Synchronize(@ShowAppList);
 
-    // --- Список отключённых пакетов ---
+    // --- Список отключенных пакетов ---
     if not RunCmd('adb shell pm list packages -d', S) then Exit;
     if Terminated then Exit;
     S.Text := Trim(S.Text);
     //Выделяем имена пакетов
     for i := 0 to S.Count - 1 do
       S[i] := Copy(S[i], Pos(':', S[i]) + 1, MaxInt);
-
-    S.Text := Trim(S.Text);
+    //Для аккуратного снятия чекеров сверху вниз
     S.Sort;
-    if (S.Count > 0) and (not Terminated) then
-      Synchronize(@StopRead);
 
   finally
+    if (not Application.Terminated) and Assigned(CheckForm) and
+      CheckForm.HandleAllocated then
+      Synchronize(@StopRead);
+    // гарантированная остановка прогресс-бара
+
     if Assigned(S) then
       S.Free;
     if Assigned(AllPackages) then
       AllPackages.Free;
   end;
 end;
-
 
 //Показываем список приложений
 procedure ReadAppsTRD.ShowAppList;
@@ -199,11 +200,14 @@ begin
       AppListBox.Checked[i] := True;
 
     //Расставляем чекеры по списку отключенных пакетов
-    for i := 0 to S.Count - 1 do
+    if (S.Count > 0) then
     begin
-      j := CheckForm.AppListBox.Items.IndexOf(S[i]);
-      if j <> -1 then
-        CheckForm.AppListBox.Checked[j] := False;
+      for i := 0 to S.Count - 1 do
+      begin
+        j := CheckForm.AppListBox.Items.IndexOf(S[i]);
+        if j <> -1 then
+          CheckForm.AppListBox.Checked[j] := False;
+      end;
     end;
 
     //VList - снимок чекеров списка
