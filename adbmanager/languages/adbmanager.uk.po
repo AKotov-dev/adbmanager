@@ -169,7 +169,7 @@ msgstr ""
 
 #: tmainform.applistbtn.hint
 msgctxt "tmainform.applistbtn.hint"
-msgid "For Android >= 6"
+msgid "Android 5+"
 msgstr ""
 
 #: tmainform.caption
@@ -256,7 +256,7 @@ msgid "settings"
 msgstr ""
 
 #: tmainform.toolbutton1.hint
-msgid "For Android TV Box"
+msgid "Android TV Box"
 msgstr ""
 
 #: tmainform.toolbutton4.caption

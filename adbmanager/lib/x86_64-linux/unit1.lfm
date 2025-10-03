@@ -531,7 +531,7 @@ object MainForm: TMainForm
     object AppListBtn: TToolButton
       Tag = 4
       Left = 265
-      Hint = 'For Android >= 6'
+      Hint = 'Android 5+'
       Top = 2
       Caption = 'applications'
       ImageIndex = 4
@@ -541,7 +541,7 @@ object MainForm: TMainForm
     end
     object ToolButton1: TToolButton
       Left = 548
-      Hint = 'For Android TV Box'
+      Hint = 'Android TV Box'
       Top = 2
       Caption = 'settings'
       ImageIndex = 8

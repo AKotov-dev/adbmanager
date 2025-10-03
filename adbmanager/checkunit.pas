@@ -174,7 +174,7 @@ begin
       else if MessageDlg(SDeleteAPK, mtWarning, [mbYes, mbNo], 0) <> mrYes then
         Exit;
 
-      //Команда для удаления приложений
+      //Команда для удаления (замарозки) приложений
       for i := 0 to AppListBox.Count - 1 do
         if AppListBox.Checked[i] = True then
           adbcmd := adbcmd + 'adb shell pm uninstall --user 0 ' +
@@ -187,7 +187,7 @@ begin
         if AppListBox.Checked[i] <> StrToBool(VList[i]) then
         begin
           if AppListBox.Checked[i] = True then
-            adbcmd := adbcmd + 'adb shell pm enable ' + AppListBox.Items[i] + ';'
+            adbcmd := adbcmd + 'adb shell pm enable --user 0 ' + AppListBox.Items[i] + ';'
           else
             adbcmd := adbcmd + 'adb shell pm disable-user --user 0 ' +
               AppListBox.Items[i] + ';';

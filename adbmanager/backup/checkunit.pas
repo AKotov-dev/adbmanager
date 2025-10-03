@@ -187,7 +187,7 @@ begin
         if AppListBox.Checked[i] <> StrToBool(VList[i]) then
         begin
           if AppListBox.Checked[i] = True then
-            adbcmd := adbcmd + 'adb shell pm enable ' + AppListBox.Items[i] + ';'
+            adbcmd := adbcmd + 'adb shell pm enable --user 0 ' + AppListBox.Items[i] + ';'
           else
             adbcmd := adbcmd + 'adb shell pm disable-user --user 0 ' +
               AppListBox.Items[i] + ';';

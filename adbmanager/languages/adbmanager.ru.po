@@ -173,8 +173,8 @@ msgstr "приложения"
 
 #: tmainform.applistbtn.hint
 msgctxt "tmainform.applistbtn.hint"
-msgid "For Android >= 6"
-msgstr "Для Android >= 6"
+msgid "Android 5+"
+msgstr ""
 
 #: tmainform.caption
 msgid "ADBManager"
@@ -272,8 +272,8 @@ msgid "settings"
 msgstr "настройки"
 
 #: tmainform.toolbutton1.hint
-msgid "For Android TV Box"
-msgstr "Для Android TV Box"
+msgid "Android TV Box"
+msgstr ""
 
 #: tmainform.toolbutton4.caption
 msgid "sd-card"
