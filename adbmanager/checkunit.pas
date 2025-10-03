@@ -77,8 +77,6 @@ begin
 end;
 
 procedure TCheckForm.FormShow(Sender: TObject);
-{var
-  FReadAppsTRD: TThread;}
 begin
   //For Plasma
   IniPropStorage1.IniFileName := MainForm.IniPropStorage1.IniFileName;
@@ -94,15 +92,11 @@ begin
   VList := TStringList.Create;
 
   //Запуск потока загрузки списка приложений
- { FReadAppsTRD := ReadAppsTRD.Create(False);
-  FReadAppsTRD.Priority := tpNormal;}
   StartThread;
 end;
 
 //Режим: Отключение или Удаление приложений
 procedure TCheckForm.ModeBoxClick(Sender: TObject);
-var
-  FReadAppsTRD: TThread;
 begin
   if AppListBox.Count <> 0 then
   begin
@@ -115,8 +109,7 @@ begin
     begin
       AppListBox.Clear;
       //Запуск потока загрузки списка приложений
-      FReadAppsTRD := ReadAppsTRD.Create(False);
-      FReadAppsTRD.Priority := tpNormal;
+      StartThread;
     end;
   end;
 end;
@@ -150,11 +143,10 @@ end;
 //Очищаем виртуальный список чекеров, сохраняем настройки формы
 procedure TCheckForm.FormClose(Sender: TObject; var CloseAction: TCloseAction);
 begin
-  StopThread;       // гарантированно завершить поток
+  StopThread; // гарантированно завершить поток
 
   // MainForm.StartProcess('adb shell am force-stop com.example.iconextractor');
 
-  VList.Free;
   IniPropStorage1.Save;
 end;
 
@@ -166,47 +158,50 @@ var
 begin
   a := False;
   adbcmd := '';
-
-  //Удаление?
-  if ModeBox.Checked then
-  begin
-    //Выбран ли хоть один чекер?
-    for i := 0 to AppListBox.Count - 1 do
-      if AppListBox.Checked[i] = True then
-      begin
-        a := True;
-        Break;
-      end;
-
-    if not a then CheckForm.Close
-    else if MessageDlg(SDeleteAPK, mtWarning, [mbYes, mbNo], 0) <> mrYes then
-      Exit;
-
-    //Команда для удаления приложений
-    for i := 0 to AppListBox.Count - 1 do
-      if AppListBox.Checked[i] = True then
-        adbcmd := adbcmd + 'adb shell pm uninstall --user 0 ' +
-          AppListBox.Items[i] + ';';
-  end
-  else //Отключение?
-  begin
-    //Команда для отключения приложений
-    for i := 0 to VList.Count - 1 do
-      if AppListBox.Checked[i] <> StrToBool(VList[i]) then
-      begin
+  try
+    //Удаление?
+    if ModeBox.Checked then
+    begin
+      //Выбран ли хоть один чекер?
+      for i := 0 to AppListBox.Count - 1 do
         if AppListBox.Checked[i] = True then
-          adbcmd := adbcmd + 'adb shell pm enable ' + AppListBox.Items[i] + ';'
-        else
-          adbcmd := adbcmd + 'adb shell pm disable-user --user 0 ' +
+        begin
+          a := True;
+          Break;
+        end;
+
+      if not a then CheckForm.Close
+      else if MessageDlg(SDeleteAPK, mtWarning, [mbYes, mbNo], 0) <> mrYes then
+        Exit;
+
+      //Команда для удаления приложений
+      for i := 0 to AppListBox.Count - 1 do
+        if AppListBox.Checked[i] = True then
+          adbcmd := adbcmd + 'adb shell pm uninstall --user 0 ' +
             AppListBox.Items[i] + ';';
-      end;
+    end
+    else //Отключение?
+    begin
+      //Команда для отключения приложений (VBox - снимок чекеров списка, взятый из последнего потока)
+      for i := 0 to VList.Count - 1 do
+        if AppListBox.Checked[i] <> StrToBool(VList[i]) then
+        begin
+          if AppListBox.Checked[i] = True then
+            adbcmd := adbcmd + 'adb shell pm enable ' + AppListBox.Items[i] + ';'
+          else
+            adbcmd := adbcmd + 'adb shell pm disable-user --user 0 ' +
+              AppListBox.Items[i] + ';';
+        end;
+    end;
+
+    //Запуск команды и потока отображения лога исполнения
+    if adbcmd <> '' then
+      MainForm.StartADBCmd;
+
+  finally
+    VList.Free;
+    CheckForm.Close;
   end;
-
-  //Запуск команды и потока отображения лога исполнения
-  if adbcmd <> '' then
-    MainForm.StartADBCmd;
-
-  CheckForm.Close;
 end;
 
 //Отрисовка иконок приложений

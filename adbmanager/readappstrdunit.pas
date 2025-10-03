@@ -60,25 +60,27 @@ end;
 
 procedure ReadAppsTRD.Execute;
 var
+  AllPackages: TStringList;
   PIDExists: boolean;
-  Attempts: integer;
+  Attempts, i: integer;
 begin
   try
     Synchronize(@StartRead);
 
     S := TStringList.Create;
+    AllPackages := TStringList.Create;
 
     // --- Проверка устройства ---
     if Terminated then Exit;
     if not RunCmd('adb devices | grep -w "device"', S) then Exit;
     if Terminated or (Trim(S.Text) = '') then Exit;
 
-    // --- Проверка пакета ---
-    if not RunCmd('adb shell pm list packages | grep com.example.iconextractor', S) then
-      Exit;
+    // --- Получаем все пакеты один раз ---
+    if not RunCmd('adb shell pm list packages', AllPackages) then Exit;
     if Terminated then Exit;
 
-    if Trim(S.Text) <> '' then
+    // --- Проверка наличия пакета com.example.iconextractor ---
+    if AllPackages.IndexOf('package:com.example.iconextractor') <> -1 then
     begin
       RunCmd('rm -rf ~/.adbmanager/icons');
       if Terminated then Exit;
@@ -120,28 +122,38 @@ begin
       if Terminated then Exit;
     end;
 
-    // --- Список пакетов ---
-    if not RunCmd('adb shell pm list packages | sort | cut -d":" -f2', S) then Exit;
-    if Terminated then Exit;
-    S.Text := Trim(S.Text);
+    // --- Формируем список всех пакетов ---
+    S.Clear;
+    //Выделяем имена пакетов
+    for i := 0 to AllPackages.Count - 1 do
+      S.Add(Copy(AllPackages[i], Pos(':', AllPackages[i]) + 1, MaxInt));
 
+    S.Text := Trim(S.Text);
+    S.Sort;
     if (S.Count > 0) and (not Terminated) then
       Synchronize(@ShowAppList);
 
     // --- Список отключённых пакетов ---
-    if not RunCmd('adb shell pm list packages -d | cut -d":" -f2', S) then Exit;
+    if not RunCmd('adb shell pm list packages -d', S) then Exit;
     if Terminated then Exit;
     S.Text := Trim(S.Text);
+    //Выделяем имена пакетов
+    for i := 0 to S.Count - 1 do
+      S[i] := Copy(S[i], Pos(':', S[i]) + 1, MaxInt);
 
-  finally
-    if (not Application.Terminated) and Assigned(CheckForm) and
-      CheckForm.HandleAllocated then
+    S.Text := Trim(S.Text);
+    S.Sort;
+    if (S.Count > 0) and (not Terminated) then
       Synchronize(@StopRead);
 
+  finally
     if Assigned(S) then
       S.Free;
+    if Assigned(AllPackages) then
+      AllPackages.Free;
   end;
 end;
+
 
 //Показываем список приложений
 procedure ReadAppsTRD.ShowAppList;
@@ -176,16 +188,23 @@ end;
 //Останов потока
 procedure ReadAppsTRD.StopRead;
 var
-  i: integer;
+  i, j: integer;
 begin
   with CheckForm do
   begin
+    //Включаем галки всех пакетов
     for i := 0 to AppListBox.Items.Count - 1 do
       AppListBox.Checked[i] := True;
 
+    //Расставляем чекеры по списку отключенных пакетов
     for i := 0 to S.Count - 1 do
-      AppListBox.Checked[AppListBox.Items.IndexOf(S[i])] := False;
+    begin
+      j := CheckForm.AppListBox.Items.IndexOf(S[i]);
+      if j <> -1 then
+        CheckForm.AppListBox.Checked[j] := False;
+    end;
 
+    //VList - снимок чекеров списка
     VList.Clear;
     for i := 0 to AppListBox.Items.Count - 1 do
       if AppListBox.Checked[i] then
