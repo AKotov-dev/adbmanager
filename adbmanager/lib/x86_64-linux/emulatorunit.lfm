@@ -1,20 +1,20 @@
 object EmulatorForm: TEmulatorForm
-  Left = 409
+  Left = 413
   Height = 199
-  Top = 145
+  Top = 173
   Width = 449
   ActiveControl = Edit1
   Caption = 'Connection/Scanning'
   ClientHeight = 199
   ClientWidth = 449
   KeyPreview = True
+  Position = poMainFormCenter
+  SessionProperties = 'Width;Height;Edit1.Text'
+  LCLVersion = '4.2.0.0'
   OnClose = FormClose
   OnCreate = FormCreate
   OnKeyDown = FormKeyDown
   OnShow = FormShow
-  Position = poMainFormCenter
-  SessionProperties = 'Width;Height;Edit1.Text'
-  LCLVersion = '3.8.0.0'
   object RadioGroup1: TRadioGroup
     AnchorSideLeft.Control = Owner
     AnchorSideRight.Control = Edit1

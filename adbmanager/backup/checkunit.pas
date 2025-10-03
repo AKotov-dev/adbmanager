@@ -97,8 +97,6 @@ end;
 
 //Режим: Отключение или Удаление приложений
 procedure TCheckForm.ModeBoxClick(Sender: TObject);
-var
-  FReadAppsTRD: TThread;
 begin
   if AppListBox.Count <> 0 then
   begin

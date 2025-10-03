@@ -65,8 +65,6 @@ var
   Attempts, i: integer;
 begin
   try
-    Synchronize(@StartRead);
-
     S := TStringList.Create;
     AllPackages := TStringList.Create;
 
@@ -74,6 +72,8 @@ begin
     if Terminated then Exit;
     if not RunCmd('adb devices | grep -w "device"', S) then Exit;
     if Terminated or (Trim(S.Text) = '') then Exit;
+
+     Synchronize(@StartRead);
 
     // --- Получаем все пакеты один раз ---
     if not RunCmd('adb shell pm list packages', AllPackages) then Exit;
@@ -124,7 +124,7 @@ begin
 
     // --- Формируем список всех пакетов ---
     S.Clear;
-
+    //Выделяем имена пакетов
     for i := 0 to AllPackages.Count - 1 do
       S.Add(Copy(AllPackages[i], Pos(':', AllPackages[i]) + 1, MaxInt));
 
@@ -137,11 +137,8 @@ begin
     if not RunCmd('adb shell pm list packages -d', S) then Exit;
     if Terminated then Exit;
     S.Text := Trim(S.Text);
-
-    {for i := 0 to S.Count - 1 do
-      S.Add(Copy(S[i], Pos(':', S[i]) + 1, MaxInt));}
-
-      for i := 0 to S.Count - 1 do
+    //Выделяем имена пакетов
+    for i := 0 to S.Count - 1 do
       S[i] := Copy(S[i], Pos(':', S[i]) + 1, MaxInt);
 
     S.Text := Trim(S.Text);

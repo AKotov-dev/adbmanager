@@ -1,18 +1,18 @@
 object RebootForm: TRebootForm
-  Left = 501
+  Left = 424
   Height = 189
-  Top = 240
+  Top = 179
   Width = 433
   ActiveControl = OKBtn
   Caption = 'Reboot/Shutdown'
   ClientHeight = 189
   ClientWidth = 433
-  Position = poMainFormCenter
-  SessionProperties = 'Width;Height'
-  LCLVersion = '4.2.0.0'
   OnClose = FormClose
   OnCreate = FormCreate
   OnShow = FormShow
+  Position = poMainFormCenter
+  SessionProperties = 'Width;Height'
+  LCLVersion = '3.8.0.0'
   object RadioGroup1: TRadioGroup
     AnchorSideLeft.Control = Owner
     AnchorSideRight.Control = OKBtn

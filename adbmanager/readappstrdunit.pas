@@ -65,8 +65,6 @@ var
   Attempts, i: integer;
 begin
   try
-    Synchronize(@StartRead);
-
     S := TStringList.Create;
     AllPackages := TStringList.Create;
 
@@ -75,7 +73,11 @@ begin
     if not RunCmd('adb devices | grep -w "device"', S) then Exit;
     if Terminated or (Trim(S.Text) = '') then Exit;
 
+    //Устройство подключено - Запуск индикатора
+    Synchronize(@StartRead);
+
     // --- Получаем все пакеты один раз ---
+    if Terminated then Exit;
     if not RunCmd('adb shell pm list packages', AllPackages) then Exit;
     if Terminated then Exit;
 

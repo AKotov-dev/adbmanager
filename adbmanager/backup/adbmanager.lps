@@ -40,7 +40,7 @@
         <IsPartOfProject Value="True"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="21"/>
-        <UsageCount Value="179"/>
+        <UsageCount Value="180"/>
       </Unit0>
       <Unit1>
         <Filename Value="unit1.pas"/>
@@ -49,8 +49,8 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="Unit1"/>
-        <CursorPos X="13"/>
-        <UsageCount Value="179"/>
+        <CursorPos X="12"/>
+        <UsageCount Value="180"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit1>
@@ -61,7 +61,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="55"/>
         <CursorPos X="16" Y="76"/>
-        <UsageCount Value="171"/>
+        <UsageCount Value="172"/>
       </Unit2>
       <Unit3>
         <Filename Value="adbcommandtrd.pas"/>
@@ -69,7 +69,7 @@
         <UnitName Value="ADBCommandTRD"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="21"/>
-        <UsageCount Value="168"/>
+        <UsageCount Value="169"/>
       </Unit3>
       <Unit4>
         <Filename Value="rebootunit.pas"/>
@@ -80,7 +80,7 @@
         <UnitName Value="RebootUnit"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="18"/>
-        <UsageCount Value="156"/>
+        <UsageCount Value="157"/>
       </Unit4>
       <Unit5>
         <Filename Value="sdcardmanager.pas"/>
@@ -91,7 +91,7 @@
         <UnitName Value="SDCardManager"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="21"/>
-        <UsageCount Value="148"/>
+        <UsageCount Value="149"/>
       </Unit5>
       <Unit6>
         <Filename Value="sdcommandtrd.pas"/>
@@ -99,7 +99,7 @@
         <UnitName Value="SDCommandTRD"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="20"/>
-        <UsageCount Value="146"/>
+        <UsageCount Value="147"/>
       </Unit6>
       <Unit7>
         <Filename Value="lssdfoldertrd.pas"/>
@@ -108,7 +108,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="130"/>
         <CursorPos X="6"/>
-        <UsageCount Value="122"/>
+        <UsageCount Value="123"/>
       </Unit7>
       <Unit8>
         <Filename Value="emulatorunit.pas"/>
@@ -119,7 +119,7 @@
         <UnitName Value="EmulatorUnit"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="20"/>
-        <UsageCount Value="95"/>
+        <UsageCount Value="96"/>
       </Unit8>
       <Unit9>
         <Filename Value="sdmountpointtrd.pas"/>
@@ -127,7 +127,7 @@
         <UnitName Value="SDMountPointTRD"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="23"/>
-        <UsageCount Value="82"/>
+        <UsageCount Value="83"/>
       </Unit9>
       <Unit10>
         <Filename Value="checkunit.pas"/>
@@ -137,10 +137,9 @@
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="CheckUnit"/>
         <EditorIndex Value="1"/>
-        <CursorPos X="17"/>
-        <UsageCount Value="79"/>
+        <CursorPos X="18"/>
+        <UsageCount Value="80"/>
         <Loaded Value="True"/>
-        <LoadedDesigner Value="True"/>
       </Unit10>
       <Unit11>
         <Filename Value="readappstrdunit.pas"/>
@@ -149,7 +148,7 @@
         <IsVisibleTab Value="True"/>
         <EditorIndex Value="2"/>
         <CursorPos X="23"/>
-        <UsageCount Value="78"/>
+        <UsageCount Value="79"/>
         <Loaded Value="True"/>
       </Unit11>
       <Unit12>
@@ -161,7 +160,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="82"/>
         <CursorPos X="3" Y="99"/>
-        <UsageCount Value="64"/>
+        <UsageCount Value="65"/>
       </Unit12>
       <Unit13>
         <Filename Value="readsettingstrdunit.pas"/>
@@ -169,7 +168,7 @@
         <UnitName Value="ReadSettingsTRDUnit"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="27"/>
-        <UsageCount Value="61"/>
+        <UsageCount Value="62"/>
       </Unit13>
       <Unit14>
         <Filename Value="writesettingstrdunit.pas"/>
@@ -177,7 +176,7 @@
         <UnitName Value="WriteSettingsTRDUnit"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="28"/>
-        <UsageCount Value="58"/>
+        <UsageCount Value="59"/>
       </Unit14>
       <Unit15>
         <Filename Value="xdgopentrd.pas"/>
@@ -185,7 +184,7 @@
         <UnitName Value="XDGOpenTRD"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="18"/>
-        <UsageCount Value="26"/>
+        <UsageCount Value="27"/>
       </Unit15>
       <Unit16>
         <Filename Value="backupunit.pas"/>
@@ -199,7 +198,7 @@
         <UsageCount Value="101"/>
       </Unit16>
     </Units>
-    <JumpHistory Count="28" HistoryIndex="27">
+    <JumpHistory Count="30" HistoryIndex="29">
       <Position1>
         <Filename Value="unit1.pas"/>
         <Caret Column="13"/>
@@ -312,6 +311,14 @@
         <Filename Value="checkunit.pas"/>
         <Caret Line="94" TopLine="79"/>
       </Position28>
+      <Position29>
+        <Filename Value="unit1.pas"/>
+        <Caret Column="13"/>
+      </Position29>
+      <Position30>
+        <Filename Value="readappstrdunit.pas"/>
+        <Caret Column="23"/>
+      </Position30>
     </JumpHistory>
     <RunParams>
       <FormatVersion Value="2"/>

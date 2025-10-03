@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CONFIG>
-  <Compiler Value="/usr/bin/fpc" Date="1729704584"/>
-  <Params Value="-MObjFPC -Scghi -CX -Cg -O3 -XX -l -vewnhibq &apos;-Fi/home/marsik/Рабочий стол/adbmanager/lib/x86_64-linux&apos; &apos;-Fu/home/marsik/Рабочий стол/adbmanager/&apos; -Fu/usr/share/lazarus/lcl/units/x86_64-linux/gtk2 -Fu/usr/share/lazarus/lcl/units/x86_64-linux -Fu/usr/share/lazarus/components/freetype/lib/x86_64-linux -Fu/usr/share/lazarus/components/lazutils/lib/x86_64-linux -Fu/usr/share/lazarus/packager/units/x86_64-linux &apos;-FU/home/marsik/Рабочий стол/adbmanager/lib/x86_64-linux/&apos; &apos;-FE/home/marsik/Рабочий стол/adbmanager/&apos; &apos;-o/home/marsik/Рабочий стол/adbmanager/adbmanager&apos; -dLCL -dLCLgtk2 adbmanager.pas"/>
+  <Compiler Value="/usr/bin/fpc" Date="1677995175"/>
+  <Params Value="-MObjFPC -Scghi -CX -Cg -O3 -XX -l -vewnhibq &apos;-Fi/home/marsik/Рабочий стол/adbmanager/lib/x86_64-linux&apos; &apos;-Fu/home/marsik/Рабочий стол/adbmanager/&apos; -Fu/home/marsik/.lazarus/lib/units/x86_64-linux/gtk2 -Fu/usr/lib64/lazarus/lcl/units/x86_64-linux -Fu/usr/lib64/lazarus/components/freetype/lib/x86_64-linux -Fu/usr/lib64/lazarus/components/lazutils/lib/x86_64-linux -Fu/usr/lib64/lazarus/packager/units/x86_64-linux &apos;-FU/home/marsik/Рабочий стол/adbmanager/lib/x86_64-linux/&apos; &apos;-FE/home/marsik/Рабочий стол/adbmanager/&apos; &apos;-o/home/marsik/Рабочий стол/adbmanager/adbmanager&apos; -dLCL -dLCLgtk2 adbmanager.pas"/>
 </CONFIG>
