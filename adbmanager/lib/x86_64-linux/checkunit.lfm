@@ -25,6 +25,7 @@ object CheckForm: TCheckForm
     BorderSpacing.Right = 5
     BorderSpacing.Bottom = 5
     ItemHeight = 0
+    MultiSelect = True
     Style = lbOwnerDrawFixed
     TabOrder = 3
     TopIndex = -1

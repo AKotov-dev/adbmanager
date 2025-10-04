@@ -122,31 +122,56 @@ end;
 
 //Поиск в списке по части *имени_приложения*
 procedure TCheckForm.Edit1Change(Sender: TObject);
-var
-  I: integer;
-begin
-  // Обход при Form.ShowModal, списка ещё нет
-  if AppListBox.Count = 0 then Exit;
+  procedure TCheckForm.Edit1Change(Sender: TObject);
+  var
+    I, FirstFound: integer;
+    SearchText: string;
+  begin
+    if AppListBox.Count = 0 then Exit;
 
-  AppListBox.Items.BeginUpdate;
-  try
-    for I := 0 to AppListBox.Items.Count - 1 do
-      // Поиск подстроки
-      AppListBox.Selected[I] :=
-        Pos(UpperCase(Edit1.Text), UpperCase(AppListBox.Items[I])) > 0;
-  finally
-    AppListBox.Items.EndUpdate;
+    SearchText := Trim(UpperCase(Edit1.Text));
+
+    AppListBox.Items.BeginUpdate;
+    try
+      AppListBox.ClearSelection;
+      FirstFound := -1;
+
+      // Если поле пустое — выделить первый элемент и выйти
+      if SearchText = '' then
+      begin
+        if AppListBox.Count > 0 then
+        begin
+          AppListBox.ItemIndex := 0;
+          AppListBox.TopIndex := 0;
+          AppListBox.Selected[0] := True;
+        end;
+        Exit;
+      end;
+
+      // Поиск совпадений
+      for I := 0 to AppListBox.Items.Count - 1 do
+        if Pos(SearchText, UpperCase(AppListBox.Items[I])) > 0 then
+        begin
+          AppListBox.Selected[I] := True;
+          if FirstFound = -1 then
+            FirstFound := I; // запоминаем первый найденный
+        end;
+
+      // Прокрутить к первому найденному
+      if FirstFound <> -1 then
+      begin
+        AppListBox.ItemIndex := FirstFound;
+        AppListBox.TopIndex := FirstFound;
+      end;
+    finally
+      AppListBox.Items.EndUpdate;
+    end;
   end;
-end;
-
 
 //Очищаем виртуальный список чекеров, сохраняем настройки формы
 procedure TCheckForm.FormClose(Sender: TObject; var CloseAction: TCloseAction);
 begin
   StopThread; // гарантированно завершить поток
-
-  // MainForm.StartProcess('adb shell am force-stop com.example.iconextractor');
-
   IniPropStorage1.Save;
 end;
 
@@ -174,7 +199,7 @@ begin
       else if MessageDlg(SDeleteAPK, mtWarning, [mbYes, mbNo], 0) <> mrYes then
         Exit;
 
-      //Команда для удаления приложений
+      //Команда для удаления (замарозки) приложений
       for i := 0 to AppListBox.Count - 1 do
         if AppListBox.Checked[i] = True then
           adbcmd := adbcmd + 'adb shell pm uninstall --user 0 ' +
@@ -187,7 +212,8 @@ begin
         if AppListBox.Checked[i] <> StrToBool(VList[i]) then
         begin
           if AppListBox.Checked[i] = True then
-            adbcmd := adbcmd + 'adb shell pm enable --user 0 ' + AppListBox.Items[i] + ';'
+            adbcmd := adbcmd + 'adb shell pm enable --user 0 ' +
+              AppListBox.Items[i] + ';'
           else
             adbcmd := adbcmd + 'adb shell pm disable-user --user 0 ' +
               AppListBox.Items[i] + ';';
