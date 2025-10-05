@@ -45,7 +45,7 @@ type
     procedure PkgBtnClick(Sender: TObject);
     procedure PopupMenu1Popup(Sender: TObject);
     procedure SaveToFileClick(Sender: TObject);
-    procedure SetItemIndexSafely(Index: Integer);
+    procedure SetItemIndexSafely(Index: integer);
     procedure SetItemIndexFromQueue(Data: PtrInt);
 
   private
@@ -69,7 +69,7 @@ uses Unit1;
 
 
 // --- Установка указателя в начало списка ---
-procedure TCheckForm.SetItemIndexSafely(Index: Integer);
+procedure TCheckForm.SetItemIndexSafely(Index: integer);
 begin
   // Снимаем фокус перед установкой
   AppListBox.TabStop := False;
@@ -152,6 +152,7 @@ begin
     Parts := TStringList.Create;
     try
       Lines.LoadFromFile(OpenDialog1.FileName);
+      Lites.Text := Trim(Lines.Text);
       AllValid := True;
 
       for I := 0 to Lines.Count - 1 do
@@ -201,7 +202,6 @@ begin
       Lines.Free;
       Parts.Free;
     end;
-
   end;
 end;
 

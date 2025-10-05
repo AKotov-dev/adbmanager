@@ -152,6 +152,7 @@ begin
     Parts := TStringList.Create;
     try
       Lines.LoadFromFile(OpenDialog1.FileName);
+      Lines.Text := Trim(Lines.Text);
       AllValid := True;
 
       for I := 0 to Lines.Count - 1 do
