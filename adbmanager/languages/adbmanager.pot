@@ -209,7 +209,7 @@ msgid ""
 msgstr ""
 
 #: tmainform.labelram.caption
-msgid "LabelRAM"
+msgid "RAM: 0.00 GB / 0.00 GB (0.0%)"
 msgstr ""
 
 #: tmainform.labelram.hint

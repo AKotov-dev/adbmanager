@@ -515,7 +515,6 @@ begin
   end;
 end;
 
-
 //Индикация статуса цветом
 procedure TMainForm.ActiveLabelChangeBounds(Sender: TObject);
 begin
