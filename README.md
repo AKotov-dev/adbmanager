@@ -42,7 +42,7 @@ Connecting via ADB over Wi-Fi
 
 **Note:** When connecting to the device via network, do not forget to disable the firewall (`TCP:5555`).  
   
-![](https://github.com/AKotov-dev/adbmanager/blob/main/ScreenShots/Screenshot10.png)  
+![](https://github.com/AKotov-dev/adbmanager/blob/main/ScreenShots/Screenshot9.png)  
 #### Possible errors when installing packages
 + [INSTALL_FAILED_NO_MATCHING_ABIS: ...] - the package architecture is not suitable for your device
 + [INSTALL_FAILED_ALREADY_EXISTS: ...] - before installing, remove the previous package with this name
