@@ -7,7 +7,7 @@
         <CompatibilityMode Value="True"/>
       </Flags>
       <SessionStorage Value="InProjectDir"/>
-      <Title Value="ADBManager v3.7"/>
+      <Title Value="ADBManager v3.8"/>
       <Scaled Value="True"/>
       <ResourceType Value="res"/>
       <UseXPManifest Value="True"/>
@@ -74,7 +74,7 @@
         <PackageName Value="LCL"/>
       </Item1>
     </RequiredPackages>
-    <Units Count="16">
+    <Units Count="17">
       <Unit0>
         <Filename Value="adbmanager.pas"/>
         <IsPartOfProject Value="True"/>
@@ -171,6 +171,11 @@
         <IsPartOfProject Value="True"/>
         <UnitName Value="XDGOpenTRD"/>
       </Unit15>
+      <Unit16>
+        <Filename Value="usingramtrd.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="UsingRAMTRD"/>
+      </Unit16>
     </Units>
   </ProjectOptions>
   <CompilerOptions>

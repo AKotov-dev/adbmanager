@@ -22,6 +22,7 @@ type
     Label1: TLabel;
     Label2: TLabel;
     Label3: TLabel;
+    LabelRAM: TLabel;
     LogMemo: TMemo;
     OpenDialog1: TOpenDialog;
     PageControl1: TPageControl;
@@ -93,7 +94,7 @@ var
 implementation
 
 uses ADBDeviceStatusTRD, ADBCommandTRD, RebootUnit, SDCardManager,
-  EmulatorUnit, CheckUnit, Settings_Unit;
+  EmulatorUnit, CheckUnit, Settings_Unit, UsingRAMTRD;
 
   {$R *.lfm}
 
@@ -314,26 +315,28 @@ begin
     bmp.PixelFormat := pf32bit;
     bmp.Assign(Image1.Picture.Graphic);
     Application.Icon.Assign(bmp);
-
-    //рабочая директория ~/.adbmanager
-    if not DirectoryExists(GetUserDir + '.adbmanager') then
-      MkDir(GetUserDir + '.adbmanager');
-    //для файлов xdg-open
-    if not DirectoryExists(GetUserDir + '.adbmanager/tmp') then
-      MkDir(GetUserDir + '.adbmanager/tmp');
-
-    MainForm.Caption := Application.Title;
-
-    //Перезапуск сервера, если не запущен (adb devices и сам сервер запускаются в потоке статуса)
-    StartProcess('[[ $(ss -lt | grep 5037) ]] || (adb kill-server; killall adb)');
-
-    //Запуск потока отображения статуса
-    FStartShowStatusThread := ShowStatus.Create(False);
-    FStartShowStatusThread.Priority := tpNormal;
-
   finally
     bmp.Free;
   end;
+
+  //рабочая директория ~/.adbmanager
+  if not DirectoryExists(GetUserDir + '.adbmanager') then
+    MkDir(GetUserDir + '.adbmanager');
+  //для файлов xdg-open
+  if not DirectoryExists(GetUserDir + '.adbmanager/tmp') then
+    MkDir(GetUserDir + '.adbmanager/tmp');
+
+  MainForm.Caption := Application.Title;
+
+  //Перезапуск сервера, если не запущен (adb devices и сам сервер запускаются в потоке статуса)
+  StartProcess('[[ $(ss -lt | grep 5037) ]] || (adb kill-server; killall adb)');
+
+  //Запуск потока отображения памяти (RAM)
+  TRAMThread.Create;
+
+  //Запуск потока отображения статуса
+  FStartShowStatusThread := ShowStatus.Create(False);
+  FStartShowStatusThread.Priority := tpNormal;
 end;
 
 //Обработка кнопок панели "Управление Смартфоном"
@@ -481,19 +484,37 @@ end;
 //Отслеживание процесса установки пакетов
 procedure TMainForm.FormCloseQuery(Sender: TObject; var CanClose: boolean);
 var
-  S: ansistring;
+  ScriptPID, ChildPIDs: ansistring;
 begin
-  RunCommand('bash', ['-c', 'pgrep -f "adb install|7z"'], S);
+  CanClose := True;
 
-  if Trim(S) <> '' then
-    if MessageDlg(SCloseQuery, mtConfirmation, [mbYes, mbCancel], 0) <> mrYes then
-      Canclose := False
-    else
+  // Находим PID активного скрипта установки
+  RunCommand('bash', ['-c', 'pgrep -f "install_packages.sh"'], ScriptPID);
+  ScriptPID := Trim(ScriptPID);
+
+  if ScriptPID <> '' then
+  begin
+    // Получаем всех дочерние процессы скрипта
+    RunCommand('bash', ['-c', 'pgrep -P ' + ScriptPID], ChildPIDs);
+    ChildPIDs := Trim(ChildPIDs);
+
+    // Если есть активные дочерние процессы, спрашиваем пользователя
+    if ChildPIDs <> '' then
     begin
-      StartProcess('pidof 7z && killall 7z; kill $(pgrep -f "adb install") >/dev/null 2>&1');
-      CanClose := True;
+      if MessageDlg(SCloseQuery, mtConfirmation, [mbYes, mbCancel], 0) = mrYes then
+      begin
+        // Завершаем все дочерние процессы скрипта
+        RunCommand('bash', ['-c', 'pkill -P ' + ScriptPID], ChildPIDs);
+        // Завершаем сам скрипт
+        RunCommand('bash', ['-c', 'kill ' + ScriptPID], ChildPIDs);
+        CanClose := True;
+      end
+      else
+        CanClose := False;
     end;
+  end;
 end;
+
 
 //Индикация статуса цветом
 procedure TMainForm.ActiveLabelChangeBounds(Sender: TObject);

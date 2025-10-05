@@ -122,51 +122,50 @@ end;
 
 //Поиск в списке по части *имени_приложения*
 procedure TCheckForm.Edit1Change(Sender: TObject);
-  procedure TCheckForm.Edit1Change(Sender: TObject);
-  var
-    I, FirstFound: integer;
-    SearchText: string;
-  begin
-    if AppListBox.Count = 0 then Exit;
+var
+  I, FirstFound: integer;
+  SearchText: string;
+begin
+  if AppListBox.Count = 0 then Exit;
 
-    SearchText := Trim(UpperCase(Edit1.Text));
+  SearchText := Trim(UpperCase(Edit1.Text));
 
-    AppListBox.Items.BeginUpdate;
-    try
-      AppListBox.ClearSelection;
-      FirstFound := -1;
+  AppListBox.Items.BeginUpdate;
+  try
+    AppListBox.ClearSelection;
+    FirstFound := -1;
 
-      // Если поле пустое — выделить первый элемент и выйти
-      if SearchText = '' then
+    // Если поле пустое — выделить первый элемент и выйти
+    if SearchText = '' then
+    begin
+      if AppListBox.Count > 0 then
       begin
-        if AppListBox.Count > 0 then
-        begin
-          AppListBox.ItemIndex := 0;
-          AppListBox.TopIndex := 0;
-          AppListBox.Selected[0] := True;
-        end;
-        Exit;
+        AppListBox.ItemIndex := 0;
+        AppListBox.TopIndex := 0;
+        AppListBox.Selected[0] := True;
       end;
-
-      // Поиск совпадений
-      for I := 0 to AppListBox.Items.Count - 1 do
-        if Pos(SearchText, UpperCase(AppListBox.Items[I])) > 0 then
-        begin
-          AppListBox.Selected[I] := True;
-          if FirstFound = -1 then
-            FirstFound := I; // запоминаем первый найденный
-        end;
-
-      // Прокрутить к первому найденному
-      if FirstFound <> -1 then
-      begin
-        AppListBox.ItemIndex := FirstFound;
-        AppListBox.TopIndex := FirstFound;
-      end;
-    finally
-      AppListBox.Items.EndUpdate;
+      Exit;
     end;
+
+    // Поиск совпадений
+    for I := 0 to AppListBox.Items.Count - 1 do
+      if Pos(SearchText, UpperCase(AppListBox.Items[I])) > 0 then
+      begin
+        AppListBox.Selected[I] := True;
+        if FirstFound = -1 then
+          FirstFound := I; // запоминаем первый найденный
+      end;
+
+    // Прокрутить к первому найденному
+    if FirstFound <> -1 then
+    begin
+      AppListBox.ItemIndex := FirstFound;
+      AppListBox.TopIndex := FirstFound;
+    end;
+  finally
+    AppListBox.Items.EndUpdate;
   end;
+end;
 
 //Очищаем виртуальный список чекеров, сохраняем настройки формы
 procedure TCheckForm.FormClose(Sender: TObject; var CloseAction: TCloseAction);

@@ -208,6 +208,14 @@ msgid ""
 "usermod -aG adbusers,plugdev $LOGNAME; reboot"
 msgstr ""
 
+#: tmainform.labelram.caption
+msgid "LabelRAM"
+msgstr ""
+
+#: tmainform.labelram.hint
+msgid "Total / Available (%)"
+msgstr ""
+
 #: tmainform.panel2.caption
 msgid "Device Management"
 msgstr ""

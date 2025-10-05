@@ -231,6 +231,14 @@ msgstr ""
 "2. Установите права доступа к USB на PC:\n"
 "usermod -aG adbusers,plugdev $LOGNAME; reboot"
 
+#: tmainform.labelram.caption
+msgid "LabelRAM"
+msgstr ""
+
+#: tmainform.labelram.hint
+msgid "Total / Available (%)"
+msgstr "Всего / Доступно (%)"
+
 #: tmainform.panel2.caption
 msgid "Device Management"
 msgstr "Управление устройством"

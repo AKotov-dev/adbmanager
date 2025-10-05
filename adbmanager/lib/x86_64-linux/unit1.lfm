@@ -143,6 +143,8 @@ object MainForm: TMainForm
     ClientWidth = 828
     TabOrder = 3
     object Label1: TLabel
+      AnchorSideTop.Control = Panel1
+      AnchorSideTop.Side = asrCenter
       Left = 8
       Height = 18
       Top = 8
@@ -156,6 +158,8 @@ object MainForm: TMainForm
     object Label2: TLabel
       AnchorSideLeft.Control = ActiveLabel
       AnchorSideLeft.Side = asrBottom
+      AnchorSideTop.Control = Panel1
+      AnchorSideTop.Side = asrCenter
       Left = 133
       Height = 18
       Top = 8
@@ -202,9 +206,9 @@ object MainForm: TMainForm
       OnChangeBounds = KeyLabelChangeBounds
     end
     object Image1: TImage
-      Left = 704
+      Left = 616
       Height = 90
-      Top = -24
+      Top = -32
       Width = 90
       Picture.Data = {
         1754506F727461626C654E6574776F726B47726170686963021E000089504E47
@@ -450,6 +454,24 @@ object MainForm: TMainForm
         9F1A10DACDBEDB88FF074555E231A2E971B10000000049454E44AE426082
       }
       Visible = False
+    end
+    object LabelRAM: TLabel
+      AnchorSideTop.Control = Panel1
+      AnchorSideTop.Side = asrCenter
+      AnchorSideRight.Control = Panel1
+      AnchorSideRight.Side = asrBottom
+      Left = 757
+      Height = 17
+      Hint = 'Total / Available (%)'
+      Top = 9
+      Width = 63
+      Anchors = [akTop, akRight]
+      BorderSpacing.Right = 8
+      Caption = 'LabelRAM'
+      Font.Style = [fsBold]
+      ParentFont = False
+      ParentShowHint = False
+      ShowHint = True
     end
   end
   object ToolBar2: TToolBar

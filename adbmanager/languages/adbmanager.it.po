@@ -224,6 +224,14 @@ msgstr ""
 "2. Impostare i diritti di accesso USB sul PC:\n"
 "usermod-aG adbusers, plugdev $LOGNAME; reboot"
 
+#: tmainform.labelram.caption
+msgid "LabelRAM"
+msgstr ""
+
+#: tmainform.labelram.hint
+msgid "Total / Available (%)"
+msgstr ""
+
 #: tmainform.panel2.caption
 #, fuzzy
 #| msgid "Smartphone managing"
