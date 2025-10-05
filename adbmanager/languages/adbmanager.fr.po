@@ -123,8 +123,17 @@ msgstr ""
 msgid "Clear"
 msgstr ""
 
+#: tcheckform.copytoclipboard.caption
+msgctxt "tcheckform.copytoclipboard.caption"
+msgid "Copy package name to clipboard"
+msgstr ""
+
 #: tcheckform.label1.caption
 msgid "Search:"
+msgstr ""
+
+#: tcheckform.loadfromtxt.caption
+msgid "Load a list of packages and states from a *.txt file"
 msgstr ""
 
 #: tcheckform.modebox.caption
@@ -138,6 +147,11 @@ msgstr ""
 
 #: tcheckform.pkgbtn.hint
 msgid "IconExtractor.apk"
+msgstr ""
+
+#: tcheckform.savetofile.caption
+msgctxt "tcheckform.savetofile.caption"
+msgid "Save the list of packages and states to a *.txt file"
 msgstr ""
 
 #: temulatorform.cancelbtn.caption
@@ -443,6 +457,10 @@ msgstr "Suppression d'un paquet"
 
 #: unit1.serrorimagecopy
 msgid "Error copying file from device!"
+msgstr ""
+
+#: unit1.sfilenotvalid
+msgid "The file does not match the current list of packages!"
 msgstr ""
 
 #: unit1.slaunched

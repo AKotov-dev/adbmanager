@@ -1,13 +1,13 @@
 object CheckForm: TCheckForm
-  Left = 395
+  Left = 315
   Height = 555
-  Top = 147
+  Top = 132
   Width = 605
   ActiveControl = Edit1
   Caption = 'Enable/Disable/Uninstall applications'
   ClientHeight = 555
   ClientWidth = 605
-  SessionProperties = 'Height;Width;Top;Left'
+  SessionProperties = 'Height;Left;Top;Width;SaveDialog1.InitialDir'
   LCLVersion = '4.2.0.0'
   OnClose = FormClose
   OnShow = FormShow
@@ -26,6 +26,7 @@ object CheckForm: TCheckForm
     BorderSpacing.Bottom = 5
     ItemHeight = 0
     MultiSelect = True
+    PopupMenu = PopupMenu1
     Style = lbOwnerDrawFixed
     TabOrder = 3
     TopIndex = -1
@@ -288,7 +289,7 @@ object CheckForm: TCheckForm
   object DefaultIcon: TImageList
     Height = 48
     Width = 48
-    Left = 520
+    Left = 504
     Top = 72
     Bitmap = {
       4C7A0100000030000000300000002C0300000000000078DAED9A4F4815411CC7
@@ -319,5 +320,39 @@ object CheckForm: TCheckForm
       01C57F29B8C4DCEA2F70557D2F407ACFE006DF8710EB7DE7C0E2B9FAFF054631
       D815
     }
+  end
+  object PopupMenu1: TPopupMenu
+    OnPopup = PopupMenu1Popup
+    Left = 168
+    Top = 72
+    object CopyToClipboard: TMenuItem
+      Caption = 'Copy package name to clipboard'
+      OnClick = CopyToClipboardClick
+    end
+    object Separator1: TMenuItem
+      Caption = '-'
+    end
+    object SaveToFile: TMenuItem
+      Caption = 'Save the list of packages and states to a *.txt file'
+      OnClick = SaveToFileClick
+    end
+    object LoadFromTXT: TMenuItem
+      Caption = 'Load a list of packages and states from a *.txt file'
+      OnClick = LoadFromTXTClick
+    end
+  end
+  object SaveDialog1: TSaveDialog
+    DefaultExt = '.txt'
+    Filter = 'Text files (*.txt)|*.txt'
+    Options = [ofOverwritePrompt, ofEnableSizing]
+    Left = 248
+    Top = 72
+  end
+  object OpenDialog1: TOpenDialog
+    DefaultExt = '.txt'
+    Filter = 'Text files (*.txt)|*.txt'
+    Options = [ofEnableSizing]
+    Left = 328
+    Top = 72
   end
 end

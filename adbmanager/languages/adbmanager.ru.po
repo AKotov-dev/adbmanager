@@ -125,9 +125,18 @@ msgstr "Включить/Отключить/Удалить приложения"
 msgid "Clear"
 msgstr "Очистить"
 
+#: tcheckform.copytoclipboard.caption
+msgctxt "tcheckform.copytoclipboard.caption"
+msgid "Copy package name to clipboard"
+msgstr "Копировать имя пакета в буфер"
+
 #: tcheckform.label1.caption
 msgid "Search:"
 msgstr "Поиск:"
+
+#: tcheckform.loadfromtxt.caption
+msgid "Load a list of packages and states from a *.txt file"
+msgstr "Загрузить список пакетов и состояний из файла *.txt"
 
 #: tcheckform.modebox.caption
 msgctxt "tcheckform.modebox.caption"
@@ -141,6 +150,11 @@ msgstr "Удалять выбранные приложения (Android >= 6)"
 #: tcheckform.pkgbtn.hint
 msgid "IconExtractor.apk"
 msgstr ""
+
+#: tcheckform.savetofile.caption
+msgctxt "tcheckform.savetofile.caption"
+msgid "Save the list of packages and states to a *.txt file"
+msgstr "Сохранить список пакетов и состояний в файл *.txt"
 
 #: temulatorform.cancelbtn.caption
 msgctxt "temulatorform.cancelbtn.caption"
@@ -464,6 +478,10 @@ msgstr "Удаление пакета"
 msgid "Error copying file from device!"
 msgstr "Ошибка копирования файла с устройства!"
 
+#: unit1.sfilenotvalid
+msgid "The file does not match the current list of packages!"
+msgstr "Файл не соответствует текущему списку пакетов!"
+
 #: unit1.slaunched
 msgid "launched"
 msgstr "запущен"
@@ -501,4 +519,3 @@ msgstr "Введите строку поиска или *"
 #: unit1.syes
 msgid "yes"
 msgstr "да"
-

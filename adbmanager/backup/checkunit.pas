@@ -7,7 +7,8 @@ interface
 
 uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, CheckLst, StdCtrls,
-  IniPropStorage, ComCtrls, Buttons, Types, LCLIntf, ReadAppsTrdUnit;
+  IniPropStorage, ComCtrls, Buttons, Types, LCLIntf, Menus, ReadAppsTrdUnit,
+  ClipBrd, ExtCtrls;
 
 type
 
@@ -17,10 +18,17 @@ type
     AppListBox: TCheckListBox;
     ApplyBtn: TButton;
     DefaultIcon: TImageList;
+    CopyToClipboard: TMenuItem;
+    LoadFromTXT: TMenuItem;
+    OpenDialog1: TOpenDialog;
+    SaveDialog1: TSaveDialog;
+    SaveToFile: TMenuItem;
+    Separator1: TMenuItem;
     ModeBox: TCheckBox;
     Edit1: TEdit;
     IniPropStorage1: TIniPropStorage;
     Label1: TLabel;
+    PopupMenu1: TPopupMenu;
     ProgressBar1: TProgressBar;
     ClearBtn: TSpeedButton;
     PkgBtn: TSpeedButton;
@@ -28,11 +36,18 @@ type
       ARect: TRect; State: TOwnerDrawState);
     procedure ApplyBtnClick(Sender: TObject);
     procedure ClearBtnClick(Sender: TObject);
+    procedure CopyToClipboardClick(Sender: TObject);
     procedure Edit1Change(Sender: TObject);
     procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
     procedure FormShow(Sender: TObject);
+    procedure LoadFromTXTClick(Sender: TObject);
     procedure ModeBoxClick(Sender: TObject);
     procedure PkgBtnClick(Sender: TObject);
+    procedure PopupMenu1Popup(Sender: TObject);
+    procedure SaveToFileClick(Sender: TObject);
+    procedure SetItemIndexSafely(Index: Integer);
+    procedure SetItemIndexFromQueue(Data: PtrInt);
+
   private
     FReadThread: ReadAppsTRD;
   public
@@ -51,6 +66,26 @@ uses Unit1;
   {$R *.lfm}
 
   { TCheckForm }
+
+
+// --- Установка указателя в начало списка ---
+procedure TCheckForm.SetItemIndexSafely(Index: Integer);
+begin
+  // Снимаем фокус перед установкой
+  AppListBox.TabStop := False;
+
+  // Используем Application.QueueAsyncCall для отложенной установки ItemIndex
+  Application.QueueAsyncCall(@SetItemIndexFromQueue, Index);
+end;
+
+procedure TCheckForm.SetItemIndexFromQueue(Data: PtrInt);
+begin
+  // Устанавливаем ItemIndex в главном потоке
+  AppListBox.ItemIndex := Data;
+  AppListBox.TabStop := True;  // Возвращаем фокус
+end;
+
+// ---
 
 procedure TCheckForm.StopThread;
 begin
@@ -95,6 +130,81 @@ begin
   StartThread;
 end;
 
+procedure SetItemIndexProc(ListBox: TCheckListBox; Index: integer);
+begin
+  ListBox.ItemIndex := Index;
+  ListBox.TabStop := True; // Возвращаем фокус
+end;
+
+//Загрузка списка пакетов и состояний из файла
+procedure TCheckForm.LoadFromTXTClick(Sender: TObject);
+var
+  Lines: TStringList;
+  I: integer;
+  Parts: TStringList;
+  PackageName: string;
+  State: boolean;
+  AllValid: boolean;
+begin
+  if OpenDialog1.Execute then
+  begin
+    Lines := TStringList.Create;
+    Parts := TStringList.Create;
+    try
+      Lines.LoadFromFile(OpenDialog1.FileName);
+      AllValid := True;
+
+      for I := 0 to Lines.Count - 1 do
+      begin
+        Parts.Clear;
+        Parts.Delimiter := '|';
+        Parts.StrictDelimiter := True;
+        Parts.DelimitedText := Lines[I];
+
+        if Parts.Count <> 2 then
+        begin
+          AllValid := False;
+          Break;
+        end;
+
+        PackageName := Parts[1];
+        State := Parts[0] = '1';
+
+        if AppListBox.Items.IndexOf(PackageName) = -1 then
+        begin
+          AllValid := False; // пакет не найден
+          Break;
+        end;
+      end;
+
+      if not AllValid then
+      begin
+        MessageDlg(SFileNotValid, mtWarning, [mbOK], 0);
+        SetItemIndexSafely(0);
+        Exit;
+      end;
+
+      // Все строки валидные — применяем галки
+      for I := 0 to Lines.Count - 1 do
+      begin
+        Parts.Clear;
+        Parts.DelimitedText := Lines[I];
+        PackageName := Parts[1];
+        State := Parts[0] = '1';
+
+        AppListBox.Checked[AppListBox.Items.IndexOf(PackageName)] := State;
+      end;
+
+      SetItemIndexSafely(0);
+
+    finally
+      Lines.Free;
+      Parts.Free;
+    end;
+
+  end;
+end;
+
 //Режим: Отключение или Удаление приложений
 procedure TCheckForm.ModeBoxClick(Sender: TObject);
 begin
@@ -118,6 +228,42 @@ end;
 procedure TCheckForm.PkgBtnClick(Sender: TObject);
 begin
   OpenURL('https://github.com/AKotov-dev/adbmanager/tree/main/IconExtractor');
+end;
+
+//Не открываем меню нсли список пуст
+procedure TCheckForm.PopupMenu1Popup(Sender: TObject);
+begin
+  if AppListBox.Count = 0 then Abort;
+end;
+
+//Сохранить список в *.txt
+procedure TCheckForm.SaveToFileClick(Sender: TObject);
+var
+  S: TStringList;
+  i: integer;
+begin
+  try
+    S := TStringList.Create;
+    for i := 0 to AppListBox.Count - 1 do
+    begin
+      if AppListBox.Checked[i] then S.Add('1|' + AppListBox.Items[i])
+      else
+        S.Add('0|' + AppListBox.Items[i]);
+    end;
+
+    if SaveDialog1.Execute then
+    begin
+      if LowerCase(ExtractFileExt(SaveDialog1.FileName)) <> '.txt' then
+        SaveDialog1.FileName := ChangeFileExt(SaveDialog1.FileName, '.txt');
+
+      S.SaveToFile(SaveDialog1.FileName);
+
+      //Указатель на верхнюю запись списка
+      SetItemIndexSafely(0);
+    end;
+  finally
+    S.Free;
+  end;
 end;
 
 //Поиск в списке по части *имени_приложения*
@@ -287,6 +433,12 @@ procedure TCheckForm.ClearBtnClick(Sender: TObject);
 begin
   Edit1.Clear;
   if AppListBox.Count <> 0 then AppListBox.ItemIndex := 0;
+end;
+
+//Название пакета в буфер обмена
+procedure TCheckForm.CopyToClipboardClick(Sender: TObject);
+begin
+  ClipBoard.AsText := AppListBox.Items[AppListBox.ItemIndex];
 end;
 
 end.

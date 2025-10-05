@@ -87,6 +87,7 @@ resourcestring
     'Before deleting, ' + 'BE SURE TO MAKE A BACKUP!' + #13#10 +
     #13#10 + 'Delete selected applications?';
   SErrorImageCopy = 'Error copying file from device!';
+  EFileNotValid = 'The file does not match the current list of packages!';
 
 var
   MainForm: TMainForm;

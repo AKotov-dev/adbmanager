@@ -206,9 +206,9 @@ object MainForm: TMainForm
       OnChangeBounds = KeyLabelChangeBounds
     end
     object Image1: TImage
-      Left = 616
+      Left = 520
       Height = 90
-      Top = -32
+      Top = -24
       Width = 90
       Picture.Data = {
         1754506F727461626C654E6574776F726B47726170686963021E000089504E47
@@ -460,14 +460,14 @@ object MainForm: TMainForm
       AnchorSideTop.Side = asrCenter
       AnchorSideRight.Control = Panel1
       AnchorSideRight.Side = asrBottom
-      Left = 757
+      Left = 627
       Height = 17
       Hint = 'Total / Available (%)'
       Top = 9
-      Width = 63
+      Width = 193
       Anchors = [akTop, akRight]
       BorderSpacing.Right = 8
-      Caption = 'LabelRAM'
+      Caption = 'RAM: 0.00 GB / 0.00 GB (0.0%)'
       Font.Style = [fsBold]
       ParentFont = False
       ParentShowHint = False
