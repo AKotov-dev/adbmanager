@@ -1,7 +1,7 @@
 object CheckForm: TCheckForm
-  Left = 315
+  Left = 310
   Height = 555
-  Top = 132
+  Top = 130
   Width = 605
   ActiveControl = Edit1
   Caption = 'Enable/Disable/Uninstall applications'
@@ -93,7 +93,6 @@ object CheckForm: TCheckForm
     BorderSpacing.Right = 5
     Caption = 'Delete mode'
     ParentShowHint = False
-    ShowHint = True
     TabOrder = 1
     OnClick = ModeBoxClick
   end
