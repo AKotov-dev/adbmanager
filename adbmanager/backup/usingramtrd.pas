@@ -17,6 +17,9 @@ type
   TRAMThread = class(TThread)
   private
     FInfo: TRAMInfo;
+    FDevice: string;
+    function GetConnectedDevice: string;
+    function DeviceReachable: boolean;
     procedure UpdateLabel;
   protected
     procedure Execute; override;
@@ -26,7 +29,8 @@ type
 
 implementation
 
-uses Unit1; // MainForm
+uses
+  Unit1; // MainForm
 
   { === Поток === }
 
@@ -36,11 +40,73 @@ begin
   inherited Create(False);
 end;
 
+function TRAMThread.GetConnectedDevice: string;
+var
+  P: TProcess;
+  SL: TStringList;
+  Line, SLine, Token: string;
+begin
+  Result := '';
+  SL := TStringList.Create;
+  P := TProcess.Create(nil);
+  try
+    P.Executable := '/bin/bash';
+    P.Parameters.Add('-c');
+    P.Parameters.Add('adb devices | tail -n +2');
+    P.Options := [poUsePipes, poWaitOnExit];
+    P.Execute;
+    SL.LoadFromStream(P.Output);
+
+    for Line in SL do
+    begin
+      SLine := Trim(Line);
+      if (SLine = '') then Continue;
+
+      if (Pos('device', SLine) > 0) and (Pos('offline', SLine) = 0) and
+        (Pos('unauthorized', SLine) = 0) then
+      begin
+        Token := Trim(Copy(SLine, 1, Pos('device', SLine) - 1));
+        Token := StringReplace(Token, #9, '', [rfReplaceAll]);
+        Result := Trim(Token);
+        Break;
+      end;
+    end;
+  finally
+    SL.Free;
+    P.Free;
+  end;
+end;
+
+function TRAMThread.DeviceReachable: boolean;
+var
+  P: TProcess;
+  IPOnly: string;
+begin
+  Result := False;
+  if Pos(':', FDevice) > 0 then
+  begin
+    IPOnly := Copy(FDevice, 1, Pos(':', FDevice) - 1);
+    P := TProcess.Create(nil);
+    try
+      P.Executable := '/bin/bash';
+      P.Parameters.Add('-c');
+      P.Parameters.Add(Format('ping -c 1 -W 1 %s >/dev/null 2>&1', [IPOnly]));
+      P.Options := [poWaitOnExit];
+      P.Execute;
+      Result := (P.ExitStatus = 0);
+    finally
+      P.Free;
+    end;
+  end
+  else
+    Result := True; // USB устройство всегда достижимо
+end;
+
 procedure TRAMThread.Execute;
 var
   Proc: TProcess;
   OutList: TStringList;
-  Line, S: string;
+  Line, SLine, S: string;
   TotalKB, AvailKB: int64;
   MemFree, Buffers, Cached: int64;
 begin
@@ -48,87 +114,98 @@ begin
   try
     while not Terminated do
     begin
-      TotalKB := 0;
-      AvailKB := 0;
-      MemFree := 0;
-      Buffers := 0;
-      Cached := 0;
-      OutList.Clear;
+      FDevice := GetConnectedDevice;
 
-      try
-        Proc := TProcess.Create(nil);
-        try
-          Proc.Executable := 'adb';
-          Proc.Parameters.Add('shell');
-          Proc.Parameters.Add('cat');
-          Proc.Parameters.Add('/proc/meminfo');
-          Proc.Options := [poUsePipes, poWaitOnExit];
-          Proc.Execute;
-          OutList.LoadFromStream(Proc.Output);
-
-          for Line in OutList do
-          begin
-            if Pos('MemTotal', Line) > 0 then
-            begin
-              S := Trim(Copy(Line, Pos(':', Line) + 1, Length(Line)));
-              S := Trim(Copy(S, 1, Pos(' ', S) - 1));
-              Val(S, TotalKB);
-            end
-            else if Pos('MemAvailable', Line) > 0 then
-            begin
-              S := Trim(Copy(Line, Pos(':', Line) + 1, Length(Line)));
-              S := Trim(Copy(S, 1, Pos(' ', S) - 1));
-              Val(S, AvailKB);
-            end
-            else if Pos('MemFree', Line) > 0 then
-            begin
-              S := Trim(Copy(Line, Pos(':', Line) + 1, Length(Line)));
-              S := Trim(Copy(S, 1, Pos(' ', S) - 1));
-              Val(S, MemFree);
-            end
-            else if Pos('Buffers', Line) > 0 then
-            begin
-              S := Trim(Copy(Line, Pos(':', Line) + 1, Length(Line)));
-              S := Trim(Copy(S, 1, Pos(' ', S) - 1));
-              Val(S, Buffers);
-            end
-            else if Pos('Cached', Line) > 0 then
-            begin
-              S := Trim(Copy(Line, Pos(':', Line) + 1, Length(Line)));
-              S := Trim(Copy(S, 1, Pos(' ', S) - 1));
-              Val(S, Cached);
-            end;
-          end;
-        finally
-          Proc.Free;
-        end;
-      except
-        // если устройство не подключено — оставляем нули
-      end;
-
-      // если MemAvailable есть, используем его, иначе считаем через Free+Buffers+Cached
-      if AvailKB = 0 then
-        AvailKB := MemFree + Buffers + Cached;
-
-      if TotalKB > 0 then
+      if (FDevice <> '') and DeviceReachable then
       begin
-        FInfo.TotalGB := TotalKB / 1024 / 1024;
-        FInfo.AvailGB := AvailKB / 1024 / 1024;
-        FInfo.Percent := (AvailKB * 100) / TotalKB;
+        TotalKB := 0;
+        AvailKB := 0;
+        MemFree := 0;
+        Buffers := 0;
+        Cached := 0;
+
+        OutList.Clear;
+        try
+          Proc := TProcess.Create(nil);
+          try
+            Proc.Executable := 'adb';
+            Proc.Parameters.Add('-s');
+            Proc.Parameters.Add(FDevice);
+            Proc.Parameters.Add('shell');
+            Proc.Parameters.Add('cat');
+            Proc.Parameters.Add('/proc/meminfo');
+            Proc.Options := [poUsePipes, poWaitOnExit];
+            Proc.Execute;
+            OutList.LoadFromStream(Proc.Output);
+
+            for Line in OutList do
+            begin
+              SLine := Trim(Line);
+
+              if Pos('MemTotal', SLine) > 0 then
+              begin
+                S := Trim(Copy(SLine, Pos(':', SLine) + 1, Length(SLine)));
+                S := Trim(Copy(S, 1, Pos(' ', S) - 1));
+                Val(S, TotalKB);
+              end
+              else if Pos('MemAvailable', SLine) > 0 then
+              begin
+                S := Trim(Copy(SLine, Pos(':', SLine) + 1, Length(SLine)));
+                S := Trim(Copy(S, 1, Pos(' ', S) - 1));
+                Val(S, AvailKB);
+              end
+              else if Pos('MemFree', SLine) > 0 then
+              begin
+                S := Trim(Copy(SLine, Pos(':', SLine) + 1, Length(SLine)));
+                S := Trim(Copy(S, 1, Pos(' ', S) - 1));
+                Val(S, MemFree);
+              end
+              else if Pos('Buffers', SLine) > 0 then
+              begin
+                S := Trim(Copy(SLine, Pos(':', SLine) + 1, Length(SLine)));
+                S := Trim(Copy(S, 1, Pos(' ', S) - 1));
+                Val(S, Buffers);
+              end
+              else if Pos('Cached', SLine) > 0 then
+              begin
+                S := Trim(Copy(SLine, Pos(':', SLine) + 1, Length(SLine)));
+                S := Trim(Copy(S, 1, Pos(' ', S) - 1));
+                Val(S, Cached);
+              end;
+            end;
+          finally
+            Proc.Free;
+          end;
+        except
+          // adb отвалился — оставляем нули
+        end;
+
+        if AvailKB = 0 then
+          AvailKB := MemFree + Buffers + Cached;
+
+        if TotalKB > 0 then
+        begin
+          FInfo.TotalGB := TotalKB / 1024 / 1024;
+          FInfo.AvailGB := AvailKB / 1024 / 1024;
+          FInfo.Percent := (AvailKB * 100) / TotalKB;
+        end
+        else
+        begin
+          FInfo.TotalGB := 0;
+          FInfo.AvailGB := 0;
+          FInfo.Percent := 0;
+        end;
       end
       else
       begin
+        // нет устройства или не пингуется
         FInfo.TotalGB := 0;
         FInfo.AvailGB := 0;
         FInfo.Percent := 0;
       end;
 
-      try
-        if not Terminated then
-          Synchronize(@UpdateLabel);
-      except
-        Terminate;
-      end;
+      if not Terminated then
+        Synchronize(@UpdateLabel);
 
       Sleep(500);
     end;

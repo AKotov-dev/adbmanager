@@ -121,6 +121,10 @@ begin
   begin
     adbcmd := '';
 
+    //Состояние offline - перезапуск adb (состязание двух устройств)
+    if Pos('offline', Result.Text) <> 0 then
+      MainForm.StartProcess('killall adb; adb kill-server');
+
     i := Pos(#9, Result[0]); //Выделяем имя-1
     dev0 := Trim(Copy(Result[0], 1, i));
     i := Pos(#9, Result[1]); //Выделяем имя-2
@@ -146,10 +150,13 @@ begin
     //Запуск команды и потока отображения лога отключения
     if adbcmd <> '' then
     begin
-      //Если открыт - закрываем SD-Manager
+      //Закрываем SD-Manager, если открыт
+    {if SDForm.Visible then
       SDForm.Close;
-      //Отключаем терминал, если использовался
-      MainForm.StartProcess('[ $(pidof sakura) ] && killall sakura');
+
+    //Отключаем терминал, если использовался
+    MainForm.StartProcess('[ $(pidof sakura) ] && killall sakura');}
+
       MainForm.StartADBCmd;
     end;
   end

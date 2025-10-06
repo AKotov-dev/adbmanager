@@ -119,7 +119,7 @@ end;
 procedure TEmulatorForm.OKBtnClick(Sender: TObject);
 begin
   //Если утройство не используется повторно
-  if Pos(Edit1.Text, MainForm.DevSheet.Caption) = 0 then
+{  if Pos(Edit1.Text, MainForm.DevSheet.Caption) = 0 then
   begin
     //Закрываем SD-Manager, если открыт
     if SDForm.Visible then
@@ -127,7 +127,7 @@ begin
 
     //Отключаем терминал, если использовался
     MainForm.StartProcess('[ $(pidof sakura) ] && killall sakura');
-  end;
+  end; }
 
   //Обработка команд Подключение/Сканирование
   case RadioGroup1.ItemIndex of
