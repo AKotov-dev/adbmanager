@@ -149,7 +149,16 @@ begin
 
     //Запуск команды и потока отображения лога отключения
     if adbcmd <> '' then
+    begin
+      //Закрываем SD-Manager, если открыт
+    {if SDForm.Visible then
+      SDForm.Close;
+
+    //Отключаем терминал, если использовался
+    MainForm.StartProcess('[ $(pidof sakura) ] && killall sakura');}
+
       MainForm.StartADBCmd;
+    end;
   end
   else //Единственное устройство и статус выводим сразу, либо "no device"
   if Result.Text <> '' then

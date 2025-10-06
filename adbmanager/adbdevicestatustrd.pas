@@ -123,7 +123,7 @@ begin
 
     //Состояние offline - перезапуск adb (состязание двух устройств)
     if Pos('offline', Result.Text) <> 0 then
-      MainForm.StartProcess('killall adb; adb kill-server');
+      MainForm.StartProcess('killall adb; adb kill-server >/dev/null 2>&1');
 
     i := Pos(#9, Result[0]); //Выделяем имя-1
     dev0 := Trim(Copy(Result[0], 1, i));
