@@ -20,6 +20,7 @@
 {"hash":144569323,"name":"tmainform.searchbtn.caption","sourcebytes":[115,101,97,114,99,104,32,97,112,107],"value":"search apk"},
 {"hash":79859106,"name":"tmainform.connectbtn.caption","sourcebytes":[101,109,117,108,97,116,111,114],"value":"emulator"},
 {"hash":211026908,"name":"tmainform.shellbtn.caption","sourcebytes":[116,101,114,109,105,110,97,108],"value":"terminal"},
+{"hash":157018075,"name":"tmainform.toolbutton4.hint","sourcebytes":[65,110,100,114,111,105,100,32,52,43],"value":"Android 4+"},
 {"hash":158570740,"name":"tmainform.toolbutton4.caption","sourcebytes":[115,100,45,99,97,114,100],"value":"sd-card"},
 {"hash":157018059,"name":"tmainform.applistbtn.hint","sourcebytes":[65,110,100,114,111,105,100,32,53,43],"value":"Android 5+"},
 {"hash":252549283,"name":"tmainform.applistbtn.caption","sourcebytes":[97,112,112,108,105,99,97,116,105,111,110,115],"value":"applications"},

@@ -26,7 +26,7 @@ msgid "Reboot to Recovery mode"
 msgstr ""
 
 #: rebootunit.sshutdown
-msgid "Shutdown the device (v4.4+)"
+msgid "Shutdown the device"
 msgstr ""
 
 #: sdcardmanager.scancelcopyng
@@ -272,6 +272,10 @@ msgstr ""
 
 #: tmainform.toolbutton4.caption
 msgid "sd-card"
+msgstr ""
+
+#: tmainform.toolbutton4.hint
+msgid "Android 4+"
 msgstr ""
 
 #: tmainform.uninstallbtn.caption

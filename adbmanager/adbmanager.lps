@@ -49,7 +49,6 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="Unit1"/>
-        <IsVisibleTab Value="True"/>
         <CursorPos X="13"/>
         <UsageCount Value="191"/>
         <Loaded Value="True"/>
@@ -59,7 +58,7 @@
         <Filename Value="adbdevicestatustrd.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="ADBDeviceStatusTRD"/>
-        <EditorIndex Value="1"/>
+        <EditorIndex Value="2"/>
         <CursorPos X="26"/>
         <UsageCount Value="183"/>
         <Loaded Value="True"/>
@@ -79,9 +78,13 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="RebootUnit"/>
-        <EditorIndex Value="-1"/>
-        <CursorPos X="18"/>
+        <IsVisibleTab Value="True"/>
+        <EditorIndex Value="1"/>
+        <TopLine Value="16"/>
+        <CursorPos X="35" Y="34"/>
         <UsageCount Value="168"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
       </Unit4>
       <Unit5>
         <Filename Value="sdcardmanager.pas"/>

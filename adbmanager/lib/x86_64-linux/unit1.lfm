@@ -545,9 +545,12 @@ object MainForm: TMainForm
     object ToolButton4: TToolButton
       Tag = 7
       Left = 346
+      Hint = 'Android 4+'
       Top = 2
       Caption = 'sd-card'
       ImageIndex = 5
+      ParentShowHint = False
+      ShowHint = True
       OnClick = ApkInfoBtnClick
     end
     object AppListBtn: TToolButton
