@@ -14,7 +14,7 @@
 {"hash":189208713,"name":"tmainform.labelram.caption","sourcebytes":[82,65,77,58,32,48,46,48,48,32,71,66,32,47,32,48,46,48,48,32,71,66,32,40,48,46,48,37,41],"value":"RAM: 0.00 GB / 0.00 GB (0.0%)"},
 {"hash":106991074,"name":"tmainform.toolbar2.caption","sourcebytes":[84,111,111,108,66,97,114,50],"value":"ToolBar2"},
 {"hash":5941340,"name":"tmainform.installbtn.caption","sourcebytes":[105,110,115,116,97,108,108],"value":"install"},
-{"hash":157017995,"name":"tmainform.uninstallbtn.hint","sourcebytes":[65,110,100,114,111,105,100,32,49,43],"value":"Android 1+"},
+{"hash":157018075,"name":"tmainform.uninstallbtn.hint","sourcebytes":[65,110,100,114,111,105,100,32,52,43],"value":"Android 4+"},
 {"hash":5954684,"name":"tmainform.uninstallbtn.caption","sourcebytes":[117,110,105,110,115,116,97,108,108],"value":"uninstall"},
 {"hash":197264868,"name":"tmainform.screenshotbtn.caption","sourcebytes":[115,99,114,101,101,110,115,104,111,116],"value":"screenshot"},
 {"hash":126588516,"name":"tmainform.rebootbtn.caption","sourcebytes":[114,101,98,111,111,116],"value":"reboot"},

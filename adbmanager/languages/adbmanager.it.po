@@ -297,6 +297,7 @@ msgid "sd-card"
 msgstr "scheda sd"
 
 #: tmainform.toolbutton4.hint
+msgctxt "tmainform.toolbutton4.hint"
 msgid "Android 4+"
 msgstr ""
 
@@ -305,7 +306,8 @@ msgid "uninstall"
 msgstr "disinstallati"
 
 #: tmainform.uninstallbtn.hint
-msgid "Android 1+"
+msgctxt "tmainform.uninstallbtn.hint"
+msgid "Android 4+"
 msgstr ""
 
 #: trebootform.cancelbtn.caption
