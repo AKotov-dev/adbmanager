@@ -310,6 +310,10 @@ msgctxt "tmainform.uninstallbtn.caption"
 msgid "uninstall"
 msgstr "удалить"
 
+#: tmainform.uninstallbtn.hint
+msgid "Android 1+"
+msgstr ""
+
 #: trebootform.cancelbtn.caption
 msgctxt "trebootform.cancelbtn.caption"
 msgid "Cancel"
@@ -523,3 +527,4 @@ msgstr "Введите строку поиска или *"
 #: unit1.syes
 msgid "yes"
 msgstr "да"
+

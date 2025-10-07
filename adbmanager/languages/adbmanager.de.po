@@ -304,6 +304,10 @@ msgstr ""
 msgid "uninstall"
 msgstr "Entfernen"
 
+#: tmainform.uninstallbtn.hint
+msgid "Android 1+"
+msgstr ""
+
 #: trebootform.cancelbtn.caption
 msgctxt "trebootform.cancelbtn.caption"
 msgid "Cancel"

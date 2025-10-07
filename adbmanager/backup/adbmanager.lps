@@ -49,6 +49,7 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="Unit1"/>
+        <IsVisibleTab Value="True"/>
         <CursorPos X="13"/>
         <UsageCount Value="191"/>
         <Loaded Value="True"/>
@@ -58,10 +59,9 @@
         <Filename Value="adbdevicestatustrd.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="ADBDeviceStatusTRD"/>
-        <EditorIndex Value="2"/>
+        <EditorIndex Value="-1"/>
         <CursorPos X="26"/>
         <UsageCount Value="183"/>
-        <Loaded Value="True"/>
       </Unit2>
       <Unit3>
         <Filename Value="adbcommandtrd.pas"/>
@@ -78,13 +78,10 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="RebootUnit"/>
-        <IsVisibleTab Value="True"/>
-        <EditorIndex Value="1"/>
+        <EditorIndex Value="-1"/>
         <TopLine Value="16"/>
         <CursorPos X="35" Y="34"/>
         <UsageCount Value="168"/>
-        <Loaded Value="True"/>
-        <LoadedDesigner Value="True"/>
       </Unit4>
       <Unit5>
         <Filename Value="sdcardmanager.pas"/>
@@ -141,7 +138,8 @@
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="CheckUnit"/>
         <EditorIndex Value="-1"/>
-        <CursorPos X="17"/>
+        <TopLine Value="341"/>
+        <CursorPos X="31" Y="350"/>
         <UsageCount Value="91"/>
       </Unit10>
       <Unit11>
@@ -206,28 +204,7 @@
         <UsageCount Value="101"/>
       </Unit17>
     </Units>
-    <JumpHistory Count="5" HistoryIndex="4">
-      <Position1>
-        <Filename Value="adbdevicestatustrd.pas"/>
-        <Caret Line="150" Column="101" TopLine="133"/>
-      </Position1>
-      <Position2>
-        <Filename Value="adbdevicestatustrd.pas"/>
-        <Caret Line="16" Column="46" TopLine="12"/>
-      </Position2>
-      <Position3>
-        <Filename Value="adbdevicestatustrd.pas"/>
-        <Caret Line="42" Column="26" TopLine="17"/>
-      </Position3>
-      <Position4>
-        <Filename Value="adbdevicestatustrd.pas"/>
-        <Caret Line="43" Column="17" TopLine="17"/>
-      </Position4>
-      <Position5>
-        <Filename Value="adbdevicestatustrd.pas"/>
-        <Caret Line="90" Column="7" TopLine="63"/>
-      </Position5>
-    </JumpHistory>
+    <JumpHistory HistoryIndex="-1"/>
     <RunParams>
       <FormatVersion Value="2"/>
       <Modes ActiveMode=""/>

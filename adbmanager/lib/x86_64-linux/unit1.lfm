@@ -498,9 +498,12 @@ object MainForm: TMainForm
     object UninstallBtn: TToolButton
       Tag = 3
       Left = 201
+      Hint = 'Android 1+'
       Top = 2
       Caption = 'uninstall'
       ImageIndex = 3
+      ParentShowHint = False
+      ShowHint = True
       OnClick = ApkInfoBtnClick
     end
     object ScreenShotBtn: TToolButton
