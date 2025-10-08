@@ -34,6 +34,7 @@ uses Unit1, SDCardManager, ADBCommandTRD;
 //Scan ADB-device, status and adbkey (с очисткой пайпов)
 procedure ShowStatus.Execute;
 var
+  S: string;
   ExProcess: TProcess;
 begin
   FreeOnTerminate := True;
@@ -68,9 +69,16 @@ begin
         ExProcess.Parameters.Add('adb devices | tail -n +2');
         ExProcess.Execute;
         SResult.LoadFromStream(ExProcess.Output);
+        SResult.Text := Trim(SResult.Text);
+        //Состояние offline - перезапуск adb (состязание двух устройств)
+        if (SResult.Count > 1) and (Pos('offline', SResult.Text) <> 0) then
+          RunCommand('bash',
+            ['-c', 'killall adb; adb kill-server; adb start-server'], S,
+            [poWaitOnExit]);
       end
       else
         SResult.Clear;
+
       Synchronize(@ShowDevices);
 
       // === Проверка ключей ===
@@ -85,8 +93,6 @@ begin
 
       // === Сброс состояния процесса ===
       ExProcess.CloseOutput;
-    {  if ExProcess.Running then
-        ExProcess.Terminate(0); }
 
       if Assigned(ExProcess) and ExProcess.Running then
         ExProcess.Terminate(0);
@@ -100,8 +106,7 @@ begin
   end;
 end;
 
-{ //Старый вариант...
-//Scan ADB-device, status and adbkey
+{ //Scan ADB-device, status and adbkey (прежний вариант)
 procedure ShowStatus.Execute;
 var
   ExProcess: TProcess;
@@ -154,8 +159,7 @@ begin
     ExProcess.Free;
     Terminate;
   end;
-end;
-}
+end; }
 
 
 { БЛОК ОТОБРАЖЕНИЯ СТАТУСА }
@@ -195,10 +199,6 @@ begin
   if SResult.Count > 1 then
   begin
     adbcmd := '';
-
-    //Состояние offline - перезапуск adb (состязание двух устройств)
-    if Pos('offline', SResult.Text) <> 0 then
-      MainForm.StartProcess('killall adb; adb kill-server');
 
     i := Pos(#9, SResult[0]); //Выделяем имя-1
     dev0 := Trim(Copy(SResult[0], 1, i));

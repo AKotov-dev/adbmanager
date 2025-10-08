@@ -32,8 +32,6 @@ implementation
 uses
   Unit1; // MainForm
 
-  { === Поток === }
-
 constructor TRAMThread.Create;
 begin
   FreeOnTerminate := True;
@@ -63,7 +61,7 @@ begin
       if (SLine = '') then Continue;
 
       if (Pos('device', SLine) > 0) and (Pos('offline', SLine) = 0) and
-        (Pos('unauthorized', SLine) = 0) then
+        (Pos('unauthorized', SLine) = 0) then // and (Pos(SNoDevice, SLine) = 0)
       begin
         Token := Trim(Copy(SLine, 1, Pos('device', SLine) - 1));
         Token := StringReplace(Token, #9, '', [rfReplaceAll]);
@@ -99,7 +97,7 @@ begin
     end;
   end
   else
-    Result := True; // USB устройство всегда достижимо
+    Result := True; // USB устройство всегда доступно
 end;
 
 procedure TRAMThread.Execute;
@@ -218,8 +216,8 @@ procedure TRAMThread.UpdateLabel;
 begin
   if Assigned(MainForm) and Assigned(MainForm.LabelRAM) then
     MainForm.LabelRAM.Caption :=
-      Format('RAM: %.2f GB / %.2f GB (%.1f%%)', [FInfo.TotalGB,
-      FInfo.AvailGB, FInfo.Percent]);
+      Format('RAM: %.2f GB / %.2f GB (%.1f%%)',
+      [FInfo.TotalGB, FInfo.AvailGB, FInfo.Percent]);
 end;
 
 end.
