@@ -36,31 +36,35 @@ procedure ShowStatus.Execute;
 var
   ExProcess: TProcess;
 begin
-  try
-    FreeOnTerminate := True; //Уничтожать по завершении
-    SResult := TStringList.Create;
+  FreeOnTerminate := True;
+  SResult := TStringList.Create;
+  ExProcess := TProcess.Create(nil);
 
-    //Вывод состояния ADB, списка устройств
-    ExProcess := TProcess.Create(nil);
+  try
     ExProcess.Options := [poUsePipes, poWaitOnExit];
     ExProcess.Executable := 'bash';
 
     while not Terminated do
     begin
-      SResult.Clear;
-      Exprocess.Parameters.Clear;
-      ExProcess.Parameters.Add('-c');
+      // === Очистка состояния перед новой командой ===
+      ExProcess.CloseOutput;       // сброс stdin
+      ExProcess.Parameters.Clear;  // сброс параметров
+      SResult.Clear;               // очистка вывода
 
-      //ADB запущен?
+      // === Проверка ADB сервера ===
+      ExProcess.Parameters.Add('-c');
       ExProcess.Parameters.Add('ss -lt | grep 5037');
-      Exprocess.Execute;
+      ExProcess.Execute;
       SResult.LoadFromStream(ExProcess.Output);
       Synchronize(@ShowIsActive);
 
-      //Если ADB запущен - показать Устройство
+      // === Проверка устройств ===
+      ExProcess.CloseOutput;
+      ExProcess.Parameters.Clear;
       if SResult.Count <> 0 then
       begin
-        ExProcess.Parameters.Delete(1);
+        SResult.Clear;
+        ExProcess.Parameters.Add('-c');
         ExProcess.Parameters.Add('adb devices | tail -n +2');
         ExProcess.Execute;
         SResult.LoadFromStream(ExProcess.Output);
@@ -69,12 +73,20 @@ begin
         SResult.Clear;
       Synchronize(@ShowDevices);
 
-      //Key exists?
-      ExProcess.Parameters.Delete(1);
-      ExProcess.Parameters.Add('ls ~/.android | grep adbkey');
-      Exprocess.Execute;
+      // === Проверка ключей ===
+      ExProcess.CloseOutput;
+      ExProcess.Parameters.Clear;
+      SResult.Clear;
+      ExProcess.Parameters.Add('-c');
+      ExProcess.Parameters.Add('ls ~/.android/adbkey* 2>/dev/null');
+      ExProcess.Execute;
       SResult.LoadFromStream(ExProcess.Output);
       Synchronize(@ShowKey);
+
+      // === Сброс состояния процесса ===
+      ExProcess.CloseOutput;
+      if ExProcess.Running then
+        ExProcess.Terminate(0);
 
       Sleep(300);
     end;
@@ -82,7 +94,6 @@ begin
   finally
     SResult.Free;
     ExProcess.Free;
-    Terminate;
   end;
 end;
 

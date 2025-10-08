@@ -31,6 +31,73 @@ uses Unit1, SDCardManager, ADBCommandTRD;
 
   { TRD }
 
+//Scan ADB-device, status and adbkey (с очисткой пайпов)
+procedure ShowStatus.Execute;
+var
+  ExProcess: TProcess;
+begin
+  FreeOnTerminate := True;
+  SResult := TStringList.Create;
+  ExProcess := TProcess.Create(nil);
+
+  try
+    ExProcess.Options := [poUsePipes, poWaitOnExit];
+    ExProcess.Executable := 'bash';
+
+    while not Terminated do
+    begin
+      // === Очистка состояния перед новой командой ===
+      ExProcess.CloseOutput;       // сброс stdin
+      ExProcess.Parameters.Clear;  // сброс параметров
+      SResult.Clear;               // очистка вывода
+
+      // === Проверка ADB сервера ===
+      ExProcess.Parameters.Add('-c');
+      ExProcess.Parameters.Add('ss -lt | grep 5037');
+      ExProcess.Execute;
+      SResult.LoadFromStream(ExProcess.Output);
+      Synchronize(@ShowIsActive);
+
+      // === Проверка устройств ===
+      ExProcess.CloseOutput;
+      ExProcess.Parameters.Clear;
+      if SResult.Count <> 0 then
+      begin
+        SResult.Clear;
+        ExProcess.Parameters.Add('-c');
+        ExProcess.Parameters.Add('adb devices | tail -n +2');
+        ExProcess.Execute;
+        SResult.LoadFromStream(ExProcess.Output);
+      end
+      else
+        SResult.Clear;
+      Synchronize(@ShowDevices);
+
+      // === Проверка ключей ===
+      ExProcess.CloseOutput;
+      ExProcess.Parameters.Clear;
+      SResult.Clear;
+      ExProcess.Parameters.Add('-c');
+      ExProcess.Parameters.Add('ls ~/.android/adbkey* 2>/dev/null');
+      ExProcess.Execute;
+      SResult.LoadFromStream(ExProcess.Output);
+      Synchronize(@ShowKey);
+
+      // === Сброс состояния процесса ===
+      ExProcess.CloseOutput;
+      if ExProcess.Running then
+        ExProcess.Terminate(0);
+
+      Sleep(300);
+    end;
+
+  finally
+    SResult.Free;
+    ExProcess.Free;
+  end;
+end;
+
+{ //Старый вариант...
 //Scan ADB-device, status and adbkey
 procedure ShowStatus.Execute;
 var
@@ -85,6 +152,8 @@ begin
     Terminate;
   end;
 end;
+}
+
 
 { БЛОК ОТОБРАЖЕНИЯ СТАТУСА }
 
