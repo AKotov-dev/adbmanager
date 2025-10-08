@@ -448,6 +448,10 @@ msgstr ""
 msgid "Sound volume level (from 0 to 15)"
 msgstr ""
 
+#: unit1.sadbnotfound
+msgid "ADB not found!"
+msgstr ""
+
 #: unit1.sclosequery
 msgid "Package installation started! Finish?"
 msgstr ""

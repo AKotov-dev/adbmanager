@@ -88,6 +88,7 @@ resourcestring
     #13#10 + 'Delete selected applications?';
   SErrorImageCopy = 'Error copying file from device!';
   SFileNotValid = 'The file does not match the current list of packages!';
+  SADBNotFound = 'ADB not found!';
 
 var
   MainForm: TMainForm;
@@ -100,6 +101,15 @@ uses ADBDeviceStatusTRD, ADBCommandTRD, RebootUnit, SDCardManager,
   {$R *.lfm}
 
   { TMainForm }
+
+//Проверка установки ADB
+function CheckADBInstalled(out Version: string): boolean;
+begin
+  Version := '';
+  Result := RunCommand('adb', ['--version'], Version, [poWaitOnExit, poUsePipes]) and
+    (Pos('Android Debug Bridge', Version) > 0);
+  Version := Trim(Version);
+end;
 
 //Создать скрипт установки пакетов ~/.adbmanager/install_packages.sh
 procedure TMainForm.CreateInstallationScript;
@@ -298,6 +308,7 @@ end;
 procedure TMainForm.FormCreate(Sender: TObject);
 var
   bmp: TBitmap;
+  ver: string;
   //  FStartShowStatusThread: TThread;
 begin
   //Устраняем баг иконки приложения (Lazarus-4.0)
@@ -320,16 +331,19 @@ begin
 
   MainForm.Caption := Application.Title;
 
-  //Перезапуск сервера, если не запущен (adb devices и сам сервер запускаются в потоке статуса)
-  StartProcess('if [ -z "$(ss -lt | grep 5037)" ]; then adb kill-server; killall adb; fi');
-
-  //Запуск потока отображения памяти (RAM)
-  TRAMThread.Create;
-
-  //Запуск потока отображения статуса
- { FStartShowStatusThread := ShowStatus.Create(False);
-  FStartShowStatusThread.Priority := tpNormal;}
-  ShowStatus.Create(False);
+  //ADB установлен?
+  if CheckADBInstalled(Ver) then
+  begin
+    LogMemo.Append('ADB: ' + Ver);
+    //Перезапуск сервера, если не запущен (adb devices и сам сервер запускаются в потоке статуса)
+    StartProcess('if [ -z "$(ss -lt | grep 5037)" ]; then adb kill-server; killall adb; fi');
+    //Запуск потока отображения памяти (RAM)
+    TRAMThread.Create;
+    //Запуск потока отображения статуса
+    ShowStatus.Create(False);
+  end
+  else
+    LogMemo.Append(SADBNotFound);
 end;
 
 //Обработка кнопок панели "Управление Смартфоном"

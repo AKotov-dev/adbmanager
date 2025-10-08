@@ -457,6 +457,10 @@ msgstr "Меню, панели, сообщения и т.д."
 msgid "Sound volume level (from 0 to 15)"
 msgstr "Уровень громкости звука (от 0 до 15)"
 
+#: unit1.sadbnotfound
+msgid "ADB not found!"
+msgstr "ADB не найден!"
+
 #: unit1.sclosequery
 msgid "Package installation started! Finish?"
 msgstr "Идёт установка пакетов! Завершить?"
@@ -529,4 +533,3 @@ msgstr "Введите строку поиска или *"
 #: unit1.syes
 msgid "yes"
 msgstr "да"
-
