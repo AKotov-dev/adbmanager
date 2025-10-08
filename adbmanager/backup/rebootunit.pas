@@ -31,7 +31,7 @@ resourcestring
   SNormalReboot = 'Normal reboot';
   SBootLoader = 'Reboot to Bootloader';
   SRecoveryReboot = 'Reboot to Recovery mode';
-  SShutDown = 'Shutdown the device (v4.4+)';
+  SShutDown = 'Shutdown the device';
 
 var
   RebootForm: TRebootForm;
@@ -59,7 +59,8 @@ begin
     SDForm.Close;
 
   //Отключаем терминал, если использовался
-  MainForm.StartProcess('[ $(pidof sakura) ] && killall sakura');
+ // MainForm.StartProcess('[ $(pidof sakura) ] && killall sakura');
+  MainForm.StartProcess('killall sakura');
 
   //Обработка команд перезагрузки
   case RadioGroup1.ItemIndex of

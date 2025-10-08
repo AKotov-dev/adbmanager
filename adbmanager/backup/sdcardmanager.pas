@@ -187,10 +187,17 @@ end;
 //Отменяем долгое копирование по "Esc" и при закрытии
 procedure TSDForm.CancelCopy;
 begin
+  // Убиваем все adb push, adb pull процессы одной командой
+  StartProcess('pkill -f "adb push|adb pull"');
+
   //Если копирование или установка выполняется - отменяем
-  StartProcess('if pgrep -f "adb push" > /dev/null; then kill $(pgrep -f "adb push") >/dev/null 2>&1; fi');
+{  StartProcess('if pgrep -f "adb push" > /dev/null; then kill $(pgrep -f "adb push") >/dev/null 2>&1; fi');
   StartProcess('if pgrep -f "adb pull" > /dev/null; then kill $(pgrep -f "adb pull") >/dev/null 2>&1; fi');
   StartProcess('if pgrep -f "adb shell" > /dev/null; then kill $(pgrep -f "adb shell") >/dev/null 2>&1; fi');
+
+  StartProcess('pkill -f "adb push"  >/dev/null 2>&1');
+  StartProcess('pkill -f "adb pull"  >/dev/null 2>&1');
+  StartProcess('pkill -f "adb shell" >/dev/null 2>&1');  }
 end;
 
 //На уровень вверх
@@ -435,6 +442,7 @@ var
   S: ansistring;
 begin
   RunCommand('bash', ['-c', 'pgrep -f "adb pull|adb push"'], S);
+
   if Trim(S) <> '' then
     if MessageDlg(SCloseQueryCopy, mtConfirmation, [mbYes, mbCancel], 0) <> mrYes then
       Canclose := False

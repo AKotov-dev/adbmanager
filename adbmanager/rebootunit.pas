@@ -59,7 +59,8 @@ begin
     SDForm.Close;
 
   //Отключаем терминал, если использовался
-  MainForm.StartProcess('[ $(pidof sakura) ] && killall sakura');
+  // MainForm.StartProcess('[ $(pidof sakura) ] && killall sakura');
+  MainForm.StartProcess('killall sakura');
 
   //Обработка команд перезагрузки
   case RadioGroup1.ItemIndex of

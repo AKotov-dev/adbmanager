@@ -114,6 +114,7 @@ begin
     if S.Count <> 0 then
       Synchronize(@ShowFontSize);
 
+
   finally
     Synchronize(@StopRead);
     S.Free;
@@ -123,7 +124,7 @@ begin
   end;
 end;
 
-{ БЛОК ОТОБРАЖЕНИЯ }
+{ БЛОК ОТОБРАЖЕНИЯ СПИСКА ПРИЛОЖЕНИЙ }
 
 //Вывод чекеров
 procedure ReadSettingsTRD.ShowValue;
