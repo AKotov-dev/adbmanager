@@ -59,7 +59,7 @@ type
     procedure KeyLabelChangeBounds(Sender: TObject);
     procedure RestartBtnClick(Sender: TObject);
     procedure StartProcess(command: string);
-    procedure StartADBCmd;
+
     procedure CreateInstallationScript;
   private
 
@@ -67,8 +67,8 @@ type
 
   end;
 
-var //Команда ADB
-  adbcmd: string;
+  //var //Команда ADB
+  //  adbcmd: string;
 
 resourcestring
   SRebootMsg = 'Reboot device?';
@@ -278,15 +278,6 @@ begin
   end;
 end;
 
-//Запуск команды и потока отображения лога исполнения
-procedure TMainForm.StartADBCmd;
-var
-  FADBCommandThread: TThread;
-begin
-  FADBCommandThread := StartADBCommand.Create(False);
-  FADBCommandThread.Priority := tpNormal;
-end;
-
 //StartCommand
 procedure TMainForm.StartProcess(command: string);
 var
@@ -307,7 +298,7 @@ end;
 procedure TMainForm.FormCreate(Sender: TObject);
 var
   bmp: TBitmap;
-  FStartShowStatusThread: TThread;
+  //  FStartShowStatusThread: TThread;
 begin
   //Устраняем баг иконки приложения (Lazarus-4.0)
   //https://gitlab.com/freepascal.org/lazarus/lazarus/-/issues/41636
@@ -336,17 +327,19 @@ begin
   TRAMThread.Create;
 
   //Запуск потока отображения статуса
-  FStartShowStatusThread := ShowStatus.Create(False);
-  FStartShowStatusThread.Priority := tpNormal;
+ { FStartShowStatusThread := ShowStatus.Create(False);
+  FStartShowStatusThread.Priority := tpNormal;}
+  ShowStatus.Create(False);
 end;
 
 //Обработка кнопок панели "Управление Смартфоном"
 procedure TMainForm.ApkInfoBtnClick(Sender: TObject);
 var
   i: integer;
-  S, PackageNames: string;
+  S, PackageNames, adbcmd: string;
 begin
   S := '';
+  adbcmd := '';
   PackageNames := '';
 
   //Определяем команду по кнопке
@@ -356,7 +349,7 @@ begin
       EmulatorForm := TEmulatorForm.Create(Application);
       EmulatorForm.ShowModal;
       //Показываем Подключение/Сканирование
-      if EmulatorForm.ModalResult <> mrOk then
+     { if EmulatorForm.ModalResult <> mrOk then }
         Exit;
     end;
 
@@ -452,13 +445,13 @@ begin
     begin
       RebootForm := TRebootForm.Create(Application);
       RebootForm.ShowModal; //Показываем варианты Reboot
-      if RebootForm.ModalResult <> mrOk then
+    //  if RebootForm.ModalResult <> mrOk then
         Exit;
     end;
   end;
 
   //Запуск команды и потока отображения лога исполнения
-  StartADBCmd;
+  StartADBCommand.Create(adbcmd);
 end;
 
 //Закрытие MainForm - завершение процессов

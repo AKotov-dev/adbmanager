@@ -150,20 +150,24 @@ end;
 
 //Исполнение команд/вывод лога (sdcmd)
 procedure TSDForm.StartCommand;
-var
-  FSDCommandThread: TThread;
+{var
+  FSDCommandThread: TThread;}
 begin
-  FSDCommandThread := StartSDCommand.Create(False);
-  FSDCommandThread.Priority := tpNormal;
+  {FSDCommandThread := StartSDCommand.Create(False);
+  FSDCommandThread.Priority := tpNormal;}
+
+  StartSDCommand.Create(False);
 end;
 
 //ls в директории /sdcard/... (SDBox)
 procedure TSDForm.StartLS;
-var
-  FLSSDThread: TThread;
+{var
+  FLSSDThread: TThread;}
 begin
-  FLSSDThread := StartLSSD.Create(False);
-  FLSSDThread.Priority := tpHighest; //tpHigher
+ { FLSSDThread := StartLSSD.Create(False);
+  FLSSDThread.Priority := tpHighest; //tpHigher}
+
+  StartLSSD.Create(False);
 end;
 
 //Апдейт текущей директории CompDir (ShellTreeView)
@@ -451,8 +455,8 @@ begin
 end;
 
 procedure TSDForm.FormShow(Sender: TObject);
-var
-  FSDMountPointThread: TThread;
+{var
+  FSDMountPointThread: TThread;}
 begin
   //For Plasma
   IniPropStorage1.IniFileName := MainForm.IniPropStorage1.IniFileName;
@@ -473,8 +477,10 @@ begin
   //Список возможных точек монтирования SD-Card
   SDMountPoint := TStringList.Create;
 
-  FSDMountPointThread := ReadSDMountPoint.Create(False);
-  FSDMountPointThread.Priority := tpNormal;
+{  FSDMountPointThread := ReadSDMountPoint.Create(False);
+  FSDMountPointThread.Priority := tpNormal;}
+
+  ReadSDMountPoint.Create(False);
 end;
 
 procedure TSDForm.MkDirBtnClick(Sender: TObject);

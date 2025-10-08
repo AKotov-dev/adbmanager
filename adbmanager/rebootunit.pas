@@ -38,7 +38,7 @@ var
 
 implementation
 
-uses unit1, SDCardManager;
+uses unit1, SDCardManager, ADBCommandTRD;
 
   {$R *.lfm}
 
@@ -53,6 +53,8 @@ begin
 end;
 
 procedure TRebootForm.OKBtnClick(Sender: TObject);
+var
+  adbcmd: string;
 begin
   //Закрываем SD-Manager, если открыт
   if SDForm.Visible then
@@ -69,6 +71,8 @@ begin
     2: adbcmd := 'adb reboot recovery';
     3: adbcmd := 'adb shell reboot -p';
   end;
+
+  StartADBCommand.Create(adbcmd);
 end;
 
 procedure TRebootForm.FormClose(Sender: TObject; var CloseAction: TCloseAction);

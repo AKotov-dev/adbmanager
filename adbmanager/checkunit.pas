@@ -61,7 +61,7 @@ var
 
 implementation
 
-uses Unit1;
+uses Unit1, ADBCommandTRD;
 
   {$R *.lfm}
 
@@ -325,6 +325,7 @@ procedure TCheckForm.ApplyBtnClick(Sender: TObject);
 var
   a: boolean;
   i: integer;
+  adbcmd: string;
 begin
   a := False;
   adbcmd := '';
@@ -367,7 +368,7 @@ begin
 
     //Запуск команды и потока отображения лога исполнения
     if adbcmd <> '' then
-      MainForm.StartADBCmd;
+      StartADBCommand.Create(adbcmd);
 
   finally
     VList.Free;

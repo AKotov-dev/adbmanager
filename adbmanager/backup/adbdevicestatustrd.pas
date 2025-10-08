@@ -14,7 +14,7 @@ type
     { Private declarations }
   protected
   var
-    Result: TStringList;
+    SResult: TStringList;
 
     procedure Execute; override;
 
@@ -26,7 +26,7 @@ type
 
 implementation
 
-uses Unit1, SDCardManager;
+uses Unit1, SDCardManager, ADBCommandTRD;
 
   { TRD }
 
@@ -111,7 +111,7 @@ end;
 procedure ShowStatus.ShowDevices;
 var
   i: integer;
-  dev0, dev1: string;
+  dev0, dev1, adbcmd: string;
 begin
   //Удаляем начальные и конечные переводы строки/пробелы
   Result.Text := Trim(Result.Text);
@@ -123,8 +123,7 @@ begin
 
     //Состояние offline - перезапуск adb (состязание двух устройств)
     if Pos('offline', Result.Text) <> 0 then
-     // MainForm.StartProcess('killall adb; adb kill-server >/dev/null 2>&1');
-       MainForm.StartProcess('pkill adb; adb kill-server >/dev/null 2>&1');
+      MainForm.StartProcess('killall adb; adb kill-server >/dev/null 2>&1');
 
     i := Pos(#9, Result[0]); //Выделяем имя-1
     dev0 := Trim(Copy(Result[0], 1, i));
@@ -158,7 +157,7 @@ begin
     //Отключаем терминал, если использовался
     MainForm.StartProcess('[ $(pidof sakura) ] && killall sakura');}
 
-      MainForm.StartADBCmd;
+      StartADBCommand.Create(adbcmd);
     end;
   end
   else //Единственное устройство и статус выводим сразу, либо "no device"

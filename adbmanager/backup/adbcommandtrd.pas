@@ -46,8 +46,7 @@ begin
     try
       ExProcess.Executable := 'bash';
       ExProcess.Parameters.Add('-c');
-      ExProcess.Parameters.Add(FAdbCmd);
-      // используем локальную переменную
+      ExProcess.Parameters.Add(FAdbCmd); // используем локальную переменную
 
       ExProcess.Options := [poUsePipes, poStderrToOutPut];
 
@@ -96,10 +95,11 @@ end;
 
 procedure StartADBCommand.ShowLog;
 var
-  i: integer;
+  i: Integer;
 begin
   for i := 0 to ResultLog.Count - 1 do
     MainForm.LogMemo.Lines.Append(ResultLog[i]);
 end;
 
 end.
+

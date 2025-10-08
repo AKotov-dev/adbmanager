@@ -62,7 +62,7 @@ uses unit1, ReadSettingsTRDUnit, WriteSettingsTRDUnit;
 procedure TSettingsForm.FormShow(Sender: TObject);
 var
   i: integer;
-  FReadSettingsTRD: TThread;
+  //  FReadSettingsTRD: TThread;
 begin
   //For Plasma
   IniPropStorage1.IniFileName := MainForm.IniPropStorage1.IniFileName;
@@ -90,8 +90,9 @@ begin
   ComboBox1.Text := '...';
 
   //Запуск потока чтения настроек
-  FReadSettingsTRD := ReadSettingsTRD.Create(False);
-  FReadSettingsTRD.Priority := tpNormal;
+ { FReadSettingsTRD := ReadSettingsTRD.Create(False);
+  FReadSettingsTRD.Priority := tpNormal;}
+  ReadSettingsTRD.Create(False);
 end;
 
 procedure TSettingsForm.FormClose(Sender: TObject; var CloseAction: TCloseAction);
