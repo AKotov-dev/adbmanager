@@ -59,6 +59,12 @@ begin
       SResult.LoadFromStream(ExProcess.Output);
       Synchronize(@ShowIsActive);
 
+      //Если ADB не запущен - запустить
+      if (Trim(SResult.Text) = '') then
+        RunCommand('bash',
+          ['-c', 'killall adb; adb kill-server; adb start-server'], S,
+          [poWaitOnExit]);
+
       // === Проверка устройств ===
       ExProcess.CloseOutput;
       ExProcess.Parameters.Clear;

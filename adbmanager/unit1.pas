@@ -336,7 +336,7 @@ begin
   begin
     LogMemo.Append('ADB: ' + Ver);
     //Перезапуск сервера, если не запущен (adb devices и сам сервер запускаются в потоке статуса)
-    StartProcess('if [ -z "$(ss -lt | grep 5037)" ]; then adb kill-server; killall adb; fi');
+  //  StartProcess('if [ -z "$(ss -lt | grep 5037)" ]; then adb kill-server; killall adb; fi');
     //Запуск потока отображения памяти (RAM)
     TRAMThread.Create;
     //Запуск потока отображения статуса

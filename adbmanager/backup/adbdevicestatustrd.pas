@@ -34,7 +34,7 @@ uses Unit1, SDCardManager, ADBCommandTRD;
 //Scan ADB-device, status and adbkey (с очисткой пайпов)
 procedure ShowStatus.Execute;
 var
-  S: String;
+  S: string;
   ExProcess: TProcess;
 begin
   FreeOnTerminate := True;
@@ -59,6 +59,12 @@ begin
       SResult.LoadFromStream(ExProcess.Output);
       Synchronize(@ShowIsActive);
 
+      //Если ADB не запущен - запустить
+      if (Trim(SResult.Text) = '') then
+          RunCommand('bash',
+            ['-c', 'killall adb; adb kill-server; adb start-server'], S,
+            [poWaitOnExit]);
+
       // === Проверка устройств ===
       ExProcess.CloseOutput;
       ExProcess.Parameters.Clear;
@@ -70,12 +76,11 @@ begin
         ExProcess.Execute;
         SResult.LoadFromStream(ExProcess.Output);
         SResult.Text := Trim(SResult.Text);
-        if SResult.Count > 1 then
-          //Состояние offline - перезапуск adb (состязание двух устройств)
-          if Pos('offline', SResult.Text) <> 0 then
-            // MainForm.StartProcess('killall adb; adb kill-server');
-            RunCommand('bash', ['-c', 'killall adb; adb kill-server; adb start-server'], S,
-              [poWaitOnExit]);
+        //Состояние offline - перезапуск adb (состязание двух устройств)
+        if (SResult.Count > 1) and (Pos('offline', SResult.Text) <> 0) then
+          RunCommand('bash',
+            ['-c', 'killall adb; adb kill-server; adb start-server'], S,
+            [poWaitOnExit]);
       end
       else
         SResult.Clear;

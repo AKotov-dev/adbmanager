@@ -88,7 +88,7 @@ resourcestring
     #13#10 + 'Delete selected applications?';
   SErrorImageCopy = 'Error copying file from device!';
   SFileNotValid = 'The file does not match the current list of packages!';
-  SADBNotFound: 'ADB not found!';
+  SADBNotFound = 'ADB not found!';
 
 var
   MainForm: TMainForm;
