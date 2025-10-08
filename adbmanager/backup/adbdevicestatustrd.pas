@@ -47,6 +47,8 @@ begin
 
     while not Terminated do
     begin
+      Sleep(300);
+
       // === Очистка состояния перед новой командой ===
       ExProcess.CloseOutput;       // сброс stdin
       ExProcess.Parameters.Clear;  // сброс параметров
@@ -57,13 +59,12 @@ begin
       ExProcess.Parameters.Add('ss -lt | grep 5037');
       ExProcess.Execute;
       SResult.LoadFromStream(ExProcess.Output);
+      SResult.Text := Trim(SResult.Text);
       Synchronize(@ShowIsActive);
 
       //Если ADB не запущен - запустить
-      if (Trim(SResult.Text) = '') then
-          RunCommand('bash',
-            ['-c', 'killall adb; adb kill-server; adb start-server'], S,
-            [poWaitOnExit]);
+      if SResult.Count = 0 then
+        RunCommand('bash', ['-c', 'adb start-server'], S, [poWaitOnExit]);
 
       // === Проверка устройств ===
       ExProcess.CloseOutput;
@@ -95,6 +96,7 @@ begin
       ExProcess.Parameters.Add('ls ~/.android/adbkey* 2>/dev/null');
       ExProcess.Execute;
       SResult.LoadFromStream(ExProcess.Output);
+      SResult.Text := Trim(SResult.Text);
       Synchronize(@ShowKey);
 
       // === Сброс состояния процесса ===
@@ -102,8 +104,6 @@ begin
 
       if Assigned(ExProcess) and ExProcess.Running then
         ExProcess.Terminate(0);
-
-      Sleep(300);
     end;
 
   finally
