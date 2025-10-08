@@ -71,7 +71,7 @@ begin
 
       //Key exists?
       ExProcess.Parameters.Delete(1);
-      ExProcess.Parameters.Add('ls ~/.android | grep adbkey');
+      ExProcess.Parameters.Add('ls ~/.android/adbkey*');
       Exprocess.Execute;
       SResult.LoadFromStream(ExProcess.Output);
       Synchronize(@ShowKey);

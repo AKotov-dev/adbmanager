@@ -1,4 +1,5 @@
 unit ADBDeviceStatusTRD;
+//Запуск ADB (если не запущен) при запуске приложения
 
 {$mode objfpc}{$H+}
 

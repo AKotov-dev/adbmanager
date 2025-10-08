@@ -49,9 +49,8 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="Unit1"/>
-        <IsVisibleTab Value="True"/>
-        <TopLine Value="310"/>
-        <CursorPos X="89" Y="325"/>
+        <TopLine Value="64"/>
+        <CursorPos X="25" Y="72"/>
         <UsageCount Value="200"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -60,8 +59,10 @@
         <Filename Value="adbdevicestatustrd.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="ADBDeviceStatusTRD"/>
+        <IsVisibleTab Value="True"/>
         <EditorIndex Value="1"/>
-        <CursorPos X="30" Y="2"/>
+        <TopLine Value="61"/>
+        <CursorPos X="54" Y="74"/>
         <UsageCount Value="196"/>
         <Loaded Value="True"/>
       </Unit2>
