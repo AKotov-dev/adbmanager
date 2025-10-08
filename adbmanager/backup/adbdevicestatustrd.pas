@@ -37,7 +37,7 @@ var
 begin
   try
     FreeOnTerminate := True; //Уничтожать по завершении
-    Result := TStringList.Create;
+    SResult := TStringList.Create;
 
     //Вывод состояния ADB, списка устройств
     ExProcess := TProcess.Create(nil);
@@ -46,38 +46,40 @@ begin
 
     while not Terminated do
     begin
-      Result.Clear;
+      SResult.Clear;
       Exprocess.Parameters.Clear;
-
-      //Устройство + статус
       ExProcess.Parameters.Add('-c');
-      ExProcess.Parameters.Add('adb devices | tail -n +2');
-      ExProcess.Execute;
 
-      Result.LoadFromStream(ExProcess.Output);
-      Synchronize(@ShowDevices);
-
-      //Status-is-active?
-      ExProcess.Parameters.Delete(1);
+      //ADB запущен?
       ExProcess.Parameters.Add('ss -lt | grep 5037');
       Exprocess.Execute;
-
-      Result.LoadFromStream(ExProcess.Output);
+      SResult.LoadFromStream(ExProcess.Output);
       Synchronize(@ShowIsActive);
+
+      //Если ADB запущен - показать Устройство
+      if SResult.Count <> 0 then
+      begin
+        ExProcess.Parameters.Delete(1);
+        ExProcess.Parameters.Add('adb devices | tail -n +2');
+        ExProcess.Execute;
+        SResult.LoadFromStream(ExProcess.Output);
+      end
+      else
+        SResult.Clear;
+      Synchronize(@ShowDevices);
 
       //Key exists?
       ExProcess.Parameters.Delete(1);
       ExProcess.Parameters.Add('ls ~/.android | grep adbkey');
       Exprocess.Execute;
-
-      Result.LoadFromStream(ExProcess.Output);
+      SResult.LoadFromStream(ExProcess.Output);
       Synchronize(@ShowKey);
 
       Sleep(300);
     end;
 
   finally
-    Result.Free;
+    SResult.Free;
     ExProcess.Free;
     Terminate;
   end;
@@ -85,26 +87,26 @@ end;
 
 { БЛОК ОТОБРАЖЕНИЯ СТАТУСА }
 
-//Состояние ключей
-procedure ShowStatus.ShowKey;
-begin
-  if Result.Count <> 0 then
-    MainForm.KeyLabel.Caption := SYes
-  else
-    MainForm.KeyLabel.Caption := SNo;
-
-  MainForm.KeyLabel.Repaint;
-end;
-
 //Вывод активности ADB
 procedure ShowStatus.ShowIsActive;
 begin
-  if Result.Count <> 0 then
+  if SResult.Count <> 0 then
     MainForm.ActiveLabel.Caption := SLaunched
   else
     MainForm.ActiveLabel.Caption := SRestart;
 
   MainForm.ActiveLabel.Repaint;
+end;
+
+//Состояние ключей
+procedure ShowStatus.ShowKey;
+begin
+  if SResult.Count <> 0 then
+    MainForm.KeyLabel.Caption := SYes
+  else
+    MainForm.KeyLabel.Caption := SNo;
+
+  MainForm.KeyLabel.Repaint;
 end;
 
 //Вывод найденного устройства и статуса
@@ -114,21 +116,21 @@ var
   dev0, dev1, adbcmd: string;
 begin
   //Удаляем начальные и конечные переводы строки/пробелы
-  Result.Text := Trim(Result.Text);
+  SResult.Text := Trim(SResult.Text);
 
   //Больше одного устройства? Переключаем на последнее
-  if Result.Count > 1 then
+  if SResult.Count > 1 then
   begin
     adbcmd := '';
 
     //Состояние offline - перезапуск adb (состязание двух устройств)
-    if Pos('offline', Result.Text) <> 0 then
-      MainForm.StartProcess('killall adb; adb kill-server >/dev/null 2>&1');
+    if Pos('offline', SResult.Text) <> 0 then
+      MainForm.StartProcess('killall adb; adb kill-server');
 
-    i := Pos(#9, Result[0]); //Выделяем имя-1
-    dev0 := Trim(Copy(Result[0], 1, i));
-    i := Pos(#9, Result[1]); //Выделяем имя-2
-    dev1 := Trim(Copy(Result[1], 1, i));
+    i := Pos(#9, SResult[0]); //Выделяем имя-1
+    dev0 := Trim(Copy(SResult[0], 1, i));
+    i := Pos(#9, SResult[1]); //Выделяем имя-2
+    dev1 := Trim(Copy(SResult[1], 1, i));
 
     //Disconnect уже активного (1 или 2) и Connect существующего (если по IP)
     if Pos(dev0, MainForm.DevSheet.Caption) <> 0 then
@@ -151,18 +153,18 @@ begin
     if adbcmd <> '' then
     begin
       //Закрываем SD-Manager, если открыт
-    {if SDForm.Visible then
-      SDForm.Close;
+      if SDForm.Visible then
+        SDForm.Close;
 
-    //Отключаем терминал, если использовался
-    MainForm.StartProcess('[ $(pidof sakura) ] && killall sakura');}
+      //Отключаем терминал, если использовался
+      MainForm.StartProcess('killall sakura');
 
       StartADBCommand.Create(adbcmd);
     end;
   end
   else //Единственное устройство и статус выводим сразу, либо "no device"
-  if Result.Text <> '' then
-    MainForm.DevSheet.Caption := Result[0]
+  if Trim(SResult.Text) <> '' then
+    MainForm.DevSheet.Caption := SResult[0]
   else
     MainForm.DevSheet.Caption := SNoDevice;
 end;

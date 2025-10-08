@@ -1,4 +1,5 @@
 unit ADBDeviceStatusTRD;
+//Запуск ADB (если не запущен) при запуске приложения
 
 {$mode objfpc}{$H+}
 
@@ -48,28 +49,30 @@ begin
     begin
       SResult.Clear;
       Exprocess.Parameters.Clear;
-
-      //Устройство + статус
       ExProcess.Parameters.Add('-c');
-      ExProcess.Parameters.Add('adb devices | tail -n +2');
-      ExProcess.Execute;
 
-      SResult.LoadFromStream(ExProcess.Output);
-      Synchronize(@ShowDevices);
-
-      //Status-is-active?
-      ExProcess.Parameters.Delete(1);
+      //ADB запущен?
       ExProcess.Parameters.Add('ss -lt | grep 5037');
       Exprocess.Execute;
-
       SResult.LoadFromStream(ExProcess.Output);
       Synchronize(@ShowIsActive);
+
+      //Если ADB запущен - показать Устройство
+      if SResult.Count <> 0 then
+      begin
+        ExProcess.Parameters.Delete(1);
+        ExProcess.Parameters.Add('adb devices | tail -n +2');
+        ExProcess.Execute;
+        SResult.LoadFromStream(ExProcess.Output);
+      end
+      else
+        SResult.Clear;
+      Synchronize(@ShowDevices);
 
       //Key exists?
       ExProcess.Parameters.Delete(1);
       ExProcess.Parameters.Add('ls ~/.android | grep adbkey');
       Exprocess.Execute;
-
       SResult.LoadFromStream(ExProcess.Output);
       Synchronize(@ShowKey);
 
@@ -85,17 +88,6 @@ end;
 
 { БЛОК ОТОБРАЖЕНИЯ СТАТУСА }
 
-//Состояние ключей
-procedure ShowStatus.ShowKey;
-begin
-  if SResult.Count <> 0 then
-    MainForm.KeyLabel.Caption := SYes
-  else
-    MainForm.KeyLabel.Caption := SNo;
-
-  MainForm.KeyLabel.Repaint;
-end;
-
 //Вывод активности ADB
 procedure ShowStatus.ShowIsActive;
 begin
@@ -105,6 +97,17 @@ begin
     MainForm.ActiveLabel.Caption := SRestart;
 
   MainForm.ActiveLabel.Repaint;
+end;
+
+//Состояние ключей
+procedure ShowStatus.ShowKey;
+begin
+  if SResult.Count <> 0 then
+    MainForm.KeyLabel.Caption := SYes
+  else
+    MainForm.KeyLabel.Caption := SNo;
+
+  MainForm.KeyLabel.Repaint;
 end;
 
 //Вывод найденного устройства и статуса
@@ -123,7 +126,7 @@ begin
 
     //Состояние offline - перезапуск adb (состязание двух устройств)
     if Pos('offline', SResult.Text) <> 0 then
-      MainForm.StartProcess('killall adb; adb kill-server >/dev/null 2>&1');
+      MainForm.StartProcess('killall adb; adb kill-server');
 
     i := Pos(#9, SResult[0]); //Выделяем имя-1
     dev0 := Trim(Copy(SResult[0], 1, i));
@@ -161,7 +164,7 @@ begin
     end;
   end
   else //Единственное устройство и статус выводим сразу, либо "no device"
-  if SResult.Text <> '' then
+  if Trim(SResult.Text) <> '' then
     MainForm.DevSheet.Caption := SResult[0]
   else
     MainForm.DevSheet.Caption := SNoDevice;

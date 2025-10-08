@@ -321,7 +321,7 @@ begin
   MainForm.Caption := Application.Title;
 
   //Перезапуск сервера, если не запущен (adb devices и сам сервер запускаются в потоке статуса)
-  StartProcess('[[ $(ss -lt | grep 5037) ]] || (adb kill-server; killall adb)');
+  StartProcess('if [ -z "$(ss -lt | grep 5037)" ]; then adb kill-server; killall adb; fi');
 
   //Запуск потока отображения памяти (RAM)
   TRAMThread.Create;

@@ -349,8 +349,8 @@ begin
       EmulatorForm := TEmulatorForm.Create(Application);
       EmulatorForm.ShowModal;
       //Показываем Подключение/Сканирование
-     { if EmulatorForm.ModalResult <> mrOk then }
-        Exit;
+      { if EmulatorForm.ModalResult <> mrOk then }
+      Exit;
     end;
 
     1: //Search Package
@@ -445,8 +445,8 @@ begin
     begin
       RebootForm := TRebootForm.Create(Application);
       RebootForm.ShowModal; //Показываем варианты Reboot
-    //  if RebootForm.ModalResult <> mrOk then
-        Exit;
+      //  if RebootForm.ModalResult <> mrOk then
+      Exit;
     end;
   end;
 
