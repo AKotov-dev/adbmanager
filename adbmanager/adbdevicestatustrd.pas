@@ -85,7 +85,10 @@ begin
 
       // === Сброс состояния процесса ===
       ExProcess.CloseOutput;
-      if ExProcess.Running then
+    {  if ExProcess.Running then
+        ExProcess.Terminate(0); }
+
+      if Assigned(ExProcess) and ExProcess.Running then
         ExProcess.Terminate(0);
 
       Sleep(300);

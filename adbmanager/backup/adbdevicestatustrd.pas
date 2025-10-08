@@ -31,7 +31,7 @@ uses Unit1, SDCardManager, ADBCommandTRD;
 
   { TRD }
 
-//Scan ADB-device, status and adbkey
+//Scan ADB-device, status and adbkey (с очисткой пайпов)
 procedure ShowStatus.Execute;
 var
   ExProcess: TProcess;
@@ -96,6 +96,64 @@ begin
     ExProcess.Free;
   end;
 end;
+
+{ //Старый вариант...
+//Scan ADB-device, status and adbkey
+procedure ShowStatus.Execute;
+var
+  ExProcess: TProcess;
+begin
+  try
+    FreeOnTerminate := True; //Уничтожать по завершении
+    SResult := TStringList.Create;
+
+    //Вывод состояния ADB, списка устройств
+    ExProcess := TProcess.Create(nil);
+    ExProcess.Options := [poUsePipes, poWaitOnExit];
+    ExProcess.Executable := 'bash';
+
+    while not Terminated do
+    begin
+      SResult.Clear;
+      Exprocess.Parameters.Clear;
+      ExProcess.Parameters.Add('-c');
+
+      //ADB запущен?
+      ExProcess.Parameters.Add('ss -lt | grep 5037');
+      Exprocess.Execute;
+      SResult.LoadFromStream(ExProcess.Output);
+      Synchronize(@ShowIsActive);
+
+      //Если ADB запущен - показать Устройство
+      if SResult.Count <> 0 then
+      begin
+        ExProcess.Parameters.Delete(1);
+        ExProcess.Parameters.Add('adb devices | tail -n +2');
+        ExProcess.Execute;
+        SResult.LoadFromStream(ExProcess.Output);
+      end
+      else
+        SResult.Clear;
+      Synchronize(@ShowDevices);
+
+      //Key exists?
+      ExProcess.Parameters.Delete(1);
+      ExProcess.Parameters.Add('ls ~/.android/adbkey*');
+      Exprocess.Execute;
+      SResult.LoadFromStream(ExProcess.Output);
+      Synchronize(@ShowKey);
+
+      Sleep(300);
+    end;
+
+  finally
+    SResult.Free;
+    ExProcess.Free;
+    Terminate;
+  end;
+end;
+}
+
 
 { БЛОК ОТОБРАЖЕНИЯ СТАТУСА }
 
