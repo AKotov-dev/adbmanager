@@ -566,7 +566,7 @@ begin
     begin
       LogMemo.Clear;
       ActiveLabel.Caption := SRestart;
-      StartProcess('killall adb');
+      StartProcess('killall -q adb; adb kill-server');
     end;
 
     1: //Delete Key

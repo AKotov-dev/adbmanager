@@ -1,5 +1,4 @@
 unit ADBDeviceStatusTRD;
-//Запуск ADB (если не запущен) при запуске приложения
 
 {$mode objfpc}{$H+}
 
@@ -34,83 +33,73 @@ uses Unit1, SDCardManager, ADBCommandTRD;
 //Scan ADB-device, status and adbkey (с очисткой пайпов)
 procedure ShowStatus.Execute;
 var
-  S: string;
-  ExProcess: TProcess;
+  Output: string;
 begin
   FreeOnTerminate := True;
   SResult := TStringList.Create;
-  ExProcess := TProcess.Create(nil);
-
   try
-    ExProcess.Options := [poUsePipes, poWaitOnExit];
-    ExProcess.Executable := 'bash';
-
     while not Terminated do
     begin
-      Sleep(300);
+      // -------------------------
+      // 1. Проверка ADB сервера
+      // -------------------------
+      if RunCommand('bash', ['-c', 'ss -lt | grep 5037'], Output,
+        [poWaitOnExit, poUsePipes]) then
+      begin
+        SResult.Text := Trim(Output);
+      end
+      else
+        SResult.Clear;
 
-      // === Очистка состояния перед новой командой ===
-      ExProcess.CloseOutput;       // сброс stdin
-      ExProcess.Parameters.Clear;  // сброс параметров
-      SResult.Clear;               // очистка вывода
-
-      // === Проверка ADB сервера ===
-      ExProcess.Parameters.Add('-c');
-      ExProcess.Parameters.Add('ss -lt | grep 5037');
-      ExProcess.Execute;
-      SResult.LoadFromStream(ExProcess.Output);
-      SResult.Text := Trim(SResult.Text);
       Synchronize(@ShowIsActive);
 
       //Если ADB не запущен - запустить
-      if SResult.Count = 0 then
-        RunCommand('bash', ['-c', 'adb start-server'], S, [poWaitOnExit]);
+    {  if SResult.Count = 0 then
+        RunCommand('bash', ['-c', 'adb start-server'], Output, [poWaitOnExit]); }
 
-      // === Проверка устройств ===
-      ExProcess.CloseOutput;
-      ExProcess.Parameters.Clear;
+      // -------------------------
+      // 2. Если ADB запущен - Получение списка устройств
+      // -------------------------
       if SResult.Count <> 0 then
       begin
-        SResult.Clear;
-        ExProcess.Parameters.Add('-c');
-        ExProcess.Parameters.Add('adb devices | tail -n +2');
-        ExProcess.Execute;
-        SResult.LoadFromStream(ExProcess.Output);
-        SResult.Text := Trim(SResult.Text);
-        //Состояние offline - перезапуск adb (состязание двух устройств)
-        if (SResult.Count > 1) and (Pos('offline', SResult.Text) <> 0) then
-          RunCommand('bash',
-            ['-c', 'killall adb; adb kill-server; adb start-server'], S,
-            [poWaitOnExit]);
+        if RunCommand('bash', ['-c', 'adb devices | tail -n +2'],
+          Output, [poWaitOnExit, poUsePipes]) then
+        begin
+          SResult.Text := Trim(Output);
+
+          //Состояние offline - перезапуск adb (состязание двух устройств)
+          if (SResult.Count > 1) and (Pos('offline', SResult.Text) <> 0) then
+            RunCommand('bash',
+              ['-c', 'killall adb; adb kill-server; adb start-server'], Output,
+              [poWaitOnExit]);
+        end;
+       { else
+          SResult.Clear; }
       end
       else
         SResult.Clear;
 
       Synchronize(@ShowDevices);
 
-      // === Проверка ключей ===
-      ExProcess.CloseOutput;
-      ExProcess.Parameters.Clear;
-      SResult.Clear;
-      ExProcess.Parameters.Add('-c');
-      ExProcess.Parameters.Add('ls ~/.android/adbkey* 2>/dev/null');
-      ExProcess.Execute;
-      SResult.LoadFromStream(ExProcess.Output);
-      SResult.Text := Trim(SResult.Text);
+      // -------------------------
+      // 3. Проверка ключей
+      // -------------------------
+      if RunCommand('bash', ['-c', 'ls ~/.android/adbkey*'], Output,
+        [poWaitOnExit, poUsePipes]) then
+        SResult.Text := Trim(Output)
+      else
+        SResult.Clear;
+
       Synchronize(@ShowKey);
 
-      // === Сброс состояния процесса ===
-      ExProcess.CloseOutput;
-
-      if Assigned(ExProcess) and ExProcess.Running then
-        ExProcess.Terminate(0);
+      Sleep(300); // оптимальный интервал для CPU
     end;
-
   finally
     SResult.Free;
-    ExProcess.Free;
+    Terminate;
   end;
 end;
+
 
 { //Scan ADB-device, status and adbkey (прежний вариант)
 procedure ShowStatus.Execute;
