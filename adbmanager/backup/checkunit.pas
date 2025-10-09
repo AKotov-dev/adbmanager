@@ -61,7 +61,7 @@ var
 
 implementation
 
-uses Unit1;
+uses Unit1, ADBCommandTRD;
 
   {$R *.lfm}
 

@@ -233,7 +233,7 @@ end;
 //Не открываем меню нсли список пуст
 procedure TCheckForm.PopupMenu1Popup(Sender: TObject);
 begin
-  if AppListBox.Count = 0 then Abort;
+  if (AppListBox.Count = 0) or (not ApplyBtn.Enabled) then Abort;
 end;
 
 //Сохранить список в *.txt
