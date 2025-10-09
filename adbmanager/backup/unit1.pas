@@ -336,7 +336,7 @@ begin
   begin
     LogMemo.Append('ADB: ' + Ver);
     //Перезапуск сервера, если не запущен (adb devices и сам сервер запускаются в потоке статуса)
-    StartProcess('if [ -z "$(ss -lt | grep 5037)" ]; then adb kill-server; killall adb; fi');
+    // StartProcess('if [ -z "$(ss -lt | grep 5037)" ]; then adb kill-server; killall adb; fi');
     //Запуск потока отображения памяти (RAM)
     TRAMThread.Create;
     //Запуск потока отображения статуса
@@ -564,9 +564,10 @@ begin
   case (Sender as TToolButton).Tag of
     0: //Restart
     begin
-      LogMemo.Clear;
-      ActiveLabel.Caption := SRestart;
+
       StartProcess('killall -q adb; adb kill-server');
+   {   ActiveLabel.Caption := SRestart;
+      LabelRAM.Caption := 'RAM: 0.00 GB / 0.00 GB (0.0%)'; }
     end;
 
     1: //Delete Key

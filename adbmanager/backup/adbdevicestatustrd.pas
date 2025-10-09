@@ -28,8 +28,6 @@ implementation
 
 uses Unit1, SDCardManager, ADBCommandTRD;
 
-  { TRD }
-
 //Scan ADB-device, status and adbkey (с очисткой пайпов)
 procedure ShowStatus.Execute;
 var
@@ -54,8 +52,8 @@ begin
       Synchronize(@ShowIsActive);
 
       //Если ADB не запущен - запустить
-    {  if SResult.Count = 0 then
-        RunCommand('bash', ['-c', 'adb start-server'], Output, [poWaitOnExit]); }
+      if SResult.Count = 0 then
+        RunCommand('bash', ['-c', 'adb start-server'], Output, [poWaitOnExit]);
 
       // -------------------------
       // 2. Если ADB запущен - Получение списка устройств
@@ -73,8 +71,6 @@ begin
               ['-c', 'killall adb; adb kill-server; adb start-server'], Output,
               [poWaitOnExit]);
         end;
-       { else
-          SResult.Clear; }
       end
       else
         SResult.Clear;
@@ -104,6 +100,7 @@ end;
 { //Scan ADB-device, status and adbkey (прежний вариант)
 procedure ShowStatus.Execute;
 var
+  Output: String;
   ExProcess: TProcess;
 begin
   try
@@ -134,6 +131,12 @@ begin
         ExProcess.Parameters.Add('adb devices | tail -n +2');
         ExProcess.Execute;
         SResult.LoadFromStream(ExProcess.Output);
+        SResult:= Trim(SResult);
+        //Состояние offline - перезапуск adb (состязание двух устройств)
+          if (SResult.Count > 1) and (Pos('offline', SResult.Text) <> 0) then
+            RunCommand('bash',
+              ['-c', 'killall adb; adb kill-server; adb start-server'], Output,
+              [poWaitOnExit]);
       end
       else
         SResult.Clear;
