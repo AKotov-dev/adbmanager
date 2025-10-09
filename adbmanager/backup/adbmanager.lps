@@ -61,8 +61,7 @@
         <UnitName Value="ADBDeviceStatusTRD"/>
         <IsVisibleTab Value="True"/>
         <EditorIndex Value="1"/>
-        <TopLine Value="43"/>
-        <CursorPos X="82" Y="56"/>
+        <CursorPos X="26"/>
         <UsageCount Value="200"/>
         <Loaded Value="True"/>
       </Unit2>
