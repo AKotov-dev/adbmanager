@@ -94,7 +94,7 @@ object CheckForm: TCheckForm
     Caption = 'Delete mode'
     ParentShowHint = False
     TabOrder = 1
-    OnClick = ModeBoxClick
+    OnChange = ModeBoxChange
   end
   object ClearBtn: TSpeedButton
     AnchorSideLeft.Control = Edit1

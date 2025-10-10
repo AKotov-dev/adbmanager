@@ -182,6 +182,7 @@ begin
   begin
     ModeBox.Enabled := False;
     ApplyBtn.Enabled := False;
+    ProgressBar1.BringToFront;
     ProgressBar1.Style := pbstMarquee;
     ProgressBar1.Visible := True;
     ProgressBar1.Repaint;

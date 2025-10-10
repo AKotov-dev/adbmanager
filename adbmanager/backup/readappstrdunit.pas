@@ -142,9 +142,8 @@ begin
     //Выделяем имена пакетов
     for i := 0 to S.Count - 1 do
       S[i] := Copy(S[i], Pos(':', S[i]) + 1, MaxInt);
-
-    {S.Text := Trim(S.Text);
-    S.Sort;}
+    //Для аккуратного снятия чекеров сверху вниз
+    S.Sort;
 
   finally
     if (not Application.Terminated) and Assigned(CheckForm) and

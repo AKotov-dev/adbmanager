@@ -41,7 +41,7 @@ type
     procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
     procedure FormShow(Sender: TObject);
     procedure LoadFromTXTClick(Sender: TObject);
-    procedure ModeBoxClick(Sender: TObject);
+    procedure ModeBoxChange(Sender: TObject);
     procedure PkgBtnClick(Sender: TObject);
     procedure PopupMenu1Popup(Sender: TObject);
     procedure SaveToFileClick(Sender: TObject);
@@ -206,7 +206,7 @@ begin
 end;
 
 //Режим: Отключение или Удаление приложений
-procedure TCheckForm.ModeBoxClick(Sender: TObject);
+procedure TCheckForm.ModeBoxChange(Sender: TObject);
 begin
   if AppListBox.Count <> 0 then
   begin
