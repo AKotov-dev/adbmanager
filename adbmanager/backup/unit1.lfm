@@ -7,6 +7,7 @@ object MainForm: TMainForm
   Caption = 'ADBManager'
   ClientHeight = 618
   ClientWidth = 828
+  DesignTimePPI = 95
   KeyPreview = True
   SessionProperties = 'Left;Top;Width;Height'
   LCLVersion = '4.2.0.0'
@@ -21,8 +22,8 @@ object MainForm: TMainForm
     Top = 0
     Width = 828
     AutoSize = True
-    ButtonHeight = 80
-    ButtonWidth = 80
+    ButtonHeight = 79
+    ButtonWidth = 79
     EdgeBorders = []
     EdgeInner = esNone
     EdgeOuter = esNone
@@ -39,7 +40,7 @@ object MainForm: TMainForm
     end
     object ExitBtn: TToolButton
       Tag = 2
-      Left = 161
+      Left = 159
       Top = 0
       Caption = 'Exit'
       ImageIndex = 2
@@ -47,22 +48,22 @@ object MainForm: TMainForm
     end
     object DeleteKeyBtn: TToolButton
       Tag = 1
-      Left = 81
+      Left = 80
       Top = 0
       Caption = 'Delete Key'
       ImageIndex = 1
       OnClick = RestartBtnClick
     end
     object StaticText2: TStaticText
-      Left = 241
-      Height = 80
+      Left = 238
+      Height = 79
       Top = 0
       Width = 24
       TabOrder = 0
     end
     object Label3: TLabel
       AnchorSideTop.Side = asrBottom
-      Left = 265
+      Left = 262
       Height = 85
       Top = 0
       Width = 330
@@ -97,8 +98,8 @@ object MainForm: TMainForm
     AnchorSideRight.Side = asrBottom
     AnchorSideBottom.Control = StaticText1
     Left = 0
-    Height = 387
-    Top = 211
+    Height = 388
+    Top = 210
     Width = 828
     ActivePage = DevSheet
     Anchors = [akTop, akLeft, akRight, akBottom]
@@ -109,7 +110,7 @@ object MainForm: TMainForm
     TabOrder = 2
     object DevSheet: TTabSheet
       Caption = 'no device'
-      ClientHeight = 350
+      ClientHeight = 351
       ClientWidth = 822
       Font.Height = -13
       Font.Name = 'Sans'
@@ -117,7 +118,7 @@ object MainForm: TMainForm
       ParentFont = False
       object LogMemo: TMemo
         Left = 0
-        Height = 350
+        Height = 351
         Top = 0
         Width = 822
         Align = alClient
@@ -206,10 +207,10 @@ object MainForm: TMainForm
       OnChangeBounds = KeyLabelChangeBounds
     end
     object Image1: TImage
-      Left = 520
-      Height = 90
+      Left = 515
+      Height = 89
       Top = -24
-      Width = 90
+      Width = 89
       Picture.Data = {
         1754506F727461626C654E6574776F726B47726170686963021E000089504E47
         0D0A1A0A0000000D4948445200000080000000800806000000C33E61CB000000
@@ -460,14 +461,15 @@ object MainForm: TMainForm
       AnchorSideTop.Side = asrCenter
       AnchorSideRight.Control = Panel1
       AnchorSideRight.Side = asrBottom
-      Left = 627
-      Height = 17
+      Left = 619
+      Height = 18
       Hint = 'Total / Available (%)'
-      Top = 9
-      Width = 193
+      Top = 8
+      Width = 201
       Anchors = [akTop, akRight]
       BorderSpacing.Right = 8
       Caption = 'RAM: 0.00 GB / 0.00 GB (0.0%)'
+      Font.Height = -14
       Font.Style = [fsBold]
       ParentFont = False
       ParentShowHint = False
@@ -476,12 +478,12 @@ object MainForm: TMainForm
   end
   object ToolBar2: TToolBar
     Left = 0
-    Height = 66
+    Height = 65
     Top = 145
     Width = 828
     AutoSize = True
-    ButtonHeight = 64
-    ButtonWidth = 64
+    ButtonHeight = 63
+    ButtonWidth = 63
     Caption = 'ToolBar2'
     Images = ImageList2
     ShowCaptions = True
@@ -489,7 +491,7 @@ object MainForm: TMainForm
     Wrapable = False
     object InstallBtn: TToolButton
       Tag = 2
-      Left = 137
+      Left = 135
       Top = 2
       Caption = 'install'
       ImageIndex = 2
@@ -497,7 +499,7 @@ object MainForm: TMainForm
     end
     object UninstallBtn: TToolButton
       Tag = 3
-      Left = 201
+      Left = 198
       Hint = 'Android 4+'
       Top = 2
       Caption = 'uninstall'
@@ -508,7 +510,7 @@ object MainForm: TMainForm
     end
     object ScreenShotBtn: TToolButton
       Tag = 8
-      Left = 410
+      Left = 403
       Top = 2
       Caption = 'screenshot'
       ImageIndex = 6
@@ -516,7 +518,7 @@ object MainForm: TMainForm
     end
     object RebootBtn: TToolButton
       Tag = 10
-      Left = 612
+      Left = 600
       Top = 2
       Caption = 'reboot'
       ImageIndex = 9
@@ -524,7 +526,7 @@ object MainForm: TMainForm
     end
     object SearchBtn: TToolButton
       Tag = 1
-      Left = 65
+      Left = 64
       Top = 2
       Caption = 'search apk'
       ImageIndex = 1
@@ -539,7 +541,7 @@ object MainForm: TMainForm
     end
     object ShellBtn: TToolButton
       Tag = 9
-      Left = 484
+      Left = 474
       Top = 2
       Caption = 'terminal'
       ImageIndex = 7
@@ -547,7 +549,7 @@ object MainForm: TMainForm
     end
     object ToolButton4: TToolButton
       Tag = 7
-      Left = 346
+      Left = 340
       Hint = 'Android 4+'
       Top = 2
       Caption = 'sd-card'
@@ -558,7 +560,7 @@ object MainForm: TMainForm
     end
     object AppListBtn: TToolButton
       Tag = 4
-      Left = 265
+      Left = 261
       Hint = 'Android 5+'
       Top = 2
       Caption = 'applications'
@@ -568,7 +570,7 @@ object MainForm: TMainForm
       OnClick = ApkInfoBtnClick
     end
     object ToolButton1: TToolButton
-      Left = 548
+      Left = 537
       Hint = 'Android TV Box'
       Top = 2
       Caption = 'settings'
@@ -594,10 +596,10 @@ object MainForm: TMainForm
   end
   object ProgressBar1: TProgressBar
     AnchorSideTop.Control = PageControl1
-    Left = 589
+    Left = 591
     Height = 12
-    Top = 216
-    Width = 232
+    Top = 215
+    Width = 230
     Anchors = [akTop, akRight]
     BorderSpacing.Top = 5
     TabOrder = 6
@@ -606,8 +608,8 @@ object MainForm: TMainForm
   object ImageList1: TImageList
     Height = 48
     Width = 48
-    Left = 480
-    Top = 304
+    Left = 475
+    Top = 301
     Bitmap = {
       4C7A030000003000000030000000871100000000000078DADD9C5B5454579AC7
       31F1CD79352FE9975933F3A44F9D985E2B5D7070751E3A8D62D4F4723A23D06B
@@ -754,14 +756,14 @@ object MainForm: TMainForm
   end
   object IniPropStorage1: TIniPropStorage
     StoredValues = <>
-    Left = 392
-    Top = 304
+    Left = 388
+    Top = 301
   end
   object ImageList2: TImageList
     Height = 32
     Width = 32
-    Left = 552
-    Top = 304
+    Left = 546
+    Top = 301
     Bitmap = {
       4C7A0C0000002000000020000000DC2E00000000000078DAED9D07589457DAF7
       2765534C73936CF67B77B39B443765CDC61E952262032C1451409462037B2F68
@@ -1145,17 +1147,17 @@ object MainForm: TMainForm
     FileName = 'backup.adb'
     Filter = 'Backup files (*.adb)|*.adb'
     Options = [ofOverwritePrompt, ofEnableSizing, ofViewDetail]
-    Left = 304
-    Top = 304
+    Left = 301
+    Top = 301
   end
   object OpenDialog1: TOpenDialog
     Filter = 'Backup files (*.adb)|*.adb'
     Options = [ofAllowMultiSelect, ofEnableSizing, ofViewDetail]
-    Left = 224
-    Top = 304
+    Left = 222
+    Top = 301
   end
   object SelectDirectoryDialog1: TSelectDirectoryDialog
-    Left = 112
-    Top = 304
+    Left = 111
+    Top = 301
   end
 end
