@@ -333,7 +333,7 @@ begin
   //ADB установлен?
   if CheckADBInstalled(Ver) then
   begin
-    LogMemo.Append('ADB: ' + Ver);
+    LogMemo.Append('ADB: ' + ver);
     //Перезапуск сервера, если не запущен (adb devices и сам сервер запускаются в потоке статуса)
     // StartProcess('if [ -z "$(ss -lt | grep 5037)" ]; then adb kill-server; killall adb; fi');
     //Запуск потока отображения памяти (RAM)
@@ -588,16 +588,22 @@ end;
 
 //Обработка нажатия кнопок управления ADB
 procedure TMainForm.RestartBtnClick(Sender: TObject);
+var
+  ver: string;
 begin
-  //Очистка лога
-  LogMemo.Clear;
-
   case (Sender as TToolButton).Tag of
     0: //Restart
     begin
       ActiveLabel.Caption := SRestart;
-      StartProcess('killall -q adb; adb kill-server');
-      LabelRAM.Caption := 'RAM: 0.00 GB / 0.00 GB (0.0%)';
+
+      //ADB установлен?
+      if CheckADBInstalled(ver) then
+      begin
+        LogMemo.Clear;
+        LogMemo.Append('ADB: ' + ver);
+        LabelRAM.Caption := 'RAM: 0.00 GB / 0.00 GB (0.0%)';
+        StartProcess('killall -q adb; adb kill-server');
+      end;
     end;
 
     1: //Delete Key
