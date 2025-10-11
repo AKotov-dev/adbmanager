@@ -141,7 +141,7 @@ begin
     ExProcess.Executable := 'bash';
     ExProcess.Parameters.Add('-c');
     ExProcess.Parameters.Add(command);
-    // ExProcess.Options := [poUsePipes, poStderrToOutPut];
+    ExProcess.Options := [poWaitOnExit];
     ExProcess.Execute;
   finally
     ExProcess.Free;
@@ -150,23 +150,13 @@ end;
 
 //Исполнение команд/вывод лога (sdcmd)
 procedure TSDForm.StartCommand;
-{var
-  FSDCommandThread: TThread;}
 begin
-  {FSDCommandThread := StartSDCommand.Create(False);
-  FSDCommandThread.Priority := tpNormal;}
-
   StartSDCommand.Create(False);
 end;
 
 //ls в директории /sdcard/... (SDBox)
 procedure TSDForm.StartLS;
-{var
-  FLSSDThread: TThread;}
 begin
- { FLSSDThread := StartLSSD.Create(False);
-  FLSSDThread.Priority := tpHighest; //tpHigher}
-
   StartLSSD.Create(False);
 end;
 
@@ -193,15 +183,6 @@ procedure TSDForm.CancelCopy;
 begin
   // Убиваем все adb push, adb pull процессы одной командой
   StartProcess('pkill -f "adb push|adb pull"');
-
-  //Если копирование или установка выполняется - отменяем
-{  StartProcess('if pgrep -f "adb push" > /dev/null; then kill $(pgrep -f "adb push") >/dev/null 2>&1; fi');
-  StartProcess('if pgrep -f "adb pull" > /dev/null; then kill $(pgrep -f "adb pull") >/dev/null 2>&1; fi');
-  StartProcess('if pgrep -f "adb shell" > /dev/null; then kill $(pgrep -f "adb shell") >/dev/null 2>&1; fi');
-
-  StartProcess('pkill -f "adb push"  >/dev/null 2>&1');
-  StartProcess('pkill -f "adb pull"  >/dev/null 2>&1');
-  StartProcess('pkill -f "adb shell" >/dev/null 2>&1');  }
 end;
 
 //На уровень вверх

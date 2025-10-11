@@ -368,6 +368,9 @@ begin
 
     1: //Search Package
     begin
+      //Если устройства нет - Выход
+      if DevSheet.Caption = sNoDevice then Exit;
+
       //если adb выполняется - выйти
       if ProgressBar1.Style in [pbstMarquee] then Exit;
 
@@ -406,7 +409,7 @@ begin
     3: //uninstall
     begin
       //если adb выполняется - выйти
-      if ProgressBar1.Style in [pbstMarquee] then Exit;
+      if (ProgressBar1.Style in [pbstMarquee]) then Exit;
 
       repeat
         if not InputQuery(SDeleteCaption, SPackageName, S) then
@@ -418,17 +421,25 @@ begin
 
     4: //Отключение/Удаление приложений
     begin
+      //Если устройства нет - Выход
+      if DevSheet.Caption = sNoDevice then Exit;
       CheckForm.ShowModal;
       Exit;
     end;
 
     5: //SD-FileManager
     begin
+      //Если устройства нет - Выход
+      if DevSheet.Caption = sNoDevice then Exit;
       SDForm.Show;
       Exit;
     end;
 
     6: //screenshot
+    begin
+      //Если устройства нет - Выход
+      if DevSheet.Caption = sNoDevice then Exit;
+
       if SelectDirectoryDialog1.Execute then
       begin
         SetCurrentDir(SelectDirectoryDialog1.FileName);
@@ -441,11 +452,15 @@ begin
       end
       else
         Exit;
+    end;
 
-    7: //Терминал Android Shell   Copy(originalString, 1, symbolPos - 1);
+    7: //Терминал Android Shell
     begin
-      i := Pos(#9, DevSheet.Caption); //Выделяем имя-1
- //   dev0 := Trim(Copy(DevSheet.Caption, 1, i));
+      //Если устройства нет - Выход
+      if DevSheet.Caption = sNoDevice then Exit;
+
+      //Выделяем имя устройства
+      i := Pos(#9, DevSheet.Caption);
       StartProcess('sakura -t "Android Shell > ' + Trim(Copy(DevSheet.Caption, 1, i)) +
         '" -c 110 -r 36 -f 10 -x "adb shell"');
       Exit;
@@ -453,12 +468,18 @@ begin
 
     8: //Токие настройки Android
     begin
+      //Если устройства нет - Выход
+      if DevSheet.Caption = sNoDevice then Exit;
+
       SettingsForm.ShowModal;
       Exit;
     end;
 
     9: //reboot
     begin
+      //Если устройства нет - Выход
+      if DevSheet.Caption = sNoDevice then Exit;
+
       RebootForm := TRebootForm.Create(Application);
       RebootForm.ShowModal; //Показываем варианты Reboot
       //  if RebootForm.ModalResult <> mrOk then

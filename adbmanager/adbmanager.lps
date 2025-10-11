@@ -80,7 +80,7 @@
         <UnitName Value="RebootUnit"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="18"/>
-        <UsageCount Value="188"/>
+        <UsageCount Value="189"/>
       </Unit4>
       <Unit5>
         <Filename Value="sdcardmanager.pas"/>
@@ -91,7 +91,7 @@
         <UnitName Value="SDCardManager"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="21"/>
-        <UsageCount Value="180"/>
+        <UsageCount Value="181"/>
       </Unit5>
       <Unit6>
         <Filename Value="sdcommandtrd.pas"/>
@@ -99,7 +99,7 @@
         <UnitName Value="SDCommandTRD"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="20"/>
-        <UsageCount Value="178"/>
+        <UsageCount Value="179"/>
       </Unit6>
       <Unit7>
         <Filename Value="lssdfoldertrd.pas"/>
@@ -107,7 +107,7 @@
         <UnitName Value="LSSDFolderTRD"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="22"/>
-        <UsageCount Value="154"/>
+        <UsageCount Value="155"/>
       </Unit7>
       <Unit8>
         <Filename Value="emulatorunit.pas"/>
@@ -118,7 +118,7 @@
         <UnitName Value="EmulatorUnit"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="20"/>
-        <UsageCount Value="127"/>
+        <UsageCount Value="128"/>
       </Unit8>
       <Unit9>
         <Filename Value="sdmountpointtrd.pas"/>
@@ -126,7 +126,7 @@
         <UnitName Value="SDMountPointTRD"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="23"/>
-        <UsageCount Value="114"/>
+        <UsageCount Value="115"/>
       </Unit9>
       <Unit10>
         <Filename Value="checkunit.pas"/>
@@ -137,7 +137,7 @@
         <UnitName Value="CheckUnit"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="17"/>
-        <UsageCount Value="111"/>
+        <UsageCount Value="112"/>
       </Unit10>
       <Unit11>
         <Filename Value="readappstrdunit.pas"/>
@@ -145,7 +145,7 @@
         <UnitName Value="ReadAppsTRDUnit"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="23"/>
-        <UsageCount Value="110"/>
+        <UsageCount Value="111"/>
       </Unit11>
       <Unit12>
         <Filename Value="settings_unit.pas"/>
@@ -155,7 +155,7 @@
         <ResourceBaseClass Value="Form"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="21"/>
-        <UsageCount Value="96"/>
+        <UsageCount Value="97"/>
       </Unit12>
       <Unit13>
         <Filename Value="readsettingstrdunit.pas"/>
@@ -163,7 +163,7 @@
         <UnitName Value="ReadSettingsTRDUnit"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="27"/>
-        <UsageCount Value="93"/>
+        <UsageCount Value="94"/>
       </Unit13>
       <Unit14>
         <Filename Value="writesettingstrdunit.pas"/>
@@ -171,7 +171,7 @@
         <UnitName Value="WriteSettingsTRDUnit"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="28"/>
-        <UsageCount Value="90"/>
+        <UsageCount Value="91"/>
       </Unit14>
       <Unit15>
         <Filename Value="xdgopentrd.pas"/>
@@ -179,7 +179,7 @@
         <UnitName Value="XDGOpenTRD"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="18"/>
-        <UsageCount Value="58"/>
+        <UsageCount Value="59"/>
       </Unit15>
       <Unit16>
         <Filename Value="usingramtrd.pas"/>
@@ -187,7 +187,7 @@
         <UnitName Value="UsingRAMTRD"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="19"/>
-        <UsageCount Value="49"/>
+        <UsageCount Value="50"/>
       </Unit16>
       <Unit17>
         <Filename Value="backupunit.pas"/>
@@ -201,99 +201,87 @@
         <UsageCount Value="101"/>
       </Unit17>
     </Units>
-    <JumpHistory Count="23" HistoryIndex="22">
+    <JumpHistory Count="20" HistoryIndex="19">
       <Position1>
         <Filename Value="unit1.pas"/>
-        <Caret Line="72" Column="9" TopLine="46"/>
+        <Caret Column="13"/>
       </Position1>
       <Position2>
         <Filename Value="unit1.pas"/>
-        <Caret Line="286" Column="32" TopLine="257"/>
+        <Caret Line="448" Column="7" TopLine="431"/>
       </Position2>
       <Position3>
         <Filename Value="unit1.pas"/>
-        <Caret Line="350" Column="54" TopLine="340"/>
+        <Caret Line="448" Column="7" TopLine="431"/>
       </Position3>
       <Position4>
         <Filename Value="unit1.pas"/>
-        <Caret Line="281" TopLine="271"/>
+        <Caret Column="13"/>
       </Position4>
       <Position5>
         <Filename Value="unit1.pas"/>
-        <Caret Line="62" Column="3" TopLine="47"/>
+        <Caret Line="104" Column="42" TopLine="91"/>
       </Position5>
       <Position6>
         <Filename Value="unit1.pas"/>
-        <Caret Line="70" Column="3" TopLine="58"/>
+        <Caret Line="345" Column="33" TopLine="322"/>
       </Position6>
       <Position7>
         <Filename Value="unit1.pas"/>
-        <Caret Line="338" Column="26" TopLine="332"/>
+        <Caret Line="91" Column="34" TopLine="69"/>
       </Position7>
       <Position8>
         <Filename Value="unit1.pas"/>
-        <Caret Column="13"/>
+        <Caret Line="339" Column="5" TopLine="295"/>
       </Position8>
       <Position9>
         <Filename Value="unit1.pas"/>
-        <Caret Line="448" Column="7" TopLine="431"/>
+        <Caret Line="339" Column="3" TopLine="322"/>
       </Position9>
       <Position10>
         <Filename Value="unit1.pas"/>
-        <Caret Line="448" Column="7" TopLine="431"/>
+        <Caret Line="561" Column="3" TopLine="549"/>
       </Position10>
       <Position11>
         <Filename Value="unit1.pas"/>
-        <Caret Column="13"/>
+        <Caret Line="339" Column="6" TopLine="317"/>
       </Position11>
       <Position12>
         <Filename Value="unit1.pas"/>
-        <Caret Line="104" Column="42" TopLine="91"/>
+        <Caret Line="568" Column="29" TopLine="549"/>
       </Position12>
       <Position13>
         <Filename Value="unit1.pas"/>
-        <Caret Line="345" Column="33" TopLine="322"/>
+        <Caret Line="569" Column="59" TopLine="415"/>
       </Position13>
       <Position14>
         <Filename Value="unit1.pas"/>
-        <Caret Line="91" Column="34" TopLine="69"/>
+        <Caret Line="561" Column="3" TopLine="549"/>
       </Position14>
       <Position15>
         <Filename Value="unit1.pas"/>
-        <Caret Line="339" Column="5" TopLine="295"/>
+        <Caret Column="13"/>
       </Position15>
       <Position16>
         <Filename Value="unit1.pas"/>
-        <Caret Line="339" Column="3" TopLine="322"/>
+        <Caret Line="449" Column="81" TopLine="438"/>
       </Position16>
       <Position17>
         <Filename Value="unit1.pas"/>
-        <Caret Line="561" Column="3" TopLine="549"/>
+        <Caret Column="13"/>
       </Position17>
       <Position18>
         <Filename Value="unit1.pas"/>
-        <Caret Line="339" Column="6" TopLine="317"/>
+        <Caret Line="436" Column="5" TopLine="422"/>
       </Position18>
       <Position19>
         <Filename Value="unit1.pas"/>
-        <Caret Line="568" Column="29" TopLine="549"/>
+        <Caret Line="437" Column="28" TopLine="422"/>
       </Position19>
       <Position20>
         <Filename Value="unit1.pas"/>
-        <Caret Line="569" Column="59" TopLine="415"/>
+        <Caret Line="436" TopLine="423"/>
       </Position20>
-      <Position21>
-        <Filename Value="unit1.pas"/>
-        <Caret Line="561" Column="3" TopLine="549"/>
-      </Position21>
-      <Position22>
-        <Filename Value="unit1.pas"/>
-        <Caret Column="13"/>
-      </Position22>
-      <Position23>
-        <Filename Value="unit1.pas"/>
-        <Caret Line="449" Column="81" TopLine="438"/>
-      </Position23>
     </JumpHistory>
     <RunParams>
       <FormatVersion Value="2"/>

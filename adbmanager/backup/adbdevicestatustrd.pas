@@ -221,17 +221,20 @@ begin
       adbcmd := 'adb disconnect ' + dev1;
 
     //Запуск команды и потока отображения лога отключения
-    if adbcmd <> '' then
-    begin
+   { if adbcmd <> '' then
+    begin}
       //Закрываем SD-Manager, если открыт
       if SDForm.Visible then
+      begin
+        SDForm.CancelCopy;
         SDForm.Close;
+      end;
 
       //Отключаем терминал, если использовался
-      MainForm.StartProcess('killall sakura');
+      MainForm.StartProcess('[ $(pidof sakura) ] && killall sakura');
 
       StartADBCommand.Create(adbcmd);
-    end;
+    //end;
   end
   else //Единственное устройство и статус выводим сразу, либо "no device"
   if Trim(SResult.Text) <> '' then
