@@ -388,6 +388,9 @@ begin
 
     2: //install
     begin
+      //Если устройства нет - Выход
+      if DevSheet.Caption = sNoDevice then Exit;
+
       //если adb выполняется - выйти
       if ProgressBar1.Style in [pbstMarquee] then Exit;
 
@@ -408,6 +411,9 @@ begin
 
     3: //uninstall
     begin
+      //Если устройства нет - Выход
+      if DevSheet.Caption = sNoDevice then Exit;
+
       //если adb выполняется - выйти
       if (ProgressBar1.Style in [pbstMarquee]) then Exit;
 
@@ -423,6 +429,7 @@ begin
     begin
       //Если устройства нет - Выход
       if DevSheet.Caption = sNoDevice then Exit;
+
       CheckForm.ShowModal;
       Exit;
     end;
@@ -431,6 +438,7 @@ begin
     begin
       //Если устройства нет - Выход
       if DevSheet.Caption = sNoDevice then Exit;
+
       SDForm.Show;
       Exit;
     end;

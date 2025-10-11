@@ -595,8 +595,8 @@ begin
   case (Sender as TToolButton).Tag of
     0: //Restart
     begin
-      StartProcess('killall -q adb; adb kill-server');
       ActiveLabel.Caption := SRestart;
+      StartProcess('killall -q adb; adb kill-server');
       LabelRAM.Caption := 'RAM: 0.00 GB / 0.00 GB (0.0%)';
     end;
 
