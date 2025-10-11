@@ -131,7 +131,7 @@ begin
   Result := StringReplace(Result, '&', '\&', [rfReplaceAll]);
 end;
 
-//StartCommand
+//Асинхронный запуск вспомогательных команд
 procedure TSDForm.StartProcess(command: string);
 var
   ExProcess: TProcess;

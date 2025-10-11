@@ -445,7 +445,8 @@ begin
 
     7: //Терминал Android Shell
     begin
-      StartProcess('sakura -t "Android Shell" -c 110 -r 36 -f 10 -x "adb shell"');
+      StartProcess('sakura -t "Android Shell > ' + DevSheet.Caption +
+        '" -c 110 -r 36 -f 10 -x "adb shell"');
       Exit;
     end;
 

@@ -105,6 +105,7 @@ object MainForm: TMainForm
     Anchors = [akTop, akLeft, akRight, akBottom]
     Font.Height = -13
     Font.Name = 'Sans'
+    Font.Style = [fsBold]
     ParentFont = False
     TabIndex = 0
     TabOrder = 2
