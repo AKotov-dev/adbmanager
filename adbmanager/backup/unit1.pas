@@ -309,7 +309,6 @@ procedure TMainForm.FormCreate(Sender: TObject);
 var
   bmp: TBitmap;
   ver: string;
-  //  FStartShowStatusThread: TThread;
 begin
   //Устраняем баг иконки приложения (Lazarus-4.0)
   //https://gitlab.com/freepascal.org/lazarus/lazarus/-/issues/41636
@@ -443,9 +442,11 @@ begin
       else
         Exit;
 
-    7: //Терминал Android Shell
+    7: //Терминал Android Shell   Copy(originalString, 1, symbolPos - 1);
     begin
-      StartProcess('sakura -t "Android Shell > ' + DevSheet.Caption +
+      i := Pos(#9, DevSheet.Caption); //Выделяем имя-1
+ //   dev0 := Trim(Copy(DevSheet.Caption, 1, i));
+      StartProcess('sakura -t "Android Shell > ' + Trim(Copy(DevSheet.Caption, 1, i)) +
         '" -c 110 -r 36 -f 10 -x "adb shell"');
       Exit;
     end;

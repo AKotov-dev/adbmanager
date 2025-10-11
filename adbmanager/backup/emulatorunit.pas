@@ -122,18 +122,28 @@ var
 begin
   adbcmd := '';
 
+  //Если устройство TCP/IP не используется повторно
+  if Pos(Edit1.Text, MainForm.DevSheet.Caption) = 0 then
+  begin
+    //Закрываем SD-Manager, если открыт
+    if SDForm.Visible then
+      SDForm.Close;
+
+    //Отключаем терминал, если использовался
+    MainForm.StartProcess('[ $(pidof sakura) ] && killall sakura');
+  end;
+
   //Обработка команд Подключение/Сканирование
   case RadioGroup1.ItemIndex of
     0: adbcmd := 'adb usb';
     1: adbcmd := 'adb tcpip 5555';
     //Выделяем адрес вида x.x.x.x/nn
-    2: adbcmd := 'nmap -sn $(ip a | grep -w $(ip route get 1.1.1.1 | awk ' +
+   { 2: adbcmd := 'nmap -sn $(ip a | grep -w $(ip route get 1.1.1.1 | awk ' +
         '''' + '{print $3}' + '''' + ' | cut -d "." -f1,2) | awk ' +
-        '''' + '{print $2}' + '''' + ') | grep Nmap';
-
-   { 2: adbcmd := 'iface=$(ip route get 1.1.1.1 | awk ''{print $5}''); ' +
+        '''' + '{print $2}' + '''' + ') | grep Nmap'; }
+    2: adbcmd := 'iface=$(ip route get 1.1.1.1 | awk ''{print $5}''); ' +
         'nmap -sn $(ip -o -4 addr show $iface | awk ''{print $4}'') | grep Nmap';
-    }
+
     else
       //Если введён валидный IP и он пингуется - выполняется коннект, иначе - отмена после ping -c3
       if IsIP(Trim(Edit1.Text)) then

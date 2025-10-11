@@ -225,10 +225,13 @@ begin
     begin
       //Закрываем SD-Manager, если открыт
       if SDForm.Visible then
+      begin
+        SDForm.CancelCopy;
         SDForm.Close;
+      end;
 
       //Отключаем терминал, если использовался
-      MainForm.StartProcess('killall sakura');
+      MainForm.StartProcess('[ $(pidof sakura) ] && killall sakura');
 
       StartADBCommand.Create(adbcmd);
     end;

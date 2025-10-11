@@ -442,9 +442,11 @@ begin
       else
         Exit;
 
-    7: //Терминал Android Shell
+    7: //Терминал Android Shell   Copy(originalString, 1, symbolPos - 1);
     begin
-      StartProcess('sakura -t "Android Shell > ' + DevSheet.Caption +
+      //Выделяем имя устройства
+      i := Pos(#9, DevSheet.Caption);
+      StartProcess('sakura -t "Android Shell > ' + Trim(Copy(DevSheet.Caption, 1, i)) +
         '" -c 110 -r 36 -f 10 -x "adb shell"');
       Exit;
     end;

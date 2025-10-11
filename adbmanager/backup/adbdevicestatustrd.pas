@@ -52,8 +52,8 @@ begin
       Synchronize(@ShowIsActive);
 
       //Если ADB не запущен - запустить
-      if SResult.Count = 0 then
-        RunCommand('bash', ['-c', 'adb start-server'], Output, [poWaitOnExit]);
+     { if SResult.Count = 0 then
+        RunCommand('bash', ['-c', 'adb start-server'], Output, [poWaitOnExit]); }
 
       // -------------------------
       // 2. Если ADB запущен - Получение списка устройств
