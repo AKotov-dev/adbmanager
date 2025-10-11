@@ -309,7 +309,6 @@ procedure TMainForm.FormCreate(Sender: TObject);
 var
   bmp: TBitmap;
   ver: string;
-  //  FStartShowStatusThread: TThread;
 begin
   //Устраняем баг иконки приложения (Lazarus-4.0)
   //https://gitlab.com/freepascal.org/lazarus/lazarus/-/issues/41636
