@@ -328,7 +328,11 @@ begin
   if not DirectoryExists(GetUserDir + '.adbmanager/tmp') then
     MkDir(GetUserDir + '.adbmanager/tmp');
 
+  {$IFDEF LCLQt6}
+      MainForm.Caption := Application.Title + ' Qt';
+  {$ELSE}
   MainForm.Caption := Application.Title;
+  {$ENDIF}
 
   //ADB установлен?
   if CheckADBInstalled(Ver) then

@@ -328,7 +328,17 @@ begin
   if not DirectoryExists(GetUserDir + '.adbmanager/tmp') then
     MkDir(GetUserDir + '.adbmanager/tmp');
 
-  MainForm.Caption := Application.Title;
+ // {$IFDEF LCLQt6}
+ //     MainForm.Caption := Application.Title + ' Qt';
+ // {$ELSE}
+ // MainForm.Caption := Application.Title;
+ //  {$ENDIF}
+
+   // Название приложения
+  Application.Title := 'ADBManager';
+
+  // Автоматически добавить тип виджетсета
+  MainForm.Caption := Format('%s (%s)', [Application.Title, LCLPlatformDisplayName]);
 
   //ADB установлен?
   if CheckADBInstalled(Ver) then
@@ -589,21 +599,21 @@ end;
 //Обработка нажатия кнопок управления ADB
 procedure TMainForm.RestartBtnClick(Sender: TObject);
 var
-  Ver: string;
+  ver: string;
 begin
-  //Очистка лога
-  LogMemo.Clear;
-
-  //ADB установлен?
-  if CheckADBInstalled(Ver) then
-    LogMemo.Append('ADB: ' + Ver);
-
   case (Sender as TToolButton).Tag of
     0: //Restart
     begin
       ActiveLabel.Caption := SRestart;
-      StartProcess('killall -q adb; adb kill-server');
-      LabelRAM.Caption := 'RAM: 0.00 GB / 0.00 GB (0.0%)';
+
+      //ADB установлен?
+      if CheckADBInstalled(ver) then
+      begin
+        LogMemo.Clear;
+        LogMemo.Append('ADB: ' + ver);
+        LabelRAM.Caption := 'RAM: 0.00 GB / 0.00 GB (0.0%)';
+        StartProcess('killall -q adb; adb kill-server');
+      end;
     end;
 
     1: //Delete Key
