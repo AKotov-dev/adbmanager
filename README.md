@@ -25,8 +25,8 @@ Two separate builds are available in the same source tree.
   lazbuild --build-mode=Qt6 adbmanager.lpi       # Qt6
 
 **Lazarus IDE:**
-1. Select the Build Configuration from the top-left drop-down (Release for GTK2, Qt6 for Qt6).
-2. Go to Project → Build.
+1. Select the Build Configuration from the top-left drop-down (`Release` for GTK2, `Qt6` for Qt6).
+2. Go to `Projec`t → `Build`.
 
 **Output binaries (same folder):**
 + adbmanager → GTK2
