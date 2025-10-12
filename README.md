@@ -93,4 +93,4 @@ To create your own translation, download the main translation template: [adbmana
   
 Install and run the `PoEdit` editor. Open in it: `Menu`-`File`-`Create from POT/PO file` and select the file `adbmanager.pot`. Immediately specify the language into which you want to translate and... `Menu`-`File`-`Save As...` Specify the file name `adbmanager.xx.po`, where `xx` is the language prefix.  
   
-**Note:** Due to the release of an additional ADBManager version with Qt widgets, the primary translation files remain the original adbmanager.xx.po. Any subsequent duplication for the Qt version (adbmanager-qt.xx.po) can be performed using the script 1-translation_gtk-qt.sh.
+**Note:** Due to the release of an additional ADBManager version with Qt widgets, the primary translation files remain the original `adbmanager.xx.po`. Any subsequent duplication for the Qt version (`adbmanager-qt.xx.po`) can be performed using the script [1-translation_gtk-qt.sh](https://github.com/AKotov-dev/adbmanager/blob/main/adbmanager/1-translation_gtk-qt.sh).
