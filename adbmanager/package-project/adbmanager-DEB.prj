@@ -79,9 +79,9 @@ toolversion=4.2
 9=+ Improved overall multithreading and responsiveness
 10=+ Improved switching of devices in offline status (TCP/IP)
 11=+ Improved the procedure for stopping package installations
-12=+ Mageia-9 and Ubuntu packages
+12=+ Mageia-9 and Ubuntu >= 25.04 packages
 13=
-14=**Note:** Build for maintainers: `lazbuild --build-mode=Release adbmanager.lpi` and `lazbuild --build-mode=Qt6 adbmanager.lpi`. Build in Lazarus in two modes: `Release` and `Qt6`.
+14=**Note:** Build for maintainers: `lazbuild --build-mode=Release adbmanager.lpi` and `lazbuild --build-mode=Qt6 adbmanager.lpi`. Build in Lazarus in two modes: `Release` and `Qt6`. For Mageia 9, a backport from Mageia 10 has been published here: lib64qt6pas6 and lib64qt6pas-devel.
 15=
 16=v3.7
 17=+ Dependencies RPM/DEB: added `xdg-utils`
