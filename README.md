@@ -1,6 +1,7 @@
 ADBManager - Manager for Android devices using ADB
 ---
-+ Dependencies: adb iproute2 sakura nmap p7zip graphicsmagick xdg-utils procps-ng gtk2 (libgtk2.0-0)  
++ Dependencies (RPM): adb iproute2 sakura nmap p7zip graphicsmagick xdg-utils qtbase6-common qt6pas gtk2
++ Dependencies (DEB): adb iproute2 sakura nmap p7zip graphicsmagick xdg-utils libgtk2.0-0 libqt6core6 libqt6gui6 libqt6widgets6 libqt6network6 libqt6printsupport6 libqt6pas6  
 + Working directory (settings, temporary files): ~/.adbmanager/{icons,tmp}  
 + Packages installation script: ~/.adbmanager/install_packages.sh (created automatically)
 + `IconExtractor.apk`: /storage/emulated/0/Pictures/IconExtractor/icons
@@ -10,7 +11,29 @@ ADBManager - Manager for Android devices using ADB
 **Announcement:** Detailed instructions for building and setting up ADBManager on `macOS` were prepared by `Andrii Murashkin` (@murich) and are available [here](https://github.com/murich/adbmanager).
   
 `ADBManager` offers a clean and intuitive interface to control the ADB server and manage connected Android devices. It lets you monitor the ADB service, browse connected devices, and perform common actions like searching installed apps, installing or uninstalling APKs, taking screenshots, rebooting (normal, bootloader, or recovery), or shutting down the device. Advanced users can take advantage of the built-in Android shell terminal and SD card file manager.  
-  
+
+### Qt6 Support
+
+`ADBManager` now supports `Qt6` widgets alongside the classic `GTK2` interface.  
+Two separate builds are available in the same source tree.
+
+### Building
+
+- **Command line:**  
+  ```bash
+  lazbuild --build-mode=Release adbmanager.lpi    # GTK2
+  lazbuild --build-mode=Qt6 adbmanager.lpi       # Qt6
+
+**Lazarus IDE:**
+1. Select the Build Configuration from the top-left drop-down (Release for GTK2, Qt6 for Qt6).
+2. Go to Project → Build.
+
+**Output binaries (same folder):**
++ adbmanager → GTK2
++ adbmanager-qt → Qt6
+
+**Note:** `Qt6` build requires the `qt6pas` package (for Mageia) installed in `Lazarus` (not included by default).
+
 Starting with `v3.8`, you can now export a complete list of installed packages and their states (enabled/disabled) through the **PoUpMenu**. This is useful for experimenting with disabling unnecessary packages to speed up your device. For package list analysis, you can consult **ChatGPT** or other experienced users. The author is not responsible for any consequences from changes, so make sure to back up your data.
   
 Starting with `v3.7`, a double click in the SDCard manager opens 40+ file formats (multimedia, documents, archives, etc.) via `xdg-open`. Of course, the appropriate applications must be installed on the computer to open them.
