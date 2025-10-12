@@ -4,7 +4,7 @@ ADBManager - Manager for Android devices using ADB
 + Dependencies (DEB): adb iproute2 sakura nmap p7zip graphicsmagick xdg-utils libgtk2.0-0 libqt6core6 libqt6gui6 libqt6widgets6 libqt6network6 libqt6printsupport6 libqt6pas6  
 + Working directory (settings, temporary files): ~/.adbmanager/{icons,tmp}  
 + Packages installation script: ~/.adbmanager/install_packages.sh (created automatically)
-+ `IconExtractor.apk`: /storage/emulated/0/Pictures/IconExtractor/icons
++ `IconExtractor.apk`: /storage/emulated/0/Pictures/IconExtractor/icons (icon cache)
   
 **Note:** It is advisable to connect the devices via the `USB-2.0` port of your computer ([info](https://www.systutorials.com/how-to-force-a-usb-3-0-port-to-work-in-usb-2-0-mode-in-linux/)).
   
