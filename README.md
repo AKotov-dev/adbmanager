@@ -32,7 +32,7 @@ Two separate builds are available in the same source tree.
 + adbmanager → GTK2
 + adbmanager-qt → Qt6
 
-**Note:** `Qt6` build requires the `qt6pas` package (for Mageia) installed in `Lazarus` (not included by default).
+**Note:** `Qt6` build requires the `qt6pas, qt6pas-devel` package (for Mageia) installed in `Lazarus` (not included by default).
 
 Starting with `v3.8`, you can now export a complete list of installed packages and their states (enabled/disabled) through the **PoUpMenu**. This is useful for experimenting with disabling unnecessary packages to speed up your device. For package list analysis, you can consult **ChatGPT** or other experienced users. The author is not responsible for any consequences from changes, so make sure to back up your data.
   
