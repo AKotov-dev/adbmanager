@@ -21,7 +21,7 @@ Two separate builds are available in the same source tree.
 
 - **Command line:**  
   ```bash
-  lazbuild --build-mode=Release adbmanager.lpi    # GTK2
+  lazbuild --build-mode=Release adbmanager.lpi   # GTK2
   lazbuild --build-mode=Qt6 adbmanager.lpi       # Qt6
 
 **Lazarus IDE:**
