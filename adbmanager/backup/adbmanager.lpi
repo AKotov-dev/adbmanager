@@ -61,6 +61,10 @@
           </Linking>
         </CompilerOptions>
       </Item2>
+      <SharedMatrixOptions Count="2">
+        <Item1 ID="721200149616" Type="IDEMacro" MacroName="LCLWidgetType" Value="gtk2"/>
+        <Item2 ID="690790766239" Type="IDEMacro" MacroName="LCLWidgetType" Value="qt6"/>
+      </SharedMatrixOptions>
     </BuildModes>
     <PublishOptions>
       <Version Value="2"/>

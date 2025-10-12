@@ -1,0 +1,154 @@
+[NAME]
+name=adbmanager
+
+[VERSION]
+version=3.8
+
+[RELEASE]
+release=0.mrx9
+
+[GROUP]
+group=Applications/System
+
+[DESCRIPTION]
+0=The program is designed for visual and easy management of the ADB and connection of Android devices
+1=---
+2=More information: /usr/share/doc/package_name/repack.txt
+
+[MAINTAINER]
+maintainer=Alex Kotov
+
+[VENDOR]
+vendor=alex_q_2000 (C) 2025
+
+[SUMMARY]
+summary=Manager for Android devices using ADB
+
+[URLCOPY]
+urlcopy=https://github.com/AKotov-dev/adbmanager
+
+[LICENSE]
+license=GPLv3
+
+[DEPS]
+deps=adb iproute2 sakura nmap p7zip graphicsmagick xdg-utils libgtk2.0-0 libqt6core6 libqt6gui6 libqt6widgets6 libqt6network6 libqt6printsupport6 libqt6pas6
+
+[META]
+meta=0
+
+[NOARCH]
+noarch=0
+
+[DEB]
+deb=1
+
+[FILES]
+0=/usr/bin/adbmanager
+1=/usr/share/icons/adbmanager.png
+2=/usr/share/applications/adbmanager.desktop
+3=/usr/share/adbmanager/
+4=/usr/share/doc/adbmanager/
+5=/usr/bin/adbmanager-qt
+6=/usr/share/applications/adbmanager-qt.desktop
+
+[AFTERINSTALL]
+0=[ $(grep "adbusers" /etc/group) ] || groupadd adbusers
+
+[URL32]
+url32=https://github.com/AKotov-dev/adbmanager
+
+[PROGRAMNAME]
+programname=ADBManager
+
+[DEVTOOL]
+devtool=Lazarus
+
+[TOOLVERSION]
+toolversion=4.2
+
+[INFO]
+0=The program is designed for visual and easy management of the ADB and connection
+1=of Android smartphones. Allows you to monitor the status of the "adb" service,
+2=manage it, and control the list of connected devices.
+3=
+4=v3.8
+5=+ Added `ADBManager-Qt` version (Qt6 widgets)
+6=+ RPM dependencies: added `qtbase6-common`, `qt6pas`
+7=+ DEB dependencies: added `libqt6core6`, `libqt6gui6`, `libqt6widgets6`, `libqt6network6`, `libqt6printsupport6`, `libqt6pas6`
+8=+ Added a RAM device indicator: Total / Available (%)
+9=+ Improved overall multithreading and responsiveness
+10=+ Improved switching of devices in offline status (TCP/IP)
+11=+ Improved the procedure for stopping package installations
+12=+ Mageia-9 and Ubuntu packages
+13=
+14=**Note:** Build for maintainers: `lazbuild --build-mode=Release adbmanager.lpi` and `lazbuild --build-mode=Qt6 adbmanager.lpi`. Build in Lazarus in two modes: `Release` and `Qt6`.
+15=
+16=v3.7
+17=+ Dependencies RPM/DEB: added `xdg-utils`
+18=+ Dependencies RPM/DEB: replace `imagemagick` with `graphicsmagick`
+19=+ Improved application list output stream
+20=+ Improved SDCard manager for different DPI (text alignment)
+21=+ Improved package search in the application manager (multiselect)
+22=+ Double-clicking in the SDCard manager opens files using xdg-open
+23=+ Mageia-9 and Debian packages
+24=
+25=v3.6
+26=+ Icons in the app list if `IconExtractor.akp` is installed on the smartphone
+27=+ Added RPM/DEB dependency: `imagemagick`
+28=+ Mageia-9 and Debian packages
+29=
+30=**Note:** To display original icons in the application list, please install the [IconExtractor.apk](https://github.com/AKotov-dev/adbmanager/tree/main/IconExtractor) package on your smartphone. Installation of the package is optional.
+31=
+32=v3.5
+33=+ Build in Lazarus-4.2
+34=+ Devision by Zero bug fixed
+35=+ Auto-scaling of SD card manager panels
+36=+ Mageia-9 and Debian packages
+37=
+38=Recommended to delete the configuration directory: rm -rf ~/.adbmanager
+39=
+40=v3.4
+41=+ Fine-tuning for Android TV Box
+42=+ Mageia-9 and Debian packages + AppImage
+43=
+44=**Note:** Chinese Android TV Boxes often have stripped-down launchers installed, in which it is impossible to adjust the volume with the remote control, automatic updates and synchronization of Google accounts are not disabled, and there is even no control over system sounds (remote control clicks, etc.). In addition, excessive interface animation with a small amount of memory reduces the overall performance of the device. Now all this can be configured via ADB.
+45=
+46=v3.3
+47=+ Added dependency `p7zip`
+48=+ Cancel bulk package installation with `Esc`
+49=+ Request to cancel package installation on exit
+50=+ Improved procedure for canceling file copying
+51=+ Multi installation of packages APK, APKS, XAPK
+52=+ Mageia-9 and Debian packages + AppImage
+53=
+54=**Note:** Installation of `XAPK`packages with a single package architecture (32 bits or 64 bits) is supported. The presence of packages of both architectures (32 bits + 64 bits) in `XAPK` is not supported.
+55=
+56=v3.2
+57=+ Recompiling to Lazarus-3.8
+58=+ SD_Card Manager: Show Hidden Files
+59=
+60=**Note:** Be careful when working with hidden files. Do not delete or overwrite them unless necessary.
+61=
+62=v3.1
+63=+ Exception of adb backup and restore; [Obsolete/Deprecated](https://issuetracker.google.com/issues/37096097)
+64=+ Mageia-8/9 and Debian packages
+65=
+66=Note: Uninstalled apps are installed from Google Play [Barmalei » 17 feb 2023, 10:38](https://forum.rosalinux.ru/viewtopic.php?f=58&p=112751#p112751)
+67=
+68=v3.0
+69=+ Deleting cache/data when uninstalling a system application
+70=+ Mageia-8/9 and Debian packages
+71=
+72=v2.9
+73=+ Removing non-removable applications (Android >= 6)
+74=+ Mageia-8/9 and Debian packages
+75=
+76=v2.8
+77=+ Enabling/Disabling applications
+78=+ Mageia-8/9 and Debian packages
+79=+ Recompilation in Lazarus 2.2.4
+80=
+81=v2.7
+82=+ Improved display of device and key statuses
+83=+ Excluded the title from sakura terminal  (bug: https://github.com/dabisu/sakura/issues/16)
+84=+ Release for Mageia-9 and higher

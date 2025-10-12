@@ -28,8 +28,8 @@ uses
 
 begin
   RequireDerivedFormResource := True;
-  Application.Title := 'ADBManager v3.8';
-  Application.Scaled := True;
+  Application.Title:='ADBManager v3.8';
+  Application.Scaled:=True;
   Application.Initialize;
   Application.CreateForm(TMainForm, MainForm);
   Application.CreateForm(TSDForm, SDForm);

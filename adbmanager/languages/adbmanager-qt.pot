@@ -1,0 +1,496 @@
+msgid ""
+msgstr "Content-Type: text/plain; charset=UTF-8"
+
+#: emulatorunit.sscanactiveconnection
+msgid "Scan active connection"
+msgstr ""
+
+#: emulatorunit.sswitchtotcpip
+msgid "Switch to TCP/IP mode"
+msgstr ""
+
+#: emulatorunit.sswitchtousb
+msgid "Switch to USB mode"
+msgstr ""
+
+#: rebootunit.sbootloader
+msgid "Reboot to Bootloader"
+msgstr ""
+
+#: rebootunit.snormalreboot
+msgid "Normal reboot"
+msgstr ""
+
+#: rebootunit.srecoveryreboot
+msgid "Reboot to Recovery mode"
+msgstr ""
+
+#: rebootunit.sshutdown
+msgid "Shutdown the device"
+msgstr ""
+
+#: sdcardmanager.scancelcopyng
+msgid "Esc - cancel... "
+msgstr ""
+
+#: sdcardmanager.sclosequerycopy
+msgid "File copying started! Finish?"
+msgstr ""
+
+#: sdcardmanager.screatedir
+msgid "Create directory"
+msgstr ""
+
+#: sdcardmanager.sdelete
+msgid "Delete selected objects?"
+msgstr ""
+
+#: sdcardmanager.sinputname
+msgid "Enter the name:"
+msgstr ""
+
+#: sdcardmanager.sobjectexists
+msgid "The folder already exists!"
+msgstr ""
+
+#: sdcardmanager.soverwriteobject
+msgid "Overwrite existing objects?"
+msgstr ""
+
+#: settings_unit.sautomaticsync
+msgid "Automatic synchronization of accounts (Google, Facebook, etc.)"
+msgstr ""
+
+#: settings_unit.sautorotatescreen
+msgid "Enable or disable auto-rotate screen"
+msgstr ""
+
+#: settings_unit.sautoupdate
+msgid "Automatic system update"
+msgstr ""
+
+#: settings_unit.sinterfaceanimation1
+msgid "Animation of transitions between screens and different states (transition_animation_scale)"
+msgstr ""
+
+#: settings_unit.sinterfaceanimation2
+msgid "Animation of button presses, scaling of elements (animator_duration_scale)"
+msgstr ""
+
+#: settings_unit.sinterfaceanimation3
+msgid "Animation of opening, closing and moving windows (window_animation_scale)"
+msgstr ""
+
+#: settings_unit.spowersavingmode
+msgid "Power saving mode"
+msgstr ""
+
+#: settings_unit.ssecnotifications
+msgctxt "settings_unit.ssecnotifications"
+msgid "Security notifications, such as notifications that the device is password protected"
+msgstr ""
+
+#: settings_unit.ssystemsound
+msgid "System sounds such as clicks when buttons are pressed"
+msgstr ""
+
+#: settings_unit.svibration
+msgctxt "settings_unit.svibration"
+msgid "Vibration when pressing buttons or other actions"
+msgstr ""
+
+#: tcheckform.applybtn.caption
+msgctxt "tcheckform.applybtn.caption"
+msgid "Apply"
+msgstr ""
+
+#: tcheckform.caption
+msgid "Enable/Disable/Uninstall applications"
+msgstr ""
+
+#: tcheckform.clearbtn.hint
+msgid "Clear"
+msgstr ""
+
+#: tcheckform.copytoclipboard.caption
+msgctxt "tcheckform.copytoclipboard.caption"
+msgid "Copy package name to clipboard"
+msgstr ""
+
+#: tcheckform.label1.caption
+msgid "Search:"
+msgstr ""
+
+#: tcheckform.loadfromtxt.caption
+msgid "Load a list of packages and states from a *.txt file"
+msgstr ""
+
+#: tcheckform.modebox.caption
+msgctxt "tcheckform.modebox.caption"
+msgid "Delete mode"
+msgstr ""
+
+#: tcheckform.modebox.hint
+msgid "Uninstalling selected applications (Android >= 6)"
+msgstr ""
+
+#: tcheckform.pkgbtn.hint
+msgid "IconExtractor.apk"
+msgstr ""
+
+#: tcheckform.savetofile.caption
+msgctxt "tcheckform.savetofile.caption"
+msgid "Save the list of packages and states to a *.txt file"
+msgstr ""
+
+#: temulatorform.cancelbtn.caption
+msgctxt "temulatorform.cancelbtn.caption"
+msgid "Cancel"
+msgstr ""
+
+#: temulatorform.caption
+msgid "Connection/Scanning"
+msgstr ""
+
+#: temulatorform.label1.caption
+msgid "Emulator/Device IP-address:"
+msgstr ""
+
+#: temulatorform.okbtn.caption
+msgctxt "temulatorform.okbtn.caption"
+msgid "OK"
+msgstr ""
+
+#: tmainform.activelabel.caption
+msgid "launch..."
+msgstr ""
+
+#: tmainform.applistbtn.caption
+msgctxt "tmainform.applistbtn.caption"
+msgid "applications"
+msgstr ""
+
+#: tmainform.applistbtn.hint
+msgctxt "tmainform.applistbtn.hint"
+msgid "Android 5+"
+msgstr ""
+
+#: tmainform.caption
+msgid "ADBManager"
+msgstr ""
+
+#: tmainform.connectbtn.caption
+msgid "emulator"
+msgstr ""
+
+#: tmainform.deletekeybtn.caption
+msgid "Delete Key"
+msgstr ""
+
+#: tmainform.devsheet.caption
+msgctxt "tmainform.devsheet.caption"
+msgid "no device"
+msgstr ""
+
+#: tmainform.exitbtn.caption
+msgid "Exit"
+msgstr ""
+
+#: tmainform.installbtn.caption
+msgid "install"
+msgstr ""
+
+#: tmainform.keylabel.caption
+msgctxt "tmainform.keylabel.caption"
+msgid "wait..."
+msgstr ""
+
+#: tmainform.label1.caption
+msgid "ADB:"
+msgstr ""
+
+#: tmainform.label2.caption
+msgid "Key:"
+msgstr ""
+
+#: tmainform.label3.caption
+msgid ""
+" \n"
+"1. Turn on the \"USB Debugging\" on smartphone\n"
+" \n"
+"2. Set the USB access rights on your the PC:\n"
+"usermod -aG adbusers,plugdev $LOGNAME; reboot"
+msgstr ""
+
+#: tmainform.labelram.caption
+msgid "RAM: 0.00 GB / 0.00 GB (0.0%)"
+msgstr ""
+
+#: tmainform.labelram.hint
+msgid "Total / Available (%)"
+msgstr ""
+
+#: tmainform.panel2.caption
+msgid "Device Management"
+msgstr ""
+
+#: tmainform.rebootbtn.caption
+msgid "reboot"
+msgstr ""
+
+#: tmainform.restartbtn.caption
+msgid "Restart"
+msgstr ""
+
+#: tmainform.screenshotbtn.caption
+msgid "screenshot"
+msgstr ""
+
+#: tmainform.searchbtn.caption
+msgid "search apk"
+msgstr ""
+
+#: tmainform.shellbtn.caption
+msgid "terminal"
+msgstr ""
+
+#: tmainform.statictext1.caption
+msgid "License: GPLv3   Author: alex_q_2000 (C) 2025   URL: https://github.com/AKotov-dev/adbmanager"
+msgstr ""
+
+#: tmainform.toolbar2.caption
+msgid "ToolBar2"
+msgstr ""
+
+#: tmainform.toolbutton1.caption
+msgid "settings"
+msgstr ""
+
+#: tmainform.toolbutton1.hint
+msgid "Android TV Box"
+msgstr ""
+
+#: tmainform.toolbutton4.caption
+msgid "sd-card"
+msgstr ""
+
+#: tmainform.toolbutton4.hint
+msgctxt "tmainform.toolbutton4.hint"
+msgid "Android 4+"
+msgstr ""
+
+#: tmainform.uninstallbtn.caption
+msgid "uninstall"
+msgstr ""
+
+#: tmainform.uninstallbtn.hint
+msgctxt "tmainform.uninstallbtn.hint"
+msgid "Android 4+"
+msgstr ""
+
+#: trebootform.cancelbtn.caption
+msgctxt "trebootform.cancelbtn.caption"
+msgid "Cancel"
+msgstr ""
+
+#: trebootform.caption
+msgid "Reboot/Shutdown"
+msgstr ""
+
+#: trebootform.okbtn.caption
+msgctxt "trebootform.okbtn.caption"
+msgid "OK"
+msgstr ""
+
+#: tsdform.caption
+msgid "SD-Card manager"
+msgstr ""
+
+#: tsdform.checkbox1.caption
+msgid "hidden"
+msgstr ""
+
+#: tsdform.checkbox1.hint
+msgid "Show hidden"
+msgstr ""
+
+#: tsdform.copyfrompc.hint
+msgid "Copy to SD-Card"
+msgstr ""
+
+#: tsdform.copyfromsmartphone.hint
+msgid "Copy to computer"
+msgstr ""
+
+#: tsdform.delbtn.hint
+msgid "Delete Files/Folders"
+msgstr ""
+
+#: tsdform.groupbox1.caption
+msgid "computer"
+msgstr ""
+
+#: tsdform.groupbox2.caption
+msgid "/sdcard/"
+msgstr ""
+
+#: tsdform.label1.caption
+msgid "Free:"
+msgstr ""
+
+#: tsdform.label2.caption
+msgid "Used:"
+msgstr ""
+
+#: tsdform.label3.caption
+msgid "Size:"
+msgstr ""
+
+#: tsdform.label4.caption
+msgctxt "tsdform.label4.caption"
+msgid "..."
+msgstr ""
+
+#: tsdform.label5.caption
+msgctxt "tsdform.label5.caption"
+msgid "..."
+msgstr ""
+
+#: tsdform.label6.caption
+msgctxt "tsdform.label6.caption"
+msgid "..."
+msgstr ""
+
+#: tsdform.mkdirbtn.hint
+msgctxt "tsdform.mkdirbtn.hint"
+msgid "Make folder"
+msgstr ""
+
+#: tsdform.mkpcdirbtn.hint
+msgctxt "tsdform.mkpcdirbtn.hint"
+msgid "Make folder"
+msgstr ""
+
+#: tsdform.panel1.caption
+msgid "Panel1"
+msgstr ""
+
+#: tsdform.panel2.caption
+msgid "Panel2"
+msgstr ""
+
+#: tsdform.refreshbtn.hint
+msgid "Update"
+msgstr ""
+
+#: tsdform.sdchangebtn.hint
+msgid "SD-Card Search (F12)"
+msgstr ""
+
+#: tsdform.selectallbtn.hint
+msgid "Select all"
+msgstr ""
+
+#: tsdform.upbtn.hint
+msgid "Upper level (BackSpace)"
+msgstr ""
+
+#: tsettingsform.applybtn.caption
+msgctxt "tsettingsform.applybtn.caption"
+msgid "Apply"
+msgstr ""
+
+#: tsettingsform.caption
+msgid "Android TV Box settings"
+msgstr ""
+
+#: tsettingsform.checkgroup1.caption
+msgctxt "tsettingsform.checkgroup1.caption"
+msgid "Useful settings that are often missing in stripped-down launchers..."
+msgstr ""
+
+#: tsettingsform.combobox1.text
+msgid "1.0"
+msgstr ""
+
+#: tsettingsform.label1.caption
+msgctxt "tsettingsform.label1.caption"
+msgid "System font size"
+msgstr ""
+
+#: tsettingsform.label1.hint
+msgid "Menus, panels, messages, etc."
+msgstr ""
+
+#: tsettingsform.label2.caption
+msgid "Sound volume level (from 0 to 15)"
+msgstr ""
+
+#: unit1.sadbnotfound
+msgid "ADB not found!"
+msgstr ""
+
+#: unit1.sclosequery
+msgid "Package installation started! Finish?"
+msgstr ""
+
+#: unit1.sdeleteapk
+msgid ""
+"ATTENTION! BE CAREFUL!\n"
+"\n"
+"Removing packages may disrupt the system!\n"
+"\n"
+"Before deleting, BE SURE TO MAKE A BACKUP!\n"
+"\n"
+"Delete selected applications?"
+msgstr ""
+
+#: unit1.sdeletecaption
+msgid "Deleting a package"
+msgstr ""
+
+#: unit1.serrorimagecopy
+msgid "Error copying file from device!"
+msgstr ""
+
+#: unit1.sfilenotvalid
+msgid "The file does not match the current list of packages!"
+msgstr ""
+
+#: unit1.slaunched
+msgid "launched"
+msgstr ""
+
+#: unit1.sno
+msgid "no"
+msgstr ""
+
+#: unit1.snodevice
+msgctxt "unit1.snodevice"
+msgid "no device"
+msgstr ""
+
+#: unit1.spackagename
+msgid "Input the package name:"
+msgstr ""
+
+#: unit1.srebootmsg
+msgid "Reboot device?"
+msgstr ""
+
+#: unit1.srestart
+msgid "restart..."
+msgstr ""
+
+#: unit1.ssearchcaption
+msgid "Search packages"
+msgstr ""
+
+#: unit1.ssearchstring
+msgid "Input search string or *"
+msgstr ""
+
+#: unit1.syes
+msgid "yes"
+msgstr ""
+

@@ -1,0 +1,535 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: ADBManager\n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: alex_q_2000\n"
+"Language-Team: alex_q_2000 (C) 2021\n"
+"Language: ru\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.5\n"
+
+#: emulatorunit.sscanactiveconnection
+msgid "Scan active connection"
+msgstr "Сканировать активные подключения"
+
+#: emulatorunit.sswitchtotcpip
+msgid "Switch to TCP/IP mode"
+msgstr "Переключить в режим TCP/IP"
+
+#: emulatorunit.sswitchtousb
+msgid "Switch to USB mode"
+msgstr "Переключить в режим USB"
+
+#: rebootunit.sbootloader
+msgid "Reboot to Bootloader"
+msgstr "Перезагрузка в Bootloader"
+
+#: rebootunit.snormalreboot
+msgid "Normal reboot"
+msgstr "Обычная перезагрузка"
+
+#: rebootunit.srecoveryreboot
+msgid "Reboot to Recovery mode"
+msgstr "Перезагрузка в Recovery mode"
+
+#: rebootunit.sshutdown
+msgid "Shutdown the device"
+msgstr "Выключить устройство"
+
+#: sdcardmanager.scancelcopyng
+msgid "Esc - cancel... "
+msgstr "Esc - отмена... "
+
+#: sdcardmanager.sclosequerycopy
+msgid "File copying started! Finish?"
+msgstr "Идёт копирование фалов! Завершить?"
+
+#: sdcardmanager.screatedir
+msgid "Create directory"
+msgstr "Создать директорию"
+
+#: sdcardmanager.sdelete
+msgid "Delete selected objects?"
+msgstr "Удалить выбранные объекты?"
+
+#: sdcardmanager.sinputname
+msgid "Enter the name:"
+msgstr "Введите имя:"
+
+#: sdcardmanager.sobjectexists
+msgctxt "sdcardmanager.sobjectexists"
+msgid "The folder already exists!"
+msgstr "Папка уже существует!"
+
+#: sdcardmanager.soverwriteobject
+msgctxt "sdcardmanager.soverwriteobject"
+msgid "Overwrite existing objects?"
+msgstr "Перезаписать существующие объекты?"
+
+#: settings_unit.sautomaticsync
+msgid "Automatic synchronization of accounts (Google, Facebook, etc.)"
+msgstr "Автоматическая синхронизация аккаунтов (Google, Facebook и т.д.)"
+
+#: settings_unit.sautorotatescreen
+msgid "Enable or disable auto-rotate screen"
+msgstr "Включить или отключить автоматический поворот экрана"
+
+#: settings_unit.sautoupdate
+msgid "Automatic system update"
+msgstr "Автоматическое обновление системы"
+
+#: settings_unit.sinterfaceanimation1
+msgid "Animation of transitions between screens and different states (transition_animation_scale)"
+msgstr "Анимация переходов между экранами и разными состояниями (transition_animation_scale)"
+
+#: settings_unit.sinterfaceanimation2
+msgid "Animation of button presses, scaling of elements (animator_duration_scale)"
+msgstr "Анимация нажатия кнопок, масштабирования элементов (animator_duration_scale)"
+
+#: settings_unit.sinterfaceanimation3
+msgid "Animation of opening, closing and moving windows (window_animation_scale)"
+msgstr "Анимация открытия, закрытия и перемещения окон (window_animation_scale)"
+
+#: settings_unit.spowersavingmode
+msgid "Power saving mode"
+msgstr "Режим энергосбережения"
+
+#: settings_unit.ssecnotifications
+msgctxt "settings_unit.ssecnotifications"
+msgid "Security notifications, such as notifications that the device is password protected"
+msgstr "Уведомления безопасности, например, уведомления о том, что устройство защищено паролем"
+
+#: settings_unit.ssystemsound
+msgid "System sounds such as clicks when buttons are pressed"
+msgstr "Системные звуки, такие как щелчки при нажатии кнопок"
+
+#: settings_unit.svibration
+msgctxt "settings_unit.svibration"
+msgid "Vibration when pressing buttons or other actions"
+msgstr "Вибрация при нажатии кнопок или других действиях"
+
+#: tcheckform.applybtn.caption
+msgctxt "tcheckform.applybtn.caption"
+msgid "Apply"
+msgstr "Применить"
+
+#: tcheckform.caption
+msgid "Enable/Disable/Uninstall applications"
+msgstr "Включить/Отключить/Удалить приложения"
+
+#: tcheckform.clearbtn.hint
+msgid "Clear"
+msgstr "Очистить"
+
+#: tcheckform.copytoclipboard.caption
+msgctxt "tcheckform.copytoclipboard.caption"
+msgid "Copy package name to clipboard"
+msgstr "Копировать имя пакета в буфер"
+
+#: tcheckform.label1.caption
+msgid "Search:"
+msgstr "Поиск:"
+
+#: tcheckform.loadfromtxt.caption
+msgid "Load a list of packages and states from a *.txt file"
+msgstr "Загрузить список пакетов и состояний из файла *.txt"
+
+#: tcheckform.modebox.caption
+msgctxt "tcheckform.modebox.caption"
+msgid "Delete mode"
+msgstr "Режим удаления"
+
+#: tcheckform.modebox.hint
+msgid "Uninstalling selected applications (Android >= 6)"
+msgstr "Удалять выбранные приложения (Android >= 6)"
+
+#: tcheckform.pkgbtn.hint
+msgid "IconExtractor.apk"
+msgstr ""
+
+#: tcheckform.savetofile.caption
+msgctxt "tcheckform.savetofile.caption"
+msgid "Save the list of packages and states to a *.txt file"
+msgstr "Сохранить список пакетов и состояний в файл *.txt"
+
+#: temulatorform.cancelbtn.caption
+msgctxt "temulatorform.cancelbtn.caption"
+msgid "Cancel"
+msgstr "Отмена"
+
+#: temulatorform.caption
+msgctxt "temulatorform.caption"
+msgid "Connection/Scanning"
+msgstr "Подключение/Сканирование"
+
+#: temulatorform.label1.caption
+msgid "Emulator/Device IP-address:"
+msgstr "IP-адрес Эмулятора/Устройства:"
+
+#: temulatorform.okbtn.caption
+msgctxt "temulatorform.okbtn.caption"
+msgid "OK"
+msgstr ""
+
+#: tmainform.activelabel.caption
+msgctxt "tmainform.activelabel.caption"
+msgid "launch..."
+msgstr "запуск..."
+
+#: tmainform.applistbtn.caption
+msgctxt "tmainform.applistbtn.caption"
+msgid "applications"
+msgstr "приложения"
+
+#: tmainform.applistbtn.hint
+msgctxt "tmainform.applistbtn.hint"
+msgid "Android 5+"
+msgstr ""
+
+#: tmainform.caption
+msgid "ADBManager"
+msgstr ""
+
+#: tmainform.connectbtn.caption
+msgctxt "tmainform.connectbtn.caption"
+msgid "emulator"
+msgstr "эмулятор"
+
+#: tmainform.deletekeybtn.caption
+msgid "Delete Key"
+msgstr "Удалить Ключ"
+
+#: tmainform.devsheet.caption
+msgctxt "tmainform.devsheet.caption"
+msgid "no device"
+msgstr "нет устройства"
+
+#: tmainform.exitbtn.caption
+msgid "Exit"
+msgstr "Выход"
+
+#: tmainform.installbtn.caption
+msgctxt "tmainform.installbtn.caption"
+msgid "install"
+msgstr "установить"
+
+#: tmainform.keylabel.caption
+msgctxt "tmainform.keylabel.caption"
+msgid "wait..."
+msgstr "ожидание..."
+
+#: tmainform.label1.caption
+msgid "ADB:"
+msgstr ""
+
+#: tmainform.label2.caption
+msgid "Key:"
+msgstr "Ключ:"
+
+#: tmainform.label3.caption
+msgctxt "tmainform.label3.caption"
+msgid ""
+" \n"
+"1. Turn on the \"USB Debugging\" on smartphone\n"
+" \n"
+"2. Set the USB access rights on your the PC:\n"
+"usermod -aG adbusers,plugdev $LOGNAME; reboot"
+msgstr ""
+" \n"
+"1. Включите \"Отладка по USB\" на смартфоне\n"
+" \n"
+"2. Установите права доступа к USB на PC:\n"
+"usermod -aG adbusers,plugdev $LOGNAME; reboot"
+
+#: tmainform.labelram.caption
+msgid "RAM: 0.00 GB / 0.00 GB (0.0%)"
+msgstr ""
+
+#: tmainform.labelram.hint
+msgid "Total / Available (%)"
+msgstr "Всего / Доступно (%)"
+
+#: tmainform.panel2.caption
+msgid "Device Management"
+msgstr "Управление устройством"
+
+#: tmainform.rebootbtn.caption
+msgctxt "tmainform.rebootbtn.caption"
+msgid "reboot"
+msgstr "перезагрузка"
+
+#: tmainform.restartbtn.caption
+msgctxt "tmainform.restartbtn.caption"
+msgid "Restart"
+msgstr "Рестарт"
+
+#: tmainform.screenshotbtn.caption
+msgctxt "tmainform.screenshotbtn.caption"
+msgid "screenshot"
+msgstr "скриншот"
+
+#: tmainform.searchbtn.caption
+msgctxt "tmainform.searchbtn.caption"
+msgid "search apk"
+msgstr "поиск apk"
+
+#: tmainform.shellbtn.caption
+msgid "terminal"
+msgstr "терминал"
+
+#: tmainform.statictext1.caption
+msgid "License: GPLv3   Author: alex_q_2000 (C) 2025   URL: https://github.com/AKotov-dev/adbmanager"
+msgstr "Лицензия: GPLv3   Автор: alex_q_2000 (C) 2025   URL: https://github.com/AKotov-dev/adbmanager"
+
+#: tmainform.toolbar2.caption
+msgid "ToolBar2"
+msgstr ""
+
+#: tmainform.toolbutton1.caption
+msgid "settings"
+msgstr "настройки"
+
+#: tmainform.toolbutton1.hint
+msgid "Android TV Box"
+msgstr ""
+
+#: tmainform.toolbutton4.caption
+msgid "sd-card"
+msgstr "sd-карта"
+
+#: tmainform.toolbutton4.hint
+msgctxt "tmainform.toolbutton4.hint"
+msgid "Android 4+"
+msgstr ""
+
+#: tmainform.uninstallbtn.caption
+msgctxt "tmainform.uninstallbtn.caption"
+msgid "uninstall"
+msgstr "удалить"
+
+#: tmainform.uninstallbtn.hint
+msgctxt "tmainform.uninstallbtn.hint"
+msgid "Android 4+"
+msgstr ""
+
+#: trebootform.cancelbtn.caption
+msgctxt "trebootform.cancelbtn.caption"
+msgid "Cancel"
+msgstr "Отмена"
+
+#: trebootform.caption
+msgid "Reboot/Shutdown"
+msgstr "Перезагрузка/Выключение"
+
+#: trebootform.okbtn.caption
+msgctxt "trebootform.okbtn.caption"
+msgid "OK"
+msgstr ""
+
+#: tsdform.caption
+msgctxt "tsdform.caption"
+msgid "SD-Card manager"
+msgstr "Менеджер SD-Карты"
+
+#: tsdform.checkbox1.caption
+msgid "hidden"
+msgstr "скрытые"
+
+#: tsdform.checkbox1.hint
+msgid "Show hidden"
+msgstr "Показать скрытые"
+
+#: tsdform.copyfrompc.hint
+msgid "Copy to SD-Card"
+msgstr "Копировать на SD-Карту"
+
+#: tsdform.copyfromsmartphone.hint
+msgid "Copy to computer"
+msgstr "Копировать на компьютер"
+
+#: tsdform.delbtn.hint
+msgctxt "tsdform.delbtn.hint"
+msgid "Delete Files/Folders"
+msgstr "Удалить Файлы/Папки"
+
+#: tsdform.groupbox1.caption
+msgid "computer"
+msgstr "компьютер"
+
+#: tsdform.groupbox2.caption
+msgctxt "tsdform.groupbox2.caption"
+msgid "/sdcard/"
+msgstr ""
+
+#: tsdform.label1.caption
+msgid "Free:"
+msgstr "Свободно:"
+
+#: tsdform.label2.caption
+msgid "Used:"
+msgstr "Занято:"
+
+#: tsdform.label3.caption
+msgid "Size:"
+msgstr "Размер:"
+
+#: tsdform.label4.caption
+msgctxt "tsdform.label4.caption"
+msgid "..."
+msgstr ""
+
+#: tsdform.label5.caption
+msgctxt "tsdform.label5.caption"
+msgid "..."
+msgstr ""
+
+#: tsdform.label6.caption
+msgctxt "tsdform.label6.caption"
+msgid "..."
+msgstr ""
+
+#: tsdform.mkdirbtn.hint
+msgctxt "tsdform.mkdirbtn.hint"
+msgid "Make folder"
+msgstr "Создать папку"
+
+#: tsdform.mkpcdirbtn.hint
+msgctxt "tsdform.mkpcdirbtn.hint"
+msgid "Make folder"
+msgstr "Создать папку"
+
+#: tsdform.panel1.caption
+msgid "Panel1"
+msgstr ""
+
+#: tsdform.panel2.caption
+msgid "Panel2"
+msgstr ""
+
+#: tsdform.refreshbtn.hint
+msgid "Update"
+msgstr "Обновить"
+
+#: tsdform.sdchangebtn.hint
+msgid "SD-Card Search (F12)"
+msgstr "Поиск SD-Карты (F12)"
+
+#: tsdform.selectallbtn.hint
+msgid "Select all"
+msgstr "Выделить всё"
+
+#: tsdform.upbtn.hint
+msgid "Upper level (BackSpace)"
+msgstr "Верхний уровень (BackSpace)"
+
+#: tsettingsform.applybtn.caption
+msgctxt "tsettingsform.applybtn.caption"
+msgid "Apply"
+msgstr "Применить"
+
+#: tsettingsform.caption
+msgid "Android TV Box settings"
+msgstr "Настройки Android TV Box"
+
+#: tsettingsform.checkgroup1.caption
+msgctxt "tsettingsform.checkgroup1.caption"
+msgid "Useful settings that are often missing in stripped-down launchers..."
+msgstr "Полезные настройки, которых часто не хватает в урезанных лаунчерах..."
+
+#: tsettingsform.combobox1.text
+msgid "1.0"
+msgstr ""
+
+#: tsettingsform.label1.caption
+msgctxt "tsettingsform.label1.caption"
+msgid "System font size"
+msgstr "Размер системного шрифта (default - 1.0)"
+
+#: tsettingsform.label1.hint
+msgid "Menus, panels, messages, etc."
+msgstr "Меню, панели, сообщения и т.д."
+
+#: tsettingsform.label2.caption
+msgid "Sound volume level (from 0 to 15)"
+msgstr "Уровень громкости звука (от 0 до 15)"
+
+#: unit1.sadbnotfound
+msgid "ADB not found!"
+msgstr "ADB не найден!"
+
+#: unit1.sclosequery
+msgid "Package installation started! Finish?"
+msgstr "Идёт установка пакетов! Завершить?"
+
+#: unit1.sdeleteapk
+msgid ""
+"ATTENTION! BE CAREFUL!\n"
+"\n"
+"Removing packages may disrupt the system!\n"
+"\n"
+"Before deleting, BE SURE TO MAKE A BACKUP!\n"
+"\n"
+"Delete selected applications?"
+msgstr ""
+"ВНИМАНИЕ! БУДЬТЕ ОСТОРОЖНЫ!\n"
+"\n"
+"Удаление пакетов может нарушить работу системы!\n"
+"\n"
+"Перед удалением ОБЯЗАТЕЛЬНО СДЕЛАЙТЕ БЭКАП!\n"
+"\n"
+"Удалить выбранные приложения?"
+
+#: unit1.sdeletecaption
+msgctxt "unit1.sdeletecaption"
+msgid "Deleting a package"
+msgstr "Удаление пакета"
+
+#: unit1.serrorimagecopy
+msgid "Error copying file from device!"
+msgstr "Ошибка копирования файла с устройства!"
+
+#: unit1.sfilenotvalid
+msgid "The file does not match the current list of packages!"
+msgstr "Файл не соответствует текущему списку пакетов!"
+
+#: unit1.slaunched
+msgid "launched"
+msgstr "запущен"
+
+#: unit1.sno
+msgid "no"
+msgstr "нет"
+
+#: unit1.snodevice
+msgctxt "unit1.snodevice"
+msgid "no device"
+msgstr "нет устройства"
+
+#: unit1.spackagename
+msgid "Input the package name:"
+msgstr "Введите имя пакета:"
+
+#: unit1.srebootmsg
+msgid "Reboot device?"
+msgstr "Перезагрузить устройство?"
+
+#: unit1.srestart
+msgctxt "unit1.srestart"
+msgid "restart..."
+msgstr "перезапуск..."
+
+#: unit1.ssearchcaption
+msgid "Search packages"
+msgstr "Поиск пакетов"
+
+#: unit1.ssearchstring
+msgid "Input search string or *"
+msgstr "Введите строку поиска или *"
+
+#: unit1.syes
+msgid "yes"
+msgstr "да"

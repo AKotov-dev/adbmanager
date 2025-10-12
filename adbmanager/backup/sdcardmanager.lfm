@@ -1,7 +1,7 @@
 object SDForm: TSDForm
-  Left = 668
+  Left = 322
   Height = 624
-  Top = 153
+  Top = 133
   Width = 879
   ActiveControl = Splitter2
   Caption = 'SD-Card manager'
@@ -1313,7 +1313,7 @@ object SDForm: TSDForm
         AnchorSideRight.Control = Label4
         Left = 368
         Height = 15
-        Top = -1
+        Top = 3
         Width = 35
         Anchors = [akTop, akRight]
         BorderSpacing.Right = 4
@@ -1327,13 +1327,15 @@ object SDForm: TSDForm
         AnchorSideLeft.Side = asrBottom
         AnchorSideRight.Control = Panel3
         AnchorSideRight.Side = asrBottom
+        AnchorSideBottom.Control = Label5
         Left = 407
         Height = 15
-        Top = -1
+        Top = 3
         Width = 21
-        Anchors = [akTop, akRight]
+        Anchors = [akRight, akBottom]
         BorderSpacing.Left = 4
         BorderSpacing.Right = 8
+        BorderSpacing.Bottom = 2
         Caption = '...'
         Font.Height = -12
         Font.Name = 'Monospace'
@@ -1344,7 +1346,7 @@ object SDForm: TSDForm
         AnchorSideRight.Control = Label5
         Left = 368
         Height = 15
-        Top = 17
+        Top = 20
         Width = 35
         Anchors = [akTop, akRight]
         BorderSpacing.Right = 4
@@ -1356,11 +1358,13 @@ object SDForm: TSDForm
       object Label5: TLabel
         AnchorSideLeft.Control = Label2
         AnchorSideLeft.Side = asrBottom
+        AnchorSideTop.Control = Panel3
+        AnchorSideTop.Side = asrCenter
         AnchorSideRight.Control = Panel3
         AnchorSideRight.Side = asrBottom
         Left = 407
         Height = 15
-        Top = 17
+        Top = 20
         Width = 21
         Anchors = [akTop, akRight]
         BorderSpacing.Left = 4
@@ -1376,7 +1380,7 @@ object SDForm: TSDForm
         AnchorSideRight.Control = Label6
         Left = 368
         Height = 15
-        Top = 35
+        Top = 37
         Width = 35
         Anchors = [akTop, akRight]
         BorderSpacing.Right = 4
@@ -1388,14 +1392,17 @@ object SDForm: TSDForm
       object Label6: TLabel
         AnchorSideLeft.Control = Label1
         AnchorSideLeft.Side = asrBottom
+        AnchorSideTop.Control = Label5
+        AnchorSideTop.Side = asrBottom
         AnchorSideRight.Control = Panel3
         AnchorSideRight.Side = asrBottom
         Left = 407
         Height = 15
-        Top = 35
+        Top = 37
         Width = 21
         Anchors = [akTop, akRight]
         BorderSpacing.Left = 4
+        BorderSpacing.Top = 2
         BorderSpacing.Right = 8
         Caption = '...'
         Font.Color = clGreen
