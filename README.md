@@ -26,7 +26,7 @@ Two separate builds are available in the same source tree.
 
 **Lazarus IDE:**
 1. Select the Build Configuration from the top-left drop-down (`Release` for GTK2, `Qt6` for Qt6).
-2. Go to `Projec`t → `Build`.
+2. Go to `Project` → `Build`.
 
 **Output binaries (same folder):**
 + adbmanager → GTK2
