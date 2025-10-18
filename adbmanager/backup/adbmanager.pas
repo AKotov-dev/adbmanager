@@ -6,16 +6,29 @@ uses
   {$IFDEF UNIX}
   cthreads,    {$ENDIF}
   Interfaces, // this includes the LCL widgetset
-  Forms, Unit1, ADBDeviceStatusTRD, ADBCommandTRD, RebootUnit, SDCardManager,
-  SDCommandTRD, LSSDFolderTRD, EmulatorUnit, SDMountPointTRD, CheckUnit,
-  ReadAppsTRDUnit, settings_unit, ReadSettingsTRDUnit, WriteSettingsTRDUnit,
-  xdgopentrd, UsingRAMTRD { you can add units after this };
+  Forms,
+  Unit1,
+  ADBDeviceStatusTRD,
+  ADBCommandTRD,
+  RebootUnit,
+  SDCardManager,
+  SDCommandTRD,
+  LSSDFolderTRD,
+  EmulatorUnit,
+  SDMountPointTRD,
+  CheckUnit,
+  ReadAppsTRDUnit,
+  settings_unit,
+  ReadSettingsTRDUnit,
+  WriteSettingsTRDUnit,
+  xdgopentrd,
+  UsingRAMTRD { you can add units after this };
 
   {$R *.res}
 
 begin
   RequireDerivedFormResource := True;
-  Application.Title:='ADBManager v3.8';
+  Application.Title:='ADBManager v3.9';
   Application.Scaled:=True;
   Application.Initialize;
   Application.CreateForm(TMainForm, MainForm);
