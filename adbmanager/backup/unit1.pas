@@ -86,7 +86,7 @@ resourcestring
     'Removing packages may disrupt the system!' + #13#10 + #13#10 +
     'Before deleting, ' + 'BE SURE TO MAKE A BACKUP!' + #13#10 +
     #13#10 + 'Delete selected applications?';
-  SErrorImageCopy = 'Error copying file from device!';
+  //SErrorFileCopy = 'Error copying file from device!';
   SFileNotValid = 'The file does not match the current list of packages!';
   SADBNotFound = 'ADB not found!';
 
@@ -328,17 +328,11 @@ begin
   if not DirectoryExists(GetUserDir + '.adbmanager/tmp') then
     MkDir(GetUserDir + '.adbmanager/tmp');
 
- // {$IFDEF LCLQt6}
- //     MainForm.Caption := Application.Title + ' Qt';
- // {$ELSE}
- // MainForm.Caption := Application.Title;
- //  {$ENDIF}
-
-   // Название приложения
-  Application.Title := 'ADBManager';
-
-  // Автоматически добавить тип виджетсета
-  MainForm.Caption := Format('%s (%s)', [Application.Title, LCLPlatformDisplayName]);
+  {$IFDEF LCLQt6}
+      MainForm.Caption := Application.Title + ' Qt';
+  {$ELSE}
+  MainForm.Caption := Application.Title;
+  {$ENDIF}
 
   //ADB установлен?
   if CheckADBInstalled(Ver) then
@@ -526,7 +520,8 @@ begin
     FindClose(SR);
   end;
 
-  //Аккуратное завершение копирования, если было запущено
+  //Аккуратное завершение копирования и терминала, если были запущены
+  StartProcess('killall -q sakura');
   SDForm.CancelCopy;
 end;
 

@@ -488,10 +488,6 @@ msgctxt "unit1.sdeletecaption"
 msgid "Deleting a package"
 msgstr "Удаление пакета"
 
-#: unit1.serrorimagecopy
-msgid "Error copying file from device!"
-msgstr "Ошибка копирования файла с устройства!"
-
 #: unit1.sfilenotvalid
 msgid "The file does not match the current list of packages!"
 msgstr "Файл не соответствует текущему списку пакетов!"
@@ -533,3 +529,4 @@ msgstr "Введите строку поиска или *"
 #: unit1.syes
 msgid "yes"
 msgstr "да"
+

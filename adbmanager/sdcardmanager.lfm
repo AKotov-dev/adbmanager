@@ -1,13 +1,12 @@
 object SDForm: TSDForm
-  Left = 314
-  Height = 624
+  Left = 309
+  Height = 631
   Top = 131
-  Width = 879
+  Width = 888
   ActiveControl = Splitter2
   Caption = 'SD-Card manager'
-  ClientHeight = 624
-  ClientWidth = 879
-  DesignTimePPI = 95
+  ClientHeight = 631
+  ClientWidth = 888
   KeyPreview = True
   Position = poDefault
   SessionProperties = 'CheckBox1.Checked;GroupBox2.Caption;Height;Left;Top;VBtn.Down;Width'
@@ -20,7 +19,7 @@ object SDForm: TSDForm
   object Panel2: TPanel
     Left = 0
     Height = 1
-    Top = 435
+    Top = 440
     Width = 1
     AutoSize = True
     Caption = 'Panel2'
@@ -28,14 +27,14 @@ object SDForm: TSDForm
   end
   object GroupBox1: TGroupBox
     Left = 0
-    Height = 539
+    Height = 545
     Top = 5
-    Width = 436
+    Width = 441
     Align = alLeft
     BorderSpacing.Top = 5
     Caption = 'computer'
-    ClientHeight = 521
-    ClientWidth = 434
+    ClientHeight = 527
+    ClientWidth = 439
     Font.Height = -13
     Font.Name = 'Sans'
     Font.Style = [fsBold]
@@ -43,9 +42,9 @@ object SDForm: TSDForm
     TabOrder = 1
     object CompDir: TShellTreeView
       Left = 0
-      Height = 466
-      Top = 55
-      Width = 434
+      Height = 471
+      Top = 56
+      Width = 439
       Align = alClient
       AutoExpand = True
       BorderStyle = bsNone
@@ -68,14 +67,14 @@ object SDForm: TSDForm
     end
     object Panel4: TPanel
       Left = 0
-      Height = 55
+      Height = 56
       Top = 0
-      Width = 434
+      Width = 439
       Align = alTop
       Alignment = taRightJustify
       BevelOuter = bvNone
-      ClientHeight = 55
-      ClientWidth = 434
+      ClientHeight = 56
+      ClientWidth = 439
       Font.Height = -13
       Font.Name = 'Sans'
       ParentFont = False
@@ -86,7 +85,7 @@ object SDForm: TSDForm
         Left = 8
         Height = 40
         Hint = 'Copy to SD-Card'
-        Top = 7
+        Top = 8
         Width = 40
         Flat = True
         Glyph.Data = {
@@ -228,10 +227,10 @@ object SDForm: TSDForm
       object MkPCDirBtn: TSpeedButton
         AnchorSideTop.Control = Panel4
         AnchorSideTop.Side = asrCenter
-        Left = 55
+        Left = 56
         Height = 40
         Hint = 'Make folder'
-        Top = 7
+        Top = 8
         Width = 40
         Flat = True
         Glyph.Data = {
@@ -373,10 +372,10 @@ object SDForm: TSDForm
       object RefreshBtn: TSpeedButton
         AnchorSideTop.Control = Panel4
         AnchorSideTop.Side = asrCenter
-        Left = 103
+        Left = 104
         Height = 40
         Hint = 'Update'
-        Top = 7
+        Top = 8
         Width = 40
         Flat = True
         Glyph.Data = {
@@ -520,10 +519,10 @@ object SDForm: TSDForm
         AnchorSideLeft.Side = asrBottom
         AnchorSideTop.Control = Panel4
         AnchorSideTop.Side = asrCenter
-        Left = 153
+        Left = 154
         Height = 32
         Hint = 'Show hidden'
-        Top = 11
+        Top = 12
         Width = 78
         BorderSpacing.Left = 10
         Caption = 'hidden'
@@ -535,15 +534,15 @@ object SDForm: TSDForm
     end
   end
   object GroupBox2: TGroupBox
-    Left = 441
-    Height = 539
+    Left = 446
+    Height = 545
     Top = 5
-    Width = 438
+    Width = 442
     Align = alClient
     BorderSpacing.Top = 5
     Caption = '/sdcard/'
-    ClientHeight = 521
-    ClientWidth = 436
+    ClientHeight = 527
+    ClientWidth = 440
     Font.Height = -13
     Font.Name = 'Sans'
     Font.Style = [fsBold]
@@ -551,9 +550,9 @@ object SDForm: TSDForm
     TabOrder = 2
     object SDBox: TListBox
       Left = 0
-      Height = 466
-      Top = 55
-      Width = 436
+      Height = 471
+      Top = 56
+      Width = 440
       Align = alClient
       BorderStyle = bsNone
       Color = clWindow
@@ -571,14 +570,14 @@ object SDForm: TSDForm
     end
     object Panel3: TPanel
       Left = 0
-      Height = 55
+      Height = 56
       Top = 0
-      Width = 436
+      Width = 440
       Align = alTop
       Alignment = taLeftJustify
       BevelOuter = bvNone
-      ClientHeight = 55
-      ClientWidth = 436
+      ClientHeight = 56
+      ClientWidth = 440
       Font.Height = -13
       Font.Name = 'Sans'
       ParentFont = False
@@ -589,7 +588,7 @@ object SDForm: TSDForm
         Left = 8
         Height = 40
         Hint = 'Copy to computer'
-        Top = 7
+        Top = 8
         Width = 40
         Flat = True
         Glyph.Data = {
@@ -731,10 +730,10 @@ object SDForm: TSDForm
       object SelectAllBtn: TSpeedButton
         AnchorSideTop.Control = Panel3
         AnchorSideTop.Side = asrCenter
-        Left = 95
+        Left = 96
         Height = 40
         Hint = 'Select all'
-        Top = 7
+        Top = 8
         Width = 40
         Flat = True
         Glyph.Data = {
@@ -876,10 +875,10 @@ object SDForm: TSDForm
       object MkDirBtn: TSpeedButton
         AnchorSideTop.Control = Panel3
         AnchorSideTop.Side = asrCenter
-        Left = 141
+        Left = 142
         Height = 40
         Hint = 'Make folder'
-        Top = 7
+        Top = 8
         Width = 40
         Flat = True
         Glyph.Data = {
@@ -1021,10 +1020,10 @@ object SDForm: TSDForm
       object DelBtn: TSpeedButton
         AnchorSideTop.Control = Panel3
         AnchorSideTop.Side = asrCenter
-        Left = 185
+        Left = 187
         Height = 40
         Hint = 'Delete Files/Folders'
-        Top = 7
+        Top = 8
         Width = 40
         Flat = True
         Glyph.Data = {
@@ -1166,10 +1165,10 @@ object SDForm: TSDForm
       object UpBtn: TSpeedButton
         AnchorSideTop.Control = Panel3
         AnchorSideTop.Side = asrCenter
-        Left = 51
+        Left = 52
         Height = 40
         Hint = 'Upper level (BackSpace)'
-        Top = 7
+        Top = 8
         Width = 40
         Flat = True
         Glyph.Data = {
@@ -1311,9 +1310,9 @@ object SDForm: TSDForm
       object Label3: TLabel
         AnchorSideTop.Control = Label4
         AnchorSideRight.Control = Label4
-        Left = 368
+        Left = 372
         Height = 15
-        Top = 3
+        Top = 4
         Width = 35
         Anchors = [akTop, akRight]
         BorderSpacing.Right = 4
@@ -1328,9 +1327,9 @@ object SDForm: TSDForm
         AnchorSideRight.Control = Panel3
         AnchorSideRight.Side = asrBottom
         AnchorSideBottom.Control = Label5
-        Left = 407
+        Left = 411
         Height = 15
-        Top = 3
+        Top = 4
         Width = 21
         Anchors = [akRight, akBottom]
         BorderSpacing.Left = 4
@@ -1344,9 +1343,9 @@ object SDForm: TSDForm
       object Label2: TLabel
         AnchorSideTop.Control = Label5
         AnchorSideRight.Control = Label5
-        Left = 368
+        Left = 372
         Height = 15
-        Top = 20
+        Top = 21
         Width = 35
         Anchors = [akTop, akRight]
         BorderSpacing.Right = 4
@@ -1362,9 +1361,9 @@ object SDForm: TSDForm
         AnchorSideTop.Side = asrCenter
         AnchorSideRight.Control = Panel3
         AnchorSideRight.Side = asrBottom
-        Left = 407
+        Left = 411
         Height = 15
-        Top = 20
+        Top = 21
         Width = 21
         Anchors = [akTop, akRight]
         BorderSpacing.Left = 4
@@ -1378,9 +1377,9 @@ object SDForm: TSDForm
       object Label1: TLabel
         AnchorSideTop.Control = Label6
         AnchorSideRight.Control = Label6
-        Left = 368
+        Left = 372
         Height = 15
-        Top = 37
+        Top = 38
         Width = 35
         Anchors = [akTop, akRight]
         BorderSpacing.Right = 4
@@ -1396,9 +1395,9 @@ object SDForm: TSDForm
         AnchorSideTop.Side = asrBottom
         AnchorSideRight.Control = Panel3
         AnchorSideRight.Side = asrBottom
-        Left = 407
+        Left = 411
         Height = 15
-        Top = 37
+        Top = 38
         Width = 21
         Anchors = [akTop, akRight]
         BorderSpacing.Left = 4
@@ -1413,10 +1412,10 @@ object SDForm: TSDForm
       object SDChangeBtn: TSpeedButton
         AnchorSideTop.Control = Panel3
         AnchorSideTop.Side = asrCenter
-        Left = 264
+        Left = 267
         Height = 40
         Hint = 'SD-Card Search (F12)'
-        Top = 7
+        Top = 8
         Width = 40
         Flat = True
         Glyph.Data = {
@@ -1558,29 +1557,29 @@ object SDForm: TSDForm
     end
   end
   object Splitter2: TSplitter
-    Left = 436
-    Height = 544
+    Left = 441
+    Height = 550
     Top = 0
     Width = 5
   end
   object Panel1: TPanel
     Left = 0
-    Height = 75
-    Top = 549
-    Width = 879
+    Height = 76
+    Top = 555
+    Width = 888
     Align = alBottom
     BevelOuter = bvNone
     Caption = 'Panel1'
-    ClientHeight = 75
-    ClientWidth = 879
+    ClientHeight = 76
+    ClientWidth = 888
     TabOrder = 4
     object SDMemo: TMemo
       AnchorSideTop.Control = Panel1
       AnchorSideBottom.Control = ProgressBar1
       Left = 2
-      Height = 63
+      Height = 64
       Top = 0
-      Width = 877
+      Width = 886
       Anchors = [akTop, akLeft, akRight, akBottom]
       BorderStyle = bsNone
       Font.Height = -12
@@ -1595,8 +1594,8 @@ object SDForm: TSDForm
       AnchorSideTop.Control = SDMemo
       Left = 0
       Height = 12
-      Top = 63
-      Width = 879
+      Top = 64
+      Width = 888
       Align = alBottom
       TabOrder = 1
     end
@@ -1605,21 +1604,21 @@ object SDForm: TSDForm
     Cursor = crVSplit
     Left = 0
     Height = 5
-    Top = 544
-    Width = 879
+    Top = 550
+    Width = 888
     Align = alBottom
     ResizeAnchor = akBottom
   end
   object IniPropStorage1: TIniPropStorage
     StoredValues = <>
-    Left = 570
-    Top = 119
+    Left = 576
+    Top = 120
   end
   object ImageList1: TImageList
     Height = 24
     Width = 24
-    Left = 665
-    Top = 119
+    Left = 672
+    Top = 120
     Bitmap = {
       4C7A020000001800000018000000040900000000000078DAAD97075055571AC7
       35AB0EA2324417C1586201DB9A18E3EADA58CBC8E6A131C6328B0114022A48A4

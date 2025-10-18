@@ -231,7 +231,7 @@ begin
       end;
 
       //Отключаем терминал, если использовался
-      MainForm.StartProcess('[ $(pidof sakura) ] && killall sakura');
+      MainForm.StartProcess('killall -q sakura');
 
       StartADBCommand.Create(adbcmd);
     end;

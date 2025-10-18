@@ -471,10 +471,6 @@ msgstr ""
 msgid "Deleting a package"
 msgstr "Suppression d'un paquet"
 
-#: unit1.serrorimagecopy
-msgid "Error copying file from device!"
-msgstr ""
-
 #: unit1.sfilenotvalid
 msgid "The file does not match the current list of packages!"
 msgstr ""

@@ -11,9 +11,12 @@ type
   TXDGOpenTRD = class(TThread)
   private
     FRemotePath: string;
+    FTempFile: string;
+    FErrorMsg: string;
     procedure ShowProgress;
     procedure HideProgress;
-
+    procedure OpenFile;
+    procedure ShowError;
   protected
     procedure Execute; override;
   public
@@ -23,7 +26,7 @@ type
 implementation
 
 uses
-  SDCardManager, Unit1;
+  SDCardManager;
 
 constructor TXDGOpenTRD.Create(const ARemotePath: string);
 begin
@@ -33,44 +36,83 @@ begin
   Start;
 end;
 
-//Показываем прогресс
+// Показать прогресс
 procedure TXDGOpenTRD.ShowProgress;
 begin
   SDForm.ProgressBar1.Style := pbstMarquee;
   SDForm.ProgressBar1.Refresh;
 end;
 
-//Останавливаем прогресс
+// Скрыть прогресс
 procedure TXDGOpenTRD.HideProgress;
 begin
   SDForm.ProgressBar1.Style := pbstNormal;
   SDForm.ProgressBar1.Refresh;
 end;
 
-//Запуск приложений по mime-типу (xdg-open)
+// Показать ошибку
+procedure TXDGOpenTRD.ShowError;
+begin
+  if FErrorMsg <> '' then
+    MessageDlg(FErrorMsg, mtError, [mbOK], 0);
+end;
+
+// Запуск xdg-open (в GUI-потоке!)
+procedure TXDGOpenTRD.OpenFile;
+var
+  Proc: TProcess;
+begin
+  Proc := TProcess.Create(nil);
+  try
+    Proc.Executable := 'xdg-open';
+    Proc.Parameters.Add(FTempFile);
+    Proc.Options := [poNoConsole]; // не ждём завершения
+    Proc.Execute;
+  finally
+    Proc.Free;
+  end;
+end;
+
+// Основной код потока
 procedure TXDGOpenTRD.Execute;
 var
-  TempDir, TempFile, Cmd, S: string;
+  TempDir, Cmd: string;
+  Proc: TProcess;
 begin
   Synchronize(@ShowProgress);
   try
     // --- 1. Подкаталог для временных файлов ---
     TempDir := GetEnvironmentVariable('HOME') + '/.adbmanager/tmp';
+    ForceDirectories(TempDir);
 
-    // --- 2. Подготовка временного файла ---
-    TempFile := TempDir + '/' + ExtractFileName(FRemotePath);
+    // --- 2. Путь к целевому файлу ---
+    FTempFile := TempDir + '/' + ExtractFileName(FRemotePath);
 
-    // --- 3. Копирование файла с устройства ---
-    Cmd := Format('adb pull "%s" "%s"', [FRemotePath, TempFile]);
-    if RunCommand('bash', ['-c', Cmd], S) = False then
-    begin
-      MessageDlg(SErrorImageCopy, mtError, [mbOK], 0);
-      Exit;
+    // --- 3. Копирование файла с устройства через adb ---
+    Cmd := Format('adb pull "%s" "%s"', [FRemotePath, FTempFile]);
+
+    Proc := TProcess.Create(nil);
+    try
+      Proc.Executable := 'bash';
+      Proc.Parameters.Add('-c');
+      Proc.Parameters.Add(Cmd);
+      Proc.Options := [poWaitOnExit, poUsePipes];
+      Proc.Execute;
+
+      // Проверим результат
+      if Proc.ExitStatus <> 0 then
+        FErrorMsg :=
+          'Ошибка при копировании файла с устройства.';
+
+    finally
+      Proc.Free;
     end;
 
-    // --- 4. Открытие через xdg-open ---
-    Cmd := Format('xdg-open "%s"', [TempFile]);
-    RunCommand('bash', ['-c', Cmd], S);
+    // --- 4. Если всё ок — открыть файл через xdg-open (в GUI потоке) ---
+    if FErrorMsg = '' then
+      Synchronize(@OpenFile)
+    else
+      Synchronize(@ShowError);
 
   finally
     Synchronize(@HideProgress);
