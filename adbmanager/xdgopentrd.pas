@@ -39,6 +39,8 @@ end;
 // Показать прогресс
 procedure TXDGOpenTRD.ShowProgress;
 begin
+  //Метка отмены копирования
+  SDForm.Panel4.Caption := SCancelCopyng;
   SDForm.ProgressBar1.Style := pbstMarquee;
   SDForm.ProgressBar1.Refresh;
 end;
@@ -46,6 +48,8 @@ end;
 // Скрыть прогресс
 procedure TXDGOpenTRD.HideProgress;
 begin
+  //Метка отмены копирования
+  SDForm.Panel4.Caption := '';
   SDForm.ProgressBar1.Style := pbstNormal;
   SDForm.ProgressBar1.Refresh;
 end;
