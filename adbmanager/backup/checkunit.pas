@@ -8,7 +8,7 @@ interface
 uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, CheckLst, StdCtrls,
   IniPropStorage, ComCtrls, Buttons, Types, LCLIntf, Menus, ReadAppsTrdUnit,
-  ClipBrd, ExtCtrls, LCLType;
+  ClipBrd, ExtCtrls, LCLType, XMLPropStorage;
 
 type
 
@@ -26,12 +26,12 @@ type
     Separator1: TMenuItem;
     ModeBox: TCheckBox;
     Edit1: TEdit;
-    IniPropStorage1: TIniPropStorage;
     Label1: TLabel;
     PopupMenu1: TPopupMenu;
     ProgressBar1: TProgressBar;
     ClearBtn: TSpeedButton;
     PkgBtn: TSpeedButton;
+    XMLPropStorage1: TXMLPropStorage;
     procedure AppListBoxDrawItem(Control: TWinControl; Index: integer;
       ARect: TRect; State: TOwnerDrawState);
     procedure ApplyBtnClick(Sender: TObject);
@@ -39,6 +39,7 @@ type
     procedure CopyToClipboardClick(Sender: TObject);
     procedure Edit1Change(Sender: TObject);
     procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
+    procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure LoadFromTXTClick(Sender: TObject);
     procedure ModeBoxChange(Sender: TObject);
@@ -120,8 +121,7 @@ end;
 procedure TCheckForm.FormShow(Sender: TObject);
 begin
   //For Plasma
-  IniPropStorage1.IniFileName := MainForm.IniPropStorage1.IniFileName;
-  IniPropStorage1.Restore;
+  XMLPropStorage1.Restore;
 
   AppListBox.Clear;
   Edit1.Clear;
@@ -323,7 +323,12 @@ end;
 procedure TCheckForm.FormClose(Sender: TObject; var CloseAction: TCloseAction);
 begin
   StopThread; // гарантированно завершить поток
-  IniPropStorage1.Save;
+  XMLPropStorage1.Save;
+end;
+
+procedure TCheckForm.FormCreate(Sender: TObject);
+begin
+  XMLPropStorage1.FileName := MainForm.XMLPropStorage1.FileName;
 end;
 
 //Применение параметров: Включение/Отключение/Удаление приложений
@@ -424,7 +429,7 @@ begin
   // Цвет включенного чекера
   if CLB.Checked[Index] then
   begin
-    boxColor := RGB(0, 191, 255);
+    boxColor := RGB(30, 144, 255);
     CLB.Canvas.Brush.Color := boxColor;
     fillRect := Rect(checkBoxRect.Left + 4, checkBoxRect.Top + 4,
       checkBoxRect.Right - 4, checkBoxRect.Bottom - 4);

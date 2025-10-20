@@ -1,7 +1,7 @@
 object SettingsForm: TSettingsForm
-  Left = 376
+  Left = 378
   Height = 580
-  Top = 144
+  Top = 234
   Width = 684
   Caption = 'Android TV Box settings'
   ClientHeight = 580
@@ -10,6 +10,7 @@ object SettingsForm: TSettingsForm
   SessionProperties = 'Height;Width;Top;Left'
   LCLVersion = '4.2.0.0'
   OnClose = FormClose
+  OnCreate = FormCreate
   OnShow = FormShow
   object ComboBox1: TComboBox
     AnchorSideLeft.Control = Label1
@@ -149,9 +150,9 @@ object SettingsForm: TSettingsForm
     BorderSpacing.Left = 5
     TabOrder = 1
   end
-  object IniPropStorage1: TIniPropStorage
+  object XMLPropStorage1: TXMLPropStorage
     StoredValues = <>
-    Left = 592
-    Top = 48
+    Left = 595
+    Top = 117
   end
 end

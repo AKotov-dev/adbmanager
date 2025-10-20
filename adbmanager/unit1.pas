@@ -6,7 +6,8 @@ interface
 
 uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls, Buttons,
-  ComCtrls, ExtCtrls, IniPropStorage, Process, LCLTranslator, LCLType, DefaultTranslator;
+  ComCtrls, ExtCtrls, Process, LCLTranslator, LCLType,
+  DefaultTranslator, XMLPropStorage;
 
 type
 
@@ -17,7 +18,6 @@ type
     Image1: TImage;
     ImageList1: TImageList;
     ImageList2: TImageList;
-    IniPropStorage1: TIniPropStorage;
     KeyLabel: TLabel;
     Label1: TLabel;
     Label2: TLabel;
@@ -49,6 +49,7 @@ type
     ToolButton4: TToolButton;
     UninstallBtn: TToolButton;
     ExitBtn: TToolButton;
+    XMLPropStorage1: TXMLPropStorage;
     procedure ApkInfoBtnClick(Sender: TObject);
     procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
     procedure FormCloseQuery(Sender: TObject; var CanClose: boolean);
@@ -329,8 +330,10 @@ begin
     MkDir(GetUserDir + '.adbmanager/tmp');
 
   {$IFDEF LCLQt6}
+      XMLPropStorage1.FileName := GetUserDir + '.adbmanager/adbmanager-qt.xml';
       MainForm.Caption := Application.Title + ' Qt';
   {$ELSE}
+  XMLPropStorage1.FileName := GetUserDir + '.adbmanager/adbmanager.xml';
   MainForm.Caption := Application.Title;
   {$ENDIF}
 
@@ -579,13 +582,7 @@ end;
 procedure TMainForm.FormShow(Sender: TObject);
 begin
   //For Plasma
-  {$IFDEF LCLQt6}
-      IniPropStorage1.IniFileName := GetUserDir + '.adbmanager/adbmanager-qt.conf';
-  {$ELSE}
-      IniPropStorage1.IniFileName := GetUserDir + '.adbmanager/adbmanager.conf';
-  {$ENDIF}
-
-  IniPropStorage1.Restore;
+  XMLPropStorage1.Restore;
 end;
 
 procedure TMainForm.KeyLabelChangeBounds(Sender: TObject);

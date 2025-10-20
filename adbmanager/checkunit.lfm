@@ -1,24 +1,24 @@
 object CheckForm: TCheckForm
-  Left = 302
-  Height = 549
-  Top = 126
-  Width = 599
+  Left = 373
+  Height = 555
+  Top = 131
+  Width = 605
   ActiveControl = Edit1
   Caption = 'Enable/Disable/Uninstall applications'
-  ClientHeight = 549
-  ClientWidth = 599
-  DesignTimePPI = 95
+  ClientHeight = 555
+  ClientWidth = 605
   SessionProperties = 'Height;Left;Top;Width;SaveDialog1.InitialDir'
   LCLVersion = '4.2.0.0'
   OnClose = FormClose
+  OnCreate = FormCreate
   OnShow = FormShow
   object AppListBox: TCheckListBox
     AnchorSideTop.Control = Edit1
     AnchorSideTop.Side = asrBottom
     Left = 5
-    Height = 495
-    Top = 49
-    Width = 589
+    Height = 500
+    Top = 50
+    Width = 595
     Align = alBottom
     Anchors = [akTop, akLeft, akRight, akBottom]
     BorderSpacing.Left = 5
@@ -36,10 +36,10 @@ object CheckForm: TCheckForm
   object Edit1: TEdit
     AnchorSideLeft.Control = Label1
     AnchorSideLeft.Side = asrBottom
-    Left = 49
-    Height = 36
+    Left = 50
+    Height = 37
     Top = 8
-    Width = 209
+    Width = 211
     BorderSpacing.Left = 2
     TabOrder = 0
     OnChange = Edit1Change
@@ -48,9 +48,9 @@ object CheckForm: TCheckForm
     AnchorSideTop.Control = Edit1
     AnchorSideTop.Side = asrCenter
     Left = 5
-    Height = 16
+    Height = 17
     Top = 18
-    Width = 42
+    Width = 43
     Caption = 'Search:'
     ParentColor = False
   end
@@ -60,10 +60,10 @@ object CheckForm: TCheckForm
     AnchorSideRight.Side = asrBottom
     AnchorSideBottom.Control = Edit1
     AnchorSideBottom.Side = asrBottom
-    Left = 488
-    Height = 36
+    Left = 493
+    Height = 37
     Top = 8
-    Width = 106
+    Width = 107
     Anchors = [akTop, akRight, akBottom]
     BorderSpacing.Right = 5
     Caption = 'Apply'
@@ -75,21 +75,21 @@ object CheckForm: TCheckForm
     AnchorSideLeft.Side = asrCenter
     AnchorSideTop.Control = AppListBox
     AnchorSideTop.Side = asrCenter
-    Left = 180
+    Left = 182
     Height = 10
-    Top = 291
-    Width = 238
+    Top = 295
+    Width = 241
     TabOrder = 4
   end
   object ModeBox: TCheckBox
     AnchorSideTop.Control = ApplyBtn
     AnchorSideTop.Side = asrCenter
     AnchorSideRight.Control = ApplyBtn
-    Left = 373
+    Left = 377
     Height = 32
     Hint = 'Uninstalling selected applications (Android >= 6)'
     Top = 10
-    Width = 110
+    Width = 111
     Anchors = [akTop, akRight]
     BorderSpacing.Right = 5
     Caption = 'Delete mode'
@@ -103,8 +103,8 @@ object CheckForm: TCheckForm
     AnchorSideTop.Control = Edit1
     AnchorSideBottom.Control = Edit1
     AnchorSideBottom.Side = asrBottom
-    Left = 259
-    Height = 36
+    Left = 262
+    Height = 37
     Hint = 'Clear'
     Top = 8
     Width = 37
@@ -196,8 +196,8 @@ object CheckForm: TCheckForm
     AnchorSideTop.Control = ClearBtn
     AnchorSideBottom.Control = ClearBtn
     AnchorSideBottom.Side = asrBottom
-    Left = 297
-    Height = 36
+    Left = 300
+    Height = 37
     Hint = 'IconExtractor.apk'
     Top = 8
     Width = 37
@@ -283,16 +283,11 @@ object CheckForm: TCheckForm
     ParentShowHint = False
     OnClick = PkgBtnClick
   end
-  object IniPropStorage1: TIniPropStorage
-    StoredValues = <>
-    Left = 412
-    Top = 71
-  end
   object DefaultIcon: TImageList
     Height = 48
     Width = 48
-    Left = 499
-    Top = 71
+    Left = 504
+    Top = 72
     Bitmap = {
       4C7A0100000030000000300000002C0300000000000078DAED9A4F4815411CC7
       9F1665944952F487FE8950874832CD6722417FB10E051E02234FBD4B7411846E
@@ -325,8 +320,8 @@ object CheckForm: TCheckForm
   end
   object PopupMenu1: TPopupMenu
     OnPopup = PopupMenu1Popup
-    Left = 166
-    Top = 71
+    Left = 168
+    Top = 72
     object CopyToClipboard: TMenuItem
       Caption = 'Copy package name to clipboard'
       OnClick = CopyToClipboardClick
@@ -347,14 +342,19 @@ object CheckForm: TCheckForm
     DefaultExt = '.txt'
     Filter = 'Text files (*.txt)|*.txt'
     Options = [ofOverwritePrompt, ofEnableSizing]
-    Left = 245
-    Top = 71
+    Left = 248
+    Top = 72
   end
   object OpenDialog1: TOpenDialog
     DefaultExt = '.txt'
     Filter = 'Text files (*.txt)|*.txt'
     Options = [ofEnableSizing]
-    Left = 325
-    Top = 71
+    Left = 328
+    Top = 72
+  end
+  object XMLPropStorage1: TXMLPropStorage
+    StoredValues = <>
+    Left = 416
+    Top = 112
   end
 end

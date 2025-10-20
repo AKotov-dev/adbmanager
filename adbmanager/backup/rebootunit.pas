@@ -6,17 +6,17 @@ interface
 
 uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, ExtCtrls, Buttons,
-  StdCtrls, IniPropStorage;
+  StdCtrls, IniPropStorage, XMLPropStorage;
 
 type
 
   { TRebootForm }
 
   TRebootForm = class(TForm)
-    IniPropStorage1: TIniPropStorage;
     OKBtn: TButton;
     CancelBtn: TButton;
     RadioGroup1: TRadioGroup;
+    XMLPropStorage1: TXMLPropStorage;
     procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
     procedure FormShow(Sender: TObject);
     procedure OKBtnClick(Sender: TObject);
@@ -46,6 +46,7 @@ uses unit1, SDCardManager, ADBCommandTRD;
 
 procedure TRebootForm.FormCreate(Sender: TObject);
 begin
+  XMLPropStorage1.FileName := MainForm.XMLPropStorage1.FileName;
   RadioGroup1.Items[0] := SNormalReboot;
   RadioGroup1.Items[1] := SBootLoader;
   RadioGroup1.Items[2] := SRecoveryReboot;
@@ -56,6 +57,8 @@ procedure TRebootForm.OKBtnClick(Sender: TObject);
 var
   adbcmd: string;
 begin
+  adbcmd := '';
+
   //Закрываем SD-Manager, если открыт
   if SDForm.Visible then
     SDForm.Close;
@@ -83,8 +86,7 @@ end;
 procedure TRebootForm.FormShow(Sender: TObject);
 begin
   //For Plasma
-  IniPropStorage1.IniFileName := MainForm.IniPropStorage1.IniFileName;
-  IniPropStorage1.Restore;
+  XMLPropStorage1.Restore;
 end;
 
 end.

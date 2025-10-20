@@ -1,7 +1,7 @@
 object RebootForm: TRebootForm
-  Left = 484
+  Left = 505
   Height = 189
-  Top = 263
+  Top = 167
   Width = 433
   ActiveControl = OKBtn
   Caption = 'Reboot/Shutdown'
@@ -83,9 +83,9 @@ object RebootForm: TRebootForm
     ModalResult = 2
     TabOrder = 2
   end
-  object IniPropStorage1: TIniPropStorage
+  object XMLPropStorage1: TXMLPropStorage
     StoredValues = <>
-    Left = 320
-    Top = 96
+    Left = 264
+    Top = 88
   end
 end

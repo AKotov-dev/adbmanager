@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, ExtCtrls, StdCtrls,
-  IniPropStorage;
+  XMLPropStorage;
 
 type
 
@@ -15,10 +15,10 @@ type
   TEmulatorForm = class(TForm)
     CancelBtn: TButton;
     Edit1: TEdit;
-    IniPropStorage1: TIniPropStorage;
     Label1: TLabel;
     OKBtn: TButton;
     RadioGroup1: TRadioGroup;
+    XMLPropStorage1: TXMLPropStorage;
     procedure Edit1Enter(Sender: TObject);
     procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
     procedure FormCreate(Sender: TObject);
@@ -87,6 +87,7 @@ end;
 
 procedure TEmulatorForm.FormCreate(Sender: TObject);
 begin
+  XMLPropStorage1.FileName := MainForm.XMLPropStorage1.FileName;
   RadioGroup1.Items[0] := SSwitchToUSB;
   RadioGroup1.Items[1] := SSwitchToTCPIP;
   RadioGroup1.Items[2] := SScanActiveConnection;
@@ -102,8 +103,7 @@ end;
 procedure TEmulatorForm.FormShow(Sender: TObject);
 begin
   //For Plasma
-  IniPropStorage1.IniFileName := MainForm.IniPropStorage1.IniFileName;
-  IniPropStorage1.Restore;
+  XMLPropStorage1.Restore;
 end;
 
 procedure TEmulatorForm.FormClose(Sender: TObject; var CloseAction: TCloseAction);

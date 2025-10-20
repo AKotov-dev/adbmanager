@@ -1,7 +1,7 @@
 object MainForm: TMainForm
-  Left = 296
+  Left = 300
   Height = 625
-  Top = 124
+  Top = 127
   Width = 837
   ActiveControl = Panel1
   Caption = 'ADBManager'
@@ -608,7 +608,7 @@ object MainForm: TMainForm
   object ImageList1: TImageList
     Height = 48
     Width = 48
-    Left = 480
+    Left = 384
     Top = 304
     Bitmap = {
       4C7A030000003000000030000000871100000000000078DADD9C5B5454579AC7
@@ -754,15 +754,10 @@ object MainForm: TMainForm
       B9D1123183363C399BBFA1F16C7ED8495A37896B8F40CBFF3F95E08609
     }
   end
-  object IniPropStorage1: TIniPropStorage
-    StoredValues = <>
-    Left = 392
-    Top = 304
-  end
   object ImageList2: TImageList
     Height = 32
     Width = 32
-    Left = 552
+    Left = 456
     Top = 304
     Bitmap = {
       4C7A0C0000002000000020000000DC2E00000000000078DAED9D07589457DAF7
@@ -1158,6 +1153,11 @@ object MainForm: TMainForm
   end
   object SelectDirectoryDialog1: TSelectDirectoryDialog
     Left = 112
+    Top = 304
+  end
+  object XMLPropStorage1: TXMLPropStorage
+    StoredValues = <>
+    Left = 544
     Top = 304
   end
 end

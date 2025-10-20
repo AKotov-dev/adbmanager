@@ -1,7 +1,7 @@
 object SDForm: TSDForm
   Left = 309
   Height = 631
-  Top = 131
+  Top = 138
   Width = 888
   ActiveControl = Splitter2
   Caption = 'SD-Card manager'
@@ -13,6 +13,7 @@ object SDForm: TSDForm
   LCLVersion = '4.2.0.0'
   OnClose = FormClose
   OnCloseQuery = FormCloseQuery
+  OnCreate = FormCreate
   OnKeyUp = FormKeyUp
   OnResize = FormResize
   OnShow = FormShow
@@ -1609,11 +1610,6 @@ object SDForm: TSDForm
     Align = alBottom
     ResizeAnchor = akBottom
   end
-  object IniPropStorage1: TIniPropStorage
-    StoredValues = <>
-    Left = 576
-    Top = 120
-  end
   object ImageList1: TImageList
     Height = 24
     Width = 24
@@ -1694,5 +1690,10 @@ object SDForm: TSDForm
       D3A7AF9D3367CE56A6D9B3676F9D356B16AF993367F2525353E3A5AAAACA6BC6
       8C195BA9CF1B4D9B366DEBD4A953B7502DB1A837FBFF5F42065F
     }
+  end
+  object XMLPropStorage1: TXMLPropStorage
+    StoredValues = <>
+    Left = 774
+    Top = 118
   end
 end

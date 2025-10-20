@@ -6,7 +6,8 @@ interface
 
 uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, ExtCtrls, StdCtrls,
-  ShellCtrls, ComCtrls, Buttons, IniPropStorage, Process, LCLType, StrUtils;
+  ShellCtrls, ComCtrls, Buttons, IniPropStorage, Process, LCLType,
+  XMLPropStorage, StrUtils;
 
 type
 
@@ -21,7 +22,6 @@ type
     GroupBox1: TGroupBox;
     GroupBox2: TGroupBox;
     ImageList1: TImageList;
-    IniPropStorage1: TIniPropStorage;
     Label1: TLabel;
     Label2: TLabel;
     Label3: TLabel;
@@ -43,6 +43,7 @@ type
     Splitter1: TSplitter;
     Splitter2: TSplitter;
     UpBtn: TSpeedButton;
+    XMLPropStorage1: TXMLPropStorage;
     procedure CheckBox1Change(Sender: TObject);
     procedure CompDirGetImageIndex(Sender: TObject; Node: TTreeNode);
     procedure CopyFromSmartphoneClick(Sender: TObject);
@@ -50,6 +51,7 @@ type
     procedure DelBtnClick(Sender: TObject);
     procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
     procedure FormCloseQuery(Sender: TObject; var CanClose: boolean);
+    procedure FormCreate(Sender: TObject);
     procedure FormKeyUp(Sender: TObject; var Key: word; Shift: TShiftState);
     procedure FormResize(Sender: TObject);
     procedure FormShow(Sender: TObject);
@@ -398,7 +400,7 @@ procedure TSDForm.FormClose(Sender: TObject; var CloseAction: TCloseAction);
 begin
   try
     //For Plasma
-    IniPropStorage1.Save;
+    XMLPropStorage1.Save;
 
     CancelCopy;
     SDBox.Clear;
@@ -435,13 +437,17 @@ begin
       CanClose := True;
 end;
 
+procedure TSDForm.FormCreate(Sender: TObject);
+begin
+  XMLPropStorage1.FileName := MainForm.XMLPropStorage1.FileName;
+end;
+
 procedure TSDForm.FormShow(Sender: TObject);
 {var
   FSDMountPointThread: TThread;}
 begin
   //For Plasma
-  IniPropStorage1.IniFileName := MainForm.IniPropStorage1.IniFileName;
-  IniPropStorage1.Restore;
+  XMLPropStorage1.Restore;
 
   FormLoaded := True;
 
@@ -691,7 +697,7 @@ begin
     GroupBox2.Caption := SDMountPoint[0];
 
   //Запоминаем точку монтирования SD-Card
-  INIPropStorage1.Save;
+  XMLPropStorage1.Save;
 
   StartLS;
 end;

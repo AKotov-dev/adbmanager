@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls, Buttons,
-  ExtCtrls, IniPropStorage, ComCtrls;
+  ExtCtrls, IniPropStorage, ComCtrls, XMLPropStorage;
 
 type
 
@@ -15,14 +15,15 @@ type
   TSettingsForm = class(TForm)
     CheckGroup1: TCheckGroup;
     ComboBox1: TComboBox;
-    IniPropStorage1: TIniPropStorage;
     Label1: TLabel;
     Label2: TLabel;
     ProgressBar1: TProgressBar;
     ApplyBtn: TSpeedButton;
     TrackBar1: TTrackBar;
+    XMLPropStorage1: TXMLPropStorage;
     procedure ApplyBtnClick(Sender: TObject);
     procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
+    procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
   private
 
@@ -62,11 +63,9 @@ uses unit1, ReadSettingsTRDUnit, WriteSettingsTRDUnit;
 procedure TSettingsForm.FormShow(Sender: TObject);
 var
   i: integer;
-  //  FReadSettingsTRD: TThread;
 begin
   //For Plasma
-  IniPropStorage1.IniFileName := MainForm.IniPropStorage1.IniFileName;
-  IniPropStorage1.Restore;
+  XMLPropStorage1.Restore;
 
   //Обнуляем все чеки для чистой загрузки из потока
   for i := 0 to CheckGroup1.Items.Count - 1 do
@@ -90,23 +89,24 @@ begin
   ComboBox1.Text := '...';
 
   //Запуск потока чтения настроек
- { FReadSettingsTRD := ReadSettingsTRD.Create(False);
-  FReadSettingsTRD.Priority := tpNormal;}
   ReadSettingsTRD.Create(False);
 end;
 
 procedure TSettingsForm.FormClose(Sender: TObject; var CloseAction: TCloseAction);
 begin
-  IniPropStorage1.Save;
+  XMLPropStorage1.Save;
 end;
 
+procedure TSettingsForm.FormCreate(Sender: TObject);
+begin
+  XMLPropStorage1.FileName := MainForm.XMLPropStorage1.FileName;
+end;
+
+//Применить
 procedure TSettingsForm.ApplyBtnClick(Sender: TObject);
-var
-  FWriteSettingsTRD: TThread;
 begin
   //Запуск потока записи настроек
-  FWriteSettingsTRD := WriteSettingsTRD.Create(False);
-  FWriteSettingsTRD.Priority := tpNormal;
+  WriteSettingsTRD.Create(False);
 end;
 
 end.

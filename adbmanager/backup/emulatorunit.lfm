@@ -1,13 +1,12 @@
 object EmulatorForm: TEmulatorForm
-  Left = 446
-  Height = 199
-  Top = 216
-  Width = 449
+  Left = 503
+  Height = 201
+  Top = 170
+  Width = 454
   ActiveControl = Edit1
   Caption = 'Connection/Scanning'
-  ClientHeight = 199
-  ClientWidth = 449
-  DesignTimePPI = 95
+  ClientHeight = 201
+  ClientWidth = 454
   KeyPreview = True
   Position = poMainFormCenter
   SessionProperties = 'Width;Height;Edit1.Text'
@@ -23,9 +22,9 @@ object EmulatorForm: TEmulatorForm
     AnchorSideBottom.Control = Owner
     AnchorSideBottom.Side = asrBottom
     Left = 7
-    Height = 129
-    Top = 63
-    Width = 339
+    Height = 130
+    Top = 64
+    Width = 343
     Anchors = [akTop, akLeft, akRight, akBottom]
     AutoFill = True
     BorderSpacing.Left = 7
@@ -37,8 +36,8 @@ object EmulatorForm: TEmulatorForm
     ChildSizing.ShrinkVertical = crsScaleChilds
     ChildSizing.Layout = cclLeftToRightThenTopToBottom
     ChildSizing.ControlsPerLine = 1
-    ClientHeight = 127
-    ClientWidth = 337
+    ClientHeight = 128
+    ClientWidth = 341
     Items.Strings = (
       'Switch to USB mode'
       'Switch to TCP/IP mode'
@@ -50,9 +49,9 @@ object EmulatorForm: TEmulatorForm
     AnchorSideLeft.Control = Owner
     AnchorSideRight.Control = OKBtn
     Left = 7
-    Height = 36
+    Height = 37
     Top = 26
-    Width = 339
+    Width = 343
     Anchors = [akTop, akLeft, akRight]
     BorderSpacing.Left = 7
     BorderSpacing.Right = 7
@@ -62,9 +61,9 @@ object EmulatorForm: TEmulatorForm
   object Label1: TLabel
     AnchorSideLeft.Control = Edit1
     Left = 7
-    Height = 16
+    Height = 17
     Top = 8
-    Width = 168
+    Width = 170
     Caption = 'Emulator/Device IP-address:'
     ParentColor = False
   end
@@ -75,10 +74,10 @@ object EmulatorForm: TEmulatorForm
     AnchorSideRight.Control = Owner
     AnchorSideRight.Side = asrBottom
     AnchorSideBottom.Control = CancelBtn
-    Left = 353
+    Left = 357
     Height = 32
     Top = 7
-    Width = 89
+    Width = 90
     Anchors = [akTop, akRight]
     BorderSpacing.Left = 7
     BorderSpacing.Top = 7
@@ -96,10 +95,10 @@ object EmulatorForm: TEmulatorForm
     AnchorSideTop.Side = asrBottom
     AnchorSideRight.Control = Owner
     AnchorSideRight.Side = asrBottom
-    Left = 353
+    Left = 357
     Height = 32
     Top = 42
-    Width = 89
+    Width = 90
     Anchors = [akTop, akRight]
     BorderSpacing.Left = 7
     BorderSpacing.Right = 7
@@ -107,9 +106,9 @@ object EmulatorForm: TEmulatorForm
     ModalResult = 2
     TabOrder = 3
   end
-  object IniPropStorage1: TIniPropStorage
+  object XMLPropStorage1: TXMLPropStorage
     StoredValues = <>
-    Left = 317
-    Top = 119
+    Left = 296
+    Top = 104
   end
 end
