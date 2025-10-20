@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, ExtCtrls, StdCtrls,
-  ShellCtrls, ComCtrls, Buttons, IniPropStorage, Process, LCLType,
+  ShellCtrls, ComCtrls, Buttons, Process, LCLType,
   XMLPropStorage, StrUtils;
 
 type
@@ -697,7 +697,7 @@ begin
     GroupBox2.Caption := SDMountPoint[0];
 
   //Запоминаем точку монтирования SD-Card
-  XMLPropStorage1.Save;
+  //XMLPropStorage1.Save;
 
   StartLS;
 end;

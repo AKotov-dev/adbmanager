@@ -696,9 +696,6 @@ begin
   else
     GroupBox2.Caption := SDMountPoint[0];
 
-  //Запоминаем точку монтирования SD-Card
-  XMLPropStorage1.Save;
-
   StartLS;
 end;
 
