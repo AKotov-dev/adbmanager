@@ -579,7 +579,12 @@ end;
 procedure TMainForm.FormShow(Sender: TObject);
 begin
   //For Plasma
-  IniPropStorage1.IniFileName := GetUserDir + '.adbmanager/adbmanager.conf';
+  {$IFDEF LCLQt6}
+      IniPropStorage1.IniFileName := GetUserDir + '.adbmanager/adbmanager-qt.conf';
+  {$ELSE}
+      IniPropStorage1.IniFileName := GetUserDir + '.adbmanager/adbmanager.conf';
+  {$ENDIF}
+
   IniPropStorage1.Restore;
 end;
 
