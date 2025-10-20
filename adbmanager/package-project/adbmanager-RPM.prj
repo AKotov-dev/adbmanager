@@ -49,7 +49,8 @@ deb=0
 3=/usr/share/adbmanager/
 4=/usr/share/doc/adbmanager/
 5=/usr/bin/adbmanager-qt
-6=/usr/share/applications/adbmanager-qt.desktop
+6=/usr/share/icons/adbmanager-qt.png
+7=/usr/share/applications/adbmanager-qt.desktop
 
 [AFTERINSTALL]
 0=[ $(grep "adbusers" /etc/group) ] || groupadd adbusers
