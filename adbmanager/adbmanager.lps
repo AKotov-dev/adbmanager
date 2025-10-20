@@ -2,7 +2,7 @@
 <CONFIG>
   <ProjectSession>
     <Version Value="12"/>
-    <BuildModes Count="2" Active="Release">
+    <BuildModes Count="2" Active="Qt6">
       <Item1 Name="Release">
         <MacroValues Count="1">
           <Macro1 Name="LCLWidgetType" Value="gtk2"/>
@@ -157,7 +157,8 @@
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="EmulatorUnit"/>
         <EditorIndex Value="-1"/>
-        <CursorPos X="20"/>
+        <TopLine Value="130"/>
+        <CursorPos Y="144"/>
         <UsageCount Value="135"/>
       </Unit8>
       <Unit9>

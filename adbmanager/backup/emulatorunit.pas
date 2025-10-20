@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, ExtCtrls, StdCtrls,
-  IniPropStorage, XMLPropStorage;
+  XMLPropStorage;
 
 type
 
@@ -156,7 +156,8 @@ begin
         EmulatorForm.ModalResult := 2;
   end;
 
-  StartADBCommand.Create(adbcmd);
+  if adbcmd <> '' then
+    StartADBCommand.Create(adbcmd);
 end;
 
 end.

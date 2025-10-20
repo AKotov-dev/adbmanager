@@ -141,9 +141,6 @@ begin
     0: adbcmd := 'adb usb';
     1: adbcmd := 'adb tcpip 5555';
     //Выделяем адрес вида x.x.x.x/nn
-   { 2: adbcmd := 'nmap -sn $(ip a | grep -w $(ip route get 1.1.1.1 | awk ' +
-        '''' + '{print $3}' + '''' + ' | cut -d "." -f1,2) | awk ' +
-        '''' + '{print $2}' + '''' + ') | grep Nmap'; }
     2: adbcmd := 'iface=$(ip route get 1.1.1.1 | awk ''{print $5}''); ' +
         'nmap -sn $(ip -o -4 addr show $iface | awk ''{print $4}'') | grep Nmap';
 
@@ -156,7 +153,8 @@ begin
         EmulatorForm.ModalResult := 2;
   end;
 
-  StartADBCommand.Create(adbcmd);
+  if adbcmd <> '' then
+    StartADBCommand.Create(adbcmd);
 end;
 
 end.
