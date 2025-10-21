@@ -366,7 +366,7 @@ end;
 procedure TCheckForm.FormClose(Sender: TObject; var CloseAction: TCloseAction);
 begin
   StopThread; // гарантированно завершить поток
-
+  if not Assigned(FReadThread) then
   SaveSettings;
 end;
 

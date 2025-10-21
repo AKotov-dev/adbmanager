@@ -355,10 +355,10 @@ begin
     MkDir(GetUserDir + '.adbmanager/tmp');
 
   {$IFDEF LCLQt6}
-      CONF := GetUserDir + '.adbmanager/adbmanager-qt.conf';
+      CONF := GetUserDir + '.adbmanager/adbmanager-qt.ini';
       MainForm.Caption := Application.Title + ' Qt';
   {$ELSE}
-  CONF := GetUserDir + '.adbmanager/adbmanager.conf';
+  CONF := GetUserDir + '.adbmanager/adbmanager.ini';
   MainForm.Caption := Application.Title;
   {$ENDIF}
 
