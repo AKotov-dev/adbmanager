@@ -7,7 +7,7 @@ interface
 uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls, Buttons,
   ComCtrls, ExtCtrls, Process, LCLTranslator, LCLType,
-  DefaultTranslator, IniFiles;
+  DefaultTranslator, LazFileUtils, IniFiles;
 
 type
 
@@ -346,27 +346,35 @@ procedure TMainForm.FormCreate(Sender: TObject);
 var
   bmp: TBitmap;
   ver: string;
+  ConfDir: string;
 begin
-  //Рабочая директория ~/.adbmanager
-  if not DirectoryExists(GetUserDir + '.adbmanager') then
-    MkDir(GetUserDir + '.adbmanager');
-  //для файлов xdg-open
-  if not DirectoryExists(GetUserDir + '.adbmanager/tmp') then
-    MkDir(GetUserDir + '.adbmanager/tmp');
+  // Рабочая директория ~/.adbmanager
+  ConfDir := GetUserDir + '.adbmanager';
+  ForceDirectories(ConfDir);
+  // <-- гарантированное создание дерева каталогов
+  ForceDirectories(ConfDir + '/tmp');        // и временной папки
+
+  // На всякий случай даём системе «дозреть»
+  Sleep(50);
+  // (Linux иногда не успевает смонтировать $HOME при автозапуске)
 
   {$IFDEF LCLQt6}
-      CONF := GetUserDir + '.adbmanager/adbmanager-qt.conf';
-      MainForm.Caption := Application.Title + ' Qt';
+    CONF := ConfDir + '/adbmanager-qt.ini';
+    MainForm.Caption := Application.Title + ' Qt';
   {$ELSE}
-  CONF := GetUserDir + '.adbmanager/adbmanager.conf';
+  CONF := ConfDir + '/adbmanager.ini';
   MainForm.Caption := Application.Title;
   {$ENDIF}
 
-  //Загрузка настроек формы
-  LoadSettings;
+  // Загрузка настроек формы
+  try
+    LoadSettings;
+  except
+    on E: Exception do
+      ShowMessage('Ошибка загрузки настроек: ' + E.Message);
+  end;
 
-  //Устраняем баг иконки приложения (Lazarus-4.0)
-  //https://gitlab.com/freepascal.org/lazarus/lazarus/-/issues/41636
+  // Устраняем баг иконки приложения
   bmp := TBitmap.Create;
   try
     bmp.PixelFormat := pf32bit;
@@ -376,20 +384,17 @@ begin
     bmp.Free;
   end;
 
-  //ADB установлен?
+  // ADB установлен?
   if CheckADBInstalled(Ver) then
   begin
     LogMemo.Append('ADB: ' + ver);
-    //Перезапуск сервера, если не запущен (adb devices и сам сервер запускаются в потоке статуса)
-    // StartProcess('if [ -z "$(ss -lt | grep 5037)" ]; then adb kill-server; killall adb; fi');
-    //Запуск потока отображения памяти (RAM)
     TRAMThread.Create;
-    //Запуск потока отображения статуса
     ShowStatus.Create(False);
   end
   else
     LogMemo.Append(SADBNotFound);
 end;
+
 
 //Обработка кнопок панели "Управление Смартфоном"
 procedure TMainForm.ApkInfoBtnClick(Sender: TObject);
@@ -566,9 +571,9 @@ begin
   StartProcess('killall -q sakura');
   SDForm.CancelCopy;
 
+  Application.ProcessMessages;
+  Sleep(20);
   SaveSettings;
-  // XMLPropStorage1.Save;
-  // XMLPropStorage1.Active := False;
 end;
 
 //Отслеживание процесса установки пакетов

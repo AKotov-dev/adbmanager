@@ -137,21 +137,19 @@ end;
 
 // ---
 
+//Останов потока
 procedure TCheckForm.StopThread;
 begin
   if Assigned(FReadThread) then
   begin
     FReadThread.Terminate;
-    try
-      FReadThread.WaitFor;   // ждём завершения
-    except
-      on E: Exception do
-        ShowMessage('Ошибка завершения потока: ' + E.Message);
-    end;
+    FReadThread.WaitFor;
+    // дождаться полного завершения
     FreeAndNil(FReadThread);
   end;
 end;
 
+//Старт потока
 procedure TCheckForm.StartThread;
 begin
   if Assigned(FReadThread) and (not FReadThread.Finished) then Exit;
@@ -365,9 +363,12 @@ end;
 //Очищаем виртуальный список чекеров, сохраняем настройки формы
 procedure TCheckForm.FormClose(Sender: TObject; var CloseAction: TCloseAction);
 begin
-  StopThread; // гарантированно завершить поток
-  if not Assigned(FReadThread) then
-  SaveSettings;
+  StopThread;
+  //обязательно дождаться завершения потока
+  Application.ProcessMessages;
+  Sleep(20);               //дать системе "отдышаться"
+
+  SaveSettings;            //теперь можно сохранять INI
 end;
 
 procedure TCheckForm.FormCreate(Sender: TObject);

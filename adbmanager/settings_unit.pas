@@ -130,6 +130,8 @@ end;
 
 procedure TSettingsForm.FormClose(Sender: TObject; var CloseAction: TCloseAction);
 begin
+  Application.ProcessMessages;
+  Sleep(20);
   SaveSettings;
 end;
 

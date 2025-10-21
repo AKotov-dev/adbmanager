@@ -7,7 +7,7 @@ interface
 uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, ExtCtrls, StdCtrls,
   ShellCtrls, ComCtrls, Buttons, Process, LCLType,
-  IniFiles, StrUtils;
+  IniFiles, StrUtils, LSSDFolderTRD;
 
 type
 
@@ -65,7 +65,7 @@ type
     procedure SelectAllBtnClick(Sender: TObject);
 
     //апдейт текущей директории SDBox (смартфон)
-    procedure StartLS;
+    //   procedure StartLS;
 
     //апдейт текущей директории CompDir (компьютер)
     procedure CompDirUpdate;
@@ -87,9 +87,10 @@ type
     function DetoxName(N: string): string;
 
   private
-
+    FLSThread: StartLSSD;
   public
-
+    procedure StartLS;
+    procedure StopLS;
   end;
 
 resourcestring
@@ -112,7 +113,7 @@ var
 
 implementation
 
-uses SDCommandTRD, Unit1, LSSDFolderTRD, SDMountPointTRD, xdgopentrd;
+uses SDCommandTRD, Unit1, SDMountPointTRD, xdgopentrd;
 
   {$R *.lfm}
 
@@ -162,6 +163,29 @@ begin
 end;
 
 
+//Останов потока
+procedure TSDForm.StopLS;
+begin
+  if Assigned(FLSThread) then
+  begin
+    FLSThread.Terminate;
+    FLSThread.WaitFor;
+    // дождаться полного завершения
+    FreeAndNil(FLSThread);
+  end;
+end;
+
+//Старт потока
+procedure TSDForm.StartLS;
+begin
+  if Assigned(FLSThread) and (not FLSThread.Finished) then Exit;
+
+  FLSThread := StartLSSD.Create(True);  // в Suspended
+  FLSThread.FreeOnTerminate := False;     // освобождаем вручную
+  FLSThread.Start;
+end;
+
+
 //Автозамена сецсимволов
 function TSDForm.DetoxName(N: string): string;
 begin
@@ -203,10 +227,11 @@ begin
 end;
 
 //ls в директории /sdcard/... (SDBox)
-procedure TSDForm.StartLS;
+{procedure TSDForm.StartLS;
 begin
-  StartLSSD.Create(False);
-end;
+  StartThread;
+  //StartLSSD.Create(False);
+end;}
 
 //Апдейт текущей директории CompDir (ShellTreeView)
 procedure TSDForm.CompDirUpdate;
@@ -247,7 +272,8 @@ begin
     begin
       GroupBox2.Caption := Copy(GroupBox2.Caption, 1, i);
       //Перечитываем текущий каталог SDBox (GroupBox2.Caption)
-      StartLS;
+      //StartLS;
+      StartThread;
 
       break;
     end;
@@ -459,7 +485,11 @@ begin
     //Скрываем "Esc - отмена"
     Panel4.Caption := '';
 
+    StopLS;
+    Application.ProcessMessages;
+    Sleep(20);
     SaveSettings;
+
   finally
     Screen.cursor := crDefault;
     //Освобождаем список точек монтирования SD-Card
