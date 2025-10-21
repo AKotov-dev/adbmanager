@@ -7,7 +7,7 @@ interface
 uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, ExtCtrls, StdCtrls,
   ShellCtrls, ComCtrls, Buttons, Process, LCLType,
-  XMLPropStorage, StrUtils;
+  IniFiles, StrUtils;
 
 type
 
@@ -43,7 +43,6 @@ type
     Splitter1: TSplitter;
     Splitter2: TSplitter;
     UpBtn: TSpeedButton;
-    XMLPropStorage1: TXMLPropStorage;
     procedure CheckBox1Change(Sender: TObject);
     procedure CompDirGetImageIndex(Sender: TObject; Node: TTreeNode);
     procedure CopyFromSmartphoneClick(Sender: TObject);
@@ -82,6 +81,9 @@ type
     //Запуск произвольных команд BASH
     procedure StartProcess(command: string);
 
+    procedure SaveSettings;
+    procedure LoadSettings;
+
     function DetoxName(N: string): string;
 
   private
@@ -115,6 +117,50 @@ uses SDCommandTRD, Unit1, LSSDFolderTRD, SDMountPointTRD, xdgopentrd;
   {$R *.lfm}
 
   { TSDForm }
+
+//Сохранение настроек формы
+procedure TSDForm.SaveSettings;
+var
+  Ini: TIniFile;
+begin
+  Ini := TIniFile.Create(CONF);
+  try
+    Ini.WriteInteger('SDForm', 'Top', SDForm.Top);
+    Ini.WriteInteger('SDForm', 'Left', SDForm.Left);
+    Ini.WriteInteger('SDForm', 'Width', SDForm.Width);
+    Ini.WriteInteger('SDForm', 'Height', SDForm.Height);
+
+    Ini.WriteBool('SDForm', 'CheckBox1', CheckBox1.Checked);
+
+    Ini.WriteString('SDForm', 'GroupBox2', GroupBox2.Caption);
+
+  finally
+    Ini.Free;
+  end;
+end;
+
+//Загрузка настроек формы
+procedure TSDForm.LoadSettings;
+var
+  Ini: TIniFile;
+begin
+  if not FileExists(CONF) then Exit;
+  Ini := TIniFile.Create(CONF);
+  try
+    SDForm.Top := Ini.ReadInteger('SDForm', 'Top', SDForm.Top);
+    SDForm.Left := Ini.ReadInteger('SDForm', 'Left', SDForm.Left);
+    SDForm.Width := Ini.ReadInteger('SDForm', 'Width', SDForm.Width);
+    SDForm.Height := Ini.ReadInteger('SDForm', 'Height', SDForm.Height);
+
+    CheckBox1.Checked := Ini.ReadBool('SDForm', 'CheckBox1', CheckBox1.Checked);
+
+    GroupBox2.Caption := Ini.ReadString('SDForm', 'GroupBox2', GroupBox2.Caption);
+
+  finally
+    Ini.Free;
+  end;
+end;
+
 
 //Автозамена сецсимволов
 function TSDForm.DetoxName(N: string): string;
@@ -399,9 +445,6 @@ end;
 procedure TSDForm.FormClose(Sender: TObject; var CloseAction: TCloseAction);
 begin
   try
-    //For Plasma
-    XMLPropStorage1.Save;
-
     CancelCopy;
     SDBox.Clear;
 
@@ -416,6 +459,7 @@ begin
     //Скрываем "Esc - отмена"
     Panel4.Caption := '';
 
+    SaveSettings;
   finally
     Screen.cursor := crDefault;
     //Освобождаем список точек монтирования SD-Card
@@ -439,7 +483,7 @@ end;
 
 procedure TSDForm.FormCreate(Sender: TObject);
 begin
-  XMLPropStorage1.FileName := MainForm.XMLPropStorage1.FileName;
+  LoadSettings;
 end;
 
 procedure TSDForm.FormShow(Sender: TObject);
@@ -447,7 +491,7 @@ procedure TSDForm.FormShow(Sender: TObject);
   FSDMountPointThread: TThread;}
 begin
   //For Plasma
-  XMLPropStorage1.Restore;
+  LoadSettings;
 
   FormLoaded := True;
 
@@ -695,9 +739,6 @@ begin
     GroupBox2.Caption := SDMountPoint[SDMountPoint.IndexOf(GroupBox2.Caption) + 1]
   else
     GroupBox2.Caption := SDMountPoint[0];
-
-  //Запоминаем точку монтирования SD-Card
-  //XMLPropStorage1.Save;
 
   StartLS;
 end;

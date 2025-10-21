@@ -35,5 +35,7 @@ begin
   Application.CreateForm(TSDForm, SDForm);
   Application.CreateForm(TCheckForm, CheckForm);
   Application.CreateForm(TSettingsForm, SettingsForm);
+  Application.CreateForm(TEmulatorForm, EmulatorForm);
+  Application.CreateForm(TRebootForm, RebootForm);
   Application.Run;
 end.

@@ -1,4 +1,4 @@
-unit settings_unit;
+unit Settings_Unit;
 
 {$mode ObjFPC}{$H+}
 
@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls, Buttons,
-  ExtCtrls, IniPropStorage, ComCtrls, XMLPropStorage;
+  ExtCtrls, ComCtrls, IniFiles;
 
 type
 
@@ -20,11 +20,13 @@ type
     ProgressBar1: TProgressBar;
     ApplyBtn: TSpeedButton;
     TrackBar1: TTrackBar;
-    XMLPropStorage1: TXMLPropStorage;
     procedure ApplyBtnClick(Sender: TObject);
     procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
+    procedure SaveSettings;
+    procedure LoadSettings;
+
   private
 
   public
@@ -59,13 +61,47 @@ uses unit1, ReadSettingsTRDUnit, WriteSettingsTRDUnit;
 
   { TSettingsForm }
 
+//Сохранение настроек формы
+procedure TSettingsForm.SaveSettings;
+var
+  Ini: TIniFile;
+begin
+  Ini := TIniFile.Create(CONF);
+  try
+    Ini.WriteInteger('SettingsForm', 'Top', SettingsForm.Top);
+    Ini.WriteInteger('SettingsForm', 'Left', SettingsForm.Left);
+    Ini.WriteInteger('SettingsForm', 'Width', SettingsForm.Width);
+    Ini.WriteInteger('SettingsForm', 'Height', SettingsForm.Height);
+  finally
+    Ini.Free;
+  end;
+end;
+
+//Загрузка настроек формы
+procedure TSettingsForm.LoadSettings;
+var
+  Ini: TIniFile;
+begin
+  if not FileExists(CONF) then Exit;
+  Ini := TIniFile.Create(CONF);
+  try
+    SettingsForm.Top := Ini.ReadInteger('SettingsForm', 'Top', SettingsForm.Top);
+    SettingsForm.Left := Ini.ReadInteger('SettingsForm', 'Left', SettingsForm.Left);
+    SettingsForm.Width := Ini.ReadInteger('SettingsForm', 'Width', SettingsForm.Width);
+    SettingsForm.Height := Ini.ReadInteger('SettingsForm', 'Height',
+      SettingsForm.Height);
+  finally
+    Ini.Free;
+  end;
+end;
+
 //Показ формы
 procedure TSettingsForm.FormShow(Sender: TObject);
 var
   i: integer;
 begin
   //For Plasma
-  XMLPropStorage1.Restore;
+  LoadSettings;
 
   //Обнуляем все чеки для чистой загрузки из потока
   for i := 0 to CheckGroup1.Items.Count - 1 do
@@ -94,12 +130,12 @@ end;
 
 procedure TSettingsForm.FormClose(Sender: TObject; var CloseAction: TCloseAction);
 begin
-  XMLPropStorage1.Save;
+  SaveSettings;
 end;
 
 procedure TSettingsForm.FormCreate(Sender: TObject);
 begin
-  XMLPropStorage1.FileName := MainForm.XMLPropStorage1.FileName;
+  LoadSettings;
 end;
 
 //Применить

@@ -7,8 +7,8 @@ interface
 
 uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, CheckLst, StdCtrls,
-  IniPropStorage, ComCtrls, Buttons, Types, LCLIntf, Menus, ReadAppsTrdUnit,
-  ClipBrd, ExtCtrls, LCLType, XMLPropStorage;
+  ComCtrls, Buttons, Types, LCLIntf, Menus, ReadAppsTrdUnit,
+  ClipBrd, ExtCtrls, LCLType, IniFiles;
 
 type
 
@@ -31,7 +31,6 @@ type
     ProgressBar1: TProgressBar;
     ClearBtn: TSpeedButton;
     PkgBtn: TSpeedButton;
-    XMLPropStorage1: TXMLPropStorage;
     procedure AppListBoxDrawItem(Control: TWinControl; Index: integer;
       ARect: TRect; State: TOwnerDrawState);
     procedure ApplyBtnClick(Sender: TObject);
@@ -55,6 +54,9 @@ type
     procedure DrawGTK2Item(CLB: TCheckListBox; Index: integer;
       ARect: TRect; State: TOwnerDrawState);
 
+    procedure SaveSettings;
+    procedure LoadSettings;
+
   private
     FReadThread: ReadAppsTRD;
   public
@@ -74,6 +76,47 @@ uses Unit1, ADBCommandTRD;
 
   { TCheckForm }
 
+
+//Сохранение настроек формы
+procedure TCheckForm.SaveSettings;
+var
+  Ini: TIniFile;
+begin
+  Ini := TIniFile.Create(CONF);
+  try
+    Ini.WriteInteger('CheckForm', 'Top', CheckForm.Top);
+    Ini.WriteInteger('CheckForm', 'Left', CheckForm.Left);
+    Ini.WriteInteger('CheckForm', 'Width', CheckForm.Width);
+    Ini.WriteInteger('CheckForm', 'Height', CheckForm.Height);
+    Ini.WriteString('CheckForm', 'OpenDialog1', OpenDialog1.InitialDir);
+    Ini.WriteString('CheckForm', 'SaveDialog1', SaveDialog1.InitialDir);
+  finally
+    Ini.Free;
+  end;
+end;
+
+//Загрузка настроек формы
+procedure TCheckForm.LoadSettings;
+var
+  Ini: TIniFile;
+begin
+  if not FileExists(CONF) then Exit;
+  Ini := TIniFile.Create(CONF);
+  try
+    CheckForm.Top := Ini.ReadInteger('CheckForm', 'Top', CheckForm.Top);
+    CheckForm.Left := Ini.ReadInteger('CheckForm', 'Left', CheckForm.Left);
+    CheckForm.Width := Ini.ReadInteger('CheckForm', 'Width', CheckForm.Width);
+    CheckForm.Height := Ini.ReadInteger('CheckForm', 'Height', CheckForm.Height);
+
+    OpenDialog1.InitialDir := Ini.ReadString('CheckForm', 'OpenDialog1',
+      OpenDialog1.InitialDir);
+
+    SaveDialog1.InitialDir := Ini.ReadString('CheckForm', 'SaveDialog1',
+      SaveDialog1.InitialDir);
+  finally
+    Ini.Free;
+  end;
+end;
 
 // --- Установка указателя в начало списка ---
 procedure TCheckForm.SetItemIndexSafely(Index: integer);
@@ -121,7 +164,7 @@ end;
 procedure TCheckForm.FormShow(Sender: TObject);
 begin
   //For Plasma
-  XMLPropStorage1.Restore;
+  LoadSettings;
 
   AppListBox.Clear;
   Edit1.Clear;
@@ -323,12 +366,13 @@ end;
 procedure TCheckForm.FormClose(Sender: TObject; var CloseAction: TCloseAction);
 begin
   StopThread; // гарантированно завершить поток
-  XMLPropStorage1.Save;
+
+  SaveSettings;
 end;
 
 procedure TCheckForm.FormCreate(Sender: TObject);
 begin
-  XMLPropStorage1.FileName := MainForm.XMLPropStorage1.FileName;
+  LoadSettings;
 end;
 
 //Применение параметров: Включение/Отключение/Удаление приложений

@@ -1,7 +1,7 @@
 object SettingsForm: TSettingsForm
-  Left = 385
+  Left = 344
   Height = 580
-  Top = 130
+  Top = 137
   Width = 684
   Caption = 'Android TV Box settings'
   ClientHeight = 580
@@ -149,10 +149,5 @@ object SettingsForm: TSettingsForm
     Anchors = [akLeft, akRight]
     BorderSpacing.Left = 5
     TabOrder = 1
-  end
-  object XMLPropStorage1: TXMLPropStorage
-    StoredValues = <>
-    Left = 595
-    Top = 117
   end
 end

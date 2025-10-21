@@ -1,7 +1,7 @@
 object EmulatorForm: TEmulatorForm
-  Left = 506
+  Left = 453
   Height = 201
-  Top = 161
+  Top = 187
   Width = 454
   ActiveControl = Edit1
   Caption = 'Connection/Scanning'
@@ -105,10 +105,5 @@ object EmulatorForm: TEmulatorForm
     Caption = 'Cancel'
     ModalResult = 2
     TabOrder = 3
-  end
-  object XMLPropStorage1: TXMLPropStorage
-    StoredValues = <>
-    Left = 296
-    Top = 104
   end
 end

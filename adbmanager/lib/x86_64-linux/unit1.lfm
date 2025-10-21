@@ -1,14 +1,14 @@
 object MainForm: TMainForm
-  Left = 300
+  Left = 308
   Height = 625
-  Top = 127
+  Top = 131
   Width = 837
   ActiveControl = Panel1
   Caption = 'ADBManager'
   ClientHeight = 625
   ClientWidth = 837
   KeyPreview = True
-  SessionProperties = 'Left;Top;Width;Height'
+  SessionProperties = 'Width;Height;Top;Left'
   LCLVersion = '4.2.0.0'
   OnClose = FormClose
   OnCloseQuery = FormCloseQuery
@@ -1153,11 +1153,6 @@ object MainForm: TMainForm
   end
   object SelectDirectoryDialog1: TSelectDirectoryDialog
     Left = 112
-    Top = 304
-  end
-  object XMLPropStorage1: TXMLPropStorage
-    StoredValues = <>
-    Left = 544
     Top = 304
   end
 end

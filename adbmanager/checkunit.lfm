@@ -1,5 +1,5 @@
 object CheckForm: TCheckForm
-  Left = 373
+  Left = 322
   Height = 555
   Top = 131
   Width = 605
@@ -351,10 +351,5 @@ object CheckForm: TCheckForm
     Options = [ofEnableSizing]
     Left = 328
     Top = 72
-  end
-  object XMLPropStorage1: TXMLPropStorage
-    StoredValues = <>
-    Left = 416
-    Top = 112
   end
 end

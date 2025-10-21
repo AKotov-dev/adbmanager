@@ -7,7 +7,7 @@ interface
 uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls, Buttons,
   ComCtrls, ExtCtrls, Process, LCLTranslator, LCLType,
-  DefaultTranslator, XMLPropStorage;
+  DefaultTranslator, IniFiles;
 
 type
 
@@ -49,7 +49,6 @@ type
     ToolButton4: TToolButton;
     UninstallBtn: TToolButton;
     ExitBtn: TToolButton;
-    XMLPropStorage1: TXMLPropStorage;
     procedure ApkInfoBtnClick(Sender: TObject);
     procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
     procedure FormCloseQuery(Sender: TObject; var CanClose: boolean);
@@ -62,14 +61,18 @@ type
     procedure StartProcess(command: string);
 
     procedure CreateInstallationScript;
+
+    procedure SaveSettings;
+    procedure LoadSettings;
+
   private
 
   public
 
   end;
 
-  //var //Команда ADB
-  //  adbcmd: string;
+var //Файл конфигурации
+  CONF: string;
 
 resourcestring
   SRebootMsg = 'Reboot device?';
@@ -102,6 +105,39 @@ uses ADBDeviceStatusTRD, ADBCommandTRD, RebootUnit, SDCardManager,
   {$R *.lfm}
 
   { TMainForm }
+
+//Сохранение настроек формы
+procedure TMainForm.SaveSettings;
+var
+  Ini: TIniFile;
+begin
+  Ini := TIniFile.Create(CONF);
+  try
+    Ini.WriteInteger('MainForm', 'Top', MainForm.Top);
+    Ini.WriteInteger('MainForm', 'Left', MainForm.Left);
+    Ini.WriteInteger('MainForm', 'Width', MainForm.Width);
+    Ini.WriteInteger('MainForm', 'Height', MainForm.Height);
+  finally
+    Ini.Free;
+  end;
+end;
+
+//Загрузка настроек формы
+procedure TMainForm.LoadSettings;
+var
+  Ini: TIniFile;
+begin
+  if not FileExists(CONF) then Exit;
+  Ini := TIniFile.Create(CONF);
+  try
+    MainForm.Top := Ini.ReadInteger('MainForm', 'Top', MainForm.Top);
+    MainForm.Left := Ini.ReadInteger('MainForm', 'Left', MainForm.Left);
+    MainForm.Width := Ini.ReadInteger('MainForm', 'Width', MainForm.Width);
+    MainForm.Height := Ini.ReadInteger('MainForm', 'Height', MainForm.Height);
+  finally
+    Ini.Free;
+  end;
+end;
 
 //Проверка установки ADB
 function CheckADBInstalled(out Version: string): boolean;
@@ -311,6 +347,24 @@ var
   bmp: TBitmap;
   ver: string;
 begin
+  //Рабочая директория ~/.adbmanager
+  if not DirectoryExists(GetUserDir + '.adbmanager') then
+    MkDir(GetUserDir + '.adbmanager');
+  //для файлов xdg-open
+  if not DirectoryExists(GetUserDir + '.adbmanager/tmp') then
+    MkDir(GetUserDir + '.adbmanager/tmp');
+
+  {$IFDEF LCLQt6}
+      CONF := GetUserDir + '.adbmanager/adbmanager-qt.conf';
+      MainForm.Caption := Application.Title + ' Qt';
+  {$ELSE}
+  CONF := GetUserDir + '.adbmanager/adbmanager.conf';
+  MainForm.Caption := Application.Title;
+  {$ENDIF}
+
+  //Загрузка настроек формы
+  LoadSettings;
+
   //Устраняем баг иконки приложения (Lazarus-4.0)
   //https://gitlab.com/freepascal.org/lazarus/lazarus/-/issues/41636
   bmp := TBitmap.Create;
@@ -321,21 +375,6 @@ begin
   finally
     bmp.Free;
   end;
-
-  //рабочая директория ~/.adbmanager
-  if not DirectoryExists(GetUserDir + '.adbmanager') then
-    MkDir(GetUserDir + '.adbmanager');
-  //для файлов xdg-open
-  if not DirectoryExists(GetUserDir + '.adbmanager/tmp') then
-    MkDir(GetUserDir + '.adbmanager/tmp');
-
-  {$IFDEF LCLQt6}
-      XMLPropStorage1.FileName := GetUserDir + '.adbmanager/adbmanager-qt.xml';
-      MainForm.Caption := Application.Title + ' Qt';
-  {$ELSE}
-  XMLPropStorage1.FileName := GetUserDir + '.adbmanager/adbmanager.xml';
-  MainForm.Caption := Application.Title;
-  {$ENDIF}
 
   //ADB установлен?
   if CheckADBInstalled(Ver) then
@@ -526,6 +565,10 @@ begin
   //Аккуратное завершение копирования и терминала, если были запущены
   StartProcess('killall -q sakura');
   SDForm.CancelCopy;
+
+  SaveSettings;
+  // XMLPropStorage1.Save;
+  // XMLPropStorage1.Active := False;
 end;
 
 //Отслеживание процесса установки пакетов
@@ -581,8 +624,8 @@ end;
 
 procedure TMainForm.FormShow(Sender: TObject);
 begin
-  //For Plasma
-  XMLPropStorage1.Restore;
+  //For Plasma (аналог Restore)
+  LoadSettings;
 end;
 
 procedure TMainForm.KeyLabelChangeBounds(Sender: TObject);

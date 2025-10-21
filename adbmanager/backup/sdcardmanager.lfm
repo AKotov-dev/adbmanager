@@ -1,7 +1,7 @@
 object SDForm: TSDForm
-  Left = 307
+  Left = 521
   Height = 631
-  Top = 133
+  Top = 135
   Width = 888
   ActiveControl = Splitter2
   Caption = 'SD-Card manager'
@@ -9,7 +9,7 @@ object SDForm: TSDForm
   ClientWidth = 888
   KeyPreview = True
   Position = poDefault
-  SessionProperties = 'CheckBox1.Checked;GroupBox2.Caption;Height;Left;Top;VBtn.Down;Width'
+  SessionProperties = 'CheckBox1.Checked;GroupBox2.Caption;Height;Left;Top;Width'
   LCLVersion = '4.2.0.0'
   OnClose = FormClose
   OnCloseQuery = FormCloseQuery
@@ -1690,10 +1690,5 @@ object SDForm: TSDForm
       D3A7AF9D3367CE56A6D9B3676F9D356B16AF993367F2525353E3A5AAAACA6BC6
       8C195BA9CF1B4D9B366DEBD4A953B7502DB1A837FBFF5F42065F
     }
-  end
-  object XMLPropStorage1: TXMLPropStorage
-    StoredValues = <>
-    Left = 774
-    Top = 118
   end
 end

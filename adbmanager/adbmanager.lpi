@@ -159,6 +159,7 @@
         <ComponentName Value="SettingsForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
+        <UnitName Value="Settings_Unit"/>
       </Unit12>
       <Unit13>
         <Filename Value="readsettingstrdunit.pas"/>

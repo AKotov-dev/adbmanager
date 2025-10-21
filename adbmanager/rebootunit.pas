@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, ExtCtrls, Buttons,
-  StdCtrls, XMLPropStorage;
+  StdCtrls, IniFiles;
 
 type
 
@@ -16,11 +16,13 @@ type
     OKBtn: TButton;
     CancelBtn: TButton;
     RadioGroup1: TRadioGroup;
-    XMLPropStorage1: TXMLPropStorage;
     procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
     procedure FormShow(Sender: TObject);
     procedure OKBtnClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
+    procedure LoadSettings;
+    procedure SaveSettings;
+
   private
 
   public
@@ -44,9 +46,38 @@ uses unit1, SDCardManager, ADBCommandTRD;
 
   { TRebootForm }
 
+//Сохранение настроек формы
+procedure TRebootForm.SaveSettings;
+var
+  Ini: TIniFile;
+begin
+  Ini := TIniFile.Create(CONF);
+  try
+    Ini.WriteInteger('RebootForm', 'Width', RebootForm.Width);
+    Ini.WriteInteger('RebootForm', 'Height', RebootForm.Height);
+  finally
+    Ini.Free;
+  end;
+end;
+
+//Загрузка настроек формы
+procedure TRebootForm.LoadSettings;
+var
+  Ini: TIniFile;
+begin
+  if not FileExists(CONF) then Exit;
+  Ini := TIniFile.Create(CONF);
+  try
+    RebootForm.Width := Ini.ReadInteger('RebootForm', 'Width', RebootForm.Width);
+    RebootForm.Height := Ini.ReadInteger('RebootForm', 'Height', RebootForm.Height);
+  finally
+    Ini.Free;
+  end;
+end;
+
 procedure TRebootForm.FormCreate(Sender: TObject);
 begin
-  XMLPropStorage1.FileName := MainForm.XMLPropStorage1.FileName;
+  LoadSettings;
   RadioGroup1.Items[0] := SNormalReboot;
   RadioGroup1.Items[1] := SBootLoader;
   RadioGroup1.Items[2] := SRecoveryReboot;
@@ -80,13 +111,13 @@ end;
 
 procedure TRebootForm.FormClose(Sender: TObject; var CloseAction: TCloseAction);
 begin
-  CloseAction := caFree;
+  SaveSettings;
 end;
 
 procedure TRebootForm.FormShow(Sender: TObject);
 begin
   //For Plasma
-  XMLPropStorage1.Restore;
+  LoadSettings;
 end;
 
 end.

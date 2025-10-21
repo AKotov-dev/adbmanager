@@ -1,5 +1,5 @@
 object CheckForm: TCheckForm
-  Left = 373
+  Left = 413
   Height = 555
   Top = 131
   Width = 605
@@ -10,6 +10,7 @@ object CheckForm: TCheckForm
   SessionProperties = 'Height;Left;Top;Width;SaveDialog1.InitialDir'
   LCLVersion = '4.2.0.0'
   OnClose = FormClose
+  OnCreate = FormCreate
   OnShow = FormShow
   object AppListBox: TCheckListBox
     AnchorSideTop.Control = Edit1
@@ -350,10 +351,5 @@ object CheckForm: TCheckForm
     Options = [ofEnableSizing]
     Left = 328
     Top = 72
-  end
-  object XMLPropStorage1: TXMLPropStorage
-    StoredValues = <>
-    Left = 476
-    Top = 172
   end
 end

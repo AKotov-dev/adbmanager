@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, ExtCtrls, StdCtrls,
-  XMLPropStorage;
+  IniFiles;
 
 type
 
@@ -18,13 +18,15 @@ type
     Label1: TLabel;
     OKBtn: TButton;
     RadioGroup1: TRadioGroup;
-    XMLPropStorage1: TXMLPropStorage;
     procedure Edit1Enter(Sender: TObject);
     procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
     procedure FormCreate(Sender: TObject);
     procedure FormKeyDown(Sender: TObject; var Key: word; Shift: TShiftState);
     procedure FormShow(Sender: TObject);
     procedure OKBtnClick(Sender: TObject);
+    procedure SaveSettings;
+    procedure LoadSettings;
+
   private
 
   public
@@ -47,6 +49,39 @@ uses unit1, SDCardManager, ADBCommandTRD;
 
   { TEmulatorForm }
 
+
+//Сохранение настроек формы
+procedure TEmulatorForm.SaveSettings;
+var
+  Ini: TIniFile;
+begin
+  Ini := TIniFile.Create(CONF);
+  try
+    Ini.WriteInteger('EmulatorForm', 'Width', EmulatorForm.Width);
+    Ini.WriteInteger('EmulatorForm', 'Height', EmulatorForm.Height);
+    Ini.WriteString('EmulatorForm', 'Edit1', Edit1.Text);
+  finally
+    Ini.Free;
+  end;
+end;
+
+//Загрузка настроек формы
+procedure TEmulatorForm.LoadSettings;
+var
+  Ini: TIniFile;
+begin
+  if not FileExists(CONF) then Exit;
+  Ini := TIniFile.Create(CONF);
+  try
+    EmulatorForm.Width := Ini.ReadInteger('EmulatorForm', 'Width', EmulatorForm.Width);
+    EmulatorForm.Height := Ini.ReadInteger('EmulatorForm', 'Height',
+      EmulatorForm.Height);
+
+    Edit1.Text := Ini.ReadString('EmulatorForm', 'Edit1', Edit1.Text);
+  finally
+    Ini.Free;
+  end;
+end;
 
 //Валидация IP-адреса
 function IsIP(const S: string): boolean;
@@ -87,7 +122,8 @@ end;
 
 procedure TEmulatorForm.FormCreate(Sender: TObject);
 begin
-  XMLPropStorage1.FileName := MainForm.XMLPropStorage1.FileName;
+  LoadSettings;
+
   RadioGroup1.Items[0] := SSwitchToUSB;
   RadioGroup1.Items[1] := SSwitchToTCPIP;
   RadioGroup1.Items[2] := SScanActiveConnection;
@@ -103,12 +139,12 @@ end;
 procedure TEmulatorForm.FormShow(Sender: TObject);
 begin
   //For Plasma
-  XMLPropStorage1.Restore;
+  LoadSettings;
 end;
 
 procedure TEmulatorForm.FormClose(Sender: TObject; var CloseAction: TCloseAction);
 begin
-  CloseAction := caFree;
+  SaveSettings;
 end;
 
 procedure TEmulatorForm.Edit1Enter(Sender: TObject);
@@ -141,9 +177,6 @@ begin
     0: adbcmd := 'adb usb';
     1: adbcmd := 'adb tcpip 5555';
     //Выделяем адрес вида x.x.x.x/nn
-   { 2: adbcmd := 'nmap -sn $(ip a | grep -w $(ip route get 1.1.1.1 | awk ' +
-        '''' + '{print $3}' + '''' + ' | cut -d "." -f1,2) | awk ' +
-        '''' + '{print $2}' + '''' + ') | grep Nmap'; }
     2: adbcmd := 'iface=$(ip route get 1.1.1.1 | awk ''{print $5}''); ' +
         'nmap -sn $(ip -o -4 addr show $iface | awk ''{print $4}'') | grep Nmap';
 
