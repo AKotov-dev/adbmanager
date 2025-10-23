@@ -8,7 +8,6 @@ object RebootForm: TRebootForm
   ClientHeight = 189
   ClientWidth = 433
   Position = poMainFormCenter
-  SessionProperties = 'Width;Height'
   LCLVersion = '4.2.0.0'
   OnClose = FormClose
   OnCreate = FormCreate

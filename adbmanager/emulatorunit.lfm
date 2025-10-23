@@ -9,7 +9,6 @@ object EmulatorForm: TEmulatorForm
   ClientWidth = 454
   KeyPreview = True
   Position = poMainFormCenter
-  SessionProperties = 'Width;Height;Edit1.Text'
   LCLVersion = '4.2.0.0'
   OnClose = FormClose
   OnCreate = FormCreate

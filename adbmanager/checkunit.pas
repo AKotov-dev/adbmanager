@@ -61,7 +61,6 @@ type
     FReadThread: ReadAppsTRD;
     procedure StartThread;
     procedure StopThread;
-
   public
     VList: TStringList;
 

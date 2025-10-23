@@ -273,7 +273,7 @@ begin
       GroupBox2.Caption := Copy(GroupBox2.Caption, 1, i);
       //Перечитываем текущий каталог SDBox (GroupBox2.Caption)
       //StartLS;
-      StartThread;
+      StartLS;
 
       break;
     end;

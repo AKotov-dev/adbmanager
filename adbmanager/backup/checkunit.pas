@@ -59,10 +59,12 @@ type
 
   private
     FReadThread: ReadAppsTRD;
-  public
-    VList: TStringList;
     procedure StartThread;
     procedure StopThread;
+
+  public
+    VList: TStringList;
+
   end;
 
 var
