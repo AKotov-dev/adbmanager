@@ -1,13 +1,12 @@
 object CheckForm: TCheckForm
-  Left = 332
+  Left = 316
   Height = 555
-  Top = 128
+  Top = 131
   Width = 605
   ActiveControl = Edit1
   Caption = 'Enable/Disable/Uninstall applications'
   ClientHeight = 555
   ClientWidth = 605
-  SessionProperties = 'Height;Left;Top;Width;SaveDialog1.InitialDir'
   LCLVersion = '4.2.0.0'
   OnClose = FormClose
   OnCreate = FormCreate

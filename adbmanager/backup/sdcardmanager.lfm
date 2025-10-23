@@ -1,7 +1,7 @@
 object SDForm: TSDForm
-  Left = 303
+  Left = 313
   Height = 631
-  Top = 125
+  Top = 134
   Width = 888
   ActiveControl = Splitter2
   Caption = 'SD-Card manager'
@@ -9,7 +9,6 @@ object SDForm: TSDForm
   ClientWidth = 888
   KeyPreview = True
   Position = poDefault
-  SessionProperties = 'CheckBox1.Checked;GroupBox2.Caption;Height;Left;Top;Width'
   LCLVersion = '4.2.0.0'
   OnClose = FormClose
   OnCloseQuery = FormCloseQuery
@@ -1578,7 +1577,7 @@ object SDForm: TSDForm
       AnchorSideTop.Control = Panel1
       AnchorSideBottom.Control = ProgressBar1
       Left = 2
-      Height = 64
+      Height = 66
       Top = 0
       Width = 886
       Anchors = [akTop, akLeft, akRight, akBottom]
@@ -1594,8 +1593,8 @@ object SDForm: TSDForm
     object ProgressBar1: TProgressBar
       AnchorSideTop.Control = SDMemo
       Left = 0
-      Height = 12
-      Top = 64
+      Height = 10
+      Top = 66
       Width = 888
       Align = alBottom
       TabOrder = 1

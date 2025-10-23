@@ -89,7 +89,6 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="Unit1"/>
-        <IsVisibleTab Value="True"/>
         <CursorPos X="13"/>
         <UsageCount Value="200"/>
         <Loaded Value="True"/>
@@ -129,9 +128,11 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="SDCardManager"/>
-        <EditorIndex Value="-1"/>
+        <IsVisibleTab Value="True"/>
+        <EditorIndex Value="1"/>
         <CursorPos X="21"/>
         <UsageCount Value="195"/>
+        <Loaded Value="True"/>
       </Unit5>
       <Unit6>
         <Filename Value="sdcommandtrd.pas"/>
@@ -176,9 +177,10 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="CheckUnit"/>
-        <EditorIndex Value="-1"/>
+        <EditorIndex Value="2"/>
         <CursorPos X="17"/>
         <UsageCount Value="126"/>
+        <Loaded Value="True"/>
       </Unit10>
       <Unit11>
         <Filename Value="readappstrdunit.pas"/>

@@ -75,8 +75,8 @@ object CheckForm: TCheckForm
     AnchorSideTop.Control = AppListBox
     AnchorSideTop.Side = asrCenter
     Left = 182
-    Height = 10
-    Top = 295
+    Height = 12
+    Top = 294
     Width = 241
     TabOrder = 4
   end
