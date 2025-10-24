@@ -21,8 +21,7 @@ uses
   settings_unit,
   ReadSettingsTRDUnit,
   WriteSettingsTRDUnit,
-  xdgopentrd,
-  UsingRAMTRD { you can add units after this };
+  xdgopentrd;
 
   {$R *.res}
 

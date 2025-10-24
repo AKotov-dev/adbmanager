@@ -596,7 +596,7 @@ object MainForm: TMainForm
   object ProgressBar1: TProgressBar
     AnchorSideTop.Control = PageControl1
     Left = 598
-    Height = 10
+    Height = 12
     Top = 216
     Width = 232
     Anchors = [akTop, akRight]

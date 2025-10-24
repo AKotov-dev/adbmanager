@@ -100,7 +100,7 @@ var
 implementation
 
 uses ADBDeviceStatusTRD, ADBCommandTRD, RebootUnit, SDCardManager,
-  EmulatorUnit, CheckUnit, Settings_Unit, UsingRAMTRD;
+  EmulatorUnit, CheckUnit, Settings_Unit, UsingRAMTRD, CombinedADBMemoryThread;
 
   {$R *.lfm}
 
@@ -367,12 +367,12 @@ begin
   {$ENDIF}
 
   // Загрузка настроек формы
-  try
-    LoadSettings;
-  except
+  // try
+  LoadSettings;
+ { except
     on E: Exception do
       ShowMessage('Ошибка загрузки настроек: ' + E.Message);
-  end;
+  end;}
 
   // Устраняем баг иконки приложения
   bmp := TBitmap.Create;
@@ -388,13 +388,13 @@ begin
   if CheckADBInstalled(Ver) then
   begin
     LogMemo.Append('ADB: ' + ver);
-    TRAMThread.Create;
+    // TRAMThread.Create;
     ShowStatus.Create(False);
+    // TDeviceMemoryThread.Create;
   end
   else
     LogMemo.Append(SADBNotFound);
 end;
-
 
 //Обработка кнопок панели "Управление Смартфоном"
 procedure TMainForm.ApkInfoBtnClick(Sender: TObject);

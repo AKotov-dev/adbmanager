@@ -2,7 +2,7 @@
 <CONFIG>
   <ProjectSession>
     <Version Value="12"/>
-    <BuildModes Count="2" Active="Qt6">
+    <BuildModes Count="2" Active="Release">
       <Item1 Name="Release">
         <MacroValues Count="1">
           <Macro1 Name="LCLWidgetType" Value="gtk2"/>
@@ -74,12 +74,13 @@
         <Item2 Mode="Qt6" Option="690790766239"/>
       </SessionEnabledMatrixOptions>
     </BuildModes>
-    <Units Count="18">
+    <Units Count="19">
       <Unit0>
         <Filename Value="adbmanager.pas"/>
         <IsPartOfProject Value="True"/>
         <EditorIndex Value="-1"/>
-        <CursorPos X="21"/>
+        <TopLine Value="10"/>
+        <CursorPos X="39" Y="25"/>
         <UsageCount Value="200"/>
       </Unit0>
       <Unit1>
@@ -98,9 +99,11 @@
         <Filename Value="adbdevicestatustrd.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="ADBDeviceStatusTRD"/>
-        <EditorIndex Value="-1"/>
+        <IsVisibleTab Value="True"/>
+        <EditorIndex Value="1"/>
         <CursorPos X="26"/>
         <UsageCount Value="200"/>
+        <Loaded Value="True"/>
       </Unit2>
       <Unit3>
         <Filename Value="adbcommandtrd.pas"/>
@@ -128,12 +131,9 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="SDCardManager"/>
-        <IsVisibleTab Value="True"/>
-        <EditorIndex Value="1"/>
+        <EditorIndex Value="-1"/>
         <CursorPos X="21"/>
-        <UsageCount Value="195"/>
-        <Loaded Value="True"/>
-        <LoadedDesigner Value="True"/>
+        <UsageCount Value="200"/>
       </Unit5>
       <Unit6>
         <Filename Value="sdcommandtrd.pas"/>
@@ -142,7 +142,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="91"/>
         <CursorPos X="7" Y="115"/>
-        <UsageCount Value="193"/>
+        <UsageCount Value="200"/>
       </Unit6>
       <Unit7>
         <Filename Value="lssdfoldertrd.pas"/>
@@ -150,7 +150,7 @@
         <UnitName Value="LSSDFolderTRD"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="22"/>
-        <UsageCount Value="169"/>
+        <UsageCount Value="176"/>
       </Unit7>
       <Unit8>
         <Filename Value="emulatorunit.pas"/>
@@ -161,7 +161,7 @@
         <UnitName Value="EmulatorUnit"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="20"/>
-        <UsageCount Value="142"/>
+        <UsageCount Value="149"/>
       </Unit8>
       <Unit9>
         <Filename Value="sdmountpointtrd.pas"/>
@@ -169,7 +169,7 @@
         <UnitName Value="SDMountPointTRD"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="23"/>
-        <UsageCount Value="129"/>
+        <UsageCount Value="136"/>
       </Unit9>
       <Unit10>
         <Filename Value="checkunit.pas"/>
@@ -178,11 +178,9 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="CheckUnit"/>
-        <EditorIndex Value="2"/>
+        <EditorIndex Value="-1"/>
         <CursorPos X="17"/>
-        <UsageCount Value="126"/>
-        <Loaded Value="True"/>
-        <LoadedDesigner Value="True"/>
+        <UsageCount Value="133"/>
       </Unit10>
       <Unit11>
         <Filename Value="readappstrdunit.pas"/>
@@ -190,7 +188,7 @@
         <UnitName Value="ReadAppsTRDUnit"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="23"/>
-        <UsageCount Value="125"/>
+        <UsageCount Value="132"/>
       </Unit11>
       <Unit12>
         <Filename Value="settings_unit.pas"/>
@@ -201,7 +199,7 @@
         <UnitName Value="Settings_Unit"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="22"/>
-        <UsageCount Value="111"/>
+        <UsageCount Value="118"/>
       </Unit12>
       <Unit13>
         <Filename Value="readsettingstrdunit.pas"/>
@@ -209,7 +207,7 @@
         <UnitName Value="ReadSettingsTRDUnit"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="27"/>
-        <UsageCount Value="108"/>
+        <UsageCount Value="115"/>
       </Unit13>
       <Unit14>
         <Filename Value="writesettingstrdunit.pas"/>
@@ -217,7 +215,7 @@
         <UnitName Value="WriteSettingsTRDUnit"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="28"/>
-        <UsageCount Value="105"/>
+        <UsageCount Value="112"/>
       </Unit14>
       <Unit15>
         <Filename Value="xdgopentrd.pas"/>
@@ -225,15 +223,15 @@
         <UnitName Value="XDGOpenTRD"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="18"/>
-        <UsageCount Value="73"/>
+        <UsageCount Value="80"/>
       </Unit15>
       <Unit16>
         <Filename Value="usingramtrd.pas"/>
-        <IsPartOfProject Value="True"/>
         <UnitName Value="UsingRAMTRD"/>
         <EditorIndex Value="-1"/>
-        <CursorPos X="19"/>
-        <UsageCount Value="64"/>
+        <TopLine Value="192"/>
+        <CursorPos Y="215"/>
+        <UsageCount Value="66"/>
       </Unit16>
       <Unit17>
         <Filename Value="backupunit.pas"/>
@@ -246,80 +244,136 @@
         <CursorPos X="26" Y="63"/>
         <UsageCount Value="101"/>
       </Unit17>
+      <Unit18>
+        <Filename Value="combinedadbmemorythread.pas"/>
+        <UnitName Value="CombinedADBMemoryThread"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="105"/>
+        <CursorPos Y="96"/>
+        <UsageCount Value="22"/>
+      </Unit18>
     </Units>
-    <JumpHistory Count="18" HistoryIndex="17">
+    <JumpHistory Count="30" HistoryIndex="29">
       <Position1>
         <Filename Value="unit1.pas"/>
-        <Caret Column="14"/>
+        <Caret Line="10" Column="36"/>
       </Position1>
       <Position2>
-        <Filename Value="unit1.pas"/>
-        <Caret Line="340" Column="31" TopLine="318"/>
+        <Filename Value="adbdevicestatustrd.pas"/>
+        <Caret Line="157" Column="24" TopLine="151"/>
       </Position2>
       <Position3>
         <Filename Value="unit1.pas"/>
-        <Caret Line="533" Column="35" TopLine="511"/>
+        <Caret Line="103" Column="79" TopLine="97"/>
       </Position3>
       <Position4>
         <Filename Value="unit1.pas"/>
-        <Caret Line="589" Column="3" TopLine="578"/>
+        <Caret Line="632" Column="3" TopLine="630"/>
       </Position4>
       <Position5>
         <Filename Value="unit1.pas"/>
-        <Caret Line="329" Column="5" TopLine="320"/>
+        <Caret Line="393" Column="37" TopLine="141"/>
       </Position5>
       <Position6>
         <Filename Value="unit1.pas"/>
-        <Caret Line="132" Column="64" TopLine="106"/>
+        <Caret Line="633" Column="3" TopLine="631"/>
       </Position6>
       <Position7>
-        <Filename Value="unit1.pas"/>
-        <Caret Line="66" Column="15" TopLine="66"/>
+        <Filename Value="adbdevicestatustrd.pas"/>
+        <Caret Line="157" Column="69" TopLine="139"/>
       </Position7>
       <Position8>
-        <Filename Value="unit1.pas"/>
-        <Caret Line="368" Column="5" TopLine="353"/>
+        <Filename Value="adbdevicestatustrd.pas"/>
+        <Caret Line="93" Column="29" TopLine="78"/>
       </Position8>
       <Position9>
-        <Filename Value="unit1.pas"/>
-        <Caret Line="634" Column="16" TopLine="618"/>
+        <Filename Value="adbdevicestatustrd.pas"/>
+        <Caret Line="95" Column="18" TopLine="86"/>
       </Position9>
       <Position10>
-        <Filename Value="unit1.pas"/>
-        <Caret Line="575" Column="16" TopLine="554"/>
+        <Filename Value="adbdevicestatustrd.pas"/>
+        <Caret Line="128" TopLine="113"/>
       </Position10>
       <Position11>
-        <Filename Value="unit1.pas"/>
-        <Caret Line="130" Column="21" TopLine="118"/>
+        <Filename Value="adbdevicestatustrd.pas"/>
+        <Caret Line="129" Column="15" TopLine="114"/>
       </Position11>
       <Position12>
-        <Filename Value="unit1.pas"/>
-        <Caret Line="74" Column="40" TopLine="55"/>
+        <Filename Value="adbdevicestatustrd.pas"/>
+        <Caret Line="131" Column="11" TopLine="116"/>
       </Position12>
       <Position13>
-        <Filename Value="unit1.pas"/>
-        <Caret Line="366" Column="3" TopLine="346"/>
+        <Filename Value="adbdevicestatustrd.pas"/>
+        <Caret Line="13"/>
       </Position13>
       <Position14>
-        <Filename Value="unit1.pas"/>
-        <Caret Line="628" Column="37" TopLine="626"/>
+        <Filename Value="adbdevicestatustrd.pas"/>
+        <Caret Line="11" Column="31"/>
       </Position14>
       <Position15>
-        <Filename Value="unit1.pas"/>
-        <Caret Column="14"/>
+        <Filename Value="adbdevicestatustrd.pas"/>
+        <Caret Line="19" Column="28" TopLine="5"/>
       </Position15>
       <Position16>
         <Filename Value="unit1.pas"/>
-        <Caret Column="13"/>
+        <Caret Line="374" Column="28" TopLine="372"/>
       </Position16>
       <Position17>
-        <Filename Value="unit1.pas"/>
-        <Caret Line="398" TopLine="374"/>
+        <Filename Value="adbdevicestatustrd.pas"/>
+        <Caret Line="131" Column="34" TopLine="127"/>
       </Position17>
       <Position18>
-        <Filename Value="unit1.pas"/>
-        <Caret Line="10" Column="36"/>
+        <Filename Value="adbdevicestatustrd.pas"/>
+        <Caret Line="103" Column="28" TopLine="87"/>
       </Position18>
+      <Position19>
+        <Filename Value="adbdevicestatustrd.pas"/>
+        <Caret Line="184" Column="34" TopLine="176"/>
+      </Position19>
+      <Position20>
+        <Filename Value="adbdevicestatustrd.pas"/>
+        <Caret Line="39" Column="20" TopLine="35"/>
+      </Position20>
+      <Position21>
+        <Filename Value="adbdevicestatustrd.pas"/>
+        <Caret Line="21" Column="44" TopLine="6"/>
+      </Position21>
+      <Position22>
+        <Filename Value="adbdevicestatustrd.pas"/>
+        <Caret Line="40" Column="40" TopLine="30"/>
+      </Position22>
+      <Position23>
+        <Filename Value="adbdevicestatustrd.pas"/>
+        <Caret Line="129" Column="12" TopLine="39"/>
+      </Position23>
+      <Position24>
+        <Filename Value="adbdevicestatustrd.pas"/>
+        <Caret Line="46" Column="15" TopLine="40"/>
+      </Position24>
+      <Position25>
+        <Filename Value="adbdevicestatustrd.pas"/>
+        <Caret Line="202" Column="25" TopLine="183"/>
+      </Position25>
+      <Position26>
+        <Filename Value="unit1.pas"/>
+        <Caret Line="390" TopLine="375"/>
+      </Position26>
+      <Position27>
+        <Filename Value="adbdevicestatustrd.pas"/>
+        <Caret Line="202" Column="16" TopLine="176"/>
+      </Position27>
+      <Position28>
+        <Filename Value="adbdevicestatustrd.pas"/>
+        <Caret Line="129" Column="13" TopLine="118"/>
+      </Position28>
+      <Position29>
+        <Filename Value="adbdevicestatustrd.pas"/>
+        <Caret Line="83" Column="37" TopLine="82"/>
+      </Position29>
+      <Position30>
+        <Filename Value="unit1.pas"/>
+        <Caret Line="398" TopLine="396"/>
+      </Position30>
     </JumpHistory>
     <RunParams>
       <FormatVersion Value="2"/>

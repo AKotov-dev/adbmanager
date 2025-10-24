@@ -8,10 +8,19 @@ uses
   Classes, Process, SysUtils;
 
 type
-  ShowStatus = class(TThread)
-  private
+  TRAMInfo = record
+    TotalGB: double;
+    AvailGB: double;
+    Percent: double;
+  end;
 
+  ShowStatus = class(TThread)
+
+  private
+    FInfo: TRAMInfo;
+    function DeviceReachable(Device: string): boolean;
     { Private declarations }
+
   protected
   var
     SResult: TStringList;
@@ -21,6 +30,7 @@ type
     procedure ShowDevices;
     procedure ShowIsActive;
     procedure ShowKey;
+    procedure UpdateRAMLabel;
 
   end;
 
@@ -28,10 +38,38 @@ implementation
 
 uses Unit1, SDCardManager, ADBCommandTRD;
 
-//Scan ADB-device, status and adbkey (с очисткой пайпов)
+function ShowStatus.DeviceReachable(Device: string): boolean;
+var
+  P: TProcess;
+  IPOnly: string;
+begin
+  Result := False;
+  if Pos(':', Device) > 0 then
+  begin
+    IPOnly := Copy(Device, 1, Pos(':', Device) - 1);
+    P := TProcess.Create(nil);
+    try
+      P.Executable := '/bin/bash';
+      P.Parameters.Add('-c');
+      P.Parameters.Add(Format('ping -c 1 -W 1 %s >/dev/null 2>&1', [IPOnly]));
+      P.Options := [poWaitOnExit];
+      P.Execute;
+      Result := (P.ExitStatus = 0);
+    finally
+      P.Free;
+    end;
+  end
+  else
+    Result := True; // USB устройство всегда доступно
+end;
+
+//Scan ADB-device, Status, RAM и ADBKey (с очисткой пайпов)
 procedure ShowStatus.Execute;
 var
   Output: string;
+  Line, SLine, S: string;
+  TotalKB, AvailKB: int64;
+  MemFree, Buffers, Cached: int64;
 begin
   FreeOnTerminate := True;
   SResult := TStringList.Create;
@@ -52,8 +90,8 @@ begin
       Synchronize(@ShowIsActive);
 
       //Если ADB не запущен - запустить
-     { if SResult.Count = 0 then
-        RunCommand('bash', ['-c', 'adb start-server'], Output, [poWaitOnExit]); }
+      if SResult.Count = 0 then
+        RunCommand('bash', ['-c', 'adb start-server'], Output, [poWaitOnExit]);
 
       // -------------------------
       // 2. Если ADB запущен - Получение списка устройств
@@ -67,15 +105,108 @@ begin
 
           //Состояние offline - перезапуск adb (состязание двух устройств)
           if (SResult.Count > 1) and (Pos('offline', SResult.Text) <> 0) then
+          begin
             RunCommand('bash',
               ['-c', 'killall adb; adb kill-server; adb start-server'], Output,
               [poWaitOnExit]);
+            Sleep(300); //Для чёткого старта ADB
+          end;
         end;
       end
       else
         SResult.Clear;
 
-      Synchronize(@ShowDevices);
+      if not Terminated then
+        Synchronize(@ShowDevices);
+
+      //Вывод памяти устройства (RAM)
+
+      TotalKB := 0;
+      AvailKB := 0;
+      MemFree := 0;
+      Buffers := 0;
+      Cached := 0;
+
+      //Отслеживаем состояние устройства, в это время память = 0
+      if (SResult.Count = 1) and (Pos('offline', SResult.Text) = 0) and
+        (Pos('unauthorized', SResult.Text) = 0) then
+      begin
+        //Устройство доступно по USB или по IP?
+        if DeviceReachable(SResult[0]) then
+        begin
+          if RunCommand('bash', ['-c', 'adb shell cat /proc/meminfo'],
+            Output, [poWaitOnExit, poUsePipes]) then
+          begin
+            SResult.Text := Output;
+
+            for Line in SResult do
+            begin
+              try
+                SLine := Trim(Line);
+
+                if Pos('MemTotal', SLine) > 0 then
+                begin
+                  S := Trim(Copy(SLine, Pos(':', SLine) + 1, Length(SLine)));
+                  S := Trim(Copy(S, 1, Pos(' ', S) - 1));
+                  Val(S, TotalKB);
+                end
+                else if Pos('MemAvailable', SLine) > 0 then
+                begin
+                  S := Trim(Copy(SLine, Pos(':', SLine) + 1, Length(SLine)));
+                  S := Trim(Copy(S, 1, Pos(' ', S) - 1));
+                  Val(S, AvailKB);
+                end
+                else if Pos('MemFree', SLine) > 0 then
+                begin
+                  S := Trim(Copy(SLine, Pos(':', SLine) + 1, Length(SLine)));
+                  S := Trim(Copy(S, 1, Pos(' ', S) - 1));
+                  Val(S, MemFree);
+                end
+                else if Pos('Buffers', SLine) > 0 then
+                begin
+                  S := Trim(Copy(SLine, Pos(':', SLine) + 1, Length(SLine)));
+                  S := Trim(Copy(S, 1, Pos(' ', S) - 1));
+                  Val(S, Buffers);
+                end
+                else if Pos('Cached', SLine) > 0 then
+                begin
+                  S := Trim(Copy(SLine, Pos(':', SLine) + 1, Length(SLine)));
+                  S := Trim(Copy(S, 1, Pos(' ', S) - 1));
+                  Val(S, Cached);
+                end;
+              finally
+              end;
+              // adb отвалился — оставляем нули
+            end;
+          end;
+        end;
+
+        if AvailKB = 0 then
+          AvailKB := MemFree + Buffers + Cached;
+
+        if TotalKB > 0 then
+        begin
+          FInfo.TotalGB := TotalKB / 1024 / 1024;
+          FInfo.AvailGB := AvailKB / 1024 / 1024;
+          FInfo.Percent := (AvailKB * 100) / TotalKB;
+        end
+        else
+        begin
+          FInfo.TotalGB := 0;
+          FInfo.AvailGB := 0;
+          FInfo.Percent := 0;
+        end;
+      end
+      else
+      begin
+        // нет устройства или не пингуется
+        FInfo.TotalGB := 0;
+        FInfo.AvailGB := 0;
+        FInfo.Percent := 0;
+      end;
+
+      if not Terminated then
+        Synchronize(@UpdateRAMLabel);
 
       // -------------------------
       // 3. Проверка ключей
@@ -86,7 +217,8 @@ begin
       else
         SResult.Clear;
 
-      Synchronize(@ShowKey);
+      if not Terminated then
+        Synchronize(@ShowKey);
 
       Sleep(300); // оптимальный интервал для CPU
     end;
@@ -96,71 +228,15 @@ begin
   end;
 end;
 
-
-{ //Scan ADB-device, status and adbkey (прежний вариант)
-procedure ShowStatus.Execute;
-var
-  Output: String;
-  ExProcess: TProcess;
-begin
-  try
-    FreeOnTerminate := True; //Уничтожать по завершении
-    SResult := TStringList.Create;
-
-    //Вывод состояния ADB, списка устройств
-    ExProcess := TProcess.Create(nil);
-    ExProcess.Options := [poUsePipes, poWaitOnExit];
-    ExProcess.Executable := 'bash';
-
-    while not Terminated do
-    begin
-      SResult.Clear;
-      Exprocess.Parameters.Clear;
-      ExProcess.Parameters.Add('-c');
-
-      //ADB запущен?
-      ExProcess.Parameters.Add('ss -lt | grep 5037');
-      Exprocess.Execute;
-      SResult.LoadFromStream(ExProcess.Output);
-      Synchronize(@ShowIsActive);
-
-      //Если ADB запущен - показать Устройство
-      if SResult.Count <> 0 then
-      begin
-        ExProcess.Parameters.Delete(1);
-        ExProcess.Parameters.Add('adb devices | tail -n +2');
-        ExProcess.Execute;
-        SResult.LoadFromStream(ExProcess.Output);
-        SResult:= Trim(SResult);
-        //Состояние offline - перезапуск adb (состязание двух устройств)
-          if (SResult.Count > 1) and (Pos('offline', SResult.Text) <> 0) then
-            RunCommand('bash',
-              ['-c', 'killall adb; adb kill-server; adb start-server'], Output,
-              [poWaitOnExit]);
-      end
-      else
-        SResult.Clear;
-      Synchronize(@ShowDevices);
-
-      //Key exists?
-      ExProcess.Parameters.Delete(1);
-      ExProcess.Parameters.Add('ls ~/.android/adbkey*');
-      Exprocess.Execute;
-      SResult.LoadFromStream(ExProcess.Output);
-      Synchronize(@ShowKey);
-
-      Sleep(300);
-    end;
-
-  finally
-    SResult.Free;
-    ExProcess.Free;
-    Terminate;
-  end;
-end; }
-
-
 { БЛОК ОТОБРАЖЕНИЯ СТАТУСА }
+
+procedure ShowStatus.UpdateRAMLabel;
+begin
+  if Assigned(MainForm) and Assigned(MainForm.LabelRAM) then
+    MainForm.LabelRAM.Caption :=
+      Format('RAM: %.2f GB / %.2f GB (%.1f%%)',
+      [FInfo.TotalGB, FInfo.AvailGB, FInfo.Percent]);
+end;
 
 //Вывод активности ADB
 procedure ShowStatus.ShowIsActive;
