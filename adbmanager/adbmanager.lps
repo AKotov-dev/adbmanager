@@ -252,7 +252,7 @@
         <UsageCount Value="22"/>
       </Unit18>
     </Units>
-    <JumpHistory Count="13" HistoryIndex="12">
+    <JumpHistory Count="12" HistoryIndex="11">
       <Position1>
         <Filename Value="unit1.pas"/>
         <Caret Line="10" Column="36"/>
@@ -291,20 +291,16 @@
       </Position9>
       <Position10>
         <Filename Value="unit1.pas"/>
-        <Caret Column="13" TopLine="22"/>
+        <Caret Line="424" Column="50" TopLine="417"/>
       </Position10>
       <Position11>
         <Filename Value="unit1.pas"/>
-        <Caret Line="424" Column="50" TopLine="417"/>
+        <Caret Line="405" Column="36" TopLine="401"/>
       </Position11>
       <Position12>
         <Filename Value="unit1.pas"/>
-        <Caret Line="405" Column="36" TopLine="401"/>
-      </Position12>
-      <Position13>
-        <Filename Value="unit1.pas"/>
         <Caret Line="408" Column="15" TopLine="401"/>
-      </Position13>
+      </Position12>
     </JumpHistory>
     <RunParams>
       <FormatVersion Value="2"/>
