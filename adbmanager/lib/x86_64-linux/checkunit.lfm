@@ -322,7 +322,7 @@ object CheckForm: TCheckForm
     Left = 168
     Top = 72
     object CopyToClipboard: TMenuItem
-      Caption = 'Copy package name to clipboard'
+      Caption = 'Copy names of selected packages to clipboard'
       OnClick = CopyToClipboardClick
     end
     object Separator1: TMenuItem

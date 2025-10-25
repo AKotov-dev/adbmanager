@@ -567,7 +567,7 @@ begin
   if AppListBox.Count <> 0 then AppListBox.ItemIndex := 0;
 end;
 
-//Копировать имена выбранных пакетов в буфер обмена
+//Названия пакета(ов) в буфер обмена
 procedure TCheckForm.CopyToClipboardClick(Sender: TObject);
 var
   i: integer;

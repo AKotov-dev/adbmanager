@@ -125,7 +125,7 @@ msgstr ""
 
 #: tcheckform.copytoclipboard.caption
 msgctxt "tcheckform.copytoclipboard.caption"
-msgid "Copy package name to clipboard"
+msgid "Copy names of selected packages to clipboard"
 msgstr ""
 
 #: tcheckform.label1.caption

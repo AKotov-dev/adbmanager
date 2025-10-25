@@ -127,8 +127,8 @@ msgstr "Очистить"
 
 #: tcheckform.copytoclipboard.caption
 msgctxt "tcheckform.copytoclipboard.caption"
-msgid "Copy package name to clipboard"
-msgstr "Копировать имя пакета в буфер"
+msgid "Copy names of selected packages to clipboard"
+msgstr "Копировать имена выбранных пакетов в буфер"
 
 #: tcheckform.label1.caption
 msgid "Search:"
@@ -529,4 +529,3 @@ msgstr "Введите строку поиска или *"
 #: unit1.syes
 msgid "yes"
 msgstr "да"
-

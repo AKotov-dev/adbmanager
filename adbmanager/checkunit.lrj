@@ -6,7 +6,7 @@
 {"hash":171837285,"name":"tcheckform.modebox.caption","sourcebytes":[68,101,108,101,116,101,32,109,111,100,101],"value":"Delete mode"},
 {"hash":4860802,"name":"tcheckform.clearbtn.hint","sourcebytes":[67,108,101,97,114],"value":"Clear"},
 {"hash":131164651,"name":"tcheckform.pkgbtn.hint","sourcebytes":[73,99,111,110,69,120,116,114,97,99,116,111,114,46,97,112,107],"value":"IconExtractor.apk"},
-{"hash":36573316,"name":"tcheckform.copytoclipboard.caption","sourcebytes":[67,111,112,121,32,112,97,99,107,97,103,101,32,110,97,109,101,32,116,111,32,99,108,105,112,98,111,97,114,100],"value":"Copy package name to clipboard"},
+{"hash":90150484,"name":"tcheckform.copytoclipboard.caption","sourcebytes":[67,111,112,121,32,110,97,109,101,115,32,111,102,32,115,101,108,101,99,116,101,100,32,112,97,99,107,97,103,101,115,32,116,111,32,99,108,105,112,98,111,97,114,100],"value":"Copy names of selected packages to clipboard"},
 {"hash":237632149,"name":"tcheckform.savetofile.caption","sourcebytes":[83,97,118,101,32,116,104,101,32,108,105,115,116,32,111,102,32,112,97,99,107,97,103,101,115,32,97,110,100,32,115,116,97,116,101,115,32,116,111,32,97,32,42,46,116,120,116,32,102,105,108,101],"value":"Save the list of packages and states to a *.txt file"},
 {"hash":230426389,"name":"tcheckform.loadfromtxt.caption","sourcebytes":[76,111,97,100,32,97,32,108,105,115,116,32,111,102,32,112,97,99,107,97,103,101,115,32,97,110,100,32,115,116,97,116,101,115,32,102,114,111,109,32,97,32,42,46,116,120,116,32,102,105,108,101],"value":"Load a list of packages and states from a *.txt file"}
 ]}
