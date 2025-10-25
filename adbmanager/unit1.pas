@@ -519,8 +519,11 @@ begin
       if DevSheet.Caption = sNoDevice then Exit;
 
       //Выделяем имя устройства
-      i := Pos(#9, DevSheet.Caption);
-      StartProcess('sakura -t "Android Shell > ' + Trim(Copy(DevSheet.Caption, 1, i)) +
+      if Pos(':', DevSheet.Caption) <> 0 then i := Pos(':', DevSheet.Caption)
+      else
+        i := Pos(#9, DevSheet.Caption);
+
+      StartProcess('sakura -t "Android Shell > ' + Trim(Copy(DevSheet.Caption, 1, i - 1)) +
         '" -c 110 -r 36 -f 10 -x "adb shell"');
       Exit;
     end;

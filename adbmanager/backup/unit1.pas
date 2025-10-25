@@ -367,12 +367,12 @@ begin
   {$ENDIF}
 
   // Загрузка настроек формы
-  try
-    LoadSettings;
-  except
+  // try
+  LoadSettings;
+ { except
     on E: Exception do
       ShowMessage('Ошибка загрузки настроек: ' + E.Message);
-  end;
+  end;}
 
   // Устраняем баг иконки приложения
   bmp := TBitmap.Create;
@@ -388,14 +388,13 @@ begin
   if CheckADBInstalled(Ver) then
   begin
     LogMemo.Append('ADB: ' + ver);
-   // TRAMThread.Create;
+    // TRAMThread.Create;
     ShowStatus.Create(False);
-  // TDeviceMemoryThread.Create;
+    // TDeviceMemoryThread.Create;
   end
   else
     LogMemo.Append(SADBNotFound);
 end;
-
 
 //Обработка кнопок панели "Управление Смартфоном"
 procedure TMainForm.ApkInfoBtnClick(Sender: TObject);
@@ -520,7 +519,10 @@ begin
       if DevSheet.Caption = sNoDevice then Exit;
 
       //Выделяем имя устройства
-      i := Pos(#9, DevSheet.Caption);
+      if Pos(':', DevSheet.Caption) <> 0 then i := Pos(':', DevSheet.Caption)
+      else
+        i := Pos(#9, DevSheet.Caption);
+
       StartProcess('sakura -t "Android Shell > ' + Trim(Copy(DevSheet.Caption, 1, i)) +
         '" -c 110 -r 36 -f 10 -x "adb shell"');
       Exit;
