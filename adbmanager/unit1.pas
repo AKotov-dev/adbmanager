@@ -523,8 +523,8 @@ begin
       else
         i := Pos(#9, DevSheet.Caption);
 
-      StartProcess('sakura -t "Android Shell > ' + Trim(Copy(DevSheet.Caption, 1, i - 1)) +
-        '" -c 110 -r 36 -f 10 -x "adb shell"');
+      StartProcess('sakura -t "Android Shell > ' +
+        Trim(Copy(DevSheet.Caption, 1, i - 1)) + '" -c 110 -r 36 -f 10 -x "adb shell"');
       Exit;
     end;
 
