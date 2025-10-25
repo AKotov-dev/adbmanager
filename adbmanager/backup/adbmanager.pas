@@ -21,7 +21,7 @@ uses
   settings_unit,
   ReadSettingsTRDUnit,
   WriteSettingsTRDUnit,
-  xdgopentrd, CPUTemperature;
+  xdgopentrd;
 
   {$R *.res}
 

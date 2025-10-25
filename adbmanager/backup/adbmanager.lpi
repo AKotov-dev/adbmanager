@@ -78,7 +78,7 @@
         <PackageName Value="LCL"/>
       </Item1>
     </RequiredPackages>
-    <Units Count="16">
+    <Units Count="17">
       <Unit0>
         <Filename Value="adbmanager.pas"/>
         <IsPartOfProject Value="True"/>
@@ -176,6 +176,11 @@
         <IsPartOfProject Value="True"/>
         <UnitName Value="XDGOpenTRD"/>
       </Unit15>
+      <Unit16>
+        <Filename Value="cputemperature.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="CPUTemperature"/>
+      </Unit16>
     </Units>
   </ProjectOptions>
   <CompilerOptions>

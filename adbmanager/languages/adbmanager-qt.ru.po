@@ -444,6 +444,10 @@ msgstr "Полезные настройки, которых часто не хв
 msgid "1.0"
 msgstr ""
 
+#: tsettingsform.cputemp.caption
+msgid "CPUTemp"
+msgstr ""
+
 #: tsettingsform.label1.caption
 msgctxt "tsettingsform.label1.caption"
 msgid "System font size"
@@ -454,8 +458,16 @@ msgid "Menus, panels, messages, etc."
 msgstr "Меню, панели, сообщения и т.д."
 
 #: tsettingsform.label2.caption
-msgid "Sound volume level (from 0 to 15)"
-msgstr "Уровень громкости звука (от 0 до 15)"
+msgid "Sound volume (0..15)"
+msgstr "Громкость звука (0..15)"
+
+#: tsettingsform.label3.caption
+msgid "CPU Temperature:"
+msgstr "Температура CPU:"
+
+#: tsettingsform.label3.hint
+msgid "Android 6+"
+msgstr ""
 
 #: unit1.sadbnotfound
 msgid "ADB not found!"
@@ -529,3 +541,4 @@ msgstr "Введите строку поиска или *"
 #: unit1.syes
 msgid "yes"
 msgstr "да"
+

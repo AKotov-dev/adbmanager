@@ -1,10 +1,10 @@
 object SettingsForm: TSettingsForm
-  Left = 330
-  Height = 580
-  Top = 134
+  Left = 307
+  Height = 586
+  Top = 135
   Width = 684
   Caption = 'Android TV Box settings'
-  ClientHeight = 580
+  ClientHeight = 586
   ClientWidth = 684
   Position = poDefault
   LCLVersion = '4.2.0.0'
@@ -17,12 +17,12 @@ object SettingsForm: TSettingsForm
     AnchorSideTop.Side = asrCenter
     AnchorSideBottom.Control = Owner
     AnchorSideBottom.Side = asrBottom
-    Left = 110
+    Left = 109
     Height = 37
-    Top = 533
-    Width = 94
+    Top = 539
+    Width = 106
     Anchors = [akLeft, akBottom]
-    BorderSpacing.Left = 5
+    BorderSpacing.Left = 4
     BorderSpacing.Bottom = 10
     ItemHeight = 0
     Items.Strings = (
@@ -49,7 +49,7 @@ object SettingsForm: TSettingsForm
     AnchorSideBottom.Side = asrBottom
     Left = 557
     Height = 37
-    Top = 533
+    Top = 539
     Width = 119
     Anchors = [akTop, akRight, akBottom]
     Caption = 'Apply'
@@ -60,7 +60,7 @@ object SettingsForm: TSettingsForm
     AnchorSideRight.Side = asrBottom
     AnchorSideBottom.Control = TrackBar1
     Left = 8
-    Height = 454
+    Height = 459
     Top = 16
     Width = 668
     Anchors = [akTop, akLeft, akRight, akBottom]
@@ -76,7 +76,7 @@ object SettingsForm: TSettingsForm
     ChildSizing.ShrinkVertical = crsScaleChilds
     ChildSizing.Layout = cclLeftToRightThenTopToBottom
     ChildSizing.ControlsPerLine = 1
-    ClientHeight = 436
+    ClientHeight = 441
     ClientWidth = 666
     Items.Strings = (
       'System sounds such as clicks when buttons are pressed'
@@ -101,7 +101,7 @@ object SettingsForm: TSettingsForm
     Left = 8
     Height = 17
     Hint = 'Menus, panels, messages, etc.'
-    Top = 543
+    Top = 549
     Width = 97
     Caption = 'System font size'
     ParentShowHint = False
@@ -113,10 +113,10 @@ object SettingsForm: TSettingsForm
     AnchorSideTop.Control = ComboBox1
     AnchorSideTop.Side = asrCenter
     AnchorSideRight.Control = ApplyBtn
-    Left = 214
+    Left = 225
     Height = 12
-    Top = 545
-    Width = 333
+    Top = 551
+    Width = 322
     Anchors = [akTop, akLeft, akRight]
     BorderSpacing.Left = 10
     BorderSpacing.Right = 10
@@ -126,11 +126,12 @@ object SettingsForm: TSettingsForm
   object Label2: TLabel
     AnchorSideTop.Control = TrackBar1
     AnchorSideTop.Side = asrCenter
-    Left = 8
+    Left = 226
     Height = 17
-    Top = 495
-    Width = 200
-    Caption = 'Sound volume level (from 0 to 15)'
+    Top = 500
+    Width = 123
+    Anchors = [akTop]
+    Caption = 'Sound volume (0..15)'
   end
   object TrackBar1: TTrackBar
     AnchorSideLeft.Control = Label2
@@ -139,14 +140,38 @@ object SettingsForm: TSettingsForm
     AnchorSideTop.Side = asrBottom
     AnchorSideRight.Control = CheckGroup1
     AnchorSideRight.Side = asrBottom
-    Left = 213
+    Left = 351
     Height = 47
-    Top = 480
-    Width = 463
+    Top = 485
+    Width = 325
     Max = 15
     Position = 0
     Anchors = [akLeft, akRight]
-    BorderSpacing.Left = 5
+    BorderSpacing.Left = 2
     TabOrder = 1
+  end
+  object Label3: TLabel
+    AnchorSideTop.Control = TrackBar1
+    AnchorSideTop.Side = asrCenter
+    Left = 8
+    Height = 17
+    Hint = 'Android 6+'
+    Top = 500
+    Width = 110
+    Caption = 'CPU Temperature:'
+    ParentShowHint = False
+    ShowHint = True
+  end
+  object CPUTemp: TLabel
+    AnchorSideLeft.Control = Label3
+    AnchorSideLeft.Side = asrBottom
+    AnchorSideTop.Control = TrackBar1
+    AnchorSideTop.Side = asrCenter
+    Left = 122
+    Height = 17
+    Top = 500
+    Width = 61
+    BorderSpacing.Left = 4
+    Caption = 'CPUTemp'
   end
 end
