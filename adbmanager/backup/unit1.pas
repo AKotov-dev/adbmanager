@@ -406,22 +406,23 @@ begin
   adbcmd := '';
   PackageNames := '';
 
+  //Если устройства нет или оно offline/unauthorized - доступна только кнопка эмулятор
+  if ((DevSheet.Caption = sNoDevice) or (Pos('offline', DevSheet.Caption) <> 0) or
+    (Pos('unauthorized', DevSheet.Caption) <> 0)) and
+    ((Sender as TToolButton).ImageIndex <> 0) then Exit;
+
   //Определяем команду по кнопке
   case (Sender as TToolButton).ImageIndex of
-    0: //Connect
+    0: //Connect (Эмулятор)
     begin
-      EmulatorForm := TEmulatorForm.Create(Application);
+//      EmulatorForm := TEmulatorForm.Create(Application);
       EmulatorForm.ShowModal;
       //Показываем Подключение/Сканирование
-      { if EmulatorForm.ModalResult <> mrOk then }
       Exit;
     end;
 
     1: //Search Package
     begin
-      //Если устройства нет - Выход
-      if DevSheet.Caption = sNoDevice then Exit;
-
       //если adb выполняется - выйти
       if ProgressBar1.Style in [pbstMarquee] then Exit;
 
@@ -437,12 +438,9 @@ begin
           Trim(S) + '"';
     end;
 
-    2: //install
+    2: //Install package
     begin
-      //Если устройства нет - Выход
-      if DevSheet.Caption = sNoDevice then Exit;
-
-      //если adb выполняется - выйти
+      //Если adb выполняется - выйти
       if ProgressBar1.Style in [pbstMarquee] then Exit;
 
       //Проверка/создание скрипта установки пакетов
@@ -460,11 +458,8 @@ begin
         Exit;
     end;
 
-    3: //uninstall
+    3: //Uninstall package
     begin
-      //Если устройства нет - Выход
-      if DevSheet.Caption = sNoDevice then Exit;
-
       //если adb выполняется - выйти
       if (ProgressBar1.Style in [pbstMarquee]) then Exit;
 
@@ -478,27 +473,18 @@ begin
 
     4: //Отключение/Удаление приложений
     begin
-      //Если устройства нет - Выход
-      if DevSheet.Caption = sNoDevice then Exit;
-
       CheckForm.ShowModal;
       Exit;
     end;
 
-    5: //SD-FileManager
+    5: //SD-Card Manager
     begin
-      //Если устройства нет - Выход
-      if DevSheet.Caption = sNoDevice then Exit;
-
       SDForm.Show;
       Exit;
     end;
 
-    6: //screenshot
+    6: //ScreenShot
     begin
-      //Если устройства нет - Выход
-      if DevSheet.Caption = sNoDevice then Exit;
-
       if SelectDirectoryDialog1.Execute then
       begin
         SetCurrentDir(SelectDirectoryDialog1.FileName);
@@ -515,36 +501,25 @@ begin
 
     7: //Терминал Android Shell
     begin
-      //Если устройства нет - Выход
-      if DevSheet.Caption = sNoDevice then Exit;
-
       //Выделяем имя устройства
       if Pos(':', DevSheet.Caption) <> 0 then i := Pos(':', DevSheet.Caption)
       else
         i := Pos(#9, DevSheet.Caption);
 
-      StartProcess('sakura -t "Android Shell > ' + Trim(Copy(DevSheet.Caption, 1, i - 1)) +
-        '" -c 110 -r 36 -f 10 -x "adb shell"');
+      StartProcess('sakura -t "Android Shell > ' +
+        Trim(Copy(DevSheet.Caption, 1, i - 1)) + '" -c 110 -r 36 -f 10 -x "adb shell"');
       Exit;
     end;
 
     8: //Токие настройки Android
     begin
-      //Если устройства нет - Выход
-      if DevSheet.Caption = sNoDevice then Exit;
-
       SettingsForm.ShowModal;
       Exit;
     end;
 
     9: //reboot
     begin
-      //Если устройства нет - Выход
-      if DevSheet.Caption = sNoDevice then Exit;
-
-      RebootForm := TRebootForm.Create(Application);
       RebootForm.ShowModal; //Показываем варианты Reboot
-      //  if RebootForm.ModalResult <> mrOk then
       Exit;
     end;
   end;

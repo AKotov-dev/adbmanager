@@ -40,7 +40,7 @@ var
 
 implementation
 
-uses unit1, SDCardManager;
+uses unit1, SDCardManager, ADBCommandTRD;
 
   {$R *.lfm}
 

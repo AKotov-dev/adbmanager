@@ -5,7 +5,7 @@ unit ADBDeviceStatusTRD;
 interface
 
 uses
-  Classes, Process, SysUtils, Dialogs;
+  Classes, Process, SysUtils;
 
 type
   TRAMInfo = record
@@ -18,8 +18,9 @@ type
 
   private
     FInfo: TRAMInfo;
-    function DeviceReachable(Device: String): boolean;
+    function DeviceReachable(Device: string): boolean;
     { Private declarations }
+
   protected
   var
     SResult: TStringList;
@@ -62,7 +63,7 @@ begin
     Result := True; // USB устройство всегда доступно
 end;
 
-//Scan ADB-device, status and adbkey (с очисткой пайпов)
+//Scan ADB-device, Status, RAM и ADBKey (с очисткой пайпов)
 procedure ShowStatus.Execute;
 var
   Output: string;
@@ -227,16 +228,15 @@ begin
   end;
 end;
 
+{ БЛОК ОТОБРАЖЕНИЯ СТАТУСА }
 
 procedure ShowStatus.UpdateRAMLabel;
 begin
   if Assigned(MainForm) and Assigned(MainForm.LabelRAM) then
     MainForm.LabelRAM.Caption :=
-      Format('RAM: %.2f GB / %.2f GB (%.1f%%)', [FInfo.TotalGB,
-      FInfo.AvailGB, FInfo.Percent]);
+      Format('RAM: %.2f GB / %.2f GB (%.1f%%)',
+      [FInfo.TotalGB, FInfo.AvailGB, FInfo.Percent]);
 end;
-
-{ БЛОК ОТОБРАЖЕНИЯ СТАТУСА }
 
 //Вывод активности ADB
 procedure ShowStatus.ShowIsActive;
