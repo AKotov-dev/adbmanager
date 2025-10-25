@@ -34,7 +34,7 @@ begin
         Output, [poWaitOnExit, poUsePipes]) then
       begin
         // Преобразуем полученное значение из миллиградусов в градусы Цельсия
-        Output:= FormatFloat('0.0', StrToIntDef(Trim(Output),0)/1000) + ' °C'
+        Output := FormatFloat('0.0', StrToIntDef(Trim(Output), 0) / 1000) + ' °C';
       end
       else
         Output := '0.0';

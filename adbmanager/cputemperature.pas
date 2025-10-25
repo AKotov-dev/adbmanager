@@ -40,7 +40,7 @@ begin
         Output := '0.0';
 
       Synchronize(@ShowTemp);
-      Sleep(500);
+      Sleep(1000);
     end;
   finally
   end;
