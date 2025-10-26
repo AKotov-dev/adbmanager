@@ -6,8 +6,8 @@ interface
 
 uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, ExtCtrls, StdCtrls,
-  ShellCtrls, ComCtrls, Buttons, Process, LCLType,
-  IniFiles, StrUtils, LSSDFolderTRD, SDMountPointTRD, XDGOpenTRD;
+  ShellCtrls, ComCtrls, Buttons, Process, LCLType, IniFiles, StrUtils,
+  LSSDFolderTRD, SDMountPointTRD, XDGOpenTRD;
 
 type
 
@@ -63,14 +63,21 @@ type
     procedure SDChangeBtnClick(Sender: TObject);
     procedure SDMemoKeyDown(Sender: TObject; var Key: word; Shift: TShiftState);
     procedure SelectAllBtnClick(Sender: TObject);
+    procedure UpBtnClick(Sender: TObject);
+
+  private
+    FLSThread: StartLSSD;
+    FReadSDMountPoint: TReadSDMountPoint;
+
+  public
+    //активная панель, форма загружена (для CheckBox)
+    left_panel, FormLoaded: boolean;
 
     //апдейт текущей директории SDBox (смартфон)
-    //   procedure StartLS;
+    procedure StartLS;
 
     //апдейт текущей директории CompDir (компьютер)
     procedure CompDirUpdate;
-
-    procedure UpBtnClick(Sender: TObject);
 
     //Отработка команд копирования с выводом в лог
     procedure StartCommand;
@@ -85,14 +92,6 @@ type
     procedure LoadSettings;
 
     function DetoxName(N: string): string;
-
-  private
-    FLSThread: StartLSSD;
-    FReadSDMountPoint: TReadSDMountPoint;
-
-  public
-    procedure StartLS;
-
   end;
 
 resourcestring
@@ -106,12 +105,10 @@ resourcestring
 
 var
   SDForm: TSDForm;
-  //Команда ADB и флаг панели, которую нужно обновить
-  sdcmd: string;
-  left_panel, FormLoaded: boolean;
   //Список возможных точек монтирования SD-Card
   SDMountPoint: TStringList;
-
+  //Команда ADB
+  sdcmd: string;
 
 implementation
 
