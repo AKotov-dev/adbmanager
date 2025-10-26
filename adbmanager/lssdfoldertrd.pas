@@ -77,7 +77,8 @@ begin
 
       if Terminated then Exit;
       // Определяем версию Android > 7
-      ExProcess.Parameters.Delete(1);
+      ExProcess.Parameters.Clear;
+      ExProcess.Parameters.Add('-c');
       ExProcess.Parameters.Add('adb shell ls -p /');
       ExProcess.Execute;
       if Terminated then Exit;
@@ -90,7 +91,8 @@ begin
 
       if Terminated then Exit;
       // ls текущего каталога с заменой спецсимволов
-      ExProcess.Parameters.Delete(1);
+      ExProcess.Parameters.Clear;
+      ExProcess.Parameters.Add('-c');
       if not android7 then
         ExProcess.Parameters.Add('adb shell ls -aF ' + '''' +
           SDForm.DetoxName(SDForm.GroupBox2.Caption) + '''' + ' | sort -t "d" -k 1,1')
@@ -113,7 +115,6 @@ begin
 
     S.Free;
     ExProcess.Free;
-    //    Terminate;
   end;
 end;
 
@@ -126,8 +127,6 @@ end;
 //Окончание операции
 procedure StartLSSD.HideProgress;
 begin
-  //Очищаем команду для корректного "Esc"
-  sdcmd := '';
   Screen.cursor := crDefault;
 end;
 

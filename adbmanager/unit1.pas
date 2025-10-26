@@ -100,7 +100,7 @@ var
 implementation
 
 uses ADBDeviceStatusTRD, ADBCommandTRD, RebootUnit, SDCardManager,
-  EmulatorUnit, CheckUnit, Settings_Unit, UsingRAMTRD, CombinedADBMemoryThread;
+  EmulatorUnit, CheckUnit, Settings_Unit;
 
   {$R *.lfm}
 

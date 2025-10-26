@@ -7,7 +7,7 @@ interface
 uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, ExtCtrls, StdCtrls,
   ShellCtrls, ComCtrls, Buttons, Process, LCLType, IniFiles, StrUtils,
-  LSSDFolderTRD, SDMountPointTRD, XDGOpenTRD;
+  LSSDFolderTRD, SDMountPointTRD, XDGOpenTRD, SDCommandTRD;
 
 type
 
@@ -68,10 +68,11 @@ type
   private
     FLSThread: StartLSSD;
     FReadSDMountPoint: TReadSDMountPoint;
+    FStartSDCommand: TStartSDCommand;
 
   public
     //активная панель, форма загружена (для CheckBox)
-    left_panel, FormLoaded: boolean;
+    FormLoaded: boolean;
 
     //апдейт текущей директории SDBox (смартфон)
     procedure StartLS;
@@ -80,7 +81,7 @@ type
     procedure CompDirUpdate;
 
     //Отработка команд копирования с выводом в лог
-    procedure StartCommand;
+    //   procedure StartCommand;
 
     //Отмена копирования
     procedure CancelCopy;
@@ -107,12 +108,10 @@ var
   SDForm: TSDForm;
   //Список возможных точек монтирования SD-Card
   SDMountPoint: TStringList;
-  //Команда ADB
-  sdcmd: string;
 
 implementation
 
-uses SDCommandTRD, Unit1;
+uses Unit1;
 
   {$R *.lfm}
 
@@ -205,12 +204,6 @@ begin
   end;
 end;
 
-//Исполнение команд/вывод лога (sdcmd)
-procedure TSDForm.StartCommand;
-begin
-  StartSDCommand.Create(False);
-end;
-
 //Апдейт текущей директории CompDir (ShellTreeView)
 procedure TSDForm.CompDirUpdate;
 var
@@ -249,8 +242,8 @@ begin
     if GroupBox2.Caption[i] = '/' then
     begin
       GroupBox2.Caption := Copy(GroupBox2.Caption, 1, i);
+
       //Перечитываем текущий каталог SDBox (GroupBox2.Caption)
-      //StartLS;
       StartLS;
 
       break;
@@ -278,8 +271,8 @@ end;
 procedure TSDForm.CopyFromPCClick(Sender: TObject);
 var
   i, sd: integer;
-  c: string;
-  e: boolean;
+  c, sdcmd: string;
+  e, left_panel: boolean;
 begin
   //Флаг выбора панели
   left_panel := False;
@@ -327,7 +320,8 @@ begin
       mrYes) then
       exit;
 
-    StartCommand;
+    FStartSDCommand := TStartSDCommand.Create(sdcmd, left_panel);
+    FStartSDCommand.Start;
   end;
 end;
 
@@ -335,8 +329,8 @@ end;
 procedure TSDForm.CopyFromSmartphoneClick(Sender: TObject);
 var
   i: integer;
-  c: string;
-  e: boolean;
+  c, sdcmd: string;
+  e, left_panel: boolean;
 begin
   //Флаг выбора панели
   left_panel := True;
@@ -394,7 +388,8 @@ begin
       mrYes) then
       exit;
 
-    StartCommand;
+    FStartSDCommand := TStartSDCommand.Create(sdcmd, left_panel);
+    FStartSDCommand.Start;
   end;
 end;
 
@@ -402,7 +397,8 @@ end;
 procedure TSDForm.DelBtnClick(Sender: TObject);
 var
   i: integer;
-  c: string; //сборка команд...
+  c, sdcmd: string; //сборка команд...
+  left_panel: boolean;
 begin
   //Команда в поток
   sdcmd := '';
@@ -441,7 +437,9 @@ begin
         sdcmd := c + '; ' + sdcmd;
       end;
     end;
-    StartCommand;
+
+    FStartSDCommand := TStartSDCommand.Create(sdcmd, left_panel);
+    FStartSDCommand.Start;
   end;
 end;
 
@@ -462,6 +460,14 @@ begin
 
     //Скрываем "Esc - отмена"
     Panel4.Caption := '';
+
+     //Освобождаем возможный поток копирования
+    if Assigned(FStartSDCommand) then
+    begin
+      FStartSDCommand.Terminate;
+      FStartSDCommand.WaitFor;
+      FreeAndNil(FStartSDCommand);
+    end;
 
     //Освобождаем возможный поток чтения текущей директории
     if Assigned(FLSThread) then
@@ -510,8 +516,6 @@ begin
 end;
 
 procedure TSDForm.FormShow(Sender: TObject);
-{var
-  FSDMountPointThread: TThread;}
 begin
   //For Plasma
   LoadSettings;
@@ -525,9 +529,6 @@ begin
   //Перечитываем корень CompDir (могли быть изменения на диске извне)
   RefreshBtn.Click;
 
-  //Возвращаем сохраненную SD-Card (по умолчанию = /sdcard/ в IniPropStorage)
-  //GroupBox2.Caption := IniPropStorage1.StoredValue['SDCard'];
-
   //Список возможных точек монтирования SD-Card
   SDMountPoint := TStringList.Create;
 
@@ -538,7 +539,8 @@ end;
 
 procedure TSDForm.MkDirBtnClick(Sender: TObject);
 var
-  S: string;
+  S, sdcmd: string;
+  left_panel: boolean;
 begin
   //Флаг выбора панели
   left_panel := False;
@@ -552,16 +554,18 @@ begin
   //DetoxName - Замена пробелов и спецсимволов
   sdcmd := 'adb shell mkdir ' + '''' + DetoxName(GroupBox2.Caption + S) + '''';
 
-  StartCommand;
+  FStartSDCommand := TStartSDCommand.Create(sdcmd, left_panel);
+  FStartSDCommand.Start;
 end;
 
 //Создать каталог на SD-Card
 procedure TSDForm.MkPCDirBtnClick(Sender: TObject);
 var
   S: string;
+  // left_panel: Boolean;
 begin
   //Флаг выбора панели
-  left_panel := False;
+  // left_panel := False;
 
   S := '';
   repeat

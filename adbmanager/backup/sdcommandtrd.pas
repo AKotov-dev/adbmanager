@@ -5,7 +5,7 @@ unit SDCommandTRD;
 interface
 
 uses
-  Classes, SysUtils, Forms, Controls, Graphics, ComCtrls, Process;
+  Classes, SysUtils, Forms, Controls, Graphics, ComCtrls, Process, Dialogs;
 
 type
   TStartSDCommand = class(TThread)
@@ -30,8 +30,7 @@ uses SDCardManager;
 { Конструктор потока }
 constructor TStartSDCommand.Create(const ACmd: string; ALeftPanel: boolean);
 begin
-  inherited Create(True);
-  // True = поток создаётся в остановленном состоянии
+  inherited Create(True); // True = поток создаётся в остановленном состоянии
   FreeOnTerminate := False;
   FSdCmd := ACmd;
   FLeftPanel := ALeftPanel;
@@ -109,6 +108,9 @@ begin
       ProgressBar1.Style := pbstNormal;
       ProgressBar1.Refresh;
 
+      // Обновление каталогов
+      if FLeftPanel then ShowMessage('LEFT') else showmessage('RIGHT');
+
       if FLeftPanel then
         CompDirUpdate
       else
@@ -117,3 +119,4 @@ begin
 end;
 
 end.
+

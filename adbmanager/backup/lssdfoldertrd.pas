@@ -77,6 +77,8 @@ begin
 
       if Terminated then Exit;
       // Определяем версию Android > 7
+
+
       ExProcess.Parameters.Delete(1);
       ExProcess.Parameters.Add('adb shell ls -p /');
       ExProcess.Execute;
@@ -113,7 +115,7 @@ begin
 
     S.Free;
     ExProcess.Free;
-//    Terminate;
+    //    Terminate;
   end;
 end;
 
@@ -126,8 +128,6 @@ end;
 //Окончание операции
 procedure StartLSSD.HideProgress;
 begin
-  //Очищаем команду для корректного "Esc"
-  sdcmd := '';
   Screen.cursor := crDefault;
 end;
 
