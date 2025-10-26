@@ -60,7 +60,7 @@ type
   private
     FReadThread: ReadAppsTRD;
     procedure StartThread;
-    procedure StopThread;
+    //  procedure StopThread;
   public
     VList: TStringList;
 
@@ -137,18 +137,6 @@ begin
 end;
 
 // ---
-
-//Останов потока
-procedure TCheckForm.StopThread;
-begin
-  if Assigned(FReadThread) then
-  begin
-    FReadThread.Terminate;
-    FReadThread.WaitFor;
-    // дождаться полного завершения
-    FreeAndNil(FReadThread);
-  end;
-end;
 
 //Старт потока
 procedure TCheckForm.StartThread;
@@ -364,7 +352,14 @@ end;
 //Очищаем виртуальный список чекеров, сохраняем настройки формы
 procedure TCheckForm.FormClose(Sender: TObject; var CloseAction: TCloseAction);
 begin
-  StopThread;
+  if Assigned(FReadThread) then
+  begin
+    FReadThread.Terminate;
+    FReadThread.WaitFor;
+    // дождаться полного завершения
+    FreeAndNil(FReadThread);
+  end;
+
   //обязательно дождаться завершения потока
   Application.ProcessMessages;
   Sleep(20);               //дать системе "отдышаться"

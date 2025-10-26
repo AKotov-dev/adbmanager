@@ -8,7 +8,7 @@ uses
   Classes, Process, SysUtils, Forms, Controls;
 
 type
-  ReadSDMountPoint = class(TThread)
+  TReadSDMountPoint = class(TThread)
   private
 
     { Private declarations }
@@ -27,7 +27,7 @@ uses Unit1, SDCardManager;
 
   { TRD }
 
-procedure ReadSDMountPoint.Execute;
+procedure TReadSDMountPoint.Execute;
 var
   i: integer;
   S: TStringList;
@@ -37,7 +37,7 @@ begin
     if Terminated then Exit;
     Synchronize(@StartProgress);
 
-    FreeOnTerminate := True; // уничтожить по завершении
+ //   FreeOnTerminate := True; // уничтожить по завершении
 
     if Terminated then Exit;
     S := TStringList.Create;
@@ -57,14 +57,18 @@ begin
       Add('/mnt/sdcard/ext_sdcard/');
       Add('/mnt/sdcard/external_sd/');
       Add('/mnt/extSdCard/');
+      Add('/mnt/sdcard/external1/');
+      Add('/mnt/ext_card/');
       Add('/storage/sdcard0/');
       Add('/storage/sdcard1/');
       Add('/storage/sdcard2/');
+      Add('/storage/sdcard1_1/');
       Add('/storage/extSdCard/');
+      Add('/storage/externalsd/');
       Add('/storage/emulated/0/');
-      Add('/chroot/mnt/XVMbox/extcard0/');
-      Add('/chroot/mnt/XVMbox/extcard1/');
-      Add('/chroot/mnt/XVMbox/extcard2/');
+      Add('/mnt/media_rw/sdcard1/');
+      Add('/mnt/media_rw/sdcard2/');
+      Add('/storage/removable/sdcard1/');
     end;
 
     if Terminated then Exit;
@@ -95,12 +99,14 @@ begin
       for i := SDMountPoint.Count - 1 downto 0 do
       begin
         if Terminated then Exit;
-        ExProcess.Parameters.Delete(1);
+        ExProcess.Parameters.Clear;
+        ExProcess.Parameters.Add('-c');
         ExProcess.Parameters.Add('adb shell ' + '''' + 'cd ' +
           SDMountPoint[i] + ' &> /dev/null && echo "yes" || echo "no"' + '''');
         ExProcess.Execute;
         if Terminated then Exit;
         S.LoadFromStream(ExProcess.Output);
+
         if S.Count > 0 then
           if S[0] = 'no' then
             SDMountPoint.Delete(i);
@@ -112,14 +118,13 @@ begin
 
     S.Free;
     ExProcess.Free;
-    //   Terminate;
   end;
 end;
 
 { БЛОК ЗАВЕРШЕНИЯ }
 
 //Старт процедуры
-procedure ReadSDMountPoint.StartProgress;
+procedure TReadSDMountPoint.StartProgress;
 begin
   if Assigned(SDForm) then
   begin
@@ -129,7 +134,7 @@ begin
 end;
 
 //Стоп процедуры
-procedure ReadSDMountPoint.StopProgress;
+procedure TReadSDMountPoint.StopProgress;
 begin
   if Assigned(SDForm) then
   begin

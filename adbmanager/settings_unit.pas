@@ -154,21 +154,21 @@ begin
   begin
     FReadSettingsTRD.Terminate;
     FReadSettingsTRD.WaitFor;
-    FReadSettingsTRD := nil;
+    FreeAndNil(FReadSettingsTRD);
   end;
 
   if Assigned(FWriteSettingsTRD) then
   begin
     FWriteSettingsTRD.Terminate;
     FWriteSettingsTRD.WaitFor;
-    FWriteSettingsTRD := nil;
+    FreeAndNil(FWriteSettingsTRD);
   end;
 
   if Assigned(FCPUTempTRD) then
   begin
     FCPUTempTRD.Terminate;
     FCPUTempTRD.WaitFor;
-    FCPUTempTRD := nil;
+    FreeAndNil(FCPUTempTRD);
   end;
 
   Sleep(20);

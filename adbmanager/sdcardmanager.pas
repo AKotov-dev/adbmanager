@@ -7,7 +7,7 @@ interface
 uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, ExtCtrls, StdCtrls,
   ShellCtrls, ComCtrls, Buttons, Process, LCLType,
-  IniFiles, StrUtils, LSSDFolderTRD;
+  IniFiles, StrUtils, LSSDFolderTRD, SDMountPointTRD, XDGOpenTRD;
 
 type
 
@@ -88,9 +88,11 @@ type
 
   private
     FLSThread: StartLSSD;
+    FReadSDMountPoint: TReadSDMountPoint;
+
   public
     procedure StartLS;
-    procedure StopLS;
+
   end;
 
 resourcestring
@@ -113,7 +115,7 @@ var
 
 implementation
 
-uses SDCommandTRD, Unit1, SDMountPointTRD, xdgopentrd;
+uses SDCommandTRD, Unit1;
 
   {$R *.lfm}
 
@@ -159,18 +161,6 @@ begin
 
   finally
     Ini.Free;
-  end;
-end;
-
-//Останов потока
-procedure TSDForm.StopLS;
-begin
-  if Assigned(FLSThread) then
-  begin
-    FLSThread.Terminate;
-    FLSThread.WaitFor;
-    // дождаться полного завершения
-    FreeAndNil(FLSThread);
   end;
 end;
 
@@ -476,8 +466,23 @@ begin
     //Скрываем "Esc - отмена"
     Panel4.Caption := '';
 
-    StopLS;
-    Application.ProcessMessages;
+    //Освобождаем возможный поток чтения текущей директории
+    if Assigned(FLSThread) then
+    begin
+      FLSThread.Terminate;
+      FLSThread.WaitFor;
+      FreeAndNil(FLSThread);
+    end;
+
+    //Освобождаем поток считывания точек монтирования
+    if Assigned(FReadSDMountPoint) then
+    begin
+      FReadSDMountPoint.Terminate;
+      FReadSDMountPoint.WaitFor;
+      FreeAndNil(FReadSDMountPoint);
+    end;
+
+    //  Application.ProcessMessages;
     Sleep(20);
     SaveSettings;
 
@@ -529,10 +534,9 @@ begin
   //Список возможных точек монтирования SD-Card
   SDMountPoint := TStringList.Create;
 
-{  FSDMountPointThread := ReadSDMountPoint.Create(False);
-  FSDMountPointThread.Priority := tpNormal;}
-
-  ReadSDMountPoint.Create(False);
+  //Считываем все возможные MountPoints смартфона
+  FReadSDMountPoint := TReadSDMountPoint.Create(True);
+  FReadSDMountPoint.Start;
 end;
 
 procedure TSDForm.MkDirBtnClick(Sender: TObject);

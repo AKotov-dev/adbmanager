@@ -386,12 +386,7 @@ begin
 
   // ADB установлен?
   if CheckADBInstalled(Ver) then
-  begin
-    LogMemo.Append('ADB: ' + ver);
-    // TRAMThread.Create;
-    ShowStatus.Create(False);
-    // TDeviceMemoryThread.Create;
-  end
+    LogMemo.Append('ADB: ' + ver)
   else
     LogMemo.Append(SADBNotFound);
 end;
@@ -607,6 +602,9 @@ procedure TMainForm.FormShow(Sender: TObject);
 begin
   //For Plasma (аналог Restore)
   LoadSettings;
+
+  //Форма показана, запустить поток статуса ADB, устройства и RAM
+  ShowStatus.Create(False);
 end;
 
 procedure TMainForm.KeyLabelChangeBounds(Sender: TObject);

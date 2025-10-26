@@ -189,8 +189,6 @@ begin
     FWriteSettingsTRD := TWriteSettingsTRD.Create(True);
     FWriteSettingsTRD.Start;
   end;
-
-  //TWriteSettingsTRD.Create(False);
 end;
 
 end.

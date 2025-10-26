@@ -36,52 +36,6 @@ begin
   Start;
 end;
 
-// Основной код потока
-procedure TXDGOpenTRD.Execute;
-var
-  TempDir, Cmd: string;
-  Proc: TProcess;
-begin
-  Synchronize(@ShowProgress);
-  try
-    // --- 1. Подкаталог для временных файлов ---
-    TempDir := GetEnvironmentVariable('HOME') + '/.adbmanager/tmp';
-    ForceDirectories(TempDir);
-
-    // --- 2. Путь к целевому файлу ---
-    FTempFile := TempDir + '/' + ExtractFileName(FRemotePath);
-
-    // --- 3. Копирование файла с устройства через adb ---
-    Cmd := Format('adb pull "%s" "%s"', [FRemotePath, FTempFile]);
-
-    Proc := TProcess.Create(nil);
-    try
-      Proc.Executable := 'bash';
-      Proc.Parameters.Add('-c');
-      Proc.Parameters.Add(Cmd);
-      Proc.Options := [poWaitOnExit, poUsePipes];
-      Proc.Execute;
-
-      // Проверим результат
-      if Proc.ExitStatus <> 0 then
-        FErrorMsg :=
-          'Ошибка при копировании файла с устройства.';
-
-    finally
-      Proc.Free;
-    end;
-
-    // --- 4. Если всё ок — открыть файл через xdg-open (в GUI потоке) ---
-    if FErrorMsg = '' then
-      Synchronize(@OpenFile)
-    else
-      Synchronize(@ShowError);
-
-  finally
-    Synchronize(@HideProgress);
-  end;
-end;
-
 // Показать прогресс
 procedure TXDGOpenTRD.ShowProgress;
 begin
@@ -128,6 +82,52 @@ begin
     Proc.Execute;
   finally
     Proc.Free;
+  end;
+end;
+
+// Основной код потока
+procedure TXDGOpenTRD.Execute;
+var
+  TempDir, Cmd: string;
+  Proc: TProcess;
+begin
+  Synchronize(@ShowProgress);
+  try
+    // --- 1. Подкаталог для временных файлов ---
+    TempDir := GetEnvironmentVariable('HOME') + '/.adbmanager/tmp';
+    ForceDirectories(TempDir);
+
+    // --- 2. Путь к целевому файлу ---
+    FTempFile := TempDir + '/' + ExtractFileName(FRemotePath);
+
+    // --- 3. Копирование файла с устройства через adb ---
+    Cmd := Format('adb pull "%s" "%s"', [FRemotePath, FTempFile]);
+
+    Proc := TProcess.Create(nil);
+    try
+      Proc.Executable := 'bash';
+      Proc.Parameters.Add('-c');
+      Proc.Parameters.Add(Cmd);
+      Proc.Options := [poWaitOnExit, poUsePipes];
+      Proc.Execute;
+
+      // Проверим результат
+      if Proc.ExitStatus <> 0 then
+        FErrorMsg :=
+          'Ошибка при копировании файла с устройства.';
+
+    finally
+      Proc.Free;
+    end;
+
+    // --- 4. Если всё ок — открыть файл через xdg-open (в GUI потоке) ---
+    if FErrorMsg = '' then
+      Synchronize(@OpenFile)
+    else
+      Synchronize(@ShowError);
+
+  finally
+    Synchronize(@HideProgress);
   end;
 end;
 

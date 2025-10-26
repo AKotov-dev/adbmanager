@@ -386,12 +386,7 @@ begin
 
   // ADB установлен?
   if CheckADBInstalled(Ver) then
-  begin
-    LogMemo.Append('ADB: ' + ver);
-    // TRAMThread.Create;
-    ShowStatus.Create(False);
-    // TDeviceMemoryThread.Create;
-  end
+    LogMemo.Append('ADB: ' + ver)
   else
     LogMemo.Append(SADBNotFound);
 end;
@@ -415,9 +410,7 @@ begin
   case (Sender as TToolButton).ImageIndex of
     0: //Connect (Эмулятор)
     begin
-//      EmulatorForm := TEmulatorForm.Create(Application);
       EmulatorForm.ShowModal;
-      //Показываем Подключение/Сканирование
       Exit;
     end;
 
@@ -609,6 +602,8 @@ procedure TMainForm.FormShow(Sender: TObject);
 begin
   //For Plasma (аналог Restore)
   LoadSettings;
+  //Форма показана, запустить поток статуса ADB, устройства и RAM
+  ShowStatus.Create(False);
 end;
 
 procedure TMainForm.KeyLabelChangeBounds(Sender: TObject);
