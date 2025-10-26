@@ -26,7 +26,7 @@ uses Settings_Unit;
 procedure TCPUTempTRD.Execute;
 begin
   try
-    FreeOnTerminate := True;
+//    FreeOnTerminate := True;
     while not terminated do
     begin
       if RunCommand('bash', ['-c',
@@ -40,7 +40,7 @@ begin
         Output := '0.0';
 
       Synchronize(@ShowTemp);
-      Sleep(500);
+      Sleep(1000);
     end;
   finally
   end;

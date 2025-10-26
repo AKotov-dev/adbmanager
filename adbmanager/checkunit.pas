@@ -402,11 +402,11 @@ begin
       else if MessageDlg(SDeleteAPK, mtWarning, [mbYes, mbNo], 0) <> mrYes then
         Exit;
 
-      //Команда для удаления (замарозки) приложений
+      //Команда для удаления (замарозки) приложений с учетом старых Android
       for i := 0 to AppListBox.Count - 1 do
         if AppListBox.Checked[i] = True then
           adbcmd := adbcmd + 'adb shell pm uninstall --user 0 ' +
-            AppListBox.Items[i] + ';';
+            AppListBox.Items[i] + ' || adb shell uninstall ' + AppListBox.Items[i] + ';';
     end
     else //Отключение?
     begin
@@ -416,9 +416,11 @@ begin
         begin
           if AppListBox.Checked[i] = True then
             adbcmd := adbcmd + 'adb shell pm enable --user 0 ' +
+              AppListBox.Items[i] + ' || adb shell pm enable ' +
               AppListBox.Items[i] + ';'
           else
             adbcmd := adbcmd + 'adb shell pm disable-user --user 0 ' +
+              AppListBox.Items[i] + ' || adb shell pm disable ' +
               AppListBox.Items[i] + ';';
         end;
     end;

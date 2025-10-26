@@ -406,7 +406,7 @@ begin
       for i := 0 to AppListBox.Count - 1 do
         if AppListBox.Checked[i] = True then
           adbcmd := adbcmd + 'adb shell pm uninstall --user 0 ' +
-            AppListBox.Items[i] + ';';
+            AppListBox.Items[i] + ' || adb shell uninstall ' + AppListBox.Items[i] + ';';
     end
     else //Отключение?
     begin
@@ -416,10 +416,10 @@ begin
         begin
           if AppListBox.Checked[i] = True then
             adbcmd := adbcmd + 'adb shell pm enable --user 0 ' +
-              AppListBox.Items[i] + ';'
+              AppListBox.Items[i] + ' || adb shell pm enable ' + AppListBox.Items[i] + ';';
           else
             adbcmd := adbcmd + 'adb shell pm disable-user --user 0 ' +
-              AppListBox.Items[i] + ';';
+              AppListBox.Items[i] + ' || adb shell pm disable ' + AppListBox.Items[i] + ';';
         end;
     end;
 
@@ -567,7 +567,7 @@ begin
   if AppListBox.Count <> 0 then AppListBox.ItemIndex := 0;
 end;
 
-//Названия пакета(ов) в буфер обмена
+//Копировать имена выбранных пакетов в буфер обмена
 procedure TCheckForm.CopyToClipboardClick(Sender: TObject);
 var
   i: integer;

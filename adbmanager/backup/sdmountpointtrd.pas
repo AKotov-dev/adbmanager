@@ -112,6 +112,7 @@ begin
 
     S.Free;
     ExProcess.Free;
+    //   Terminate;
   end;
 end;
 

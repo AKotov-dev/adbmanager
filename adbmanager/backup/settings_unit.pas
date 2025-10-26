@@ -6,7 +6,8 @@ interface
 
 uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls, Buttons,
-  ExtCtrls, ComCtrls, IniFiles;
+  ExtCtrls, ComCtrls, IniFiles, ReadSettingsTRDUnit, WriteSettingsTRDUnit,
+  CPUTemperature;
 
 type
 
@@ -30,6 +31,9 @@ type
     procedure LoadSettings;
 
   private
+    FReadSettingsTRD: TReadSettingsTRD;
+    FCPUTempTRD: TCPUTempTRD;
+    FWriteSettingsTRD: TWriteSettingsTRD;
 
   public
 
@@ -57,7 +61,7 @@ resourcestring
 
 implementation
 
-uses unit1, ReadSettingsTRDUnit, WriteSettingsTRDUnit, CPUTemperature;
+uses unit1;
 
   {$R *.lfm}
 
@@ -126,13 +130,47 @@ begin
   //Размер шрифта
   ComboBox1.Text := '...';
 
+  //Показываем температуру процессора
+  if not Assigned(FCPUTempTRD) then
+  begin
+    FCPUTempTRD := TCPUTempTRD.Create(True);
+    FCPUTempTRD.Start;
+  end;
+
   //Запуск потока чтения настроек
-  ReadSettingsTRD.Create(False);
+  if not Assigned(FReadSettingsTRD) then
+  begin
+    FReadSettingsTRD := TReadSettingsTRD.Create(True);
+    FReadSettingsTRD.Start;
+  end;
 end;
 
 procedure TSettingsForm.FormClose(Sender: TObject; var CloseAction: TCloseAction);
 begin
-  Application.ProcessMessages;
+  // Убиваем все adb push, adb pull процессы одной командой
+  MainForm.StartProcess('pkill -f "adb shell settings"');
+
+  if Assigned(FReadSettingsTRD) then
+  begin
+    FReadSettingsTRD.Terminate;
+    FReadSettingsTRD.WaitFor;
+    FReadSettingsTRD := nil;
+  end;
+
+  if Assigned(FWriteSettingsTRD) then
+  begin
+    FWriteSettingsTRD.Terminate;
+    FWriteSettingsTRD.WaitFor;
+    FWriteSettingsTRD := nil;
+  end;
+
+  if Assigned(FCPUTempTRD) then
+  begin
+    FCPUTempTRD.Terminate;
+    FCPUTempTRD.WaitFor;
+    FCPUTempTRD := nil;
+  end;
+
   Sleep(20);
   SaveSettings;
 end;
@@ -140,15 +178,19 @@ end;
 procedure TSettingsForm.FormCreate(Sender: TObject);
 begin
   LoadSettings;
-  //Показываем температуру процессора
-  TCPUTempTRD.Create(False);
 end;
 
 //Применить
 procedure TSettingsForm.ApplyBtnClick(Sender: TObject);
 begin
   //Запуск потока записи настроек
-  WriteSettingsTRD.Create(False);
+  if not Assigned(FWriteSettingsTRD) then
+  begin
+    FWriteSettingsTRD := TWriteSettingsTRD.Create(True);
+    FWriteSettingsTRD.Start;
+  end;
+
+  //TWriteSettingsTRD.Create(False);
 end;
 
 end.

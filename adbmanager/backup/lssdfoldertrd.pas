@@ -113,7 +113,7 @@ begin
 
     S.Free;
     ExProcess.Free;
-    //    Terminate;
+//    Terminate;
   end;
 end;
 

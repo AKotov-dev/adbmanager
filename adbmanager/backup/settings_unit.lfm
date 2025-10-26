@@ -159,6 +159,8 @@ object SettingsForm: TSettingsForm
     Top = 500
     Width = 110
     Caption = 'CPU Temperature:'
+    ParentShowHint = False
+    ShowHint = True
   end
   object CPUTemp: TLabel
     AnchorSideLeft.Control = Label3

@@ -174,15 +174,16 @@ begin
   end;
 end;
 
-//Старт потока ls в директории /sdcard/... (SDBox)
+//Старт потока
 procedure TSDForm.StartLS;
 begin
   if Assigned(FLSThread) and (not FLSThread.Finished) then Exit;
 
   FLSThread := StartLSSD.Create(True);  // в Suspended
-  FLSThread.FreeOnTerminate := False;   // освобождаем вручную
+  FLSThread.FreeOnTerminate := False;     // освобождаем вручную
   FLSThread.Start;
 end;
+
 
 //Автозамена сецсимволов
 function TSDForm.DetoxName(N: string): string;
@@ -223,6 +224,13 @@ procedure TSDForm.StartCommand;
 begin
   StartSDCommand.Create(False);
 end;
+
+//ls в директории /sdcard/... (SDBox)
+{procedure TSDForm.StartLS;
+begin
+  StartThread;
+  //StartLSSD.Create(False);
+end;}
 
 //Апдейт текущей директории CompDir (ShellTreeView)
 procedure TSDForm.CompDirUpdate;

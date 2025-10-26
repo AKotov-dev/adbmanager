@@ -10,7 +10,7 @@ uses
 type
   TWriteSettingsTRD = class(TThread)
   private
-   // FOutput: string; // Для возможного вывода ошибок
+    FOutput: string; // Для возможного вывода ошибок
   protected
     procedure Execute; override;
 

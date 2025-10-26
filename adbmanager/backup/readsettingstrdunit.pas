@@ -39,79 +39,71 @@ uses settings_unit;
 procedure TReadSettingsTRD.Execute;
 var
   j: integer;
-  Output: string;
-  Command: TStringList;
+  Output, FullCmd: string;
+  Lines: TStringList;
 begin
   try
     Synchronize(@StartRead);
 
-    Command := TStringList.Create;
+    // Формируем единый вызов adb shell
+    FullCmd :=
+      'adb shell "settings get system sound_effects_enabled;' +
+      'settings get system haptic_feedback_enabled;' +
+      'settings get global device_provisioned;' + 'settings get global auto_sync;' +
+      'settings get global transition_animation_scale;' +
+      'settings get global animator_duration_scale;' +
+      'settings get global window_animation_scale;' +
+      'settings get system accelerometer_rotation;' +
+      'settings get global auto_update;' + 'settings get global low_power"';
 
-    //Список команд
-    //0 SSystemSound
-    Command.Add('adb shell settings get system sound_effects_enabled');
-    //1 SVibration
-    Command.Add('adb shell settings get system haptic_feedback_enabled');
-    //2 SSecNotifications
-    Command.Add('adb shell settings get global device_provisioned');
-    //3 SAutomaticSync
-    Command.Add('adb shell settings get global auto_sync');
-    //4 SInterfaceAnimation1
-    Command.Add('adb shell settings get global transition_animation_scale');
-    //5 SInterfaceAnimation2
-    Command.Add('adb shell settings get global animator_duration_scale');
-    //6 SInterfaceAnimation3
-    Command.Add('adb shell settings get global window_animation_scale');
-    //7 SAutoRotateScreen
-    Command.Add('adb shell settings get system accelerometer_rotation');
-    //8 SAutoUpdate
-    Command.Add('adb shell settings get global auto_update');
-    //9 SPowerSavingMode
-    Command.Add('adb shell settings get global low_power');
+    // Выполняем всё сразу
+    if not RunCommand('bash', ['-c', FullCmd], Output, [poWaitOnExit, poUsePipes]) then
+      Exit;
 
-    //Выполняем команды
-    for j := 0 to Command.Count - 1 do
-    begin
-      FOutput := '';
-      if RunCommand('bash', ['-c', Command[j]], Output, [poWaitOnExit, poUsePipes]) then
-        FOutput := Trim(Output);
+    // Разбиваем результат на строки
+    Lines := TStringList.Create;
+    try
+      Lines.Text := Trim(Output);
 
-      FIndex := j;
-
-      //Выводим
-      if Terminated then Exit;
-      if FOutput <> '' then
+      for j := 0 to Lines.Count - 1 do
+      begin
+        if Terminated then Exit;
+        FIndex := j;
+        FOutput := Trim(Lines[j]);
         Synchronize(@ShowValue);
+      end;
+    finally
+      Lines.Free;
     end;
 
-    //Уровень громкости
-    FOutput := '';
-    if RunCommand('bash', ['-c', 'adb shell media volume --stream 3 --get | grep -oP ' +
-      '''' + 'volume is \K[0-9]+' + ''''], Output, [poWaitOnExit, poUsePipes]) then
-
-      FOutput := Trim(Output);
-
+    // === Уровень громкости ===
     if Terminated then Exit;
-    if FOutput <> '' then
-      Synchronize(@ShowVolume);
+    if RunCommand('bash', ['-c',
+      'adb shell "media volume --stream 3 --get" | grep -oP ''volume is \K[0-9]+'''],
+      Output, [poWaitOnExit, poUsePipes]) then
+    begin
+      FOutput := Trim(Output);
+      if FOutput <> '' then
+        Synchronize(@ShowVolume);
+    end;
 
-    //Размер шрифта
-    FOutput := '';
+    // === Размер шрифта ===
+    if Terminated then Exit;
     if RunCommand('bash', ['-c', 'adb shell settings get system font_scale'],
       Output, [poWaitOnExit, poUsePipes]) then
+    begin
       FOutput := Trim(Output);
-
-    if Terminated then Exit;
-    if FOutput <> '' then
-      Synchronize(@ShowFontSize);
+      if FOutput <> '' then
+        Synchronize(@ShowFontSize);
+    end;
 
   finally
     Synchronize(@StopRead);
     FOutput := '';
     FIndex := -1;
-    Command.Free;
   end;
 end;
+
 
 { БЛОК ОТОБРАЖЕНИЯ }
 
