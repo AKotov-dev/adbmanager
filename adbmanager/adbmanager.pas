@@ -17,9 +17,9 @@ uses
   EmulatorUnit,
   SDMountPointTRD,
   CheckUnit,
-  ReadAppsTRDUnit,
+  readappstrd,
   Settings_Unit,
-  ReadSettingsTRDUnit,
+  readsettingstrd,
   XDGOpenTRD,
   CPUTemperatureTRD;
 

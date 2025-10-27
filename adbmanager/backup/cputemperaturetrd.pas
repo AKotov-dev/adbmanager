@@ -26,7 +26,7 @@ function TCPUTempTRD.ReadTemperature: string;
 var
   Proc: TProcess;
   Buffer: array[0..1023] of byte;
-  BytesRead: integer;
+  BytesRead: Integer;
   OutputStr: string;
 begin
   Result := '0.0';
@@ -51,7 +51,7 @@ begin
       begin
         BytesRead := Proc.Output.Read(Buffer, SizeOf(Buffer));
         if BytesRead > 0 then
-          OutputStr := OutputStr + Copy(pansichar(@Buffer[0]), 1, BytesRead);
+          OutputStr := OutputStr + Copy(PAnsiChar(@Buffer[0]), 1, BytesRead);
       end;
       Sleep(10);
     end;
@@ -60,7 +60,7 @@ begin
     begin
       BytesRead := Proc.Output.Read(Buffer, SizeOf(Buffer));
       if BytesRead > 0 then
-        OutputStr := OutputStr + Copy(pansichar(@Buffer[0]), 1, BytesRead);
+        OutputStr := OutputStr + Copy(PAnsiChar(@Buffer[0]), 1, BytesRead);
     end;
 
     OutputStr := Trim(OutputStr);
@@ -74,7 +74,7 @@ end;
 { === Основной поток === }
 procedure TCPUTempTRD.Execute;
 var
-  i: integer;
+  i: Integer;
 begin
   while not Terminated do
   begin
@@ -101,3 +101,4 @@ begin
 end;
 
 end.
+

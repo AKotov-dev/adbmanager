@@ -113,7 +113,7 @@ begin
       end;
     end;
   finally
-    Synchronize(@StopProgress);
+      Synchronize(@StopProgress);
 
     S.Free;
     ExProcess.Free;

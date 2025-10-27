@@ -7,7 +7,7 @@ interface
 
 uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, CheckLst, StdCtrls,
-  ComCtrls, Buttons, Types, LCLIntf, Menus, ReadAppsTrdUnit,
+  ComCtrls, Buttons, Types, LCLIntf, Menus, ReadAppsTRD,
   ClipBrd, ExtCtrls, LCLType, IniFiles;
 
 type
@@ -58,7 +58,7 @@ type
     procedure LoadSettings;
 
   private
-    FReadThread: ReadAppsTRD;
+    FReadThread: TReadAppsTRD;
     procedure StartThread;
     //  procedure StopThread;
   public
@@ -143,7 +143,7 @@ procedure TCheckForm.StartThread;
 begin
   if Assigned(FReadThread) and (not FReadThread.Finished) then Exit;
 
-  FReadThread := ReadAppsTRD.Create(True);  // в Suspended
+  FReadThread := TReadAppsTRD.Create(True);  // в Suspended
   FReadThread.FreeOnTerminate := False;     // освобождаем вручную
   FReadThread.Start;
 end;
