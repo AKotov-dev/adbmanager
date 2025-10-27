@@ -570,6 +570,7 @@ begin
 
   //Аккуратное завершение копирования и терминала, если были запущены
   StartProcess('killall -q sakura');
+  SDForm.CancelCopy;
 
   Application.ProcessMessages;
   Sleep(20);

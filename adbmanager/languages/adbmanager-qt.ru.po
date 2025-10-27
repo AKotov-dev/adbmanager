@@ -471,7 +471,8 @@ msgid "CPU Temperature:"
 msgstr "Температура CPU:"
 
 #: tsettingsform.label3.hint
-msgid "Android 6+"
+msgctxt "tsettingsform.label3.hint"
+msgid "Android 5+"
 msgstr ""
 
 #: unit1.sadbnotfound

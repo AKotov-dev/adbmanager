@@ -485,7 +485,7 @@ begin
       FreeAndNil(FReadSDMountPoint);
     end;
 
-   // Application.ProcessMessages;
+    // Application.ProcessMessages;
     Sleep(20);
     SaveSettings;
 

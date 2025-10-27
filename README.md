@@ -77,7 +77,7 @@ Connecting via ADB over Wi-Fi
 
 ![](https://github.com/AKotov-dev/adbmanager/blob/main/ScreenShots/Screenshot12.png)  
   
-![](https://github.com/AKotov-dev/adbmanager/blob/main/ScreenShots/Screenshot13.png)  
+![](https://github.com/AKotov-dev/adbmanager/blob/main/ScreenShots/TVBoxSettings.png)  
 
 Translations
 --
