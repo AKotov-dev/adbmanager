@@ -423,7 +423,7 @@ msgstr ""
 
 #: tsettingsform.label1.caption
 msgctxt "tsettingsform.label1.caption"
-msgid "System font size"
+msgid "System font size (Default=1.0)"
 msgstr ""
 
 #: tsettingsform.label1.hint

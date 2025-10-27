@@ -4,9 +4,9 @@
 {"hash":4749113,"name":"tsettingsform.applybtn.caption","sourcebytes":[65,112,112,108,121],"value":"Apply"},
 {"hash":90177182,"name":"tsettingsform.checkgroup1.caption","sourcebytes":[85,115,101,102,117,108,32,115,101,116,116,105,110,103,115,32,116,104,97,116,32,97,114,101,32,111,102,116,101,110,32,109,105,115,115,105,110,103,32,105,110,32,115,116,114,105,112,112,101,100,45,100,111,119,110,32,108,97,117,110,99,104,101,114,115,46,46,46],"value":"Useful settings that are often missing in stripped-down launchers..."},
 {"hash":114225454,"name":"tsettingsform.label1.hint","sourcebytes":[77,101,110,117,115,44,32,112,97,110,101,108,115,44,32,109,101,115,115,97,103,101,115,44,32,101,116,99,46],"value":"Menus, panels, messages, etc."},
-{"hash":266166021,"name":"tsettingsform.label1.caption","sourcebytes":[83,121,115,116,101,109,32,102,111,110,116,32,115,105,122,101],"value":"System font size"},
+{"hash":43319673,"name":"tsettingsform.label1.caption","sourcebytes":[83,121,115,116,101,109,32,102,111,110,116,32,115,105,122,101,32,40,68,101,102,97,117,108,116,61,49,46,48,41],"value":"System font size (Default=1.0)"},
 {"hash":238108969,"name":"tsettingsform.label2.caption","sourcebytes":[83,111,117,110,100,32,118,111,108,117,109,101,32,40,48,46,46,49,53,41],"value":"Sound volume (0..15)"},
-{"hash":157017915,"name":"tsettingsform.label3.hint","sourcebytes":[65,110,100,114,111,105,100,32,54,43],"value":"Android 6+"},
+{"hash":157018059,"name":"tsettingsform.label3.hint","sourcebytes":[65,110,100,114,111,105,100,32,53,43],"value":"Android 5+"},
 {"hash":221973306,"name":"tsettingsform.label3.caption","sourcebytes":[67,80,85,32,84,101,109,112,101,114,97,116,117,114,101,58],"value":"CPU Temperature:"},
 {"hash":140160000,"name":"tsettingsform.cputemp.caption","sourcebytes":[67,80,85,84,101,109,112],"value":"CPUTemp"}
 ]}

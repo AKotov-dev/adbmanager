@@ -452,8 +452,10 @@ msgid "CPUTemp"
 msgstr ""
 
 #: tsettingsform.label1.caption
+#, fuzzy
+#| msgid "System font size"
 msgctxt "tsettingsform.label1.caption"
-msgid "System font size"
+msgid "System font size (Default=1.0)"
 msgstr "Размер системного шрифта (default - 1.0)"
 
 #: tsettingsform.label1.hint
@@ -544,3 +546,4 @@ msgstr "Введите строку поиска или *"
 #: unit1.syes
 msgid "yes"
 msgstr "да"
+

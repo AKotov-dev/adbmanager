@@ -90,7 +90,6 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="Unit1"/>
-        <IsVisibleTab Value="True"/>
         <CursorPos X="13"/>
         <UsageCount Value="200"/>
         <Loaded Value="True"/>
@@ -199,9 +198,12 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="Settings_Unit"/>
-        <EditorIndex Value="-1"/>
+        <IsVisibleTab Value="True"/>
+        <EditorIndex Value="1"/>
         <CursorPos X="21"/>
         <UsageCount Value="140"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
       </Unit12>
       <Unit13>
         <Filename Value="readsettingstrd.pas"/>
