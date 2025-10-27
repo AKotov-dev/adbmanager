@@ -89,7 +89,8 @@ end;
 procedure TRebootForm.OKBtnClick(Sender: TObject);
 begin
   //Закрываем SD-Manager, если открыт
-  MainForm.ActiveFormClose;
+  if SDForm.Visible then
+    SDForm.Close;
 
   //Отключаем терминал, если использовался
   MainForm.StartProcess('killall -q sakura');

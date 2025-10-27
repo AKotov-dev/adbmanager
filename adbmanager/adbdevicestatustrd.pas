@@ -299,19 +299,7 @@ begin
     //Запуск команды и потока отображения лога отключения
     if adbcmd <> '' then
     begin
-      //Закрываем SD-Manager, если открыт
-      if SDForm.Visible then
-        SDForm.Close;
-      //Закрываем AppManager, если открыт
-      if CheckForm.Visible then
-        CheckForm.Close;
-      //Закрываем настройки TV Box, если открыто
-      if SettingsForm.Visible then
-        SettingsForm.Close;
-
-      //Отключаем терминал, если использовался
-      MainForm.StartProcess('killall -q sakura');
-
+      MainForm.ActiveFormClose;
       StartADBCommand.Create(adbcmd);
     end;
   end

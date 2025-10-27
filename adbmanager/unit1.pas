@@ -61,6 +61,7 @@ type
     procedure StartProcess(command: string);
 
     procedure CreateInstallationScript;
+    procedure ActiveFormClose;
 
     procedure SaveSettings;
     procedure LoadSettings;
@@ -105,6 +106,28 @@ uses ADBDeviceStatusTRD, ADBCommandTRD, RebootUnit, SDCardManager,
   {$R *.lfm}
 
   { TMainForm }
+
+//Закрытие неиспользуемых форм при изменении устройства
+procedure TMainForm.ActiveFormClose;
+begin
+  //Закрываем SD-Manager, если открыт
+  if SDForm.Visible then
+  begin
+    SDForm.CancelCopy;
+    SDForm.Close;
+  end;
+
+  //Закрываем AppManager, если открыт
+  if CheckForm.Visible then
+    CheckForm.Close;
+
+  //Закрываем настройки TV Box, если открыто
+  if SettingsForm.Visible then
+    SettingsForm.Close;
+
+  //Закрываем терминал, если использовался
+  MainForm.StartProcess('killall -q sakura');
+end;
 
 //Сохранение настроек формы
 procedure TMainForm.SaveSettings;

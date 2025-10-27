@@ -1,0 +1,87 @@
+object RebootForm: TRebootForm
+  Left = 470
+  Height = 189
+  Top = 173
+  Width = 433
+  ActiveControl = OKBtn
+  Caption = 'Reboot/Shutdown'
+  ClientHeight = 189
+  ClientWidth = 433
+  FormStyle = fsStayOnTop
+  Position = poMainFormCenter
+  LCLVersion = '4.2.0.0'
+  OnClose = FormClose
+  OnCreate = FormCreate
+  OnShow = FormShow
+  object RadioGroup1: TRadioGroup
+    AnchorSideLeft.Control = Owner
+    AnchorSideRight.Control = OKBtn
+    AnchorSideBottom.Control = Owner
+    AnchorSideBottom.Side = asrBottom
+    Left = 6
+    Height = 175
+    Top = 8
+    Width = 324
+    Anchors = [akTop, akLeft, akRight, akBottom]
+    AutoFill = True
+    BorderSpacing.Left = 6
+    BorderSpacing.Bottom = 6
+    ChildSizing.LeftRightSpacing = 6
+    ChildSizing.EnlargeHorizontal = crsHomogenousChildResize
+    ChildSizing.EnlargeVertical = crsHomogenousChildResize
+    ChildSizing.ShrinkHorizontal = crsScaleChilds
+    ChildSizing.ShrinkVertical = crsScaleChilds
+    ChildSizing.Layout = cclLeftToRightThenTopToBottom
+    ChildSizing.ControlsPerLine = 1
+    ClientHeight = 173
+    ClientWidth = 322
+    ItemIndex = 0
+    Items.Strings = (
+      'Normal reboot'
+      'Reboot to Bootloader'
+      'Reboot to Recovery mode'
+      'Shutdown the device'
+    )
+    TabOrder = 0
+  end
+  object OKBtn: TButton
+    AnchorSideLeft.Control = RadioGroup1
+    AnchorSideLeft.Side = asrBottom
+    AnchorSideTop.Control = Owner
+    AnchorSideRight.Control = Owner
+    AnchorSideRight.Side = asrBottom
+    AnchorSideBottom.Control = CancelBtn
+    Left = 337
+    Height = 32
+    Top = 8
+    Width = 90
+    Anchors = [akTop, akRight]
+    BorderSpacing.Left = 7
+    BorderSpacing.Top = 8
+    BorderSpacing.Right = 6
+    BorderSpacing.Bottom = 3
+    Caption = 'OK'
+    ModalResult = 1
+    TabOrder = 1
+    OnClick = OKBtnClick
+  end
+  object CancelBtn: TButton
+    AnchorSideLeft.Control = RadioGroup1
+    AnchorSideLeft.Side = asrBottom
+    AnchorSideTop.Control = OKBtn
+    AnchorSideTop.Side = asrBottom
+    AnchorSideRight.Control = Owner
+    AnchorSideRight.Side = asrBottom
+    Left = 337
+    Height = 32
+    Top = 43
+    Width = 90
+    Anchors = [akTop, akRight]
+    BorderSpacing.Left = 7
+    BorderSpacing.Right = 6
+    Caption = 'Cancel'
+    ModalResult = 2
+    TabOrder = 2
+    OnClick = CancelBtnClick
+  end
+end

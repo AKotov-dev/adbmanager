@@ -1,0 +1,110 @@
+object EmulatorForm: TEmulatorForm
+  Left = 404
+  Height = 201
+  Top = 155
+  Width = 454
+  ActiveControl = Edit1
+  Caption = 'Connection/Scanning'
+  ClientHeight = 201
+  ClientWidth = 454
+  FormStyle = fsStayOnTop
+  KeyPreview = True
+  Position = poMainFormCenter
+  LCLVersion = '4.2.0.0'
+  OnClose = FormClose
+  OnCreate = FormCreate
+  OnKeyDown = FormKeyDown
+  OnShow = FormShow
+  object RadioGroup1: TRadioGroup
+    AnchorSideLeft.Control = Owner
+    AnchorSideRight.Control = Edit1
+    AnchorSideRight.Side = asrBottom
+    AnchorSideBottom.Control = Owner
+    AnchorSideBottom.Side = asrBottom
+    Left = 7
+    Height = 130
+    Top = 64
+    Width = 343
+    Anchors = [akTop, akLeft, akRight, akBottom]
+    AutoFill = True
+    BorderSpacing.Left = 7
+    BorderSpacing.Bottom = 7
+    ChildSizing.LeftRightSpacing = 6
+    ChildSizing.EnlargeHorizontal = crsHomogenousChildResize
+    ChildSizing.EnlargeVertical = crsHomogenousChildResize
+    ChildSizing.ShrinkHorizontal = crsScaleChilds
+    ChildSizing.ShrinkVertical = crsScaleChilds
+    ChildSizing.Layout = cclLeftToRightThenTopToBottom
+    ChildSizing.ControlsPerLine = 1
+    ClientHeight = 128
+    ClientWidth = 341
+    Items.Strings = (
+      'Switch to USB mode'
+      'Switch to TCP/IP mode'
+      'Scan active connections'
+    )
+    TabOrder = 0
+  end
+  object Edit1: TEdit
+    AnchorSideLeft.Control = Owner
+    AnchorSideRight.Control = OKBtn
+    Left = 7
+    Height = 37
+    Top = 26
+    Width = 343
+    Anchors = [akTop, akLeft, akRight]
+    BorderSpacing.Left = 7
+    BorderSpacing.Right = 7
+    TabOrder = 1
+    OnEnter = Edit1Enter
+  end
+  object Label1: TLabel
+    AnchorSideLeft.Control = Edit1
+    Left = 7
+    Height = 17
+    Top = 8
+    Width = 170
+    Caption = 'Emulator/Device IP-address:'
+    ParentColor = False
+  end
+  object OKBtn: TButton
+    AnchorSideLeft.Control = RadioGroup1
+    AnchorSideLeft.Side = asrBottom
+    AnchorSideTop.Control = Owner
+    AnchorSideRight.Control = Owner
+    AnchorSideRight.Side = asrBottom
+    AnchorSideBottom.Control = CancelBtn
+    Left = 357
+    Height = 32
+    Top = 7
+    Width = 90
+    Anchors = [akTop, akRight]
+    BorderSpacing.Left = 7
+    BorderSpacing.Top = 7
+    BorderSpacing.Right = 7
+    BorderSpacing.Bottom = 3
+    Caption = 'OK'
+    ModalResult = 1
+    TabOrder = 2
+    OnClick = OKBtnClick
+  end
+  object CancelBtn: TButton
+    AnchorSideLeft.Control = RadioGroup1
+    AnchorSideLeft.Side = asrBottom
+    AnchorSideTop.Control = OKBtn
+    AnchorSideTop.Side = asrBottom
+    AnchorSideRight.Control = Owner
+    AnchorSideRight.Side = asrBottom
+    Left = 357
+    Height = 32
+    Top = 42
+    Width = 90
+    Anchors = [akTop, akRight]
+    BorderSpacing.Left = 7
+    BorderSpacing.Right = 7
+    Caption = 'Cancel'
+    ModalResult = 2
+    TabOrder = 3
+    OnClick = CancelBtnClick
+  end
+end
