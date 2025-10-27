@@ -204,7 +204,6 @@ msgid "no device"
 msgstr "нет устройства"
 
 #: tmainform.emulatorbtn.caption
-#, fuzzy
 msgctxt "tmainform.emulatorbtn.caption"
 msgid "emulator"
 msgstr "эмулятор"
@@ -274,7 +273,6 @@ msgid "screenshot"
 msgstr "скриншот"
 
 #: tmainform.sdcardbtn.caption
-#, fuzzy
 msgctxt "tmainform.sdcardbtn.caption"
 msgid "sd-card"
 msgstr "sd-карта"
@@ -290,7 +288,6 @@ msgid "search apk"
 msgstr "поиск apk"
 
 #: tmainform.settingsbtn.caption
-#, fuzzy
 msgctxt "tmainform.settingsbtn.caption"
 msgid "settings"
 msgstr "настройки"
@@ -547,4 +544,3 @@ msgstr "Введите строку поиска или *"
 #: unit1.syes
 msgid "yes"
 msgstr "да"
-
