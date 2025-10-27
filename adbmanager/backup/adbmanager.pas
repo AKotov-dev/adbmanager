@@ -20,8 +20,7 @@ uses
   ReadAppsTRDUnit,
   settings_unit,
   ReadSettingsTRDUnit,
-  WriteSettingsTRDUnit,
-  xdgopentrd;
+  xdgopentrd, CPUTemperature;
 
   {$R *.res}
 

@@ -121,12 +121,14 @@ end;
 //Начало операции
 procedure StartLSSD.ShowProgress;
 begin
+  MainForm.SDCardBtn.Enabled := False;
   Screen.cursor := crHourGlass;
 end;
 
 //Окончание операции
 procedure StartLSSD.HideProgress;
 begin
+  MainForm.SDCardBtn.Enabled := True;
   Screen.cursor := crDefault;
 end;
 

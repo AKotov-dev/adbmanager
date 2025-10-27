@@ -16,6 +16,7 @@ type
     OKBtn: TButton;
     CancelBtn: TButton;
     RadioGroup1: TRadioGroup;
+    procedure CancelBtnClick(Sender: TObject);
     procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
     procedure FormShow(Sender: TObject);
     procedure OKBtnClick(Sender: TObject);
@@ -101,11 +102,18 @@ begin
     2: MainForm.StartProcess('adb reboot recovery');
     3: MainForm.StartProcess('adb shell reboot -p');
   end;
+
+  Close;
 end;
 
 procedure TRebootForm.FormClose(Sender: TObject; var CloseAction: TCloseAction);
 begin
   SaveSettings;
+end;
+
+procedure TRebootForm.CancelBtnClick(Sender: TObject);
+begin
+  Close;
 end;
 
 procedure TRebootForm.FormShow(Sender: TObject);

@@ -22,7 +22,7 @@ type
 implementation
 
 uses
-  CheckUnit;
+  unit1, CheckUnit;
 
 function ReadAppsTRD.RunCmd(const ACommand: string; AOutput: TStringList): boolean;
 var
@@ -181,16 +181,17 @@ end;
 //Стартуем прогресс
 procedure ReadAppsTRD.StartRead;
 begin
-    if Assigned(CheckForm) then
-  with CheckForm do
-  begin
-    ModeBox.Enabled := False;
-    ApplyBtn.Enabled := False;
-    ProgressBar1.BringToFront;
-    ProgressBar1.Style := pbstMarquee;
-    ProgressBar1.Visible := True;
-    ProgressBar1.Repaint;
-  end;
+  MainForm.AppListBtn.Enabled:=False;
+  if Assigned(CheckForm) then
+    with CheckForm do
+    begin
+      ModeBox.Enabled := False;
+      ApplyBtn.Enabled := False;
+      ProgressBar1.BringToFront;
+      ProgressBar1.Style := pbstMarquee;
+      ProgressBar1.Visible := True;
+      ProgressBar1.Repaint;
+    end;
 end;
 
 //Останов потока
@@ -198,37 +199,39 @@ procedure ReadAppsTRD.StopRead;
 var
   i, j: integer;
 begin
-  with CheckForm do
-  begin
-    //Включаем галки всех пакетов
-    for i := 0 to AppListBox.Items.Count - 1 do
-      AppListBox.Checked[i] := True;
-
-    //Расставляем чекеры по списку отключенных пакетов
-    if (S.Count > 0) then
+  MainForm.AppListBtn.Enabled:=True;
+  if Assigned(CheckForm) then
+    with CheckForm do
     begin
-      for i := 0 to S.Count - 1 do
+      //Включаем галки всех пакетов
+      for i := 0 to AppListBox.Items.Count - 1 do
+        AppListBox.Checked[i] := True;
+
+      //Расставляем чекеры по списку отключенных пакетов
+      if (S.Count > 0) then
       begin
-        j := CheckForm.AppListBox.Items.IndexOf(S[i]);
-        if j <> -1 then
-          CheckForm.AppListBox.Checked[j] := False;
+        for i := 0 to S.Count - 1 do
+        begin
+          j := CheckForm.AppListBox.Items.IndexOf(S[i]);
+          if j <> -1 then
+            CheckForm.AppListBox.Checked[j] := False;
+        end;
       end;
+
+      //VList - снимок чекеров списка
+      VList.Clear;
+      for i := 0 to AppListBox.Items.Count - 1 do
+        if AppListBox.Checked[i] then
+          VList.Add('1')
+        else
+          VList.Add('0');
+
+      ModeBox.Enabled := True;
+      ApplyBtn.Enabled := True;
+      ProgressBar1.Style := pbstNormal;
+      ProgressBar1.Visible := False;
+      ProgressBar1.Repaint;
     end;
-
-    //VList - снимок чекеров списка
-    VList.Clear;
-    for i := 0 to AppListBox.Items.Count - 1 do
-      if AppListBox.Checked[i] then
-        VList.Add('1')
-      else
-        VList.Add('0');
-
-    ModeBox.Enabled := True;
-    ApplyBtn.Enabled := True;
-    ProgressBar1.Style := pbstNormal;
-    ProgressBar1.Visible := False;
-    ProgressBar1.Repaint;
-  end;
 end;
 
 end.

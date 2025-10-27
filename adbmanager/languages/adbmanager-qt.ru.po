@@ -194,11 +194,6 @@ msgstr ""
 msgid "ADBManager"
 msgstr ""
 
-#: tmainform.connectbtn.caption
-msgctxt "tmainform.connectbtn.caption"
-msgid "emulator"
-msgstr "эмулятор"
-
 #: tmainform.deletekeybtn.caption
 msgid "Delete Key"
 msgstr "Удалить Ключ"
@@ -207,6 +202,12 @@ msgstr "Удалить Ключ"
 msgctxt "tmainform.devsheet.caption"
 msgid "no device"
 msgstr "нет устройства"
+
+#: tmainform.emulatorbtn.caption
+#, fuzzy
+msgctxt "tmainform.emulatorbtn.caption"
+msgid "emulator"
+msgstr "эмулятор"
 
 #: tmainform.exitbtn.caption
 msgid "Exit"
@@ -272,10 +273,32 @@ msgctxt "tmainform.screenshotbtn.caption"
 msgid "screenshot"
 msgstr "скриншот"
 
+#: tmainform.sdcardbtn.caption
+#, fuzzy
+msgctxt "tmainform.sdcardbtn.caption"
+msgid "sd-card"
+msgstr "sd-карта"
+
+#: tmainform.sdcardbtn.hint
+msgctxt "tmainform.sdcardbtn.hint"
+msgid "Android 4+"
+msgstr ""
+
 #: tmainform.searchbtn.caption
 msgctxt "tmainform.searchbtn.caption"
 msgid "search apk"
 msgstr "поиск apk"
+
+#: tmainform.settingsbtn.caption
+#, fuzzy
+msgctxt "tmainform.settingsbtn.caption"
+msgid "settings"
+msgstr "настройки"
+
+#: tmainform.settingsbtn.hint
+msgctxt "tmainform.settingsbtn.hint"
+msgid "Android TV Box"
+msgstr ""
 
 #: tmainform.shellbtn.caption
 msgid "terminal"
@@ -287,23 +310,6 @@ msgstr "Лицензия: GPLv3   Автор: alex_q_2000 (C) 2025   URL: https:
 
 #: tmainform.toolbar2.caption
 msgid "ToolBar2"
-msgstr ""
-
-#: tmainform.toolbutton1.caption
-msgid "settings"
-msgstr "настройки"
-
-#: tmainform.toolbutton1.hint
-msgid "Android TV Box"
-msgstr ""
-
-#: tmainform.toolbutton4.caption
-msgid "sd-card"
-msgstr "sd-карта"
-
-#: tmainform.toolbutton4.hint
-msgctxt "tmainform.toolbutton4.hint"
-msgid "Android 4+"
 msgstr ""
 
 #: tmainform.uninstallbtn.caption

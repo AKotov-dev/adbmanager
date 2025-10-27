@@ -5,7 +5,7 @@ unit ADBDeviceStatusTRD;
 interface
 
 uses
-  Classes, Process, SysUtils;
+  Classes, Process, SysUtils, Dialogs;
 
 type
   TRAMInfo = record
@@ -36,7 +36,7 @@ type
 
 implementation
 
-uses Unit1, SDCardManager, ADBCommandTRD;
+uses Unit1, SDCardManager, CheckUnit, Settings_Unit, ADBCommandTRD;
 
 function ShowStatus.DeviceReachable(Device: string): boolean;
 var
@@ -234,8 +234,8 @@ procedure ShowStatus.UpdateRAMLabel;
 begin
   if Assigned(MainForm) and Assigned(MainForm.LabelRAM) then
     MainForm.LabelRAM.Caption :=
-      Format('RAM: %.2f GB / %.2f GB (%.1f%%)',
-      [FInfo.TotalGB, FInfo.AvailGB, FInfo.Percent]);
+      Format('RAM: %.2f GB / %.2f GB (%.1f%%)', [FInfo.TotalGB,
+      FInfo.AvailGB, FInfo.Percent]);
 end;
 
 //Вывод активности ADB
@@ -302,9 +302,16 @@ begin
       //Закрываем SD-Manager, если открыт
       if SDForm.Visible then
       begin
-        SDForm.CancelCopy;
+        SDForm.BringToFront;
+        SDForm.SetFocus;
         SDForm.Close;
-      end;
+        end;
+
+      if CheckForm.Visible then
+        CheckForm.Close;
+
+      if SettingsForm.Visible then
+      SettingsForm.Close;
 
       //Отключаем терминал, если использовался
       MainForm.StartProcess('killall -q sakura');

@@ -15,7 +15,7 @@ type
     // Строка для передачи в ShowTempLine через Synchronize
     procedure StartProgress;
     procedure StopProgress;
-    procedure ShowTempLine;
+    procedure ShowLog;
   protected
     procedure Execute; override;
   public
@@ -85,7 +85,7 @@ begin
     if Acc <> '' then
     begin
       FTempLine := string(Acc);
-      Synchronize(@ShowTempLine);
+      Synchronize(@ShowLog);
     end;
 
   finally

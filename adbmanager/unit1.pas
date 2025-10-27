@@ -44,9 +44,9 @@ type
     RebootBtn: TToolButton;
     RestartBtn: TToolButton;
     ShellBtn: TToolButton;
-    ConnectBtn: TToolButton;
-    ToolButton1: TToolButton;
-    ToolButton4: TToolButton;
+    EmulatorBtn: TToolButton;
+    SettingsBtn: TToolButton;
+    SDCardBtn: TToolButton;
     UninstallBtn: TToolButton;
     ExitBtn: TToolButton;
     procedure ApkInfoBtnClick(Sender: TObject);
@@ -410,7 +410,13 @@ begin
   case (Sender as TToolButton).ImageIndex of
     0: //Connect (Эмулятор)
     begin
-      EmulatorForm.ShowModal;
+      if not EmulatorForm.Visible then
+        EmulatorForm.Show
+      else
+      begin
+        EmulatorForm.BringToFront;
+        EmulatorForm.SetFocus;
+      end;
       Exit;
     end;
 
@@ -466,13 +472,25 @@ begin
 
     4: //Отключение/Удаление приложений
     begin
-      CheckForm.ShowModal;
+      if not CheckForm.Visible then
+        CheckForm.Show
+      else
+      begin
+        CheckForm.BringToFront;
+        CheckForm.SetFocus;
+      end;
       Exit;
     end;
 
     5: //SD-Card Manager
     begin
-      SDForm.Show;
+      if not SDForm.Visible then
+        SDForm.Show
+      else
+      begin
+        SDForm.BringToFront;
+        SDForm.SetFocus;
+      end;
       Exit;
     end;
 
@@ -504,15 +522,27 @@ begin
       Exit;
     end;
 
-    8: //Токие настройки Android
+    8: //Настройки Android
     begin
-      SettingsForm.ShowModal;
+      if not SettingsForm.Visible then
+        SettingsForm.Show
+      else
+      begin
+        SettingsForm.BringToFront;
+        SettingsForm.SetFocus;
+      end;
       Exit;
     end;
 
     9: //reboot
     begin
-      RebootForm.ShowModal; //Показываем варианты Reboot
+      if not RebootForm.Visible then
+        RebootForm.Show
+      else
+      begin
+        RebootForm.BringToFront;
+        RebootForm.SetFocus;
+      end;
       Exit;
     end;
   end;

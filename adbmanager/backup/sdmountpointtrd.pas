@@ -37,7 +37,7 @@ begin
     if Terminated then Exit;
     Synchronize(@StartProgress);
 
- //   FreeOnTerminate := True; // уничтожить по завершении
+    //   FreeOnTerminate := True; // уничтожить по завершении
 
     if Terminated then Exit;
     S := TStringList.Create;

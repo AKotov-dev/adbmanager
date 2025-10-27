@@ -1,5 +1,5 @@
 object MainForm: TMainForm
-  Left = 296
+  Left = 297
   Height = 625
   Top = 126
   Width = 837
@@ -531,7 +531,7 @@ object MainForm: TMainForm
       ImageIndex = 1
       OnClick = ApkInfoBtnClick
     end
-    object ConnectBtn: TToolButton
+    object EmulatorBtn: TToolButton
       Left = 1
       Top = 2
       Caption = 'emulator'
@@ -546,7 +546,7 @@ object MainForm: TMainForm
       ImageIndex = 7
       OnClick = ApkInfoBtnClick
     end
-    object ToolButton4: TToolButton
+    object SDCardBtn: TToolButton
       Tag = 7
       Left = 346
       Hint = 'Android 4+'
@@ -568,7 +568,7 @@ object MainForm: TMainForm
       ShowHint = True
       OnClick = ApkInfoBtnClick
     end
-    object ToolButton1: TToolButton
+    object SettingsBtn: TToolButton
       Left = 548
       Hint = 'Android TV Box'
       Top = 2

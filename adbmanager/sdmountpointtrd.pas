@@ -126,6 +126,7 @@ end;
 //Старт процедуры
 procedure TReadSDMountPoint.StartProgress;
 begin
+  MainForm.SDCardBtn.Enabled := False;
   if Assigned(SDForm) then
   begin
     Screen.cursor := crHourGlass;
@@ -136,6 +137,7 @@ end;
 //Стоп процедуры
 procedure TReadSDMountPoint.StopProgress;
 begin
+  MainForm.SDCardBtn.Enabled := True;
   if Assigned(SDForm) then
   begin
     if SDMountPoint.Count <> 0 then

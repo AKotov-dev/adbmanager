@@ -18,10 +18,10 @@ uses
   SDMountPointTRD,
   CheckUnit,
   ReadAppsTRDUnit,
-  settings_unit,
+  Settings_Unit,
   ReadSettingsTRDUnit,
-  WriteSettingsTRDUnit,
-  xdgopentrd, CPUTemperature;
+  XDGOpenTRD,
+  CPUTemperature;
 
   {$R *.res}
 

@@ -192,10 +192,6 @@ msgstr ""
 msgid "ADBManager"
 msgstr ""
 
-#: tmainform.connectbtn.caption
-msgid "emulator"
-msgstr "émulateur"
-
 #: tmainform.deletekeybtn.caption
 msgid "Delete Key"
 msgstr "Supprimer La Clé"
@@ -204,6 +200,12 @@ msgstr "Supprimer La Clé"
 msgctxt "tmainform.devsheet.caption"
 msgid "no device"
 msgstr "aucun appareil"
+
+#: tmainform.emulatorbtn.caption
+#, fuzzy
+msgctxt "tmainform.emulatorbtn.caption"
+msgid "emulator"
+msgstr "émulateur"
 
 #: tmainform.exitbtn.caption
 msgid "Exit"
@@ -266,9 +268,30 @@ msgstr "Redémarrer"
 msgid "screenshot"
 msgstr "capture"
 
+#: tmainform.sdcardbtn.caption
+#, fuzzy
+msgctxt "tmainform.sdcardbtn.caption"
+msgid "sd-card"
+msgstr "carte SD"
+
+#: tmainform.sdcardbtn.hint
+msgctxt "tmainform.sdcardbtn.hint"
+msgid "Android 4+"
+msgstr ""
+
 #: tmainform.searchbtn.caption
 msgid "search apk"
 msgstr "recherche apk"
+
+#: tmainform.settingsbtn.caption
+msgctxt "tmainform.settingsbtn.caption"
+msgid "settings"
+msgstr ""
+
+#: tmainform.settingsbtn.hint
+msgctxt "tmainform.settingsbtn.hint"
+msgid "Android TV Box"
+msgstr ""
 
 #: tmainform.shellbtn.caption
 msgid "terminal"
@@ -282,23 +305,6 @@ msgstr "Licence: GPLv3   Auteur: alex_q_2000 (C) 2021   URL: https://linuxforum.
 
 #: tmainform.toolbar2.caption
 msgid "ToolBar2"
-msgstr ""
-
-#: tmainform.toolbutton1.caption
-msgid "settings"
-msgstr ""
-
-#: tmainform.toolbutton1.hint
-msgid "Android TV Box"
-msgstr ""
-
-#: tmainform.toolbutton4.caption
-msgid "sd-card"
-msgstr "carte SD"
-
-#: tmainform.toolbutton4.hint
-msgctxt "tmainform.toolbutton4.hint"
-msgid "Android 4+"
 msgstr ""
 
 #: tmainform.uninstallbtn.caption

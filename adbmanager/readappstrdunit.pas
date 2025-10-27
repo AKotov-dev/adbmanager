@@ -22,7 +22,7 @@ type
 implementation
 
 uses
-  CheckUnit;
+  unit1, CheckUnit;
 
 function ReadAppsTRD.RunCmd(const ACommand: string; AOutput: TStringList): boolean;
 var
@@ -181,6 +181,7 @@ end;
 //Стартуем прогресс
 procedure ReadAppsTRD.StartRead;
 begin
+  MainForm.AppListBtn.Enabled := False;
   if Assigned(CheckForm) then
     with CheckForm do
     begin
@@ -198,6 +199,7 @@ procedure ReadAppsTRD.StopRead;
 var
   i, j: integer;
 begin
+  MainForm.AppListBtn.Enabled := True;
   if Assigned(CheckForm) then
     with CheckForm do
     begin

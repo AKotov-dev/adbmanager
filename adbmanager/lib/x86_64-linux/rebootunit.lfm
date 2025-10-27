@@ -7,6 +7,7 @@ object RebootForm: TRebootForm
   Caption = 'Reboot/Shutdown'
   ClientHeight = 189
   ClientWidth = 433
+  FormStyle = fsStayOnTop
   Position = poMainFormCenter
   LCLVersion = '4.2.0.0'
   OnClose = FormClose
@@ -81,5 +82,6 @@ object RebootForm: TRebootForm
     Caption = 'Cancel'
     ModalResult = 2
     TabOrder = 2
+    OnClick = CancelBtnClick
   end
 end

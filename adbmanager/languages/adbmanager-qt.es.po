@@ -190,10 +190,6 @@ msgstr ""
 msgid "ADBManager"
 msgstr ""
 
-#: tmainform.connectbtn.caption
-msgid "emulator"
-msgstr ""
-
 #: tmainform.deletekeybtn.caption
 msgid "Delete Key"
 msgstr ""
@@ -201,6 +197,11 @@ msgstr ""
 #: tmainform.devsheet.caption
 msgctxt "tmainform.devsheet.caption"
 msgid "no device"
+msgstr ""
+
+#: tmainform.emulatorbtn.caption
+msgctxt "tmainform.emulatorbtn.caption"
+msgid "emulator"
 msgstr ""
 
 #: tmainform.exitbtn.caption
@@ -257,8 +258,28 @@ msgstr ""
 msgid "screenshot"
 msgstr ""
 
+#: tmainform.sdcardbtn.caption
+msgctxt "tmainform.sdcardbtn.caption"
+msgid "sd-card"
+msgstr ""
+
+#: tmainform.sdcardbtn.hint
+msgctxt "tmainform.sdcardbtn.hint"
+msgid "Android 4+"
+msgstr ""
+
 #: tmainform.searchbtn.caption
 msgid "search apk"
+msgstr ""
+
+#: tmainform.settingsbtn.caption
+msgctxt "tmainform.settingsbtn.caption"
+msgid "settings"
+msgstr ""
+
+#: tmainform.settingsbtn.hint
+msgctxt "tmainform.settingsbtn.hint"
+msgid "Android TV Box"
 msgstr ""
 
 #: tmainform.shellbtn.caption
@@ -271,23 +292,6 @@ msgstr ""
 
 #: tmainform.toolbar2.caption
 msgid "ToolBar2"
-msgstr ""
-
-#: tmainform.toolbutton1.caption
-msgid "settings"
-msgstr ""
-
-#: tmainform.toolbutton1.hint
-msgid "Android TV Box"
-msgstr ""
-
-#: tmainform.toolbutton4.caption
-msgid "sd-card"
-msgstr ""
-
-#: tmainform.toolbutton4.hint
-msgctxt "tmainform.toolbutton4.hint"
-msgid "Android 4+"
 msgstr ""
 
 #: tmainform.uninstallbtn.caption

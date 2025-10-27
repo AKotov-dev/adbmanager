@@ -1,12 +1,13 @@
 object EmulatorForm: TEmulatorForm
-  Left = 453
+  Left = 404
   Height = 201
-  Top = 187
+  Top = 155
   Width = 454
   ActiveControl = Edit1
   Caption = 'Connection/Scanning'
   ClientHeight = 201
   ClientWidth = 454
+  FormStyle = fsStayOnTop
   KeyPreview = True
   Position = poMainFormCenter
   LCLVersion = '4.2.0.0'
@@ -104,5 +105,6 @@ object EmulatorForm: TEmulatorForm
     Caption = 'Cancel'
     ModalResult = 2
     TabOrder = 3
+    OnClick = CancelBtnClick
   end
 end

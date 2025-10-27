@@ -12,11 +12,12 @@ type
   private
     FSdCmd: string;
     FLeftPanel: boolean;
-    S: TStringList;
+    FTempLine: string;
+    // Строка для передачи в ShowTempLine через Synchronize
   protected
     procedure Execute; override;
 
-    procedure ShowSDLog;
+    procedure ShowTempLine;
     procedure StopProgress;
     procedure StartProgress;
   public
@@ -25,7 +26,7 @@ type
 
 implementation
 
-uses SDCardManager;
+uses Unit1, SDCardManager;
 
 { Конструктор потока }
 constructor TStartSDCommand.Create(const ACmd: string; ALeftPanel: boolean);
@@ -41,54 +42,72 @@ end;
 procedure TStartSDCommand.Execute;
 var
   ExProcess: TProcess;
+  Buf: array[0..1023] of ansichar;
+  Len: longint;
+  Acc: ansistring;
+  LinePos: integer;
+  S: string;
 begin
+  Synchronize(@StartProgress);
+  Acc := '';
+
+  ExProcess := TProcess.Create(nil);
   try
-    Synchronize(@StartProgress);
+    ExProcess.Executable := 'bash';
+    ExProcess.Parameters.Add('-c');
+    ExProcess.Parameters.Add(FSDCmd);
+    ExProcess.Options := [poUsePipes, poStderrToOutPut];
 
-    S := TStringList.Create;
+    ExProcess.Execute;
 
-    // Рабочий процесс
-    ExProcess := TProcess.Create(nil);
-    try
-      ExProcess.Executable := 'bash';
-      ExProcess.Parameters.Add('-c');
-      ExProcess.Parameters.Add(FSdCmd);
-      ExProcess.Options := [poUsePipes, poStderrToOutPut];
-
-      ExProcess.Execute;
-
-      while ExProcess.Running do
+    while ExProcess.Running or (ExProcess.Output.NumBytesAvailable > 0) do
+    begin
+      Len := ExProcess.Output.NumBytesAvailable;
+      if Len > 0 then
       begin
-        S.LoadFromStream(ExProcess.Output);
-        S.Text := Trim(S.Text);
-        if S.Count <> 0 then
-          Synchronize(@ShowSDLog);
-      end;
+        if Len > SizeOf(Buf) then Len := SizeOf(Buf);
+        ExProcess.Output.Read(Buf, Len);
+        Acc := Acc + Copy(Buf, 0, Len);
+        // аккумулируем байты в строку
 
-    finally
-      ExProcess.Free;
+        // Разбиваем на строки по LineEnding
+        LinePos := Pos(LineEnding, string(Acc));
+        while LinePos > 0 do
+        begin
+          S := Copy(Acc, 1, LinePos - 1);
+          FTempLine := S;
+          Synchronize(@ShowTempLine); // добавляем строку в Memo
+          Delete(Acc, 1, LinePos + Length(LineEnding) - 1);
+          LinePos := Pos(LineEnding, string(Acc));
+        end;
+      end;
+      Sleep(10);
+    end;
+
+    // Вывод остатка
+    if Acc <> '' then
+    begin
+      FTempLine := string(Acc);
+      Synchronize(@ShowTempLine);
     end;
 
   finally
+    ExProcess.Free;
     Synchronize(@StopProgress);
-    S.Free;
-    Terminate;
   end;
 end;
 
 { Вывод лога }
-procedure TStartSDCommand.ShowSDLog;
-var
-  i: integer;
+procedure TStartSDCommand.ShowTempLine;
 begin
   if Assigned(SDForm) then
-    for i := 0 to S.Count - 1 do
-      SDForm.SDMemo.Lines.Append(S[i]);
+    SDForm.SDMemo.Lines.Append(FTempLine);
 end;
 
 { Старт индикатора }
 procedure TStartSDCommand.StartProgress;
 begin
+  MainForm.SDCardBtn.Enabled := False;
   if Assigned(SDForm) then
     with SDForm do
     begin
@@ -102,6 +121,7 @@ end;
 { Стоп индикатора }
 procedure TStartSDCommand.StopProgress;
 begin
+  MainForm.SDCardBtn.Enabled := True;
   if Assigned(SDForm) then
     with SDForm do
     begin

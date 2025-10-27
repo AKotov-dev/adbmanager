@@ -461,7 +461,7 @@ begin
     //Скрываем "Esc - отмена"
     Panel4.Caption := '';
 
-     //Освобождаем возможный поток копирования
+    //Освобождаем возможный поток копирования
     if Assigned(FStartSDCommand) then
     begin
       FStartSDCommand.Terminate;

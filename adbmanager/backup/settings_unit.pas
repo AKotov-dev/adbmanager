@@ -6,8 +6,7 @@ interface
 
 uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls, Buttons,
-  ExtCtrls, ComCtrls, IniFiles, ReadSettingsTRDUnit, WriteSettingsTRDUnit,
-  CPUTemperature;
+  ExtCtrls, ComCtrls, IniFiles, ReadSettingsTRDUnit, CPUTemperature;
 
 type
 
@@ -33,7 +32,6 @@ type
   private
     FReadSettingsTRD: TReadSettingsTRD;
     FCPUTempTRD: TCPUTempTRD;
-    FWriteSettingsTRD: TWriteSettingsTRD;
 
   public
 
@@ -61,7 +59,7 @@ resourcestring
 
 implementation
 
-uses unit1;
+uses unit1, ADBCommandTRD;
 
   {$R *.lfm}
 
@@ -148,27 +146,20 @@ end;
 procedure TSettingsForm.FormClose(Sender: TObject; var CloseAction: TCloseAction);
 begin
   // Убиваем все adb push, adb pull процессы одной командой
-  MainForm.StartProcess('pkill -f "adb shell settings"');
+ // MainForm.StartProcess('pkill -f "adb shell settings"');
 
   if Assigned(FReadSettingsTRD) then
   begin
     FReadSettingsTRD.Terminate;
     FReadSettingsTRD.WaitFor;
-    FReadSettingsTRD := nil;
-  end;
-
-  if Assigned(FWriteSettingsTRD) then
-  begin
-    FWriteSettingsTRD.Terminate;
-    FWriteSettingsTRD.WaitFor;
-    FWriteSettingsTRD := nil;
+    FreeAndNil(FReadSettingsTRD);
   end;
 
   if Assigned(FCPUTempTRD) then
   begin
     FCPUTempTRD.Terminate;
     FCPUTempTRD.WaitFor;
-    FCPUTempTRD := nil;
+    FreeAndNil(FCPUTempTRD);
   end;
 
   Sleep(20);
@@ -182,12 +173,52 @@ end;
 
 //Применить
 procedure TSettingsForm.ApplyBtnClick(Sender: TObject);
+var
+  j: integer;
+  CheckStr, adbcmd: string;
+  Command: TStringList;
 begin
-  //Запуск потока записи настроек
-  if not Assigned(FWriteSettingsTRD) then
-  begin
-    FWriteSettingsTRD := TWriteSettingsTRD.Create(True);
-    FWriteSettingsTRD.Start;
+  try
+    Command := TStringList.Create;
+
+    // Список команд с привязкой к чекерам
+    Command.Add('adb shell settings put system sound_effects_enabled');
+    Command.Add('adb shell settings put system haptic_feedback_enabled');
+    Command.Add('adb shell settings put global device_provisioned');
+    Command.Add('adb shell settings put global auto_sync');
+    Command.Add('adb shell settings put global transition_animation_scale');
+    Command.Add('adb shell settings put global animator_duration_scale');
+    Command.Add('adb shell settings put global window_animation_scale');
+    Command.Add('adb shell settings put system accelerometer_rotation');
+    Command.Add('adb shell settings put global auto_update');
+    Command.Add('adb shell settings put global low_power');
+
+    // Цикл записи чекеров
+    for j := 0 to Command.Count - 1 do
+    begin
+
+      if CheckGroup1.Checked[j] then
+        CheckStr := '1'
+      else
+        CheckStr := '0';
+
+      adbcmd := adbcmd + Command[j] + ' ' + CheckStr + '; ';
+    end;
+    // Запись громкости
+    adbcmd := adbcmd + 'adb shell media volume --stream 3 --set ' +
+      IntToStr(SettingsForm.TrackBar1.Position) + '; ';
+
+    // Запись размера шрифта
+    adbcmd := adbcmd + 'adb shell settings put system font_scale ' +
+      Trim(ComboBox1.Text);
+
+    if adbcmd <> '' then
+      StartADBCommand.Create(adbcmd);
+
+    Close;
+
+  finally
+    Command.Free;
   end;
 end;
 

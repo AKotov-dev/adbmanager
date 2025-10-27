@@ -31,7 +31,7 @@ type
 
 implementation
 
-uses settings_unit;
+uses Unit1, Settings_Unit;
 
   { TRD }
 
@@ -157,6 +157,7 @@ end;
 //Старт
 procedure TReadSettingsTRD.StartRead;
 begin
+  MainForm.SettingsBtn.Enabled := False;
   if Assigned(SettingsForm) then
     with SettingsForm do
     begin
@@ -170,6 +171,7 @@ end;
 //Стоп
 procedure TReadSettingsTRD.StopRead;
 begin
+  MainForm.SettingsBtn.Enabled := True;
   if Assigned(SettingsForm) then
     with SettingsForm do
     begin

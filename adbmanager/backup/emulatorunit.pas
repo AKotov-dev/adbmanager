@@ -18,7 +18,6 @@ type
     Label1: TLabel;
     OKBtn: TButton;
     RadioGroup1: TRadioGroup;
-    procedure CancelBtnClick(Sender: TObject);
     procedure Edit1Enter(Sender: TObject);
     procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
     procedure FormCreate(Sender: TObject);
@@ -151,11 +150,6 @@ end;
 procedure TEmulatorForm.Edit1Enter(Sender: TObject);
 begin
   RadioGroup1.ItemIndex := -1;
-end;
-
-procedure TEmulatorForm.CancelBtnClick(Sender: TObject);
-begin
-  Close;
 end;
 
 procedure TEmulatorForm.OKBtnClick(Sender: TObject);

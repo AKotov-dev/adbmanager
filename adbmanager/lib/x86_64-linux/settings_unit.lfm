@@ -1,7 +1,7 @@
 object SettingsForm: TSettingsForm
-  Left = 307
+  Left = 419
   Height = 586
-  Top = 135
+  Top = 85
   Width = 684
   Caption = 'Android TV Box settings'
   ClientHeight = 586
