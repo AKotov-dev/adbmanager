@@ -2,7 +2,7 @@
 <CONFIG>
   <ProjectSession>
     <Version Value="12"/>
-    <BuildModes Count="2" Active="Release">
+    <BuildModes Count="2" Active="Qt6">
       <Item1 Name="Release">
         <MacroValues Count="1">
           <Macro1 Name="LCLWidgetType" Value="gtk2"/>
@@ -74,12 +74,13 @@
         <Item2 Mode="Qt6" Option="690790766239"/>
       </SessionEnabledMatrixOptions>
     </BuildModes>
-    <Units Count="20">
+    <Units Count="21">
       <Unit0>
         <Filename Value="adbmanager.pas"/>
         <IsPartOfProject Value="True"/>
+        <UnitName Value="ADBManager"/>
         <EditorIndex Value="-1"/>
-        <CursorPos X="21"/>
+        <CursorPos X="13"/>
         <UsageCount Value="200"/>
       </Unit0>
       <Unit1>
@@ -215,11 +216,11 @@
         <UsageCount Value="101"/>
       </Unit14>
       <Unit15>
-        <Filename Value="cputemperature.pas"/>
+        <Filename Value="cputemperaturetrd.pas"/>
         <IsPartOfProject Value="True"/>
-        <UnitName Value="CPUTemperature"/>
+        <UnitName Value="CPUTemperatureTRD"/>
         <EditorIndex Value="-1"/>
-        <CursorPos X="22"/>
+        <CursorPos X="25"/>
         <UsageCount Value="39"/>
       </Unit15>
       <Unit16>
@@ -257,6 +258,13 @@
         <CursorPos Y="96"/>
         <UsageCount Value="22"/>
       </Unit19>
+      <Unit20>
+        <Filename Value="cputemperature.pas"/>
+        <UnitName Value="CPUTemperatureTRD"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="23"/>
+        <UsageCount Value="10"/>
+      </Unit20>
     </Units>
     <JumpHistory Count="5" HistoryIndex="4">
       <Position1>

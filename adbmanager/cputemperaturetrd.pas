@@ -1,4 +1,4 @@
-unit CPUTemperature;
+unit CPUTemperatureTRD;
 
 {$mode ObjFPC}{$H+}
 

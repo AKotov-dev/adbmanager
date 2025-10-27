@@ -82,6 +82,7 @@
       <Unit0>
         <Filename Value="adbmanager.pas"/>
         <IsPartOfProject Value="True"/>
+        <UnitName Value="ADBManager"/>
       </Unit0>
       <Unit1>
         <Filename Value="unit1.pas"/>
@@ -172,9 +173,9 @@
         <UnitName Value="XDGOpenTRD"/>
       </Unit14>
       <Unit15>
-        <Filename Value="cputemperature.pas"/>
+        <Filename Value="cputemperaturetrd.pas"/>
         <IsPartOfProject Value="True"/>
-        <UnitName Value="CPUTemperature"/>
+        <UnitName Value="CPUTemperatureTRD"/>
       </Unit15>
     </Units>
   </ProjectOptions>

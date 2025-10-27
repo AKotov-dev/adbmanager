@@ -1,4 +1,4 @@
-program adbmanager;
+program ADBManager;
 
 {$mode objfpc}{$H+}
 
@@ -21,7 +21,7 @@ uses
   Settings_Unit,
   ReadSettingsTRDUnit,
   XDGOpenTRD,
-  CPUTemperature;
+  CPUTemperatureTRD;
 
   {$R *.res}
 
