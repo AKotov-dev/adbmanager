@@ -126,7 +126,7 @@ begin
     SettingsForm.Close;
 
   //Закрываем терминал, если использовался
- // MainForm.StartProcess('killall -q sakura');
+  MainForm.StartProcess('killall -q sakura');
 end;
 
 //Сохранение настроек формы

@@ -1,7 +1,7 @@
 object SDForm: TSDForm
-  Left = 366
+  Left = 306
   Height = 631
-  Top = 137
+  Top = 132
   Width = 888
   ActiveControl = Splitter2
   Caption = 'SD-Card manager'

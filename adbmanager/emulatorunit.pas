@@ -145,6 +145,9 @@ end;
 
 procedure TEmulatorForm.FormClose(Sender: TObject; var CloseAction: TCloseAction);
 begin
+  Application.ProcessMessages;
+  Sleep(20);
+
   SaveSettings;
 end;
 

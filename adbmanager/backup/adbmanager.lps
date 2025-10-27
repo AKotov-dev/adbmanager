@@ -91,7 +91,7 @@
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="Unit1"/>
         <IsVisibleTab Value="True"/>
-        <CursorPos X="2" Y="129"/>
+        <CursorPos X="13"/>
         <UsageCount Value="200"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -131,7 +131,7 @@
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="SDCardManager"/>
         <EditorIndex Value="-1"/>
-        <CursorPos X="22"/>
+        <CursorPos X="21"/>
         <UsageCount Value="200"/>
       </Unit5>
       <Unit6>
@@ -147,8 +147,7 @@
         <IsPartOfProject Value="True"/>
         <UnitName Value="LSSDFolderTRD"/>
         <EditorIndex Value="-1"/>
-        <TopLine Value="106"/>
-        <CursorPos X="32" Y="113"/>
+        <CursorPos X="21"/>
         <UsageCount Value="198"/>
       </Unit7>
       <Unit8>
@@ -167,8 +166,7 @@
         <IsPartOfProject Value="True"/>
         <UnitName Value="SDMountPointTRD"/>
         <EditorIndex Value="-1"/>
-        <TopLine Value="103"/>
-        <CursorPos X="32" Y="116"/>
+        <CursorPos X="23"/>
         <UsageCount Value="158"/>
       </Unit9>
       <Unit10>
@@ -179,8 +177,7 @@
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="CheckUnit"/>
         <EditorIndex Value="-1"/>
-        <TopLine Value="139"/>
-        <CursorPos X="16" Y="145"/>
+        <CursorPos X="17"/>
         <UsageCount Value="155"/>
       </Unit10>
       <Unit11>

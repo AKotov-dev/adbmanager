@@ -91,9 +91,6 @@ begin
   //Закрываем SD-Manager, если открыт
   MainForm.ActiveFormClose;
 
-  //Отключаем терминал, если использовался
-  MainForm.StartProcess('killall -q sakura');
-
   //Обработка команд перезагрузки
   case RadioGroup1.ItemIndex of
     0: MainForm.StartProcess('adb reboot');
@@ -107,6 +104,9 @@ end;
 
 procedure TRebootForm.FormClose(Sender: TObject; var CloseAction: TCloseAction);
 begin
+  Application.ProcessMessages;
+  Sleep(20);
+
   SaveSettings;
 end;
 

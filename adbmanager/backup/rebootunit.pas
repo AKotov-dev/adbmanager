@@ -89,11 +89,7 @@ end;
 procedure TRebootForm.OKBtnClick(Sender: TObject);
 begin
   //Закрываем SD-Manager, если открыт
-  if SDForm.Visible then
-    SDForm.Close;
-
-  //Отключаем терминал, если использовался
-  MainForm.StartProcess('killall -q sakura');
+  MainForm.ActiveFormClose;
 
   //Обработка команд перезагрузки
   case RadioGroup1.ItemIndex of
@@ -108,6 +104,9 @@ end;
 
 procedure TRebootForm.FormClose(Sender: TObject; var CloseAction: TCloseAction);
 begin
+  Application.ProcessMessages;
+  Sleep(20);
+
   SaveSettings;
 end;
 
