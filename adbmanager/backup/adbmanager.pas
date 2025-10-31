@@ -27,8 +27,8 @@ uses
 
 begin
   RequireDerivedFormResource := True;
-  Application.Title := 'ADBManager v4.0';
-  Application.Scaled := True;
+  Application.Title:='ADBManager v4.0';
+  Application.Scaled:=True;
   Application.Initialize;
   Application.CreateForm(TMainForm, MainForm);
   Application.CreateForm(TSDForm, SDForm);

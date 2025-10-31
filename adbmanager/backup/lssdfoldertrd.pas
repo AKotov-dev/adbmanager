@@ -5,7 +5,7 @@ unit LSSDFolderTRD;
 interface
 
 uses
-  Classes, Process, SysUtils, Forms, Controls, Math;
+  Classes, Process, SysUtils, Forms, Controls, ComCtrls, Math;
 
 type
   StartLSSD = class(TThread)
@@ -110,7 +110,7 @@ begin
     end;
 
   finally
-      Synchronize(@HideProgress);
+    Synchronize(@HideProgress);
 
     S.Free;
     ExProcess.Free;
@@ -121,14 +121,24 @@ end;
 procedure StartLSSD.ShowProgress;
 begin
   MainForm.SDCardBtn.Enabled := False;
-  Screen.cursor := crHourGlass;
+  if Assigned(SDForm) then
+    with SDForm do
+    begin
+      ProgressBar1.Style := pbstMarquee;
+      ProgressBar1.Refresh;
+    end;
 end;
 
 //Окончание операции
 procedure StartLSSD.HideProgress;
 begin
   MainForm.SDCardBtn.Enabled := True;
-  Screen.cursor := crDefault;
+  if Assigned(SDForm) then
+    with SDForm do
+    begin
+      ProgressBar1.Style := pbsNormal;
+      ProgressBar1.Refresh;
+    end;
 end;
 
 //Общий размер SD-Card, использовано и осталось

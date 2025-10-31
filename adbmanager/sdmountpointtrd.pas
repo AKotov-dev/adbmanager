@@ -5,7 +5,7 @@ unit SDMountPointTRD;
 interface
 
 uses
-  Classes, Process, SysUtils, Forms, Controls;
+  Classes, Process, SysUtils, Forms, Controls, ComCtrls;
 
 type
   TReadSDMountPoint = class(TThread)
@@ -126,38 +126,47 @@ end;
 procedure TReadSDMountPoint.StartProgress;
 begin
   MainForm.SDCardBtn.Enabled := False;
+
   if Assigned(SDForm) then
-  begin
-    Screen.cursor := crHourGlass;
-    SDForm.SDChangeBtn.Enabled := False;
-  end;
+    with SDForm do
+    begin
+      SDChangeBtn.Enabled := False;
+
+      //Старт индикатора
+      ProgressBar1.Style := pbstMarquee;
+      ProgressBar1.Refresh;
+    end;
 end;
 
 //Стоп процедуры
 procedure TReadSDMountPoint.StopProgress;
 begin
   MainForm.SDCardBtn.Enabled := True;
+
   if Assigned(SDForm) then
-  begin
-    if SDMountPoint.Count <> 0 then
+    with SDForm do
     begin
-      //Заголовок на первую существующую точку монтирования, если не открывалась ранее
-      if SDMountPoint.IndexOf(SDForm.GroupBox2.Caption) = -1 then
-        SDForm.GroupBox2.Caption := SDMountPoint[0];
-      SDForm.SDChangeBtn.Enabled := True;
-    end
-    else
-      //Если список точек монтирования пуст
-    begin
-      SDForm.GroupBox2.Caption := '/sdcard/';
-      SDForm.SDChangeBtn.Enabled := False;
+      if SDMountPoint.Count <> 0 then
+      begin
+        //Заголовок на первую существующую точку монтирования, если не открывалась ранее
+        if SDMountPoint.IndexOf(GroupBox2.Caption) = -1 then
+          GroupBox2.Caption := SDMountPoint[0];
+        SDChangeBtn.Enabled := True;
+      end
+      else
+        //Если список точек монтирования пуст
+      begin
+        GroupBox2.Caption := '/sdcard/';
+        SDChangeBtn.Enabled := False;
+      end;
+
+      //Останов индикатора
+      ProgressBar1.Style := pbstNormal;
+      ProgressBar1.Refresh;
+
+      //Перечитываем точку монтирования
+      StartLS;
     end;
-
-    Screen.cursor := crDefault;
-
-    //Перечитываем точку монтирования
-    SDForm.StartLS;
-  end;
 end;
 
 

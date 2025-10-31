@@ -490,7 +490,6 @@ begin
     SaveSettings;
 
   finally
-    Screen.cursor := crDefault;
     //Освобождаем список точек монтирования SD-Card
     SDMountPoint.Free;
   end;
