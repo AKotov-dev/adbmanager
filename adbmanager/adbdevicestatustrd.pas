@@ -241,23 +241,29 @@ end;
 //Вывод активности ADB
 procedure ShowStatus.ShowIsActive;
 begin
-  if SResult.Count <> 0 then
-    MainForm.ActiveLabel.Caption := SLaunched
-  else
-    MainForm.ActiveLabel.Caption := SRestart;
+  if Assigned(MainForm) then
+  begin
+    if SResult.Count <> 0 then
+      MainForm.ActiveLabel.Caption := SLaunched
+    else
+      MainForm.ActiveLabel.Caption := SRestart;
 
-  MainForm.ActiveLabel.Repaint;
+    MainForm.ActiveLabel.Repaint;
+  end;
 end;
 
 //Состояние ключей
 procedure ShowStatus.ShowKey;
 begin
-  if SResult.Count <> 0 then
-    MainForm.KeyLabel.Caption := SYes
-  else
-    MainForm.KeyLabel.Caption := SNo;
+  if Assigned(MainForm) then
+  begin
+    if SResult.Count <> 0 then
+      MainForm.KeyLabel.Caption := SYes
+    else
+      MainForm.KeyLabel.Caption := SNo;
 
-  MainForm.KeyLabel.Repaint;
+    MainForm.KeyLabel.Repaint;
+  end;
 end;
 
 //Вывод найденного устройства и статуса
@@ -266,48 +272,51 @@ var
   i: integer;
   dev0, dev1, adbcmd: string;
 begin
-  //Удаляем начальные и конечные переводы строки/пробелы
-  SResult.Text := Trim(SResult.Text);
-
-  //Больше одного устройства? Переключаем на последнее
-  if SResult.Count > 1 then
+  if Assigned(MainForm) then
   begin
-    adbcmd := '';
+    //Удаляем начальные и конечные переводы строки/пробелы
+    SResult.Text := Trim(SResult.Text);
 
-    i := Pos(#9, SResult[0]); //Выделяем имя-1
-    dev0 := Trim(Copy(SResult[0], 1, i));
-    i := Pos(#9, SResult[1]); //Выделяем имя-2
-    dev1 := Trim(Copy(SResult[1], 1, i));
-
-    //Disconnect уже активного (1 или 2) и Connect существующего (если по IP)
-    if Pos(dev0, MainForm.DevSheet.Caption) <> 0 then
+    //Больше одного устройства? Переключаем на последнее
+    if SResult.Count > 1 then
     begin
-      if Pos(':', dev1) <> 0 then //Если tcpip
-        adbcmd := 'adb disconnect ' + dev0;
+      adbcmd := '';
+
+      i := Pos(#9, SResult[0]); //Выделяем имя-1
+      dev0 := Trim(Copy(SResult[0], 1, i));
+      i := Pos(#9, SResult[1]); //Выделяем имя-2
+      dev1 := Trim(Copy(SResult[1], 1, i));
+
+      //Disconnect уже активного (1 или 2) и Connect существующего (если по IP)
+      if Pos(dev0, MainForm.DevSheet.Caption) <> 0 then
+      begin
+        if Pos(':', dev1) <> 0 then //Если tcpip
+          adbcmd := 'adb disconnect ' + dev0;
+      end
+      else
+      if Pos(':', dev0) <> 0 then //Если tcpip
+        adbcmd := 'adb disconnect ' + dev1;
+
+      //USB в приоритете!
+      if (Pos(':', dev0) <> 0) and (Pos(':', dev1) = 0) then
+        adbcmd := 'adb disconnect ' + dev0
+      else
+      if (Pos(':', dev1) <> 0) and (Pos(':', dev0) = 0) then
+        adbcmd := 'adb disconnect ' + dev1;
+
+      //Запуск команды и потока отображения лога отключения
+      if adbcmd <> '' then
+      begin
+        MainForm.ActiveFormClose;
+        StartADBCommand.Create(adbcmd);
+      end;
     end
+    else //Единственное устройство и статус выводим сразу, либо "no device"
+    if Trim(SResult.Text) <> '' then
+      MainForm.DevSheet.Caption := SResult[0]
     else
-    if Pos(':', dev0) <> 0 then //Если tcpip
-      adbcmd := 'adb disconnect ' + dev1;
-
-    //USB в приоритете!
-    if (Pos(':', dev0) <> 0) and (Pos(':', dev1) = 0) then
-      adbcmd := 'adb disconnect ' + dev0
-    else
-    if (Pos(':', dev1) <> 0) and (Pos(':', dev0) = 0) then
-      adbcmd := 'adb disconnect ' + dev1;
-
-    //Запуск команды и потока отображения лога отключения
-    if adbcmd <> '' then
-    begin
-      MainForm.ActiveFormClose;
-      StartADBCommand.Create(adbcmd);
-    end;
-  end
-  else //Единственное устройство и статус выводим сразу, либо "no device"
-  if Trim(SResult.Text) <> '' then
-    MainForm.DevSheet.Caption := SResult[0]
-  else
-    MainForm.DevSheet.Caption := SNoDevice;
+      MainForm.DevSheet.Caption := SNoDevice;
+  end;
 end;
 
 end.

@@ -125,21 +125,25 @@ end;
 //Старт процедуры
 procedure TReadSDMountPoint.StartProgress;
 begin
-  MainForm.SDCardBtn.Enabled := False;
+  if Assigned(MainForm) then
+    MainForm.SDCardBtn.Enabled := False;
+
   if Assigned(SDForm) then
     with SDForm do
     begin
       SDChangeBtn.Enabled := False;
+
+      //Старт индикатора
       ProgressBar1.Style := pbstMarquee;
       ProgressBar1.Refresh;
-
     end;
 end;
 
 //Стоп процедуры
 procedure TReadSDMountPoint.StopProgress;
 begin
-  MainForm.SDCardBtn.Enabled := True;
+  if Assigned(MainForm) then
+    MainForm.SDCardBtn.Enabled := True;
 
   if Assigned(SDForm) then
     with SDForm do
@@ -158,6 +162,7 @@ begin
         SDChangeBtn.Enabled := False;
       end;
 
+      //Останов индикатора
       ProgressBar1.Style := pbstNormal;
       ProgressBar1.Refresh;
 

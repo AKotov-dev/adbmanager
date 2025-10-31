@@ -90,7 +90,6 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="Unit1"/>
-        <IsVisibleTab Value="True"/>
         <CursorPos X="14"/>
         <UsageCount Value="200"/>
         <Loaded Value="True"/>
@@ -148,7 +147,7 @@
         <UnitName Value="LSSDFolderTRD"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="21"/>
-        <UsageCount Value="199"/>
+        <UsageCount Value="200"/>
       </Unit7>
       <Unit8>
         <Filename Value="emulatorunit.pas"/>
@@ -159,15 +158,17 @@
         <UnitName Value="EmulatorUnit"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="20"/>
-        <UsageCount Value="172"/>
+        <UsageCount Value="173"/>
       </Unit8>
       <Unit9>
         <Filename Value="sdmountpointtrd.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="SDMountPointTRD"/>
-        <EditorIndex Value="-1"/>
+        <IsVisibleTab Value="True"/>
+        <EditorIndex Value="1"/>
         <CursorPos X="23"/>
-        <UsageCount Value="159"/>
+        <UsageCount Value="160"/>
+        <Loaded Value="True"/>
       </Unit9>
       <Unit10>
         <Filename Value="checkunit.pas"/>
@@ -178,7 +179,7 @@
         <UnitName Value="CheckUnit"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="17"/>
-        <UsageCount Value="156"/>
+        <UsageCount Value="157"/>
       </Unit10>
       <Unit11>
         <Filename Value="readappstrd.pas"/>
@@ -186,7 +187,7 @@
         <UnitName Value="ReadAppsTRD"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="19"/>
-        <UsageCount Value="155"/>
+        <UsageCount Value="156"/>
       </Unit11>
       <Unit12>
         <Filename Value="settings_unit.pas"/>
@@ -197,7 +198,7 @@
         <UnitName Value="Settings_Unit"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="21"/>
-        <UsageCount Value="141"/>
+        <UsageCount Value="142"/>
       </Unit12>
       <Unit13>
         <Filename Value="readsettingstrd.pas"/>
@@ -205,7 +206,7 @@
         <UnitName Value="ReadSettingsTRD"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="23"/>
-        <UsageCount Value="138"/>
+        <UsageCount Value="139"/>
       </Unit13>
       <Unit14>
         <Filename Value="xdgopentrd.pas"/>
@@ -213,7 +214,7 @@
         <UnitName Value="XDGOpenTRD"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="18"/>
-        <UsageCount Value="103"/>
+        <UsageCount Value="104"/>
       </Unit14>
       <Unit15>
         <Filename Value="cputemperaturetrd.pas"/>
@@ -221,7 +222,7 @@
         <UnitName Value="CPUTemperatureTRD"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="25"/>
-        <UsageCount Value="41"/>
+        <UsageCount Value="42"/>
       </Unit15>
       <Unit16>
         <Filename Value="writesettingstrdunit.pas"/>

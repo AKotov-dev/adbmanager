@@ -120,10 +120,13 @@ end;
 //Начало операции
 procedure StartLSSD.ShowProgress;
 begin
-  MainForm.SDCardBtn.Enabled := False;
+  if Assigned(MainForm) then
+    MainForm.SDCardBtn.Enabled := False;
+
   if Assigned(SDForm) then
     with SDForm do
     begin
+      SDChangeBtn.Enabled := False;
       ProgressBar1.Style := pbstMarquee;
       ProgressBar1.Refresh;
     end;
@@ -136,7 +139,8 @@ begin
   if Assigned(SDForm) then
     with SDForm do
     begin
-      ProgressBar1.Style := pbsNormal;
+      SDChangeBtn.Enabled := True;
+      ProgressBar1.Style := pbstNormal;
       ProgressBar1.Refresh;
     end;
 end;

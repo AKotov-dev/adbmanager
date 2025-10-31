@@ -149,15 +149,16 @@ end;
 procedure TReadSettingsTRD.ShowValue;
 begin
   if Assigned(SettingsForm) then
-  begin
-    if (FOutput = '1') or (FOutput = '1.0') then
-      SettingsForm.CheckGroup1.Checked[FIndex] := True
-    else
-    if FOutput = 'null' then SettingsForm.CheckGroup1.Items[FIndex] :=
-        '(NULL) ' + SettingsForm.CheckGroup1.Items[FIndex]
-    else
-      SettingsForm.CheckGroup1.Checked[FIndex] := False;
-  end;
+    with SettingsForm do
+    begin
+      if (FOutput = '1') or (FOutput = '1.0') then
+        CheckGroup1.Checked[FIndex] := True
+      else
+      if FOutput = 'null' then CheckGroup1.Items[FIndex] :=
+          '(NULL) ' + CheckGroup1.Items[FIndex]
+      else
+        CheckGroup1.Checked[FIndex] := False;
+    end;
 end;
 
 //Уровень громкости
@@ -175,19 +176,19 @@ begin
   end;
 end;
 
-//Размер шрифта
+//Показать размер системного шрифта
 procedure TReadSettingsTRD.ShowFontSize;
 begin
   if Assigned(SettingsForm) then
-  begin
     if FOutput <> '' then SettingsForm.ComboBox1.Text := FOutput;
-  end;
 end;
 
 //Старт
 procedure TReadSettingsTRD.StartRead;
 begin
-  MainForm.SettingsBtn.Enabled := False;
+  if Assigned(MainForm) then
+    MainForm.SettingsBtn.Enabled := False;
+
   if Assigned(SettingsForm) then
     with SettingsForm do
     begin
@@ -201,7 +202,8 @@ end;
 //Стоп
 procedure TReadSettingsTRD.StopRead;
 begin
-  MainForm.SettingsBtn.Enabled := True;
+  if Assigned(MainForm) then
+    MainForm.SettingsBtn.Enabled := True;
   if Assigned(SettingsForm) then
     with SettingsForm do
     begin

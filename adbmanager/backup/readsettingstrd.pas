@@ -38,14 +38,14 @@ uses Unit1, Settings_Unit;
 //Чтение параметров Settings
 procedure TReadSettingsTRD.Execute;
 var
-  j: Integer;
+  j: integer;
   Command: TStringList;
 
   function RunADB(const Cmd: string): string;
   var
     Proc: TProcess;
     Buffer: array[0..2047] of byte;
-    BytesRead: Integer;
+    BytesRead: integer;
     OutputStr: string;
   begin
     Result := '';
@@ -70,7 +70,7 @@ var
         begin
           BytesRead := Proc.Output.Read(Buffer, SizeOf(Buffer));
           if BytesRead > 0 then
-            OutputStr := OutputStr + Copy(PAnsiChar(@Buffer[0]), 1, BytesRead);
+            OutputStr := OutputStr + Copy(pansichar(@Buffer[0]), 1, BytesRead);
         end;
 
         Sleep(10);
@@ -81,7 +81,7 @@ var
       begin
         BytesRead := Proc.Output.Read(Buffer, SizeOf(Buffer));
         if BytesRead > 0 then
-          OutputStr := OutputStr + Copy(PAnsiChar(@Buffer[0]), 1, BytesRead);
+          OutputStr := OutputStr + Copy(pansichar(@Buffer[0]), 1, BytesRead);
       end;
 
       Result := Trim(OutputStr);
@@ -120,7 +120,8 @@ begin
 
       // Уровень громкости
       if Terminated then Exit;
-      FOutput := RunADB('adb shell media volume --stream 3 --get | grep -oP ''volume is \K[0-9]+''');
+      FOutput := RunADB(
+        'adb shell media volume --stream 3 --get | grep -oP ''volume is \K[0-9]+''');
       if (not Terminated) and (FOutput <> '') then
         Synchronize(@ShowVolume);
 
@@ -148,15 +149,16 @@ end;
 procedure TReadSettingsTRD.ShowValue;
 begin
   if Assigned(SettingsForm) then
-  begin
-    if (FOutput = '1') or (FOutput = '1.0') then
-      SettingsForm.CheckGroup1.Checked[FIndex] := True
-    else
-    if FOutput = 'null' then SettingsForm.CheckGroup1.Items[FIndex] :=
-        '(NULL) ' + SettingsForm.CheckGroup1.Items[FIndex]
-    else
-      SettingsForm.CheckGroup1.Checked[FIndex] := False;
-  end;
+    with SettingsForm do
+    begin
+      if (FOutput = '1') or (FOutput = '1.0') then
+        CheckGroup1.Checked[FIndex] := True
+      else
+      if FOutput = 'null' then CheckGroup1.Items[FIndex] :=
+          '(NULL) ' + CheckGroup1.Items[FIndex]
+      else
+        CheckGroup1.Checked[FIndex] := False;
+    end;
 end;
 
 //Уровень громкости
@@ -178,9 +180,7 @@ end;
 procedure TReadSettingsTRD.ShowFontSize;
 begin
   if Assigned(SettingsForm) then
-  begin
     if FOutput <> '' then SettingsForm.ComboBox1.Text := FOutput;
-  end;
 end;
 
 //Старт
