@@ -74,7 +74,7 @@ toolversion=4.2
 3=
 4=v4.0
 5=+ SDManager: Waiting process indicator
-6=+ Cosmetic changes to the entire project code
+6=+ AppManager: Support for Android 4.2+
 7=+ Mageia-9 and Ubuntu >= 25.04 packages
 8=
 9=v3.9

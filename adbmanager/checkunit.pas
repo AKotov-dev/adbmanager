@@ -400,8 +400,9 @@ begin
       //Команда для удаления (замарозки) приложений с учетом старых Android
       for i := 0 to AppListBox.Count - 1 do
         if AppListBox.Checked[i] = True then
-          adbcmd := adbcmd + 'adb shell pm uninstall --user 0 ' +
-            AppListBox.Items[i] + ' || adb shell uninstall ' + AppListBox.Items[i] + ';';
+          adbcmd := adbcmd + 'adb shell "pm uninstall --user 0 ' +
+            AppListBox.Items[i] + ' 2> /dev/null ; pm uninstall ' +
+            AppListBox.Items[i] + ' 2> /dev/null";';
     end
     else //Отключение?
     begin
@@ -409,14 +410,12 @@ begin
       for i := 0 to VList.Count - 1 do
         if AppListBox.Checked[i] <> StrToBool(VList[i]) then
         begin
-          if AppListBox.Checked[i] = True then
-            adbcmd := adbcmd + 'adb shell pm enable --user 0 ' +
-              AppListBox.Items[i] + ' || adb shell pm enable ' +
-              AppListBox.Items[i] + ';'
+          if AppListBox.Checked[i] then
+            adbcmd := adbcmd + 'adb shell "pm enable --user 0 ' +
+              AppListBox.Items[i] + '";'
           else
-            adbcmd := adbcmd + 'adb shell pm disable-user --user 0 ' +
-              AppListBox.Items[i] + ' || adb shell pm disable ' +
-              AppListBox.Items[i] + ';';
+            adbcmd := adbcmd + 'adb shell "pm disable-user --user 0 ' +
+              AppListBox.Items[i] + '";';
         end;
     end;
 

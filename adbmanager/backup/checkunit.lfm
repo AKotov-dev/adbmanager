@@ -1,5 +1,5 @@
 object CheckForm: TCheckForm
-  Left = 335
+  Left = 372
   Height = 555
   Top = 132
   Width = 605
