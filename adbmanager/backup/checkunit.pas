@@ -385,7 +385,6 @@ begin
   //Версия SDK
   RunCommand('adb', ['shell', 'getprop', 'ro.build.version.sdk'], SDK);
   SDK := Trim(SDK);
-  MainForm.LogMemo.Lines.Add('Detected Android SDK: ' + SDK);
 
   try
     //Удаление?
@@ -413,7 +412,7 @@ begin
             adbcmd := adbcmd + 'adb shell "pm uninstall ' +
               AppListBox.Items[i] + '";';
     end
-    else //Отключение?
+    else //Отключение?  Android-4.2+
     begin
       //Команда для отключения приложений (VBox - снимок чекеров списка, взятый из последнего потока)
       for i := 0 to VList.Count - 1 do
