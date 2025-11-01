@@ -8,7 +8,7 @@ interface
 uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, CheckLst, StdCtrls,
   ComCtrls, Buttons, Types, LCLIntf, Menus, ReadAppsTRD,
-  ClipBrd, ExtCtrls, LCLType, IniFiles;
+  ClipBrd, ExtCtrls, LCLType, Process, IniFiles;
 
 type
 
@@ -377,10 +377,15 @@ procedure TCheckForm.ApplyBtnClick(Sender: TObject);
 var
   a: boolean;
   i: integer;
-  adbcmd: string;
+  adbcmd, SDK: string;
 begin
   a := False;
   adbcmd := '';
+
+  //Версия SDK
+  RunCommand('adb', ['shell', 'getprop', 'ro.build.version.sdk'], SDK);
+  SDK := Trim(SDK);
+
   try
     //Удаление?
     if ModeBox.Checked then
@@ -400,9 +405,12 @@ begin
       //Команда для удаления (замарозки) приложений с учетом старых Android
       for i := 0 to AppListBox.Count - 1 do
         if AppListBox.Checked[i] = True then
-          adbcmd := adbcmd + 'adb shell "pm uninstall --user 0 ' +
-            AppListBox.Items[i] + ' 2> /dev/null ; pm uninstall ' +
-            AppListBox.Items[i] + ' 2> /dev/null";';
+          if StrToIntDef(SDK, 0) >= 21 then  // Android 5.0+
+            adbcmd := adbcmd + 'adb shell "pm uninstall --user 0 ' +
+              AppListBox.Items[i] + '";'
+          else
+            adbcmd := adbcmd + 'adb shell "pm uninstall ' +
+              AppListBox.Items[i] + '";';
     end
     else //Отключение?
     begin
