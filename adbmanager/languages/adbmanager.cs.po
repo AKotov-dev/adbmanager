@@ -183,7 +183,7 @@ msgstr ""
 
 #: tmainform.applistbtn.hint
 msgctxt "tmainform.applistbtn.hint"
-msgid "Android 4.2+"
+msgid "Android 4+"
 msgstr ""
 
 #: tmainform.caption

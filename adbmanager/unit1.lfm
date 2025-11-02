@@ -560,7 +560,7 @@ object MainForm: TMainForm
     object AppListBtn: TToolButton
       Tag = 4
       Left = 265
-      Hint = 'Android 4.2+'
+      Hint = 'Android 4+'
       Top = 2
       Caption = 'applications'
       ImageIndex = 4
