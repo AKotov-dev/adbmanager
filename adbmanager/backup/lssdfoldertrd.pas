@@ -135,7 +135,9 @@ end;
 //Окончание операции
 procedure StartLSSD.HideProgress;
 begin
-  MainForm.SDCardBtn.Enabled := True;
+  if Assigned(MainForm) then
+    MainForm.SDCardBtn.Enabled := True;
+
   if Assigned(SDForm) then
     with SDForm do
     begin

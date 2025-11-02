@@ -127,6 +127,7 @@ begin
     with SDForm do
     begin
       SDChangeBtn.Enabled := False;
+      Application.ProcessMessages;
       ProgressBar1.Style := pbstMarquee;
       ProgressBar1.Refresh;
     end;
@@ -142,6 +143,7 @@ begin
     with SDForm do
     begin
       SDChangeBtn.Enabled := True;
+      Application.ProcessMessages;
       ProgressBar1.Style := pbstNormal;
       ProgressBar1.Refresh;
     end;

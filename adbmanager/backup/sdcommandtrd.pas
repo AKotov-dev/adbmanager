@@ -107,7 +107,9 @@ end;
 { Старт индикатора }
 procedure TStartSDCommand.StartProgress;
 begin
-  MainForm.SDCardBtn.Enabled := False;
+  if Assigned(MainForm) then
+    MainForm.SDCardBtn.Enabled := False;
+
   if Assigned(SDForm) then
     with SDForm do
     begin

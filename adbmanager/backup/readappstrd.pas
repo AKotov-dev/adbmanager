@@ -181,7 +181,9 @@ end;
 //Стартуем прогресс
 procedure TReadAppsTRD.StartRead;
 begin
-  MainForm.AppListBtn.Enabled := False;
+  if Assigned(MainForm) then
+    MainForm.AppListBtn.Enabled := False;
+
   if Assigned(CheckForm) then
     with CheckForm do
     begin
@@ -199,7 +201,9 @@ procedure TReadAppsTRD.StopRead;
 var
   i, j: integer;
 begin
-  MainForm.AppListBtn.Enabled := True;
+  if Assigned(MainForm) then
+    MainForm.AppListBtn.Enabled := True;
+
   if Assigned(CheckForm) then
     with CheckForm do
     begin

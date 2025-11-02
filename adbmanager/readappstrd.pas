@@ -190,6 +190,7 @@ begin
       ModeBox.Enabled := False;
       ApplyBtn.Enabled := False;
       ProgressBar1.BringToFront;
+      Application.ProcessMessages;
       ProgressBar1.Style := pbstMarquee;
       ProgressBar1.Visible := True;
       ProgressBar1.Repaint;
@@ -232,6 +233,7 @@ begin
 
       ModeBox.Enabled := True;
       ApplyBtn.Enabled := True;
+      Application.ProcessMessages;
       ProgressBar1.Style := pbstNormal;
       ProgressBar1.Visible := False;
       ProgressBar1.Repaint;

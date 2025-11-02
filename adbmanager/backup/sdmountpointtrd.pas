@@ -131,6 +131,7 @@ begin
   if Assigned(SDForm) then
     with SDForm do
     begin
+      //Кнопка поиска SDCard
       SDChangeBtn.Enabled := False;
 
       //Старт индикатора
@@ -153,12 +154,14 @@ begin
         //Заголовок на первую существующую точку монтирования, если не открывалась ранее
         if SDMountPoint.IndexOf(GroupBox2.Caption) = -1 then
           GroupBox2.Caption := SDMountPoint[0];
+        //Кнопка поиска SDCard
         SDChangeBtn.Enabled := True;
       end
       else
         //Если список точек монтирования пуст
       begin
         GroupBox2.Caption := '/sdcard/';
+        //Кнопка поиска SDCard
         SDChangeBtn.Enabled := False;
       end;
 

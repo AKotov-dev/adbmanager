@@ -135,6 +135,7 @@ begin
       SDChangeBtn.Enabled := False;
 
       //Старт индикатора
+      Application.ProcessMessages;
       ProgressBar1.Style := pbstMarquee;
       ProgressBar1.Refresh;
     end;
@@ -166,6 +167,7 @@ begin
       end;
 
       //Останов индикатора
+      Application.ProcessMessages;
       ProgressBar1.Style := pbstNormal;
       ProgressBar1.Refresh;
 

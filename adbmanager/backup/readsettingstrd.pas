@@ -176,7 +176,7 @@ begin
   end;
 end;
 
-//Размер шрифта
+//Показать размер системного шрифта
 procedure TReadSettingsTRD.ShowFontSize;
 begin
   if Assigned(SettingsForm) then
@@ -186,7 +186,9 @@ end;
 //Старт
 procedure TReadSettingsTRD.StartRead;
 begin
-  MainForm.SettingsBtn.Enabled := False;
+  if Assigned(MainForm) then
+    MainForm.SettingsBtn.Enabled := False;
+
   if Assigned(SettingsForm) then
     with SettingsForm do
     begin
@@ -200,7 +202,8 @@ end;
 //Стоп
 procedure TReadSettingsTRD.StopRead;
 begin
-  MainForm.SettingsBtn.Enabled := True;
+  if Assigned(MainForm) then
+    MainForm.SettingsBtn.Enabled := True;
   if Assigned(SettingsForm) then
     with SettingsForm do
     begin

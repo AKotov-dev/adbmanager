@@ -115,6 +115,7 @@ begin
     begin
       Panel4.Caption := SCancelCopyng;
       SDMemo.Clear;
+      Application.ProcessMessages;
       ProgressBar1.Style := pbstMarquee;
       ProgressBar1.Refresh;
     end;
@@ -130,6 +131,7 @@ begin
     with SDForm do
     begin
       Panel4.Caption := '';
+      Application.ProcessMessages;
       ProgressBar1.Style := pbstNormal;
       ProgressBar1.Refresh;
 
