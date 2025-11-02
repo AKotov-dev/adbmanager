@@ -32,8 +32,10 @@ Two separate builds are available in the same source tree.
 + adbmanager → GTK2
 + adbmanager-qt → Qt6
 
-**Note:** Building `Qt6` in Mageia requires installing the `qt6pas` and `qt6pas-devel` packages.
-
+**Note:** Building `Qt6` in Mageia requires installing the `qt6pas` and `qt6pas-devel` packages.  
+  
+Starting with `v4.0`, the functions for searching and deleting applications have been moved to AppManager.
+  
 Starting with `v3.8`, you can now export a complete list of installed packages and their states (enabled/disabled) through the **PopUpMenu**. This is useful for experimenting with disabling unnecessary packages to speed up your device. For package list analysis, you can consult **ChatGPT** or other experienced users. The author is not responsible for any consequences from changes, so make sure to back up your data.
   
 Starting with `v3.7`, a double click in the SDCard manager opens 40+ file formats (multimedia, documents, archives, etc.) via `xdg-open`. Of course, the appropriate applications must be installed on the computer to open them.
