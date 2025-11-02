@@ -1,12 +1,12 @@
 object MainForm: TMainForm
   Left = 312
-  Height = 625
+  Height = 598
   Top = 126
-  Width = 837
+  Width = 793
   ActiveControl = Panel1
   Caption = 'ADBManager'
-  ClientHeight = 625
-  ClientWidth = 837
+  ClientHeight = 598
+  ClientWidth = 793
   KeyPreview = True
   LCLVersion = '4.2.0.0'
   OnClose = FormClose
@@ -18,7 +18,7 @@ object MainForm: TMainForm
     Left = 0
     Height = 85
     Top = 0
-    Width = 837
+    Width = 793
     AutoSize = True
     ButtonHeight = 80
     ButtonWidth = 80
@@ -76,8 +76,8 @@ object MainForm: TMainForm
   object StaticText1: TStaticText
     Left = 0
     Height = 20
-    Top = 605
-    Width = 837
+    Top = 578
+    Width = 793
     Align = alBottom
     Caption = 'License: GPLv3   Author: alex_q_2000 (C) 2025   URL: https://github.com/AKotov-dev/adbmanager'
     Color = clDefault
@@ -96,9 +96,9 @@ object MainForm: TMainForm
     AnchorSideRight.Side = asrBottom
     AnchorSideBottom.Control = StaticText1
     Left = 0
-    Height = 394
+    Height = 367
     Top = 211
-    Width = 837
+    Width = 793
     ActivePage = DevSheet
     Anchors = [akTop, akLeft, akRight, akBottom]
     Font.Height = -13
@@ -109,17 +109,17 @@ object MainForm: TMainForm
     TabOrder = 2
     object DevSheet: TTabSheet
       Caption = 'no device'
-      ClientHeight = 357
-      ClientWidth = 831
+      ClientHeight = 330
+      ClientWidth = 787
       Font.Height = -13
       Font.Name = 'Sans'
       Font.Style = [fsBold]
       ParentFont = False
       object LogMemo: TMemo
         Left = 0
-        Height = 357
+        Height = 330
         Top = 0
-        Width = 831
+        Width = 787
         Align = alClient
         BorderStyle = bsNone
         Font.Height = -13
@@ -136,11 +136,11 @@ object MainForm: TMainForm
     Left = 0
     Height = 34
     Top = 85
-    Width = 837
+    Width = 793
     Align = alTop
     BevelOuter = bvNone
     ClientHeight = 34
-    ClientWidth = 837
+    ClientWidth = 793
     TabOrder = 3
     object Label1: TLabel
       AnchorSideTop.Control = Panel1
@@ -460,7 +460,7 @@ object MainForm: TMainForm
       AnchorSideTop.Side = asrCenter
       AnchorSideRight.Control = Panel1
       AnchorSideRight.Side = asrBottom
-      Left = 628
+      Left = 584
       Height = 18
       Hint = 'Total / Available (%)'
       Top = 8
@@ -479,7 +479,7 @@ object MainForm: TMainForm
     Left = 0
     Height = 66
     Top = 145
-    Width = 837
+    Width = 793
     AutoSize = True
     ButtonHeight = 64
     ButtonWidth = 64
@@ -505,6 +505,7 @@ object MainForm: TMainForm
       ImageIndex = 3
       ParentShowHint = False
       ShowHint = True
+      Visible = False
       OnClick = ApkInfoBtnClick
     end
     object ScreenShotBtn: TToolButton
@@ -529,6 +530,7 @@ object MainForm: TMainForm
       Top = 2
       Caption = 'search apk'
       ImageIndex = 1
+      Visible = False
       OnClick = ApkInfoBtnClick
     end
     object EmulatorBtn: TToolButton
@@ -583,7 +585,7 @@ object MainForm: TMainForm
     Left = 0
     Height = 26
     Top = 119
-    Width = 837
+    Width = 793
     Align = alTop
     BevelOuter = bvNone
     Caption = 'Device Management'
@@ -595,7 +597,7 @@ object MainForm: TMainForm
   end
   object ProgressBar1: TProgressBar
     AnchorSideTop.Control = PageControl1
-    Left = 598
+    Left = 554
     Height = 12
     Top = 216
     Width = 232

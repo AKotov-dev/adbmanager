@@ -505,6 +505,7 @@ object MainForm: TMainForm
       ImageIndex = 3
       ParentShowHint = False
       ShowHint = True
+      Visible = False
       OnClick = ApkInfoBtnClick
     end
     object ScreenShotBtn: TToolButton
@@ -529,6 +530,7 @@ object MainForm: TMainForm
       Top = 2
       Caption = 'search apk'
       ImageIndex = 1
+      Visible = False
       OnClick = ApkInfoBtnClick
     end
     object EmulatorBtn: TToolButton
