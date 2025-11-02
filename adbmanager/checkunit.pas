@@ -360,6 +360,8 @@ begin
     FreeAndNil(FReadThread);
   end;
 
+  MainForm.AppListBtn.Enabled := True;
+
   //обязательно дождаться завершения потока
   Application.ProcessMessages;
   Sleep(20);               //дать системе "отдышаться"

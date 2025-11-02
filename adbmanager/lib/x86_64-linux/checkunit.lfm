@@ -1,7 +1,7 @@
 object CheckForm: TCheckForm
-  Left = 372
+  Left = 326
   Height = 555
-  Top = 132
+  Top = 127
   Width = 605
   ActiveControl = Edit1
   Caption = 'Enable/Disable/Uninstall applications'

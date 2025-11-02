@@ -589,7 +589,7 @@ begin
   end;
 
   if s <> '' then
-    Clipboard.AsText := s;
+    Clipboard.AsText := Trim(s);
 end;
 
 end.

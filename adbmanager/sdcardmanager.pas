@@ -187,7 +187,7 @@ begin
   Result := StringReplace(Result, '&', '\&', [rfReplaceAll]);
 end;
 
-//Асинхронный запуск вспомогательных команд
+//Cинхронный запуск вспомогательных команд
 procedure TSDForm.StartProcess(command: string);
 var
   ExProcess: TProcess;
@@ -447,6 +447,8 @@ end;
 procedure TSDForm.FormClose(Sender: TObject; var CloseAction: TCloseAction);
 begin
   try
+    MainForm.SDCardBtn.Enabled := True;
+
     CancelCopy;
     SDBox.Clear;
 

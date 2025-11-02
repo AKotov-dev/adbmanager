@@ -159,6 +159,8 @@ begin
     FreeAndNil(FCPUTempTRD);
   end;
 
+  MainForm.SettingsBtn.Enabled := True;
+
   Application.ProcessMessages;
   Sleep(20);
   SaveSettings;

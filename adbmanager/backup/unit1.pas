@@ -493,8 +493,11 @@ begin
       until S <> '';
     end;
 
-    4: //Отключение/Удаление приложений
+    4: //Поиск/Отключение/Удаление приложений
     begin
+      //если adb выполняется - выйти
+      if (ProgressBar1.Style in [pbstMarquee]) then Exit;
+
       if not CheckForm.Visible then
         CheckForm.Show
       else
@@ -507,6 +510,9 @@ begin
 
     5: //SD-Card Manager
     begin
+      //если adb выполняется - выйти
+      if (ProgressBar1.Style in [pbstMarquee]) then Exit;
+
       if not SDForm.Visible then
         SDForm.Show
       else
@@ -547,6 +553,9 @@ begin
 
     8: //Настройки Android
     begin
+      //если adb выполняется - выйти
+      if (ProgressBar1.Style in [pbstMarquee]) then Exit;
+
       if not SettingsForm.Visible then
         SettingsForm.Show
       else

@@ -109,7 +109,7 @@
         <IsPartOfProject Value="True"/>
         <UnitName Value="ADBCommandTRD"/>
         <EditorIndex Value="-1"/>
-        <CursorPos X="46" Y="8"/>
+        <CursorPos X="21"/>
         <UsageCount Value="200"/>
       </Unit3>
       <Unit4>
@@ -159,7 +159,7 @@
         <UnitName Value="EmulatorUnit"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="20"/>
-        <UsageCount Value="180"/>
+        <UsageCount Value="181"/>
       </Unit8>
       <Unit9>
         <Filename Value="sdmountpointtrd.pas"/>
@@ -167,7 +167,7 @@
         <UnitName Value="SDMountPointTRD"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="23"/>
-        <UsageCount Value="167"/>
+        <UsageCount Value="168"/>
       </Unit9>
       <Unit10>
         <Filename Value="checkunit.pas"/>
@@ -178,7 +178,7 @@
         <UnitName Value="CheckUnit"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="17"/>
-        <UsageCount Value="164"/>
+        <UsageCount Value="165"/>
       </Unit10>
       <Unit11>
         <Filename Value="readappstrd.pas"/>
@@ -186,7 +186,7 @@
         <UnitName Value="ReadAppsTRD"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="19"/>
-        <UsageCount Value="163"/>
+        <UsageCount Value="164"/>
       </Unit11>
       <Unit12>
         <Filename Value="settings_unit.pas"/>
@@ -197,7 +197,7 @@
         <UnitName Value="Settings_Unit"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="21"/>
-        <UsageCount Value="149"/>
+        <UsageCount Value="150"/>
       </Unit12>
       <Unit13>
         <Filename Value="readsettingstrd.pas"/>
@@ -205,7 +205,7 @@
         <UnitName Value="ReadSettingsTRD"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="23"/>
-        <UsageCount Value="146"/>
+        <UsageCount Value="147"/>
       </Unit13>
       <Unit14>
         <Filename Value="xdgopentrd.pas"/>
@@ -213,7 +213,7 @@
         <UnitName Value="XDGOpenTRD"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="18"/>
-        <UsageCount Value="111"/>
+        <UsageCount Value="112"/>
       </Unit14>
       <Unit15>
         <Filename Value="cputemperaturetrd.pas"/>
@@ -221,7 +221,7 @@
         <UnitName Value="CPUTemperatureTRD"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="25"/>
-        <UsageCount Value="49"/>
+        <UsageCount Value="50"/>
       </Unit15>
       <Unit16>
         <Filename Value="writesettingstrdunit.pas"/>
@@ -309,15 +309,4 @@
       <Modes ActiveMode=""/>
     </RunParams>
   </ProjectSession>
-  <Debugging>
-    <BreakPoints>
-      <Item>
-        <Kind Value="bpkSource"/>
-        <WatchScope Value="wpsLocal"/>
-        <WatchKind Value="wpkWrite"/>
-        <Source Value="sdcardmanager.pas"/>
-        <Line Value="207"/>
-      </Item>
-    </BreakPoints>
-  </Debugging>
 </CONFIG>

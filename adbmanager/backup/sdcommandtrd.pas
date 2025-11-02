@@ -58,6 +58,7 @@ begin
     ExProcess.Parameters.Add(FSDCmd);
     ExProcess.Options := [poUsePipes, poStderrToOutPut];
 
+    if Terminated then Exit;
     ExProcess.Execute;
 
     while ExProcess.Running or (ExProcess.Output.NumBytesAvailable > 0) do
@@ -76,6 +77,7 @@ begin
         begin
           S := Copy(Acc, 1, LinePos - 1);
           FTempLine := S;
+          if Terminated then Exit;
           Synchronize(@ShowTempLine); // добавляем строку в Memo
           Delete(Acc, 1, LinePos + Length(LineEnding) - 1);
           LinePos := Pos(LineEnding, string(Acc));
@@ -87,13 +89,15 @@ begin
     // Вывод остатка
     if Acc <> '' then
     begin
+      if Terminated then Exit;
       FTempLine := string(Acc);
       Synchronize(@ShowTempLine);
     end;
 
   finally
     ExProcess.Free;
-    Synchronize(@StopProgress);
+    if not Terminated then
+      Synchronize(@StopProgress);
   end;
 end;
 
@@ -115,6 +119,7 @@ begin
     begin
       Panel4.Caption := SCancelCopyng;
       SDMemo.Clear;
+      Application.ProcessMessages;
       ProgressBar1.Style := pbstMarquee;
       ProgressBar1.Refresh;
     end;
@@ -130,6 +135,7 @@ begin
     with SDForm do
     begin
       Panel4.Caption := '';
+      Application.ProcessMessages;
       ProgressBar1.Style := pbstNormal;
       ProgressBar1.Refresh;
 
