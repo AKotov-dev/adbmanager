@@ -384,7 +384,7 @@ begin
 
   //Версия SDK
   RunCommand('adb', ['shell', 'getprop', 'ro.build.version.sdk'], SDK);
-  SDK := Trim(SDK);
+  SDK := Trim(SDK); // >= 21 then Android 5.0+
 
   try
     //Удаление?
