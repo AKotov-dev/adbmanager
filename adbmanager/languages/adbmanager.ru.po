@@ -453,8 +453,8 @@ msgstr ""
 
 #: tsettingsform.label1.caption
 msgctxt "tsettingsform.label1.caption"
-msgid "System font size (Default=1.0)"
-msgstr "Размер системного шрифта (Default=1.0)"
+msgid "System font size (Default 1.0)"
+msgstr "Размер системного шрифта (Default 1.0)"
 
 #: tsettingsform.label1.hint
 msgid "Menus, panels, messages, etc."

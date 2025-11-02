@@ -1,7 +1,7 @@
 object SettingsForm: TSettingsForm
-  Left = 370
+  Left = 314
   Height = 586
-  Top = 144
+  Top = 140
   Width = 684
   Caption = 'Android TV Box settings'
   ClientHeight = 586
@@ -17,7 +17,7 @@ object SettingsForm: TSettingsForm
     AnchorSideTop.Side = asrCenter
     AnchorSideBottom.Control = Owner
     AnchorSideBottom.Side = asrBottom
-    Left = 189
+    Left = 184
     Height = 37
     Top = 539
     Width = 106
@@ -102,8 +102,8 @@ object SettingsForm: TSettingsForm
     Height = 17
     Hint = 'Menus, panels, messages, etc.'
     Top = 549
-    Width = 177
-    Caption = 'System font size (Default=1.0)'
+    Width = 172
+    Caption = 'System font size (Default 1.0)'
     ParentShowHint = False
     ShowHint = True
   end
@@ -113,10 +113,10 @@ object SettingsForm: TSettingsForm
     AnchorSideTop.Control = ComboBox1
     AnchorSideTop.Side = asrCenter
     AnchorSideRight.Control = ApplyBtn
-    Left = 305
+    Left = 300
     Height = 12
     Top = 551
-    Width = 242
+    Width = 247
     Anchors = [akTop, akLeft, akRight]
     BorderSpacing.Left = 10
     BorderSpacing.Right = 10
