@@ -1,7 +1,7 @@
 object MainForm: TMainForm
-  Left = 322
+  Left = 312
   Height = 625
-  Top = 125
+  Top = 126
   Width = 837
   ActiveControl = Panel1
   Caption = 'ADBManager'
@@ -560,7 +560,7 @@ object MainForm: TMainForm
     object AppListBtn: TToolButton
       Tag = 4
       Left = 265
-      Hint = 'Android 5+'
+      Hint = 'Android 4.2+'
       Top = 2
       Caption = 'applications'
       ImageIndex = 4

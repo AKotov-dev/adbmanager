@@ -187,7 +187,7 @@ msgstr "приложения"
 
 #: tmainform.applistbtn.hint
 msgctxt "tmainform.applistbtn.hint"
-msgid "Android 5+"
+msgid "Android 4.2+"
 msgstr ""
 
 #: tmainform.caption
@@ -545,3 +545,4 @@ msgstr "Введите строку поиска или *"
 #: unit1.syes
 msgid "yes"
 msgstr "да"
+
