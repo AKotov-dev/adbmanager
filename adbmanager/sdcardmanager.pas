@@ -87,7 +87,7 @@ type
     procedure CancelCopy;
 
     //Запуск произвольных команд BASH
-    procedure StartProcess(command: string);
+    //   procedure StartProcess(command: string);
 
     procedure SaveSettings;
     procedure LoadSettings;
@@ -188,7 +188,7 @@ begin
 end;
 
 //Cинхронный запуск вспомогательных команд
-procedure TSDForm.StartProcess(command: string);
+{ procedure TSDForm.StartProcess(command: string);
 var
   ExProcess: TProcess;
 begin
@@ -203,6 +203,7 @@ begin
     ExProcess.Free;
   end;
 end;
+}
 
 //Апдейт текущей директории CompDir (ShellTreeView)
 procedure TSDForm.CompDirUpdate;
@@ -226,7 +227,7 @@ end;
 procedure TSDForm.CancelCopy;
 begin
   // Убиваем все adb push, adb pull процессы одной командой
-  StartProcess('pkill -f "adb push|adb pull"');
+  MainForm.StartProcess('pkill -f "adb push|adb pull"');
 end;
 
 //На уровень вверх
