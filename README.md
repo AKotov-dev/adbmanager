@@ -73,6 +73,7 @@ Connecting via ADB over Wi-Fi
 #### Possible errors when installing packages
 + [INSTALL_FAILED_NO_MATCHING_ABIS: ...] - the package architecture is not suitable for your device
 + [INSTALL_FAILED_ALREADY_EXISTS: ...] - before installing, remove the previous package with this name
++ [INSTALL_FAILED_UPDATE_INCOMPATIBLE: ...] - the package signature does not match the installed version; uninstall the previous package before installing
 
 #### Recommendations for installing XAPK packages
 1. Download files only from trusted and verified sources to minimize the risk of infecting your device with malware
