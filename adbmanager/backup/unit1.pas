@@ -94,7 +94,7 @@ resourcestring
 
   //SErrorFileCopy = 'Error copying file from device!';
 
-  SClearDownloadManager = 'This will remove:' + LineEnding +
+  SClearDownloadManager = 'This will remove:' + LineEnding + '---' + LineEnding +
     '• download history' + LineEnding + '• unfinished downloads' +
     LineEnding + '• Download Manager data' + LineEnding  +LineEnding + 'Continue?';
 
