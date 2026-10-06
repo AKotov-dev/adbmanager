@@ -1,0 +1,175 @@
+[NAME]
+name=adbmanager
+
+[VERSION]
+version=4.1
+
+[RELEASE]
+release=0.fc44
+
+[GROUP]
+group=Applications/System
+
+[DESCRIPTION]
+0=The program is designed for visual and easy management of the ADB and connection of Android devices
+1=---
+2=More information: /usr/share/doc/package_name/repack.txt
+
+[MAINTAINER]
+maintainer=Alex Kotov
+
+[VENDOR]
+vendor=alex_q_2000 (C) 2026
+
+[SUMMARY]
+summary=Manager for Android devices using ADB
+
+[URLCOPY]
+urlcopy=https://github.com/AKotov-dev/adbmanager
+
+[LICENSE]
+license=GPLv3
+
+[DEPS]
+deps=adb iproute sakura nmap p7zip 7zip GraphicsMagick xdg-utils qt6-qtbase-common qt6pas gtk2
+
+[META]
+meta=0
+
+[NOARCH]
+noarch=0
+
+[DEB]
+deb=0
+
+[FILES]
+0=/usr/bin/adbmanager
+1=/usr/share/icons/adbmanager.png
+2=/usr/share/applications/adbmanager.desktop
+3=/usr/share/adbmanager/
+4=/usr/share/doc/adbmanager/
+5=/usr/bin/adbmanager-qt
+6=/usr/share/icons/adbmanager-qt.png
+7=/usr/share/applications/adbmanager-qt.desktop
+
+[AFTERINSTALL]
+0=[ $(grep "adbusers" /etc/group) ] || groupadd adbusers
+
+[URL32]
+url32=https://github.com/AKotov-dev/adbmanager
+
+[PROGRAMNAME]
+programname=ADBManager
+
+[DEVTOOL]
+devtool=Lazarus
+
+[TOOLVERSION]
+toolversion=4.4
+
+[INFO]
+0=The program is designed for visual and easy management of the ADB and connection
+1=of Android smartphones. Allows you to monitor the status of the "adb" service,
+2=manage it, and control the list of connected devices.
+3=
+4=v4.1
+5=+ Package installation / update: added the `-r` option
+6=+ Android TV Box Settings: added a **Clear Download Manager data** button
+7=+ Added packages for **Mageia 10** and **Ubuntu ≥ 25.04**
+8=
+9=v4.0
+10=+ Build in Lazarus-4.4
+11=+ SDManager: Waiting process indicator
+12=+ AppManager: Support for Android 4.2+
+13=+ Moving app search and removal to AppManager
+14=+ Mageia-9 and Ubuntu >= 25.04 packages
+15=+ Added RPM packages for Mageia-10 (UPD: 210426)
+16=
+17=v3.9
+18=+ Improved inter-thread synchronization
+19=+ Improved scaling/saving of form settings
+20=+ Handling xdg-open errors on broken files
+21=+ Android TV Box: CPU temperature indicator (°C)
+22=+ Mageia-9 and Ubuntu >= 25.04 packages
+23=
+24=v3.8
+25=+ Added `ADBManager-Qt` version (Qt6 widgets)
+26=+ RPM dependencies: added `qtbase6-common`, `qt6pas`
+27=+ DEB dependencies: added `libqt6core6`, `libqt6gui6`, `libqt6widgets6`, `libqt6network6`, `libqt6printsupport6`, `libqt6pas6`
+28=+ Added a RAM device indicator: Total / Available (%)
+29=+ Improved overall multithreading and responsiveness
+30=+ Improved switching of devices in offline status (TCP/IP)
+31=+ Improved the procedure for stopping package installations
+32=+ Mageia-9 and Ubuntu >= 25.04 packages
+33=
+34=**Note:** Build for maintainers: `lazbuild --build-mode=Release adbmanager.lpi` and `lazbuild --build-mode=Qt6 adbmanager.lpi`. Build in Lazarus in two modes: `Release` and `Qt6`. For Mageia 9, a backport from Mageia 10 has been published here: lib64qt6pas6 and lib64qt6pas-devel.
+35=
+36=v3.7
+37=+ Dependencies RPM/DEB: added `xdg-utils`
+38=+ Dependencies RPM/DEB: replace `imagemagick` with `graphicsmagick`
+39=+ Improved application list output stream
+40=+ Improved SDCard manager for different DPI (text alignment)
+41=+ Improved package search in the application manager (multiselect)
+42=+ Double-clicking in the SDCard manager opens files using xdg-open
+43=+ Mageia-9 and Debian packages
+44=
+45=v3.6
+46=+ Icons in the app list if `IconExtractor.akp` is installed on the smartphone
+47=+ Added RPM/DEB dependency: `imagemagick`
+48=+ Mageia-9 and Debian packages
+49=
+50=**Note:** To display original icons in the application list, please install the [IconExtractor.apk](https://github.com/AKotov-dev/adbmanager/tree/main/IconExtractor) package on your smartphone. Installation of the package is optional.
+51=
+52=v3.5
+53=+ Build in Lazarus-4.2
+54=+ Devision by Zero bug fixed
+55=+ Auto-scaling of SD card manager panels
+56=+ Mageia-9 and Debian packages
+57=
+58=Recommended to delete the configuration directory: rm -rf ~/.adbmanager
+59=
+60=v3.4
+61=+ Fine-tuning for Android TV Box
+62=+ Mageia-9 and Debian packages + AppImage
+63=
+64=**Note:** Chinese Android TV Boxes often have stripped-down launchers installed, in which it is impossible to adjust the volume with the remote control, automatic updates and synchronization of Google accounts are not disabled, and there is even no control over system sounds (remote control clicks, etc.). In addition, excessive interface animation with a small amount of memory reduces the overall performance of the device. Now all this can be configured via ADB.
+65=
+66=v3.3
+67=+ Added dependency `p7zip`
+68=+ Cancel bulk package installation with `Esc`
+69=+ Request to cancel package installation on exit
+70=+ Improved procedure for canceling file copying
+71=+ Multi installation of packages APK, APKS, XAPK
+72=+ Mageia-9 and Debian packages + AppImage
+73=
+74=**Note:** Installation of `XAPK`packages with a single package architecture (32 bits or 64 bits) is supported. The presence of packages of both architectures (32 bits + 64 bits) in `XAPK` is not supported.
+75=
+76=v3.2
+77=+ Recompiling to Lazarus-3.8
+78=+ SD_Card Manager: Show Hidden Files
+79=
+80=**Note:** Be careful when working with hidden files. Do not delete or overwrite them unless necessary.
+81=
+82=v3.1
+83=+ Exception of adb backup and restore; [Obsolete/Deprecated](https://issuetracker.google.com/issues/37096097)
+84=+ Mageia-8/9 and Debian packages
+85=
+86=Note: Uninstalled apps are installed from Google Play [Barmalei » 17 feb 2023, 10:38](https://forum.rosalinux.ru/viewtopic.php?f=58&p=112751#p112751)
+87=
+88=v3.0
+89=+ Deleting cache/data when uninstalling a system application
+90=+ Mageia-8/9 and Debian packages
+91=
+92=v2.9
+93=+ Removing non-removable applications (Android >= 6)
+94=+ Mageia-8/9 and Debian packages
+95=
+96=v2.8
+97=+ Enabling/Disabling applications
+98=+ Mageia-8/9 and Debian packages
+99=+ Recompilation in Lazarus 2.2.4
+100=
+101=v2.7
+102=+ Improved display of device and key statuses
+103=+ Excluded the title from sakura terminal  (bug: https://github.com/dabisu/sakura/issues/16)
+104=+ Release for Mageia-9 and higher
