@@ -72,7 +72,7 @@ Connecting via ADB over Wi-Fi
 ![](https://github.com/AKotov-dev/adbmanager/blob/main/ScreenShots/Main1.png)  
 #### Possible errors when installing packages
 + [INSTALL_FAILED_NO_MATCHING_ABIS: ...] - the package architecture is not suitable for your device
-+ [INSTALL_FAILED_ALREADY_EXISTS: ...] - before installing, remove the previous package with this name
++ [INSTALL_FAILED_VERSION_DOWNGRADE: ...] - the package version is lower than the installed version; uninstall the previous package before installing
 + [INSTALL_FAILED_UPDATE_INCOMPATIBLE: ...] - the package signature does not match the installed version; uninstall the previous package before installing
 
 #### Recommendations for installing XAPK packages
