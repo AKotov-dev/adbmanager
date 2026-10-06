@@ -141,6 +141,10 @@ procedure TEmulatorForm.FormShow(Sender: TObject);
 begin
   //For Plasma
   LoadSettings;
+
+  //В центр MainForm
+  EmulatorForm.Left := MainForm.Left + MainForm.Width div 2 - EmulatorForm.Width div 2;
+  EmulatorForm.Top := MainForm.Top + MainForm.Height div 2 - EmulatorForm.Height div 2;
 end;
 
 procedure TEmulatorForm.FormClose(Sender: TObject; var CloseAction: TCloseAction);

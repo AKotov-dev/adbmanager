@@ -119,6 +119,10 @@ procedure TRebootForm.FormShow(Sender: TObject);
 begin
   //For Plasma
   LoadSettings;
+
+  //В центр MainForm
+  RebootForm.Left := MainForm.Left + MainForm.Width div 2 - RebootForm.Width div 2;
+  RebootForm.Top := MainForm.Top + MainForm.Height div 2 - RebootForm.Height div 2;
 end;
 
 end.

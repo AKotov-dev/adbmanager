@@ -1,15 +1,14 @@
 object RebootForm: TRebootForm
-  Left = 470
+  Left = 415
   Height = 189
-  Top = 173
+  Top = 207
   Width = 433
   ActiveControl = OKBtn
   Caption = 'Reboot/Shutdown'
   ClientHeight = 189
   ClientWidth = 433
   FormStyle = fsStayOnTop
-  Position = poMainFormCenter
-  LCLVersion = '4.2.0.0'
+  LCLVersion = '4.4.0.0'
   OnClose = FormClose
   OnCreate = FormCreate
   OnShow = FormShow

@@ -94,9 +94,9 @@ resourcestring
 
   //SErrorFileCopy = 'Error copying file from device!';
 
-  SClearDownloadManager = 'This will remove:' + LineEnding + '---' + LineEnding +
-    '• download history' + LineEnding + '• unfinished downloads' +
-    LineEnding + '• Download Manager data' + LineEnding  +LineEnding + 'Continue?';
+  SClearDownloadManager = 'This will remove:' + LineEnding + '---' +
+    LineEnding + '• download history' + LineEnding + '• unfinished downloads' +
+    LineEnding + '• Download Manager data' + LineEnding + LineEnding + 'Continue?';
 
   SFileNotValid = 'The file does not match the current list of packages!';
   SADBNotFound = 'ADB not found!';

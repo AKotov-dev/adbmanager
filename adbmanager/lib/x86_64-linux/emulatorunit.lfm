@@ -1,7 +1,7 @@
 object EmulatorForm: TEmulatorForm
-  Left = 404
+  Left = 341
   Height = 201
-  Top = 155
+  Top = 145
   Width = 454
   ActiveControl = Edit1
   Caption = 'Connection/Scanning'
@@ -9,8 +9,7 @@ object EmulatorForm: TEmulatorForm
   ClientWidth = 454
   FormStyle = fsStayOnTop
   KeyPreview = True
-  Position = poMainFormCenter
-  LCLVersion = '4.2.0.0'
+  LCLVersion = '4.4.0.0'
   OnClose = FormClose
   OnCreate = FormCreate
   OnKeyDown = FormKeyDown

@@ -227,7 +227,7 @@ end;
 procedure TSDForm.CancelCopy;
 begin
   // Убиваем все adb push, adb pull процессы одной командой
-  StartProcess('pkill -f "adb push|adb pull"');
+  MainForm.StartProcess('pkill -f "adb push|adb pull"');
 end;
 
 //На уровень вверх
