@@ -235,7 +235,7 @@ begin
     S.Add('# Function to install a single APK');
     S.Add('install_apk() {');
     S.Add('    echo "Installing APK: $1 (Esc - Cancel)"');
-    S.Add('    if ! "$ADB_CMD" install "$1"; then');
+    S.Add('    if ! "$ADB_CMD" install -r "$1"; then');
     S.Add('        echo "Installation failed for APK: $1"');
     S.Add('        exit 1  # Exit immediately if installation fails');
     S.Add('    fi');
@@ -245,7 +245,7 @@ begin
     S.Add('# Function to install multiple APKs (split APKs)');
     S.Add('install_multiple_apks() {');
     S.Add('    echo "Installing multiple APKs... (Esc - Cancel)"');
-    S.Add('    if ! "$ADB_CMD" install-multiple "$1"/*.apk; then');
+    S.Add('    if ! "$ADB_CMD" install-multiple -r "$1"/*.apk; then');
     S.Add('        echo "Installation failed for multiple APKs in: $1"');
     S.Add('        exit 1  # Exit immediately if installation fails');
     S.Add('    fi');

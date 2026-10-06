@@ -2,10 +2,10 @@
 name=adbmanager
 
 [VERSION]
-version=4.0
+version=4.1
 
 [RELEASE]
-release=0.mrx9
+release=0.mrx10
 
 [GROUP]
 group=Applications/System
@@ -19,7 +19,7 @@ group=Applications/System
 maintainer=Alex Kotov
 
 [VENDOR]
-vendor=alex_q_2000 (C) 2025
+vendor=alex_q_2000 (C) 2026
 
 [SUMMARY]
 summary=Manager for Android devices using ADB
@@ -72,98 +72,103 @@ toolversion=4.4
 1=of Android smartphones. Allows you to monitor the status of the "adb" service,
 2=manage it, and control the list of connected devices.
 3=
-4=v4.0
-5=+ Build in Lazarus-4.4
-6=+ SDManager: Waiting process indicator
-7=+ AppManager: Support for Android 4.2+
-8=+ Moving app search and removal to AppManager
-9=+ Mageia-9 and Ubuntu >= 25.04 packages
-10=
-11=v3.9
-12=+ Improved inter-thread synchronization
-13=+ Improved scaling/saving of form settings
-14=+ Handling xdg-open errors on broken files
-15=+ Android TV Box: CPU temperature indicator (°C)
-16=+ Mageia-9 and Ubuntu >= 25.04 packages
-17=
-18=v3.8
-19=+ Added `ADBManager-Qt` version (Qt6 widgets)
-20=+ RPM dependencies: added `qtbase6-common`, `qt6pas`
-21=+ DEB dependencies: added `libqt6core6`, `libqt6gui6`, `libqt6widgets6`, `libqt6network6`, `libqt6printsupport6`, `libqt6pas6`
-22=+ Added a RAM device indicator: Total / Available (%)
-23=+ Improved overall multithreading and responsiveness
-24=+ Improved switching of devices in offline status (TCP/IP)
-25=+ Improved the procedure for stopping package installations
-26=+ Mageia-9 and Ubuntu >= 25.04 packages
-27=
-28=**Note:** Build for maintainers: `lazbuild --build-mode=Release adbmanager.lpi` and `lazbuild --build-mode=Qt6 adbmanager.lpi`. Build in Lazarus in two modes: `Release` and `Qt6`. For Mageia 9, a backport from Mageia 10 has been published here: lib64qt6pas6 and lib64qt6pas-devel.
-29=
-30=v3.7
-31=+ Dependencies RPM/DEB: added `xdg-utils`
-32=+ Dependencies RPM/DEB: replace `imagemagick` with `graphicsmagick`
-33=+ Improved application list output stream
-34=+ Improved SDCard manager for different DPI (text alignment)
-35=+ Improved package search in the application manager (multiselect)
-36=+ Double-clicking in the SDCard manager opens files using xdg-open
-37=+ Mageia-9 and Debian packages
-38=
-39=v3.6
-40=+ Icons in the app list if `IconExtractor.akp` is installed on the smartphone
-41=+ Added RPM/DEB dependency: `imagemagick`
+4=v4.1
+5=+ Package installation / update: added the `-r` option
+6=+ Android TV Box Settings: added a **Clear Download Manager data** button
+7=+ Added packages for **Mageia 10** and **Ubuntu ≥ 25.04**
+8=
+9=v4.0
+10=+ Build in Lazarus-4.4
+11=+ SDManager: Waiting process indicator
+12=+ AppManager: Support for Android 4.2+
+13=+ Moving app search and removal to AppManager
+14=+ Mageia-9 and Ubuntu >= 25.04 packages
+15=
+16=v3.9
+17=+ Improved inter-thread synchronization
+18=+ Improved scaling/saving of form settings
+19=+ Handling xdg-open errors on broken files
+20=+ Android TV Box: CPU temperature indicator (°C)
+21=+ Mageia-9 and Ubuntu >= 25.04 packages
+22=
+23=v3.8
+24=+ Added `ADBManager-Qt` version (Qt6 widgets)
+25=+ RPM dependencies: added `qtbase6-common`, `qt6pas`
+26=+ DEB dependencies: added `libqt6core6`, `libqt6gui6`, `libqt6widgets6`, `libqt6network6`, `libqt6printsupport6`, `libqt6pas6`
+27=+ Added a RAM device indicator: Total / Available (%)
+28=+ Improved overall multithreading and responsiveness
+29=+ Improved switching of devices in offline status (TCP/IP)
+30=+ Improved the procedure for stopping package installations
+31=+ Mageia-9 and Ubuntu >= 25.04 packages
+32=
+33=**Note:** Build for maintainers: `lazbuild --build-mode=Release adbmanager.lpi` and `lazbuild --build-mode=Qt6 adbmanager.lpi`. Build in Lazarus in two modes: `Release` and `Qt6`. For Mageia 9, a backport from Mageia 10 has been published here: lib64qt6pas6 and lib64qt6pas-devel.
+34=
+35=v3.7
+36=+ Dependencies RPM/DEB: added `xdg-utils`
+37=+ Dependencies RPM/DEB: replace `imagemagick` with `graphicsmagick`
+38=+ Improved application list output stream
+39=+ Improved SDCard manager for different DPI (text alignment)
+40=+ Improved package search in the application manager (multiselect)
+41=+ Double-clicking in the SDCard manager opens files using xdg-open
 42=+ Mageia-9 and Debian packages
 43=
-44=**Note:** To display original icons in the application list, please install the [IconExtractor.apk](https://github.com/AKotov-dev/adbmanager/tree/main/IconExtractor) package on your smartphone. Installation of the package is optional.
-45=
-46=v3.5
-47=+ Build in Lazarus-4.2
-48=+ Devision by Zero bug fixed
-49=+ Auto-scaling of SD card manager panels
-50=+ Mageia-9 and Debian packages
-51=
-52=Recommended to delete the configuration directory: rm -rf ~/.adbmanager
-53=
-54=v3.4
-55=+ Fine-tuning for Android TV Box
-56=+ Mageia-9 and Debian packages + AppImage
-57=
-58=**Note:** Chinese Android TV Boxes often have stripped-down launchers installed, in which it is impossible to adjust the volume with the remote control, automatic updates and synchronization of Google accounts are not disabled, and there is even no control over system sounds (remote control clicks, etc.). In addition, excessive interface animation with a small amount of memory reduces the overall performance of the device. Now all this can be configured via ADB.
-59=
-60=v3.3
-61=+ Added dependency `p7zip`
-62=+ Cancel bulk package installation with `Esc`
-63=+ Request to cancel package installation on exit
-64=+ Improved procedure for canceling file copying
-65=+ Multi installation of packages APK, APKS, XAPK
-66=+ Mageia-9 and Debian packages + AppImage
-67=
-68=**Note:** Installation of `XAPK`packages with a single package architecture (32 bits or 64 bits) is supported. The presence of packages of both architectures (32 bits + 64 bits) in `XAPK` is not supported.
-69=
-70=v3.2
-71=+ Recompiling to Lazarus-3.8
-72=+ SD_Card Manager: Show Hidden Files
-73=
-74=**Note:** Be careful when working with hidden files. Do not delete or overwrite them unless necessary.
-75=
-76=v3.1
-77=+ Exception of adb backup and restore; [Obsolete/Deprecated](https://issuetracker.google.com/issues/37096097)
-78=+ Mageia-8/9 and Debian packages
-79=
-80=Note: Uninstalled apps are installed from Google Play [Barmalei » 17 feb 2023, 10:38](https://forum.rosalinux.ru/viewtopic.php?f=58&p=112751#p112751)
-81=
-82=v3.0
-83=+ Deleting cache/data when uninstalling a system application
-84=+ Mageia-8/9 and Debian packages
-85=
-86=v2.9
-87=+ Removing non-removable applications (Android >= 6)
-88=+ Mageia-8/9 and Debian packages
-89=
-90=v2.8
-91=+ Enabling/Disabling applications
-92=+ Mageia-8/9 and Debian packages
-93=+ Recompilation in Lazarus 2.2.4
+44=v3.6
+45=+ Icons in the app list if `IconExtractor.akp` is installed on the smartphone
+46=+ Added RPM/DEB dependency: `imagemagick`
+47=+ Mageia-9 and Debian packages
+48=
+49=**Note:** To display original icons in the application list, please install the [IconExtractor.apk](https://github.com/AKotov-dev/adbmanager/tree/main/IconExtractor) package on your smartphone. Installation of the package is optional.
+50=
+51=v3.5
+52=+ Build in Lazarus-4.2
+53=+ Devision by Zero bug fixed
+54=+ Auto-scaling of SD card manager panels
+55=+ Mageia-9 and Debian packages
+56=
+57=Recommended to delete the configuration directory: rm -rf ~/.adbmanager
+58=
+59=v3.4
+60=+ Fine-tuning for Android TV Box
+61=+ Mageia-9 and Debian packages + AppImage
+62=
+63=**Note:** Chinese Android TV Boxes often have stripped-down launchers installed, in which it is impossible to adjust the volume with the remote control, automatic updates and synchronization of Google accounts are not disabled, and there is even no control over system sounds (remote control clicks, etc.). In addition, excessive interface animation with a small amount of memory reduces the overall performance of the device. Now all this can be configured via ADB.
+64=
+65=v3.3
+66=+ Added dependency `p7zip`
+67=+ Cancel bulk package installation with `Esc`
+68=+ Request to cancel package installation on exit
+69=+ Improved procedure for canceling file copying
+70=+ Multi installation of packages APK, APKS, XAPK
+71=+ Mageia-9 and Debian packages + AppImage
+72=
+73=**Note:** Installation of `XAPK`packages with a single package architecture (32 bits or 64 bits) is supported. The presence of packages of both architectures (32 bits + 64 bits) in `XAPK` is not supported.
+74=
+75=v3.2
+76=+ Recompiling to Lazarus-3.8
+77=+ SD_Card Manager: Show Hidden Files
+78=
+79=**Note:** Be careful when working with hidden files. Do not delete or overwrite them unless necessary.
+80=
+81=v3.1
+82=+ Exception of adb backup and restore; [Obsolete/Deprecated](https://issuetracker.google.com/issues/37096097)
+83=+ Mageia-8/9 and Debian packages
+84=
+85=Note: Uninstalled apps are installed from Google Play [Barmalei » 17 feb 2023, 10:38](https://forum.rosalinux.ru/viewtopic.php?f=58&p=112751#p112751)
+86=
+87=v3.0
+88=+ Deleting cache/data when uninstalling a system application
+89=+ Mageia-8/9 and Debian packages
+90=
+91=v2.9
+92=+ Removing non-removable applications (Android >= 6)
+93=+ Mageia-8/9 and Debian packages
 94=
-95=v2.7
-96=+ Improved display of device and key statuses
-97=+ Excluded the title from sakura terminal  (bug: https://github.com/dabisu/sakura/issues/16)
-98=+ Release for Mageia-9 and higher
+95=v2.8
+96=+ Enabling/Disabling applications
+97=+ Mageia-8/9 and Debian packages
+98=+ Recompilation in Lazarus 2.2.4
+99=
+100=v2.7
+101=+ Improved display of device and key statuses
+102=+ Excluded the title from sakura terminal  (bug: https://github.com/dabisu/sakura/issues/16)
+103=+ Release for Mageia-9 and higher

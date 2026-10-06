@@ -1,14 +1,14 @@
 object MainForm: TMainForm
-  Left = 314
+  Left = 313
   Height = 611
-  Top = 127
+  Top = 126
   Width = 811
   ActiveControl = Panel1
   Caption = 'ADBManager'
   ClientHeight = 611
   ClientWidth = 811
   KeyPreview = True
-  LCLVersion = '4.2.0.0'
+  LCLVersion = '4.4.0.0'
   OnClose = FormClose
   OnCloseQuery = FormCloseQuery
   OnCreate = FormCreate

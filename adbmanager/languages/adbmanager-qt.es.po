@@ -424,6 +424,10 @@ msgctxt "tsettingsform.checkgroup1.caption"
 msgid "Useful settings that are often missing in stripped-down launchers..."
 msgstr ""
 
+#: tsettingsform.cleardmbtn.caption
+msgid "Clear Download Manager data"
+msgstr ""
+
 #: tsettingsform.combobox1.text
 msgid "1.0"
 msgstr ""

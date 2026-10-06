@@ -20,9 +20,10 @@ Two separate builds are available in the same source tree.
 ### Building
 
 - **Command line:**  
-  ```bash
+```
   lazbuild --build-mode=Release adbmanager.lpi   # GTK2
   lazbuild --build-mode=Qt6 adbmanager.lpi       # Qt6
+```
 
 **Lazarus IDE:**
 1. Select the Build Configuration from the top-left drop-down (`Release` for GTK2, `Qt6` for Qt6).
@@ -51,6 +52,7 @@ Starting from `v3.3`, multiple installation of `APK`, `APKS` and `XAPK` packages
 Access to the device via USB and rules
 ---
 Update the rules for Android devices on your computer, include the active user in the `adbusers` group and reboot:  
+
 ```
 su/password
 groupadd adbusers; usermod -aG adbusers $(logname)
@@ -79,7 +81,7 @@ Connecting via ADB over Wi-Fi
 
 ![](https://github.com/AKotov-dev/adbmanager/blob/main/ScreenShots/Screenshot12.png)  
   
-![](https://github.com/AKotov-dev/adbmanager/blob/main/ScreenShots/TVBoxSettings.png)  
+![](https://github.com/AKotov-dev/adbmanager/blob/main/ScreenShots/TVBoxSettings1.png)  
 
 Translations
 --

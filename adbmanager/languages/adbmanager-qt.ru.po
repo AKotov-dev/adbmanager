@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.5\n"
+"X-Generator: Poedit 3.8\n"
 
 #: emulatorunit.sscanactiveconnection
 msgid "Scan active connection"
@@ -443,6 +443,10 @@ msgctxt "tsettingsform.checkgroup1.caption"
 msgid "Useful settings that are often missing in stripped-down launchers..."
 msgstr "Полезные настройки, которых часто не хватает в урезанных лаунчерах..."
 
+#: tsettingsform.cleardmbtn.caption
+msgid "Clear Download Manager data"
+msgstr "Очистить данные Менеджера Загрузок"
+
 #: tsettingsform.combobox1.text
 msgid "1.0"
 msgstr ""
@@ -545,4 +549,3 @@ msgstr "Введите строку поиска или *"
 #: unit1.syes
 msgid "yes"
 msgstr "да"
-

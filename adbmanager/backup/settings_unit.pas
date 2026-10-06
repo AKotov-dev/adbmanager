@@ -21,8 +21,10 @@ type
     CPUTemp: TLabel;
     ProgressBar1: TProgressBar;
     ApplyBtn: TSpeedButton;
+    ClearDMBtn: TSpeedButton;
     TrackBar1: TTrackBar;
     procedure ApplyBtnClick(Sender: TObject);
+    procedure ClearDMBtnClick(Sender: TObject);
     procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
@@ -220,6 +222,11 @@ begin
   finally
     Command.Free;
   end;
+end;
+
+procedure TSettingsForm.ClearDMBtnClick(Sender: TObject);
+begin
+  MainForm.StartProcess('adb shell pm clear com.android.providers.downloads');
 end;
 
 end.
