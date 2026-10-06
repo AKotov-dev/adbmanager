@@ -91,7 +91,13 @@ resourcestring
     'Removing packages may disrupt the system!' + #13#10 + #13#10 +
     'Before deleting, ' + 'BE SURE TO MAKE A BACKUP!' + #13#10 +
     #13#10 + 'Delete selected applications?';
+
   //SErrorFileCopy = 'Error copying file from device!';
+
+  SClearDownloadManager = 'This will remove:' + LineEnding +
+    '• download history' + LineEnding + '• unfinished downloads' +
+    LineEnding + '• Download Manager data' + LineEnding  +LineEnding + 'Continue?';
+
   SFileNotValid = 'The file does not match the current list of packages!';
   SADBNotFound = 'ADB not found!';
 
@@ -235,7 +241,7 @@ begin
     S.Add('# Function to install a single APK');
     S.Add('install_apk() {');
     S.Add('    echo "Installing APK: $1 (Esc - Cancel)"');
-    S.Add('    if ! "$ADB_CMD" install "$1"; then');
+    S.Add('    if ! "$ADB_CMD" install -r "$1"; then');
     S.Add('        echo "Installation failed for APK: $1"');
     S.Add('        exit 1  # Exit immediately if installation fails');
     S.Add('    fi');
@@ -245,7 +251,7 @@ begin
     S.Add('# Function to install multiple APKs (split APKs)');
     S.Add('install_multiple_apks() {');
     S.Add('    echo "Installing multiple APKs... (Esc - Cancel)"');
-    S.Add('    if ! "$ADB_CMD" install-multiple "$1"/*.apk; then');
+    S.Add('    if ! "$ADB_CMD" install-multiple -r "$1"/*.apk; then');
     S.Add('        echo "Installation failed for multiple APKs in: $1"');
     S.Add('        exit 1  # Exit immediately if installation fails');
     S.Add('    fi');

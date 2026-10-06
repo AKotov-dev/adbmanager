@@ -224,6 +224,7 @@ begin
   end;
 end;
 
+//Очистка Download Manager data
 procedure TSettingsForm.ClearDMBtnClick(Sender: TObject);
 begin
   MainForm.StartProcess('adb shell pm clear com.android.providers.downloads');

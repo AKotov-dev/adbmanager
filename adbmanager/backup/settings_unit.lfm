@@ -1,5 +1,5 @@
 object SettingsForm: TSettingsForm
-  Left = 324
+  Left = 323
   Height = 610
   Top = 128
   Width = 684
@@ -99,7 +99,7 @@ object SettingsForm: TSettingsForm
       Height = 36
       Top = 420
       Width = 654
-      Caption = 'Clear Download Manager'
+      Caption = 'Clear Download Manager data'
       OnClick = ClearDMBtnClick
     end
   end

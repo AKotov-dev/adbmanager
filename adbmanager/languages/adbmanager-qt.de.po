@@ -475,6 +475,17 @@ msgstr ""
 msgid "ADB not found!"
 msgstr ""
 
+#: unit1.scleardownloadmanager
+msgid ""
+"This will remove:\n"
+"---\n"
+"• download history\n"
+"• unfinished downloads\n"
+"• Download Manager data\n"
+"\n"
+"Continue?"
+msgstr ""
+
 #: unit1.sclosequery
 msgid "Package installation started! Finish?"
 msgstr ""
