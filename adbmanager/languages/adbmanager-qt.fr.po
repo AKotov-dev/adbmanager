@@ -441,6 +441,10 @@ msgstr ""
 msgid "Clear Download Manager data"
 msgstr ""
 
+#: tsettingsform.cleardmbtn.hint
+msgid "Can free up space occupied by failed or stalled downloads"
+msgstr ""
+
 #: tsettingsform.combobox1.text
 msgid "1.0"
 msgstr ""

@@ -96,9 +96,12 @@ object SettingsForm: TSettingsForm
     object ClearDMBtn: TSpeedButton
       Left = 6
       Height = 36
+      Hint = 'Can free up space occupied by failed or stalled downloads'
       Top = 420
       Width = 654
       Caption = 'Clear Download Manager data'
+      ShowHint = True
+      ParentShowHint = False
       OnClick = ClearDMBtnClick
     end
   end
