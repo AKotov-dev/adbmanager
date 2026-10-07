@@ -1,7 +1,7 @@
 ADBManager - Manager for Android devices using ADB
 ---
 + **Dependencies (RPM):** adb iproute2 sakura nmap 7zip graphicsmagick xdg-utils gtk2 qtbase6-common qt6pas
-+ **Dependencies (DEB):** adb iproute2 sakura nmap p7zip graphicsmagick xdg-utils libgtk2.0-0 libqt6core6 libqt6gui6 libqt6widgets6 libqt6printsupport6 libqt6pas6  
++ **Dependencies (DEB):** adb iproute2 sakura nmap p7zip graphicsmagick xdg-utils libgtk2.0-0 libqt6core6 libqt6gui6 libqt6widgets6 libqt6network6 libqt6printsupport6 libqt6pas6  
 + Working directory (settings, temporary files): ~/.adbmanager/{icons,tmp}  
 + Packages installation script: ~/.adbmanager/install_packages.sh (created automatically)
 + `IconExtractor.apk`: /storage/emulated/0/Pictures/IconExtractor/icons (icon cache)
