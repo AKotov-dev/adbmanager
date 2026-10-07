@@ -513,15 +513,18 @@ begin
         Exit;
     end;
 
-    5: //Терминал Android Shell
+    5: //Терминал Android Shell (системный эмулятор вместо sakura)
     begin
       //Выделяем имя устройства
       if Pos(':', DevSheet.Caption) <> 0 then i := Pos(':', DevSheet.Caption)
       else
         i := Pos(#9, DevSheet.Caption);
 
-      StartProcess('sakura -t "Android Shell > ' +
-        Trim(Copy(DevSheet.Caption, 1, i - 1)) + '" -c 110 -r 36 -f 10 -x "adb shell"');
+     { StartProcess('sakura -t "Android Shell > ' +
+        Trim(Copy(DevSheet.Caption, 1, i - 1)) + '" -c 110 -r 36 -f 10 -x "adb shell"'); }
+
+      StartProcess('gio launch /usr/share/applications/adbmanager-shell.desktop');
+
       Exit;
     end;
 

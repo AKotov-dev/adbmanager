@@ -489,7 +489,7 @@ object MainForm: TMainForm
     TabOrder = 4
     Wrapable = False
     object InstallBtn: TToolButton
-      Tag = 2
+      Tag = 1
       Left = 65
       Top = 2
       Caption = 'install'
@@ -497,7 +497,7 @@ object MainForm: TMainForm
       OnClick = ApkInfoBtnClick
     end
     object ScreenShotBtn: TToolButton
-      Tag = 8
+      Tag = 4
       Left = 274
       Top = 2
       Caption = 'screenshot'
@@ -505,7 +505,7 @@ object MainForm: TMainForm
       OnClick = ApkInfoBtnClick
     end
     object RebootBtn: TToolButton
-      Tag = 10
+      Tag = 7
       Left = 476
       Top = 2
       Caption = 'reboot'
@@ -520,7 +520,7 @@ object MainForm: TMainForm
       OnClick = ApkInfoBtnClick
     end
     object ShellBtn: TToolButton
-      Tag = 9
+      Tag = 5
       Left = 348
       Top = 2
       Caption = 'terminal'
@@ -528,7 +528,7 @@ object MainForm: TMainForm
       OnClick = ApkInfoBtnClick
     end
     object SDCardBtn: TToolButton
-      Tag = 7
+      Tag = 3
       Left = 210
       Hint = 'Android 4+'
       Top = 2
@@ -539,7 +539,7 @@ object MainForm: TMainForm
       OnClick = ApkInfoBtnClick
     end
     object AppListBtn: TToolButton
-      Tag = 4
+      Tag = 2
       Left = 129
       Hint = 'Android 4+'
       Top = 2
@@ -550,6 +550,7 @@ object MainForm: TMainForm
       OnClick = ApkInfoBtnClick
     end
     object SettingsBtn: TToolButton
+      Tag = 6
       Left = 412
       Hint = 'Android TV Box'
       Top = 2

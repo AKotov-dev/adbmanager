@@ -431,10 +431,10 @@ begin
   //Если устройства нет или оно offline/unauthorized - доступна только кнопка эмулятор
   if ((DevSheet.Caption = sNoDevice) or (Pos('offline', DevSheet.Caption) <> 0) or
     (Pos('unauthorized', DevSheet.Caption) <> 0)) and
-    ((Sender as TToolButton).ImageIndex <> 0) then Exit;
+    ((Sender as TToolButton).Tag <> 0) then Exit;
 
   //Определяем команду по кнопке
-  case (Sender as TToolButton).ImageIndex of
+  case (Sender as TToolButton).Tag of
     0: //Connect (Эмулятор)
     begin
       if not EmulatorForm.Visible then
@@ -513,7 +513,7 @@ begin
         Exit;
     end;
 
-    5: //Терминал Android Shell
+    5: //Терминал Android Shell (системный эмулятор вместо sakura)
     begin
       //Выделяем имя устройства
       if Pos(':', DevSheet.Caption) <> 0 then i := Pos(':', DevSheet.Caption)
