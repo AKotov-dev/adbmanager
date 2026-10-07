@@ -39,7 +39,6 @@ type
     DeleteKeyBtn: TToolButton;
     ToolBar2: TToolBar;
     InstallBtn: TToolButton;
-    SearchBtn: TToolButton;
     ScreenShotBtn: TToolButton;
     RebootBtn: TToolButton;
     RestartBtn: TToolButton;
@@ -47,7 +46,6 @@ type
     EmulatorBtn: TToolButton;
     SettingsBtn: TToolButton;
     SDCardBtn: TToolButton;
-    UninstallBtn: TToolButton;
     ExitBtn: TToolButton;
     procedure ApkInfoBtnClick(Sender: TObject);
     procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
@@ -433,10 +431,10 @@ begin
   //Если устройства нет или оно offline/unauthorized - доступна только кнопка эмулятор
   if ((DevSheet.Caption = sNoDevice) or (Pos('offline', DevSheet.Caption) <> 0) or
     (Pos('unauthorized', DevSheet.Caption) <> 0)) and
-    ((Sender as TToolButton).ImageIndex <> 0) then Exit;
+    ((Sender as TToolButton).Tag <> 0) then Exit;
 
   //Определяем команду по кнопке
-  case (Sender as TToolButton).ImageIndex of
+  case (Sender as TToolButton).Tag of
     0: //Connect (Эмулятор)
     begin
       if not EmulatorForm.Visible then
@@ -449,24 +447,7 @@ begin
       Exit;
     end;
 
-    1: //Search Package
-    begin
-      //если adb выполняется - выйти
-      if ProgressBar1.Style in [pbstMarquee] then Exit;
-
-      repeat
-        if not InputQuery(SSearchCaption, SSearchString, S) then
-          Exit
-      until S <> '';
-
-      if S = '*' then
-        adbcmd := 'adb shell pm list packages | cut -f2 -d ":" | sort'
-      else
-        adbcmd := 'adb shell pm list packages | cut -f2 -d ":" | grep -i "' +
-          Trim(S) + '"';
-    end;
-
-    2: //Install package
+    1: //Install package
     begin
       //Если adb выполняется - выйти
       if ProgressBar1.Style in [pbstMarquee] then Exit;
@@ -486,20 +467,7 @@ begin
         Exit;
     end;
 
-    3: //Uninstall package
-    begin
-      //если adb выполняется - выйти
-      if (ProgressBar1.Style in [pbstMarquee]) then Exit;
-
-      repeat
-        if not InputQuery(SDeleteCaption, SPackageName, S) then
-          Exit
-        else
-          adbcmd := 'adb uninstall ' + Trim(S);
-      until S <> '';
-    end;
-
-    4: //Поиск/Отключение/Удаление приложений
+    2: //Поиск/Отключение/Удаление приложений
     begin
       //если adb выполняется - выйти
       if (ProgressBar1.Style in [pbstMarquee]) then Exit;
@@ -514,7 +482,7 @@ begin
       Exit;
     end;
 
-    5: //SD-Card Manager
+    3: //SD-Card Manager
     begin
       //если adb выполняется - выйти
       if (ProgressBar1.Style in [pbstMarquee]) then Exit;
@@ -529,7 +497,7 @@ begin
       Exit;
     end;
 
-    6: //ScreenShot
+    4: //ScreenShot
     begin
       if SelectDirectoryDialog1.Execute then
       begin
@@ -545,7 +513,7 @@ begin
         Exit;
     end;
 
-    7: //Терминал Android Shell
+    5: //Терминал Android Shell
     begin
       //Выделяем имя устройства
       if Pos(':', DevSheet.Caption) <> 0 then i := Pos(':', DevSheet.Caption)
@@ -557,7 +525,7 @@ begin
       Exit;
     end;
 
-    8: //Настройки Android
+    6: //Настройки Android
     begin
       //если adb выполняется - выйти
       if (ProgressBar1.Style in [pbstMarquee]) then Exit;
@@ -572,7 +540,7 @@ begin
       Exit;
     end;
 
-    9: //reboot
+    7: //reboot
     begin
       if not RebootForm.Visible then
         RebootForm.Show

@@ -279,10 +279,6 @@ msgctxt "tmainform.sdcardbtn.hint"
 msgid "Android 4+"
 msgstr ""
 
-#: tmainform.searchbtn.caption
-msgid "search apk"
-msgstr "Suche apk"
-
 #: tmainform.settingsbtn.caption
 msgctxt "tmainform.settingsbtn.caption"
 msgid "settings"
@@ -305,15 +301,6 @@ msgstr "Lizenz: GPLv3   Autor: alex_q_2000 (C) 2021   URL: https://linuxforum.ru
 
 #: tmainform.toolbar2.caption
 msgid "ToolBar2"
-msgstr ""
-
-#: tmainform.uninstallbtn.caption
-msgid "uninstall"
-msgstr "Entfernen"
-
-#: tmainform.uninstallbtn.hint
-msgctxt "tmainform.uninstallbtn.hint"
-msgid "Android 4+"
 msgstr ""
 
 #: trebootform.cancelbtn.caption

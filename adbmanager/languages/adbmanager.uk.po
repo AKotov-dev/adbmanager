@@ -268,10 +268,6 @@ msgctxt "tmainform.sdcardbtn.hint"
 msgid "Android 4+"
 msgstr ""
 
-#: tmainform.searchbtn.caption
-msgid "search apk"
-msgstr ""
-
 #: tmainform.settingsbtn.caption
 msgctxt "tmainform.settingsbtn.caption"
 msgid "settings"
@@ -292,15 +288,6 @@ msgstr ""
 
 #: tmainform.toolbar2.caption
 msgid "ToolBar2"
-msgstr ""
-
-#: tmainform.uninstallbtn.caption
-msgid "uninstall"
-msgstr ""
-
-#: tmainform.uninstallbtn.hint
-msgctxt "tmainform.uninstallbtn.hint"
-msgid "Android 4+"
 msgstr ""
 
 #: trebootform.cancelbtn.caption
