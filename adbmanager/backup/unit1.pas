@@ -130,7 +130,7 @@ begin
     SettingsForm.Close;
 
   //Закрываем терминал, если использовался
-  MainForm.StartProcess('killall -q sakura');
+  StartProcess('pkill -f "/usr/bin/adbmanager-shell" 2>/dev/null');
 end;
 
 //Сохранение настроек формы
@@ -520,8 +520,11 @@ begin
       else
         i := Pos(#9, DevSheet.Caption);
 
-      StartProcess('sakura -t "Android Shell > ' +
-        Trim(Copy(DevSheet.Caption, 1, i - 1)) + '" -c 110 -r 36 -f 10 -x "adb shell"');
+     { StartProcess('sakura -t "Android Shell > ' +
+        Trim(Copy(DevSheet.Caption, 1, i - 1)) + '" -c 110 -r 36 -f 10 -x "adb shell"'); }
+
+      StartProcess('gio launch /usr/share/applications/adbmanager-shell.desktop');
+
       Exit;
     end;
 
@@ -575,7 +578,7 @@ begin
   end;
 
   //Аккуратное завершение копирования и терминала, если были запущены
-  StartProcess('killall -q sakura');
+  StartProcess('pkill -f "/usr/bin/adbmanager-shell" 2>/dev/null');
   SDForm.CancelCopy;
 
   Application.ProcessMessages;

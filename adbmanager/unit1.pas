@@ -130,7 +130,7 @@ begin
     SettingsForm.Close;
 
   //Закрываем терминал, если использовался
-  MainForm.StartProcess('killall -q sakura');
+  StartProcess('pkill -f "/usr/bin/adbmanager-shell" 2>/dev/null');
 end;
 
 //Сохранение настроек формы
@@ -513,7 +513,7 @@ begin
         Exit;
     end;
 
-    5: //Терминал Android Shell (системный эмулятор вместо sakura)
+    5: //Терминал Android Shell (системный эмулятор; замена sakura)
     begin
       //Выделяем имя устройства
       if Pos(':', DevSheet.Caption) <> 0 then i := Pos(':', DevSheet.Caption)
@@ -578,7 +578,7 @@ begin
   end;
 
   //Аккуратное завершение копирования и терминала, если были запущены
-  StartProcess('killall -q sakura');
+  StartProcess('pkill -f "/usr/bin/adbmanager-shell" 2>/dev/null');
   SDForm.CancelCopy;
 
   Application.ProcessMessages;
