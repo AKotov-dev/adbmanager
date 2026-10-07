@@ -31,7 +31,7 @@ urlcopy=https://github.com/AKotov-dev/adbmanager
 license=GPLv3
 
 [DEPS]
-deps=adb iproute nmap p7zip 7zip GraphicsMagick xdg-utils qt6-qtbase-common qt6pas gtk2
+deps=adb iproute nmap 7zip GraphicsMagick xdg-utils qt6-qtbase qt6pas gtk2
 
 [META]
 meta=0
