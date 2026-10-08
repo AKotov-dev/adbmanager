@@ -76,7 +76,7 @@ object RebootForm: TRebootForm
     Top = 43
     Width = 95
     Anchors = [akTop, akLeft, akRight]
-    BorderSpacing.Top = 1
+    BorderSpacing.Top = 2
     BorderSpacing.Right = 8
     Caption = 'Cancel'
     ModalResult = 2

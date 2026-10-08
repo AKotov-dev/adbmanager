@@ -234,8 +234,8 @@ procedure ShowStatus.UpdateRAMLabel;
 begin
   if Assigned(MainForm) and Assigned(MainForm.LabelRAM) then
     MainForm.LabelRAM.Caption :=
-      Format('RAM: %.2f GB / %.2f GB (%.1f%%)', [FInfo.TotalGB,
-      FInfo.AvailGB, FInfo.Percent]);
+      Format('RAM: %.2f GB / %.2f GB (%.1f%%)',
+      [FInfo.TotalGB, FInfo.AvailGB, FInfo.Percent]);
 end;
 
 //Вывод активности ADB

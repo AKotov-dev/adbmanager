@@ -45,8 +45,8 @@ object SettingsForm: TSettingsForm
     AnchorSideRight.Side = asrBottom
     AnchorSideBottom.Control = TrackBar1
     Left = 8
-    Height = 490
-    Top = 16
+    Height = 498
+    Top = 8
     Width = 675
     Anchors = [akTop, akLeft, akRight, akBottom]
     AutoFill = True
@@ -61,7 +61,7 @@ object SettingsForm: TSettingsForm
     ChildSizing.ShrinkVertical = crsScaleChilds
     ChildSizing.Layout = cclLeftToRightThenTopToBottom
     ChildSizing.ControlsPerLine = 1
-    ClientHeight = 472
+    ClientHeight = 480
     ClientWidth = 673
     Items.Strings = (
       'System sounds such as clicks when buttons are pressed'
@@ -81,9 +81,9 @@ object SettingsForm: TSettingsForm
     }
     object ClearDMBtn: TButton
       Left = 6
-      Height = 46
+      Height = 47
       Hint = 'Can free up space occupied by failed or stalled downloads'
-      Top = 420
+      Top = 427
       Width = 661
       Caption = 'Clear Download Manager data'
       ParentShowHint = False
