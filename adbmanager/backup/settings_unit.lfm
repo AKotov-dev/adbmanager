@@ -100,6 +100,8 @@ object SettingsForm: TSettingsForm
       Top = 420
       Width = 654
       Caption = 'Clear Download Manager data'
+      ShowHint = True
+      ParentShowHint = False
       OnClick = ClearDMBtnClick
     end
   end

@@ -1,7 +1,7 @@
 object EmulatorForm: TEmulatorForm
-  Left = 338
+  Left = 341
   Height = 201
-  Top = 149
+  Top = 145
   Width = 454
   ActiveControl = Edit1
   Caption = 'Connection/Scanning'

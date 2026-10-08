@@ -88,7 +88,7 @@ procedure TSettingsForm.LoadSettings;
 var
   Ini: TIniFile;
 begin
-  if not FileExists(CONF) then Exit;
+  //  if not FileExists(CONF) then Exit;
   Ini := TIniFile.Create(CONF);
   try
     SettingsForm.Top := Ini.ReadInteger('SettingsForm', 'Top', SettingsForm.Top);

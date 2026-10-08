@@ -1,7 +1,7 @@
 object RebootForm: TRebootForm
-  Left = 415
+  Left = 374
   Height = 189
-  Top = 207
+  Top = 165
   Width = 433
   ActiveControl = OKBtn
   Caption = 'Reboot/Shutdown'

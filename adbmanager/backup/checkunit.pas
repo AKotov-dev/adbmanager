@@ -101,7 +101,7 @@ procedure TCheckForm.LoadSettings;
 var
   Ini: TIniFile;
 begin
-  if not FileExists(CONF) then Exit;
+//  if not FileExists(CONF) then Exit;
   Ini := TIniFile.Create(CONF);
   try
     CheckForm.Top := Ini.ReadInteger('CheckForm', 'Top', CheckForm.Top);
@@ -359,6 +359,8 @@ begin
     // дождаться полного завершения
     FreeAndNil(FReadThread);
   end;
+
+  MainForm.AppListBtn.Enabled := True;
 
   //обязательно дождаться завершения потока
   Application.ProcessMessages;

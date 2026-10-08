@@ -1,13 +1,13 @@
 object CheckForm: TCheckForm
-  Left = 372
+  Left = 326
   Height = 555
-  Top = 132
+  Top = 127
   Width = 605
   ActiveControl = Edit1
   Caption = 'Enable/Disable/Uninstall applications'
   ClientHeight = 555
   ClientWidth = 605
-  LCLVersion = '4.2.0.0'
+  LCLVersion = '4.4.0.0'
   OnClose = FormClose
   OnCreate = FormCreate
   OnShow = FormShow
