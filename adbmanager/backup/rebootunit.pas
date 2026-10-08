@@ -66,7 +66,7 @@ procedure TRebootForm.LoadSettings;
 var
   Ini: TIniFile;
 begin
-//  if not FileExists(CONF) then Exit;
+  //  if not FileExists(CONF) then Exit;
   Ini := TIniFile.Create(CONF);
   try
     RebootForm.Width := Ini.ReadInteger('RebootForm', 'Width', RebootForm.Width);

@@ -143,7 +143,7 @@ procedure TSDForm.LoadSettings;
 var
   Ini: TIniFile;
 begin
-//  if not FileExists(CONF) then Exit;
+  //  if not FileExists(CONF) then Exit;
   Ini := TIniFile.Create(CONF);
   try
     SDForm.Top := Ini.ReadInteger('SDForm', 'Top', SDForm.Top);

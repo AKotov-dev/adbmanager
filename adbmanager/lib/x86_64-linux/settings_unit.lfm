@@ -1,8 +1,9 @@
 object SettingsForm: TSettingsForm
-  Left = 330
+  Left = 327
   Height = 622
-  Top = 134
+  Top = 129
   Width = 684
+  ActiveControl = CheckGroup1
   Caption = 'Android TV Box settings'
   ClientHeight = 622
   ClientWidth = 684
@@ -88,7 +89,7 @@ object SettingsForm: TSettingsForm
       Caption = 'Clear Download Manager data'
       ParentShowHint = False
       ShowHint = True
-      TabOrder = 10
+      TabOrder = 0
       OnClick = ClearDMBtnClick
     end
   end

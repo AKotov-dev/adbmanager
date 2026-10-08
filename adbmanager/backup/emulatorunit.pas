@@ -71,7 +71,7 @@ procedure TEmulatorForm.LoadSettings;
 var
   Ini: TIniFile;
 begin
-//  if not FileExists(CONF) then Exit;
+  //  if not FileExists(CONF) then Exit;
   Ini := TIniFile.Create(CONF);
   try
     EmulatorForm.Width := Ini.ReadInteger('EmulatorForm', 'Width', EmulatorForm.Width);

@@ -154,7 +154,7 @@ procedure TMainForm.LoadSettings;
 var
   Ini: TIniFile;
 begin
-//  if not FileExists(CONF) then Exit;
+  //  if not FileExists(CONF) then Exit;
   Ini := TIniFile.Create(CONF);
   try
     MainForm.Top := Ini.ReadInteger('MainForm', 'Top', MainForm.Top);

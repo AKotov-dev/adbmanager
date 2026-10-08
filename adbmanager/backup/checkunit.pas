@@ -101,7 +101,7 @@ procedure TCheckForm.LoadSettings;
 var
   Ini: TIniFile;
 begin
-//  if not FileExists(CONF) then Exit;
+  //  if not FileExists(CONF) then Exit;
   Ini := TIniFile.Create(CONF);
   try
     CheckForm.Top := Ini.ReadInteger('CheckForm', 'Top', CheckForm.Top);
