@@ -8,7 +8,7 @@ version=4.1
 release=0.mrx10
 
 [GROUP]
-group=Applications/System
+group=Communications/Mobile
 
 [DESCRIPTION]
 0=The program is designed for visual and easy management of the ADB and connection of Android devices
