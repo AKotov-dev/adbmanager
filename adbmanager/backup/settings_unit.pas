@@ -13,6 +13,8 @@ type
   { TSettingsForm }
 
   TSettingsForm = class(TForm)
+    ApplyBtn: TButton;
+    ClearDMBtn: TButton;
     CheckGroup1: TCheckGroup;
     ComboBox1: TComboBox;
     Label1: TLabel;
@@ -20,8 +22,6 @@ type
     Label3: TLabel;
     CPUTemp: TLabel;
     ProgressBar1: TProgressBar;
-    ApplyBtn: TSpeedButton;
-    ClearDMBtn: TSpeedButton;
     TrackBar1: TTrackBar;
     procedure ApplyBtnClick(Sender: TObject);
     procedure ClearDMBtnClick(Sender: TObject);
@@ -88,7 +88,7 @@ procedure TSettingsForm.LoadSettings;
 var
   Ini: TIniFile;
 begin
-//  if not FileExists(CONF) then Exit;
+  //  if not FileExists(CONF) then Exit;
   Ini := TIniFile.Create(CONF);
   try
     SettingsForm.Top := Ini.ReadInteger('SettingsForm', 'Top', SettingsForm.Top);

@@ -1,7 +1,6 @@
 {"version":1,"strings":[
 {"hash":233984355,"name":"tsettingsform.caption","sourcebytes":[65,110,100,114,111,105,100,32,84,86,32,66,111,120,32,115,101,116,116,105,110,103,115],"value":"Android TV Box settings"},
 {"hash":13328,"name":"tsettingsform.combobox1.text","sourcebytes":[49,46,48],"value":"1.0"},
-{"hash":4749113,"name":"tsettingsform.applybtn.caption","sourcebytes":[65,112,112,108,121],"value":"Apply"},
 {"hash":90177182,"name":"tsettingsform.checkgroup1.caption","sourcebytes":[85,115,101,102,117,108,32,115,101,116,116,105,110,103,115,32,116,104,97,116,32,97,114,101,32,111,102,116,101,110,32,109,105,115,115,105,110,103,32,105,110,32,115,116,114,105,112,112,101,100,45,100,111,119,110,32,108,97,117,110,99,104,101,114,115,46,46,46],"value":"Useful settings that are often missing in stripped-down launchers..."},
 {"hash":13731235,"name":"tsettingsform.cleardmbtn.hint","sourcebytes":[67,97,110,32,102,114,101,101,32,117,112,32,115,112,97,99,101,32,111,99,99,117,112,105,101,100,32,98,121,32,102,97,105,108,101,100,32,111,114,32,115,116,97,108,108,101,100,32,100,111,119,110,108,111,97,100,115],"value":"Can free up space occupied by failed or stalled downloads"},
 {"hash":145209681,"name":"tsettingsform.cleardmbtn.caption","sourcebytes":[67,108,101,97,114,32,68,111,119,110,108,111,97,100,32,77,97,110,97,103,101,114,32,100,97,116,97],"value":"Clear Download Manager data"},
@@ -10,5 +9,6 @@
 {"hash":238108969,"name":"tsettingsform.label2.caption","sourcebytes":[83,111,117,110,100,32,118,111,108,117,109,101,32,40,48,46,46,49,53,41],"value":"Sound volume (0..15)"},
 {"hash":157018059,"name":"tsettingsform.label3.hint","sourcebytes":[65,110,100,114,111,105,100,32,53,43],"value":"Android 5+"},
 {"hash":221973306,"name":"tsettingsform.label3.caption","sourcebytes":[67,80,85,32,84,101,109,112,101,114,97,116,117,114,101,58],"value":"CPU Temperature:"},
-{"hash":140160000,"name":"tsettingsform.cputemp.caption","sourcebytes":[67,80,85,84,101,109,112],"value":"CPUTemp"}
+{"hash":140160000,"name":"tsettingsform.cputemp.caption","sourcebytes":[67,80,85,84,101,109,112],"value":"CPUTemp"},
+{"hash":4749113,"name":"tsettingsform.applybtn.caption","sourcebytes":[65,112,112,108,121],"value":"Apply"}
 ]}
