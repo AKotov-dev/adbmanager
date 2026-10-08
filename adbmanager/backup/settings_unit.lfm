@@ -1,7 +1,7 @@
 object SettingsForm: TSettingsForm
-  Left = 330
+  Left = 327
   Height = 622
-  Top = 134
+  Top = 129
   Width = 684
   ActiveControl = CheckGroup1
   Caption = 'Android TV Box settings'

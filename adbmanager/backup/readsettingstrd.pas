@@ -193,6 +193,7 @@ begin
     with SettingsForm do
     begin
       ApplyBtn.Enabled := False;
+      CheckGroup1.Enabled := False;
       Application.ProcessMessages;
       ProgressBar1.Style := pbstMarquee;
       ProgressBar1.Visible := True;
@@ -209,6 +210,7 @@ begin
     with SettingsForm do
     begin
       ApplyBtn.Enabled := True;
+      CheckGroup1.Enabled := True;
       Application.ProcessMessages;
       ProgressBar1.Style := pbstNormal;
       ProgressBar1.Visible := False;
