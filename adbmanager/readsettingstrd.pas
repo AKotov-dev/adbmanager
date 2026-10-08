@@ -219,6 +219,8 @@ begin
       ProgressBar1.Style := pbstNormal;
       ProgressBar1.Visible := False;
       ProgressBar1.Repaint;
+
+      ActiveControl := CheckGroup1;
     end;
 end;
 
